@@ -66,7 +66,7 @@ spec:
       steps {
         container('hugo') {
             dir('hugo') {
-                sh 'hugo -b https://www.eclipse.org/${PROJECT_NAME}/dev'
+                sh 'hugo -b https://www.eclipse.org/${PROJECT_NAME}'
             }
         }
       }
@@ -91,7 +91,7 @@ spec:
         }
       }
       steps {
-        sh 'rm -rf www/* && cp -Rvf hugo/public/* www/dev/'
+        sh 'rm -rf www/* && cp -Rvf hugo/public/* www/'
         dir('www') {
             sshagent(['git.eclipse.org-bot-ssh']) {
                 sh '''
