@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/vsimrti/vsimrti_config.xsd">
+    <simulation>
+        <!-- Scenario name -->
+        <id>Barnim</id>
+        <!-- Simulation time frame -->
+        <endtime>1000</endtime>
+        <!-- Seed for pseudo random number generator used by most of the federates -->
+        <randomSeed>212323853</randomSeed>
+        <!-- Projection between global and cartesian coordinates -->
+        <!-- centerCoordinates: roughly the center of simulation area -->
+        <!-- cartesianOffset: can be found in the generated network file for the traffic simulator, e.g. the .net.xml file for sumo -->
+        <WGS84UTMTransformConfig>
+        {
+            "centerCoordinates": {
+                "longitude": 13.56,
+                "latitude": 52.63
+            },
+            "cartesianOffset": {
+                "x": -395635.35,
+                "y": -5826456.24
+            }
+        }
+        </WGS84UTMTransformConfig>
+        <!-- Global IP management -->
+        <IPResolverConfig>
+        {
+            netMask: "255.255.0.0",
+            vehicleNet: "10.1.0.0",
+            rsuNet: "10.2.0.0",
+            tlNet: "10.3.0.0",
+            csNet: "10.4.0.0",
+            serverNet: "10.5.0.0",
+            tmcNet: "10.6.0.0"
+        }
+        </IPResolverConfig>
+        <threads>1</threads>
+    </simulation>
+    <federates>
+        <!-- Cellular network simulator -->
+        <federate id="cell2" active="false"/>
+        <!-- V2X (ad hoc) network simulators -->
+        <federate id="omnetpp" active="false"/>
+        <federate id="ns3" active="false"/>
+        <federate id="sns" active="true"/>
+        <!-- Traffic simulators -->
+        <federate id="sumo" active="true"/>
+        <!-- Application simulator -->
+        <federate id="applicationNT" active="true"/>
+        <!-- Environment simulator -->
+        <federate id="eventserver" active="true"/>
+        <!-- Electric mobility simulators -->
+        <federate id="battery" active="true"/>
+        <federate id="chargingstation" active="false"/>
+        <!-- Mapping -->
+        <federate id="mapping3" active="true"/>
+        <!-- Visualization -->
+        <federate id="visualizer" active="true"/>
+    </federates>
+</configuration>

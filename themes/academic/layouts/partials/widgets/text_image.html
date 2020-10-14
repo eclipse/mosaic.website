@@ -1,0 +1,106 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<div class="row text-image">
+  <!-- Title and Subtitle -->
+  {{ with $page.Title }}
+  <div class="title row col-md-12 justify-content-center">
+    <div class="col-md-6 section-heading">
+      <h1>{{ . | markdownify | emojify }}</h1>
+      {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ if $page.Params.img_position }}
+    <!-- Content: Text and Image -->
+    {{ $img_column_width := "4" }}
+    {{ $text_width := "8" }}
+    {{ with $page.Params.img_column_width }}
+      {{ $img_column_width = $page.Params.img_column_width }}
+      {{ $text_width = string (sub 12 (int $img_column_width)) }}
+    {{ end }}
+    {{ $img_width_class := printf "col-md-%s" $img_column_width }}
+    {{ $text_width_class := printf "col-md-%s" $text_width }}
+    {{ $img_position := "left" }}
+    {{ with $page.Params.img_position }}
+      {{ $img_position = $page.Params.img_position }}
+    {{ end }}
+
+    {{ if eq $img_position "left" }}
+      <!-- Image left -->
+      <div class="col-md-12 row justify-content-end">
+        <div class="image image-left {{ $img_width_class }}">
+          <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+        </div>
+        {{ with $page.Content }}
+          <div class="text-and-buttons {{ $text_width_class }}">
+            <div class="text">{{ $page.Content }}</div>
+            <div class="buttons">
+              {{ range $page.Params.button }}
+                {{ if .title }}{{ if .url }}
+                  <a class="mosaic-btn mosaic-btn-primary" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
+                {{ end }}{{ end }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ else if eq $img_position "right" }}
+      <!-- Image right -->
+      <div class="col-md-12 row justify-content-start">
+        {{ with $page.Content }}
+          <div class="text-and-buttons {{ $text_width_class }}">
+            <div class="text">{{ $page.Content }}</div>
+            <div class="buttons">
+              {{ range $page.Params.button }}
+                {{ if .title }}{{ if .url }}
+                  <a class="mosaic-btn mosaic-btn-primary" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
+                {{ end }}{{ end }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        <div class="image image-right {{ $img_width_class }}">
+          <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+        </div>
+      </div>
+    {{ else if eq $img_position "top" }}
+      <!-- Image top -->
+      <div class="col-md-12 row justify-content-center mb-3">
+        <div class="image image-top {{ $img_width_class }}">
+          <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+        </div>
+      </div>
+      <div class="col-md-12 row justify-content-center">
+        {{ with $page.Content }}
+        <div class="text-and-buttons">
+          <div class="text text-center">{{ $page.Content }}</div>
+          <div class="buttons">
+            {{ range $page.Params.button }}
+            {{ if .title }}{{ if .url }}
+            <a class="mosaic-btn mosaic-btn-primary" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
+            {{ end }}{{ end }}
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ else }}
+    <!-- Content: Text only -->
+    {{ with $page.Content }}
+    <div class="col-md-12">
+      {{ . }}
+    </div>
+    {{ end }}
+    <div class="buttons row col-md-12 justify-content-center">
+      {{ range $page.Params.button }}
+        {{ if .title }}{{ if .url }}
+          <div class="button col-md-3">
+            <a class="page-header-btn" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
+          </div>
+        {{ end }}{{ end }}
+      {{ end }}
+    </div>
+  {{ end }}

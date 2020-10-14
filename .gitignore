@@ -1,0 +1,7 @@
+.DS_Store
+.stackbit/
+node_modules/
+parsed-content/
+public/
+static/search/index.json
+resources/

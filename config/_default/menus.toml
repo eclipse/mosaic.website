@@ -1,0 +1,295 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+[[main]]
+  identifier = "about"
+  name = "About"
+  url = "/about"
+  weight = 10
+[[main]]
+  name = "About (Deprecated)"
+  url = "/about_deprecated"
+  identifier = "about_deprecated"
+  weight = 11
+[[main]]
+  name = "News"
+  url = "/news"
+  weight = 20
+[[main]]
+  name = "Documentation"
+  url = "/docs"
+  weight = 30
+[[main]]
+  name = "Tutorials"
+  url = "/tutorials"
+  weight = 40
+[[main]]
+  identifier = "Download"
+  name = "Download"
+  url = "/download"
+  weight = 50
+[[main]]
+  name = "Community"
+  url = "/community"
+  weight = 60
+
+
+[[footer]]
+  name = "Eclipse MOSAIC"
+  identifier = "mosaic"
+  weight = 1
+    [[footer]]
+      name = "Download Eclipse MOSAIC"
+      url = "/download/"
+      identifier = "download"
+      parent = "mosaic"
+      weight = 1
+    [[footer]]
+      name = "Documentation"
+      url = "/documentation"
+      identifier = "documentation"
+      parent = "mosaic"
+      weight = 2
+    [[footer]]
+      name = "Tutorials"
+      url = "/tutorials"
+      identifier = "tutorials"
+      parent = "mosaic"
+      weight = 3
+    [[footer]]
+      name = "License"
+      url = "/license"
+      identifier = "license"
+      parent = "mosaic"
+      weight = 4
+    [[footer]]
+      name = "Projects"
+      url = "/community/#projects"
+      identifier = "projects"
+      parent = "mosaic"
+      weight = 5
+    [[footer]]
+      name = "Publications"
+      url = "/publications"
+      identifier = "publications"
+      parent = "mosaic"
+      weight = 6
+[[footer]]
+  name = "Community"
+  identifier = "community"
+  weight = 2
+    [[footer]]
+      name = "Eclipse MOSAIC Community"
+      url = "/community"
+      identifier = "mosaic-community"
+      parent = "community"
+      weight = 1
+    [[footer]]
+      name = "How to contribute"
+      url = "/contribution"
+      identifier = "contribution"
+      parent = "community"
+      weight = 2
+    [[footer]]
+      name = "Github"
+      url = "https://github.com/eclipse/mosaic"
+      identifier = "github"
+      parent = "community"
+      weight = 3
+    [[footer]]
+      name = "Mailing list"
+      url = "https://accounts.eclipse.org/mailing-list/mosaic-dev"
+      identifier = "mailing-list"
+      parent = "community"
+      weight = 4
+[[footer]]
+  name = "Eclipse Foundation"
+  identifier = "eclipse"
+  weight = 3
+    [[footer]]
+      name = "About Eclipse Foundation"
+      url = "https://www.eclipse.org/"
+      identifier = "logo"
+      parent = "eclipse"
+      weight = 1
+    [[footer]]
+      name = "Privacy Policy"
+      url = "https://www.eclipse.org/legal/privacy.php"
+      identifier = "privacy-policy"
+      parent = "eclipse"
+      weight = 2
+    [[footer]]
+      name = "Website terms of use"
+      url = "https://www.eclipse.org/legal/termsofuse.php"
+      identifier = "terms-of-use"
+      parent = "eclipse"
+      weight = 3
+    [[footer]]
+      name = "Copyright"
+      url = "https://www.eclipse.org/legal/copyright.php"
+      identifier = "copyright"
+      parent = "eclipse"
+      weight = 4
+    [[footer]]
+      name = "Legal"
+      url = "https://www.eclipse.org/legal"
+      identifier = "legal"
+      parent = "eclipse"
+      blank = true
+      weight = 5
+
+
+
+
+[[docs]]
+  name = "Getting Started"
+  identifier = "getting_started"
+  url = "/docs/getting_started"
+  weight = 10
+  post = "Download and installation."
+[[docs]]
+  name = "Run Simulations"
+  identifier = "run_simulations"
+  url = "/docs/run_simulations"
+  weight = 20
+  post = "Run single simulation or simulation sets."
+[[docs]]
+  name = "Visualization"
+  identifier = "visualization"
+  url = "/docs/visualization"
+  weight = 30
+  post = "Visualize and evaluate simulation results."
+[[docs]]
+  name = "Simulators"
+  identifier = "simulators"
+  url = "/docs/simulators"
+  weight = 40
+  post = "Configure external and integrated simulators."
+[[docs]]
+  name = "Building Scenarios"
+  identifier = "building_scenarios"
+  url = "/docs/building_scenarios"
+  weight = 50
+  post = "Build your own simulation scenarios."
+[[docs]]
+  name = "Create Applications"
+  identifier = "develop_applications"
+  url = "/docs/develop_applications"
+  weight = 60
+  post = "Develop applications for the Application Simulator."
+[[docs]]
+  name = "Extending Eclipse MOSAIC"
+  identifier = "extending_mosaic"
+  url = "/docs/extending_mosaic"
+  weight = 70
+  post = "Extend Eclipse MOSAIC."
+
+[[tutorials]]
+  name = "Barnim Basic"
+  identifier = "barnim_basic"
+  url = "/tutorials/barnim_basic"
+  weight = 10
+  post = """
+  <img src="barnim_basic/images/barnim-map.png">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Configuration of MOSAIC simulation entities</li>
+                <li>- Using of different communication simulators</li>
+                <li>- Mapping of applications onto Simulation Entities</li>
+              </ul>"""
+[[tutorials]]
+  name = "Barnim Advanced"
+  identifier = "barnim_advanced"
+  url = "/tutorials/barnim_advanced"
+  weight = 20
+  post = """
+  <img src="barnim_basic/images/barnim-map.png">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Definition of arbitrary geographical area</li>
+                <li>- Enable communication in the defined area</li>
+                <li>- Use of IEEE conforming DENMs</li>
+                <li>- Creating of specific messages</li>
+                <li>- Using different communication modes and network types</li>
+                <li>- Development of V2X applications</li>
+              </ul>"""
+[[tutorials]]
+  name = "Tiergarten"
+  identifier = "tiergarten"
+  url = "/tutorials/tiergarten"
+  weight = 30
+  post = """
+  <img src="tiergarten/images/tiergartenOverview.png">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Understanding the Eclipse MOSAIC mapping process</li>
+                <li>- Communication between different vehicles via ad hoc network</li>
+                <li>- How different applications communicate with each other running on the same vehicle</li>
+                <li>- Application configuration and mapping</li>
+                <li>- Interpretation of simulation results</li>
+              </ul>"""
+[[tutorials]]
+  name = "Traffic Lights"
+  identifier = "traffic_lights"
+  url = "/tutorials/traffic_lights"
+  weight = 40
+  post = """
+  <img src="traffic_lights/images/trafficlight.jpg">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Use <b>scenario-convert</b> to export traffic lights</li>
+                <li>- Determine the traffic lights that should be equipped with applications</li>
+                <li>- Determining and equipping the traffic lights with applications</li>
+                <li>- Adjust the mapping configuration of Eclipse MOSAIC</li>
+                <li>- Assign the desired application(s) onto traffic lights</li>
+              </ul>"""
+[[tutorials]]
+  name = "LuST"
+  identifier = "lust"
+  url = "/tutorials/lust"
+  weight = 50
+  post = """
+  <img src="lust/images/lust-overview.PNG">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Integration of external SUMO simulation scenario into Eclipse MOSAIC</li>
+              </ul>"""
+[[tutorials]]
+  name = "Traffic Management"
+  identifier = "traffic_management"
+  url = "/tutorials/traffic_management"
+  weight = 60
+  post = """
+  <img src="traffic_management/images/highway-overview.png">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Definition and configuration the detectors</li>
+                <li>- Measurement of traffic characteristics using detectors</li>
+                <li>- Referencing the <b>additional files</b> </li>
+                <li>- Understand the differences between <b>lane area detectors</b> and <b>inductive loop detectors</b></li>
+                <li>- Configuration and Mapping of TMC applications</li>
+                <li>- Implement of TMC applications</li>
+              </ul>"""
+[[tutorials]]
+  name = "Example Apps for Beginners"
+  identifier = "additional_examples"
+  url = "/tutorials/additional_examples"
+  weight = 80
+  post = """
+  <img src="additional_examples/images/hello-world.png">
+  <b>Learning Objectives</b>
+              <ul>
+                <li>- Use of various Eclipse MOSAIC components.</li>
+                <li>- Development of Eclipse MOSAIC applications.</li>
+                <li>- Inter app and inter unit communication.</li>
+                <li>- How to send and receive application specific messages.</li>
+                <li>- Combination of different Eclipse MOSAIC modules.</li>
+              </ul>"""
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+# [[main]]
+#    name = "CV"
+#    url = "files/cv.pdf"
+#    weight = 70

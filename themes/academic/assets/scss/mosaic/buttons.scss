@@ -1,0 +1,42 @@
+.mosaic-btn {
+  display: inline-block;
+  text-decoration: none !important;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: medium;
+  font-weight: bold;
+  margin: 1rem 1rem 1rem 0;
+  transition: all 0.16s ease;
+  &:hover, &:focus {
+    background-color: #fff;
+    color: $mosaic-purple;
+  }
+
+  i {
+    transition: all 0.16s ease;
+  }
+}
+
+.mosaic-btn-light {
+  color: $mosaic-purple !important;
+  border-color: #fff;
+  background-color: #fff;
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: #fff !important;
+    border-color: #fff;
+  }
+}
+
+.mosaic-btn-primary {
+  color: #fff;
+  border-width: 0;
+  background-image: linear-gradient(-45deg, #68145C 0%, #BB86B3 100%);
+
+  &:hover, &:focus {
+    color: #fff;
+    background-image: linear-gradient(-45deg, #872E51 0%, #F88D2B 210%);
+  }
+}

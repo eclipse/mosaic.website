@@ -1,0 +1,105 @@
+// Dark page background - light feature cards
+.wg-features-widget {
+  .feature {
+    position: relative;
+
+    &.feature-clone {
+      position: absolute;
+      z-index: 10;
+    }
+
+    .banner {
+      position: absolute;
+      left: 1px;
+      top: 1rem;
+      padding: 7px 20px 7px 29px;
+      background-color: #dad7df;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      box-shadow: 3px 3px 2px rgba(0,0,0,0.2);
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -14px;
+        border: 7px solid #9f9ba6;
+        border-left-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+      &.mosaic-orange {
+        background-color: $mosaic-orange;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        &::before {
+          border-color: darken($mosaic-orange, 15%);
+        }
+      }
+      &.mosaic-blue {
+        background-color: $mosaic-blue;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        &::before {
+          border-color: darken($mosaic-blue, 15%);
+        }
+      }
+      &.mosaic-purple {
+        background-color: $mosaic-purple;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        &::before {
+          border-color: darken($mosaic-purple, 10%);
+        }
+      }
+
+      .subtitle {
+        display: block;
+        font-size: 0.6rem;
+        font-style: italic;
+      }
+      .title {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: bold;
+        &:not(.no-subtitle) {
+          margin-top: -0.2rem;
+        }
+      }
+    }
+    .feature-inner {
+      @extend .mosaic-card-light;
+      height: 100%;
+      font-size: 0.8rem;
+
+      &.has-banner {
+        padding-top: 2rem;
+      }
+
+      h3 {
+        margin-top: 1rem;
+      }
+
+      .content {
+        display: none;
+        opacity: 0;
+      }
+
+      .buttons {
+        text-align: center;
+
+        a {
+          margin-top: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Light page background - dark feature cards
+.home-section:nth-of-type(2n+1).wg-features-widget {
+  .feature-inner {
+    @extend .mosaic-card-dark;
+  }
+}

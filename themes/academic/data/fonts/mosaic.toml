@@ -1,0 +1,11 @@
+# Font style metadata
+name = "Mosaic"
+
+# Optional Google font URL
+google_fonts = "Lato:400,400i,700,700i|Roboto+Mono"
+
+# Font families
+heading_font = "Lato"
+body_font = "Lato"
+nav_font = "Lato"
+mono_font = "Roboto Mono"

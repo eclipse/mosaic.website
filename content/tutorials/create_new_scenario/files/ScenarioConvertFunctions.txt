@@ -1,0 +1,92 @@
+ Usage: scenario-convert [OPERATION] -d <DATABASEFILE> [OPTIONS]*
+
+ Examples (options in [] are optional):
+ 1. Import an osm file and write data into database
+  scenario-convert --osm2db -i <OSMFILE> [-o] [-d <DATABASE>]
+ 2. Export db content to sumo-readable files
+  scenario-convert --db2sumo -d <DATABASE> [-s <SUMOPREFIX>] [-n]
+ 3. Reimport a sumo routefile into a database
+  scenario-convert --sumo2db -d <DATABASE> -r <ROUTEFILE>
+ 4. Combine steps 1 and 2
+  scenario-convert --osm2sumo -d <DATABASE> -i <OSMFILE> [-s <SUMOPREFIX>]
+ 5. Export db content to Shapefile format
+  scenario-convert --db2shp -d <DATABASE>
+ 6. Import an srtm file and write elevation data to nodes of an existing database
+  scenario-convert --srtm2db -i <SRTMFILE> -d <DATABASE>
+
+-------------------------------------------------------------------------------
+
+ CONFIGURATION FILE:
+ -h,--help                                 Prints this help screen.
+
+ -c,--config-file <PATH>                   Optional, refers to a configuration file which contains all parameters in
+                                           JSON format.
+    --osm2db                               Converts a OpenStreetMap file to a new scenario database.
+    --sumo2db                              Imports a SUMO Network/Routefile. Be aware that you may have to re-export an
+                                           imported network.
+    --srtm2db                              Imports an SRTM file and writes elevation data to nodes.
+    --db2sumo                              Exports the network to SUMO node and edge files.
+    --db2shp                               Exports the database into Shapefile format.
+    --db2vsimrti                           Creates directory structure for a VSimRTI scenario based on the database
+                                           contents.
+    --osm2sumo                             Combination of osm2db and db2sumo.
+    --osm2vsimrti                          Combination of osm2db and db2vsimrti.
+    --update                               Updates the database to the current scheme.
+
+ -d,--database <PATH>                      The path to the database.
+                                           For import: File to import to. If not given, a new file is created.
+                                           For export: File to load from.
+                                           For update operations: file to update.
+ -i,--input <PATH>                         Defines an input file to use in an import. File type depends on the import
+                                           operation (OSM File/Database file/SUMO net file).
+ -r,--route-file <PATH>                    Path to the sumo *.rou.xml for importing route definitions (--sumo2db)
+ -s,--sumo-prefix <STRING>                 Prefix for the generated sumo files  (uses database name when not defined).
+ -f,--force                                Force overwrite of existing files instead of incrementing file names.
+ -m,--mapping-file <PATH>                  Uses the given mapping3 configuration to export existing vehicleTypes and
+                                           vehicles data to *.rou.xml (with --export-routes).
+    --import-lat <DOUBLE>                  Center latitude of imported region to project coordinates.
+    --import-lon <DOUBLE>                  Center longitude of imported region to project coordinates.
+    --import-zone <STRING>                 UTM zone of location for projecting coords in default format (e.g. 32n).
+
+ -g,--generate-routes                      Generates route(s) from one point to another. The begin and end for the route
+                                           must be known (see below options).
+    --route-begin-lat <DOUBLE>             Latitude of the starting point, needs --route-begin-lon as well.
+    --route-begin-lon <DOUBLE>             Longitude of the starting point, needs --route-begin-lat as well.
+    --route-begin-latlon <DOUBLE,DOUBLE>   [latitude],[longitude] of the starting point.
+    --route-begin-node-id <STRING>         OSM node id of the starting point (use instead of lat/lon).
+    --route-end-lat <DOUBLE>               Latitude of the starting point, needs --route-end-lon as well.
+    --route-end-lon <DOUBLE>               Longitude of the starting point, needs --route-end-lat as well.
+    --route-end-latlon <DOUBLE,DOUBLE>     [latitude],[longitude] of the ending point.
+    --route-end-node-id <STRING>           OSM node id of the ending point (use instead of lat/lon).
+    --route-matrix <STRING,STRING,...>     Calculates all possible routes starting and ending at the given nodes, given
+                                           as comma-separated list (e.g. 12345,87123,89123)
+    --number-of-routes <INTEGER>           Defines the number of alternative routes to be calculated (default=1).
+
+ -o,--execute-osmosis                      Applies automatic filters to the OSM file (only with osm2xxx).
+ -b,--import-buildings                     Write OSM building information in database.
+    --ignore-turn-restrictions             Ignore all defined turn restrictions on OSM import.
+    --disable-graph-cleanup                Turns off the removal of unconnected parts from the main traffic network
+                                           graph . Since several components of VSimRTI require one main graph without
+                                           disconnected ways and nodes, this option should be used only if the cleanup
+                                           procedure is faulty.
+ -n,--execute-netconvert                   Automatically start sumo netconvert to create netfile (only with xxx2sumo ).
+ -l,--export-traffic-lights                Exports traffic light information for nodes (only with xxx2sumo).
+    --osm-speeds-file <PATH>               Define a property file which contains speed information which are used to set
+                                           the speed for OSM ways without a max speed tag (only with osm2xxx).
+    --osm-speeds-overwrite                 If set to true , the maxspeed tags of ways are ignored and replaced by either
+                                           default values , or by speed information defined via the --osm-speeds-file
+                                           option (only with osm2xxx).
+
+-------------------------------------------------------------------------------
+
+ File placement:
+   When a database file is given with -d every created file will be placed by
+   the database file in the given path. When the file is passed without a path
+   the path used to execute the command from will be used as a base.
+   For import operations where -d is omited all files will be placed alongside
+   the input file given.
+
+   When a file to be created already exist the filename will be postfixed with
+   an incrementing number. This behaviour can be overwritten
+
+-------------------------------------------------------------------------------
