@@ -101,7 +101,6 @@ spec:
                   git config --global user.name "${PROJECT_BOT_NAME}"
                   git commit -m "Website build ${JOB_NAME}-${BUILD_NUMBER}"
                   git log --graph --abbrev-commit --date=relative -n 5
-                  git push origin HEAD:${BRANCH_NAME}
                   if [ "${BRANCH_NAME}" = "main" ]; then git push origin HEAD:master; else git push origin HEAD:${BRANCH_NAME}; fi
                 else
                   echo "No change have been detected since last build, nothing to publish"
