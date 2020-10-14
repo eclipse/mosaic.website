@@ -34,7 +34,6 @@ spec:
   environment {
     PROJECT_NAME = "mosaic"
     PROJECT_BOT_NAME = "MOSAIC Bot"
-    BRANCH_NAME = "master"
   }
  
   triggers { pollSCM('H/10 * * * *') 
@@ -53,20 +52,20 @@ spec:
             sshagent(['git.eclipse.org-bot-ssh']) {
                 sh '''
                     GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" git clone ssh://genie.${PROJECT_NAME}@git.eclipse.org:29418/www.eclipse.org/${PROJECT_NAME}.git .
-                    git checkout ${BRANCH_NAME}
+                    if [ "${BRANCH_NAME}" = "main" ]; then git checkout master; else git checkout ${BRANCH_NAME}; fi
                 '''
             }
         }
       }
     }
-    stage('Build website (master) with Hugo') {
+    stage('Build website (main) with Hugo') {
       when {
-        branch 'master'
+        branch 'main'
       }
       steps {
         container('hugo') {
             dir('hugo') {
-                sh 'hugo -b https://www.eclipse.org/${PROJECT_NAME}'
+                sh 'hugo -b https://www.eclipse.org/${PROJECT_NAME}/'
             }
         }
       }
@@ -86,7 +85,7 @@ spec:
     stage('Push to $env.BRANCH_NAME branch') {
       when {
         anyOf {
-          branch "master"
+          branch "main"
           branch "staging"
         }
       }
@@ -103,6 +102,7 @@ spec:
                   git commit -m "Website build ${JOB_NAME}-${BUILD_NUMBER}"
                   git log --graph --abbrev-commit --date=relative -n 5
                   git push origin HEAD:${BRANCH_NAME}
+                  if [ "${BRANCH_NAME}" = "main" ]; then git push origin HEAD:master; else git push origin HEAD:${BRANCH_NAME}; fi
                 else
                   echo "No change have been detected since last build, nothing to publish"
                 fi
