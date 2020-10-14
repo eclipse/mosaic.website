@@ -1,0 +1,88 @@
+.gradient-orange-purple-navy {
+  background-image: linear-gradient(-45deg, $mosaic-navy 10%, $mosaic-purple 50%, $mosaic-orange 100%);
+}
+.gradient-orange {
+  background-image: linear-gradient(-45deg, darken($mosaic-orange, 10%), $mosaic-orange);
+}
+.gradient-orange-purple {
+  background-image: linear-gradient(-45deg, $mosaic-purple, $mosaic-orange);
+}
+.gradient-purple-darken {
+  background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) 0, lighten($mosaic-purple, 3%) 70%);
+}
+.gradient-purple-darken-hover {
+  background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) -30%, lighten($mosaic-purple, 3%) 40%);
+}
+.gradient-white-darken {
+  background-image: linear-gradient(-45deg, darken(#ffffff, 4%) 0, #ffffff 70%);
+}
+
+.gradient-header {
+  @extend .gradient-orange-purple-navy;
+}
+
+.gradient-footer {
+  @extend .gradient-orange-purple-navy;
+}
+
+// Card with content, round borders, shadow and background
+.mosaic-card {
+  padding: 0 1.3rem;
+  border-radius: 1rem;
+
+  h2.mosaic-card-title {
+    font-size: 1.3rem;
+    padding-top: 1.1rem;
+    padding-bottom: 0.6rem;
+    position: relative;
+    text-align: left;
+
+    &::after {
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: "";
+      height: 3px;
+      position: absolute;
+      border-radius: 1rem;
+    }
+  }
+
+  h3.mosaic-card-subtitle {
+    font-size: 1rem;
+  }
+}
+.mosaic-card-light {
+  @extend .mosaic-card;
+  background-color: #fff;
+  box-shadow: 0.4rem 0.5rem 0.5rem rgba(45, 44, 47, 0.1);
+
+  h2.mosaic-card-title {
+    color: $mosaic-navy;
+
+    &::after {
+      background-image: linear-gradient(90deg, #F88D2B, #2D2252);
+    }
+  }
+}
+.mosaic-card-dark {
+  @extend .mosaic-card;
+  background-color: #ede9f0;
+  background-image: linear-gradient(-45deg, #e5e0ea, #fefdff);
+  box-shadow: 0.4rem 0.5rem 0.5rem rgba(24, 21, 30, 0.19), 0.1rem 0.2rem 0.15rem rgba(24, 21, 30, 0.1);
+  border: 2px solid #e4e1e8;
+  border-right: 0;
+  border-bottom: 0;
+
+  h2.mosaic-card-title {
+    color: $mosaic-navy;
+
+    &::after {
+      background-image: linear-gradient(90deg, #F88D2B, #2D2252);
+    }
+  }
+
+  h3.mosaic-card-subtitle {
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+  }
+}

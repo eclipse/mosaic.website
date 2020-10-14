@@ -1,0 +1,33 @@
+/* Set Bootstrap variables */
+
+// Set colors.
+$primary: $sta-primary;
+$text-muted: rgba(0,0,0,0.54);
+
+$mosaic-navy: #2D2252;
+$mosaic-purple: #68145C;
+$mosaic-blue: #009DE2;
+$mosaic-green: #7ABA1E;
+$mosaic-orange: #F88D2B;
+$mosaic-yellow: #EFD830;
+
+$page-header-color1: $mosaic-navy;
+$page-header-color2: $mosaic-purple;
+
+// Container widths - override XL default of `1140px`.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+$navbar-toggler-padding-x: 0;
+$navbar-toggler-font-size: 18px;
+$navbar-brand-font-size: 1.2rem;
+
+$navbar-light-color: $sta-menu-text;
+$navbar-light-active-color: $sta-menu-text-active;
+$navbar-light-brand-color: $sta-menu-title;
+$navbar-light-brand-hover-color: $navbar-light-active-color;
+$navbar-light-toggler-border-color: transparent;

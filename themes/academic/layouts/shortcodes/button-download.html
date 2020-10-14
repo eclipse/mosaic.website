@@ -1,0 +1,5 @@
+{{ $type := "primary" }}
+{{ with .Get "type" }}
+    {{ $type = . }}
+{{ end }}
+<a class="mosaic-btn mosaic-btn-{{ $type }}" href="{{ .Get 1 }}" download>{{ .Get 0 }}</a>

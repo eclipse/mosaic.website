@@ -1,0 +1,88 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<!-- widget for featured text left and cards right  -->
+<div class="row">
+  <div class="title row col-md-12 justify-content-center">
+    <h1>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h1>
+    <div class="features row col-md-12 justify-content-center">
+      {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    {{ with $page.Content }}{{ . }}{{ . | markdownify }}{{ end }}
+
+    {{ if $page.Params.item }}
+    {{ range $idx, $key := sort $page.Params.item ".date_start" "desc" }}
+      <div class="card experience course {{if $page.Params.features_have_background}}with-background{{else}}without-background{{end}}">
+        {{- with .url -}}<a href="{{.}}" target="_blank" rel="noopener">{{- end -}}
+          <h2 class="mosaic-card-title exp-title my-0">{{.title | markdownify | emojify}}</h2>
+        {{- with .url -}}</a>{{- end -}}
+
+        {{- with .subtitle -}}<h3 class="mosaic-card-subtitle my-0">{{.title | markdownify | emojify}}</h3>{{- end -}}
+
+        {{ $text_col_width := "lg-8" }}
+        {{ $img_col_width := "lg-4" }}
+        {{ if not .image }}
+          {{ $text_col_width = "lg-12" }}
+        {{ else }}
+          {{ if .image_col_width }}
+            {{ $img_col_width = .image_col_width }}
+          {{ end }}
+        {{ end }}
+        {{ if .text_col_width }}
+          {{ $text_col_width = .text_col_width }}
+        {{ end }}
+        {{ $img_position := "left" }}
+        {{ if .image_position }}
+          {{ $img_position = .image_position }}
+        {{ end }}
+
+        <div class="card-body row">
+          {{ if eq $img_position "right" }}
+            {{with .description}}
+              <div class="col-{{$text_col_width}} card-text">{{. | markdownify | emojify}}</div>
+            {{end}}
+
+            {{ with .image }}
+            <div class="col-{{$img_col_width}} d-flex card-image align-items-start justify-content-center">
+              <img src="{{ . }}">
+            </div>
+            {{ end }}
+          {{ else if eq $img_position "left" }}
+            {{ with .image }}
+              <div class="col-{{$img_col_width}} d-flex card-image align-items-start justify-content-center">
+                <img src="{{ . }}">
+              </div>
+            {{ end }}
+
+            {{with .description}}
+              <div class="col-{{$text_col_width}} card-text">{{. | markdownify | emojify}}</div>
+            {{end}}
+          {{ else if eq $img_position "top" }}
+            <div class="col-{{$text_col_width}}">
+              {{ with .image }}
+              <div class="col-{{$img_col_width}} d-flex align-items-start justify-content-center">
+                <img src="{{ . }}">
+              </div>
+              {{ end }}
+            </div>
+            <div class="col-{{$text_col_width}}">
+              {{with .description}}
+                {{. | markdownify | emojify}}
+              {{end}}
+            </div>
+          {{ end }}
+        </div>
+        {{ if and .link_title .link_url }}
+        <div class="card-footer row justify-content-left">
+          <a class="mosaic-btn mosaic-btn-primary" href="{{ .link_url | safeHTMLAttr }}" title="{{ .title }}">{{ .link_title }}</a>
+        </div>
+        {{ end }}
+      </div>
+    {{end}}
+    {{end}}
+  </div>
+</div>

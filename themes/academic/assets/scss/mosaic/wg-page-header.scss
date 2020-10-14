@@ -1,0 +1,232 @@
+.wg-page-header {
+  background-color: #efebf2;
+  position: relative;
+  padding-bottom: 30px;
+  overflow: hidden;
+
+  &::before {
+    @extend .gradient-header;
+    position: absolute;
+    content: '';
+    bottom: 80px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 120%;
+    box-shadow: inset 0 0 20px 10px fade-out(darken($mosaic-navy, 5%), 0.5), 0 0 40px 10px fade-out(#d9ced7, 0.2);
+    border-bottom: 2px solid #d9ced7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }
+
+  .alignment-left {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    .page-header-logo {
+      img {
+        margin: -4.49rem 0 -2.8rem -1.9rem;
+      }
+    }
+    .section-heading {
+      margin-left: 9rem;
+      p {
+        font-style: normal;
+        font-size: 1.05rem;
+      }
+    }
+    .buttons {
+      margin-bottom: 0;
+      a.mosaic-btn {
+        &:hover {
+          background-color: $mosaic-purple;
+          color: #fff !important;
+          border-color: #fff !important;
+          i {
+            color: #fff;
+          }
+        }
+        margin-top: 0;
+        background-color: #fff;
+        color: #231a4d !important;
+        border: 1px solid #fff;
+        margin-bottom: 0.7rem;
+        padding: 0.4rem 1.2rem;
+        min-width: 9.4rem;
+        text-align: left;
+        margin-right: -0.7rem;
+        font-size: 0.8rem;
+        i {
+          color: $mosaic-purple;
+          margin-right: 0.3rem;
+        }
+      }
+    }
+  }
+
+  .page-header-background {
+    position: absolute;
+    content: '';
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 100%;
+    //border-radius: 50%;
+    background-repeat: no-repeat;
+  }
+
+  & > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-heading {
+    margin: 0 0 10px;
+    text-align: center;
+
+    h1 {
+      margin: 0 0 1rem 0;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #fff;
+      font-style: italic;
+    }
+  }
+
+  .buttons {
+    margin: 0 0 50px;
+
+    .button {
+      text-align: center;
+
+      a.mosaic-btn {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .features .feature {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+
+    .feature-inner {
+      @extend .gradient-white-darken;
+      background-color: #fff;
+      width: 100%;
+      color: #424b5f;
+      padding: 1.4rem;
+      border: 0;
+      overflow: hidden;
+      height: 100%;
+      border-radius: 1rem;
+      box-shadow: 0.4rem 0.5rem 0.5rem rgba(45, 44, 47, 0.2);
+      transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+
+      &.is-linked-feature:hover {
+        transform: scale(1.04);
+        background-image: none;
+        box-shadow: 0 10px 20px -10px fade-out($color: $mosaic-navy, $amount: 0.2);
+        p.feature-link {
+          @extend .gradient-purple-darken-hover;
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+        font-size: unset;
+        color: $mosaic-navy;
+        i {
+          font-size: 0.8rem;
+          margin-right: 0.3rem;
+        }
+      }
+
+      a.linked-feature {
+        color: #424b5f;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        font-size: medium;
+      }
+
+      .feature-link {
+        color: $mosaic-purple;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        margin: 0;
+        padding: 0;
+        transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+
+        &::before {
+          content: "› ";
+          font-size: larger;
+          color: #424b5f;
+          transition: all 0.2s ease;
+          -webkit-transition: all 0.2s ease;
+        }
+      }
+
+      p.feature-link {
+        @extend .gradient-purple-darken;
+        color: #fff;
+        margin: 1rem -1.4rem -1.4rem;
+        padding: 0.4rem 1.4rem 0.5rem;
+        border-top: 1px solid #d5c4d3;
+
+        &::before {
+          color: #fff;
+        }
+      }
+
+      a.feature-link:hover {
+        color: $mosaic-navy;
+
+        &::before {
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+
+  .vertical-span {
+    opacity: 0;
+    display: block;
+    margin-top: 4rem;
+  }
+}
+
+#page_header {
+  margin-bottom: -80px;
+}
+body.page-community,
+body.page-home {
+  #page_header {
+    margin-bottom: 0;
+  }
+}
+body.page-home .page-header {
+  margin-bottom: -1.9rem;
+}
+body.page-community .page-header {
+  margin-bottom: -5.87rem;
+}
