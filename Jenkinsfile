@@ -61,7 +61,7 @@ spec:
     }
     stage('Build website (master) with Hugo') {
       when {
-        branch 'master'
+        branch 'main'
       }
       steps {
         container('hugo') {
@@ -86,7 +86,7 @@ spec:
     stage('Push to $env.BRANCH_NAME branch') {
       when {
         anyOf {
-          branch "master"
+          branch "main"
           branch "staging"
         }
       }
