@@ -39,7 +39,7 @@
     </simulation>
     <federates>
         <!-- Cellular network simulator -->
-        <federate id="cell2" active="false"/>
+        <federate id="cell" active="false"/>
         <!-- V2X (ad hoc) network simulators -->
         <federate id="omnetpp" active="false"/>
         <federate id="ns3" active="false"/>

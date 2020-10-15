@@ -28,23 +28,38 @@ advance grants according to the specified federate behaviour. When a federate im
 use of the `AbstractFederateAmbassador` as a super class, it has to provide two information to the
 superclass while constructing an instance of the class. These are:
 
-* `isTimeConstrained`: if set true if the federate is sensitive towards the time stamp order of interactions.
-The `AbstractFederateAmbassador` will then queue incoming interactions and request a
-time advance from the RTI in order to ensure that processing the received interaction is safe. At the
-time the requested time advance is granted, every queued interaction with a time stamp smaller or
-equal to the granted time will be delivered to the federate for processing. If set to `false`, incoming
-interactions will be forwarded immediately to the federate, thus resulting in a receive order of
-interactions at the federate.
+* `isTimeConstrained`: The general way this parameter can be understood, is that if it is set to **true** 
+the federate is sensitive towards the time stamp order of interactions. The `AbstractFederateAmbassador`
+will then queue incoming interactions and request a time advance from the RTI in order to ensure that 
+processing the received interaction is safe. At the time the requested time advance is granted, every 
+queued interaction with a time stamp smaller or equal to the granted time will be delivered to the 
+federate for processing. If set to **false**, incoming interactions will be forwarded immediately to 
+the federate, thus resulting in a *receive-order* of interactions at the federate.
 
-* `isTimeRegulating`: specifies whether the federate will publish time stamped interactions and
-thus can influence the time advances of other federates in the federation. If set to `true`, the `AbstractFederateAmbassador` 
+* `isTimeRegulating`: Specifies whether the federate will publish time stamped interactions and
+thus can influence the time advances of other federates in the federation. If set to **true**, the `AbstractFederateAmbassador` 
 will request time advances with respect to the specified lookahead
 value of the federate in order to avoid that time management schedules the execution of other
-federates while queued interactions are processed. If set to `false`, time advance requests that are
+federates while queued interactions are processed. If set to **false**, time advance requests that are
 issued due to incoming interactions will be flagged with an unlimited lookahead, allowing the RTI to
 schedule other federates while incoming interactions are processed.
 
-Example: A federate that is `timeConstrained` and `timeRegulated` can handle a time stamped interaction
+{{< figure src="../images/flowchart_timeconstrained_timeregulating.png" title="Flowchart of Interaction handling" numbered="true" >}}
+
+### Further notes
+Coupling a multitude of different simulators and properly syncing them is a non-trivial task and requires a lot of effort in order to
+function correctly. If you have read up on High Level Architecture before 
+(have a look [here](https://en.wikipedia.org/wiki/High_Level_Architecture) and at the linked references) you might notice, that the 
+previous flowchart does not completely reflect the proposed mechanisms. For instance, the `isTimeRegulating` flag has no effect, when the `isTimeConstrained`
+flag is not set.  
+So at some points you might stumble upon federates, which have their `isTimeConstrained` and `isTimeRegulating` flags set to different
+values as you would expect. An example of this is the `ApplicationAmbassador`. One would expect it to be time-constrained as well as
+time-regulating. This isn't the case though, because the `ApplicationAmbassador` implements its own time- and event-management,
+which would interfere with the internal mechanisms.  
+When implementing your own federate, you can use the existing ones as reference.
+
+### Example
+A federate that is `timeConstrained` and `timeRegulated` can handle a time stamped interaction
 only after receiving a corresponding time advance grant. For that reason, the `AbstractFederateAmbassador`
 caches the incoming interactions in a local queue and requests a time advance with the interactions
 time stamp. After getting a grant for that time stamp, it forwards the interaction via the `processInteraction`

@@ -61,9 +61,9 @@ Interactions related to V2X-message transfer.
 
 | Interaction name | Description | Sent by |
 | :--- | :--- | :--- |
-| `V2xMessageAcknowledgement` |  This interaction is used by a communication simulator to inform about success or failure of a packet transmission. Typically, the application simulator should subscribe to this interaction. | `Cell2` |
-| `V2xMessageReception` | This interaction is intended to be used to exchange information about a received V2X message. | `Omnet++`<br>`ns-3`<br>`SimpleNetworkSimulator`<br>`Cell2`|
-| `V2xFullMessageReception` | This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction. | `Omnet++`<br>`ns-3`<br>`SimpleNetworkSimulator`<br>`Cell2` |
+| `V2xMessageAcknowledgement` |  This interaction is used by a communication simulator to inform about success or failure of a packet transmission. Typically, the application simulator should subscribe to this interaction. | `Cell` |
+| `V2xMessageReception` | This interaction is intended to be used to exchange information about a received V2X message. | `Omnet++`<br>`ns-3`<br>`SimpleNetworkSimulator`<br>`cell`|
+| `V2xFullMessageReception` | This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction. | `Omnet++`<br>`ns-3`<br>`SimpleNetworkSimulator`<br>`Cell` |
 | `V2xMessageRemoval` |  This interaction is intended to be used to exchange information about  V2X messages, that are to be deleted. | `Application` |
 | `V2xMessageTransmission` | This interaction is sent in order to trigger the transportation of a V2XMessage over a wireless network to a given geographical destination area. | `Application` |
 
@@ -92,7 +92,7 @@ Interactions in this package are focused around traffic management and communica
 
 | Interaction name | Description | Sent by |
 | :--- | :--- | :--- |
-| `CellularHandoverUpdates` | This interaction is used by the cell2 ambassador to communicate handovers. | `Cell2` |
+| `CellularHandoverUpdates` | This interaction is used by the cell ambassador to communicate handovers. | `cell` |
 | `InductionLoopDetectorSubscription` | This interaction subscribes a unit to the data of an induction loop detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data. | `Application` |
 | `LaneAreaDetectorSubscription` | This interaction subscribes a unit to the data of a lane area detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data. | `Application` |
 | `LanePropertyChange` |  This interaction contains lane properties to be changed. Concretely, it sets a list of allowed and disallowed vehicle classes per lane and a new maximum speed limit that shall be changed. The changed lane properties have to be omitted to the traffic simulator to be handled. | `Application` |

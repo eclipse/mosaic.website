@@ -55,11 +55,11 @@ mosaic.bat -u <user-id> -s LuST -d scenarios/LuST/defaults .xml -w 0
 ```
 Please note that the execution of this scenariomight take a long time, due to the massive amount of
 vehicles simulated in this scenario. If you want to assess your mobility applications in combination
-with further simulators (e.g. Cell2), the simulationmight slow down even more.
+with further simulators (e.g. cell), the simulationmight slow down even more.
 
 Finally, you can map your own applications onto vehicles using the prepared `mapping_config.json`.
 Please note that applications can only be mapped for each vehicle type (see limitations below). Furthermore,
-you can activate any communication simulator, such as Cell2 or SNS, to integrate communication
+you can activate any communication simulator, such as cell or SNS, to integrate communication
 simulation into your assessment.
 
 ## Current limitations

@@ -24,10 +24,10 @@ body {
 
 a,
 h3.article-title a {
-  color: $mosaic-orange;
+  color: $mosaic-purple;
   &:hover {
-    color: $mosaic-purple;
-    text-decoration: underline;
+    color: $mosaic-orange;
+    //text-decoration: underline;
   }
 }
 
@@ -87,10 +87,6 @@ body.page-docs #navbar-main > .container {
 
 .home-section {
   padding: 50px 0 70px;
-
-  &:nth-of-type(2n) {
-    background-color: #efebf2;
-  }
 }
 
 .section-heading p {
@@ -105,10 +101,16 @@ ul.menu-overview {
   li {
     list-style-type: none;
     margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
 
     a.inner {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      flex: auto;
+      flex-grow: 1;
       background-color: #f8f4fb;
       background-image: linear-gradient(0deg, #f8f4fb 0, #fff 100%);
       border: 1px solid #d7dce3;
@@ -152,6 +154,7 @@ ul.menu-overview {
         font-weight: bold;
         font-size: medium;
         margin: 1rem -1rem -0.7rem;
+        margin-top: auto;
         padding: 0.4rem 1rem;
         border-top: 1px solid #d5c4d3;
         transition: all 0.2s ease;

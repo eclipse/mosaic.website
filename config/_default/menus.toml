@@ -48,7 +48,7 @@
       weight = 1
     [[footer]]
       name = "Documentation"
-      url = "/documentation"
+      url = "/docs"
       identifier = "documentation"
       parent = "mosaic"
       weight = 2
@@ -58,12 +58,6 @@
       identifier = "tutorials"
       parent = "mosaic"
       weight = 3
-    [[footer]]
-      name = "License"
-      url = "/license"
-      identifier = "license"
-      parent = "mosaic"
-      weight = 4
     [[footer]]
       name = "Projects"
       url = "/community/#projects"

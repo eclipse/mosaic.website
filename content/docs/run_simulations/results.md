@@ -23,7 +23,7 @@ folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folde
    |  └─ ExampleApp.log ...................... Detailed application specific logs for each application.
    ├─ activities.csv ......................... Simulation details in comma separated value-format
    ├─ Application.log  ....................... Information about the application ambassador
-   ├─ Cell2.log .............................. Cellular network log
+   ├─ Cell.log ............................... Cellular network log
    ├─ ChargingStation.log .................... ChargingStation ambassador log
    ├─ Communication.log ...................... (Ad hoc) network simulation ambassador log
    ├─ CommunicationDetails.log ............... Detailed output of network simulator (ns-3 or OMNeT++)

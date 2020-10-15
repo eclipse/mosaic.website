@@ -3,7 +3,7 @@
 .vscode/
 
 # Hugo
-exampleSite/public/
+public/
 
 # Jupyter
 .ipynb_checkpoints/

@@ -19,7 +19,7 @@ domain (e.g. traffic, communication, application, electricity, or other).
 
 Each of the simulators must implement an interface, the so-called `Ambassador`. 
 The ambassador communicates with the actual simulator, which is represented by the `Federate`. 
-For some cases, if the simulator is directly coupled with the RTI (e.g. Application, or Cell2), the ambassador also 
+For some cases, if the simulator is directly coupled with the RTI (e.g. Application, or cell), the ambassador also 
 represents the federate. This architecture allows a simple coupling of own simulators.
 
 ```mermaid

@@ -1,11 +1,20 @@
 ---
-title: Writing technical content in Academic
-date: 2019-07-12
+title: Eclipse MOSAIC 2020 released
+#date: "2020-12-01Z00:00:00Z"
 math: true
 diagram: true
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
 image:
-  placement: 3
+  placement: 2
   caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
+  focal_point: ""
+  preview_only: false
 ---
 
 Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.

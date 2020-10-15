@@ -1,10 +1,8 @@
 ---
 title: Testing mobility scenarios with the Open-Source simulation environment Eclipse MOSAIC
-subtitle: PRESS RELEASE
+#subtitle:
 summary: On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.
-authors:
-- fokus
-- motakef-tratar
+authors: []
 tags: []
 categories: []
 date: "2020-10-13T00:00:00Z"
@@ -15,8 +13,9 @@ draft: false
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
-  caption: ""
+  caption: "The simulation environment Eclipse MOSAIC is now available as open source. Copyright: Fraunhofer FOKUS"
   focal_point: ""
+  preview_only: false
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -58,5 +57,3 @@ https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08
 
 Further information about EclipseCon:
 https://www.eclipsecon.org/2020
-
-{{< figure src="./Synthetische_Daten_collage_2020.jpg" title="The simulation environment Eclipse MOSAIC is now available as open source. Copyright: Fraunhofer FOKUS" >}}

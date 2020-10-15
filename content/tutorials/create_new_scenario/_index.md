@@ -44,8 +44,8 @@ which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which
    ├─ steglitz.osm
    ├─ application
    |  └─ steglitz.db
-   ├─ cell2
-   |  ├─ cell2_config.json
+   ├─ cell
+   |  ├─ cell_config.json
    |  ├─ network.json
    |  └─ regions.json
    ├─ environment
