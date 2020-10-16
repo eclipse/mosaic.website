@@ -9,7 +9,7 @@ subtitle = "List of publications and thesis related to Eclipse MOSAIC (formerly&
 
 [design.background]
   # Background image.
-  image = "fokus.png"  # Name of image in `static/img/`.
+  #image = "fokus.png"  # Name of image in `static/img/`.
   image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
   image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
   image_opacity = "0.2"

@@ -120,8 +120,6 @@ To avoid "cleaning" the OSM-file, please use the option "skip-osm-filter".
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --skip-osm-filter
 ```
 
-{{% todo %}}Modify 'gallery' shortcode to display images correctly{{% /todo %}}
-
 {{< gallery album="cleaning-maps" >}}
 
 __Generating Routes__  
@@ -246,8 +244,6 @@ A list of all attached files in this chapter:
 ### Usage of scenario-convert
 
 The following listing shows an overview for the usage of scenario-convert:
-
-{{% todo %}}New shortcode for embedding documents{{% /todo %}}
 
 <a href="/docs/building_scenarios/files/ScenarioConvertFunctions.txt" download>scenarioConvertFunctions</a>
 

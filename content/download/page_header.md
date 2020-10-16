@@ -2,14 +2,14 @@
 widget = "page_header" # Costum Mosaic feature
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 10  # Order that this section will appear.
+weight = 1  # Order that this section will appear.
 
-title = "Download Eclipse MOSAIC"
-subtitle = "One will find download links to latest and older Eclipse MOSAIC versions."
+title = "Download"
+subtitle = "List of links to download the latest releases and other components.."
 
 [design.background]
   # Background image.
-  image = "fokus.png"  # Name of image in `static/img/`.
+  #image = "fokus.png"  # Name of image in `static/img/`.
   image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
   image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
   image_opacity = "0.2"
@@ -18,3 +18,7 @@ subtitle = "One will find download links to latest and older Eclipse MOSAIC vers
   # text_color_light = true
 
 +++
+
+<div style="text-align: center;">
+{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
+</div>

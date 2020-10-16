@@ -95,8 +95,6 @@ The Application simulator is configured in the file `<scenario_name>/application
 }
 ```
 
-{{% todo %}}Link to JavaDoc section.{{% /todo %}}
-
 Furthermore, depending on the deployed applications, the applications itself may offer configuration options 
 in custom configuration files (e.g. `ETSIApplication.json` or `ETSIApplication_veh_0.json`).
 
@@ -247,7 +245,6 @@ The `rsus`-section offers the possibility to define instances of application sup
 
 In the `trafficLights`-section, applications can be mapped to traffic light groups. Usually, individual traffic lights are part of traffic light groups to control a whole junction, whereas the junction possesses a certain position. The traffic light groups and their positions are defined in the simulator specific configuration file (e.g. the *.net.xml for SUMO and *.ttl.json for PHABMACS). The `tlGroupId`-property allows mapping of applications to the traffic light groups, referring them by Id.
 
-{{% todo %}}Der folgende Absatz soll nach der Lösung des 4. Issue in Eclipse Mosaic Repository (Mapping -> Add Apps to all TrafficLights) geändert werden {{% /todo %}} 
 Alternatively, the definition of weights leads to a random distribution of the referred applications through ALL traffic lights of the scenario. (Note: The weights do not have to add up to 100 or 1. Consequently all traffic lights will be mapped using the specified prototypes as soon as one weight differs from zero. So in case you don’t want all traffic lights to have applications running on them you have to define one traffic light without any applications and add a weight to it.
 
 ```json

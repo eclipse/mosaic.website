@@ -1,0 +1,40 @@
+---
+title: First release of Eclipse MOSAIC
+date: "2020-10-14T00:00:00Z"
+lastMod: "2020-10-14T00:00:00Z"
+math: false
+diagram: true
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+image:
+  placement: 2
+  focal_point: ""
+  preview_only: false
+---
+
+**We need a text the release!!**
+
+
+### Release Date
+2020-10-19
+
+### Changelog
+
+```shell
+[M+] Moved main code to new public repository github-com/eclipse-mosaic
+[M+] Changed license to EPL 2.0
+[M+] Revised and refactored all public code.
+[M-] Replaced dependencies which are incompatible with EPL.
+[A+] Mapping configuration has been extended with new features (e.g. typeDistributions, parameter variations).
+[M+] Major overhaul of configuration files, e.g.
+     * vsimrti/vsimrti_config.xml -> scenario_config.json
+     * etc/defaults.xml -> etc/runtime.json
+[A+] New API for traffic light applications
+...
+[T+] Now supports SUMO 1.7.0
+```

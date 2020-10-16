@@ -15,7 +15,7 @@
                   {{ end }}
                 {{ end }}
                 <li>
-                  <a href="{{ .URL | relURL | safeHTMLAttr }}" title="{{ .Name | safeHTMLAttr }}" {{ $target | safeHTMLAttr }}>
+                  <a href="{{ .URL }}" title="{{ .Name | safeHTMLAttr }}" {{ $target | safeHTMLAttr }}>
                     {{ if .Pre }}
                       <img src="{{ .Pre | relURL | safeHTMLAttr}}" title="{{ .Name | safeHTMLAttr }}" {{ if .Post }}class="{{ .Post | safeHTMLAttr }}"{{ end }} />
                     {{ else }}
@@ -57,6 +57,8 @@
       Powered by the
       <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
       <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
     </p>
     {{ if not (in (slice "docs" "updates") .Type) }}
       <span class="position-absolute" aria-hidden="true" style="right: 0;">

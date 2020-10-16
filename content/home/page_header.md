@@ -35,24 +35,24 @@ alignment = "left" # left or center (default)
   url = "/tutorials/"
 
 [[feature]]
-  name = "Simulator Coupling"
-  description = "Eclipse MOSAIC couples best in class simulators together with various built-in simulation models to create complex simulation scenarios quickly and easily. Own simulators can be coupled easily to the runtime infrastructure."
+  name = "Co-Simulation Framework"
+  description = "Eclipse MOSAIC couples best in class simulators together to create complex simulation scenarios quickly and easily. Standardized interfaces allow to couple new simulators without effort to extend the modeling capabilities. "
   link_title = "Learn More"
-  link_url = "/docs/extending_mosaic/simulator_coupling/"
+  link_url = "/about#co_simulation"
   link_feature = true
   
 [[feature]]
-  name = "Multi-Domain / Multi Scale"
-  description = "The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. traffic, communication, applicaiton) on multiple scales (e.g. microscopic-traffic vs. detailled vehicle simulation) which all can be combined."  
+  name = "Multi-Domain / Multi-Scale Models"
+  description = "The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailled vehicle simulation) which all can be combined."  
   link_title = "Learn More"
-  link_url = "/docs/building_scenarios/scenarios/"
+  link_url = "/about#model_collection"
   link_feature = true
   
 [[feature]]
-  name = "Open Source"
+  name = "Open for Extensions"
   description = "Eclipse MOSAIC is Open Source! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page."
-  link_title = "Go to GitHub"
-  link_url = "https://github.com/eclipse/mosaic"
+  link_title = "Contribute"
+  link_url = "/contribution"
   link_feature = true
 
 +++

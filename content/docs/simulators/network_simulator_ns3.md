@@ -44,7 +44,7 @@ As stated above, ns-3 is primarily developed on and for GNU/Linux platforms.
 Since Windows is such a widely used platform and Cygwin is not a perfect emulation
 of any Linux, we highly recommended for non-Linux users to consider the installation of a
 Linux virtual machine with a virtual machine environment, such as
-{{< target-blank "VMware" "https://www.vmware.com/products/workstation-player.html" >}} {{% todo %}}Find correct Link{{% /todo %}} or {{< target-blank "VirtualBox" "https://www.virtualbox.org/" >}}.
+{{< target-blank "VMware" "https://www.vmware.com/products/workstation-player.html" >}} or {{< target-blank "VirtualBox" "https://www.virtualbox.org/" >}}.
 {{% /alert %}}
 
 |                                    | Software information                                                                                       |

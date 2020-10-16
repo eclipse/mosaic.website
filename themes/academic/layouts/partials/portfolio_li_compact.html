@@ -2,5 +2,5 @@
 {{ $js_tag_classes := delimit (apply (apply $item.Params.tags "replace" "." " " "-") "printf" "js-id-%s" ".") " " }}
 
 <div class="col-12 isotope-item {{ $js_tag_classes | safeHTMLAttr }}">
-  {{ partial "li_compact" $item }}
+  {{ partial "li_compact_small_image" $item }}
 </div>

@@ -1,6 +1,6 @@
 ---
-title: "Download Eclipse MOSAIC"  # Add a page title.
-summary: "Download Eclipse MOSAIC"  # Add a page description.
+title: "Download"  # Add a page title.
+summary: "List of links to download the latest releases and other components."  # Add a page description.
 date: "2019-01-01T00:00:00Z"  # Add today's date.
 type: "widget_page"  # Page type is a Widget Page
 ---

@@ -82,7 +82,7 @@ Additional learning objectives: First handling of mapping_config (application-to
 
 `VehicleConfigurationApp` - Json configuration file structure. Different vehicles that are equipped with the same application can be configured differently. Usage of the read configuration.
 
-`TrafficLightControlApp` - *Traffic light control and communication is currently under refactoring.* {{% todo %}}Add a description when it is ready{{% /todo %}}
+`TrafficLightControlApp` - *Traffic light control and communication is currently under refactoring.*
 
 `CAMSendingApp` - Sending CAMs (Cooperative Awareness Messages) with an additional information that can be defined by user. Difference between usage of different modules: Cell and Ad-hoc. 
 

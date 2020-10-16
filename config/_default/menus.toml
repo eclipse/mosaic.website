@@ -8,11 +8,11 @@
   name = "About"
   url = "/about"
   weight = 10
-[[main]]
-  name = "About (Deprecated)"
-  url = "/about_deprecated"
-  identifier = "about_deprecated"
-  weight = 11
+#[[main]]
+#  name = "About (Deprecated)"
+#  url = "/about_deprecated"
+#  identifier = "about_deprecated"
+#  weight = 11
 [[main]]
   name = "News"
   url = "/news"

@@ -88,8 +88,6 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm -o
 {{< figure src="images/netfile_cleaned.png" title="Cleaned Net-file" numbered="true" >}}
 
 
-{{% todo %}}Modify 'gallery' shortcode to display images correctly{{% /todo %}}
-
 __Generating Routes__  
 The `scenario-convert` also offers the option `--generate-routes`, which will generate a route-file, given some additional information. In this tutorial we generate three routes, instantiated with `--number-of-routes`, between two nodes. The node-id's can be found in the `steglitz.nod.xml` file. 
 

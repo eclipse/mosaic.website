@@ -30,7 +30,19 @@
   {{ $summary = $item.Summary }}
 {{ end }}
 
+
 <div class="media stream-item">
+
+  <div class="mr-3">
+    {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
+    {{ with $resource }}
+    {{ $image := .Resize "300x" }}
+    <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
+      <img src="{{ $image.RelPermalink }}" alt="{{ $item.Title }}">
+    </a>
+    {{end}}
+  </div>
+
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
@@ -72,14 +84,5 @@
     </div>
     {{ end }}
 
-  </div>
-  <div class="ml-3">
-    {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
-    {{ with $resource }}
-    {{ $image := .Resize "150x" }}
-    <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
-      <img src="{{ $image.RelPermalink }}" alt="{{ $item.Title }}">
-    </a>
-    {{end}}
   </div>
 </div>

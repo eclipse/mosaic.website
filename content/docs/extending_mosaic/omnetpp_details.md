@@ -69,19 +69,18 @@ as explained later in this section.
 
 The `TransportLayer` of the communication stack is made up of TCP for reliable connections and UDP.
 
-{{% todo %}}scc 10.03.2020 this seems to be outdated{{% /todo %}}
-The modules `VSimRTIReliableApp` {{% todo %}}Modulname anpassen{{% /todo %}} and `VSimRTIUnreliableApp` {{% todo %}}Modulname anpassen{{% /todo %}} of Application Layer are the entry
+The modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp` of Application Layer are the entry
 points for application messages for the communication stack for the following reasons. The communication
 oriented models of INETMANET have their focus more on the framing for communication and less on
 the real content. That means that content is often modeled with dummy payloads where only the length is
 of interest. In contrast, V2X applications which are simulated in the [Eclipse MOSAIC Application Simulator](/docs/simulators/application_simulator.md).
-Rely on the correct transmission of contents. Hence, the modules {{% todo %}}Modulname anpassen{{% /todo %}} `VSimRTIReliableApp` and {{% todo %}}Modulname anpassen{{% /todo %}} `VSimRTIUnreliableApp`
+Rely on the correct transmission of contents. Hence, the modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp`
 are introduced to bridge this gap. They are triggered by the Eclipse MOSAIC ScenarioManager
 to send new messages to lower layers and forward messages themselves back to the ScenarioManager
 upon reception. The main tasks are generally acting as an application within the scope of OMNeT++ and
 encapsulating themessage contents to packets to prepare them for sending. While functionality of an
-UDP application is fully supported in {{% todo %}}Modulname anpassen{{% /todo %}} `VSimRTIUnreliableApp`, the complete TCP application functionality
-is restricted in{{% todo %}}Modulname anpassen{{% /todo %}} `VSimRTIReliableApp`. Note that up to now it is not entirely clarified if and how TCP should
+UDP application is fully supported in `VSimRTIUnreliableApp`, the complete TCP application functionality
+is restricted in `VSimRTIReliableApp`. Note that up to now it is not entirely clarified if and how TCP should
 be supported in V2X use cases for safety and traffic efficiency with their broadcast characteristics, think
 of different roles of server and client in TCP. When the Eclipse MOSAIC ScenarioManager properties are detailed
 later in this section, it is also explained how the connection between the Eclipse MOSAIC ScenarioManager and
@@ -91,11 +90,11 @@ stack.
 
 ##### Mobility Model
 
-The second important component of the node is the mobility module {{% todo %}}Modulname anpassen{{% /todo %}} `VSimRTIMobility`, which extends
+The second important component of the node is the mobility module `VSimRTIMobility`, which extends
 the BasicMobility. Unlike other mobility models as RandomWaypoint it does not generate node movements
 itself and has a straight static character. Node position updates are always triggered by the Eclipse MOSAIC
 ScenarioManager. Hence,mobility is completely controlled by Eclipse MOSAIC and in turn by the coupled traffic
-simulator. After successful position update the `VSimRTIMobility` {{% todo %}}Modulname anpassen{{% /todo %}} module informs other modules about
+simulator. After successful position update the `VSimRTIMobility` module informs other modules about
 this event via the NotificationBoard.
 
 ##### Additional Functionality
@@ -158,7 +157,7 @@ The node introduction method is triggered by Eclipse MOSAIC with the commands `A
 applications have to be simulated.
 
 Upon `MOVE_NODE` command, which contains the affected node id and new position to be updated, the
-node is moved via the `VSimRTIMobility` {{% todo %}}Modulname anpassen{{% /todo %}} module.
+node is moved via the `VSimRTIMobility` module.
 
 At last the `REMOVE_NODE` command indicates that a node leaves the simulation. On this event, the according node is deleted and unregistered from managed modules.
 

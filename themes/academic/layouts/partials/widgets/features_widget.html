@@ -12,7 +12,7 @@
     </div>
     {{ with $page.Params.feature }}
     <div class="features row col-md-12 justify-content-center position-relative">
-        {{ range $page.Params.feature }}
+        {{ range sort $page.Params.feature "weight"}}
         {{ $pack := or .icon_pack "fas" }}
         {{ $pack_prefix := $pack }}
         {{ if in (slice "fab" "fas" "far" "fal") $pack }}

@@ -5,11 +5,10 @@ active = true  # Activate this widget? true/false
 weight = 1  # Order that this section will appear.
 
 title = "About Eclipse&nbsp;MOSAIC"
-subtitle = "A comprehensive simulation framework with multi-domain and multi-scale capabilities for the assessment of new solutions for Cooperative Intelligent Transportation Systems."
+subtitle = "... a comprehensive simulation framework with multi-domain and multi-scale capabilities for the assessment of new solutions for connected and automated mobility solutions."
 
 [design.background]
   # Background image.
-  image = "fokus.png"  # Name of image in `static/img/`.
   image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
   image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
   image_opacity = "0.2"

@@ -34,8 +34,8 @@ discrete-event simulator with an ordered event list from which sequentially the 
 Consequently, the Time Management is necessary for coordinating the simulation and synchronizing
 participating federates. It assures that each federate processes its events in correct order.
 
-According to [Fujimoto](https://ieeexplore.ieee.org/abstract/document/977259) the time management in a federated environment includes two key components:
-Interaction (Message) order and time stamps. Note that we usually use the word 'intercation' when
+According to [Fujimoto](https://ieeexplore.ieee.org/abstract/document/977259) the time management in a federated environment
+includes two key components: Interaction (Message) order and time stamps. Note that we usually use the word 'intercation' when
 talking about communication between federates, 'message' will be used in the context of (V2X)-communication. 
 
 The Interaction Order service is completely implemented in Eclipse MOSAIC with the following design rationale:
@@ -64,7 +64,8 @@ the parallel conservative mechanism for advancing time.
 
 ## Interaction Management
 
-The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse MOSAIC and its federates are decoupled through a publish-subscribe paradigm provided by the Interaction Management.
+The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse MOSAIC and its federates
+are decoupled through a publish-subscribe paradigm provided by the Interaction Management.
 A published interaction is forwarded to each subscriber directly after it has been
 published. However, a receiving federate is not allowed to advance its time based on an interaction but must
 request a time advancement if necessary. An interaction consists of its creation time, an identifier describing
@@ -100,8 +101,9 @@ rest of the simulation. After a simulation is finished, the Federation Managemen
 Creates an empty federation. After a federation is created, it is possible to join federates.
 
 #### Join Federation
-A joining simulator is defined by a unique name and a FederateHandle. This handle contains the information whether start-up and deployment of the simulator are required to be handled by the Federation
-Management. In this case, further deployment and start-up information are included.
+A joining simulator is defined by a unique name and a FederateHandle. This handle contains the information whether start-up and deployment
+of the simulator are required to be handled by the Federation Management. In this case, further deployment and start-up information are
+included.
 
 #### Stop Federation
 

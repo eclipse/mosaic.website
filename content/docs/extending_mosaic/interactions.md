@@ -50,8 +50,6 @@ Interactions in this package are still concerned with the mapping of vehicles bu
 
 This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.
 
-{{% todo %}}Namensänderung zu MOSAIC Cell?{{% /todo %}}
-
 | Interaction name | Description | Sent by |
 | :--- | :--- | :--- |
 | `AdHocCommunicationConfiguration` | This interaction is intended to be used to exchange information about the configuration of a vehicle’s ad-hoc communication facilities. | `Application` |

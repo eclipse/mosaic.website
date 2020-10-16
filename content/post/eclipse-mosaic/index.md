@@ -5,8 +5,8 @@ summary: On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simul
 authors: []
 tags: []
 categories: []
-date: "2020-10-13T00:00:00Z"
-lastMod: "2020-10-13T00:00:00Z"
+date: "2020-10-14T00:00:00Z"
+lastMod: "2020-10-14T00:00:00Z"
 featured: false
 draft: false
 

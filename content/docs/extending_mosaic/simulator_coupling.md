@@ -74,8 +74,6 @@ with respect to the federate configuration is illustrated.
 The first step to integrate a new component is the extension of the configuration file `etc/defaults.xml`.
 An example for a federate configuration can be found in following listing.
 
-{{% todo %}}Describe other parameters{{% /todo %}}
-
 ```xml
 <federates>
     [...]
@@ -114,8 +112,6 @@ command specified in the configuration file or this implementation.
 * `subscriptions` - A list of interaction names which the Federate Ambassador subscribes for. If any other
 ambassador sends out one of those interactions, this ambassador will receive them.
 
-{{% todo %}}Describe other parameters{{% /todo %}}
-
 ---
 
 ## Interaction extension
@@ -130,5 +126,4 @@ implemented by extending the class `Interaction`. The already implemented extens
 necessary to simulate common scenarios. However, for further scenarios further interactions might be
 required.
 
-{{% todo %}}scc 10.03.2020 this image is outdated{{% /todo %}}
 {{< figure src="../images/mosaic-message-classes.png" title="Interaction classes and their relationships.." numbered="true" >}}

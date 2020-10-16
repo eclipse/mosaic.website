@@ -59,8 +59,8 @@ The usage of the parameters is described in the following table:
 | `id`      | Sets the id for the visualizer                                                                                     |
 | `enabled` | If set to "false", visualizer is not used (default value is "true")                                                |
 | `update`  | Sets the update interval in seconds for the visualizer                                                             |
-| `start`   | Sets the start time in seconds for visualization. This has nothing todo with the run time of the actual simulation |
-| `end`     | Sets the end time in seconds for visualization. This has nothing todo with the run time of the actual simulation   |
+| `start`   | Sets the start time in seconds for visualization. This has nothing to do with the run time of the actual simulation |
+| `end`     | Sets the end time in seconds for visualization. This has nothing to do with the run time of the actual simulation   |
 | `loader`  | Sets where the visualizer is loaded from using the Java-class (see previous listing)                               |
 
 _Basic Configuration of file visualizer_

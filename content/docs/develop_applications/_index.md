@@ -138,7 +138,7 @@ Furthermore, your application can implement the following 7 interfaces in order 
 * `VehicleApplication` - get informed when information about the vehicles state is updated.
 * `ElectricVehicleApplication` - get informed on electric vehicle specific events.
 * `CommunicationApplication` - react on incoming V2X messages.
-* `MosaicApplication` - get informed on Eclipse MOSAIC internal events. {{% todo %}}Application names upgrade{{% /todo %}}
+* `MosaicApplication` - get informed on Eclipse MOSAIC internal events.
 * `TrafficLightApplication` - get noticed when the traffic light program is changed.
 * `ChargingStationApplication` - react on state changes of the charging station.
 * `TrafficManagementCenterApplicatio`n - get informed on state changes of road infrastructure.

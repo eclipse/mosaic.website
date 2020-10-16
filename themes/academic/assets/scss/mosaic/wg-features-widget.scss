@@ -52,6 +52,14 @@
           border-color: darken($mosaic-purple, 10%);
         }
       }
+      &.mosaic-green {
+        background-color: $mosaic-green;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        &::before {
+          border-color: darken($mosaic-green, 15%);
+        }
+      }
 
       .subtitle {
         display: block;
@@ -93,6 +101,7 @@
           margin-right: 0;
         }
       }
+
     }
   }
 }

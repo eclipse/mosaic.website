@@ -5,7 +5,7 @@
   <!-- Title and Subtitle -->
   {{ with $page.Title }}
   <div class="title row col-md-12 justify-content-center">
-    <div class="col-md-6 section-heading">
+    <div class="col-md-10 section-heading">
       <h1>{{ . | markdownify | emojify }}</h1>
       {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
     </div>

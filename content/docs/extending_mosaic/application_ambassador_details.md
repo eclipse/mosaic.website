@@ -19,8 +19,6 @@ registered as a handle for different Eclipse MOSAIC messages in the configuratio
 initialization, the Application Simulator will receive these messages from Eclipse MOSAIC when they appear and perform corresponding actions.
 
 ### Node Creation
-{{% todo %}}Bild anpassen{{% /todo %}}
-
 {{< figure src="../images/class_overview.png" title="Application Simulator basic flow / node creation classes" numbered="true" >}}
 
 Application classes are only instantiated when a node, carrying that application, is created. This is signaled by messages for node creation 

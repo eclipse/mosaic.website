@@ -37,7 +37,12 @@
 .card .card-image {
   display: block;
   position: relative;
-  min-height: 100px;
+  margin: 3rem 3rem 0;
+  min-height: 6rem;
+  max-width: 80%;
+  max-height: 80%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .card h4 {

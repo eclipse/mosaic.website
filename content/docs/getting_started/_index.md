@@ -11,9 +11,11 @@ menu:
     weight: 1
 ---
 
-{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download eclipse.mosaic-19.1.zip" >}}
+<div style="text-align: center;">
+{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
+</div>
 
-1. **Download the bundle from the link above.** 
+1. **Download the `eclipse-mosaic-20.0.zip` bundle from the link above.** 
 2. Extract the package to an arbitrary path. This installation path is referenced as `<mosaic-root>` throughout the entire document.
 3. Install additional software required by the simulation (see below), e.g. [Eclipse SUMO](https://www.eclipse.org/sumo)
 
@@ -28,6 +30,7 @@ menu:
    ├─ lib ............................. Directory with all Java compiled libraries required for MOSAIC.
    ├─ logs ............................ Directory with log files.
    ├─ scenarios ....................... Directory containing all simulation scenarios.
+   ├─ tools ........................... Additional tools, like the HTML Visualizer.
    ├─ CONTRIBUTING.md 
    ├─ LICENSE 
    ├─ mosaic.bat ...................... Start script for Windows systems.
