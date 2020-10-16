@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Eclipse MOSAIC Documentation
 layout: docs  # Do not modify.
 toc: false
 

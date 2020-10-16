@@ -1,7 +1,7 @@
 ---
 title: First release of Eclipse MOSAIC
-date: "2020-10-14T00:00:00Z"
-lastMod: "2020-10-14T00:00:00Z"
+date: "2020-10-16T00:00:00Z"
+lastMod: "2020-10-16T00:00:00Z"
 math: false
 diagram: true
 featured: false
@@ -17,7 +17,7 @@ image:
   preview_only: false
 ---
 
-**We need a text the release!!**
+**The initial contribution is accomplished! With the autumn version, the committer team from Fraunhofer FOKUS and DCAITI is proud to release Eclipse MOSAIC 20.0 to the open source community. With the runtime infrastructure, core libraries and various implementations of simulators or couplings to existing ones, Eclipse MOSAIC includes the essential feature collection for simulation and virtual testing of connected and automated mobility solutions.**
 
 
 ### Release Date
@@ -29,12 +29,13 @@ image:
 [M+] Moved main code to new public repository github-com/eclipse-mosaic
 [M+] Changed license to EPL 2.0
 [M+] Revised and refactored all public code.
+[M+] Significantly improved and extended the documentation, including new tutorials
 [M-] Replaced dependencies which are incompatible with EPL.
-[A+] Mapping configuration has been extended with new features (e.g. typeDistributions, parameter variations).
 [M+] Major overhaul of configuration files, e.g.
      * vsimrti/vsimrti_config.xml -> scenario_config.json
      * etc/defaults.xml -> etc/runtime.json
+[A+] Mapping configuration has been extended with new features (e.g. typeDistributions, parameter variations).
 [A+] New API for traffic light applications
-...
+[C+] SNS supports most important Geo-Routing features for ad-hoc multihop communication
 [T+] Now supports SUMO 1.7.0
 ```

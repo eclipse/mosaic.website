@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 20
 menu:
   docs:
     parent: simulators
-    weight: 2
 ---
 **Eclipse SUMO** is an highly portable, microscopic and continuous road traffic
 simulation tool. It is designed to handle large road networks faster than real-time and simulates each vehicle

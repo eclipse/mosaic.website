@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 10
 menu:
   docs:
     parent: getting_started
-    weight: 1
 ---
 
 <div style="text-align: center;">

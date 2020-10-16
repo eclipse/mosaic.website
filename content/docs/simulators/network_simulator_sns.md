@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2020-06-30T00:00:00+01:00"
 draft: false
+weight: 60
 menu:
   docs:
     parent: simulators
-    weight: 6
 ---
 
 The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the

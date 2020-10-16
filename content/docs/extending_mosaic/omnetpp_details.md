@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 60
 menu:
   docs:
     parent: extending_mosaic
-    weight: 9
 ---
 
 The OMNeT++ Federate design is based on amicrosimulation where every participating vehicle respectively

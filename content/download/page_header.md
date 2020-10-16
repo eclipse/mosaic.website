@@ -4,8 +4,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 1  # Order that this section will appear.
 
-title = "Download"
-subtitle = "List of links to download the latest releases and other components.."
+title = "Eclipse&nbsp;MOSAIC Download"
+subtitle = "list of links to download the latest releases and other components.."
 
 [design.background]
   # Background image.

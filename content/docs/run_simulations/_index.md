@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 10
 menu:
   docs:
     parent: run_simulations
-    weight: 1
 ---
 
 To run a single simulation via Command Line Interface (CLI), call the Eclipse MOSAIC start script with the

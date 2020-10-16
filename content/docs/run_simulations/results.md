@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 20
 menu:
   docs:
     parent: run_simulations
-    weight: 2
 ---
 
 Eclipse MOSAIC generates log files for each simulation run. Log files are generated for the ambassadors of each

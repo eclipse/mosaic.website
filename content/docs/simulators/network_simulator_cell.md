@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 70
 menu:
   docs:
     parent: simulators
-    weight: 7
 ---
 
 The built-in Eclipse MOSAIC Cell Simulator enables the applications to use cellular network communication.

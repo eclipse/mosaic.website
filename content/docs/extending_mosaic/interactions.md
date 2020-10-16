@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2020-08-06"
 draft: false
+weight: 30
 menu:
   docs:
     parent: extending_mosaic
-    weight: 3
 ---
 
 This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates

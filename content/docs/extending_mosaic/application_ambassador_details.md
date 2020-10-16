@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2020-08-06"
 draft: false
+weight: 40
 menu:
   docs:
     parent: extending_mosaic
-    weight: 5
 ---
 
 The Application Simulator is completely implemented as an Eclipse MOSAIC Ambassador in Java. The main class `ApplicationAmbassador` is 

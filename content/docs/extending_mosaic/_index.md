@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-08-06"
 draft: false
+weight: 10
 menu:
   docs:
     parent: extending_mosaic
-    weight: 1
 ---
 
 To run a simulation, a federation of simulators has to be created. This federation consists of one federate

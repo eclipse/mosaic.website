@@ -186,104 +186,92 @@
   url = "/tutorials/barnim_basic"
   weight = 10
   post = """
-  <img src="barnim_basic/images/barnim-map.png">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Configuration of MOSAIC simulation entities</li>
-                <li>- Using of different communication simulators</li>
-                <li>- Mapping of applications onto Simulation Entities</li>
-              </ul>"""
+  <img src="barnim_basic/images/barnim-map-intro.png">
+  <p><b>What will you learn:</b></p>
+  <ul>
+    <li>Configuration of simulation entities</li>
+    <li>Choosing between simulators</li>
+    <li>Map applications onto entities</li>
+  </ul>
+  """
 [[tutorials]]
   name = "Barnim Advanced"
   identifier = "barnim_advanced"
   url = "/tutorials/barnim_advanced"
   weight = 20
   post = """
-  <img src="barnim_basic/images/barnim-map.png">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Definition of arbitrary geographical area</li>
-                <li>- Enable communication in the defined area</li>
-                <li>- Use of IEEE conforming DENMs</li>
-                <li>- Creating of specific messages</li>
-                <li>- Using different communication modes and network types</li>
-                <li>- Development of V2X applications</li>
-              </ul>"""
+  <img src="barnim_basic/images/barnim-map-intro.png">
+  <p><b>What will you learn:</b></p>
+  <ul>
+    <li>Developing applications</li>
+    <li>Sending and receiving V2X messages</li>
+    <li>Choosing different route due to traffic conditions</li>
+  </ul>
+  """
 [[tutorials]]
   name = "Tiergarten"
   identifier = "tiergarten"
   url = "/tutorials/tiergarten"
   weight = 30
   post = """
-  <img src="tiergarten/images/tiergartenOverview.png">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Understanding the Eclipse MOSAIC mapping process</li>
-                <li>- Communication between different vehicles via ad hoc network</li>
-                <li>- How different applications communicate with each other running on the same vehicle</li>
-                <li>- Application configuration and mapping</li>
-                <li>- Interpretation of simulation results</li>
-              </ul>"""
+  <img src="tiergarten/images/tiergarten-intro.png">
+  <p><b>What will you learn:</b></p>
+  <ul>
+    <li>Detailed mapping configuration</li>
+    <li>Communication between vehicles</li>
+    <li>Event processing within vehicles</li>
+  </ul>
+  """
 [[tutorials]]
   name = "Traffic Lights"
   identifier = "traffic_lights"
   url = "/tutorials/traffic_lights"
   weight = 40
   post = """
-  <img src="traffic_lights/images/trafficlight.jpg">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Use <b>scenario-convert</b> to export traffic lights</li>
-                <li>- Determine the traffic lights that should be equipped with applications</li>
-                <li>- Determining and equipping the traffic lights with applications</li>
-                <li>- Adjust the mapping configuration of Eclipse MOSAIC</li>
-                <li>- Assign the desired application(s) onto traffic lights</li>
-              </ul>"""
+  <img src="traffic_lights/images/trafficlights-intro.png">
+  <p><b>What will you learn:</b></p>
+  <ul>
+    <li>Adding traffic lights to your scenario</li>
+    <li>Mapping applications onto traffic lights</li>
+  </ul>"""
 [[tutorials]]
   name = "LuST"
   identifier = "lust"
   url = "/tutorials/lust"
   weight = 50
   post = """
-  <img src="lust/images/lust-overview.PNG">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Integration of external SUMO simulation scenario into Eclipse MOSAIC</li>
-              </ul>"""
+  <img src="lust/images/lust-intro.png">
+  <p><b>What will you learn:</b></p>
+  <ul>
+    <li>Integration of existing SUMO scenarios into Eclipse MOSAIC</li>
+    <li>Simulate huge traffic amounts.</li>
+  </ul>"""
 [[tutorials]]
   name = "Traffic Management"
   identifier = "traffic_management"
   url = "/tutorials/traffic_management"
   weight = 60
   post = """
-  <img src="traffic_management/images/highway-overview.png">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Definition and configuration the detectors</li>
-                <li>- Measurement of traffic characteristics using detectors</li>
-                <li>- Referencing the <b>additional files</b> </li>
-                <li>- Understand the differences between <b>lane area detectors</b> and <b>inductive loop detectors</b></li>
-                <li>- Configuration and Mapping of TMC applications</li>
-                <li>- Implement of TMC applications</li>
-              </ul>"""
+  <img src="traffic_management/images/highway-overview-intro.png">
+ <p><b>What will you learn:</b></p>
+   <ul>
+     <li>Use road detectors to measure traffic</li>
+     <li>Change road properties, e.g. close lanes.</li>
+     <li>Modelling TMC functions with applications</li>
+   </ul>"""
 [[tutorials]]
-  name = "Example Apps for Beginners"
+  name = "Example Application"
   identifier = "additional_examples"
   url = "/tutorials/additional_examples"
   weight = 80
   post = """
-  <img src="additional_examples/images/hello-world.png">
-  <b>Learning Objectives</b>
-              <ul>
-                <li>- Use of various Eclipse MOSAIC components.</li>
-                <li>- Development of Eclipse MOSAIC applications.</li>
-                <li>- Inter app and inter unit communication.</li>
-                <li>- How to send and receive application specific messages.</li>
-                <li>- Combination of different Eclipse MOSAIC modules.</li>
-              </ul>"""
-# Link to a PDF of your resume/CV from the menu.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# [[main]]
-#    name = "CV"
-#    url = "files/cv.pdf"
-#    weight = 70
+  <img src="additional_examples/images/examples-intro.png">
+  <p><b>Collection of example applications.</b></p>
+  <ul>
+   <li>Event Processing</li>
+   <li>V2X Communication</li>
+   <li>Application Configuration</li>
+   <li>... and more</li>
+ </ul>
+  """
+

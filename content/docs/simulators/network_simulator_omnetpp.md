@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 40
 menu:
   docs:
     parent: simulators
-    weight: 4
 ---
 
 **OMNeT++** is a simulation platform for discrete-event systems. Even though it is primarily targeted at simulating computer networks and

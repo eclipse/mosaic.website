@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 100
 menu:
   docs:
     parent: simulators
-    weight: 10
 ---
 
 This ambassador can be configured with a configuration file. The specific path is `mosaic/scenarios/<scenarioName>/environment/environment_config.json`

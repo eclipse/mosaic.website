@@ -17,6 +17,5 @@ img_column_width = "10" # 0 - 12
 
 +++
 
-The Eclipse MOSAIC Co-Simulation Environment flexibly couples simulators from different domains to create a holistic collection of simulation models for different scales. Eclipse MOSAIC improves the development and virtual testing of new Mobility Apps. Simulators could be exchanged according to the scenario and additional simulators could be coupled easily to extend Eclipse MOSAIC.
-<!--, compared to other existing standards such as the Functional Mock-Up Interface (FMI), which does not provide a
-master algorithm. So you can only focus on the coupling process of your preferred simulator.--> 
+The Eclipse MOSAIC Co-Simulation Framework flexibly couples simulators from different domains to create a holistic collection of simulation models for different scales. Eclipse MOSAIC improves the development and virtual testing of new Mobility Apps. Simulators could be exchanged according to the scenario and additional simulators could be coupled easily to extend Eclipse MOSAIC.
+

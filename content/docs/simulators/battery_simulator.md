@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 110
 menu:
   docs:
     parent: simulators
-    weight: 11
 ---
 
 The MOSAIC Battery Simulator is used to simulate electric vehicles. It takes environment, vehicle

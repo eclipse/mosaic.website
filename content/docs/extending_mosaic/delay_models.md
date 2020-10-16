@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2020-06-30T00:00:00+01:00"
 draft: false
+weight: 70
 menu:
   docs:
     parent: extending_mosaic
-    weight: 20
 ---
 
 MOSAIC has different types of delays implemented for different use cases. This page will

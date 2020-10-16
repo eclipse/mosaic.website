@@ -5,10 +5,10 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 80
 menu:
   docs:
     parent: simulators
-    weight: 8
 ---
 
 This section presents the architecture and the main features of the **Application Simulator** as well as the related **Mapping** Ambassador, which is used to configure individual simulation entities (or simulation units) and "map" applications to them.

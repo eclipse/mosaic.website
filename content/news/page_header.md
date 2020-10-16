@@ -4,8 +4,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "News"
-#subtitle = "On this site we will provide any news around Eclipse&nbsp;MOSAIC<br>like new versions, projects in which Eclipse MOSAIC is used, new features etc."
+title = "Eclipse&nbsp;MOSAIC News"
+subtitle = "information about current events, projects or new releases"
 
 [design.background]
   # Background image.
