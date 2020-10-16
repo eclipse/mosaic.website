@@ -13,10 +13,8 @@ alignment = "left" # left or center (default)
 
 [design.background]
   # Background image.
-  #image = "fokus.png"  # Name of image in `static/img/`.
-  #image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
-  #image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
-  #image_opacity = "0.2"
+  image = "background-home.jpg"
+  image_opacity = "1.0"
   
   # Text color (true=light or false=dark).
   text_color_light = false
