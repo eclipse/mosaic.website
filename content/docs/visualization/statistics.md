@@ -11,9 +11,9 @@ menu:
     parent: visualization
 ---
 
-{{% alert note %}}
-The Statistics Visualizer is only available with a commercial license of MOSAIC Extended. 
-For further information on licences, please refer to our mailing list.
+{{% alert extended %}}
+The **Statistics Visualizer** is part of **[MOSAIC Extended](/download#overview)**.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 The Statictics Visualizer is another visualisation tool to easily measure basic simulation outcomes.

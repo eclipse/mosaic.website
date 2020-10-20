@@ -11,8 +11,9 @@ menu:
     parent: visualization
 ---
 
-{{% alert note %}}
-The 3D Visualization is only available with a commercial license of MOSAIC Extended. For further information on licences, please refer to our mailing list.
+{{% alert extended %}}
+The 3D visualization **RHABMap** is part of **[MOSAIC Extended](/download#overview)**.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D

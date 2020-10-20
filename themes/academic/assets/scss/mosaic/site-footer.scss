@@ -1,5 +1,6 @@
 @import "mosaic-helpers";
 
+// Footer on regular pages
 .footer-wrap {
   @extend .gradient-footer;
   color: #fff;
@@ -52,6 +53,54 @@
       a {
         color: rgba(255,255,255,.7);
       }
+    }
+  }
+}
+
+// Footer in documentation
+.docs footer.site-footer {
+  margin-top: 1rem;
+  padding: 1.3rem;
+  font-size: 0.7rem;
+  background: #f2f2f7;
+
+  b {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.4rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #d9d9d9;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      .eclipse-logo {
+        height: 2rem;
+        padding: 0.2rem 0;
+      }
+    }
+  }
+
+  .powered-by {
+    font-size: 0.6rem;
+    color: rgba(0,0,0,.5);
+    a {
+      color: rgba(0,0,0,.5);
     }
   }
 }

@@ -157,14 +157,14 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.
 3. Switch to the location of the Dockerfile in `mosaic/bin/fed/ns3`
 4. Execute the following command on command line:  
-    `docker build -t ns3-federate:mosaic-VAR(mosaic.version)`.  
+    `docker build -t ns3-federate:mosaic`.  
     This could take a while to finish.
 5. Enter the name of the docker image etc/defaults.xml in the `ns3`-section into the tag `dockerImage`:  
 ```xml
 <federate class="...">
     <id>ns3</id>
     ...
-    <dockerImage>ns3-federate:mosaic-VAR(mosaic.version)</dockerImage>
+    <dockerImage>ns3-federate:mosaic</dockerImage>
     ...
 </federate >
 ```

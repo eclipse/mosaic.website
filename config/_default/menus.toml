@@ -93,9 +93,9 @@
       parent = "community"
       weight = 3
     [[footer]]
-      name = "Mailing list"
-      url = "https://accounts.eclipse.org/mailing-list/mosaic-dev"
-      identifier = "mailing-list"
+      name = "Contact & Mailing list"
+      url = "/get_in_contact"
+      identifier = "get-in-contact"
       parent = "community"
       weight = 4
 [[footer]]

@@ -2,4 +2,4 @@
 {{ with .Get "type" }}
     {{ $type = . }}
 {{ end }}
-<a class="mosaic-btn mosaic-btn-{{ $type }}" href="{{ .Get "link" }}" title="{{ .Get "title" }}">{{ .Get "title" }}</a>
+<a class="mosaic-btn mosaic-btn-{{ $type }}" href="{{ .Get "link" }}" title="{{ .Get "title" }}">{{ if .Get "icon" }}<i class="fas fa-{{ .Get "icon" }}"></i>{{ end }}{{ .Get "title" }}</a>

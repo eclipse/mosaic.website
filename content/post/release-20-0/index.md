@@ -1,7 +1,7 @@
 ---
 title: First release of Eclipse MOSAIC
-date: "2020-10-16T00:00:00Z"
-lastMod: "2020-10-16T00:00:00Z"
+date: "2020-10-19T00:00:00Z"
+lastMod: "2020-10-19T00:00:00Z"
 math: false
 diagram: true
 featured: false

@@ -437,7 +437,7 @@
   /**
    * Render theme variation (day or night).
    *
-   * @param {int} isDarkTheme - TODO: convert to boolean.
+   * @param {boolean} isDarkTheme - TODO: convert to boolean.
    * @param {boolean} init
    * @returns {undefined}
    */
@@ -457,7 +457,7 @@
       }
     }
 
-    if (isDarkTheme === 0) {
+    if (isDarkTheme === false) {
       if (!init) {
         // Only fade in the page when changing the theme variation.
         $('body').css({opacity: 0, visibility: 'visible'}).animate({opacity: 1}, 500);
@@ -475,7 +475,7 @@
           location.reload();
         }
       }
-    } else if (isDarkTheme === 1) {
+    } else if (isDarkTheme === true) {
       if (!init) {
         // Only fade in the page when changing the theme variation.
         $('body').css({opacity: 0, visibility: 'visible'}).animate({opacity: 1}, 500);

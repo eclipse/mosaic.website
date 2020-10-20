@@ -20,5 +20,5 @@ subtitle = "list of links to download the latest releases and other components..
 +++
 
 <div style="text-align: center;">
-{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
+{{< button icon="download" type="light" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
 </div>

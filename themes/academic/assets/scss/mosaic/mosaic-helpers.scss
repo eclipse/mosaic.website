@@ -28,7 +28,7 @@
 // Card with content, round borders, shadow and background
 .mosaic-card {
   padding: 0 1.3rem;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
 
   h2.mosaic-card-title {
     font-size: 1.3rem;
@@ -69,10 +69,8 @@
   @extend .mosaic-card;
   background-color: #ede9f0;
   background-image: linear-gradient(-45deg, #e5e0ea, #fefdff);
-  box-shadow: 0.4rem 0.5rem 0.5rem rgba(24, 21, 30, 0.19), 0.1rem 0.2rem 0.15rem rgba(24, 21, 30, 0.1);
-  border: 2px solid #e4e1e8;
-  border-right: 0;
-  border-bottom: 0;
+  box-shadow: 0.4rem 0.4rem 0.4rem rgba(24, 21, 30, 0.14), 0.1rem 0.2rem 0.15rem rgba(24, 21, 30, 0.1);
+  border: 1px solid #e4e1e8;
 
   h2.mosaic-card-title {
     color: $mosaic-navy;

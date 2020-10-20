@@ -1,0 +1,62 @@
+.alert, div.alert > div {
+  font-size: 0.75rem;
+}
+
+// MOSAIC EXTENDED
+div.alert.alert-extended {
+  color: darken($mosaic-purple, 20%);
+  background-color: lighten($mosaic-purple, 70%);
+  border-color: $mosaic-purple;
+  position: relative;
+
+  .extended-icon {
+    position: absolute;
+    display: block;
+    content: "";
+    background-position: center center;
+    background-size: 145%;
+    width: 2.5rem;
+    height: 2.5rem;
+    left: 0.4rem;
+    top: 47%;
+    margin-top: -1.15rem;
+  }
+  & > div:first-child::before {
+    content: none;
+    display: none;
+  }
+}
+
+// TIP
+div.alert.alert-tip {
+  color: darken($mosaic-green, 20%);
+  background-color: lighten($mosaic-green, 54%);
+  border-color: $mosaic-green;
+
+  & > div:first-child::before {
+    content: '\f06a';
+    color: $mosaic-green;
+  }
+}
+
+// NOTE
+div.alert.alert-note {
+  color: darken($mosaic-blue, 20%);
+  background-color: lighten($mosaic-blue, 54%);
+  border-color: $mosaic-blue;
+
+  & > div:first-child::before {
+    color: $mosaic-blue;
+  }
+}
+
+// WARNING
+div.alert.alert-warning {
+  color: darken($mosaic-orange, 25%);
+  background-color: lighten($mosaic-orange, 35%);
+  border-color: $mosaic-orange;
+
+  & > div:first-child::before {
+    color: $mosaic-orange;
+  }
+}

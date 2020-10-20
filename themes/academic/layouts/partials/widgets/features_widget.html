@@ -34,7 +34,7 @@
               </div>
             {{ end }}
             <div class="feature-inner pt-3 pb-3 {{ if and .link_title .link_url .link_feature }}is-linked-feature{{end}} {{if or .banner_title .banner_subtitle}}has-banner{{end}}">
-              {{ if and .link_title .link_url .link_feature }}
+              {{ if and (and .link_title .link_feature) (or .link_url .link_email) }}
               <a href="{{ .link_url | safeHTMLAttr | relURL }}" title="{{ .link_title | safeHTMLAttr }}" class="linked-feature">
               {{ end }}
                 {{ if .title }}
@@ -60,14 +60,21 @@
                 {{ end }}
                 {{ with .description }}<p class="desc">{{ . | markdownify | emojify }}</p>{{ end }}
                 {{ with .content }}<div class="content">{{ . | markdownify | emojify }}</div>{{ end }}
-                {{ if and .link_title .link_url }}
-                <div class="buttons justify-content-center">
-                    <a class="mosaic-btn mosaic-btn-primary" href="{{ .link_url | safeHTMLAttr | relURL }}" title="{{ .title }}">{{ .link_title }}</a>
-                </div>
+                {{ if and .link_title (or .link_url .link_email) }}
+                  {{ $link := "" }}
+                  {{ if .link_url }}
+                    {{ $link = .link_url | relURL }}
+                  {{ end }}
+                  {{ if .link_email }}
+                    {{ $link = printf "mailto:%s" .link_email }}
+                  {{ end }}
+                  <div class="buttons justify-content-center">
+                      <a class="mosaic-btn mosaic-btn-primary" href="{{ $link | safeHTMLAttr }}" title="{{ .title }}">{{ .link_title }}</a>
+                  </div>
                 {{ end }}
-            {{ if and .link_title .link_url .link_feature }}
-            </a>
-            {{ end}}
+                {{ if and (and .link_title .link_feature) (or .link_url .link_email) }}
+              </a>
+              {{ end}}
             </div>
         </div>
         {{ end }}

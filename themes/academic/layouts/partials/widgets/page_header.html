@@ -42,7 +42,7 @@
     {{ end }}
   {{ else }}
     <div class="row col-md-12 justify-content-left alignment-left">
-      <div class="col-8 justify-content-left">
+      <div class="col-9 justify-content-left">
         {{ with $page.Params.logo }}
         <div class="row col-md-12 justify-content-left page-header-logo">
           <img src="{{ . | safeHTMLAttr | relURL }}" {{ if $page.Params.logo_height }}style="height:{{ $page.Params.logo_height | safeHTMLAttr }};"{{ end }} {{ if $page.Params.logo_title }}title="{{ $page.Params.logo_title | safeHTMLAttr }}"{{ end }}>
@@ -59,7 +59,7 @@
         </div>
         {{ end }}
       </div>
-      <div class="col-4 justify-content-right buttons">
+      <div class="col-3 justify-content-right buttons">
         {{ with $page.Params.button }}
         {{ range $page.Params.button }}
           <div class="col-md-12 justify-content-right text-right">

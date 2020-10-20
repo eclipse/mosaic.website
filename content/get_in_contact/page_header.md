@@ -1,11 +1,11 @@
 +++
-widget = "page_header" # Costum Mosaic feature
+widget = "page_header"
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 10  # Order that this section will appear.
+weight = 1  # Order that this section will appear.
 
-title = "Eclipse&nbsp;MOSAIC News"
-subtitle = "Information about current events, projects or new releases."
+title = "Contact Us"
+subtitle = "Do you have any questions about Eclipse&nbsp;MOSAIC&nbsp;or&nbsp;MOSAIC&nbsp;Extended?<br>Don't hesitate to get in contact with us!"
 
 [design.background]
   # Background image.
@@ -15,6 +15,6 @@ subtitle = "Information about current events, projects or new releases."
   image_opacity = "0.2"
   
   # Text color (true=light or false=dark).
-  text_color_light = true
+  # text_color_light = true
 
 +++

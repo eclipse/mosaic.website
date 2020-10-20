@@ -1,11 +1,14 @@
 // Override this file to add your own SCSS styling.
 @import "mosaic/mosaic-helpers";
+@import "mosaic/alert";
 @import "mosaic/buttons";
 @import "mosaic/docs";
 @import "mosaic/site-footer";
+@import "mosaic/tutorials";
 @import "mosaic/wg-features-widget";
 @import "mosaic/wg-hero";
 @import "mosaic/wg-page-header";
+@import "mosaic/wg-portfolio";
 @import "mosaic/wg-text-image";
 @import "mosaic/wg-text-card";
 
@@ -48,10 +51,6 @@ hr {
   height: 0;
 }
 
-.alert, div.alert > div {
-  font-size: 0.7rem;
-}
-
 .todo {
   background-color: yellow;
   border-radius: 2px;
@@ -67,6 +66,12 @@ hr {
 
 body.page-docs #navbar-main > .container {
   max-width: 1700px;
+}
+
+@media only screen and (min-width: 1001px) {
+  .universal-wrapper {
+    width: 1200px;
+  }
 }
 
 #navbar-main {
@@ -92,88 +97,6 @@ body.page-docs #navbar-main > .container {
 .section-heading p {
   color: #817f88;
   font-style: italic;
-}
-
-ul.menu-overview {
-  padding: 0;
-  margin: 1rem -15px;
-
-  li {
-    list-style-type: none;
-    margin-bottom: 1rem;
-    display: flex;
-    width: 100%;
-
-    a.inner {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      flex: auto;
-      flex-grow: 1;
-      background-color: #f8f4fb;
-      background-image: linear-gradient(0deg, #f8f4fb 0, #fff 100%);
-      border: 1px solid #d7dce3;
-      border-bottom: 3px solid #B5229F;
-      border-radius: 3px;
-      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
-      padding: 0.7rem 1rem;
-      color: #424b5f;
-      transition: all 0.2s ease;
-      -webkit-transition: all 0.2s ease;
-
-      &:hover {
-        transform: scale(1.04);
-        text-decoration: none;
-        background-color: #fff;
-        box-shadow: 0 10px 20px -10px fade-out($color: $mosaic-navy, $amount: 0.2);
-
-        .details {
-          background: $mosaic-purple;
-          color: #fff;
-
-          &::before {
-            color: #fff;
-          }
-        }
-      }
-
-      .title {
-        display: block;
-        font-weight: bold;
-        font-size: 0.9rem;
-        padding-bottom: 0.2rem;
-      }
-
-      .details {
-        display: block;
-        text-align: right;
-        background: #e1dce6;
-        color: #424b5f;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: medium;
-        margin: 1rem -1rem -0.7rem;
-        margin-top: auto;
-        padding: 0.4rem 1rem;
-        border-top: 1px solid #d5c4d3;
-        transition: all 0.2s ease;
-        -webkit-transition: all 0.2s ease;
-
-        &::before {
-          content: "» ";
-          font-size: larger;
-          color: #424b5f;
-          transition: all 0.2s ease;
-          -webkit-transition: all 0.2s ease;
-        }
-      }
-    }
-  }
-}
-
-.alert, div.alert > div {
-  font-size: 0.7rem;
 }
 
 .features .feature .feature-inner .image {

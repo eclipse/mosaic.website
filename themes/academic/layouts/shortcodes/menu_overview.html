@@ -3,8 +3,8 @@
     {{ $menuName := .Get 0 }}
     {{ range $index, $menuItem := (index .Site.Menus $menuName) }}
         {{ $counter := add $index 1 }}
-        <li class="col-md-6">
-            <a href="{{ $menuItem.URL }}" title="{{ $menuItem.Name }}" class="inner">
+        <li class="col-md-4">
+            <span class="inner">
                 <span class="title">
                     <span class="counter">{{ $counter }}.&nbsp;</span>
                     {{ $menuItem.Name }}
@@ -14,8 +14,10 @@
                     {{- . | markdownify -}}
                     </span>
                 {{- end -}}
-                <span class="details">More Details</span>
-            </a>
+                <span class="link-wrap">
+                    <a href="{{ $menuItem.URL }}" title="{{ $menuItem.Name }}" class="mosaic-btn mosaic-btn-primary">Learn more</a>
+                </span>
+            </span>
         </li>
     {{ end }}
 </ul>

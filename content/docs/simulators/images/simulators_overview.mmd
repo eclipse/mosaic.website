@@ -1,0 +1,7 @@
+graph BT;
+    rti[Eclipse MOSAIC RTI]
+    sumo[Eclipse SUMO]
+    omnetpp[OMNeT++]
+    ApplicationAmbassador-->rti;
+    sumo-->|TraCI|SumoAmbassador<-->rti;
+    omnetpp-->|Protobuf|OmnetppAmbassador-->rti;

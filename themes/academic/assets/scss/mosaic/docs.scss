@@ -22,6 +22,10 @@
   }
 }
 
+.docs-content {
+  padding-bottom: 0 !important;
+}
+
 .docs .article {
   font-size: 0.8rem;
 
@@ -53,4 +57,8 @@
   padding-left: 0;
   padding-top: 0;
   padding-bottom: 3px;
+}
+
+.docs-toc {
+  overflow-y: visible;
 }
