@@ -1,8 +1,8 @@
 {{ $file := (printf "%s/%s" .Page.File.Dir (.Get "src")) }}
 {{ if fileExists $file }}
 <div class="svg-wrap">
-  {{ readFile $file | safeHTML }}
+  {{ (readFile $file) | safeHTML }}
 </div>
 {{ else }}
-  {{ printf "ERROR in svg partial: Could not find file '%s'." $file }}
+  {{ (printf "<!-- ERROR in svg partial: Could not find file '%s'. -->" $file) | safeHTML }}
 {{ end }}
