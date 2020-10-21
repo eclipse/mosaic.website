@@ -16,9 +16,9 @@
   sri = "sha512-1LdB3V708w6G4QRl7NsVdTr7MDibyRXr9stQZ+EGjEE0ZPMZkA//ir7kCWmFyxdAJNIRXdR/ZeJmCV0boyiCXw=="
   url = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/%s/highlight.min.js"
 [js.mathJax]
-  version = "3"
-  sri = ""  # No SRI as dynamically generated.
-  url = "https://cdn.jsdelivr.net/npm/mathjax@%s/es5/tex-chtml.js"
+  version = "3.1.0"
+  sri = "sha512-uwL1UtpYdWra2iqJlAW8Ts0s9Os6IxWLDJDF/BnWdhDmT7DEMFba3GPsFwmV3QiTNcUyl2GB5vsgycB/MOvo9g=="
+  url = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/%s/es5/tex-chtml.min.js"
   async = true
 [js.isotope]
   version = "3.0.6"

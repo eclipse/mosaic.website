@@ -5,7 +5,7 @@ active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
 title = "Eclipse MOSAIC Community"
-subtitle = "become a part of the Eclipse MOSAIC world, benefit from and contribute to our project."
+subtitle = "Become a part of the Eclipse MOSAIC world, benefit from and contribute to our project."
 
 feature_col_width = 5
 
