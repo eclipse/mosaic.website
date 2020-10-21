@@ -22,6 +22,8 @@ represents the federate. This architecture allows a simple coupling of own simul
 
 {{< svg src="images/simulators_overview.svg" >}}
 
+{{< svg src="images/shortcomingsApproaching.svg" >}}
+
 **The following simulators are coupled already with MOSAIC:**
 
 <style>
