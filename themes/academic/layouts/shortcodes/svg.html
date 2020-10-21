@@ -1,4 +1,4 @@
-{{ $file := ((printf "%s/%s" .Page.File.Dir (.Get "src")) | relURL) }}
+{{ $file := (printf "%s/%s" .Page.File.Dir (.Get "src")) }}
 {{ if fileExists $file }}
 <div class="svg-wrap">
   {{ readFile $file | safeHTML }}
