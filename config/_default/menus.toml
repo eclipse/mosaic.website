@@ -180,6 +180,7 @@
   weight = 70
   post = "Extend Eclipse MOSAIC."
 
+
 [[tutorials]]
   name = "Barnim Basic"
   identifier = "barnim_basic"
@@ -187,7 +188,7 @@
   weight = 10
   post = """
   <img src="barnim_basic/images/barnim-map-intro.png">
-  <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
   <ul>
     <li>Configuration of simulation entities</li>
     <li>Choosing between simulators</li>
@@ -201,7 +202,7 @@
   weight = 20
   post = """
   <img src="barnim_basic/images/barnim-map-intro.png">
-  <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
   <ul>
     <li>Developing applications</li>
     <li>Sending and receiving V2X messages</li>
@@ -215,7 +216,7 @@
   weight = 30
   post = """
   <img src="tiergarten/images/tiergarten-intro.png">
-  <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
   <ul>
     <li>Detailed mapping configuration</li>
     <li>Communication between vehicles</li>
@@ -229,7 +230,7 @@
   weight = 40
   post = """
   <img src="traffic_lights/images/trafficlights-intro.png">
-  <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
   <ul>
     <li>Adding traffic lights to your scenario</li>
     <li>Mapping applications onto traffic lights</li>
@@ -241,7 +242,7 @@
   weight = 50
   post = """
   <img src="lust/images/lust-intro.png">
-  <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
   <ul>
     <li>Integration of existing SUMO scenarios into Eclipse MOSAIC</li>
     <li>Simulate huge traffic amounts.</li>
@@ -253,20 +254,20 @@
   weight = 60
   post = """
   <img src="traffic_management/images/highway-overview-intro.png">
- <p><b>What will you learn:</b></p>
+  <p><b>What you will learn:</b></p>
    <ul>
      <li>Use road detectors to measure traffic</li>
      <li>Change road properties, e.g. close lanes.</li>
      <li>Modelling TMC functions with applications</li>
    </ul>"""
 [[tutorials]]
-  name = "Example Application"
+  name = "Example Applications"
   identifier = "additional_examples"
   url = "/tutorials/additional_examples"
   weight = 80
   post = """
   <img src="additional_examples/images/examples-intro.png">
-  <p><b>Collection of example applications.</b></p>
+  <p><b>Here we provide a collection of example applications including following aspects:</b></p>
   <ul>
    <li>Event Processing</li>
    <li>V2X Communication</li>
