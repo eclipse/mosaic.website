@@ -1,5 +1,6 @@
 .DS_Store
 .stackbit/
+.idea/
 node_modules/
 parsed-content/
 public/
