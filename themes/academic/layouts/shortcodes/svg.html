@@ -4,5 +4,5 @@
   {{ readFile $file | safeHTML }}
 </div>
 {{ else }}
-  {{ (printf "ERROR in svg partial: Could not find file '%s'." $file) | safeHTML }}
+  {{ printf "ERROR in svg partial: Could not find file '%s'." $file }}
 {{ end }}
