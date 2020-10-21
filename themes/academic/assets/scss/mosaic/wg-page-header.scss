@@ -164,16 +164,19 @@
         text-decoration: none;
         margin: 0;
         padding: 0;
+        p {
+          font-weight: normal;
+        }
       }
 
       p {
         font-size: medium;
       }
 
-      .feature-link {
+      p.feature-link {
         color: $mosaic-purple;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: bold !important;
         font-size: medium;
         margin: 0;
         padding: 0;

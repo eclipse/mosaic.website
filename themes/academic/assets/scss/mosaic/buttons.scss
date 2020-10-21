@@ -42,3 +42,14 @@
     background-image: linear-gradient(-45deg, #872E51 0%, #F88D2B 210%);
   }
 }
+
+.mosaic-btn-secondary {
+  color: #fff;
+  border-width: 0;
+  background-image: linear-gradient(-45deg, #68145C 0%, #BB86B3 100%);
+
+  &:hover, &:focus {
+    color: #fff;
+    background-image: linear-gradient(-45deg, #872E51 0%, #F88D2B 210%);
+  }
+}

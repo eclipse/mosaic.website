@@ -27,6 +27,44 @@ div.alert.alert-extended {
   }
 }
 
+// Learning Objectives
+div.alert.alert-learning_objectives {
+  color: darken($mosaic-green, 20%);
+  background-color: lighten($mosaic-green, 54%);
+  border-color: $mosaic-green;
+
+  & > div:first-child::before {
+    content: '\f19d'; // graduation hat
+    color: $mosaic-green;
+    font-size: 1.3rem;
+    top: -0.4rem;
+    left: -2.3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 0.2rem 0 0.3rem;
+    color: darken($mosaic-green, 23%);
+  }
+
+  ul li {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 0.2rem;
+
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 0.7rem;
+      line-height: 0;
+      content: '\f00c'; // check mark
+      position: absolute;
+      left: -1.1rem;
+      top: 0.7rem;
+    }
+  }
+}
+
 // TIP
 div.alert.alert-tip {
   color: darken($mosaic-green, 20%);

@@ -163,37 +163,9 @@ Applications are implemented by reacting to specific events. Those events are, a
 
 Another example:
 
-```mermaid
-sequenceDiagram
-activate RTI
-activate ApplicationSimulator
+{{< svg src="images/application_events.svg" >}}
 
-RTI ->> ApplicationSimulator: VehicleRegistration
-ApplicationSimulator ->> Application1: onStartup()
-activate Application1
-ApplicationSimulator ->> Application2: onStartup()
-activate Application2
-
-RTI ->> ApplicationSimulator: VehicleUpdates
-ApplicationSimulator ->> Application1: onVehicleUpdated()   
-ApplicationSimulator ->> Application2: onVehicleUpdated()
-
-RTI ->> ApplicationSimulator: VehicleUpdates
-ApplicationSimulator ->> Application1: onVehicleUpdated()
-ApplicationSimulator ->> Application2: onVehicleUpdated()
-Application2 ->> ApplicationSimulator: sendV2xMessage()
-ApplicationSimulator ->> RTI: V2xMessageTransmission
-
-RTI ->> ApplicationSimulator: V2xMessageReceiption
-ApplicationSimulator ->> Application1: onMessageReceived()
-
-RTI ->> ApplicationSimulator: VehicleUpdates (remove)
-ApplicationSimulator ->> Application1: onShutdown()
-deactivate Application1
-ApplicationSimulator ->> Application2: onShutdown()
-deactivate Application2
-```
-_Example sequence of onStartup, update, and tear down of two applications._
+_Example sequence of onStartup, onUpdate, onMessageReceived and onShutdown of two applications._
 
 A `onStartup()` method, which enables the ITS-G5 communication module of the unit, could be implemented the following:
 

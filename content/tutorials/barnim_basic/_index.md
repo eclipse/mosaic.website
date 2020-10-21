@@ -11,20 +11,23 @@ menu:
     weight: 1
 ---
 
-{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Barnim Tutorial" >}}
+{{% alert note %}}
+All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
+**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+{{% /alert %}}
 
 The following tutorial shows some of the features of Eclipse MOSAIC and will take a closer look
 at different federates. The map used in this tutorial is located near the city of Barnim, however,
 all features and configurations are transferable on your own scenarios. 
 
-## Learning Objectives
-
-This **Barnim Basic** tutorial includes configuration and mapping files to give you an understanding of the Eclipse MOSAIC scenarios. 
-That being said, after completing this tutorial you will be able to:
+{{% alert learning_objectives %}}
+This tutorial includes configuration and mapping files to give you an understanding of the Eclipse MOSAIC scenarios.   
+After completing this tutorial you will be able to:
 
 * Describe and configure simulation entities for Eclipse MOSAIC scenarios.
 * Enable and use a different communication simulator.
 * Mapping applications onto simulation entities.
+{{% /alert %}}
 
 ## Overview
 
@@ -39,7 +42,8 @@ With multi hop routing, the DENM message is transported upstream towards other v
  icy part of the road. Since they have careful and responsible drivers they slow down to avoid accidents.
 4. Cars that are equipped with the appropriate communication equipment are able to receive the DENM, which 
 induces them to use a different route (green) which is safer and faster due to the lack of ice on it.
-5. Last but not least, the **WeatherServer** (technically implemented as an RSU) propagates information over the cellular network and could therefore be located virtually everywhere.
+5. Last but not least, the **WeatherServer** (technically implemented as an RSU) propagates information over the
+cellular network and could therefore be located virtually everywhere.
 
 {{< figure src="images/barnim-map.png" title="Overview of Barnim tutorial scenario" numbered="true" >}}
 
@@ -47,11 +51,18 @@ induces them to use a different route (green) which is safer and faster due to t
 
 In this section, the applications will be described briefly which are used in the Barnim tutorial. 
 
-1. `com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp`-application which induces a speed reduction as soon as the onboard sensors detect hazardous conditions. After leaving the hazardous area, the vehicles will resume by increasing their speed again.
-2. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp`-application simulates the vehicles equipped with ad hoc wifi. They might not be able to receive the DENM due to range limitations and drive into the icy section nonetheless.
+1. `com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp`-application which induces a speed reduction as soon as the
+onboard sensors detect hazardous conditions. After leaving the hazardous area, the vehicles will resume by increasing
+their speed again.
+2. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp`-application simulates the vehicles equipped with ad hoc
+wifi. They might not be able to receive the DENM due to range limitations and drive into the icy section nonetheless.
 Vehicles equipped with ad hoc wifi.
-3. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell`-application, a specialized form of the normal weather warning application that can make use of cellular communication, simulates the Cellular communication enabled vehicles which are able to communicate with the WeatherServer.
-4. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer`-application, which simulates a fixed Weather-Server equipped with cellular communication. Despite the greater distance it is able to warn vehicles that can also make use of cellular communication.
+3. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell`-application, a specialized form of the normal weather
+warning application that can make use of cellular communication, simulates the Cellular communication enabled vehicles
+which are able to communicate with the WeatherServer.
+4. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer`-application, which simulates a fixed Weather-Server equipped
+with cellular communication. Despite the greater distance it is able to warn vehicles that can also make use of cellular
+communication.
 
 ## Mapping configuration
 
@@ -118,19 +129,27 @@ have no additional functionality to receive messages from the weather server.
             "lanes": [ 0, 1 ],
             "types": [
                 {
-                    "applications": [ "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell", "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp" ],
+                    "applications": [
+                        "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell",
+                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                    ],
                     "name": "Car",
                     "group": "Cellular",
                     "weight": 0.1
                 },
                 {
-                    "applications": [ "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp", "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp" ],
+                    "applications": [
+                        "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp",
+                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                    ],
                     "name": "Car",
                     "group": "AdHoc",
                     "weight": 0.2
                 },
                 {
-                    "applications": [ "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp" ],
+                    "applications": [
+                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                    ],
                     "name": "Car",
                     "group": "Unequipped",
                     "weight": 0.7
@@ -148,7 +167,7 @@ the corresponding simulators are enabled. The last part of the `scenario_config.
 is used to enable and disable certain simulators according to the needs of the user.
 
 Per default, the simulation of cellular communication is disabled. In order to enable communication via 
-cellular networks in this scenario, you need to enable the `cell` simulator by setting the field `active` to `true` :
+cellular networks in this scenario, you need to enable the `cell` simulator by setting the field `active` to `true`:
 
 ```json
 "federates": {
@@ -176,4 +195,5 @@ The `scenario_config.json` configuration file of the Barnim tutorial should have
     }
 }
 ```
-More information about the scenario configuration can be found [here](/docs/building_scenarios/scenarios/#main-configuration).
+More information about the scenario configuration can be found
+{{< link title="here" href="/docs/building_scenarios/scenarios/#main-configuration" >}}.

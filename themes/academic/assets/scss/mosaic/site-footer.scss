@@ -40,6 +40,9 @@
         padding: 0;
         margin: 0;
         list-style-type: none;
+        a {
+          font-weight: normal;
+        }
         .eclipse-logo {
           height: 2rem;
           padding: 0.2rem 0;
@@ -59,10 +62,12 @@
 
 // Footer in documentation
 .docs footer.site-footer {
+  margin-left: -1.5rem;
   margin-top: 1rem;
-  padding: 1.3rem;
+  padding: 2rem 3rem 1.6rem;
   font-size: 0.7rem;
   background: #f2f2f7;
+  width: calc(100% + 3rem);
 
   b {
     position: relative;
@@ -89,6 +94,10 @@
       padding: 0;
       margin: 0;
       list-style-type: none;
+      a {
+        font-weight: normal;
+        color: $mosaic-navy;
+      }
       .eclipse-logo {
         height: 2rem;
         padding: 0.2rem 0;

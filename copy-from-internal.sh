@@ -3,7 +3,7 @@
 set -e 
 set -o pipefail
 
-SRC=../mosaic-website-intern
+SRC=../mosaic-website
 
 THIS=`pwd`
 

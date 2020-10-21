@@ -1,5 +1,5 @@
 ---
-title: OMNeT++
+title: Network Simulator OMNeT++
 linktitle: Network - OMNeT++
 toc: true
 type: docs

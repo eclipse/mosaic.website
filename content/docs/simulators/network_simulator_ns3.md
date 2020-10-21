@@ -1,5 +1,5 @@
 ---
-title: ns-3
+title: Network Simulator ns-3
 linktitle: Network - ns-3
 toc: true
 type: docs

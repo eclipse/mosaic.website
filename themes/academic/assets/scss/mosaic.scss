@@ -4,6 +4,7 @@
 @import "mosaic/buttons";
 @import "mosaic/docs";
 @import "mosaic/site-footer";
+@import "mosaic/svg";
 @import "mosaic/tutorials";
 @import "mosaic/wg-features-widget";
 @import "mosaic/wg-hero";
@@ -30,12 +31,22 @@ h3.article-title a {
   color: $mosaic-purple;
   &:hover {
     color: $mosaic-orange;
-    //text-decoration: underline;
   }
+}
+
+a {
+  font-weight: bold;
+  color: #CF6B39;
+  transition: all ease-in-out 0.1s !important;
+  -webkit-transition: all ease-in-out 0.1s !important;
+}
+table a {
+  color: $mosaic-purple;
 }
 
 nav a {
   color: $mosaic-navy;
+  font-weight: normal;
 }
 
 nav a,

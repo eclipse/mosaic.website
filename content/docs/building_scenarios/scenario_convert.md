@@ -19,8 +19,9 @@ gallery_item:
     caption: Cleaned OSM-File
 ---
 
-{{% alert note %}}
-The tool **scenario-convert** is available in MOSAIC Extended and can be used for free for research and academical purposes.
+{{% alert extended %}}
+The tool **scenario-convert** is part of **{{< link title="MOSAIC Extended" href="/download#overview" >}}**.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 Scenario-convert is a useful tool, which can be used to create new scenarios or import and export data from

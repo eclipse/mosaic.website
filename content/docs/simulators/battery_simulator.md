@@ -19,9 +19,8 @@ for vehicle, environment and the battery are provided and will be briefly explai
 sections.
 
 {{% alert extended %}}
-The **Battery Simulator** is available in **[MOSAIC Extended](/download#overview)** and can be used for free for
-research and academical purposes. For further information on licenses, please feel free to contact us via
-**[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
+The **Battery Simulator** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 ### Installation

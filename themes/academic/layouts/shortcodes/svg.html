@@ -1,0 +1,8 @@
+{{ $file := (printf "%s/%s" .Page.File.Dir (.Get "src") | relURL) }}
+{{ if fileExists $file }}
+<div class="svg-wrap">
+  {{ readFile $file | safeHTML }}
+</div>
+{{ else }}
+  {{ (printf "<!-- ERROR in svg partial: Could not find file '%s'. -->" $file) | safeHTML }}
+{{ end }}

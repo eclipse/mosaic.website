@@ -10,9 +10,10 @@ ul.menu-overview {
 
     span.inner {
       @extend .mosaic-card-dark;
-      padding: 1rem 1.3rem 4rem;
+      padding: 1rem 1.3rem 3rem;
       width: 100%;
       position: relative;
+      overflow: hidden;
 
       .title {
         display: block;
@@ -28,11 +29,24 @@ ul.menu-overview {
           border-radius: 0.2rem;
         }
         ul {
-          padding-left: 0.9rem;
+          padding-left: 1.2rem;
+          margin-top: -0.7rem;
           li {
-            list-style-type: disclosure-closed;
+            list-style-type: none;
+            position: relative;
             &::marker {
               color: #777; //$mosaic-purple;
+            }
+            &::before {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              font-size: 0.7rem;
+              line-height: 0;
+              content: '\f00c'; // check mark
+              position: absolute;
+              left: -1.1rem;
+              top: 0.7rem;
+              color: darken($mosaic-green, 15%);
             }
           }
         }
@@ -44,11 +58,19 @@ ul.menu-overview {
         display: block;
         position: absolute;
         left: 0;
-        bottom: 1rem;
+        bottom: 0;
         a {
+          display: block;
           margin: 0;
           position: relative;
           padding-left: 1.8rem;
+          border-radius: 0;
+          background-color: $mosaic-purple;
+          @extend .gradient-purple-darken-hover;
+          text-align: left;
+          &:hover {
+            @extend .gradient-orange-purple-dark;
+          }
           &::before {
             content: "»";
             font-size: 1.1rem;

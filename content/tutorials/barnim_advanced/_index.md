@@ -11,7 +11,10 @@ menu:
     weight: 1
 ---
 
-{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Barnim Tutorial" >}}
+{{% alert note %}}
+All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
+**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+{{% /alert %}}
 
 The **Barnim Advanced** tutorial extends the preceding tutorial and focuses on the implementation of applications
 used in the Barnim scenario. In this section, the actual source code used to create the applications is explained, 

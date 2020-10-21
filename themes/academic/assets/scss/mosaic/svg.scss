@@ -1,0 +1,21 @@
+.svg-wrap {
+  padding: 1rem 0;
+  text-align: center;
+
+  svg {
+    .messageText {
+      stroke: transparent !important;
+      font-family: "Lato", sans-serif !important;
+    }
+    g,
+    text {
+      font-family: "Lato", sans-serif !important;
+      line-height: 1;
+    }
+    div {
+      font-family: "Lato", sans-serif !important;
+      line-height: 0.9rem;
+      font-size: 0.7rem;
+    }
+  }
+}
