@@ -20,7 +20,11 @@ The ambassador communicates with the actual simulator, which is represented by t
 For some cases, if the simulator is directly coupled with the RTI (e.g. Application, or cell), the ambassador also 
 represents the federate. This architecture allows a simple coupling of own simulators.
 
+TEST
+
 {{< svg src="images/simulators_overview.svg" >}}
+{{< figure src="images/simulators_overview.svg" >}}
+
 
 {{< svg src="images/shortcomingsApproaching.svg" >}}
 
