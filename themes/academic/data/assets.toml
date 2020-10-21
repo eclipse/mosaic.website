@@ -46,7 +46,7 @@
   url = "https://cdnjs.cloudflare.com/ajax/libs/fuse.js/%s/fuse.min.js"
 [js.mark]
   version = "8.11.1"
-  sri = "sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
+  sri = "sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg=="
   url = "https://cdnjs.cloudflare.com/ajax/libs/mark.js/%s/jquery.mark.min.js"
 [js.instantsearch]
   version = "4.8.3"
