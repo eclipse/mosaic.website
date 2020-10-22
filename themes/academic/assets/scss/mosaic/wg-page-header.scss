@@ -47,28 +47,13 @@
     .buttons {
       margin-bottom: 0;
       a.mosaic-btn {
-        &:hover {
-          background-color: $mosaic-purple;
-          color: #fff !important;
-          border-color: #fff !important;
-          i {
-            color: #fff;
-          }
-        }
         margin-top: 0;
-        background-color: #fff;
-        color: #231a4d !important;
-        border: 1px solid #fff;
         margin-bottom: 0.7rem;
         padding: 0.4rem 1.2rem;
         min-width: 9.4rem;
         text-align: left;
         margin-right: -0.7rem;
         font-size: 0.8rem;
-        i {
-          color: $mosaic-purple;
-          margin-right: 0.3rem;
-        }
       }
     }
   }
@@ -81,8 +66,6 @@
     transform: translateX(-50%);
     width: 200%;
     height: 100%;
-    //border-radius: 50%;
-    background-color: #1b1b32;
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: auto 100%;

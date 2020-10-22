@@ -23,11 +23,13 @@
   color: $mosaic-purple !important;
   border-color: #fff;
   background-color: #fff;
+  @extend .gradient-white-darken;
 
   &:hover, &:focus {
     background-color: transparent;
     color: #fff !important;
     border-color: #fff;
+    background-image: none;
   }
 }
 

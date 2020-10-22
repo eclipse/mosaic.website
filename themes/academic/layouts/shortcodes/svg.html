@@ -1,6 +1,7 @@
-{{ $file := (printf "%s/%s" .Page.File.Dir (.Get "src")) }}
+{{ $file := (printf "%s%s" .Page.File.Dir (.Get "src")) }}
 {{ if fileExists $file }}
 <div class="svg-wrap">
+  {{ printf "Path: <b>%s</b><br><br>" $file | safeHTML }}
   {{ (readFile $file) | safeHTML }}
 </div>
 {{ else }}

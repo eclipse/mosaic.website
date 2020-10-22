@@ -13,7 +13,7 @@ alignment = "left" # left or center (default)
 
 [design.background]
   # Background image.
-  image = "background-home.jpg"
+  #image = "background-home.jpg"
   image_opacity = "1.0"
   
   # Text color (true=light or false=dark).

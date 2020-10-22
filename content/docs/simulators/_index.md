@@ -23,8 +23,6 @@ represents the federate. This architecture allows a simple coupling of own simul
 TEST
 
 {{< svg src="images/simulators_overview.svg" >}}
-{{< figure src="images/simulators_overview.svg" >}}
-
 
 {{< svg src="images/shortcomingsApproaching.svg" >}}
 

@@ -22,10 +22,13 @@
 
 .gradient-header {
   @extend .gradient-orange-purple-navy;
+  background-image: linear-gradient(135deg, #0F0433 20%, #68145C 50%, #F88D2B 100%);
+  background-image: linear-gradient(135deg, #0F0433 20%, #2D2252 40%, #68145C 50%, #F88D2B 100%);
 }
 
 .gradient-footer {
   @extend .gradient-orange-purple-navy;
+  background-image: linear-gradient(135deg, #0F0433 20%, #2D2252 40%, #68145C 50%, #F88D2B 100%);
 }
 
 // Card with content, round borders, shadow and background
