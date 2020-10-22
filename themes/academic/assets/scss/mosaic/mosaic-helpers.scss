@@ -1,14 +1,17 @@
-.gradient-orange-purple-navy {
-  background-image: linear-gradient(-45deg, $mosaic-navy 10%, $mosaic-purple 50%, $mosaic-orange 100%);
-}
+// Gradients: Orange
 .gradient-orange {
   background-image: linear-gradient(-45deg, darken($mosaic-orange, 10%), $mosaic-orange);
 }
-.gradient-orange-purple {
-  background-image: linear-gradient(-45deg, $mosaic-purple, $mosaic-orange);
+.gradient-orange-darken {
+  background-image: linear-gradient(-45deg, darken($mosaic-orange, 4%) 0, lighten($mosaic-orange, 3%) 70%);
 }
-.gradient-orange-purple-dark {
-  background-image: linear-gradient(-45deg, $mosaic-purple, $mosaic-orange 150%);
+.gradient-orange-darken-hover {
+  background-image: linear-gradient(-45deg, darken($mosaic-orange, 4%) -30%, lighten($mosaic-orange, 3%) 40%);
+}
+
+// Gradients: Purple
+.gradient-purple {
+  background-image: linear-gradient(-45deg, darken($mosaic-purple, 10%), $mosaic-purple);
 }
 .gradient-purple-darken {
   background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) 0, lighten($mosaic-purple, 3%) 70%);
@@ -16,8 +19,42 @@
 .gradient-purple-darken-hover {
   background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) -30%, lighten($mosaic-purple, 3%) 40%);
 }
+
+// Gradients: Navy
+.gradient-navy {
+  background-image: linear-gradient(-45deg, darken($mosaic-navy, 10%), $mosaic-navy);
+}
+.gradient-purple-darken {
+  background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) 0, lighten($mosaic-purple, 3%) 70%);
+}
+.gradient-purple-darken-hover {
+  background-image: linear-gradient(-45deg, darken($mosaic-purple, 4%) -30%, lighten($mosaic-purple, 3%) 40%);
+}
+
+// Gradients: White
 .gradient-white-darken {
   background-image: linear-gradient(-45deg, darken(#ffffff, 4%) 0, #ffffff 70%);
+}
+
+// Gradients: Orange – Purple
+.gradient-orange-purple {
+  background-image: linear-gradient(-45deg, $mosaic-purple, $mosaic-orange);
+}
+.gradient-orange-purple-dark {
+  background-image: linear-gradient(-45deg, $mosaic-purple, $mosaic-orange 150%);
+}
+
+// Gradients: Purple – Navy
+.gradient-purple-navy {
+  background-image: linear-gradient(-45deg, $mosaic-navy, $mosaic-purple);
+}
+.gradient-purple-navy-hover {
+  background-image: linear-gradient(-45deg, darken($mosaic-navy, 4%) -30%, lighten($mosaic-purple, 3%) 40%);
+}
+
+// Gradients: Orange – Purple – Navy
+.gradient-orange-purple-navy {
+  background-image: linear-gradient(-45deg, $mosaic-navy 10%, $mosaic-purple 50%, $mosaic-orange 100%);
 }
 
 .gradient-header {

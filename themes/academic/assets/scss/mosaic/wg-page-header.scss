@@ -30,7 +30,7 @@
   }
 
   .alignment-left {
-    padding-top: 2rem;
+    padding-top: 2.3rem;
     padding-bottom: 2.5rem;
     .page-header-logo {
       img {
@@ -62,13 +62,12 @@
     position: absolute;
     content: '';
     bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200%;
+    left: 0;
+    width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: auto 100%;
+    background-size: 100% 100%;
+    background-position: bottom right;
   }
 
   & > .container {
@@ -128,7 +127,7 @@
         background-image: none;
         box-shadow: 0 10px 20px -10px fade-out($color: $mosaic-navy, $amount: 0.2);
         p.feature-link {
-          @extend .gradient-purple-darken-hover;
+          @extend .gradient-purple-navy-hover;
         }
       }
 
@@ -176,7 +175,7 @@
       }
 
       p.feature-link {
-        @extend .gradient-purple-darken;
+        @extend .gradient-purple-navy;
         color: #fff;
         margin: 1rem -1.4rem -1.4rem;
         padding: 0.4rem 1.4rem 0.5rem;
