@@ -1,4 +1,5 @@
 .DS_Store
+.xcf
 .stackbit/
 node_modules/
 parsed-content/
