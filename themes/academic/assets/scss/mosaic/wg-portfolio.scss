@@ -33,11 +33,22 @@
       img {
         border-radius: 0.7rem;
       }
-      .article-metadata {
-        margin-top: 0.7rem;
-        padding-top: 0.5rem;
-        border-top: 1px dotted #aaa;
-      }
     }
+  }
+}
+
+.article-metadata {
+  margin-top: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 1px dotted #aaa;
+}
+
+h3.article-title {
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 576px) {
+  .wg-portfolio .project-showcase .project-item {
+    margin-bottom: 0.5rem;
   }
 }

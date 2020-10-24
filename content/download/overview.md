@@ -12,6 +12,12 @@ table {
     width: 80%;
     margin: 1rem auto 3rem auto;
 }
+@media screen and (max-width: 576px) {
+  table {
+    width: 100%;
+    margin: 0;
+  }
+}
 table th:first-of-type {
     width: 10%;
 }

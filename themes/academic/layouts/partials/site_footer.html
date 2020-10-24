@@ -2,7 +2,7 @@
   <div class="row">
   {{ range site.Menus.footer }}
     {{ if and .Name .HasChildren }}
-      <div class="col-sm-4">
+      <div class="col-sm-4 mb-3 mb-md-0">
         <b>{{ .Name }}</b>
         {{ if .HasChildren }}
           <ul>
@@ -61,7 +61,7 @@
       Header image &#169; fanjianhua/ iStock
     </p>
     {{ if not (in (slice "docs" "updates") .Type) }}
-      <span class="position-absolute" aria-hidden="true" style="right: 0;">
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
         <a href="#" class="back-to-top">
           <span class="button_icon">
             <i class="fas fa-chevron-up fa-2x"></i>

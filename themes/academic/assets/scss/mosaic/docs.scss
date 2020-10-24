@@ -114,3 +114,16 @@ a.docs-toc-link {
 #TableOfContents li a, .toc-top li a {
   color: #79777d;
 }
+
+@media screen and (max-width: 576px) {
+  .docs-sidebar {
+    max-height: calc(100vh - 50px);
+    overflow-y: scroll;
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+  }
+  .docs-content {
+    margin-top: 70px;
+  }
+}

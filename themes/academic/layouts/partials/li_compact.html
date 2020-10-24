@@ -31,21 +31,29 @@
 {{ end }}
 
 
-<div class="media stream-item">
-
-  <div class="mr-3">
+<div class="row mb-4">
+  <div class="col-4 d-none d-md-block">
     {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
     {{ with $resource }}
-    {{ $image := .Resize "300x" }}
+    {{ $image := .Resize "370x" }}
+    <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
+      <img src="{{ $image.RelPermalink }}" alt="{{ $item.Title }}">
+    </a>
+    {{end}}
+  </div>
+  <div class="col-12 d-block d-md-none mb-3">
+    {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
+    {{ with $resource }}
+    {{ $image := .Resize "540x" }}
     <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
       <img src="{{ $image.RelPermalink }}" alt="{{ $item.Title }}">
     </a>
     {{end}}
   </div>
 
-  <div class="media-body">
+  <div class="col-12 col-md-8 mb-3 mb-md-0">
 
-    <h3 class="article-title mb-0 mt-0">
+    <h3 class="article-title mb-2 mt-0">
       <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
     </h3>
 
@@ -55,7 +63,7 @@
     </div>
     {{ end }}
 
-    <div class="stream-meta article-metadata">
+    <div class="stream-meta">
 
       {{ if eq $item.Type "talk" }}
       <div>

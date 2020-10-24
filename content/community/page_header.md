@@ -6,19 +6,13 @@ weight = 10  # Order that this section will appear.
 
 title = "Eclipse MOSAIC Community"
 subtitle = "Become a part of the Eclipse MOSAIC world, benefit from and contribute to our project."
+alignment = "center"
 
 feature_col_width = 5
 
 [design.background]
-  # Background image.
-  #image = "fokus.png"  # Name of image in `static/img/`.
-  image = "background-home.jpg"
-  image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
-  image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
-  image_opacity = "0.2"
-  
-  # Text color (true=light or false=dark).
-  # text_color_light = true
+  image = "background-home-02.jpg"
+  image_opacity = "0.4"
 
 [[feature]]
   name = "<i class='fab fa-github' aria-hidden='true'></i> Contribute to Eclipse MOSAIC"

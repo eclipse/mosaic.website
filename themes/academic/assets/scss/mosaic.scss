@@ -7,6 +7,7 @@
 @import "mosaic/site-footer";
 @import "mosaic/svg";
 @import "mosaic/tutorials";
+@import "mosaic/wg-cards";
 @import "mosaic/wg-features-widget";
 @import "mosaic/wg-hero";
 @import "mosaic/wg-page-header";
@@ -21,6 +22,11 @@ body {
 .navbar-brand img {
   max-height: 46px;
   height: 200px;
+}
+@media screen and (max-width: 576px) {
+  .navbar-brand img {
+    max-height: 34px;
+  }
 }
 
 .article-style {
@@ -57,6 +63,9 @@ h3.article-title a {
 
 h1, h2, h3, h4, h5, h6 {
   color: $mosaic-navy;
+}
+h1 {
+  font-size: 1.95rem;
 }
 
 hr {
@@ -105,10 +114,20 @@ body.page-docs #navbar-main > .container {
 .home-section {
   padding: 50px 0 70px;
 }
+@media screen and (max-width: 576px) {
+  .home-section {
+    padding: 1rem 0;
+  }
+}
 
-.section-heading p {
-  color: #817f88;
-  font-style: italic;
+.section-heading {
+  h1 {
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #817f88;
+    font-style: italic;
+  }
 }
 
 .features .feature .feature-inner .image {

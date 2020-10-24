@@ -1,67 +1,109 @@
 +++
-widget = "features_widget" # Custom Mosaic feature
+widget = "cards"
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 10  # Order that this section will appear.
-
-# feature_image_height = "12rem"
+weight = 20  # Order that this section will appear in.
 
 title = "MOSAIC as Collection of Models"
-subtitle = "different models allow for many fields of application for the simulation suite"
+subtitle = "Different models allow for many fields of<br>application for the simulation suite."
 
-[[feature]]
-  banner_title = "Application"
-  banner_mosaic_color = "purple"
-  subtitle = "Mobility Applications"
-  description = "Development of smart and sustainable mobility applications for all kinds of users and impact assessment in future traffic models."
-  image = "/img/smart-application.png"
-  image_above_heading = true
-  weight = 10
-
-[[feature]]
-  banner_title = "Application"
-  banner_mosaic_color = "purple"
-  subtitle = "Real Time Traffic Management"
-  description = "Management and control of road infrastructure to avoid traffic jams, prioritize emergency vehicles and increase overall traffic efficiency."
-  image = "/img/traffic-management.png"  # "/img/traffic-management_grey-street.png"
-  image_above_heading = true
-  weight = 20
-
-[[feature]]
-  banner_title = "Application"
-  banner_mosaic_color = "purple"
-  subtitle = "Collaborative Driving"
-  description = "Virtual Testing of ADAS functions for collaboration among vehicles to increase safety and improve efficiency."
-  image = "/img/collaborative-driving.png"
-  image_above_heading = true
-  weight = 30
-
-[[feature]]
-  banner_title = "Communication"
-  banner_mosaic_color = "blue"
-  subtitle = "Intelligent Connected Vehicles"
-  description = "Realistic modelling and simulation of communication links via 4G/5G cellular and ITS-G5 ad-hoc networks."
-  image = "/img/connected-vehicles.png"  # "/img/connected-vehicles_grey-street.png"
-  image_above_heading = true
-  weight = 11
-  
-
-[[feature]]
-  banner_title = "Traffic"
-  banner_mosaic_color = "green"
-  subtitle = "Smart Public Safety"
-  description = "Integration of Vulnerable Road User (pedestrians, cyclists) into simulation scenarios to increase the public safety."
-  image = "/img/public-safety.png"
-  image_above_heading = true
-  weight = 12
-  
-[[feature]]
-  banner_title = "Traffic"
-  banner_mosaic_color = "green"
-  subtitle = "Electric Mobility"
-  description = "Integration of electric vehicles and battery components as well as charging infrastructure for green mobility solutions."
-  image = "/img/e-mobility.png"  # "/img/e-mobility_grey-street.png"
-  image_above_heading = true
-  weight = 22
-
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Mobility Applications"
+    text = "Development of smart and sustainable mobility applications for all kinds of users and impact assessment in future traffic models."
+    [card.banner]
+        title = "Application"
+        color = "purple"
+    [card.image]
+        file = "/img/smart-application.png"
+        alt = "Mobility Application"
+        width = "75%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
+#    [card.hidden_content]
+#        title = "Mobility Applications"
+#        subtitle = "Sub Title"
+#        text = """Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Aenean
+#            lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna. 
+#            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus
+#            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  
+#            Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+#            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
+#            libero, a pharetra augue. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac,
+#            vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur."""
+#        [[card.hidden_content.image]]
+#            file = "/img/smart-application.png"
+#            alt = "Mobility Application"
+#            width = "100%"
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Intelligent Connected Vehicles"
+    text = "Realistic modelling and simulation of communication links via 4G/5G cellular and ITS-G5 ad-hoc networks."
+    [card.banner]
+        title = "Communication"
+        color = "blue"
+    [card.image]
+        file = "/img/connected-vehicles.png"
+        alt = "Intelligent Connected Vehicles"
+        width = "85%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Smart Public Safety"
+    text = "Integration of Vulnerable Road User (pedestrians, cyclists) into simulation scenarios to increase the public safety."
+    [card.banner]
+        title = "Traffic"
+        color = "green"
+    [card.image]
+        file = "/img/public-safety.png"
+        alt = "Smart Public Safety"
+        width = "90%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Real Time Traffic Management"
+    text = "Management and control of road infrastructure to avoid traffic jams, prioritize emergency vehicles and increase overall traffic efficiency."
+    [card.banner]
+        title = "Communication"
+        color = "blue"
+    [card.image]
+        file = "/img/traffic-management.png"
+        alt = "Real Time Traffic Management"
+        width = "85%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Electric Mobility"
+    text = "Integration of electric vehicles and battery components as well as charging infrastructure for green mobility solutions."
+    [card.banner]
+        title = "Traffic"
+        color = "green"
+    [card.image]
+        file = "/img/e-mobility.png"
+        alt = "Electric Mobility"
+        width = "90%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
+[[card]]
+    width = "4"
+    padding_top = "1.8rem"
+    subtitle = "Collaborative Driving"
+    text = "Virtual Testing of ADAS functions for collaboration among vehicles to increase safety and improve efficiency."
+    [card.banner]
+        title = "Application"
+        color = "purple"
+    [card.image]
+        file = "/img/collaborative-driving.png"
+        alt = "Real Time Traffic Management"
+        width = "85%"
+        wrap_height = "9rem"
+        vertical_alignment = "end"
 +++

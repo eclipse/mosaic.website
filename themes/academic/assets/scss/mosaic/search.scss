@@ -16,3 +16,16 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  #search {
+    .container {
+      padding-top: 0;
+    }
+    div.logo {
+      background-size: 50%;
+      background-position: -13px -14px;
+      height: 47px;
+    }
+  }
+}

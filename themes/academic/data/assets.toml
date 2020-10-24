@@ -6,7 +6,6 @@
 # Or, the SRI for the appropriate asset can be copied from https://cdnjs.com/ .
 
 # JavaScript
-
 [js.jQuery]
   version = "3.4.1"
   sri = "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"

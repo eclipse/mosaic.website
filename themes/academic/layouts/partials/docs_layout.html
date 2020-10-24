@@ -1,13 +1,13 @@
 {{ $current_page := . }}
 
-<div class="container docs"> <!-- <div class="container-fluid docs"> -->
+<div class="docs container">
   <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-xl-3 docs-sidebar">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
       {{ partial "docs_sidebar" . }}
     </div>
 
     {{ if .Params.toc }}
-    <div class="d-none d-xl-block col-xl-2 docs-toc">
+    <div class="docs-toc d-none d-xl-block col-xl-2">
       <ul class="nav toc-top">
         <li><a href="#" id="back_to_top" class="docs-toc-title">{{ i18n "on_this_page" }}</a></li>
       </ul>

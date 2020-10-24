@@ -126,3 +126,20 @@
     text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
   }
 }
+
+.card {
+  border: 0;
+  border-radius: 0.4rem;
+  background-color: #ede9f0;
+  background-image: linear-gradient(-45deg, #e5e0ea, #fefdff);
+  box-shadow: 0.2rem 0.3em 0.2rem rgba(24, 21, 30, 0.17), inset 0 0 1px #aaa;
+  &:hover {
+    box-shadow: 0.2rem 0.3em 0.2rem rgba(24, 21, 30, 0.17), inset 0 0 1px #aaa;
+  }
+}
+section:nth-of-type(2n + 1) {
+  .card {
+    background-image: linear-gradient(-45deg, #f5f4f7, #fff);
+  }
+}
+
