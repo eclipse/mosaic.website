@@ -1,5 +1,6 @@
 .alert, div.alert > div {
   font-size: 0.75rem;
+  border-radius: 0.8rem;
 }
 
 // MOSAIC EXTENDED
@@ -96,5 +97,6 @@ div.alert.alert-warning {
 
   & > div:first-child::before {
     color: $mosaic-orange;
+    left: -2.4rem;
   }
 }

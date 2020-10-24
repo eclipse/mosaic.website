@@ -25,7 +25,7 @@
   </div>
 
   <div class="text col-12 col-md-9">
-    {{ .content | safeHTML }}
+    {{ .content | markdownify | safeHTML }}
   </div>
 </div>
 {{ end }}
