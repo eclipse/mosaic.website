@@ -69,9 +69,8 @@ TopoCasts on the other hand use means of IPv4 addressing to transmit messages. S
 are limited to transmissions with a single hop. However, TopoCasts support _BroadCasts_ and _UniCasts_ (we are omitting Anycasts).
 Most transmissions in the Ad hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
 receive a message.  
-The flowchart below tries to explain how different types of messages are handled internally.
 
-{{< svg src="images/sns_transmission_logic_flowchart.svg" >}}
+{{< svg src="images/sns_transmission_logic_flowchart.svg" desc="This flowchart tells how different types of messages are handled internally." >}}
 
 ### TopoCasts
 The only way of directly addressing entities is a _SingleHopUniCast_ (see figure below), the sender will try to address an entity
