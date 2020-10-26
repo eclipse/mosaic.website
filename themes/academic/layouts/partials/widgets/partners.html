@@ -1,5 +1,6 @@
 {{ range .page.Params.image_text_block }}
 <div class="image-text-block row mb-4">
+  <!-- Images left beside text -->
   <div class="image col-3 d-none d-md-block">
     <div class="row justify-content-center">
       {{ range .image }}
@@ -11,6 +12,7 @@
     </div>
   </div>
 
+  <!-- Images above text -->
   <div class="image col-12 d-block d-md-none mb-3">
     <div class="row justify-content-center">
       {{ range .image }}
@@ -34,7 +36,7 @@
   {{ $logo_height := .page.Params.logo_height | default "50px" }}
   {{ range .page.Params.logo }}
     <a href="{{ .url }}" class="view-list-item ml-4 mr-4 mb-4">
-      <img src="{{ printf "/img/logos/%s" .logo | relURL }}" style="height: {{$logo_height}};">
+      <img src="{{ printf "/img/logos/partners/%s" .logo | relURL }}" style="height: {{$logo_height}};">
     </a>
   {{ end }}
 </div>

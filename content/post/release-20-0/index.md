@@ -39,3 +39,14 @@ image:
 [C+] SNS supports most important Geo-Routing features for ad-hoc multihop communication
 [T+] Now supports SUMO 1.7.0
 ```
+
+**Changelog (Features and Bugfixes) Legend:**  
+`[M]` Eclipse MOSAIC  
+`[A]` Application simulator  
+`[B]` Battery simulator  
+`[C]` Communication simulator  
+`[E]` Environment simulator  
+`[N]` Navigation component  
+`[S]` Scenario-convert  
+`[T]` Traffic simulator  
+`[+/-]` new Feature/Bugfix  

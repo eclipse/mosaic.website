@@ -4,7 +4,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-logo = "/img/EclipseMOSAIC-Logo-RGB-negativ.svg"
+logo = "/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-negativ.svg"
 logo_title = "Eclipse MOSAIC"
 logo_height = "13rem"
 #title = "Eclipse MOSAIC"

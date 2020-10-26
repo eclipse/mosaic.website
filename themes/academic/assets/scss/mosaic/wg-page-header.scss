@@ -122,7 +122,7 @@
         background-image: none;
         box-shadow: 0 10px 20px -10px fade-out($color: $mosaic-navy, $amount: 0.2);
         p.feature-link {
-          @extend .gradient-purple-navy-hover;
+          background-image: linear-gradient(-45deg, #872E51 0%, #F88D2B 210%);
         }
       }
 
@@ -149,7 +149,7 @@
       p {
         font-size: medium;
         &.feature-link {
-          @extend .gradient-purple-navy;
+          background-image: linear-gradient(-45deg, #57114d -30%, #751667 40%);
           color: #fff;
           margin: 1rem -1.4rem -1.4rem;
           padding: 0.4rem 1.4rem 0.5rem;
@@ -159,7 +159,6 @@
           font-size: medium;
           transition: all 0.2s ease;
           -webkit-transition: all 0.2s ease;
-
           &::before {
             content: "› ";
             font-size: larger;
@@ -172,7 +171,6 @@
 
       a.feature-link:hover {
         color: $mosaic-navy;
-
         &::before {
           padding-right: 3px;
         }

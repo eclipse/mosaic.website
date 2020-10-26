@@ -12,6 +12,7 @@
 @import "mosaic/wg-hero";
 @import "mosaic/wg-page-header";
 @import "mosaic/wg-portfolio";
+@import "mosaic/wg-projects";
 @import "mosaic/wg-text-image";
 @import "mosaic/wg-text-card";
 
@@ -136,4 +137,17 @@ body.page-docs #navbar-main > .container {
   background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
+}
+
+.partner-logos {
+  border-top: 2px dotted #ccc;
+  padding-top: 3rem;
+  a img {
+    transform: scale(1);
+    -webkit-transition: transform ease-in-out 0.2s;
+    transition: transform ease-in-out 0.2s;
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
 }

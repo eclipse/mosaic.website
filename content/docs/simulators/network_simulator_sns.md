@@ -143,7 +143,7 @@ find a path if one exists, however this hasn't been implemented yet (feel free t
 The figure below shows an example of those shortcomings, the message will be send using the green nodes and won't receive the destination
 area, even though there is a possible "chain" using the yellow nodes.
 
-{{< figure src="../images/shortcomingsApproaching.svg" title="This figure depicts a case were the Approaching Transmission wouldn't reach the destination area, even though there is a possible way. (The dashed lines represent the communication range)" >}}
+{{< svg src="images/shortcomingsApproaching.svg" desc="This figure depicts a case were the Approaching Transmission wouldn't reach the destination area, even though there is a possible way. (The dashed lines represent the communication range)" >}}
 
 #### Flooding
 The implementation of Flooding is fairly equivalent as described on

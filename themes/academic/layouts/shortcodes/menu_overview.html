@@ -1,9 +1,9 @@
-<ul class="menu-overview row">
+<ul class="menu-overview row justify-content-center">
     {{ $currentPage := . }}
     {{ $menuName := .Get 0 }}
     {{ range $index, $menuItem := (index .Site.Menus $menuName) }}
         {{ $counter := add $index 1 }}
-        <li class="col-md-4">
+        <li class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
             <span class="inner">
                 <span class="title">
                     <span class="counter">{{ $counter }}.&nbsp;</span>

@@ -20,8 +20,12 @@
 
   {{ range $card_index, $card := .page.Params.card }}
     {{ with $card }}
-      {{ $card_width := printf "col-%s" (.width | default "4") }}
-      <div id="card-wrap-{{ $card_index }}" class="card-wrap {{ $card_width }} position-relative mb-4">
+      {{ $col_width := (printf "col-%s" (.width.default | default "11")) }}
+      {{ $col_width = (printf "%s col-sm-%s" $col_width (.width.sm | default "10")) }}
+      {{ $col_width = (printf "%s col-md-%s" $col_width (.width.md | default "6")) }}
+      {{ $col_width = (printf "%s col-lg-%s" $col_width (.width.lg | default "5")) }}
+      {{ $col_width = (printf "%s col-xl-%s" $col_width (.width.xl | default "4")) }}
+      <div id="card-wrap-{{ $card_index }}" class="card-wrap {{ $col_width }} position-relative mb-4">
         {{ with .banner }}
         <div class="banner {{if .color}}mosaic-{{.color}}{{end}}">
           {{ if .subtitle }}
@@ -83,8 +87,17 @@
               {{ with .button }}
                 <div class="w-100 mb-4"></div>
                 <div class="button">
-                  <a href="{{ .url | relURL }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary btn-bottom">
-                    <span class="prefix">»</span> {{ .title }}
+                  {{ $href := printf "href=\"%s\"" (.url | relURL) }}
+                  {{ if eq "mailto:" (slicestr .url 0 7) }}
+                    {{ $href = printf "href=\"%s\"" .url }}
+                  {{ end }}
+                  <a {{ $href | safeHTMLAttr }} title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary btn-bottom">
+                    {{ if .icon }}
+                      <i class="fas fa-{{ .icon }}"></i>
+                    {{ else }}
+                      <span class="prefix">»</span>
+                    {{ end }}
+                    {{ .title }}
                   </a>
                 </div>
               {{ end }}

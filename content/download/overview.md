@@ -39,7 +39,7 @@ includes all simulators and tools we think are most valuable for research purpos
 features in our **MOSAIC Extended** version, which includes all open-source elements of Eclipse MOSAIC and additional tools for scenario
 preparation and visualization. For commercial users we even provide additional simulators, such as the vehicle simulation **PHABMACS**.
 
-|  | *Feature*                 | {{< img src="/img/EclipseMOSAIC-Logo-RGB-positiv.svg" width="220px" >}} | {{< img src="/img/MOSAICExtended-Logo-RGB-positiv.svg" width="220px" >}} |
+|  | *Feature*                 | {{< img src="/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg" width="220px" >}} | {{< img src="/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg" width="220px" >}} |
 |:-|:--------------------------|:-------------:|:---------------:|
 |  |**License Type**           | Open Source <br> EPL 2.0|Commercial*|
 |  |||||| 
