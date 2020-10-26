@@ -72,9 +72,9 @@ private void sample() {
 
 	getOperatingSystem().getCellModule().sendV2xMessage(denm);
 
-	getLog().infoSimTime(this, "Sent DENM");
+    getLog().infoSimTime(this, "Sent DENM");
 
-	getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime() + INTERVAL, this));
+    getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime() + INTERVAL, this));
 }
 ```
 
@@ -85,7 +85,7 @@ as soon as the proposed event time is reached. As this class implements the `Eve
 ```java
 @Override
 public void processEvent(Event event) throws Exception {
-	sample();
+    sample();
 }
 ```
 
@@ -141,8 +141,131 @@ public void onStartup() {
 		getLog().infoSimTime(this, "Activated AdHoc Module");
 	}
 
-	getOperatingSystem().requestVehicleParametersUpdate()
-			.changeColor(Color.RED)
-			.apply();
+    getOperatingSystem().requestVehicleParametersUpdate()
+            .changeColor(Color.RED)
+            .apply();
+}
+```
+
+In case the sensor detects an environmental hazard the vehicle sends out a DEN-message to warn
+other vehicles. In the `reactOnEnvironmentData()` method, the sending is handled with 
+regard to used communication network. If `WeatherWarningAppCell` is mapped, cellular communication is used, 
+in case of `WeatherWarningApp` ITS-G5 communication is used as described in the [Tiergarten tutorial](/tutorials/tiergarten). 
+
+```java
+private void reactOnEnvironmentData(SensorType type, int strength) {
+
+    GeoPoint vehiclePosition = getOperatingSystem().getPosition();
+
+    String roadId = getOperatingSystem().getVehicleInfo().getRoadPosition().getConnection().getId();
+
+    // reach all vehicles in a 3000m radius
+    GeoCircle dest = new GeoCircle(vehiclePosition, 3000);
+
+    MessageRouting mr;
+    if (useCellNetwork()) {
+        mr = getOperatingSystem().getCellModule().createMessageRouting().geoBroadCast(dest);
+    } else {
+        mr = getOperatingSystem().getAdHocModule().createMessageRouting().geoBroadCast(dest);
+    }
+
+    Denm denm = new Denm(mr, new DENMContent(
+        getOperatingSystem().getSimulationTime(), vehiclePosition, roadId, type, strength, SPEED, 0.0f, vehiclePosition, null, null)
+    );
+
+    if (useCellNetwork()) {
+        getOperatingSystem().getCellModule().sendV2XMessage(denm);
+    } else {
+        getOperatingSystem().getAdHocModule().sendV2XMessage(denm);
+    }
+}
+```
+
+Next, we look at the receiving side of the DENM here. Since the message is a simple V2X message it
+is received through the `receiveV2xMessage()`-method which is part of the application interface. 
+Analogous to a normal message, here we check with `instanceof`, if it is of a type that we are interested in, in
+this case `Denm`. In that very case, we perform a potential route change if not already done.
+
+
+```java
+public void receiveV2xMessage(ReceivedV2xMessage receivedV2xMessage) {
+    final V2xMessage msg = receivedV2xMessage.getMessage();
+    if (!(msg instanceof Denm)) {
+        return;
+    }
+
+    final Denm denm = (Denm)msg;
+    if (routeChanged) {
+        getLog().infoSimTime(this, "Route already changed");
+    } else {
+        reactUponDENMessageChangeRoute(denm);
+    }
+}
+```
+
+In order to calculate alternative routes to the destination and to change the actual route to the next best route, 
+the method `circumnavigateAffectedRoad()` is implemented. The affected road segment is identified by the road id parameter.
+The route calculation needs to be parametrized in a way, that it avoids this road segment to include in the calculation.
+This is achieved by using the specific cost function `ReRouteSpecificConnectionsCostFunction` and passing it
+to the `RoutingParameters` object.
+
+```java
+private void circumnavigateAffectedRoad(DENM denm, final String affectedRoadId) {
+
+    ReRouteSpecificConnectionsCostFunction myCostFunction = new ReRouteSpecificConnectionsCostFunction();
+    myCostFunction.setConnectionSpeedMS(affectedRoadId, denm.getCausedSpeed());
+
+    INavigationModule navigationModule = getOperatingSystem().getNavigationModule();
+
+    RoutingParameters routingParameters = new RoutingParameters().costFunction(myCostFunction);
+
+    RoutingResponse response = navigationModule.calculateRoutes(new RoutingPosition(navigationModule.getTargetPosition()), routingParameters);
+
+    CandidateRoute newRoute = response.getBestRoute();
+    if (newRoute != null) {
+        getLog().infoSimTime(this, "Sending Change Route Command at position: {}", denm.getSenderPosition());
+        navigationModule.switchRoute(newRoute);
+    }
+}
+```
+
+## WeatherWarningAppCell
+
+The only difference of the WeatherWarningAppCell to detailed described WeatherWarningApp is that the 
+`WeatherWarningAppCell`-application enabled the use of the cellular network. 
+
+## SlowDownApp
+
+The `SlowDownApp` induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
+To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
+vehicle has moved. This is achieved by implementing the `afterUpdateVehicleInfo()` method which is called
+whenever the traffic simulator executed one simulation step. 
+
+In this specific implementation, the speed of the vehicle is reduced to *25 km/h* within the entire hazardous area. 
+After leaving the hazardous area, the vehicles returns to their original speed again:
+
+```java
+public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
+    
+    SensorType[] types = SensorType.values();
+    int strength = 0;
+
+    for (SensorType currentType : types) {
+        strength = getOs().getStateOfEnvironmentSensor(currentType);
+
+        if (strength > 0) {
+            break;
+        }
+    }
+
+    if (strength > 0 && !hazardousArea) {
+        getOs().changeSpeedWithInterval(SPEED, 5000);
+        hazardousArea = true;
+    }
+
+    if (strength == 0 && hazardousArea) {
+        getOs().resetSpeed();
+        hazardousArea = false;
+    }
 }
 ```
