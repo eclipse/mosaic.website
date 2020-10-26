@@ -238,7 +238,7 @@ The only difference of the WeatherWarningAppCell to detailed described WeatherWa
 
 The `SlowDownApp` induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
 To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
-vehicle has moved. This is achieved by implementing the `afterUpdateVehicleInfo()` method which is called
+vehicle has moved. This is achieved by implementing the `onVehicleUpdated()` method which is called
 whenever the traffic simulator executed one simulation step. 
 
 In this specific implementation, the speed of the vehicle is reduced to *25 km/h* within the entire hazardous area. 

@@ -8,7 +8,7 @@ logo = "/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-negativ.svg"
 logo_title = "Eclipse MOSAIC"
 logo_height = "13rem"
 #title = "Eclipse MOSAIC"
-subtitle = "A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility."
+subtitle = "A Multi-Domain and Multi-Scale Simulation Framework<br>for Connected and Automated Mobility."
 alignment = "left" # left or center (default)
 
 [design.background]
