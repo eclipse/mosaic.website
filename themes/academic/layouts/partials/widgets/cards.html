@@ -1,0 +1,156 @@
+<div class="section-heading row mb-3">
+  {{ with .page.Params.title }}
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <h1 class="text-center">{{ . | markdownify | safeHTML }}</h1>
+      </div>
+    </div>
+  {{ end }}
+  {{ with .page.Params.subtitle }}
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <p class="text-center">{{ . | markdownify | safeHTML }}</p>
+      </div>
+    </div>
+  {{ end }}
+</div>
+
+<div class="cards row justify-content-center position-relative">
+  <div class="overlay col-12 position-absolute"></div>
+
+  {{ range $card_index, $card := .page.Params.card }}
+    {{ with $card }}
+      {{ $col_width := (printf "col-%s" (.width.default | default "11")) }}
+      {{ $col_width = (printf "%s col-sm-%s" $col_width (.width.sm | default "10")) }}
+      {{ $col_width = (printf "%s col-md-%s" $col_width (.width.md | default "6")) }}
+      {{ $col_width = (printf "%s col-lg-%s" $col_width (.width.lg | default "5")) }}
+      {{ $col_width = (printf "%s col-xl-%s" $col_width (.width.xl | default "4")) }}
+      <div id="card-wrap-{{ $card_index }}" class="card-wrap {{ $col_width }} position-relative mb-4">
+        {{ with .banner }}
+        <div class="banner {{if .color}}mosaic-{{.color}}{{end}}">
+          {{ if .subtitle }}
+          <span class="subtitle">{{ .subtitle | safeHTML }}</span>
+          {{ end }}
+          {{ if .title }}
+          <span class="title {{ if not .subtitle }}no-subtitle{{ end }}">{{ .title | safeHTML }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="card">
+          <div class="row pt-4 pr-4 pb-0 pl-4">
+            {{ $padding_top := .padding_top | default "0" }}
+            <div class="w-100" style="margin-top: {{ $padding_top }};"></div>
+
+            {{ with .title }}
+              <div class="title col-12 mb-3">
+                <h3 class="mt-0">{{ . | safeHTML }}</h3>
+              </div>
+            {{ end }}
+
+            {{ with .image }}
+              <div class="image col-12 mb-3">
+                {{ $v_align := printf "align-items-%s" (.vertical_alignment | default "start") }}
+                {{ $wrap_height := .wrap_height | default "auto" }}
+                <div class="row {{ $v_align }}" style="height: {{ $wrap_height }};">
+                  {{ if .url }}<a href="{{ .url | relURL }}">{{ end }}
+                  {{ $alt := printf "alt=\"%s\"" (.alt | default "" ) | safeHTMLAttr }}
+                  {{ $width := printf "style=\"max-width: %s;\"" (.width | default "100%" ) | safeHTMLAttr }}
+                  <img class="mx-auto" src="{{ .file | relURL }}" {{ $alt }} {{ $width }} />
+                  {{ if .url }}</a>{{ end }}
+                </div>
+              </div>
+            {{ end }}
+
+            {{ with .subtitle }}
+            <div class="subtitle col-12 mb-2">
+              <h4 class="m-0">{{ . | safeHTML }}</h4>
+            </div>
+            {{ end }}
+
+            {{ with .text }}
+              <div class="text col-12 mb-1">
+                <p>{{ . | markdownify | safeHTML }}</p>
+              </div>
+            {{ end }}
+
+            {{ if .hidden_content }}
+              <div class="w-100 mb-5"></div>
+              <div class="open-hidden-content pl-4 pr-4">
+                <div class="row justify-content-center">
+                  <a href="#" data-card-index="{{ $card_index }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-primary btn-bottom">
+                    <i class="fas fa-search-plus"></i> Read more
+                  </a>
+                </div>
+              </div>
+            {{ else }}
+              {{ with .button }}
+                <div class="w-100 mb-4"></div>
+                <div class="button">
+                  {{ $href := printf "href=\"%s\"" (.url | relURL) }}
+                  {{ if eq "mailto:" (slicestr .url 0 7) }}
+                    {{ $href = printf "href=\"%s\"" .url }}
+                  {{ end }}
+                  <a {{ $href | safeHTMLAttr }} title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary btn-bottom">
+                    {{ if .icon }}
+                      <i class="fas fa-{{ .icon }}"></i>
+                    {{ else }}
+                      <span class="prefix">»</span>
+                    {{ end }}
+                    {{ .title }}
+                  </a>
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    {{ end }}
+
+    {{ with .hidden_content }}
+      <div id="hidden-content-{{ $card_index }}" class="hidden-content col-8 card position-absolute">
+        <div class="inner position-relative p-4">
+          <div class="close position-absolute mr-4" style="right: 0;">
+            <a href="#" data-card-index="{{ $card_index }}">
+              <i class="fas fa-times-circle" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          {{ with .title }}
+            <div class="row mb-3 justify-content-center">
+              <div class="col-8 text-center border-bottom mb-3">
+                <h2 class="mt-0">{{ . | markdownify | safeHTML }}</h2>
+              </div>
+            </div>
+          {{ end }}
+
+          <div class="row">
+            {{ if .image }}
+              <div class="images col-4">
+                <div class="row justify-content-center">
+                  {{ range .image }}
+                  <div class="col-12 mb-4">
+                    {{ if .url }}<a href="{{ .url | relURL }}" class="view-list-item mb-3">{{ end }}
+                      {{ $width := .width | default "100%" }}
+                      <img class="mx-auto" src="{{ .file | relURL }}" alt="{{ .alt }}" width="{{ $width }}">
+                    {{ if .url }}</a>{{ end }}
+                  </div>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+
+            <div class="text col-8">
+              {{ with .subtitle }}
+                <h3 class="mt-0">{{ . | markdownify | safeHTML }}</h3>
+              {{ end }}
+              {{ with .text }}
+                <p>{{ . | markdownify | safeHTML }}</p>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>

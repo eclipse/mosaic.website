@@ -4,16 +4,16 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-logo = "/img/EclipseMOSAIC-Logo-RGB-negativ.svg"
+logo = "/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-negativ.svg"
 logo_title = "Eclipse MOSAIC"
 logo_height = "13rem"
 #title = "Eclipse MOSAIC"
-subtitle = "A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility."
+subtitle = "A Multi-Domain and Multi-Scale Simulation Framework<br>for Connected and Automated Mobility."
 alignment = "left" # left or center (default)
 
 [design.background]
   # Background image.
-  image = "background-home.jpg"
+  image = "background-home-02.jpg"
   image_opacity = "1.0"
   
   # Text color (true=light or false=dark).

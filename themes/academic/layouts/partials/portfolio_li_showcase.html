@@ -29,8 +29,8 @@
 {{ $js_tag_classes := delimit (apply (apply $item.Params.tags "replace" "." " " "-") "printf" "js-id-%s" ".") " " }}
 
 <div class="col-lg-12 project-item isotope-item {{ $js_tag_classes | safeHTMLAttr }}">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-6">
+  <div class="row align-items-start">
+    <div class="col-12 col-md-7">
       <h3 class="article-title mb-0 mt-0">
         {{- if $do_link}}<a href="{{ $link }}" {{ $target | safeHTMLAttr }}>{{end -}}
         {{ $item.Title | markdownify | emojify }}
@@ -47,8 +47,26 @@
         {{ partial "page_links" (dict "page" $item "is_list" 0) }}
       </div>
 
+      <div class="article-metadata">
+        <span class="article-date">
+          {{ $date := $item.Lastmod.Format site.Params.date_format }}
+          {{ if eq $item.Type "publication" }}
+            {{ $date = $item.Date.Format (site.Params.publications.date_format | default "January, 2006") }}
+          {{ else }}
+            {{ if ne $item.Params.Lastmod $item.Params.Date }}
+                {{ $date = i18n "last_updated" }}
+            {{ end }}
+          {{ end }}
+          {{ $date }}
+        </span>
+        <span class="middot-divider"></span>
+        <span class="article-reading-time">
+          {{ $item.ReadingTime }} {{ i18n "minute_read" }}
+        </span>
+      </div>
+
     </div>
-    <div class="col-12 col-md-6 order-first {{$order}}">
+    <div class="col-12 col-md-5 order-first mb-3 mb-md-0 {{$order}}">
       {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
       {{ with $resource }}
       {{ $image := .Resize "540x" }}

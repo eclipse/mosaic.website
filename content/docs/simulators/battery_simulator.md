@@ -18,9 +18,9 @@ needs. This also holds true for the environment model and the vehicle model. How
 for vehicle, environment and the battery are provided and will be briefly explained in the following
 sections.
 
-{{% alert note %}}
-The **Battery Simulator** is available in MOSAIC Extended and can be used for free for research and academical
- purposes.
+{{% alert extended %}}
+The **Battery Simulator** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 ### Installation

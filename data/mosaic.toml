@@ -1,0 +1,5 @@
+[versions]
+    mosaic = "20.0"
+    omnetpp = "5.5"
+    inet = "4.1"
+    protobuf = "3.7.0"

@@ -1,0 +1,111 @@
+ul.menu-overview {
+  padding: 0;
+  margin: 1rem -15px;
+
+  & > li {
+    list-style-type: none;
+    margin-bottom: 2rem;
+    display: flex;
+    width: 100%;
+
+    span.inner {
+      @extend .mosaic-card-dark;
+      padding: 1rem 1.3rem 3rem;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      .title {
+        display: block;
+        font-weight: bold;
+        font-size: 0.9rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .subtitle {
+        img {
+          margin: 0.3rem 0 0.7rem;
+          border: 1px solid #ddd;
+          border-radius: 0.2rem;
+          width: 100%;
+        }
+        ul {
+          padding-left: 1.2rem;
+          margin-top: -0.7rem;
+          li {
+            list-style-type: none;
+            position: relative;
+            &::marker {
+              color: #777; //$mosaic-purple;
+            }
+            &::before {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              font-size: 0.7rem;
+              line-height: 0;
+              content: '\f00c'; // check mark
+              position: absolute;
+              left: -1.1rem;
+              top: 0.7rem;
+              color: darken($mosaic-green, 15%);
+            }
+          }
+        }
+      }
+
+      .link-wrap {
+        text-align: center;
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        a {
+          display: block;
+          margin: 0;
+          position: relative;
+          padding-left: 1.8rem;
+          border-radius: 0;
+          background-color: $mosaic-purple;
+          @extend .gradient-purple-darken-hover;
+          text-align: left;
+          &:hover {
+            @extend .gradient-orange-purple-dark;
+          }
+          &::before {
+            content: "»";
+            font-size: 1.1rem;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            line-height: 0;
+          }
+        }
+      }
+
+      .details {
+        display: block;
+        text-align: right;
+        background: #e1dce6;
+        color: #424b5f;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        margin: 1rem -1rem -0.7rem;
+        margin-top: auto;
+        padding: 0.4rem 1rem;
+        border-top: 1px solid #d5c4d3;
+        transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+
+        &::before {
+          content: "» ";
+          font-size: larger;
+          color: #424b5f;
+          transition: all 0.2s ease;
+          -webkit-transition: all 0.2s ease;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{{ $file := (printf "%s%s" .Page.File.Dir (.Get "src")) }}
+{{ $desc := .Get "desc" | default false }}
+{{ if fileExists $file }}
+<div class="svg-wrap mt-1 mb-4">
+  <div class="inner">
+    {{ (readFile $file) | safeHTML }}
+  </div>
+  {{ if $desc }}
+    <div class="desc">
+      {{ $desc | markdownify | safeHTML }}
+    </div>
+  {{ end }}
+</div>
+{{ else }}
+  {{ (printf "<!-- ERROR in svg partial: Could not find file '%s'. -->" $file) | safeHTML }}
+{{ end }}

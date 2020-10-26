@@ -1,35 +1,34 @@
 {{ $ := .root }}
 {{ $page := .page }}
 
-<div class="row text-image">
-  <!-- Title and Subtitle -->
-  {{ with $page.Title }}
-  <div class="title row col-md-12 justify-content-center">
-    <div class="col-md-10 section-heading">
-      <h1>{{ . | markdownify | emojify }}</h1>
-      {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
-    </div>
-  </div>
+{{ if $page.Params.img_position }}
+  <!-- Content: Text and Image -->
+  {{ $img_column_width := "4" }}
+  {{ $text_width := "8" }}
+  {{ with $page.Params.img_column_width }}
+    {{ $img_column_width = $page.Params.img_column_width }}
+    {{ $text_width = string (sub 12 (int $img_column_width)) }}
+  {{ end }}
+  {{ $img_width_class := printf "col-md-%s" $img_column_width }}
+  {{ $text_width_class := printf "col-md-%s" $text_width }}
+  {{ $img_position := "left" }}
+  {{ with $page.Params.img_position }}
+    {{ $img_position = $page.Params.img_position }}
   {{ end }}
 
-  {{ if $page.Params.img_position }}
-    <!-- Content: Text and Image -->
-    {{ $img_column_width := "4" }}
-    {{ $text_width := "8" }}
-    {{ with $page.Params.img_column_width }}
-      {{ $img_column_width = $page.Params.img_column_width }}
-      {{ $text_width = string (sub 12 (int $img_column_width)) }}
-    {{ end }}
-    {{ $img_width_class := printf "col-md-%s" $img_column_width }}
-    {{ $text_width_class := printf "col-md-%s" $text_width }}
-    {{ $img_position := "left" }}
-    {{ with $page.Params.img_position }}
-      {{ $img_position = $page.Params.img_position }}
-    {{ end }}
+  {{ if eq $img_position "left" }}
+    <div class="text-image image-left row">
+      <!-- Title and Subtitle -->
+      {{ with $page.Title }}
+      <div class="section-heading title col-md-12 justify-content-center">
+        <h1>{{ . | markdownify | emojify }}</h1>
+        {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+      </div>
+      <div class="w-100"></div>
+      {{ end }}
 
-    {{ if eq $img_position "left" }}
       <!-- Image left -->
-      <div class="col-md-12 row justify-content-end">
+      <div class="col-12 justify-content-end">
         <div class="image image-left {{ $img_width_class }}">
           <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
         </div>
@@ -46,33 +45,61 @@
           </div>
         {{ end }}
       </div>
-    {{ else if eq $img_position "right" }}
+    </div>
+
+  {{ else if eq $img_position "right" }}
+    <div class="text-image image-right row">
+      <!-- Title and Subtitle -->
+      {{ with $page.Title }}
+      <div class="section-heading title col-12 justify-content-center">
+        <h1>{{ . | markdownify | emojify }}</h1>
+        {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+      </div>
+      <div class="w-100"></div>
+      {{ end }}
+
       <!-- Image right -->
-      <div class="col-md-12 row justify-content-start">
-        {{ with $page.Content }}
-          <div class="text-and-buttons {{ $text_width_class }}">
-            <div class="text">{{ $page.Content }}</div>
-            <div class="buttons">
-              {{ range $page.Params.button }}
-                {{ if .title }}{{ if .url }}
-                  <a class="mosaic-btn mosaic-btn-primary" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
-                {{ end }}{{ end }}
-              {{ end }}
+      <div class="col-12 justify-content-start">
+        <div class="row">
+          {{ with $page.Content }}
+            <div class="text-and-buttons {{ $text_width_class }}">
+              <div class="text">{{ $page.Content }}</div>
+              <div class="buttons">
+                {{ range $page.Params.button }}
+                  {{ if .title }}{{ if .url }}
+                    <a class="mosaic-btn mosaic-btn-primary" href="{{ .url }}" title="{{ .title }}">{{ .title }}</a>
+                  {{ end }}{{ end }}
+                {{ end }}
+              </div>
             </div>
+          {{ end }}
+          <div class="image image-right {{ $img_width_class }}">
+            <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
           </div>
-        {{ end }}
-        <div class="image image-right {{ $img_width_class }}">
-          <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
         </div>
       </div>
-    {{ else if eq $img_position "top" }}
+    </div>
+
+  {{ else if eq $img_position "top" }}
+    <div class="text-image image-top row">
+      <!-- Title and Subtitle -->
+      {{ with $page.Title }}
+      <div class="section-heading title col-md-12 justify-content-center">
+        <h1>{{ . | markdownify | emojify }}</h1>
+        {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+      </div>
+      <div class="w-100"></div>
+      {{ end }}
+
       <!-- Image top -->
-      <div class="col-md-12 row justify-content-center mb-3">
-        <div class="image image-top {{ $img_width_class }}">
-          <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+      <div class="col-12 mb-3">
+        <div class="row justify-content-center">
+          <div class="image image-top {{ $img_width_class }}">
+            <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+          </div>
         </div>
       </div>
-      <div class="col-md-12 row justify-content-center">
+      <div class="col-12">
         {{ with $page.Content }}
         <div class="text-and-buttons">
           <div class="text text-center">{{ $page.Content }}</div>
@@ -86,8 +113,20 @@
         </div>
         {{ end }}
       </div>
+    </div>
+  {{ end }}
+{{ else }}
+  <div class="row text-image">
+    <!-- Title and Subtitle -->
+    {{ with $page.Title }}
+    <div class="title col-md-12 justify-content-center">
+      <div class="col-md-10 section-heading">
+        <h1>{{ . | markdownify | emojify }}</h1>
+        {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+      </div>
+    </div>
     {{ end }}
-  {{ else }}
+
     <!-- Content: Text only -->
     {{ with $page.Content }}
     <div class="col-md-12">
@@ -103,4 +142,5 @@
         {{ end }}{{ end }}
       {{ end }}
     </div>
-  {{ end }}
+  </div>
+{{ end }}

@@ -1,5 +1,5 @@
 ---
-title: OMNeT++
+title: Network Simulator OMNeT++
 linktitle: Network - OMNeT++
 toc: true
 type: docs
@@ -19,12 +19,12 @@ it is selected for the integration to Eclipse MOSAIC.
 
 For more information on the **INET** extension you should look closer on the [website](https://inet.omnetpp.org).
 
-| | |
-|--------------------------|------------------------------------------------------------------------------------------------------------|
-| **Operating System**     | GNU/Linux<br>(Windows with mingw)                                                                          |
-| **License**              | GPL, free to use for academic use                                                                          |
-| **Supported version(s)** | OMNeT++ VAR(omnetpp.version) [http://www.omnetpp.org](http://www.omnetpp.org)<br>INET VAR(inet.version) [https://inet.omnetpp.org](https://inet.omnetpp.org)|
-| | |
+| | | |
+|--------------------------|------------------------------------------------------------------------------------------------------------|:-|
+| **Operating System**     | GNU/Linux<br>(Windows with mingw)                                                                          | |
+| **License**              | GPL, free to use for academic use                                                                          | |
+| **Supported version(s)** | OMNeT++ {{< version of="omnetpp" >}} <br>INET {{< version of="inet" >}} | [http://www.omnetpp.org](http://www.omnetpp.org) <br> [https://inet.omnetpp.org](https://inet.omnetpp.org) |
+
 
 ### Installation
 
@@ -32,28 +32,28 @@ For more information on the **INET** extension you should look closer on the [we
 
 | Type                                                                     | Description                     |
 |:------------------------------------------------------------------------ |:------------------------------- |
-| [USER](#installation-for-users)           | This installation type addresses those who only want to use the **OMNeT++** network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, **OMNeT++ VAR(omnetpp.version)** and **INET VAR(inet.version)** will automatically be installed inside `<mosaic>/bin/fed/omnetpp` during the installation. |
-| [DEVELOPER](#installation-for-developers) | The installation for developers addresses those who want to make changes or extend the Eclipse MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that **OMNeT++ VAR(omnetpp.version)** and **INET VAR(inet.version)** are already installed on your system and<br>- `PATH` contains `/path/to/omnetpp/bin`<br>- `LD_LIBRARY_PATH` contains `/path/to/omnetpp/lib` and `/path/to/inet/src`<br>- `C_INCLUDE_PATH` contains `/path/to/omnetpp/include` and `/path/to/inet/src` |
+| [USER](#installation-for-users)           | This installation type addresses those who only want to use the **OMNeT++** network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** will automatically be installed inside `<mosaic>/bin/fed/omnetpp` during the installation. |
+| [DEVELOPER](#installation-for-developers) | The installation for developers addresses those who want to make changes or extend the Eclipse MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** are already installed on your system and<br>- `PATH` contains `/path/to/omnetpp/bin`<br>- `LD_LIBRARY_PATH` contains `/path/to/omnetpp/lib` and `/path/to/inet/src`<br>- `C_INCLUDE_PATH` contains `/path/to/omnetpp/include` and `/path/to/inet/src` |
 
 {{% alert note %}}
-If you already have **OMNeT++ VAR(omnetpp.version)** and **INET VAR(inet.version)** installed on your system, but you simply want to use **OMNeT++** for simulations with Eclipse MOSAIC without developing further the Eclipse MOSAIC OMNeT++ Federate, you may also choose the [installation for developers](/docs/simulators/network_simulator_omnetpp/#installation-for-developers) to avoid multiple installations of **OMNeT++** and **INET** on your system.
+If you already have **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** installed on your system, but you simply want to use **OMNeT++** for simulations with Eclipse MOSAIC without developing further the Eclipse MOSAIC OMNeT++ Federate, you may also choose the [installation for developers](/docs/simulators/network_simulator_omnetpp/#installation-for-developers) to avoid multiple installations of **OMNeT++** and **INET** on your system.
 {{% /alert %}}
 
 ##### First of all, please make sure that you have the following libraries installed:
 `unzip`, `tar`, `bison`, `flex`, `gcc`, `python`, `protoc`
 
 {{% alert note %}}
-The installation of the current version of the OMNeT++ Federate was tested with protobuf version 3.7.0.  
+The installation of the current version of the OMNeT++ Federate was tested with protobuf version {{< version of="protobuf" >}}.  
 It is recommended to install this version. Here you receive more information about [how to install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md).
 {{% /alert %}}
 
 ##### Follow the links and download the source code of OMNeT++, INET and the Eclipse MOSAIC OMNeT++ Federate:
 
-| Software                     | Version              | Link                              |
-|:---------------------------- |:--------------------:|:--------------------------------- |
-| **OMNeT++**                  | VAR(omnetpp.version) | VAR(omnetpp.download.url)         |
-| **INET**                     | VAR(inet.version)    | VAR(inet.download.url)            |
-| **Eclipse MOSAIC OMNeT++ Federate** | VAR(mosaic.version) | VAR(mosaic.omnetpp.federate.url) |
+| Software                            | Version                      | Link |
+|:----------------------------------- |:-----------------------------|:--------------------------------- |
+| **OMNeT++**                         | {{< version of="omnetpp" >}} | [https://omnetpp.org/download/](https://omnetpp.org/download/) |
+| **INET**                            | {{< version of="inet" >}}    | [https://github.com/inet-framework/inet/releases](https://github.com/inet-framework/inet/releases) |
+| **Eclipse MOSAIC OMNeT++ Federate** | {{< version of="mosaic" >}}  | [Download](/download) |
 
 ##### Available parameters of `omnet_installer.sh`:
 
@@ -78,9 +78,9 @@ cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type USER \
-    --omnetpp /path/to/omnetpp-VAR(omnetpp.version)-src.tgz \
-    --inet /path/to/inet-VAR(inet.version)-src.tgz \
-    --federate /path/to/omnetpp-federate-VAR(mosaic.version).zip
+    --omnetpp /path/to/omnetpp-OMNETPP_VERSION-src.tgz \
+    --inet /path/to/inet-INET_VERSION-src.tgz \
+    --federate /path/to/omnetpp-federate-MOSAIC_VERSION.zip
 ```
 For the installation type `USER` the parameters `-o`, `-i` and `-f` are required.  
 The installation script should terminate with `SUCESS: The Eclipse MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
@@ -93,7 +93,7 @@ cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-VAR(mosaic.version).zip
+    --federate /path/to/omnetpp-federate-MOSAIC_VERSION.zip
 ```
 For the installation type `DEVELOPER` the parameter `-f` is required.  
 The installation script should terminate with `SUCCESS: The Eclipse MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.

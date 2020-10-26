@@ -105,10 +105,10 @@ collections:
         name: "categories"
         required: false
         widget: "list"
-      - label: "Projects"
-        name: "projects"
-        required: false
-        widget: "list"
+#      - label: "Projects"
+#        name: "projects"
+#        required: false
+#        widget: "list"
       - label: "Featured Image"
         name: "image"
         required: false
@@ -181,10 +181,10 @@ collections:
         name: "categories"
         required: false
         widget: "list"
-      - label: "Projects (reference projects in 'content/project/')"
-        name: "projects"
-        required: false
-        widget: "list"
+#      - label: "Projects (reference projects in 'content/project/')"
+#        name: "projects"
+#        required: false
+#        widget: "list"
       - label: "Featured Image"
         name: "image"
         required: false

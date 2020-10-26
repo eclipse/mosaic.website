@@ -10,9 +10,10 @@ menu:
   docs:
     parent: visualization
 ---
-{{% alert note %}}
-ITEF is only available with a commercial license of MOSAIC Extended. For further
-information on licences, please refer to our mailing list.
+
+{{% alert extended %}}
+The **ITEF** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 The Integrated Test and Evaluation Framework (ITEF) is a webtool for planning and evaluating vehicular communication scenarios. It is suited for field operational tests as well as simulations.

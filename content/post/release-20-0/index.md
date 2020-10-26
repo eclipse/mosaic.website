@@ -1,7 +1,7 @@
 ---
 title: First release of Eclipse MOSAIC
-date: "2020-10-16T00:00:00Z"
-lastMod: "2020-10-16T00:00:00Z"
+date: "2020-10-19T00:00:00Z"
+lastMod: "2020-10-19T00:00:00Z"
 math: false
 diagram: true
 featured: false
@@ -39,3 +39,14 @@ image:
 [C+] SNS supports most important Geo-Routing features for ad-hoc multihop communication
 [T+] Now supports SUMO 1.7.0
 ```
+
+**Changelog (Features and Bugfixes) Legend:**  
+`[M]` Eclipse MOSAIC  
+`[A]` Application simulator  
+`[B]` Battery simulator  
+`[C]` Communication simulator  
+`[E]` Environment simulator  
+`[N]` Navigation component  
+`[S]` Scenario-convert  
+`[T]` Traffic simulator  
+`[+/-]` new Feature/Bugfix  

@@ -1,5 +1,5 @@
 ---
-title: Cell Simulator
+title: Network Simulator Cell
 linktitle: Network - Cell
 toc: true
 type: docs

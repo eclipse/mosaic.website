@@ -8,17 +8,10 @@ title = "How to Contribute"
 subtitle = "We are waiting for your contributions. First read the following few lines, then fork our repository on GitHub and get started."
 
 [design.background]
-  # Background image.
-  image = "background-home.jpg"
-  image_size = "50% auto"  #  Options are `cover` (default), `contain`, or `actual` size.
-  image_position = "center bottom"  # Options include `left`, `center` (default), or `right`.
-  image_opacity = "0.2"
+  image = "background-home-02.jpg"
+  image_opacity = "0.3"
   
-  # Text color (true=light or false=dark).
-  # text_color_light = true
-
+[[button]]
+  title = "Eclipse MOSAIC @ GitHub"
+  url = "https://github.com/eclipse/mosaic"
 +++
-
-<div style="text-align: center;">
-{{< button type="primary" link="https://github.com/eclipse/mosaic" title="Eclipse MOSAIC @ GitHub" >}}
-</div>

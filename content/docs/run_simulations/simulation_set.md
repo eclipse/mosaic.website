@@ -11,9 +11,9 @@ menu:
     parent: run_simulations
 ---
 
-{{% alert note %}}
-The following options are only available with a commercial license of MOSAIC Extended.
-For further information on licenses, please refer to our mailing list [vsimrti@fokus.fraunhofer.de](mailto:vsimrti@fokus.fraunhofer.de).
+{{% alert extended %}}
+This feature is part of **{{< link title="MOSAIC Extended" href="/download#overview" >}}**.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 A common objective when running simulations is to assess the impact of different parameter settings for

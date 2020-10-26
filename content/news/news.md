@@ -33,13 +33,17 @@ subtitle = ""
   
 [design]
   columns = "1"
+  
+  # Alternate positioning of image and text columns
+  flip_alt_rows = false
 
   # Toggle between the various page layout types.
   #   1 = List
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
-  view = 4
+  #   5 = Showcase
+  view = 5
   
 [design.background]
   # Apply a background color, gradient, or image.

@@ -6,7 +6,6 @@
 # Or, the SRI for the appropriate asset can be copied from https://cdnjs.com/ .
 
 # JavaScript
-
 [js.jQuery]
   version = "3.4.1"
   sri = "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
@@ -16,9 +15,9 @@
   sri = "sha512-1LdB3V708w6G4QRl7NsVdTr7MDibyRXr9stQZ+EGjEE0ZPMZkA//ir7kCWmFyxdAJNIRXdR/ZeJmCV0boyiCXw=="
   url = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/%s/highlight.min.js"
 [js.mathJax]
-  version = "3"
-  sri = ""  # No SRI as dynamically generated.
-  url = "https://cdn.jsdelivr.net/npm/mathjax@%s/es5/tex-chtml.js"
+  version = "3.1.0"
+  sri = "sha512-uwL1UtpYdWra2iqJlAW8Ts0s9Os6IxWLDJDF/BnWdhDmT7DEMFba3GPsFwmV3QiTNcUyl2GB5vsgycB/MOvo9g=="
+  url = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/%s/es5/tex-chtml.min.js"
   async = true
 [js.isotope]
   version = "3.0.6"
@@ -46,7 +45,7 @@
   url = "https://cdnjs.cloudflare.com/ajax/libs/fuse.js/%s/fuse.min.js"
 [js.mark]
   version = "8.11.1"
-  sri = "sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
+  sri = "sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg=="
   url = "https://cdnjs.cloudflare.com/ajax/libs/mark.js/%s/jquery.mark.min.js"
 [js.instantsearch]
   version = "4.8.3"

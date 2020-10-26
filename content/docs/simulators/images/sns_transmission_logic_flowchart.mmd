@@ -1,0 +1,20 @@
+graph TD
+    id1[V2X-Transmission]
+    id2{Transmission Type}
+    id1-->id2
+    id3{Broadcast<br/>or Unicast?}
+    id4{Broadcast?}
+    id2-->|TopoCast|id3
+    id2-->|GeoCast|id4
+    id5([Simulate TopoCast using<br/>singlehop configuration.])
+    id3-->|Yes|id5
+    id6{Simple transmission<br/>model?}
+    id4-->|Yes|id6
+    id7([Simulate transmission using<br/>simpleMultihopDelay.])
+    id6-->|Yes|id7
+    id8{Sender directly able to reach<br/>destination area?}
+    id6-->|No|id8
+    id9([Flooding in destination area])
+    id8-->|Yes|id9
+    id10([Greedy Forwarding to reach area,<br/>then flooding in destination areay.])
+    id8-->|No|id10

@@ -1,5 +1,7 @@
 <div class="alert alert-{{ .Get 0 }}">
+  {{ if eq (.Get 0) "extended" }}<span class="extended-icon" style="background-image: url({{ (printf "/img/alert-extended.svg") | relURL }})"></span>{{ end }}
   <div>
-    {{ .Inner | markdownify | emojify }}
+  {{ if eq (.Get 0) "learning_objectives" }}<h3>Learning Objectives</h3>{{ end }}
+  {{ .Inner | markdownify | emojify }}
   </div>
 </div>

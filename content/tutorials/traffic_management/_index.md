@@ -1,19 +1,16 @@
 ---
-title: 
+title: Traffic Management
 linktitle: traffic_management 
 toc: false
 type: tutorials
 date: "2019-05-05T00:00:00+01:00"
 draft: false
-#menu:
-#  tutorials:
-#    parent: traffic_management
-#    weight: 1
 ---
 
-# Traffic Management
-
-{{< button type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Highway Tutorial" >}}
+{{% alert note %}}
+All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
+**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+{{% /alert %}}
 
 Next to vehicles, road side units, and traffic lights, Eclipse MOSAIC provides also a simulation unit for traffic management, called TrafficManagement Center (TMC). 
 With a TMC, road infrastructure can be integrated and controlled. For example, detectors placed along the road can be used to measure traffic properties, such as traffic flow or traffic density. 
@@ -21,16 +18,16 @@ Furthermore, those measures can be used to open and close lanes, or to adjust th
 
 This tutorial provides information about TMC applications and how they can interact with the traffic simulator SUMO.
 
-## Learning Objectivies
-
+{{% alert learning_objectives %}}
 The Traffic Management tutorial focuses on the road infrastructure and it gives you an opportunity to collect required data (e.g. traffic density) of the simulation scenario.
 In conclusion, the main aims of this tutorial are:
 
 * Definition and Configuration the detectors as provided in `Highway.add.xml`.
-* Referencing the so-called "additional file" like in `Highway.sumo.cfg`.
-* Become a better Unterstanding between `Lane Area Detectors` and `Induction Loop Detectors`.
+* Referencing the so-called 'additional file' like in `Highway.sumo.cfg`.
+* Understand the difference between `Lane Area Detectors` and `Induction Loop Detectors`.
 * Configuration and Mapping of TMC applications in [`mapping_congig.json`](#configuration-of-traffic-management-centers).
 * Implement of [TMC applications](#traffic-management-center-applications).
+{{% /alert %}}
 
 ## Scenario Overview
 The following image gives an overview about the scenario Highway, provided in the Eclipse MOSAIC scenario directory.
@@ -62,9 +59,9 @@ within the road network:
 
 ```xml
 <additionals>
-	<e1Detector id="detector_0" lane="319292433_3257049721_1288275815_3257049721_0" pos="700" freq="100.00" file="detectors.txt"/>
-	<e1Detector id="detector_1" lane="319292433_3257049721_1288275815_3257049721_1" pos="700" freq="100.00" file="detectors.txt"/>
-	<e1Detector id="detector_2" lane="319292433_3257049721_1288275815_3257049721_2" pos="700" freq="100.00" file="detectors.txt"/>
+	<e1Detector id="detector_0" lane="319292433_3257049721_1288275815_3257049721_0" pos="700" freq="100.00" file="detectors.txt" />
+	<e1Detector id="detector_1" lane="319292433_3257049721_1288275815_3257049721_1" pos="700" freq="100.00" file="detectors.txt" />
+	<e1Detector id="detector_2" lane="319292433_3257049721_1288275815_3257049721_2" pos="700" freq="100.00" file="detectors.txt" />
 </additionals>
 ```
 
@@ -81,10 +78,10 @@ In the mapping_config.json of the scenario, a traffic management center can be e
 		"applications": [ 
 			"com.dcaiti.vsimrti.app.tutorials.highway.HighwayManagementApp('3', 2)" 
 		],
-		"inductionLoops" : [ 
+		"inductionLoops": [ 
 			"detector_0", "detector_1", "detector_2" 
 		],
-		"laneAreaDetectors" : []
+		"laneAreaDetectors": []
 	}
 ],
 "vehicles": [...]
@@ -101,12 +98,12 @@ The implementation of a TMC application follows the same scheme as every other a
 public class MyTmcApplication extends AbstractApplication<TrafficManagementCenterOperatingSystem> implements TrafficManagementCenterApplication {
 
 	@Override
-	public void afterUpdateLaneDetectors(){
+	public void afterUpdateLaneDetectors() {
 		// is called whenever a lane detector (induction loop) has new values
 	}
 
 	@Override
-	public void afterUpdateLaneSegments(){
+	public void afterUpdateLaneSegments() {
 		// is called whenever a lane segment (lane area detector) has new values		
 	}	
 }
@@ -123,7 +120,7 @@ Values from lane segments (= laneAreaDetector) can be accessed as follows:
 ```java
 LaneSegment detector = getOs().getLaneSegment("lane_segment_0");
 double avgSpeed = detector.getMeanSpeed(); // in m/s
-double density = detector.getTrafficDensity(); // in veh /km
+double density = detector.getTrafficDensity(); // in veh/km
 int vehiclesInSegment = detector.countVehiclesOnSegment();
 ```
 Properties of lanes (e.g. allowed vehicle classes) can be changed as well:

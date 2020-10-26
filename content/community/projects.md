@@ -1,68 +1,51 @@
 +++
-# A Projects section created with the Portfolio widget.
-widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
+widget = "projects"
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 40  # Order that this section will appear.
+weight = 50  # Order that this section will appear.
 
 title = "Projects"
 subtitle = ""
 
-[content]
-  # Page type to display. E.g. project.
-  page_type = "project"
-  
-  # Filter toolbar (optional).
-  # Add or remove as many filters (`[[content.filter_button]]` instances) as you like.
-  # To show all items, set `tag` to "*".
-  # To filter by a specific tag, set `tag` to an existing tag name.
-  # To remove toolbar, delete/comment all instances of `[[content.filter_button]]` below.
-  
-  # Default filter index (e.g. 0 corresponds to the first `[[filter_button]]` instance below).
-  filter_default = 0
-  
-
-[design]
-  # Choose how many columns the section has. Valid values: 1 or 2.
-  columns = "2"
-
-  # Toggle between the various page layout types.
-  #   1 = List
-  #   2 = Compact
-  #   3 = Card
-  #   5 = Showcase
-  view = 2
-
-  # For Showcase view, flip alternate rows?
-  flip_alt_rows = false
-
-[design.background]
-  # Apply a background color, gradient, or image.
-  #   Uncomment (by removing `#`) an option to apply it.
-  #   Choose a light or dark text color by setting `text_color_light`.
-  #   Any HTML color name or Hex value is valid.
-  
-  # Background color.
-  # color = "navy"
-  
-  # Background gradient.
-  # gradient_start = "DeepSkyBlue"
-  # gradient_end = "SkyBlue"
-  
-  # Background image.
-  # image = "background.jpg"  # Name of image in `static/img/`.
-  # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
-
-  # Text color (true=light or false=dark).
-  # text_color_light = true  
-  
-[advanced]
- # Custom CSS. 
- css_style = ""
- 
- # CSS class.
- css_class = ""
-
+[[project]]
+    title = "eMERGE"
+    subtitle = "Connecting eMobility"
+    desc = "Second generation electric mobility project."
+    url = "https://www.fokus.fraunhofer.de/ba001755bc1b0dc8"
+    [project.logo]
+        filename = "emerge.png"
+        width = "90%"
+[[project]]
+    title = "INFRAMIX"
+    subtitle = "Hybrid Infrastructure"
+    desc = "Preparation of road infrastructure to support the transition period and the coexistence of conventional and automated vehicles."
+    url = "https://www.inframix.eu/"
+    [project.logo]
+        filename = "inframix.png"
+        width = ""
+[[project]]
+    title = "SENDATE"
+    subtitle = "Secure Networking for a Data Center Cloud in Europe"
+    desc = "Research program to provide the scientific, technical, and technological concepts and solutions for Data Center Infrastructure in Europe."
+    url = "https://www.fokus.fraunhofer.de/go/en_streetlife"
+    [project.logo]
+        filename = "sendate.png"
+        width = "90%"
+[[project]]
+    title = "Streetlife"
+    desc = "Steering towards Green and Perceptive Mobility of the Future."
+    url = "https://www.sendate.eu/"
+    [project.logo]
+        filename = "streetlife.png"
+        width = "80%"
+[[project]]
+    title = "TEAM"
+    subtitle = "Tomorrow’s Elastic Adaptive Mobility"
+    desc = "It turns static into elastic mobility by joining drivers, travellers and infrastructure operators together into one collaborative network."
+    url = "http://www.collaborative-team.eu/"
+    [project.logo]
+        filename = "team.png"
+        width = "70%"
 +++
 
 

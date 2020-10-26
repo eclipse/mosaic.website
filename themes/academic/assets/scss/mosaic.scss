@@ -1,11 +1,18 @@
 // Override this file to add your own SCSS styling.
 @import "mosaic/mosaic-helpers";
+@import "mosaic/alert";
 @import "mosaic/buttons";
 @import "mosaic/docs";
+@import "mosaic/search";
 @import "mosaic/site-footer";
+@import "mosaic/svg";
+@import "mosaic/tutorials";
+@import "mosaic/wg-cards";
 @import "mosaic/wg-features-widget";
 @import "mosaic/wg-hero";
 @import "mosaic/wg-page-header";
+@import "mosaic/wg-portfolio";
+@import "mosaic/wg-projects";
 @import "mosaic/wg-text-image";
 @import "mosaic/wg-text-card";
 
@@ -17,6 +24,11 @@ body {
   max-height: 46px;
   height: 200px;
 }
+@media screen and (max-width: 576px) {
+  .navbar-brand img {
+    max-height: 34px;
+  }
+}
 
 .article-style {
   font-size: 0.8rem;
@@ -27,12 +39,22 @@ h3.article-title a {
   color: $mosaic-purple;
   &:hover {
     color: $mosaic-orange;
-    //text-decoration: underline;
   }
+}
+
+a {
+  font-weight: bold;
+  color: #990c86;
+  transition: all ease-in-out 0.1s !important;
+  -webkit-transition: all ease-in-out 0.1s !important;
+}
+table a {
+  color: $mosaic-purple;
 }
 
 nav a {
   color: $mosaic-navy;
+  font-weight: normal;
 }
 
 nav a,
@@ -43,13 +65,12 @@ h3.article-title a {
 h1, h2, h3, h4, h5, h6 {
   color: $mosaic-navy;
 }
+h1 {
+  font-size: 1.75rem;
+}
 
 hr {
   height: 0;
-}
-
-.alert, div.alert > div {
-  font-size: 0.7rem;
 }
 
 .todo {
@@ -67,6 +88,12 @@ hr {
 
 body.page-docs #navbar-main > .container {
   max-width: 1700px;
+}
+
+@media only screen and (min-width: 1001px) {
+  .universal-wrapper {
+    width: 1200px;
+  }
 }
 
 #navbar-main {
@@ -88,92 +115,20 @@ body.page-docs #navbar-main > .container {
 .home-section {
   padding: 50px 0 70px;
 }
-
-.section-heading p {
-  color: #817f88;
-  font-style: italic;
-}
-
-ul.menu-overview {
-  padding: 0;
-  margin: 1rem -15px;
-
-  li {
-    list-style-type: none;
-    margin-bottom: 1rem;
-    display: flex;
-    width: 100%;
-
-    a.inner {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      flex: auto;
-      flex-grow: 1;
-      background-color: #f8f4fb;
-      background-image: linear-gradient(0deg, #f8f4fb 0, #fff 100%);
-      border: 1px solid #d7dce3;
-      border-bottom: 3px solid #B5229F;
-      border-radius: 3px;
-      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
-      padding: 0.7rem 1rem;
-      color: #424b5f;
-      transition: all 0.2s ease;
-      -webkit-transition: all 0.2s ease;
-
-      &:hover {
-        transform: scale(1.04);
-        text-decoration: none;
-        background-color: #fff;
-        box-shadow: 0 10px 20px -10px fade-out($color: $mosaic-navy, $amount: 0.2);
-
-        .details {
-          background: $mosaic-purple;
-          color: #fff;
-
-          &::before {
-            color: #fff;
-          }
-        }
-      }
-
-      .title {
-        display: block;
-        font-weight: bold;
-        font-size: 0.9rem;
-        padding-bottom: 0.2rem;
-      }
-
-      .details {
-        display: block;
-        text-align: right;
-        background: #e1dce6;
-        color: #424b5f;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: medium;
-        margin: 1rem -1rem -0.7rem;
-        margin-top: auto;
-        padding: 0.4rem 1rem;
-        border-top: 1px solid #d5c4d3;
-        transition: all 0.2s ease;
-        -webkit-transition: all 0.2s ease;
-
-        &::before {
-          content: "» ";
-          font-size: larger;
-          color: #424b5f;
-          transition: all 0.2s ease;
-          -webkit-transition: all 0.2s ease;
-        }
-      }
-    }
+@media screen and (max-width: 576px) {
+  .home-section {
+    padding: 1rem 0;
   }
 }
 
-.alert, div.alert > div {
-  font-size: 0.7rem;
+.section-heading {
+  h1 {
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #817f88;
+    font-style: italic;
+  }
 }
 
 .features .feature .feature-inner .image {
@@ -182,4 +137,17 @@ ul.menu-overview {
   background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
+}
+
+.partner-logos {
+  border-top: 2px dotted #ccc;
+  padding-top: 3rem;
+  a img {
+    transform: scale(1);
+    -webkit-transition: transform ease-in-out 0.2s;
+    transition: transform ease-in-out 0.2s;
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
 }

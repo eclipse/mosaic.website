@@ -1,38 +1,42 @@
-<div class="container-fluid text-muted" style="margin-top: 1em;">
+{{ range .page.Params.image_text_block }}
+<div class="image-text-block row mb-4">
+  <!-- Images left beside text -->
+  <div class="image col-3 d-none d-md-block">
+    <div class="row justify-content-center">
+      {{ range .image }}
+      <a href="{{ .url }}" class="view-list-item mb-3">
+        {{ $width := .width | default "100%" }}
+        <img class="mx-auto" src="{{ .file | relURL }}" alt="{{ .alt }}" width="{{ $width }}">
+      </a>
+      {{ end }}
+    </div>
+  </div>
 
-  <div class="row">
-    <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
-      <a href="https://fokus.fraunhofer.de/en" class="view-list-item ml-3">
-        <img src="{{ "/img/logos/fh_fokus-logo.png" | relLangURL }}" alt="Fraunhofer logo" class="member-logo" style="width:10rem;">
-      </a>
-      <a href="https://www.dcaiti.tu-berlin.de/" target="_blank" rel="noopener" class="view-list-item ml-3">
-        <img src="{{ "/img/logos/dcaiti-logo.png" | relLangURL }}" alt="DCAITI" style="width:10rem;">
-      </a>
+  <!-- Images above text -->
+  <div class="image col-12 d-block d-md-none mb-3">
+    <div class="row justify-content-center">
+      {{ range .image }}
+      <div class="col-6">
+        <a href="{{ .url }}" class="view-list-item mb-3">
+          {{ $width := .width | default "100%" }}
+          <img class="mx-auto" src="{{ .file | relURL }}" alt="{{ .alt }}" width="{{ $width }}">
+        </a>
+      </div>
+      {{ end }}
     </div>
-    <div class="col-md-9" style="color: #403b3b; margin-top:auto; margin-bottom:auto;">
-      <b>Fraunhofer FOKUS</b> and <b>DCAITI (Daimler Center for Automotive IT Innovations)</b> developed this simulation platform, formerly known as VSimRTI, to support research in the field of connected and automated mobility for more than 12 years.
-    </div>
+  </div>
+
+  <div class="text col-12 col-md-9">
+    {{ .content | markdownify | safeHTML }}
   </div>
 </div>
+{{ end }}
 
-<div class="container-fluid text-muted" style="margin-top: 3em;">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
-        <a href="https://openmobility.eclipse.org" class="view-list-item ml-3"><img src="{{ "/img/logos/open-mobility-logo.png" | relLangURL }}" alt="openMobility logo" style="width:8rem;"></a>
-      </div>
-      <div class="col-md-9" style="color: #403b3b; margin-top: auto; margin-bottom:auto;">
-        The future of Eclipse MOSAIC is driven by several industry and academic partners in the <b>openMobility Working Group</b> at the Eclipse Foundation.
-      </div>
-    </div>
-  </div>
-
-  <div class="row js-layout-row" style="margin-top:3em; justify-content:center;">
-    <a href="https://openmobility.eclipse.org/members/avl" class="view-list-item ml-3" style="margin-left:auto;margin-right:auto"><img src="{{ "/img/logos/avl-logo.png" | relLangURL }}" style="height:50px;"></a>
-    <a href="https://openmobility.eclipse.org/members/bosch" class="view-list-item ml-3" style="margin-left:auto;margin-right:auto"><img src="{{ "/img/logos/bosch-logo.png" | relLangURL }}" alt="Bosch logo" class="member-logo" style="height:50px;"></a>
-    <a href="https://openmobility.eclipse.org/members/dlr" class="view-list-item ml-3" style="margin-left:auto;margin-right:auto"><img src="{{ "/img/logos/dlr-logo.png" | relLangURL }}" alt="DLR logo" class="member-logo" style="height:50px;"></a>
-    <a href="https://openmobility.eclipse.org/members/itemis" class="view-list-item ml-3" style="margin-left:auto;margin-right:auto"><img src="{{ "/img/logos/itemis-logo.png" | relLangURL }}" alt="Itemis logo" class="member-logo" style="height:50px;"></a>
-    <a href="https://openmobility.eclipse.org/members/vector" class="view-list-item ml-3" style="margin-left:auto;margin-right:auto"><img src="{{ "/img/logos/vector-logo.png" | relLangURL }}" alt="Vector logo" class="member-logo" style="height:50px;"></a>
-  </div>
+<div class="partner-logos row js-layout-row justify-content-center mt-5">
+  {{ $logo_height := .page.Params.logo_height | default "50px" }}
+  {{ range .page.Params.logo }}
+    <a href="{{ .url }}" class="view-list-item ml-4 mr-4 mb-4">
+      <img src="{{ printf "/img/logos/partners/%s" .logo | relURL }}" style="height: {{$logo_height}};">
+    </a>
+  {{ end }}
 </div>

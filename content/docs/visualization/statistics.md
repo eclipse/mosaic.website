@@ -11,16 +11,16 @@ menu:
     parent: visualization
 ---
 
-{{% alert note %}}
-The Statistics Visualizer is only available with a commercial license of MOSAIC Extended. 
-For further information on licences, please refer to our mailing list.
+{{% alert extended %}}
+The **Statistics Visualizer** is part of **{{< link title="MOSAIC Extended" href="/download#overview" >}}**.  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
 The Statictics Visualizer is another visualisation tool to easily measure basic simulation outcomes.
 With the Statistics Visualizer you will be able to obtain short or detailed results of the simulation,
 e.g. travel times or the average speeds of groups of vehicles, or the average flow on induction loops.
 
-## Configuration of Statistics Visualizer
+## Configuration
 
 * The main configuration file for all visualizers is located at `scenarios/<scenarioName>/visualizer/visualizer_config.xml`
 
@@ -34,7 +34,7 @@ set to "true", as shown in the following listing.
 ```
 _Configuration header for Statistics Visualizer_
 
-## Specification of the Statistics Visualizer
+## Specification
 
 In this section, we take a closer look at the Statistics Visualizer by using examples and demonstrations. For
 each type of retrieving data we create a `<statistic></statistic>` block. Inside the block we define
@@ -61,7 +61,7 @@ element can be seen below.
 ```
 _Source options of Statistics Visualizer_
 
-## Application of the Statistics Visualizer
+## Application
 
 This section will demonstrate the basic idea and usage of the Statistics Visualizer depending on the
 individual requirements. Besides the retrieving raw data, the Statistics Visualizer has further features for

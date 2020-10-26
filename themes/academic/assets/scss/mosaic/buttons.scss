@@ -15,6 +15,7 @@
 
   i {
     transition: all 0.16s ease;
+    margin-right: 0.3rem;
   }
 }
 
@@ -22,11 +23,13 @@
   color: $mosaic-purple !important;
   border-color: #fff;
   background-color: #fff;
+  @extend .gradient-white-darken;
 
   &:hover, &:focus {
     background-color: transparent;
     color: #fff !important;
     border-color: #fff;
+    background-image: none;
   }
 }
 
@@ -34,6 +37,18 @@
   color: #fff;
   border-width: 0;
   background-image: linear-gradient(-45deg, #68145C 0%, #BB86B3 100%);
+  @extend .gradient-orange-purple;
+
+  &:hover, &:focus {
+    color: #fff;
+    background-image: linear-gradient(-45deg, #872E51 0%, #F88D2B 210%);
+  }
+}
+
+.mosaic-btn-secondary {
+  color: #fff;
+  border-width: 0;
+  background-image: linear-gradient(-45deg, #57114d -30%, #751667 40%);
 
   &:hover, &:focus {
     color: #fff;
