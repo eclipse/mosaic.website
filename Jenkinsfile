@@ -11,24 +11,43 @@ metadata:
   name: hugo-pod
 spec:
   containers:
-    - name: jnlp
+    - name: "jnlp"
+      image: "eclipsecbi/jiro-agent-basic:remoting-4.2.1"
       volumeMounts:
-      - mountPath: /home/jenkins/.ssh
-        name: volume-known-hosts
+      - name: "volume-known-hosts"
+        mountPath: /home/jenkins/.ssh
+      - name: "volume-0"
+        mountPath: "/opt/tools"
+        readOnly: false
       env:
       - name: "HOME"
         value: "/home/jenkins/agent"
+      resources:
+        limits:
+          memory: "2Gi"
+          cpu: "1"
+        requests:
+          memory: "2Gi"
+          cpu: "1"
     - name: hugo
       image: eclipsemosaic/hugo:0.75
       command:
       - cat
       tty: true
   volumes:
-  - configMap:
+  - name: volume-known-hosts
+    configMap:
       name: known-hosts
-    name: volume-known-hosts
+  - name: "volume-0"
+    persistentVolumeClaim:
+      claimName: "tools-claim-jiro-mosaic"
+      readOnly: true
 """
     }
+  }
+  
+  parameters {
+    text(name: 'JAVADOC_VERSION', defaultValue: 'keep', description: 'Enter the MOSAIC version to deploy JAVADOC from.')
   }
  
   environment {
@@ -46,6 +65,7 @@ spec:
   }
  
   stages {
+      
     stage('Checkout www repo') {
       steps {
         dir('www') {
@@ -58,6 +78,35 @@ spec:
         }
       }
     }
+    
+    stage('Generate JavaDoc') {
+        when {
+            expression { params.JAVADOC_VERSION != 'keep' }
+        }
+        steps {
+            dir('mosaic') {
+                checkout scm: [$class: 'GitSCM', 
+                  userRemoteConfigs: [[url: 'https://github.com/eclipse/mosaic.git']], 
+                  branches: [[name: "refs/tags/${params.JAVADOC_VERSION}"]]
+                ], poll: false
+                sh '/opt/tools/apache-maven/3.6.3/bin/mvn install -DskipTests=true -Dmaven.repo.local=.m2'
+                sh '/opt/tools/apache-maven/3.6.3/bin/mvn javadoc:javadoc javadoc:aggregate -DadditionalJOption=-Xdoclint:none -Dmaven.repo.local=.m2'
+            }
+        }
+    }
+    
+    stage('Backup existing JavaDoc') {
+        when {
+            expression { params.JAVADOC_VERSION == 'keep' }
+        }
+        steps {
+            dir('mosaic') {
+               sh 'mkdir -p target/site/apidocs'
+               sh 'cp -Rvf ../www/java_docs/* target/site/apidocs/ || :'
+            }
+        }
+    }
+    
     stage('Build website (main) with Hugo') {
       when {
         branch 'main'
@@ -91,6 +140,7 @@ spec:
       }
       steps {
         sh 'rm -rf www/* && cp -Rvf hugo/public/* www/'
+        sh 'mkdir -p www/java_docs && cp -Rvf mosaic/target/site/apidocs/* www/java_docs/ || :'
         dir('www') {
             sshagent(['git.eclipse.org-bot-ssh']) {
                 sh '''
