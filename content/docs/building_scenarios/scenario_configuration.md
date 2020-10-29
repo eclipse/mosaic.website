@@ -60,15 +60,13 @@ to get more details on possible adaptions.
 Below is a short video of the scenario displayed in the SUMO-GUI. We marked the three different routes the cars
 follow.
 
-[Watch scenario](/docs/building_scenarios/images/steglitz_routes.mp4)
+{{< video src="/docs/building_scenarios/images/steglitz_routes.mp4" controls=true >}}
 
 ## Communication Simulators (cell, ns3, omnetpp, sns)
 
 We won't implement any functionality for the steglitz example here but rather have a look at the
-[Barnim](/tutorials/barnim_basic)-tutorial. In the <a href="/docs/building_scenarios/files/barnim_mosaic_config.xml" download
->`scenario_config.json`
-.xml`</a> of the Barnim scenario you can
-see where the communication simulators are activated.
+[Barnim](/tutorials/barnim_basic)-tutorial. In the `scenario_config.json` of the Barnim scenario you can see where the
+communication simulators are activated:
 ```json
 "federates": {
     "cell": false,
@@ -77,12 +75,12 @@ see where the communication simulators are activated.
     "sns": true
 }
 ```
-Our [tutorials](/tutorials) and [additional examples](/docs/simulators/application_simulator/#additional-examples)
-demonstrate use cases for
+Our [tutorials](/tutorials) and [additional examples](/tutorials/additional_examples/) demonstrate use cases for
 communication usages and you should have a look at them if you are uncertain where to start. Furthermore we
 recommend copying the configuration-files for the simulator you are going to use from the [Barnim scenario](/tutorials/barnim_basic/). It
 contains the most complete configurations and is well maintained.  
-If you are an expert with one of the external network simulators ([ns3](/docs/simulators/network_simulator_ns3), [OMNeT++](/docs/simulators/network_simulator_omnetpp)) the Barnim scenario will also give
+If you are an expert with one of the external network simulators ([ns3](/docs/simulators/network_simulator_ns3),
+[OMNeT++](/docs/simulators/network_simulator_omnetpp)) the Barnim scenario will also give
 you an overview on how to configure those.
 
 ## Other Simulators

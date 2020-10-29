@@ -1,10 +1,9 @@
 {
-  "operatingMode":          "osm2vsimrti",
-
-  "inputFile":              "steglitz.osm",
-  "executeOsmosis":         true,
-  "generateRoutes":         true,
-  "routeBeginLatLon":       "52.457616,13.318392",
-  "routeEndLatLon":         "52.454774,13.333554",
-  "numberOfRoutes":         3
+  "operatingMode": "osm2mosaic",
+  "inputFile": "steglitz.osm",
+  "executeOsmosis": true,
+  "generateRoutes": true,
+  "routeBeginLatLon": "52.457616,13.318392",
+  "routeEndLatLon": "52.454774,13.333554",
+  "numberOfRoutes": 3
 }

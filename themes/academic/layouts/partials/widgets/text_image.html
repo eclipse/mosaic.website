@@ -92,13 +92,15 @@
       {{ end }}
 
       <!-- Image top -->
-      <div class="col-12 mb-3">
-        <div class="row justify-content-center">
-          <div class="image image-top {{ $img_width_class }}">
-            <img src="{{ printf "img/%s" $page.Params.img | absURL }}">
+      {{ with $page.Params.img }}
+        <div class="col-12 mb-3">
+          <div class="row justify-content-center">
+            <div class="image image-top {{ $img_width_class }}">
+              <img src="{{ printf "img/%s" . | absURL }}">
+            </div>
           </div>
         </div>
-      </div>
+      {{ end }}
       <div class="col-12">
         {{ with $page.Content }}
         <div class="text-and-buttons">

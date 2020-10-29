@@ -24,6 +24,22 @@ subtitle = ""
         filename = "inframix.png"
         width = ""
 [[project]]
+    title = "IMAGinE"
+    subtitle = "Cooperative Driving"
+    desc = "The IMAGinE (Intelligent Maneuver Automation – cooperative hazard avoidance in realtime) project is developing innovative driving assistance systems for cooperative driving."
+    url = "https://imagine-online.de/en/home/"
+    [project.logo]
+        filename = "imagine.svg"
+        width = "90%"
+[[project]]
+    title = "simTD"
+    subtitle = "Car-2-X Communication"
+    desc = "With the help of Car-to-X Communication - the electronic cross-linking of vehicles and infrastructure - infrastructure operators (e.g. traffic management centres), individual vehicles and a lot of further stakeholders have access to new, high resolution information in real time."
+    url = "https://imagine-online.de/en/home/"
+    [project.logo]
+        filename = "simtd.jpg"
+        width = "70%"
+[[project]]
     title = "SENDATE"
     subtitle = "Secure Networking for a Data Center Cloud in Europe"
     desc = "Research program to provide the scientific, technical, and technological concepts and solutions for Data Center Infrastructure in Europe."
@@ -34,7 +50,7 @@ subtitle = ""
 [[project]]
     title = "Streetlife"
     desc = "Steering towards Green and Perceptive Mobility of the Future."
-    url = "https://www.sendate.eu/"
+    url = "https://www.fokus.fraunhofer.de/en/asct/projects/streetlife"
     [project.logo]
         filename = "streetlife.png"
         width = "80%"

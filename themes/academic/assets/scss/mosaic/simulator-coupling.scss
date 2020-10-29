@@ -1,0 +1,373 @@
+$desc-width: 460px;
+
+.simulator-coupling {
+  padding-bottom: 1rem;
+  position: relative;
+  color: #fff;
+  text-align: center;
+
+  h2 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .federates {
+    z-index: 10;
+
+    .domain {
+      margin-right: 1rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &.applications {
+        .domain-inner {
+          background-color: $mosaic-purple;
+          background-image: linear-gradient(135deg, $mosaic-purple 0%, darken($mosaic-purple, 8%) 100%);
+        }
+        .simulators .simulator-wrap:hover .simulator {
+          background-color: lighten($mosaic-purple, 10%);
+          color: #fff;
+        }
+        .arrow {
+          background-color: darken($mosaic-purple, 6%);
+        }
+      }
+      &.communication {
+        .domain-inner {
+          background-color: $mosaic-blue;
+          background-image: linear-gradient(135deg, $mosaic-blue 0%, darken($mosaic-blue, 8%) 100%);
+          .simulators .simulator-wrap:hover .simulator {
+            background-color: darken($mosaic-blue, 20%);
+            color: #fff;
+          }
+        }
+        .arrow {
+          background-color: darken($mosaic-blue, 6%);
+        }
+      }
+      &.traffic-vehicles {
+        .domain-inner {
+          background-color: $mosaic-green;
+          background-image: linear-gradient(135deg, $mosaic-green 0%, darken($mosaic-green, 8%) 100%);
+        }
+        .simulators .simulator-wrap:hover .simulator {
+          background-color: darken($mosaic-green, 20%);
+          color: #fff;
+        }
+        .arrow {
+          background-color: darken($mosaic-green, 6%);
+        }
+      }
+      &.evaluation-tools {
+        .domain-inner {
+          background-color: $mosaic-orange;
+          background-image: linear-gradient(135deg, $mosaic-orange 0%, darken($mosaic-orange, 8%) 100%);
+        }
+        .simulators .simulator-wrap:hover .simulator {
+          background-color: darken($mosaic-orange, 20%);
+          color: #fff;
+        }
+        .arrow {
+          background-color: darken($mosaic-orange, 6%);
+        }
+      }
+      &.aso {
+        .domain-inner {
+          background-color: #ccc;
+          background-image: linear-gradient(135deg, #eee 0%, #ccc 100%);
+          border: 2px dotted rgba(0,0,0,0.2);
+          color: #555;
+          font-size: 1.6rem;
+        }
+        .arrow {
+          background-color: darken(#ddd, 6%);
+        }
+      }
+
+      .domain-inner {
+        border-radius: 1rem;
+        padding-bottom: 0.3rem;
+        height: 100%;
+
+        h2 {
+          font-size: 0.9rem;
+          margin-bottom: 0;
+        }
+
+        .simulators {
+          .slim-gutters {
+            margin-right: 0;
+
+            .simulator-wrap {
+              &.col-4,
+              &.col-6 {
+                padding-right: 0 !important;
+              }
+            }
+          }
+
+          .simulator-wrap {
+            margin-bottom: 0.5rem;
+            position: relative;
+
+            &:hover {
+              .simulator,
+              .desc-wrap {
+                display: block;
+              }
+            }
+
+            .simulator {
+              height: 100%;
+              border-radius: 0.4rem;
+              background-color: #fff;
+              color: $mosaic-navy;
+              font-size: 0.7rem;
+              padding: 0.3rem 0.2rem;
+              cursor: zoom-in;
+            }
+          }
+        }
+      }
+
+      .arrow {
+        z-index: 10;
+        position: absolute;
+        bottom: -3.8rem;
+        left: 50%;
+        margin-left: -1.5rem;
+        width: 3rem;
+        height: 4rem;
+        clip-path: polygon(50% 100%, 0% 60%, 20% 60%, 20% 0%, 80% 0%, 80% 60%, 100% 60%);
+      }
+    }
+  }
+
+  .eclipse-mosaic {
+    margin-top: 1.2rem;
+    background-color: $mosaic-navy;
+    background-image: linear-gradient(135deg, $mosaic-navy 0%, darken($mosaic-navy, 3%) 100%);
+    padding-top: 1.2rem;
+    border-radius: 1rem;
+    .inner {
+      padding: 1rem;
+      .eclipse-mosaic-title {
+        position: relative;
+        margin-top: 0.6rem;
+        padding: 0 0 1.1rem;
+        h2 {
+          cursor: zoom-in;
+        }
+        &:hover {
+          h2 {
+            text-decoration: underline;
+          }
+          .desc-wrap {
+            display: block;
+          }
+        }
+      }
+      .core {
+        .management-wrap {
+          &:hover {
+            .management {
+              background-color: rgba(255,255,255,0.3);
+              background-image: none;
+              color: #fff;
+            }
+            .desc-wrap {
+              display: block;
+            }
+          }
+          .management {
+            background-color: #fff;
+            background-image: linear-gradient(135deg, #fff 0%, darken(#fff, 4%) 100%);
+            color: $mosaic-navy;
+            padding: 0.3rem;
+            border-radius: 0.8rem;
+            cursor: zoom-in;
+          }
+        }
+      }
+    }
+  }
+
+  .desc-wrap {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    margin-left: -($desc-width / 2);
+    background-color: #fff;
+    background-image: linear-gradient(135deg, #fff 15%, #eae8f0 100%);
+    border-radius: 1rem;
+    padding: 1rem;
+    z-index: 100;
+    color: $mosaic-navy;
+    box-shadow: 0 5px 15px 8px rgba(0,0,0,0.3);
+    min-width: $desc-width;
+    text-align: left;
+    &.position-right {
+      top: -32px;
+      left: 100%;
+      margin-left: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        border: 17px solid transparent;
+        border-right-color: #fff;
+        top: 34px;
+        left: -17px;
+        margin-left: -17px;
+      }
+    }
+    &.position-left {
+      top: -32px;
+      left: auto;
+      right: 100%;
+      margin-left: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        border: 17px solid transparent;
+        border-left-color: #f0eef4;
+        top: 34px;
+        left: auto;
+        right: -34px;
+        margin-left: -17px;
+      }
+    }
+    &.position-top {
+      top: auto;
+      left: 50%;
+      right: auto;
+      margin-left: -($desc-width / 2);
+      bottom: calc(100% + 10px);
+      &:before {
+        content: "";
+        position: absolute;
+        border: 17px solid transparent;
+        border-top-color: #f3f1f6;
+        top: auto;
+        bottom: -34px;
+        left: 50%;
+        margin-left: -8px;
+      }
+    }
+    &.position-top-left {
+      top: auto;
+      left: auto;
+      right: 0;
+      margin-left: 0;
+      margin-right: 15px;
+      bottom: calc(100% + 10px);
+      &:before {
+        content: "";
+        position: absolute;
+        border: 17px solid transparent;
+        border-top-color: #ebeaf1;
+        top: auto;
+        bottom: -34px;
+        left: auto;
+        right: 20px;
+        margin-left: -8px;
+      }
+      &:after {
+        height: 30px;
+        top: auto;
+        bottom: -30px;
+      }
+    }
+    &.position-top-right {
+      top: auto;
+      left: 0;
+      right: auto;
+      margin-left: 15px;
+      bottom: calc(100% + 10px);
+      &:before {
+        content: "";
+        position: absolute;
+        border: 17px solid transparent;
+        border-top-color: #fafafc;
+        top: auto;
+        bottom: -34px;
+        left: 30px;
+        margin-left: -8px;
+      }
+      &:after {
+        height: 30px;
+        top: auto;
+        bottom: -30px;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      border: 17px solid transparent;
+      border-bottom-color: #fff;
+      top: -34px;
+      left: 50%;
+      margin-left: -17px;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      height: 30px;
+      top: -30px;
+      left: 0;
+      right: 0;
+      cursor: zoom-in;
+    }
+
+    h3 {
+      margin: 0 0 0.3rem 0;
+      font-size: 0.9rem;
+    }
+
+    .logo {
+      margin-top: -10px;
+      width: 100%;
+      height: 38px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 100%;
+    }
+
+    .text {
+      font-size: 0.7rem;
+      padding: 0.6rem 0;
+      p {
+        font-size: 0.7rem;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      a {
+        margin: 0;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .simulator.user {
+    background-color: #9e9eac !important;
+    color: #fff !important;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.4);
+  }
+  .federates .domain .domain-inner .simulators .simulator-wrap:hover .simulator.user {
+    background-color: darken(#9e9eac, 15%) !important;
+    color: #fff;
+  }
+  .simulator.extended {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border: 1px dashed rgba(0,0,0,0.5);
+    color: #222;
+  }
+  .federates .domain .domain-inner .simulators .simulator-wrap:hover .simulator.extended {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+
+  }
+}

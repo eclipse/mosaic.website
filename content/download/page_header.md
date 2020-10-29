@@ -5,14 +5,14 @@ active = true  # Activate this widget? true/false
 weight = 1  # Order that this section will appear.
 
 title = "Download Eclipse&nbsp;MOSAIC"
-subtitle = "Get the latest version of Eclipse&nbsp;MOSAIC<br>from DCAITI Mirror:"
+subtitle = "Get the latest version of Eclipse&nbsp;MOSAIC<br>from our partners at DCAITI:"
 
 [design.background]
   image = "background-home-02.jpg"
   image_opacity = "0.4"
   
 [[button]]
-  title = "Download Eclipse MOSAIC"
+  title = "Download Eclipse MOSAIC from DCAITI Mirror"
   url = "https://www.dcaiti.tu-berlin.de/research/simulation/download/"
   icon = "download"
 

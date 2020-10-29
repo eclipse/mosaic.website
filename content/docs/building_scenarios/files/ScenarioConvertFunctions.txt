@@ -41,7 +41,7 @@
                                            operation (OSM File/Database file/SUMO net file/SUMO route file).
  -s,--sumo-prefix <STRING>                 Prefix for the generated sumo files  (uses database name when not defined).
  -f,--force                                Force overwrite of existing files instead of incrementing file names.
- -m,--mapping-file <PATH>                  Uses the given mapping3 configuration to export existing vehicleTypes and
+ -m,--mapping-file <PATH>                  Uses the given mapping configuration to export existing vehicleTypes and
                                            vehicles data to *.rou.xml (with --export-routes).
     --import-lat <DOUBLE>                  Center latitude of imported region to project coordinates.
     --import-lon <DOUBLE>                  Center longitude of imported region to project coordinates.

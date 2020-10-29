@@ -40,7 +40,7 @@ In order to use applications they have to be assigned (`mapped` in Eclipse MOSAI
 In this tutorial, we will assign applications to an RSU that is placed along the road (the red symbol in the top
 picture) and to the vehicles. In order to do this the following steps are necessary:
 
-1. Navigate to the `mapping3` folder of the Tiergarten tutorial scenario.
+1. Navigate to the `mapping` folder of the Tiergarten tutorial scenario.
 2. Edit the `mapping_config.json` to let it point to the correct classes
 	for your application, define prototypes and to add entities to the simulation.
 
@@ -148,7 +148,7 @@ WLAN module can be achieved with the following code snipped:
 
 ```java
 @Override
-public void setup() {
+public void onStartup() {
     getLog().infoSimTime(this, "Initialize application");
     getOperatingSystem().getAdHocModule().enable(
         new AdHocModuleConfiguration().addRadio().channel(AdHocChannel.CCH).power(50).create()
@@ -206,7 +206,7 @@ A high level description in what we need to do in order to send messages at a sp
 
 ```java
 @Override
-public void setUp() {
+public void onStartup() {
     getLog().infoSimTime(this, "Initialize application");
     getOperatingSystem().getAdHocModule().enable(
         new AdHocModuleConfiguration().addRadio().channel(AdHocChannel.CCH).power(50).create()

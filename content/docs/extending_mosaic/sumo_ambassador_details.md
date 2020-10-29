@@ -36,7 +36,7 @@ vehicle, it is forwarded to SUMO. Thus, at the next time-advancement, the new ro
 
 ### Simulation of Vehicles
 
-For each vehicle which has been defined in the mapping3 configuration, a `VehicleRegistration` interaction is sent
+For each vehicle which has been defined in the mapping configuration, a `VehicleRegistration` interaction is sent
 to the `SumoAmbassador` which adds those vehicles to the simulation via TraCI. Furthermore, vehicle
 data is subscribed which is updated with every simulation step. After each step of the simulation this
 data is bundled into a `VehicleInfo` object which is distributed among other ambassadors within the

@@ -11,7 +11,8 @@ menu:
     parent: simulators
 ---
 
-This section presents the architecture and the main features of the **Application Simulator** as well as the related **Mapping** Ambassador, which is used to configure individual simulation entities (or simulation units) and "map" applications to them.
+This section presents the architecture and the main features of the **Application Simulator** as well as the related **Mapping** Ambassador,
+which is used to configure individual simulation entities (or simulation units) and "map" applications to them.
 
 ## Eclipse MOSAIC Application Simulator
 
@@ -39,15 +40,21 @@ This ambassador can be configured with a configuration file. The specific path i
 This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.
 
 ### Overview
-Each simulation unit (e.g. vehicle, RSU, traffic light ..) can have different applications (depending on their application [Mapping]({{< ref "docs/simulators/application_simulator.md#eclipse-mosaic-mapping" >}})). The applications for the units are basically compiled JAVA classes, which **extend** the abstract class
- `AbstractApplication`. Those classes have to be deployed as pre-compiled JAR files into the `application` folder of the simulated scenario.
+Each simulation unit (e.g. vehicle, RSU, traffic light ..) can have different applications (depending on their application
+[Mapping]({{< ref "docs/simulators/application_simulator.md#eclipse-mosaic-mapping" >}})). The applications for the units are basically
+compiled JAVA classes, which **extend** the abstract class `AbstractApplication`. Those classes have to be deployed as pre-compiled
+JAR files into the `application` folder of the simulated scenario.
 
 {{< figure src="../images/application_overview.svg" title="Overview of interaction between applications and the unit's operating system with its modules. An example V2X message propagation is presented." >}}
 
 #### Application Operating System
-The `AbstractApplication` possesses a unit-specific `OperatingSystem`, which allows interactions with the simulated parameters. The operating system provides access to information like the current time or position of the units and could control unit-specific actions (like `slowDown()` for vehicles).
+The `AbstractApplication` possesses a unit-specific `OperatingSystem`, which allows interactions with the simulated parameters.
+The operating system provides access to information like the current time or position of the units and could control unit-specific
+actions (like `slowDown()` for vehicles).
 
-As the interaction types for navigation (retrieving road network information and calculating routes) and communication (preparing and sending messages) are more complex, they are separated into the specific modules `NavigationModule` (Navigation + Routing for vehicles) / `RoutingModule` (Routing-only for static units) and `AdHocModule` / `CellModule` with APIs dedicated to their purpose.
+As the interaction types for navigation (retrieving road network information and calculating routes) and communication (preparing and
+sending messages) are more complex, they are separated into the specific modules `NavigationModule` (Navigation + Routing for
+vehicles) / `RoutingModule` (Routing-only for static units) and `AdHocModule` / `CellModule` with APIs dedicated to their purpose.
 
 The following table lists all modules a unit's operating system could provide.
 
@@ -58,11 +65,15 @@ The following table lists all modules a unit's operating system could provide.
 | AdHocModule      | Communication via ad hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing) |
 | CellModule       | Communication via cellular services (different configuration / addressing modes)         |
 
-**Note:** The presented communication modules `AdHocModule`, `CellModule` are used for the sending part of a transmission. The message reception is realized by Application Interfaces provided by the `CommunicationApplication`.
+> **Note:** The presented communication modules `AdHocModule`, `CellModule` are used for the sending part of a transmission. The message
+> reception is realized by Application Interfaces provided by the `CommunicationApplication`.
 
 #### Application Interfaces
-Application interfaces handle call-backs to incoming events via their methods, like `onVehicleUpdated()`, called by the application simulator. 
-The following table lists all interfaces usable for application implementation, the type of unit as well as important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the "Provides" column. The elementary interface (`Application`) provides the methods `onStartup()`, `onShutdown()`. Implementation details are given in [Development of applications]({{< ref "/docs/develop_applications" >}}).
+Application interfaces handle call-backs to incoming events via their methods, like `onVehicleUpdated()`, called by the
+application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
+important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
+"Provides" column. The elementary interface (`Application`) provides the methods `onStartup()`, `onShutdown()`. Implementation details
+are given in [Development of applications]({{< ref "/docs/develop_applications" >}}).
 
 | Interface                            | Applicable to    | Provides                                              | Description            |
 | -------------------------------------| ---------------- | ----------------------------------------------------- | ---------------------- |
@@ -102,7 +113,8 @@ in custom configuration files (e.g. `ETSIApplication.json` or `ETSIApplication_v
 
 ## Eclipse MOSAIC Mapping
 
-Closely related to the Application Simulator, the **Mapping** Ambassador is used for the initial choreography of a simulation. It defines two major aspects for the simulation units:
+Closely related to the Application Simulator, the **Mapping** Ambassador is used for the initial choreography of a simulation.
+It defines two major aspects for the simulation units:
 1. number, properties, position (e.g. of RSUs, traffic lights) or initial routes (of vehicles, simulated in a traffic/vehicle simulator)
 2. specific application(s) to be "mapped" on the simulation units and simulated in the Application Simulation
 
@@ -113,13 +125,15 @@ The JSON based configuration is located in `<scenario_name>/mapping/mapping_conf
 
 The Mapping configuration is divided into different parts:
 * Pre Definitions of `prototypes` and `deviations`
-* Entity Definitions of `vehicles`, `rsus`, `tls` and `tmcs`
+* Entity Definitions of `vehicles`, `rsus`, `tls` `servers` and `tmcs`
 * Advanced Vehicle Definitions (including route generation) in `matrixMappers`
 * Common Definitions in `config`
 
 #### Prototypes
 
-`prototypes` define models for other objects, which can be reused later in the other sections of the Mapping. This allows reusing the definition of certain entities such as vehicles or the combination of multiple applications, reducing redundancies and resulting in shorter Mapping configurations.
+`prototypes` define models for other objects, which can be reused later in the other sections of the Mapping. This allows reusing the
+definition of certain entities such as vehicles or the combination of multiple applications, reducing redundancies and resulting in
+shorter Mapping configurations.
 
 ```json
 "prototypes": [
@@ -134,8 +148,8 @@ The Mapping configuration is divided into different parts:
 ]
 ```
 
-Prototypes can be created for all types of entities. Next to the list of `applications` which is available for all types of entities, vehicle types 
-provide various other parameters to be adjusted. 
+Prototypes can be created for all types of entities. Next to the list of `applications` which is available for all types of entities,
+vehicle types provide various other parameters to be adjusted. 
 
 | Parameter | Description | Deviation |
 |-----------|-------------| ----------|
@@ -152,8 +166,9 @@ provide various other parameters to be adjusted.
 | `laneChangeMode`   | The lane changing behavior of the vehicle: `COOPERATIVE`. `CAUTIOUS`, `AGGRESSIVE`, `PASSIVE`, `OFF`  |  |
 | `applications`     | The list of applications to map onto this vehicle type.  |  |
 
-For the majority of the parameters above (see column "Deviation"), a normal distribution can be created. In that case, each individual vehicle spawned with this prototype 
-will be loaded with a random value within this distribution. To achieve this, a separate `deviations` attribute must be added to the type:
+For the majority of the parameters above (see column "Deviation"), a normal distribution can be created. In that case, each individual
+vehicle spawned with this prototype will be loaded with a random value within this distribution. To achieve this, a separate `deviations`
+attribute must be added to the type:
 
 ```json
 "prototypes": [
@@ -169,22 +184,26 @@ will be loaded with a random value within this distribution. To achieve this, a 
     ]
 ```
 
-According to the config above, the basic Parameter value conforms to the expected value and the given value in the `deviations` attribute conforms to the $\sigma$ of the Gaussian distribution(meaning for the example of maxSpeed that ~68% of the values will be located in the interval [65.0, 75.0]). The deviation will be limited to &plusmn;2$\sigma$.
+According to the config above, the basic parameter value conforms to the expected value, and the given value in the `deviations`
+attribute conforms to the $\sigma$ of the Gaussian distribution(meaning for the example of maxSpeed that ~68% of the values will 
+be located in the interval [65.0, 75.0]). The deviation will be limited to &plusmn;2$\sigma$.
 
 #### Entities
 
 **Vehicles**
 
-The `vehicles`-section is the centerpiece of the Mapping configuration. It defines the departures (times and number), routes, and types of the vehicles.
+The `vehicles`-section is the centerpiece of the Mapping configuration. It defines the departures (times and number),
+routes, and types of the vehicles.
 
 Each spawner in this list generates a traffic stream of vehicles on a certain `route`. The vehicles stream begins at `startingTime` and 
-generates vehicles until `maxNumberVehicles` is reached. The time between two consecutively vehicles is implicitly given by the `targetFlow` property, which
-defines how many vehicles per hour are going to spawned. 
+generates vehicles until `maxNumberVehicles` is reached. The time between two consecutively vehicles is implicitly given by the
+`targetFlow` property, which defines how many vehicles per hour are going to be spawned. 
 
-Each vehicle spawner must refer to at least one vehicle type (`types`). A vehicle type must either refer to a type from the `prototypes` section by using its `name`, 
-or be defined as a completely new vehicle type with all necessary parameters. If more than one vehicle type is referenced in the `types` attribute, 
-`weight`s can be used to specify the ratios to choose between them when loading an individual vehicle. If no weights are defined, invididual vehicle types are assumed to be distributed equally. 
-Note: if at least one vehicle type has a weight defined, all types without a defined weight are ignored.
+Each vehicle spawner must refer to at least one vehicle type (`types`). A vehicle type must either refer to a type from the `prototypes`
+section by using its `name`, or be defined as a completely new vehicle type with all necessary parameters. If more than one vehicle type
+is referenced in the `types` attribute, `weight`s can be used to specify the ratios to choose between them when loading an individual
+vehicle. If no weights are defined, individual vehicle types are assumed to be distributed equally. 
+>Note: if at least one vehicle type has a weight defined, all types without a defined weight are ignored.
 
 ```json
 "vehicles": [
@@ -228,7 +247,9 @@ Additional notes:
 
 **Road Side Units**
 
-The `rsus`-section offers the possibility to define instances of application supported Road Side Units (RSU)s and place them on a defined position (`lat`, `lon` coordinates). Referring to `prototype` definitions with simply specifying its name in the `name` property will automatically fill in relevant properties of the RSU.
+The `rsus`-section offers the possibility to define instances of application supported Road Side Units (RSU)s and place them on a
+defined position (`lat`, `lon` coordinates). Referring to `prototype` definitions with simply specifying its name in the `name`
+property will automatically fill in relevant properties of the RSU.
 
 ```json
 "rsus": [
@@ -243,9 +264,15 @@ The `rsus`-section offers the possibility to define instances of application sup
 
 **Traffic Lights**
 
-In the `trafficLights`-section, applications can be mapped to traffic light groups. Usually, individual traffic lights are part of traffic light groups to control a whole junction, whereas the junction possesses a certain position. The traffic light groups and their positions are defined in the simulator specific configuration file (e.g. the *.net.xml for SUMO and *.ttl.json for PHABMACS). The `tlGroupId`-property allows mapping of applications to the traffic light groups, referring them by Id.
+In the `trafficLights`-section, applications can be mapped to traffic light groups. Usually, individual traffic lights are part of
+traffic light groups to control a whole junction, whereas the junction possesses a certain position. The traffic light groups and
+their positions are defined in the simulator specific configuration file (e.g. the *.net.xml for SUMO and *.ttl.json for PHABMACS).
+The `tlGroupId`-property allows mapping of applications to the traffic light groups, referring them by Id.
 
-Alternatively, the definition of weights leads to a random distribution of the referred applications through ALL traffic lights of the scenario. (Note: The weights do not have to add up to 100 or 1. Consequently all traffic lights will be mapped using the specified prototypes as soon as one weight differs from zero. So in case you don’t want all traffic lights to have applications running on them you have to define one traffic light without any applications and add a weight to it.
+Alternatively, the definition of weights leads to a random distribution of the referred applications through ALL traffic lights of the
+scenario. (Note: The weights do not have to add up to 100 or 1. Consequently, all traffic lights will be mapped using the specified
+prototypes as soon as one weight differs from zero. So in case you don’t want all traffic lights to have applications running on them you
+have to define one traffic light without any applications and add a weight to it.
 
 ```json
 "trafficLights": [
@@ -260,18 +287,37 @@ Alternatively, the definition of weights leads to a random distribution of the r
 ]
 ```
 
-For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to [Simulation Scenarios - Traffic Lights](</docs/building_scenarios/scenarios/#traffic-lights>).
+For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to
+[Simulation Scenarios - Traffic Lights](</docs/building_scenarios/scenarios/#traffic-lights>).
 
+**Servers**
+
+The `servers`-array can be used to specify server units, which can be used to communicate with other units via the cell module.
+Capacity configurations for servers should be done when enabling the `CellModule`. Delay and transmission models are configured
+in the `network.json` of the cell module (see [here](</docs/simulators/network_simulator_cell>)).
+> Note: The `group` parameter in the mapping configuration has to match with the id in the network configuration in order to
+> properly function.
+```json
+"servers": [
+    {
+        "name": "MyServer",
+        "group": "TestServers",
+        "applications": [ "ServerApp1", "ServerApp2" ]
+    }
+]
+```
 **Traffic Management Centers**
 
 The `tmc`-section offers the possibility to define instances of a Traffic Management Center (TMC). A TMC
 provides the possibility to interact with the infrastructure of the road, i.e. retrieving traffic properties
 from detectors (e.g. traffic flow), and changing properties from the road (e.g. speed limits).
+Additionally, TMCs are an extension of Servers and can be configured in the same way that servers are
 
 ```json
 "tmcs": [
     {
         "name": "HighwayManagement",
+        "group": "TestTmcServers",
         "applications": [ "com.dcaiti.vsimrti.app.tutorials.highway.HighwayManagementApp()" ],
         "inductionLoops": [ "detector_0", "detector_1", "detector_2" ],
         "laneAreaDetectors": [ ]
@@ -279,12 +325,15 @@ from detectors (e.g. traffic flow), and changing properties from the road (e.g. 
 ]
 ```
 
-> All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles in every simulation run with regard to the given ratios at each point in time the simulation). The Stochastic Mapping results in a random order of mapped units.
+> All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
+> in every simulation run with regard to the given ratios at each point in time the simulation).
+> The Stochastic Mapping results in a random order of mapped units.
 
 #### Use Type Distributions in Complex Traffic Scenarios
 
 In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
-again and again, you can use `typeDistributions`. By doing so, it is very simple to adjust the list of types and weights at only one place in the configuration file.
+again and again, you can use `typeDistributions`. By doing so, it is very simple to adjust the list of types and weights at only one
+place in the configuration file.
 
 Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:
 
@@ -343,9 +392,12 @@ Instead of defining an equal list of types and weights for each single vehicle s
 
 #### Advanced vehicle spawners with route generation
 
-It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the `matrixMappers`-list. Each MatrixMapper consists of a list of `points`, the vehicle-`types` to be used and the actual flow-values (`odValues`) between each of the points. It is possible to define multiple matrices. This way can achieve distinctively different compositions of the vehicle flows.
+It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the `matrixMappers`-list.
+Each MatrixMapper consists of a list of `points`, the vehicle-`types` to be used and the actual flow-values (`odValues`) between each
+of the points. It is possible to define multiple matrices. This way can achieve distinctively different compositions of the vehicle flows.
 
-The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between each of the points.
+The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
+each of the points.
 
 ```json
 
@@ -417,7 +469,8 @@ Next to the specific configuration of prototypes and simulation entities, some g
 ### Unit Identifiers
 
 Every traffic object in Eclipse MOSAIC has a globally unique string identifier. These identifiers are used to identify 
-a traffic object in Eclipse MOSAIC as well as in different ambassadors. From user’s aspect, these identifiers will be seen in the log files which are generated after a simulation. The following table explains, which identifier belongs to which traffic object.
+a traffic object in Eclipse MOSAIC as well as in different ambassadors. From user’s aspect, these identifiers will be seen in the log files
+which are generated after a simulation. The following table explains, which identifier belongs to which traffic object.
 
 | **Traffic Object** | **Eclipse MOSAIC Internal ID** |
 | ------------------ | ----------------------- |
