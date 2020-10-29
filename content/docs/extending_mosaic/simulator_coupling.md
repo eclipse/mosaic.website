@@ -50,8 +50,8 @@ schedule other federates while incoming interactions are processed.
 Coupling a multitude of different simulators and properly syncing them is a non-trivial task and requires a lot of effort in order to
 function correctly. If you have read up on High Level Architecture before 
 (have a look [here](https://en.wikipedia.org/wiki/High_Level_Architecture) and at the linked references) you might notice, that the 
-previous flowchart does not completely reflect the proposed mechanisms. For instance, the `isTimeRegulating` flag has no effect, when the `isTimeConstrained`
-flag is not set.  
+previous flowchart does not completely reflect the proposed mechanisms. For instance, the `isTimeRegulating` flag has no effect, when the
+`isTimeConstrained` flag is not set.  
 So at some points you might stumble upon federates, which have their `isTimeConstrained` and `isTimeRegulating` flags set to different
 values as you would expect. An example of this is the `ApplicationAmbassador`. One would expect it to be time-constrained as well as
 time-regulating. This isn't the case though, because the `ApplicationAmbassador` implements its own time- and event-management,
@@ -74,25 +74,30 @@ with respect to the federate configuration is illustrated.
 The first step to integrate a new component is the extension of the configuration file `etc/defaults.xml`.
 An example for a federate configuration can be found in following listing.
 
-```xml
-<federates>
-    [...]
-    <federate class="com.dcaiti.vsimrti.fed.omnetpp.ambassador.OmnetppAmbassador">
-        <id>omnetpp</id>
-        <deploy>true</deploy>
-        <start>true</start>
-        <host>local</host>
-        <port>4998</port>
-        <config>omnetpp.ini</config>
-        <subscriptions>
-            <subscription>VehicleRegistration</subscription>
-            <subscription>RsuRegistration</subscription>
-            <subscription>TrafficLightRegistration</subscription>
-            [...]
-        </subscriptions>>
-    </federate>
-    [...]
-</federates>
+```json
+"federates": [
+    ...
+    {
+        "id": "omnetpp",
+        "classname": "org.eclipse.mosaic.fed.omnetpp.ambassador.OmnetppAmbassador",
+        "configuration": "omnetpp_config.json",
+        "configurationDeployPath": "omnetpp-federate/simulations",
+        "priority": 50,
+        "dockerImage": "",
+        "host": "local",
+        "port": 4998,
+        "deploy": true,
+        "start": true,
+        "subscriptions": [
+            "VehicleRegistration",
+            "RsuRegistration",
+            "TrafficLightRegistration",
+            ...
+        ],
+        "javaClasspathEntries": []
+    },
+    ...       
+]
 ```
 
 The following parameters are available:

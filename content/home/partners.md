@@ -11,7 +11,7 @@ weight = 30  # Order that this section will appear in.
     [[image_text_block.image]]
         file = "/img/logos/partners/fh_fokus.png"
         alt = "Fraunhofer logo"
-        url = "https://fokus.fraunhofer.de/en"
+        url = "https://www.fokus.fraunhofer.de/asct"
         width = "60%"
     [[image_text_block.image]]
         file = "/img/logos/partners/dcaiti.png"

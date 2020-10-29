@@ -5,6 +5,7 @@
 @import "mosaic/docs";
 @import "mosaic/search";
 @import "mosaic/site-footer";
+@import "mosaic/simulator-coupling";
 @import "mosaic/svg";
 @import "mosaic/tutorials";
 @import "mosaic/wg-cards";
@@ -50,6 +51,10 @@ a {
 }
 table a {
   color: $mosaic-purple;
+}
+
+iframe {
+  border: 2px solid #ccc;
 }
 
 nav a {
@@ -139,15 +144,25 @@ body.page-docs #navbar-main > .container {
   background-repeat: no-repeat;
 }
 
-.partner-logos {
-  border-top: 2px dotted #ccc;
-  padding-top: 3rem;
-  a img {
-    transform: scale(1);
-    -webkit-transition: transform ease-in-out 0.2s;
-    transition: transform ease-in-out 0.2s;
-    &:hover {
-      transform: scale(1.07);
+.wg-partners {
+  .image-text-block:first-of-type {
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.9rem !important;
+    border-bottom: 2px dotted #ccc;
+  }
+  .partner-logos {
+    a img {
+      transform: scale(1);
+      -webkit-transition: transform ease-in-out 0.2s;
+      transition: transform ease-in-out 0.2s;
+
+      &:hover {
+        transform: scale(1.07);
+      }
     }
   }
+}
+
+#news img {
+  border-radius: 0.7rem;
 }

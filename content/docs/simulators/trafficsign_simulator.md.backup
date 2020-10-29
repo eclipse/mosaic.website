@@ -24,9 +24,9 @@ To configure your simulation to enable vehicles to react on traffic signs your s
     <scenario-name>.trafficsigns.xml [List of SUMO GUI representations of Eclipse MOSAIC traffic signs]
     images [Directory including image files of traffic signs]
   applications
-    TrafficSignsApplications-VAR(mosaic.version).jar [Vehicle application: Reaction on traffic signs]
+    TrafficSignsApplications.jar [Vehicle application: Reaction on traffic signs]
     TrafficSignsVehicleApplication.json [Vehicle application configuration]
-  mapping3
+  mapping
     mapping_config.json [Equipping vehicles with the traffic signs application]
   scenario_config.json [Enable traffic signs ambassador]
 ```

@@ -130,8 +130,8 @@ The configuration for the global network in the cellular simulator in the file
 ```
 
 ### Server configuration
-Newer versions of MOSAIC will be able to support a new type of simulation units, called servers. Right now traffic management
-centers are handled in the same way as servers will be in the future. What differentiates servers from other units is, that
+MOSAIC supports a type of simulation units, called servers. Traffic Management Centers are a specialised type of server.
+What differentiates servers from other units is, that
 they are treated as having no geographical location and instead are located "inside the internet.". This concept omits prior shortcoming,
 where one would have to configure RSU's as servers.  
 Servers are also configured in the `network.json` as follows:
@@ -197,6 +197,12 @@ above could look as follows:
             "applications": [ "TestApplication" ],
             "inductionLoops": [ ],
             "laneAreaDetectors": [ ]
+        }
+    ],    
+    "servers": [
+        {
+            "group": "TestServer",
+            "applications": [ "TestApplication" ]
         }
     ],
     ...
@@ -308,9 +314,11 @@ In contrast to the unicast, just one transmission attempt is made for multicast.
 
 ### Operation
 
-Beside the transmission simulation, the Addressing and Routing is the other important aspect of the Cellular Simulator. This task is enabled by the Geocaster.
+Beside the transmission simulation, the Addressing and Routing is the other important aspect of the Cellular Simulator. This task is enabled
+by the Geocaster.
 
-The Geocaster evaluates the message headers for cellular messages, which are created by the communicating applications in the Application Simulator. 
+The Geocaster evaluates the message headers for cellular messages, which are created by the communicating applications in the
+Application Simulator. 
 
 It supports the following addressing and casting schemes.
 

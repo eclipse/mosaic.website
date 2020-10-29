@@ -52,7 +52,7 @@ preparation and visualization. For commercial users we even provide additional s
 |  | **{{< link title="OMNeT++" href="/docs/simulators/network_simulator_omnetpp/" >}}**              |**✓**|**✓**|
 |  | **{{< link title="ns-3" href="/docs/simulators/network_simulator_ns3/" >}}**                     |**✓**|**✓**|
 |  | **{{< link title="Cellular Communication" href="/docs/simulators/traffic_simulator_cell/" >}}**  |**✓**|**✓**| 
-|  |**ITS-G5 Communication**                                                |**✓**|**✓**|
+|  | **{{< link title="ITS-G5 Communication" href="/docs/simulators/network_simulator_sns/" >}}**     |**✓**|**✓**|
 |  | **{{< link title="Environment" href="/docs/simulators/environment_simulator/" >}}**              |**✓**|**✓**|
 |  | **{{< link title="Battery / Charging" href="/docs/simulators/battery_simulator/" >}}**           | -   |**✓**|
 |  | **{{< link title="Variable Message Signs" href="/docs/simulators/environment_simulator/#traffic-signs-simulator" >}}** | -     |**✓**|

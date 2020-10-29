@@ -35,7 +35,10 @@ routes or  build own routes via route generation tools (e.g. DUAROUTER by SUMO).
 This chapter intends to highlight the most common workflows for the work with `scenario-convert`.
 We will be using <a href="/docs/building_scenarios/files/steglitz.osm" download>`this`</a> OSM-file for most of the
 use cases So feel free to follow along with the steps to get a better understanding on how the `scenario-convert`-script functions.
-For a complete reference of the script please check [here](#reference-documentation-for-scenario-convert).
+
+{{% alert note %}} 
+[Complete reference of the scenario-convert script](#reference-documentation-for-scenario-convert).
+{{% /alert %}}
 
 {{< figure src="../images/osm_uncleaned.png" title="OSM-File of Steglitz" numbered="true" >}}
 
@@ -107,21 +110,26 @@ Check the images below to see the difference the clean-up process can make.
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
 ```
 <div class="row">
-  {{< figure src="../images/osm_uncleaned.png" title="Uncleaned OSM-file" numbered="true" >}}
-  {{< figure src="../images/osm_cleaned.png" title="Cleaned OSM-file" numbered="true" >}}
+    <div class="col-6">
+        {{< figure src="../images/osm_uncleaned.png" title="Uncleaned OSM-file" numbered="true" >}}
+    </div>
+    <div class="col-6">
+        {{< figure src="../images/osm_cleaned.png" title="Cleaned OSM-file" numbered="true" >}}
+    </div>
 </div>
 <div class="row">
-  {{< figure src="../images/netfile_uncleaned.png" title="Uncleaned Net-file" numbered="true" >}}
-  {{< figure src="../images/netfile_cleaned.png" title="Cleaned Net-file" numbered="true" >}}
+    <div class="col-6">
+        {{< figure src="../images/netfile_uncleaned.png" title="Uncleaned Net-file" numbered="true" >}}
+    </div>
+    <div class="col-6">
+        {{< figure src="../images/netfile_cleaned.png" title="Cleaned Net-file" numbered="true" >}}
+    </div>
 </div>
 
-{{< gallery album="gallery" >}}
 To avoid "cleaning" the OSM-file, please use the option "skip-osm-filter".
 ```bash
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --skip-osm-filter
 ```
-
-{{< gallery album="cleaning-maps" >}}
 
 __Generating Routes__  
 The scenario-convert also offers the option `--generate-routes`, which will generate
@@ -246,7 +254,9 @@ A list of all attached files in this chapter:
 
 The following listing shows an overview for the usage of scenario-convert:
 
-<a href="/docs/building_scenarios/files/ScenarioConvertFunctions.txt" download>scenarioConvertFunctions</a>
+```
+{{< include_file path="files/ScenarioConvertFunctions.txt" >}}
+```
 
 ### Configuration-files for scenario-convert
 
@@ -254,7 +264,9 @@ Scenario-convert offers a way to safe your conversion-parameters in a `JSON` con
 the option `-c` or `--config-file`.  
 The following listing shows how to save the options used in the example above:
 
-<a href="/docs/building_scenarios/files/steglitz_config.json" download>steglitzConfigFile</a>
+```
+{{< include_file path="files/steglitz_config.json" >}}
+```
 
 ### Speed-files
 Below you can find a properties file which can be used during the import of OSM data
@@ -262,5 +274,6 @@ in order to define speeds for ways, which do not have a maxspeeds-tag defined. F
 option `--osm-speeds-file <FILE>`. In the speed properties file, for each way type a speed value can
 be defined, according to the OSM [`highway`](http://wiki.openstreetmap.org/wiki/Key:highway) key.
 
-<a href="/docs/building_scenarios/files/car-speeds.properties" download>speed-properties</a>
-
+```
+{{< include_file path="files/car-speeds.properties" >}}
+```

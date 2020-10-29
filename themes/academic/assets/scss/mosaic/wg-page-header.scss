@@ -108,7 +108,7 @@
       background-color: #fff;
       width: 100%;
       color: #424b5f;
-      padding: 1.4rem;
+      padding: 1.4rem 1.4rem 2.3rem 1.4rem;
       border: 0;
       overflow: hidden;
       height: 100%;
@@ -116,6 +116,8 @@
       box-shadow: 0.4rem 0.5rem 0.5rem rgba(45, 44, 47, 0.2);
       transition: all 0.2s ease;
       -webkit-transition: all 0.2s ease;
+      position: relative;
+
       &.is-linked-feature:hover {
         transform: scale(1.04);
         background-image: none;
@@ -158,8 +160,14 @@
           font-size: medium;
           transition: all 0.2s ease;
           -webkit-transition: all 0.2s ease;
+          position: absolute;
+          bottom: 0;
+          left: 29px;
+          right: 29px;
+          margin-bottom: 0;
+
           &::before {
-            content: "› ";
+            content: "» ";
             font-size: larger;
             color: #fff;
             transition: all 0.2s ease;
@@ -222,5 +230,11 @@ body.page-community .wg-page-header .page-header {
 @media screen and (max-width: 576px) {
   .wg-page-header {
     padding-bottom: 4rem !important;
+  }
+}
+@media screen and (max-width: 960px) {
+  .wg-page-header .features .feature .feature-inner p.feature-link {
+    left: 15px;
+    right: 15px;
   }
 }

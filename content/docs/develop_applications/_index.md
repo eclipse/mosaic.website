@@ -22,7 +22,7 @@ trigger actions like sensing messages or controlling the vehicle, influencing th
 
 Developing custom applications in Eclipse MOSAIC is rather easy. The best way to learn it is by looking at the
 source code of actual applications. For this purpose, we provide the source code of all tutorial applications
-and further examples. You can find the source code on the [DCAITI website](https://www.dcaiti.tu-berlin.de/research/simulation/download/).
+and further examples.
 
 For an easy understanding of the application API, the following questions and their answers should
 help:

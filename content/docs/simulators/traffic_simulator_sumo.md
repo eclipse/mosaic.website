@@ -24,7 +24,7 @@ simulation tool. It is designed to handle large road networks faster than real-t
 
 ### Installation
 
-{{< button-download "Download Eclipse SUMO" "https://sumo.dlr.de/wiki/Downloads" >}}
+{{< button icon="external-link-alt" title="Download Eclipse SUMO" link="https://sumo.dlr.de/wiki/Downloads" >}}
 
 Download the SUMO binary bundle or installer from the SUMO website. Linux users may build SUMO from the source code. Please refer to the SUMO Wiki for further information.
 

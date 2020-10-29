@@ -1,0 +1,203 @@
+{{ $data := .Site.Data.simulator_coupling }}
+{{ $header := index $data "header" }}
+{{ with $header }}
+  <div class="section-heading row mb-3">
+    {{ with .desktop }}
+      {{ with .title }}
+      <div class="col-12 d-none d-xl-block">
+        <div class="row justify-content-center">
+          <h1 class="text-center">{{ . | markdownify | safeHTML }}</h1>
+        </div>
+      </div>
+      {{ end }}
+      {{ with .subtitle }}
+      <div class="col-12 d-none d-xl-block">
+        <div class="row justify-content-center">
+          <p class="text-center">{{ . | markdownify | safeHTML }}</p>
+        </div>
+      </div>
+      {{ end }}
+    {{ end }}
+
+    {{ with .mobile }}
+      {{ with .title }}
+      <div class="col-12 d-block d-xl-none">
+        <div class="row justify-content-center">
+          <h1 class="text-center">{{ . | markdownify | safeHTML }}</h1>
+        </div>
+      </div>
+      {{ end }}
+      {{ with .subtitle }}
+      <div class="col-12 d-block d-xl-none">
+        <div class="row justify-content-center">
+          <p class="text-center">{{ . | markdownify | safeHTML }}</p>
+        </div>
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}
+
+<div class="simulator-coupling d-none d-xl-block" style="width: {{ .Get "width" | default "100%" }}; margin: auto;">
+  <div class="row">
+    <div class="federates col-12">
+      <div class="row">
+        <div class="domain applications col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Applications</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row slim-gutters">
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Safety App</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "safety_app") }}
+                </div>
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Traffic App</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "traffic_app") }}
+                </div>
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Your App</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "your_app") }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC Application Simulator</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "mosaic_app_simulator") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain communication col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Communication</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">OMNeT++</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "omnetpp") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">ns-3</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "ns3") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC SNS</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "sns") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC Cell</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "cell") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain traffic-vehicles col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Traffic & Vehicles</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">Eclipse SUMO</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "sumo") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">PHABMACS</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "phabmacs") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain evaluation-tools col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Evaluation Tools</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row slim-gutters">
+                <div class="simulator-wrap col-6">
+                  <div class="simulator">2D Visualization</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "2d_visualization") }}
+                </div>
+                <div class="simulator-wrap col-6">
+                  <div class="simulator extended">3D Visualization</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "3d_visualization") }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">FileOutput</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "file_output") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">Statistics</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "statistics") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">ITEF</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "itef") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain aso col-1">
+          <div class="domain-inner row">
+            <div class="simulators col-12 align-self-center">
+              <div class="row">
+                <div class="simulator-wrap col-12 mt-4">
+                  <div class="simulator user"><i class="fas fa-plus-square"></i></div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "new_simulator") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eclipse-mosaic col-12">
+      <div class="inner">
+        <div class="row">
+          <div class="eclipse-mosaic-title text-left">
+            <h2>Eclipse MOSAIC Simulation Framework</h2>
+            {{ partial "simulator_coupling_desc" (dict "context" . "key" "eclipse_mosaic_framework") }}
+          </div>
+          <div class="core col-12">
+            <div class="row justify-content-between">
+              <div class="management-wrap col-3">
+                <div class="management">Federation Management</div>
+                {{ partial "simulator_coupling_desc" (dict "context" . "key" "federation_management") }}
+              </div>
+              <div class="management-wrap col-3">
+                <div class="management">Time Management</div>
+                {{ partial "simulator_coupling_desc" (dict "context" . "key" "time_management") }}
+              </div>
+              <div class="management-wrap col-3">
+                <div class="management">Interaction Management</div>
+                {{ partial "simulator_coupling_desc" (dict "context" . "key" "interaction_management") }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="simulator-coupling-fallback d-block d-xl-none mb-3">
+  <img src="{{ printf "/img/simulator-coupling.png" | relURL }}">
+</div>

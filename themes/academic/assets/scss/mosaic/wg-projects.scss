@@ -9,8 +9,10 @@
         margin-bottom: 0;
         padding-bottom: 0;
       }
+      .logo .view-list-item {
+        width: 100%;
+      }
       .text {
-        padding-left: 2rem;
         h2 {
           font-size: 1.1rem;
           margin: 0 0 0.3rem 0;
@@ -22,6 +24,9 @@
         .desc {
           font-size: 0.8rem;
         }
+      }
+      .buttons a {
+        margin: 1rem 0.3rem 0;
       }
     }
   }

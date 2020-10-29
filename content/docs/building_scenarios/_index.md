@@ -76,7 +76,6 @@ The main configuration file of a scenario is `scenario_config.json`. In this fil
 ```
 
 The following fields needs to be configured:
-
 * **`id`** - The name of the scenario
 * **`duration`** - The duration of the simulation in seconds.
 * **`randomSeed`** - The seed to initialze the random number generator with in order to have deterministic results. If not set, a random seed is taken. 
@@ -84,9 +83,9 @@ The following fields needs to be configured:
 here is crucial to get correct results that map to real world coordinates so the simulation results can be visualized in some way. 
 The center coordinate will be used to determine the correct UTM zone, the `cartesianOffset` can be determined by having a look at the trafﬁc simulators network ﬁle, 
 e.g. SUMOs `*.net.xml` contains this information in the `netOffset` attribute of the location tag. 
-
-* **`network`** - Within this config the address resolution scheme is speciﬁed. The subnets for all unit types are described here. Usually, default configuration should be sufficient. However, if you have many vehicles in your scenario the IP address space would be to small to provide enough addresses. In such cases, the `netMask` and all `subnets` have to be configured accordingly. 
-
+* **`network`** - Within this config the address resolution scheme is speciﬁed. The subnets for all unit types are described here.
+  Usually, default configuration should be sufficient. However, if you have many vehicles in your scenario the IP address
+  space would be to small to provide enough addresses. In such cases, the `netMask` and all `subnets` have to be configured accordingly. 
 * Last but not least, the **`federate`** tags define which simulators are active in the simulation. 
 
 ## Traffic Simulator Configuration

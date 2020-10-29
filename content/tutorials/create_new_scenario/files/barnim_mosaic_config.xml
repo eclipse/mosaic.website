@@ -54,7 +54,7 @@
         <federate id="battery" active="true"/>
         <federate id="chargingstation" active="false"/>
         <!-- Mapping -->
-        <federate id="mapping3" active="true"/>
+        <federate id="mapping" active="true"/>
         <!-- Visualization -->
         <federate id="visualizer" active="true"/>
     </federates>
