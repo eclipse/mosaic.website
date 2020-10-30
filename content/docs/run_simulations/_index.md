@@ -49,7 +49,7 @@ table th:nth-of-type(2) {
 | `-o`<br>`--log-level` | Override all specified logging-levels. This option is useful for debugging simulations. For example logging every possible event would be done with `-o TRACE`. |
 | `-b`<br>`--realtime-brake` | With this parameter, the simulation will be slowed down to a desired Real Time Factor, if possible. When simulations already run slower than real time, this factor will have no effect. For example, use `-b 1` to execute the simulation in real time. |
 | `-r`<br>`--random-seed` | The global random seed to set for the simulation run. This is usually defined in the `scenario_config.json`, but can be overridden using this option. |  
-| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the [Websocket Visualizer](/docs/visualization/). |
+| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the [Websocket Visualizer]({{< ref "/docs/visualization" >}}). |
 | `-h`<br>`--help` | Prints a help screen. |
 
 While Eclipse MOSAIC is running, it prints some information on the command line:
@@ -112,14 +112,14 @@ which defines the list of coupled simulators:
     }
 }
 ```
-  
+
 This way, simulators can be easily added or removed from the simulation. Each of the coupled simulators is configured in the directory
 of the `scenario_config.json` file. The release bundle comes with a set of tutorial scenarios, which are described in detail
-in the [Tutorials section](</tutorials>).
+in the [Tutorials section]({{< ref "/tutorials" >}}).
 
 ## Gather results
 
 All active simulators as well as the according ambassadors generate certain logging output, depending
 on their configured logging level. Therefore, these logs are very helpful to retrace and understand the
 individual states during the simulation time. Moreover, Eclipse MOSAIC offers uniformly formatted and 
-visually prepared results using various **[Visualizer](</docs/visualization>)** implementations.
+visually prepared results using various **[Output Generator]({{< ref "/docs/visualization" >}})** implementations.

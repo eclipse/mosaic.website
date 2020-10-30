@@ -290,7 +290,7 @@ through the transport over the cellular network.
 
 The cellular simulator offers various modes to estimate the delay of the transmissions. The type of
 estimation is specified with by `delayType` for the uplink and downlink for each region. You may also refer to the
-[Delay-Chapter](/docs/extending_mosaic/delay_models).
+[Delay-Chapter]({{< ref "/docs/extending_mosaic/delay_models" >}}).
 
 * `delay.type = ’ConstantDelay’`: The message is transmitted with the latency being exactly equal to delay.
 * `delay.type = ’SimpleRandomDelay’`: The latency can assume different (randomly generated and uniformly distributed) values between 
@@ -322,13 +322,13 @@ Application Simulator.
 
 It supports the following addressing and casting schemes.
 
-[**`CellTopocast`**](/docs/extending_mosaic/communication/#cellular-topocast) is the normal unicast, where the Geocaster simply resolves
+[**`CellTopocast`**]({{< ref "/docs/develop_applications/communication#cellular-topocast" >}}) is the normal unicast, where the Geocaster simply resolves
 the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn't allow 
 broadcast or anycast addresses, but any transmission protocols (tcp, udp).
 
-[**`CellGeoUnicast`**](/docs/extending_mosaic/communication/#cellular-geocast) addresses every node in the destination area individually.
+[**`CellGeoUnicast`**]({{< ref "/docs/develop_applications/communication#cellular-geocast" >}}) addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.
 
-[**`CellGeoBroadcast`**](/docs/extending_mosaic/communication/#cellular-geobroadcast), which is basically MBMS, uses one broadcast to all
+[**`CellGeoBroadcast`**]({{< ref "/docs/develop_applications/communication#cellular-geobroadcast" >}}), which is basically MBMS, uses one broadcast to all
 nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
 CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).

@@ -12,7 +12,7 @@ menu:
 ---
 
 {{% alert extended %}}
-The **ITEF** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
+**ITEF** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
 For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 

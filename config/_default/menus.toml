@@ -135,8 +135,6 @@
       weight = 5
 
 
-
-
 [[docs]]
   name = "Getting Started"
   identifier = "getting_started"
@@ -179,6 +177,12 @@
   url = "/docs/extending_mosaic"
   weight = 70
   post = "Extend Eclipse MOSAIC."
+[[docs]]
+  name = "API Documentation"
+  identifier = "api_docs"
+  url = "/docs/api_docs/"
+  weight = 80
+  post = "Technical documentation, such as Javadoc."
 
 
 [[tutorials]]

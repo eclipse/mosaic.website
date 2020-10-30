@@ -132,7 +132,7 @@ script, that can be found in the associated ns-3 federate folder.
 5. Configure and build the patched ns-3 with the ns-3 federate.
 
 **In order to start the simulation, the following steps need to be performed:**
-1. Set up the `confWifi.xml`-file in the scenario folder (see section [Configuration](/docs/simulators/network_simulator_ns3/#configuration)). An example confWifi.xml - file is shipped with the Tiergarten scenario.
+1. Set up the `confWifi.xml`-file in the scenario folder (see section [Configuration]({{< ref "/docs/simulators/network_simulator_ns3#configuration" >}})). An example confWifi.xml - file is shipped with the Tiergarten scenario.
 2. For reasonable result logging, the logger-configuration in `mosaic/etc/logback.xml` has to be adapted to support the ns-3 ambassador and federate.
 3. At last ns-3 has to be activated in the `mosaic_config.xml` and the simulation can be started.
 
@@ -145,7 +145,7 @@ This is an experimental feature. Please refer to our mailing list if you experie
 This guide gives instructions to execute the ns-3 federate inside a docker container. If you already installed
 ns-3 on your machine following the steps before, you can skip this section.
 
-Docker 5 is a new approach to execute software. More precisely, it "wraps software in a complete filesystem
+Docker is a new approach to execute software. More precisely, it "wraps software in a complete filesystem
 that contains everything it needs to run: code, runtime, system tools, and system libraries". As a result, the
 software is executed within a container and its execution does not rely on the environment the container is running in.
 
@@ -155,21 +155,24 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.
 2. To get everything to work, please make sure to execute the following steps depending on your operating system:
     * Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.
-3. Switch to the location of the Dockerfile in `mosaic/bin/fed/ns3`
+3. Switch to the location of the Dockerfile in `<mosaic>/bin/fed/ns3`
 4. Execute the following command on command line:  
-    `docker build -t ns3-federate:mosaic`.  
+    `docker build -t ns3-federate`.  
     This could take a while to finish.
-5. Enter the name of the docker image etc/defaults.xml in the `ns3`-section into the tag `dockerImage`:  
-```xml
-<federate class="...">
-    <id>ns3</id>
-    ...
-    <dockerImage>ns3-federate:mosaic</dockerImage>
-    ...
-</federate >
+5. Enter the name of the docker image `etc/runtime.json` in the `ns3`-section into the property `dockerImage`:  
+```json
+"federates": [
+   ...
+   {
+      "id": "ns3",
+      "dockerImage": "ns3-federate",
+      ...
+   },
+   ...
+]
 ```
 
-You can test the installation of your docker image with the Tiergarten scenario, by activating ns3 in the `mosaic_config.xml`.
+You can test the installation of your docker image with the Tiergarten scenario, by activating ns3 in the `scenario_config.json`.
 
 ### Configuration
 

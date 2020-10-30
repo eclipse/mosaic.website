@@ -13,9 +13,9 @@ menu:
 
 The Application Simulator is completely implemented as an Eclipse MOSAIC Ambassador in Java. The main class `ApplicationAmbassador` is 
 started by the RTI and creates different components, like the `SimulationKernel` singleton or the `CentralNavigationComponent`. 
-Subsequently, it will find all the Java Archive (JAR) files in the *application* configuration directory, belonging to the currently started 
+Subsequently, it will find all the Java Archive (JAR) files in the `application` configuration directory, belonging to the currently started 
 scenario, and add their classes to the class path. These JARs contain the application classes. Furthermore, the ApplicationAmbassador is 
-registered as a handle for different Eclipse MOSAIC messages in the configuration file *etc/mosaic.xml* in the Eclipse MOSAIC folder. After 
+registered as a handle for different Eclipse MOSAIC messages in the configuration file `etc/runtime.json` in the Eclipse MOSAIC folder. After 
 initialization, the Application Simulator will receive these messages from Eclipse MOSAIC when they appear and perform corresponding actions.
 
 ### Node Creation
@@ -37,7 +37,7 @@ like any other node.
 
 ### Other Messages and Time Advance
 
-Apart from the ones for node creation, there are many other messages (see [Interactions](</docs/extending_mosaic/interactions/>)), 
+Apart from the ones for node creation, there are many other messages (see [Interactions]({{< ref "/docs/extending_mosaic/interactions" >}})), 
 signaling events to the Application Simulator. For most of them, an event in the future will be programmed, such that the implied action is 
 carried out at that simulation time. The processing of the events happens when the RTI calls the `advanceTime()` method on the ambassador. 
 Upon this, Application Simulator will obtain a list of all events up to the new time and let the processor of the event process them. Every 

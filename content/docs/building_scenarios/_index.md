@@ -91,7 +91,7 @@ e.g. SUMOs `*.net.xml` contains this information in the `netOffset` attribute of
 ## Traffic Simulator Configuration
 
 The generated files for the used traffic simulator are placed into the folder named after that simulator, e. g. `sumo` . 
-For example, the `<scenarioName>.sumo.cfg` describes the main configuration of the SUMO simulator, which should refer to a network file and a route file:
+For example, the `<scenarioName>.sumocfg` describes the main configuration of the SUMO simulator, which should refer to a network file and a route file:
 
 ```xml
 <configuration>
@@ -103,14 +103,14 @@ For example, the `<scenarioName>.sumo.cfg` describes the main configuration of t
 ```
 
 While the `*.net.xml` is a mandatory file to be placed within the `sumo` directory, the `*.rou.xml` is automatically generated
-by the SumoAmbassador when the simulation is started. More information on the configuration of SUMO can be found [here](</docs/simulators/traffic/#configuration>).
+by the SumoAmbassador when the simulation is started. More information on the configuration of SUMO can be found [here]({{< ref "docs/simulators/application_simulator#configuration" >}}).
 
 ## Applications and Mapping
 
 ### Vehicles
 
-Usually you want the simulated vehicles to be equipped with some kind of applications that inﬂuence the
-vehicles behavior. To do that you copy the jar files of your applications to the folder `<scenarioName>/applicationNT` . 
+Usually you want the simulated vehicles to be equipped with some kind of applications that influence the
+vehicle's behavior. To do that you copy the jar files of your applications to the folder `<scenarioName>/application` . 
 Having the applications in place you will have to create a `mapping_config.json` file in the folder `<scenarioName>/mapping` . 
 
 The following file would spawn 1 vehicle every five seconds (720 veh/hour divided by 3600 sec) until it reaches the max number of vehicles: 500. All the vehicles would be equipped with an application sending CA-messages periodically. 
@@ -124,7 +124,7 @@ The following file would spawn 1 vehicle every five seconds (720 veh/hour divide
             "decel": 4.5,
             "maxSpeed": 80.0,
             "applications": [
-                "com.dcaiti.vsimrti.fed.applicationNT.etsiApplications.impl.Vehicle"
+                "org.eclipse.mosaic.fed.application.app.etsi.VehicleCamSendingApp"
             ]
         }
     ],
@@ -150,14 +150,14 @@ If you want to simulate traffic lights equipped with applications, traffic light
         {
             "tlGroupId": "Bismarkstr_Krummestr",
             "applications": [
-                "com.dcaiti.vimrti.app.phabmacstestapp.TrafficLightTestApp"
+                "org.eclipse.mosaic.app.tutorial.TrafficLightApp"
             ]
         }
     ]
 }
 ```
 
-or by referring to previosly defined prototypes:
+or by referring to previously defined prototypes:
 
 ```json
 {
@@ -168,13 +168,13 @@ or by referring to previosly defined prototypes:
             "decel": 4.5,
             "maxSpeed": 80.0,
             "applications": [
-                "com.dcaiti.vsimrti.fed.applicationNT.etsiApplications.impl.Vehicle"
+                "org.eclipse.mosaic.fed.application.app.etsi.VehicleCamSendingApp"
             ]
         },
         {
             "name": "TrafficLight",
             "applications": [
-                "com.dcaiti.vimrti.app.phabmacstestapp.TrafficLightTestApp"
+                "org.eclipse.mosaic.app.tutorial.TrafficLightApp"
             ]
         }
     ],
@@ -190,7 +190,7 @@ or by referring to previosly defined prototypes:
     "trafficLights": [
         {
             "tlGroupId": "Bismarkstr_Krummestr",
-            "prototype": "TrafficLight"
+            "name": "TrafficLight"
         }
     ]
 }
@@ -198,7 +198,7 @@ or by referring to previosly defined prototypes:
 
 Please note that traffic light name and traffic light itself in the mapping file stand for a traffic light group controlling a whole junction. Traffic light group can consist of many individual traffic lights controlling an exact lane. The value of the "tlGroupId" key MUST coincide with the name of the traffic light group in the traffic simulator related configuration file (with tlLogic id for SUMO and with junction id for Phabmacs). 
 
-For SUMO, the description of traffic light groups and their programs can be found in scenarioname.net.xml:
+For SUMO, the description of traffic light groups and their programs can be found in `<scenarioname>.net.xml`:
 
 ```xml
 <tlLogic id="26704448" type="static" programID="1" offset="0">
@@ -209,7 +209,7 @@ For SUMO, the description of traffic light groups and their programs can be foun
 </tlLogic>
 ```
 
-mapping_config.json:
+Corresponding `mapping_config.json`:
 
 ```json
 {
@@ -217,16 +217,16 @@ mapping_config.json:
     "trafficLights": [
         {
             "tlGroupId": "26704448",
-            "prototype": "TrafficLight"
+            "name": "TrafficLight"
         }
     ]
 }
 ```
 
-More information on the mapping configuration can be found [here](</docs/simulators/traffic/#configuration>).
+More information on the mapping configuration can be found [here]({{< ref "docs/simulators/application_simulator#configuration" >}}).
 
 For more information about how SUMO traffic lights work please refer to [SUMO Traffic Lights](https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html). 
-
+<!--
 For Phabmacs, one should create a separate configuration file containing the description of traffic light groups and traffic light programs. 
 
 mapping_config.json:
@@ -237,7 +237,7 @@ mapping_config.json:
     "trafficLights": [
         {
             "tlGroupId": "Bismarkstr_Krummestr",
-            "prototype": "TrafficLight"
+            "name": "TrafficLight"
         }
     ]
 }
@@ -338,15 +338,16 @@ An example of how the traffic light configuration can look like in berlinTraffic
     ]
 }
 ```
+-->
 
-The `applicationNT` folder furthermore needs a generated database file `<scenarioName>.db` . This database file
+The `application` folder furthermore needs a generated database file `<scenarioName>.db` . This database file
 contains information about the road network (road topology) and all routes the vehicles can drive on. This file
-is usually generated by the tool `scenario-convert`, which is described [here](/docs/building_scenarios/scenario_convert) in detail.
+is usually generated by the tool `scenario-convert`, which is described [here]({{< ref "docs/building_scenarios/scenario_convert" >}}) in detail.
 
 ## Communication Simulator
 
 The configuration of the communication parameters are usually not dependent from the location of the road network. Therefore,
-most of the required files can be extracted from other scenarios, such [Barnim](/tutorials/barnim_basic) or [Tiergarten](/tutorials/tiergarten). 
+most of the required files can be extracted from other scenarios, such [Barnim]({{< ref "tutorials/barnim_basic" >}}) or [Tiergarten]({{< ref "tutorials/tiergarten" >}}). 
 Depending on the simulator you will need to configure the geographic extend of the simulation
 area. You can ﬁnd that data in the trafﬁc simulators network file, e.g. SUMOs `*.net.xml` contains this
 information in the `convBoundary` attribute of the location tag.
@@ -356,7 +357,7 @@ of the conﬁgured regions (in `regions.json`) have to be in line with the scena
 * The **SNS** also comes without an additional expansion deﬁnition.
 
 Further information on the communication simulators can be found in:
-<br>[ns-3]({{< ref "docs/simulators/network_simulator_ns3.md" >}}) 
-<br>[SNS]({{< ref "docs/simulators/network_simulator_sns.md" >}})
-<br>[Eclipse MOSAIC Cell](</docs/simulators/network_simulator_cell>)
-<br>[OMNeT++](</docs/simulators/network/network_simulator_omnetpp>)
+<br>[Eclipse MOSAIC SNS]({{< ref "docs/simulators/network_simulator_sns" >}})
+<br>[Eclipse MOSAIC Cell]({{< ref "docs/simulators/network_simulator_cell" >}})
+<br>[OMNeT++]({{< ref "docs/simulators/network_simulator_omnetpp" >}})
+<br>[ns-3]({{< ref "docs/simulators/network_simulator_ns3" >}}) 

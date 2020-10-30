@@ -14,8 +14,8 @@ menu:
 
 Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
 communication should occur. Communication can be achieved with external 
-network simulators ([OMNeT++](/docs/simulators/network_simulator_omnetpp), [ns-3](/docs/simulators/network_simulator_ns3)) or one of the built-in communication simulators [SNS](/docs/simulators/network_simulator_sns)
-or [Eclipse MOSAIC Cell](/docs/simulators/network_simulator_cell). Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
+network simulators ([OMNeT++]({{< ref "/docs/simulators/network_simulator_omnetpp" >}}), [ns-3]({{< ref "/docs/simulators/network_simulator_ns3" >}})) or one of the built-in communication simulators [SNS]({{< ref "/docs/simulators/network_simulator_sns" >}})
+or [Eclipse MOSAIC Cell]({{< ref "/docs/simulators/network_simulator_cell" >}}). Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
 detail.
 
 * Cellular Communication
@@ -230,8 +230,8 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
 
 {{% alert note %}}
 In order to use the Multihop approach in OMNeT++ and ns-3 provided by Eclipse MOSAIC, its necessary to implement a
-routing protocol in network simulators ([OMNeT++](/docs/simulators/network_simulator_omnetpp), [ns-3](/docs/simulators/network_simulator_ns3)). But the
-built in communication simulator [SNS](/docs/simulators/network_simulator_sns) includes a simple routing protocol "Flooding".
+routing protocol in network simulators ([OMNeT++]({{< ref "/docs/simulators/network_simulator_omnetpp" >}}), [ns-3]({{< ref "/docs/simulators/network_simulator_ns3" >}})). But the
+built in communication simulator [SNS]({{< ref "/docs/simulators/network_simulator_sns" >}}) includes a simple routing protocol "Flooding".
 {{% /alert %}}
 
 ### Ad-hoc Topocast

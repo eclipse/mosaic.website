@@ -17,15 +17,15 @@ with markers, indicating the positions of all vehicles, as well as overall the s
 
 {{< figure src="images/mosaicwebsocketvisualizer.png" title="Red vehicles are sending messages and green vehicles are receiving messages at that specific point of time in the simulation." numbered="true" >}}
 
-To start the visualization, simply open the `bin/tools/visualizer.html` in your browser. As soon as
+To start the visualization, simply open the `tools/web/visualizer.html` in your browser. As soon as
 the page has finished loading all of its content, it starts trying to connect to the WebSocket created by
 the Eclipse MOSAIC simulation. The WebSocket is also enabled by default for the tutorial scenario Barnim. For
-more details see the file `Barnim/visualizers/visualizer_config.xml`. 
+more details see the file `Barnim/output/output_config.xml`. 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <visualizer id="websocket" enabled="true" loader="com.dcaiti.vsimrti.fed.visualizer.WebsocketVisualizerConfig">
+    <output id="websocket" enabled="true" loader="org.eclipse.mosaic.fed.output.generator.websocket.WebsocketVisualizerLoader">
         <synchronized>true</synchronized>
         <port>46587</port>
         <subscriptions>
@@ -36,7 +36,7 @@ more details see the file `Barnim/visualizers/visualizer_config.xml`.
             <subscription id="RsuRegistration" enabled="true"/>
             <subscription id="TrafficLightRegistration" enabled="true"/>
         </subscriptions>
-    </visualizer>
+    </output>
 </configuration>
 ```
 
@@ -55,7 +55,7 @@ occurred while trying to connect to the WebSocket.
 
 After the simulation has finished, you can click on the reconnect button and then run the simulation again.
 You can also start the visualization at each simulation run, using the command line parameter `-v`. In that case,
-Eclipse MOSAIC will automatically open the `bin/tools/visualizer.html` in your default browser once the simulation
+Eclipse MOSAIC will automatically open the `tools/web/visualizer.html` in your default browser once the simulation
 starts.
 
 {{% alert warning %}}

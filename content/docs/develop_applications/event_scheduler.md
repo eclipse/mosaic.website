@@ -12,7 +12,7 @@ menu:
     weight: 4
 ---
 
-The different modules of the [Eclipse MOSAIC Application Simulator](/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator) communicate over events that are triggered at a specific simulation time. The following classes and interfaces model theses events.
+The different modules of the [Application Simulator]({{< ref "/docs/simulators/application_simulator#eclipse-mosaic-application-simulator" >}}) communicate over events that are triggered at a specific simulation time. The following classes and interfaces model theses events.
 
 ### Event
 The class `Event` contains the information that is necessary to process an event. An event describes when it should be processed and which information is processed. Moreover an event has an assigned priority.

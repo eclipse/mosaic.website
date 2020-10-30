@@ -257,7 +257,7 @@ property will automatically fill in relevant properties of the RSU.
         "lat": 52.65027,
         "lon": 13.54500,
         "name": "WeatherServer",
-        "applications": [ "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer" ]
+        "applications": [ "org.eclipse.mosaic.app.tutorial.WeatherServerApp" ]
     }
 ]
 ```
@@ -278,23 +278,23 @@ have to define one traffic light without any applications and add a weight to it
 "trafficLights": [
     {
         "tlGroupId": "26704448",
-        "applications": [ "com.dcaiti.vsimrti.app.tutorials.tiergarten.trafficLight.TrafficLightApp" ]
+        "applications": [ "org.eclipse.mosaic.app.tutorial.TrafficLightApp" ]
     },
     {
         "tlGroupId": "252864802",
-        "applications": [ "com.dcaiti.vsimrti.app.tutorials.tiergarten.trafficLight.TrafficLightApp" ]
+        "applications": [ "org.eclipse.mosaic.app.tutorial.TrafficLightApp" ]
     }
 ]
 ```
 
 For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to
-[Simulation Scenarios - Traffic Lights](</docs/building_scenarios/scenarios/#traffic-lights>).
+[Simulation Scenarios - Traffic Lights]({{< ref "/docs/building_scenarios#traffic-lights" >}}).
 
 **Servers**
 
 The `servers`-array can be used to specify server units, which can be used to communicate with other units via the cell module.
 Capacity configurations for servers should be done when enabling the `CellModule`. Delay and transmission models are configured
-in the `network.json` of the cell module (see [here](</docs/simulators/network_simulator_cell>)).
+in the `network.json` of the cell module (see [here]({{< ref "/docs/simulators/network_simulator_cell" >}})).
 > Note: The `group` parameter in the mapping configuration has to match with the id in the network configuration in order to
 > properly function.
 ```json
