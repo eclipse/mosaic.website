@@ -12,7 +12,11 @@ menu:
     weight: 5
 ---
 
-Each scenario to be simulated with Eclipse MOSAIC requires a database which contains information about the road infrastructure and routes the vehicles drive on. This information is used by various federates. For example, the SUMO federate needs to know initial routes for vehicles, and the [Eclipse MOSAIC Application Simulator](</docs/simulators/application_simulator/>) requires detailed information about the road infrastructure to provide applications with methods for route calculation. For this purpose, an embedded SQLite database is used which is placed in the applicationNT folder of the scenario. This database consists of the following tables:
+Each scenario to be simulated with Eclipse MOSAIC requires a database which contains information about the road infrastructure and routes the 
+vehicles drive on. This information is used by various federates. For example, the SUMO federate needs to know initial routes for vehicles, 
+and the [Application Simulator]({{< ref "/docs/simulators/application_simulator" >}}) requires detailed information about the road 
+infrastructure to provide applications with methods for route calculation. For this purpose, an embedded SQLite database is 
+used which is placed in the `application` folder of the scenario. This database consists of the following tables:
 
 ### Database tables
 
@@ -31,11 +35,17 @@ Each scenario to be simulated with Eclipse MOSAIC requires a database which cont
 
 ### Road network model
 
-This section describes the model of the road network used by various components of Eclipse MOSAIC. In the next figure various nodes and connections can be seen. A `node` is either a junction or describes the geometry of a road. A `connection` is a directed edge between two junction nodes. That also means, that two separate connections exists for a road segment which can be traversed in both directions. Each connection consists of at least two nodes (start and end junction node). Between those nodes, other nodes can exist which describe the curvature of the road segment. Furthermore, each connection has a reference to its originating `way`, which may consist of various connections. A way contains further properties, such as the maximum speed or the type of the road.
+This section describes the model of the road network used by various components of Eclipse MOSAIC. In the next figure various nodes 
+and connections can be seen. A `node` is either a junction or describes the geometry of a road. A `connection` is a directed edge 
+between two junction nodes. That also means, that two separate connections exists for a road segment which can be traversed in both 
+directions. Each connection consists of at least two nodes (start and end junction node). Between those nodes, other nodes can exist 
+which describe the curvature of the road segment. Furthermore, each connection has a reference to its originating `way`, which may 
+consist of various connections. A way contains further properties, such as the maximum speed or the type of the road.
 
 {{< figure src="../images/node-connections.jpeg" title="Nodes and connections of the road network" numbered="true" >}}
 
-Nodes and ways are identified by unique IDs derived from the base OSM network file. Connections, however, are not part of the OSM standard and their identifiers are generated during the import. Each connection ID consists of three parts (using the string pattern `aaa_bbb_ccc`):
+Nodes and ways are identified by unique IDs derived from the base OSM network file. Connections, however, are not part of the OSM standard 
+and their identifiers are generated during the import. Each connection ID consists of three parts (using the string pattern `aaa_bbb_ccc`):
 
 * `aaa` - ID of the originating way
 * `bbb` - ID of the node the connection starts at.
@@ -43,7 +53,8 @@ Nodes and ways are identified by unique IDs derived from the base OSM network fi
 
 {{< figure src="../images/connections.jpeg" title="ID of connection in road network" numbered="true" >}} 
 
-Some components of Eclipse MOSAIC need to identify further parts of the road network, such as one edge between two nodes, or one specific lane of one edge. Therefore, the following objects are identified as following:
+Some components of Eclipse MOSAIC need to identify further parts of the road network, such as one edge between two nodes, or one specific lane of one edge. 
+Therefore, the following objects are identified as following:
 
 `Edges` are described by one start and one end node. The identifier of an edge consists of two parts (using the string pattern `aaa_bbb_ccc_ddd`):
 

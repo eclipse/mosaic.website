@@ -11,17 +11,17 @@ menu:
     parent: simulators
 ---
 
-The MOSAIC Battery Simulator is used to simulate electric vehicles. It takes environment, vehicle
-characteristics and the battery itself into account. The main feature of the battery ambassador is that it
-can utilize dynamic class loading to use a batterymodel provided by the user, depending on the given
-needs. This also holds true for the environment model and the vehicle model. However, simple models
-for vehicle, environment and the battery are provided and will be briefly explained in the following
-sections.
-
 {{% alert extended %}}
 The **Battery Simulator** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
 For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
+
+The MOSAIC Battery Simulator is used to simulate electric vehicles. It takes environment, vehicle
+characteristics and the battery itself into account. The main feature of the battery ambassador is that it
+can utilize dynamic class loading to use a battery model provided by the user, depending on the given
+needs. This also holds true for the environment model and the vehicle model. However, simple models
+for vehicle, environment and the battery are provided and will be briefly explained in the following
+sections.
 
 ### Installation
 
@@ -66,7 +66,7 @@ to be extended.
 
 ```Json
 {
-    "vehicleModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.vehicle.ElectricSmart",
+    "vehicleModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.vehicle.ElectricSmart",
     "vehicleModelConfig": {
             "Mass": 1060,
             "ReferenceArea": 1.95,
@@ -75,7 +75,7 @@ to be extended.
             "EletricMotorOperatingVoltage": 350,
             "ConsumerOperatingVoltage": 12
     },
-    "batteryModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.battery.VerySimpleBatteryModel",
+    "batteryModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.battery.VerySimpleBatteryModel",
     "batteryModelConfig": {
             "NumberOfCells": 93,
             "CellVoltage": 4.3,
@@ -85,7 +85,7 @@ to be extended.
             "MinSOC": 0.30,
             "MaxSOC": 0.70
         },
-    "environmentModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.environment.DefaultEnvironment",
+    "environmentModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.environment.DefaultEnvironment",
     "environmentModelConfig": {
             "Gravity": 9.81,
             "FluidDensity": 1.293,

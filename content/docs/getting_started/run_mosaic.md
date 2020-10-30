@@ -31,4 +31,6 @@ All active simulators as well as the according ambassadors generate certain logg
 Therefore, these logs are very helpful to retrace and understand the individual states during the simulation time.
 
 However, these logs do not conform to a generic formatting. For uniformly formatted or visually prepared results,
-Eclipse MOSAIC offers different Visualizers. For example, the `FileVisualizer` generates detailed outputs of e.g. vehicle positions, speeds, or message exchanges.
+Eclipse MOSAIC offers different Visualizers and Output Generators. For example, the `FileOutputGenerator` generates detailed outputs of e.g. 
+vehicle positions, speeds, or message exchanges. In the scenarios brought by the latest release, this output mechanism is already
+configured. 

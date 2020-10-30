@@ -67,9 +67,12 @@ preparation and visualization. For commercial users we even provide additional s
 |*Tools* |||||| 
 |  | **{{< link title="Command Line Tool" href="/docs/run_simulations/" >}}**                         |**✓**|**✓**|
 |  | **Run Federates in Docker**                                             |**✓**|**✓**|
-|  | **{{< link title="Scenario Convert" href="/docs/building_scenarios/scenario_convert/" >}}**      | -   |**✓**|
+|  | **{{< link title="Scenario Convert" href="/docs/building_scenarios/scenario_convert/" >}}**      |(✓)**|**✓**|
 |  | **{{< link title="Simulation Set Runner" href="/docs/run_simulations/simulation_set/" >}}**      | -   |**✓**|
 |  | **TrafficGen**                                                          | -   |**✓**|
 
 *) For the commercial version of MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will 
 create an individual offer suitable to your needs.
+
+**) Scenario Convert is not part of the open-source version of Eclipse MOSAIC, but can be freely used and downloaded 
+    from the link on top.

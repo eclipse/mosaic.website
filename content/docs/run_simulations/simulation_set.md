@@ -4,7 +4,7 @@ linktitle: Run a Simulation Set
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
-draft: false
+draft: true
 weight: 30
 menu:
   docs:
@@ -17,5 +17,9 @@ For further information on licenses, feel free to contact us via **[mosaic@fokus
 {{% /alert %}}
 
 A common objective when running simulations is to assess the impact of different parameter settings for
-a specific scenario on the results of the simulation. To this end, the is a tool to apply
+a specific scenario on the results of the simulation. To this end, the **SimulationRunner** is a tool to apply
 different configurations to a scenario, after which a series of simulations is executed via CLI by calling the start script.
+
+{{% alert note %}}
+This part of the documentation will be completed soon.
+{{% /alert %}}

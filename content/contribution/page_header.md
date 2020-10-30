@@ -14,4 +14,5 @@ subtitle = "We are waiting for your contributions. First read the following few 
 [[button]]
   title = "Eclipse MOSAIC @ GitHub"
   url = "https://github.com/eclipse/mosaic"
+  icon = "code-branch"
 +++

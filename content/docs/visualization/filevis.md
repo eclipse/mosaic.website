@@ -1,6 +1,6 @@
 ---
-title: FileOutput
-linktitle: FileOutput
+title: File Output Generator
+linktitle: File Output
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -11,8 +11,8 @@ menu:
     parent: visualization
 ---
 
-The FileOutput is a tool which gives you the opportunity to log specific Eclipse MOSAIC interaction types. For
-each interaction the FileOutput receives, one line (or more in case of an iteration object) is added 
+The File Output Generator is a tool which gives you the opportunity to log specific Eclipse MOSAIC interaction types. For
+each interaction the File Output receives, one line (or more in case of an iteration object) is added 
 to a CSV output file. This allows to track the movements of vehicles or to monitor the V2X message exchange.
 
 One example output could be the following:
@@ -59,8 +59,8 @@ The usage of the parameters is described in the following table:
 | `id`      | Sets the id for the output                                                                                     |
 | `enabled` | If set to "false", output is not used (default value is "true")                                                |
 | `update`  | Sets the update interval in seconds for the output                                                             |
-| `start`   | Sets the start time in seconds for visualization. This has nothing to do with the run time of the actual simulation |
-| `end`     | Sets the end time in seconds for visualization. This has nothing to do with the run time of the actual simulation   |
+| `start`   | Sets the start time in seconds for output generation. This has nothing to do with the run time of the actual simulation |
+| `end`     | Sets the end time in seconds for output generation. This has nothing to do with the run time of the actual simulation   |
 | `loader`  | Sets where the output is loaded from using the Java-class (see previous listing)                               |
 
 _Basic Configuration of file output_
@@ -86,7 +86,7 @@ The configuration of the file output is explained at the example of the `Vehicle
 _Specific Configuration for interaction_
 
 * Attribute `id` indicates the interaction type, namely the class name of the interaction.
-* The element `entries` defines the format and content of the finally visualized subscription record.
+* The element `entries` defines the format and content of the handled subscription record.
 * The element `entries` is composed of several sub-elements `entry`, which correspond to columns of a subscription
 record and the sequence of the columns is the same as that of sub-elements entry.
 
@@ -187,7 +187,7 @@ Note: the longest matched prefix will be considered as the same iterating operat
 
 #### Limit output on time frame
 
-You can configure the FileVisualizer to write out interactions within a specific frame of simulation time.
+You can configure the File Output Generator to write out interactions within a specific frame of simulation time.
 This can be configured by setting the `start` and `end` attributes accordingly:
 
 ```xml
@@ -198,7 +198,7 @@ This can be configured by setting the `start` and `end` attributes accordingly:
 	...
 </output>
 ```
-_An example for restricting visualization of interactions within a time frame_
+_An example for restricting output generation of interactions within a time frame_
 
 #### Compress Output
 
@@ -208,7 +208,7 @@ many outputs.
 
 
 ```xml
-<output id="fileVisualizer" loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
+<output id="output" loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
 	<write>file+compress</write>
 	...
 </output>

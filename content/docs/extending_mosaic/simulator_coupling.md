@@ -71,7 +71,7 @@ with respect to the federate configuration is illustrated.
 
 ### Integration into Eclipse MOSAIC
 
-The first step to integrate a new component is the extension of the configuration file `etc/defaults.xml`.
+The first step to integrate a new component is the extension of the configuration file `etc/runtime.json`.
 An example for a federate configuration can be found in following listing.
 
 ```json

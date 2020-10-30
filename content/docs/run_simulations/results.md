@@ -18,9 +18,9 @@ folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folde
 ```FOLDER
 └─ log-<timestamp>
    ├─ apps
-   |  ├─ <unitType>_<unitId> ................. Detailed application specific logs for each unit
-   |  ├─ OperatingSystem.log ................. Detailed operating system logs for the unit
-   |  └─ ExampleApp.log ...................... Detailed application specific logs for each application.
+   |  └─ <unitType>_<unitId> ................. Detailed application specific logs for each unit
+   |      ├─ OperatingSystem.log ............. Detailed operating system logs for the unit
+   |      └─ ExampleApp.log .................. Detailed application specific logs for each application.
    ├─ activities.csv ......................... Simulation details in comma separated value-format
    ├─ Application.log  ....................... Information about the application ambassador
    ├─ Cell.log ............................... Cellular network log
@@ -32,7 +32,7 @@ folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folde
    ├─ MOSAIC.log ............................. General information, e.g. startup sequence information
    ├─ Navigation.log ......................... Detailed logs about navigation component in the application ambassador
    ├─ Traffic.log ............................ Traffic simulation log (SUMO or others)
-   └─ visualizer.csv ......................... Recorded data of the integrated File Output Generator
+   └─ output.csv ............................. Recorded data of the integrated File Output Generator
 ```
 
 In addition to standard logging output for each federate there is a `activities.csv` file which contains
