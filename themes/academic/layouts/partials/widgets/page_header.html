@@ -34,7 +34,9 @@
             {{ range $page.Params.button }}
               {{ if and .title .url }}
                 <div class="button mb-2 d-flex">
-                  <a class="mosaic-btn mosaic-btn-light" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">{{ if .icon }}<i class='fa fa-{{ .icon }}' aria-hidden='true'></i>{{ end }}{{ .title }}</a>
+                  <a class="mosaic-btn mosaic-btn-light" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
+                    {{ if .icon }}<i class='fa fa-{{ .icon }}' aria-hidden='true'></i> {{ end }}{{ .title | safeHTML }}
+                  </a>
                 </div>
               {{ end }}
             {{ end }}
