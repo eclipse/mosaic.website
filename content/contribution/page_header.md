@@ -12,7 +12,6 @@ subtitle = "We are waiting for your contributions. First read the following few 
   image_opacity = "0.3"
   
 [[button]]
-  title = "Eclipse MOSAIC @ GitHub"
+  title = "<i class=\"fab fa-github\"></i> Eclipse MOSAIC @ GitHub"
   url = "https://github.com/eclipse/mosaic"
-  icon = "code-branch"
 +++

@@ -36,7 +36,7 @@ logo_height = "50px"
     url = "https://openmobility.eclipse.org/members/avl"
 [[logo]]
     name = "Bosch"
-    logo = "bosch.png"
+    logo = "bosch.svg"
     url = "https://openmobility.eclipse.org/members/bosch"
 [[logo]]
     name = "DLR"
