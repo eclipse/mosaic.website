@@ -129,6 +129,18 @@ MessageRouting routing = getOs().getCellModule().createMessageRouting().topoCast
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 ```
 
+### Setting Protocol types
+
+By default, all cell messages use UDP, however you can set the protocol using the `protocol(...)` method of the `MessageRoutingBuilder`:
+```java 
+String receiverName = "veh_0";
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .protocol(Protocoltype.TCP)
+        .topoCast(receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+```
 ---
 
 ## Ad-hoc Communication
