@@ -129,6 +129,11 @@ The configuration for the global network in the cellular simulator in the file
 }
 ```
 
+The `network.json` also allows setting the fields `defaultDownlinkCapacity` and `defaultUplinkCapacity`,
+which are used if you don't specify any bitrates in your `CellConfiguration`s inside your applications.
+These values are set to 100 Gigabit by default, so if you aren't interested in capacity/bandwidth observations you can 
+probably just leave them as is.
+
 ### Server configuration
 MOSAIC supports a type of simulation units, called servers. Traffic Management Centers are a specialised type of server.
 What differentiates servers from other units is, that
@@ -137,6 +142,8 @@ where one would have to configure RSU's as servers.
 Servers are also configured in the `network.json` as follows:
  ```json
  {
+     "defaultDownlinkCapacity": "10 Gbps",
+     "defaultUplinkCapacity": "10 Gbps",
      "globalNetwork": {
             [...]
      },
@@ -174,8 +181,11 @@ Servers are also configured in the `network.json` as follows:
      }
  }
  ```
+> Note: The fields `defaultDownlinkCapacity`, `defaultUplinkCapacity` are used if you don't define any bitrates for your cell configurations
+> their default values are 100 Gigabit, so you usually don't need to set them. 
+
 Servers get their configuration for the delay and retransmission models from the `network.json` and the configuration for the
-capacity-module has to be made from within an application, by activating the `CellModule` and properly setting the bit rates.
+capacity-model has to be made from within an application, by activating the `CellModule` and properly setting the bit rates.
 This could look as follows:
 ```java
         getOs().getCellModule().enable(
@@ -183,6 +193,9 @@ This could look as follows:
                         .maxUlBitrate(10000)
                         .maxDlBitrate(10000)
         );
+
+        // Alternatively using default values from network.json
+        getOs().getCellModule().enable();
 ```
 For the CellAmbassador to be able to recognize servers, the `group`-field in the mapping must match the `id`-field in the `network.json`,
 this also allows for multiple servers to utilize the same configuration. A `mapping_config.json` using the configuration from

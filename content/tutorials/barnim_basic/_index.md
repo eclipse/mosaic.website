@@ -51,16 +51,16 @@ cellular network and could therefore be located virtually everywhere.
 
 In this section, the applications will be described briefly which are used in the Barnim tutorial. 
 
-1. `com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp`-application which induces a speed reduction as soon as the
+1. `org.eclipse.mosaic.app.tutorial.SlowDownApp`-application which induces a speed reduction as soon as the
 onboard sensors detect hazardous conditions. After leaving the hazardous area, the vehicles will resume by increasing
 their speed again.
-2. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp`-application simulates the vehicles equipped with ad hoc
+2. `org.eclipse.mosaic.app.tutorial.WeatherWarningApp`-application simulates the vehicles equipped with ad hoc
 wifi. They might not be able to receive the DENM due to range limitations and drive into the icy section nonetheless.
 Vehicles equipped with ad hoc wifi.
-3. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell`-application, a specialized form of the normal weather
+3. `org.eclipse.mosaic.app.tutorial.WeatherWarningAppCell`-application, a specialized form of the normal weather
 warning application that can make use of cellular communication, simulates the Cellular communication enabled vehicles
 which are able to communicate with the WeatherServer.
-4. `com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer`-application, which simulates a fixed Weather-Server equipped
+4. `org.eclipse.mosaic.app.tutorial.WeatherServerApp`-application, which simulates a fixed Weather-Server equipped
 with cellular communication. Despite the greater distance it is able to warn vehicles that can also make use of cellular
 communication.
 
@@ -87,7 +87,9 @@ which inherit this vehicle type.
             "sigma": 0.5,
             "tau": 1,
             "speedFactor": 1.0,
-            "speedDeviation": 0
+            "deviations": {
+                "speed": 0.1
+            }             
         }
     ]
 ```
@@ -102,7 +104,7 @@ As shown below, the RSU has fixed coordinates and the application
             "lat": 52.65027,
             "lon": 13.54500,
             "name": "WeatherServer",
-            "applications": [ "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer" ]
+            "applications": [ "org.eclipse.mosaic.app.tutorial.WeatherServerApp" ]
         }
     ]
 ```
@@ -130,8 +132,8 @@ have no additional functionality to receive messages from the weather server.
             "types": [
                 {
                     "applications": [
-                        "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningAppCell",
-                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                        "org.eclipse.mosaic.app.tutorial.WeatherWarningAppCell",
+                        "org.eclipse.mosaic.app.tutorial.SlowDownApp"
                     ],
                     "name": "Car",
                     "group": "Cellular",
@@ -139,8 +141,8 @@ have no additional functionality to receive messages from the weather server.
                 },
                 {
                     "applications": [
-                        "com.dcaiti.vsimrti.app.tutorials.barnim.WeatherWarningApp",
-                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                        "org.eclipse.mosaic.app.tutorial.WeatherWarningApp",
+                        "org.eclipse.mosaic.app.tutorial.SlowDownApp"
                     ],
                     "name": "Car",
                     "group": "AdHoc",
@@ -148,7 +150,7 @@ have no additional functionality to receive messages from the weather server.
                 },
                 {
                     "applications": [
-                        "com.dcaiti.vsimrti.app.tutorials.barnim.SlowDownApp"
+                        "org.eclipse.mosaic.app.tutorial.SlowDownApp"
                     ],
                     "name": "Car",
                     "group": "Unequipped",

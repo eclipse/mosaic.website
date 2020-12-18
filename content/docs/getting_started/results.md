@@ -8,7 +8,7 @@ draft: false
 weight: 20
 menu:
   docs:
-    parent: run_simulations
+    parent: getting_started
 ---
 
 Eclipse MOSAIC generates log files for each simulation run. Log files are generated for the ambassadors of each

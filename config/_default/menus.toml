@@ -142,12 +142,6 @@
   weight = 10
   post = "Download and installation."
 [[docs]]
-  name = "Run Simulations"
-  identifier = "run_simulations"
-  url = "/docs/run_simulations"
-  weight = 20
-  post = "Run single simulation or simulation sets."
-[[docs]]
   name = "Visualization"
   identifier = "visualization"
   url = "/docs/visualization"
@@ -184,7 +178,20 @@
   weight = 80
   post = "Technical documentation, such as Javadoc."
 
-
+[[tutorials]]
+  name = "Getting Started"
+  identifier = "getting_started"
+  url = "/tutorials/getting_started"
+  weight = 1
+  post = """
+  <img src="getting_started/images/mosaic-intro.png">
+  <p><b>What you will learn:</b></p>
+  <ul>
+    <li>Download and install Eclipse MOSAIC</li>
+    <li>Running a simulation</li>
+    <li>Configuring a simulation scenario</li>
+  </ul>
+  """
 [[tutorials]]
   name = "Barnim Basic"
   identifier = "barnim_basic"

@@ -75,7 +75,7 @@ Follow the steps to build an example application:
             <dependency>
                 <groupId>org.eclipse.mosaic</groupId>
                 <artifactId>mosaic-application</artifactId>
-                <version>20.0-SNAPSHOT</version>
+                <version>20.0</version>
             </dependency>
         </dependencies>
         

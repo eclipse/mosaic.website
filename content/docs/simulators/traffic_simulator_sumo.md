@@ -19,7 +19,7 @@ simulation tool. It is designed to handle large road networks faster than real-t
 | **Operating System**     | GNU/Linux and Microsoft Windows                      |
 | **License**              | EPL-2.0                                              |
 | **Website**              | [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/) |
-| **Supported version(s)** | 1.0.1, 1.1.0 (limited support), 1.2.0 - 1.7.0 (full support) |
+| **Supported version(s)** | 1.0.1, 1.1.0 (limited support), 1.2.0 - 1.8.0 (full support) |
 |                          |                                                      |
 
 ### Installation

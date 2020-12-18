@@ -39,8 +39,8 @@ menu:
 
 ### Additional Software
 
-Each simulation with Eclipse MOSAIC requires additional software. For the Runtime Infrastructure, Java is required. to be installed. 
-Furthermore, each simulation requires additional simulators to be installed, for example the traffic simulation tool SUMO.
+Each simulation with Eclipse MOSAIC requires additional software. As MOSAIC is written in JAVA, first of all, a JAVA runtime environment (JRE) needs to be installed for your operating system.
+Furthermore, each simulation requires additional simulators to be installed, for example the traffic simulation tool Eclipse SUMO or the communication simulators OMNeT++ / INET or ns-3.
 
 The following table gives an overview of supported environments and simulators. Please make sure that you install those versions only.
 
@@ -48,7 +48,7 @@ The following table gives an overview of supported environments and simulators. 
 |:-----------:|:----------:|:-:|:----------:|:-:|
 | **[Java](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)** | yes | Java 7 and below<br/> _not supported_ | **Java 8** <br/> _supported_ | **Java 11** and above <br/> _limited supported_ |
 | | | | | |
-| **[Eclipse SUMO](https://www.eclipse.org/sumo)** | yes* | 0.32.0 and below<br/> _not supported_| **1.0.1 to 1.7.0** <br/> _supported_ | above 1.7.0 <br/> _not tested_ |
+| **[Eclipse SUMO](https://www.eclipse.org/sumo)** | yes* | 0.32.0 and below<br/> _not supported_| **1.0.1 to 1.8.0** <br/> _supported_ | above 1.8.0 <br/> _not tested_ |
 | **[OMNeT++](https://omnetpp.org/download/old)** | optional | 5.4 and below<br/> _not supported_| **{{< version of="omnetpp" >}}** <br/> _supported_ | 5.6 and above <br/>  _not supported_ |
 | **[INET](https://inet.omnetpp.org/Download.html)** | optional | 4.0 and below<br/> _not supported_| **{{< version of="inet" >}}** <br/> _supported_ | 4.2 and above <br/> _not supported_ |
 | **[ns-3](https://www.nsnam.org/releases/ns-3-28)** | optional | 3.27 and below<br/> _not supported_| **3.28** <br/> _supported_ | 3.29 and above <br/> _not tested_ |
