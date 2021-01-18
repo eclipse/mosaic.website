@@ -269,10 +269,10 @@ traffic light groups to control a whole junction, whereas the junction possesses
 their positions are defined in the simulator specific configuration file (e.g. the *.net.xml for SUMO and *.ttl.json for PHABMACS).
 The `tlGroupId`-property allows mapping of applications to the traffic light groups, referring them by Id.
 
-Alternatively, the definition of weights leads to a random distribution of the referred applications through ALL traffic lights of the
-scenario. (Note: The weights do not have to add up to 100 or 1. Consequently, all traffic lights will be mapped using the specified
+Alternatively, the definition of the `weight`-property leads to a random distribution of the referred applications through ALL traffic lights of the
+scenario (Note: The weights do not have to add up to 100 or 1). Consequently, all traffic lights will be mapped using the specified
 prototypes as soon as one weight differs from zero. So in case you don’t want all traffic lights to have applications running on them you
-have to define one traffic light without any applications and add a weight to it.
+have to define one traffic light without any applications and add a weight to it. If neither tlGroupId nor weight are defined for an app, the weight will be set to 1.
 
 ```json
 "trafficLights": [

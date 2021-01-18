@@ -298,8 +298,9 @@ The general approach works like this:
 2. Create a new message. Here we use our own custom message called `IntraVehicleMsg` which
 takes a randomly generated id and the name of the vehicle as payload. Again, this is for tutorial
 purposes and could be anything.
-3. After that we iterate over every application that runs on the vehicle, in this case two:
-`TiergartenVehicle` and `TiergartenVehicleSlave`.
+3. After that we iterate over every application that runs on the vehicle, in this case two:  
+   - `TiergartenVehicle`
+   - `TiergartenVehicleSlave`
 4. Then, an event is constructed for each app running on the vehicle and added to the event queue
 the same way as in the inter-vehicle example.
 
@@ -354,10 +355,11 @@ These prototype is used to map the referenced application onto two specific traf
 ]
 ```
 
-The use case shown for tutorial purposes here is simple: The two traffic lights referenced in the mapping default to _always red_.
-Their application then waits for a V2X message with a _secret_ payload in it (the `GreenWaveMsg`) and switches
-the traffic light program to _always green_ upon receiving that message. The application mapped onto the traffic light then
-switches back to its previous program after 20 simulation time steps have passed. 
+The use case shown for tutorial purposes here is simple: The two traffic lights referenced in the mapping default to
+_always red_. Their application then waits for a V2X message with a _secret_ payload in it (the `GreenWaveMsg`, sent by
+a vehicle equipped with an `VehicleToTrafficLightApp`) and switches the traffic light program to _always green_ upon
+receiving that message. The application mapped onto the traffic light then switches back to its previous program after
+20 simulation time steps have passed. 
 
 ## Interpretation of simulation results
 

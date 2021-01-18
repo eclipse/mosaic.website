@@ -59,7 +59,6 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
 ```
 
 {{% alert note %}}
-Change `mosaic.version` to the current version you are using.  
 In this section we use the scenario name `steglitz.*` as synonym for `path/to/steglitz.*`.
 {{% /alert %}}
 
@@ -68,31 +67,32 @@ which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which
 
 ```FOLDER
 └─ <working-directory>
-   ├─ steglitz.osm
-   ├─ application
-   |  └─ steglitz.db
-   ├─ cell
-   |  ├─ cell_config.json
-   |  ├─ network.json
-   |  └─ regions.json
-   ├─ environment
-   |  └─ environment_config.json
-   ├─ mapping
-   |  └─ mapping_config.json
-   ├─ ns3
-   |  ├─ ns3_config.json
-   |  └─ ns3_federate_config.xml
-   ├─ omnetpp
-   |  ├─ omnetpp_config.json
-   |  └─ omnetpp.ini      
-   ├─ output
-   |  └─ output_config.xml
-   ├─ sns
-   |  └─ sns_config.json
-   ├─ sumo
-   |  ├─ steglitz.net.xml
-   |  └─ steglitz.sumocfg
-   └─ scenario_config.json .................. Basic configuration of the simulation scenario
+   └─ steglitz
+       ├─ steglitz.osm
+       ├─ application
+       |  └─ steglitz.db
+       ├─ cell
+       |  ├─ cell_config.json
+       |  ├─ network.json
+       |  └─ regions.json
+       ├─ environment
+       |  └─ environment_config.json
+       ├─ mapping
+       |  └─ mapping_config.json
+       ├─ ns3
+       |  ├─ ns3_config.json
+       |  └─ ns3_federate_config.xml
+       ├─ omnetpp
+       |  ├─ omnetpp_config.json
+       |  └─ omnetpp.ini      
+       ├─ output
+       |  └─ output_config.xml
+       ├─ sns
+       |  └─ sns_config.json
+       ├─ sumo
+       |  ├─ steglitz.net.xml
+       |  └─ steglitz.sumocfg
+       └─ scenario_config.json .................. Basic configuration of the simulation scenario
 ```
 
 Let's walk through all these files:
@@ -152,17 +152,7 @@ Alternatively you can use the following command in order to generate routes with
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm -o --generate-routes
 --route-begin-node-id 267350668 --route-end-node-id 313139970 --number-of-routes 3
 ```
-see [below](#reference-documentation-for-scenario-convert) for all command 
-line options.
-
-__Exporting Traffic Lights__  
-Another feature of the scenario-convert script is the ability to export traffic lights from the osm-file to
-be used by SUMOs netconvert. The extended call would look like this:
-```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
---route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
---export-traffic-lights
-```
+See [below](#reference-documentation-for-scenario-convert) for all command line options.
 
 __Conlusion__  
 This wraps up one of the main workflows with the scenario-convert-script.
@@ -207,8 +197,7 @@ The directory should look like this:
    └─ steglitz_cleaned.osm
 ```
 
-__Importing the route-file__  
-> This is the interesting part of this workflow. :thumbsup:
+__Importing the route-file__
 
 Let's import our routes into the database.  
 We achieve this by calling:

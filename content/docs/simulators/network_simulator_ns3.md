@@ -20,7 +20,7 @@ Regardless, ns-2 still remains in active use and will continue to be maintained 
 Eclipse MOSAIC coupling, only ns-3 will be available.
 
 Like other network simulators, ns-3 has a relatively steep learning curve, especially compared to GUI-
-based simulators. If you have no prior experience with ns-3, we recommend to familiarize yourself with
+based simulators. If you have no prior experience with ns-3, we recommend familiarizing yourself with
 the ns-3 simulation environment and the ns-3 simulation basics first. The ns-3 documentation can be
 found under: {{< target-blank "https://www.nsnam.org/documentation" "https://www.nsnam.org/documentation" >}}
 
@@ -33,10 +33,10 @@ Typically, a ns-3 user will work under a Linux environment. For those running un
 exist environments which simulate the Linux environment to various degrees. The ns-3 project has in the
 past (but not presently) supported the Cygwin environment for these users (see {{< target-blank "http://www.cygwin.com" "http://www.cygwin.com" >}}
 for details on downloading). MiniGW is presently not officially supported, however there are also
-some people who managed to use it with ns-3. For detailed information of how to setup ns-3, please refer
+some people who managed to use it with ns-3. For detailed information of how to set up ns-3, please refer
 to their Wiki: {{< target-blank "https://www.nsnam.org/wiki/Installation" "https://www.nsnam.org/wiki/Installation" >}}
 
-For more information on how to setup ns-3 with Eclipse MOSAIC, please just refer to the following section. We
+For more information on how to set up ns-3 with Eclipse MOSAIC, please just refer to the following section. We
 prepared an installation script, which manages most of the required work.
 
 {{% alert warning %}}
@@ -53,12 +53,12 @@ Linux virtual machine with a virtual machine environment, such as
 | **Written in**                     | C++ (core) and Python (bindings)                                                                           |
 | **Operating system**               | GNU/Linux FreeBSD Mac OS X                                                                                 |
 | **License**                        | Free software: GNU GPLv2                                                                                   |
-| **Website**                        | {{< target-blank "http://www.nsnam.org/" "http://www.nsnam.org/" >}}                                                                                 |
-| **Supported version(s)**           | 3.28                                                                                                       |
-| **Dependencies**                   | libprotobuf 3.3.0                                                                                          |
+| **Website**                        | {{< target-blank "http://www.nsnam.org/" "http://www.nsnam.org/" >}}                                       |
+| **Supported version(s)**           | {{< version of="ns3" >}}                                                                                   |
+| **Dependencies**                   | libprotobuf {{< version of="ns3_protobuf" >}}                                                              |
 |                                    | libxml2                                                                                                    |
 |                                    | libsqlite3                                                                                                 |
-| **Deployed in MOSAIC all-in-one** | no (and need a patch to link)                                                                              |
+| **Deployed in MOSAIC all-in-one** | no (and need a patch to link)                                                                               |
 
 ### ns3-ambassador folder structure
 
@@ -72,8 +72,8 @@ Linux virtual machine with a virtual machine environment, such as
 
 ### Installation
 
-Eclipse MOSAIC offers support for the current stable release of ns-3 (3.28), that was released in March 2018. Older
-versions of ns-3 (prior to 3.28) are not supported. However, also for newer versions we cannot guarantee
+Eclipse MOSAIC offers support for the current stable release of ns-3 ({{< version of="ns3" >}}), that was released in March 2018. Older
+versions of ns-3 (prior to {{< version of="ns3" >}}) are not supported. However, also for newer versions we cannot guarantee
 the correct operation. The coupling to Eclipse MOSAIC is designed in a manner of minimal code changes on the
 ns-3 simulator itself to keep the update capabilities for future versions.
 
@@ -96,7 +96,7 @@ guide: {{< target-blank "https://www.nsnam.org/wiki/Installation" "https://www.n
 Please make sure the following libraries are installed before running the installation script:
 * libxml2
 * libsqlite3
-* libprotobuf 3.3.0
+* libprotobuf {{< version of="ns3_protobuf" >}}
 
 #### Run the installation script
 
@@ -108,7 +108,7 @@ may need superuser permissions to install packages.
 
 {{% alert warning %}}
 If your local protobuf version does not fit the required one, the installation
-may fail with an error. In that case, you can run the install script with the -p flag. This will
+may fail with an error. In that case, you can run the install script with the `-p` flag. This will
 rebuild the protobuf files during installation and allow it to proceed correctly.
 {{% /alert %}}
 
@@ -125,7 +125,7 @@ script, that can be found in the associated ns-3 federate folder.
 ```
 
 **The ns-3 installation script accomplishes the following tasks:**
-1. Download ns-3 tarball from the offical sources
+1. Download ns-3 tarball from the official sources
 2. Download the ns-3 federate for Eclipse MOSAIC.
 3. Apply a patch to ns-3 in order to make it work with Eclipse MOSAIC.
 4. Add the ns-3 federate to the waf build system.
@@ -151,7 +151,7 @@ software is executed within a container and its execution does not rely on the e
 
 In context of Eclipse MOSAIC, this approach allows to execute ns-3 within a docker container. The user does not
 need to manually install ns-3 and can even run ns-3 on Windows hosts.
-1. Install Docker ≥ 1.13 on your machine.
+1. Install Docker ≥ {{< version of="ns3_docker" >}} on your machine.
 2. To get everything to work, please make sure to execute the following steps depending on your operating system:
     * Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.

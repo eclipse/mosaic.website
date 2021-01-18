@@ -43,7 +43,7 @@ First of all, please make sure that you have the following libraries installed:
 `unzip`, `tar`, `bison`, `flex`, `gcc`, `python`, `protoc`
 
 {{% alert note %}}
-The installation of the current version of the OMNeT++ Federate was tested with protobuf version {{< version of="protobuf" >}}.  
+The installation of the current version of the OMNeT++ Federate was tested with protobuf version {{< version of="omnetpp_protobuf" >}}.  
 It is recommended to install this version. Here you receive more information about [how to install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md).
 {{% /alert %}}
 
@@ -78,9 +78,9 @@ cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type USER \
-    --omnetpp /path/to/omnetpp-5.5-src.tgz \
-    --inet /path/to/inet-4.1-src.tgz \
-    --federate /path/to/omnetpp-federate-20.0.zip
+    --omnetpp /path/to/omnetpp-{{< version of="omnetpp" >}}-src.tgz \
+    --inet /path/to/inet-{{< version of="inet" >}}-src.tgz \
+    --federate /path/to/omnetpp-federate-{{< version of="mosaic" >}}.zip
 ```
 For the installation type `USER` the parameters `-o`, `-i` and `-f` are required.  
 The installation script should terminate with `SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
@@ -93,7 +93,7 @@ cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-20.0.zip
+    --federate /path/to/omnetpp-federate-{{< version of="mosaic" >}}.zip
 ```
 For the installation type `DEVELOPER` the parameter `-f` is required.  
 The installation script should terminate with `SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
@@ -146,7 +146,7 @@ software is executed within a container and its execution does not rely on the e
 
 In context of Eclipse MOSAIC, this approach allows to execute OMNeT++ within a docker container. The user does not
 need to manually install OMNeT++ and can even run OMNeT++ on Windows hosts.
-1. Install Docker ≥ 1.13 on your machine.
+1. Install Docker ≥ {{< version of="omnetpp_docker" >}} on your machine.
 2. To get everything to work, please make sure to execute the following steps depending on your operating system:
     * Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.

@@ -68,7 +68,7 @@ table th:nth-of-type(2) {
 While Eclipse MOSAIC is running, it prints some information on the command line:
 ```shell
 [user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 20.0-SNAPSHOT on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC {{< version of="mosaic" >}} on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id 'HelloWorld'
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id 'application'
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id 'mapping'

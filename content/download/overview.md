@@ -55,9 +55,9 @@ preparation and visualization. For commercial users we even provide additional s
 |  | **{{< link title="ITS-G5 Communication" href="/docs/simulators/network_simulator_sns/" >}}**     |**✓**|**✓**|
 |  | **{{< link title="Environment" href="/docs/simulators/environment_simulator/" >}}**              |**✓**|**✓**|
 |  | **{{< link title="Battery / Charging" href="/docs/simulators/battery_simulator/" >}}**           | -   |**✓**|
-|  | **{{< link title="Variable Message Signs" href="/docs/simulators/environment_simulator/#traffic-signs-simulator" >}}** | -     |**✓**|
-|  | **PHABMACS Scenario API**                                               |**✓**|**✓**|
-|  | **PHABMACS Vehicle Simulator**                                          | -   |**✓**|
+|  | **{{< link title="Variable Message Signs" href="/docs/simulators/vms_simulator/" >}}**           | -   |**✓**|
+|  | **PHABMACS Scenario API**                                                                        |**✓**|**✓**|
+|  | **PHABMACS Vehicle Simulator**                                                                   | -   |**✓**|
 |*Visualizers*||||| 
 |  | **{{< link title="Browser Visualization" href="/docs/visualization/" >}}**                       |**✓**|**✓**|
 |  | **{{< link title="File Output" href="/docs/visualization/filevis/" >}}**                         |**✓**|**✓**|
@@ -66,10 +66,10 @@ preparation and visualization. For commercial users we even provide additional s
 |  | **{{< link title="ITEF" href="/docs/visualization/itef/" >}}**                                   | -   |**✓**|
 |*Tools* |||||| 
 |  | **{{< link title="Command Line Tool" href="/docs/run_simulations/" >}}**                         |**✓**|**✓**|
-|  | **Run Federates in Docker**                                             |**✓**|**✓**|
+|  | **Run Federates in Docker**                                                                      |**✓**|**✓**|
 |  | **{{< link title="Scenario Convert" href="/docs/building_scenarios/scenario_convert/" >}}**      |(✓)**|**✓**|
 |  | **{{< link title="Simulation Set Runner" href="/docs/run_simulations/simulation_set/" >}}**      | -   |**✓**|
-|  | **TrafficGen**                                                          | -   |**✓**|
+|  | **TrafficGen**                                                                                   | -   |**✓**|
 
 *) For the commercial version of MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will 
 create an individual offer suitable to your needs.

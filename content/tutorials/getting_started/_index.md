@@ -19,12 +19,12 @@ contains almost everything you need to execute simulation scenarios with Eclipse
 Some prerequisites are required on your machine. Eclipse MOSAIC is a software based on JAVA, and therefore, a 
 JAVA Runtime Environment or Development Kit is required: 
 
-* [x] **JAVA Runtime Environment** (version 8 minimum and recommended), e.g. [AdoptOpenJDK](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)
+* [x] **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [AdoptOpenJDK](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)
 
 In addition, the pre-bundled simulation scenarios are configured to use certain simulators. For traffic simulation, the open-source 
 traffic-simulator SUMO is required: 
 
-* [x] **Eclipse SUMO** (latest version 1.8.0 recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
+* [x] **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
 
 Additional simulators are not required by the pre-bundled scenarios. However, if you plan to simulate communication scenarios
 in high detail, the simulators [ns&#x2011;3]({{< ref "/docs/simulators/network_simulator_ns3" >}}) or 
@@ -33,7 +33,7 @@ information can be found in our **{{< link title="documentation" href="/docs/get
 
 ## Download and install
 
-1. **Download the `eclipse-mosaic-20.0.zip` bundle from {{< link title="our download section" href="/download" >}}.** 
+1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip` bundle from {{< link title="our download section" href="/download" >}}.** 
 2. Extract the package to an arbitrary path.
 
 ## Run Eclipse MOSAIC

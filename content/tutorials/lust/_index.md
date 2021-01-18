@@ -84,4 +84,4 @@ nodes, type of the current road) is also not available to the applications.
 not yet been tested.
 * The LuST scenario has been developed for SUMO 0.32.0 and we can not ensure that newer versions
 of SUMO still support this scenario. Please be also aware, that Eclipse MOSAIC does not support SUMO
-0.32.0 any more, but only version 1.0.1 or higher.
+0.32.0 anymore, but only version {{< version of="sumo_minimum" >}} or higher.

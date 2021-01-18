@@ -21,7 +21,8 @@ alignment = "left" # left or center (default)
 
 
 [[button]]
-  title = "<i class='fa fa-download' aria-hidden='true'></i> Download Now"
+  download_mosaic = true
+  title = "Download Now"
   url = "/download/"
 
 [[button]]
@@ -41,7 +42,7 @@ alignment = "left" # left or center (default)
   
 [[feature]]
   name = "Multi-Domain / Multi-Scale Models"
-  description = "The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailled vehicle simulation) which all can be combined."  
+  description = "The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailed vehicle simulation) which all can be combined."  
   link_title = "Learn More"
   link_url = "/about#model_collection"
   link_feature = true

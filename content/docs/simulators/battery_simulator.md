@@ -1,5 +1,5 @@
 ---
-title: MOSAIC Battery Simulator
+title: Battery Simulator
 linktitle: Battery Simulator
 toc: true
 type: docs

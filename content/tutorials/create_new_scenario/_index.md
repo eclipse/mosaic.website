@@ -113,7 +113,6 @@ be used by SUMOs netconvert. The extended call would look like this:
 ```bash
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm -o --generate-routes
 --route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
---export-traffic-lights
 ```
 
 __Conlusion__  

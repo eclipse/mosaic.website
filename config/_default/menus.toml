@@ -217,7 +217,7 @@
   <ul>
     <li>Developing applications</li>
     <li>Sending and receiving V2X messages</li>
-    <li>Choosing different route due to traffic conditions</li>
+    <li>Choosing different route due to weather conditions</li>
   </ul>
   """
 [[tutorials]]

@@ -8,7 +8,14 @@ title = "Ways to contact us"
 subtitle = "Please select the contact channel depending on your demands:"
 
 [[card]]
-    subtitle = "MOSAIC Versions & Licences"
+    subtitle = "Questions & Discussions"
+    text = "If you have questions about using or extending MOSAIC, you can get in touch with us on our GitHub discussions page."
+    [card.button]
+        title = "Join GitHub Discussions"
+        url = "https://github.com/eclipse/mosaic/discussions"
+        icon = "comments"
+[[card]]
+    subtitle = "Versions & Licences"
     text = "If you want to get an individual licence in order to use MOSAIC Extended features, just write us an email."
     [card.button]
         title = "Send Email"
@@ -16,7 +23,7 @@ subtitle = "Please select the contact channel depending on your demands:"
         icon = "paper-plane"
 [[card]]
     subtitle = "Code & Functionalities"
-    text = "If you have any questions about functionalities, configuration or code of Eclipse MOSAIC, our Eclipse MOSAIC Mailing List is your choice."
+    text = "If you want to get in touch with the developers about our code, our Eclipse MOSAIC Mailing List is your choice."
     [card.button]
         title = "Register to Mailing List"
         url = "https://accounts.eclipse.org/mailing-list/mosaic-dev"

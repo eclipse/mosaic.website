@@ -42,7 +42,7 @@ directions. Each connection consists of at least two nodes (start and end juncti
 which describe the curvature of the road segment. Furthermore, each connection has a reference to its originating `way`, which may 
 consist of various connections. A way contains further properties, such as the maximum speed or the type of the road.
 
-{{< figure src="../images/node-connections.jpeg" title="Nodes and connections of the road network" numbered="true" >}}
+{{< figure src="../images/node-connections.jpeg" title="Nodes and connections of the road network" numbered="true" width="50%" >}}
 
 Nodes and ways are identified by unique IDs derived from the base OSM network file. Connections, however, are not part of the OSM standard 
 and their identifiers are generated during the import. Each connection ID consists of three parts (using the string pattern `aaa_bbb_ccc`):
@@ -51,7 +51,7 @@ and their identifiers are generated during the import. Each connection ID consis
 * `bbb` - ID of the node the connection starts at.
 * `ccc` - ID of the node the connection ends in.
 
-{{< figure src="../images/connections.jpeg" title="ID of connection in road network" numbered="true" >}} 
+{{< figure src="../images/connections.jpeg" title="ID of connection in road network" numbered="true" width="50%" >}} 
 
 Some components of Eclipse MOSAIC need to identify further parts of the road network, such as one edge between two nodes, or one specific lane of one edge. 
 Therefore, the following objects are identified as following:
@@ -61,11 +61,11 @@ Therefore, the following objects are identified as following:
 * `aaa_bbb_ccc` - ID the connection the edge belongs to.
 * `ddd` - ID of the node the edge starts at.
 
-{{< figure src="../images/edges.jpeg" title="Structure of the Edge-ID" numbered="true" >}}
+{{< figure src="../images/edges.jpeg" title="Structure of the Edge-ID" numbered="true" width="50%" >}}
 
 `Lanes` are described by an edge and a lane index. The identifier of a lane consists of two parts (using the string pattern `aaa_bbb_ccc_ddd_e`):
 
 * `aaa_bbb_ccc_ddd` - ID the edge the lane belongs to.
 * `e` - Index of the lane, starting by 0 (leftmost lane).
 
-{{< figure src="../images/lanes.jpeg" title="Structure of the Lane-ID" numbered="true" >}}
+{{< figure src="../images/lanes.jpeg" title="Structure of the Lane-ID" numbered="true" width="35%" >}}
