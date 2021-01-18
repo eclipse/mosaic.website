@@ -1,15 +1,9 @@
+@import "mosaic/colors";
 /* Set Bootstrap variables */
 
 // Set colors.
 $primary: $sta-primary;
 $text-muted: rgba(0,0,0,0.54);
-
-$mosaic-navy: #2D2252;
-$mosaic-purple: #68145C;
-$mosaic-blue: #009DE2;
-$mosaic-green: #7ABA1E;
-$mosaic-orange: #F88D2B;
-$mosaic-yellow: #EFD830;
 
 $page-header-color1: $mosaic-navy;
 $page-header-color2: $mosaic-purple;

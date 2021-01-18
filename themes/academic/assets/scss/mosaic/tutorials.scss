@@ -1,3 +1,5 @@
+@import "colors";
+
 ul.menu-overview {
   padding: 0;
   margin: 1rem -15px;
@@ -6,7 +8,7 @@ ul.menu-overview {
     list-style-type: none;
     margin-bottom: 2rem;
     display: flex;
-    width: 100%;
+    //width: 100%;
 
     span.inner {
       @extend .mosaic-card-dark;
@@ -36,7 +38,7 @@ ul.menu-overview {
             list-style-type: none;
             position: relative;
             &::marker {
-              color: #777; //$mosaic-purple;
+              color: #777;
             }
             &::before {
               font-family: 'Font Awesome 5 Free';

@@ -37,7 +37,7 @@
         </div>
         {{ end }}
 
-        <div class="card">
+        <div class="card container">
           <div class="row pt-4 pr-4 pb-0 pl-4">
             {{ $padding_top := .padding_top | default "0" }}
             <div class="w-100" style="margin-top: {{ $padding_top }};"></div>
@@ -87,13 +87,18 @@
               {{ with .button }}
                 <div class="w-100 mb-4"></div>
                 <div class="button">
+                  {{ $pack := or .icon_pack "fas" }}
+                  {{ $pack_prefix := $pack }}
+                  {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+                    {{ $pack_prefix = "fa" }}
+                  {{ end }}
                   {{ $href := printf "href=\"%s\"" (.url | relURL) }}
                   {{ if eq "mailto:" (slicestr .url 0 7) }}
                     {{ $href = printf "href=\"%s\"" .url }}
                   {{ end }}
                   <a {{ $href | safeHTMLAttr }} title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary btn-bottom">
                     {{ if .icon }}
-                      <i class="fas fa-{{ .icon }}"></i>
+                      <i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }}"></i>
                     {{ else }}
                       <span class="prefix">»</span>
                     {{ end }}

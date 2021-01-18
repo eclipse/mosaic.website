@@ -33,9 +33,13 @@
           <div class="row justify-content-center">
             {{ range $page.Params.button }}
               {{ if and .title .url }}
-                <div class="button mb-2 d-flex">
+                <div class="button mb-2">
                   <a class="mosaic-btn mosaic-btn-light" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
-                    {{ if .icon }}<i class='fa fa-{{ .icon }}' aria-hidden='true'></i> {{ end }}{{ .title | safeHTML }}
+                    {{ if .icon }}<i class='fa fa-{{ .icon }}' aria-hidden='true'></i> {{ end }}
+                    {{ .title | safeHTML }}
+                    {{ if .subtitle }}
+                      <span class="subtitle">{{ .subtitle | safeHTML }}</span>
+                    {{ end }}
                   </a>
                 </div>
               {{ end }}
@@ -72,10 +76,30 @@
         {{ with $page.Params.button }}
           <div class="buttons col-md-3 d-none d-md-block justify-content-right">
             {{ range $page.Params.button }}
-              <div class="col-md-12 justify-content-right text-right">
-              {{ if .title }}{{ if .url }}
-                <a class="mosaic-btn mosaic-btn-light" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">{{ .title | safeHTML }}</a>
-              {{ end }}{{ end }}
+              <div class="col-md-12">
+                {{ if .title }}{{ if .url }}
+                  {{- $version_set := .download_mosaic -}}
+                  {{- $version := "UNDEFINED" -}}
+                  {{ if .download_mosaic }}
+                    {{- range $key, $value := $.Site.Data.mosaic.versions -}}
+                      {{- if eq $key "mosaic" -}}
+                        {{- $version = $value -}}
+                      {{- end -}}
+                    {{- end -}}
+                    {{- if eq $version "UNDEFINED" -}}
+                      {{- $version_set = false -}}
+                    {{- end -}}
+                  {{- end -}}
+                  <a class="mosaic-btn mosaic-btn-light {{ if $version_set }}mosaic-btn-download{{ end }} float-end" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
+                    {{ if .download_mosaic }}
+                      <span class="icon"><i class='fa fa-download' aria-hidden='true'></i></span>
+                    {{ end }}
+                    <span class="title">{{ .title | safeHTML }}</span>
+                    {{ if $version_set }}
+                      <span class="subtitle">Latest Release: {{ $version | safeHTML }}</span>
+                    {{ end }}
+                  </a>
+                {{ end }}{{ end }}
               </div>
             {{ end }}
           </div>

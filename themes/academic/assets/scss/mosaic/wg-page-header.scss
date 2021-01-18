@@ -1,3 +1,5 @@
+@import "colors";
+
 .wg-page-header {
   background-color: #ffffff;
   position: relative;
@@ -33,6 +35,10 @@
     color: #fff;
   }
 
+  hr {
+    opacity: 0;
+  }
+
   .page-header-background {
     position: absolute;
     content: '';
@@ -52,11 +58,11 @@
     .page-header-logo {
       img {
         max-width: none;
-        margin: -4.49rem 0 -2.8rem -1.9rem;
+        margin: -4.49rem 0 -2.8rem -2.27rem;
       }
     }
     .section-heading {
-      margin-left: 9.6rem;
+      margin-left: 9.22rem;
       p {
         color: #fff;
         font-style: normal;
@@ -73,8 +79,36 @@
         text-align: left;
         margin-right: -0.7rem;
         font-size: 0.8rem;
+        &.mosaic-btn-download {
+          &:hover {
+            .subtitle {
+              color: white;
+            }
+          }
+          .icon {
+            display: block;
+            width: 0;
+            height: 0;
+          }
+          .title {
+            display: block;
+            margin: -0.45rem 0 0 1.3rem;
+          }
+          .subtitle {
+            display: block;
+            font-weight: normal;
+            font-size: 0.6rem;
+            margin: -0.3rem 0 -0.3rem 1.3rem;
+            color: #666;
+          }
+        }
       }
     }
+  }
+  .features {
+    margin-left: -15px;
+    max-width: calc(100% + 30px);
+    width: calc(100% + 30px);
   }
 
   // Logo and title aligned center

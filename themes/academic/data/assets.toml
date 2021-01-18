@@ -10,6 +10,10 @@
   version = "3.4.1"
   sri = "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
   url = "https://code.jquery.com/jquery-%s.min.js"
+[js.popper]
+  version = "2.6.0"
+  sri = "sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
+  url = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/%s/umd/popper.min.js"
 [js.highlight]
   version = "9.18.1"
   sri = "sha512-1LdB3V708w6G4QRl7NsVdTr7MDibyRXr9stQZ+EGjEE0ZPMZkA//ir7kCWmFyxdAJNIRXdR/ZeJmCV0boyiCXw=="

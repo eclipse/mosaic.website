@@ -61,6 +61,7 @@
 
         <div class="buttons col-3 d-none d-lg-block">
           <div class="row justify-content-end">
+            <div class="col">
             <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
               <i class="fa fa-external-link-alt" aria-hidden="true"></i> Project Website
             </a>
@@ -72,10 +73,12 @@
             </a>
             {{ end }}
             {{ end }}
+              </div>
           </div>
         </div>
         <div class="buttons col-12 col-md-7 offset-0 offset-md-2 d-block d-lg-none">
           <div class="row justify-content-start">
+            <div class="col">
             <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
               <i class="fa fa-external-link-alt" aria-hidden="true"></i> Project Website
             </a>
@@ -87,6 +90,7 @@
             </a>
             {{ end }}
             {{ end }}
+            </div>
           </div>
         </div>
       </div>

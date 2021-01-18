@@ -1,2 +1,19 @@
-{{/* Includes the version number of software defined in `data/mosaic.toml`. Unfortunately, the code needs to be a single line in order to work correctly when included in 'alert' partials. */}}
-{{ $version := "UNDEFINED" }}{{ if .Get "of" }}{{ $version_of := .Get "of" }}{{ range $key, $value := .Site.Data.mosaic.versions }}{{ if eq $key $version_of }}{{ $version = $value }}{{ end }}{{ end }}{{ if eq $version "UNDEFINED" }}<span style="font-weight: bold; color: red;">ERROR: Version of '{{ $version_of }}' is not specified in data/mosaic.toml</span>{{ else }}{{ $version }}{{ end }}{{ else }}<span style="font-weight: bold; color: red;">ERROR: Please use version shortcode like: &#123;&#123;&lt; version of="name" &gt;&#125;&#125;.</span>{{ end }}
+{{/* Includes the version number of software defined in `data/mosaic.toml`.%/}}
+{{/* To prevent whitespaces around the resulting text on the website, '-' needs to be added at the beginning and end of each Hugo statement */}}
+{{- if .Get "of" -}}
+  {{- $version_of := .Get "of" -}}
+  {{- $version := "UNDEFINED" -}}
+  {{- range $key, $value := .Site.Data.mosaic.versions -}}
+    {{- if eq $key $version_of -}}
+      {{- $version = $value -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if eq $version "UNDEFINED" -}}
+    <span style="font-weight: bold; color: red;">ERROR: Version of '{{- $version_of -}}' is not specified in data/mosaic.toml</span>
+  {{- else -}}
+    {{- $version -}}
+  {{- end -}}
+{{- else -}}
+  <span style="font-weight: bold; color: red;">ERROR: Please use version shortcode like: &#123;&#123;&lt; version of="name" &gt;&#125;&#125;.</span>
+{{- end -}}

@@ -1,4 +1,4 @@
-<ul class="menu-overview row justify-content-center">
+<ul class="menu-overview row">
     {{ $currentPage := . }}
     {{ $menuName := .Get 0 }}
     {{ range $index, $menuItem := (index .Site.Menus $menuName) }}

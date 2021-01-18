@@ -1,3 +1,5 @@
+@import "colors";
+
 .wg-cards {
   .cards {
     display: -webkit-box;
@@ -156,7 +158,9 @@
         bottom: 0;
         left: 0;
         right: 0;
-        width: 100%;
+        width: calc(100% + var(--bs-gutter-x));
+        margin: 0 calc(var(--bs-gutter-x) / -2);
+        max-width: calc(100% + var(--bs-gutter-x));
         a {
           display: block;
           margin: 0;
