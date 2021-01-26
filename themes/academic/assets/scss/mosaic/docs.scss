@@ -79,6 +79,15 @@
 #docs-nav {
   margin-top: 0;
   padding-top: 0;
+  .nav-bottom {
+    text-align: center;
+    img {
+      width: 39%;
+      display: inline;
+      padding-bottom: 1rem;
+      opacity: 0.2;
+    }
+  }
 }
 
 .docs-nav {

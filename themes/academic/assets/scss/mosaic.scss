@@ -105,8 +105,21 @@ body.page-docs #navbar-main > .container {
   }
 }
 
+.navbar-brand {
+  max-height: 57px;
+  img {
+    height: 47px;
+    margin-top: 1px;
+    max-height: none;
+    max-width: none;
+  }
+}
+
 #navbar-main {
   background-color: #f8f4fb;
+  min-height: 70px;
+  height: auto;
+  padding: 7px 0;
 
   .main-menu-item ul li .nav-link {
     color: $mosaic-navy;
@@ -118,6 +131,18 @@ body.page-docs #navbar-main > .container {
 
   .navbar-icons .nav-item .nav-link {
     color: $mosaic-navy;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse#navbar-content-mobile {
+    display: none !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    background-color: #f8f4fb;
+    top: 70px;
   }
 }
 
