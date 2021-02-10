@@ -466,6 +466,10 @@ Next to the specific configuration of prototypes and simulation entities, some g
 | `randomizeStartingTimes`   | If set to `true`, the starting time of each vehicle spawner is slightly randomized. |
 | `randomizeWeights`   | If set to `true`, each `weight` greater than zero is slightly randomized. |
 
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+{{% /alert %}}
+
 ### Unit Identifiers
 
 Every traffic object in Eclipse MOSAIC has a globally unique string identifier. These identifiers are used to identify 

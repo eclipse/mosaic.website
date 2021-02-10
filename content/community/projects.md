@@ -7,7 +7,16 @@ weight = 50  # Order that this section will appear.
 title = "Projects"
 subtitle = ""
 [[project]]
+    title = "RealLabHH"
+    subtitle = "Interconnecting VRUs with traffic infrastructure to improve road safety"
+    desc = "RealLabHH prepares a broad spectrum digital mobility solutions to be presented at the ITS World Congress 2021 in Hamburg. While pedestrians, cyclists and scooter drivers stand for climate friendly mobility, they are Vulnerable Road Users (VRU) and need specific protection, which could be realized with communication and precise positioning."
+    url = "https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/"
+    [project.logo]
+        filename = "reallabhh.svg"
+        width = "65%"
+[[project]]
     title = "eBaseCamp"
+    subtitle = "Electrification of logistics and delivery services with a digital booking platform"
     desc = "The eBaseCamp projects studies and implements concepts for electrification of commercial logistics and delivery traffic with digital booking platform, smart charging and interoperable networking."
     url = "https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKTIII-Projekte/ikt-III-projekt-eBaseCamp.html"
     [project.logo]
@@ -28,7 +37,7 @@ subtitle = ""
     url = "https://imagine-online.de/en/home/"
     [project.logo]
         filename = "imagine.svg"
-        width = "90%"
+        width = "100%"
 [[project]]
     title = "SENDATE"
     subtitle = "Secure Networking for a Data Center Cloud in Europe"

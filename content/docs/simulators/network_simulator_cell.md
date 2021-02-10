@@ -45,13 +45,17 @@ found within the scenarios' folder structure:
 ```plaintext
 └─ <scenario_name>
    └─ cell
-      ├─ cell_config.json ................ Cell ambassador configuration file
+      ├─ cell_config.json ................. Cell ambassador configuration file
       ├─ network.json ..................... Network configuration file
       └─ regions.json ..................... Regions configuration file
 ```
 
 The network and regions configuration files are referenced in the cellular ambassador configuration
 file.
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Network" href="/docs/mosaic_configuration/cell_network_config/" >}} and {{< link title="Regions Configuration" href="/docs/mosaic_configuration/cell_region_config/" >}}.  
+{{% /alert %}}
 
 ### Installation
 

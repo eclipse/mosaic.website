@@ -25,7 +25,7 @@
         <div class="logo col-2 d-none d-md-block">
           <div class="row justify-content-end">
             {{ with .logo }}
-            <a href="{{ $url | relURL }}" class="view-list-item mb-3">
+            <a href="{{ $url | relURL }}" class="view-list-item mb-3" target="_blank">
               {{ $width := .width | default "100%" }}
               <img class="mx-auto" src="{{ printf "/img/logos/projects/%s" .filename | relURL }}" title="{{ .title | safeHTMLAttr }}" alt="{{ .title | safeHTMLAttr }}" width="{{ $width }}">
             </a>
@@ -35,7 +35,7 @@
         <div class="logo col-12 d-block d-md-none">
           <div class="row justify-content-center">
             {{ with .logo }}
-              <a href="{{ $url | relURL }}" class="view-list-item mb-3">
+              <a href="{{ $url | relURL }}" class="view-list-item mb-3" target="_blank">
                 {{ $width := .width | default "100%" }}
                 <img class="mx-auto" src="{{ printf "/img/logos/projects/%s" .filename | relURL }}" title="{{ .title | safeHTMLAttr }}" alt="{{ .title | safeHTMLAttr }}" width="{{ $width }}">
               </a>
@@ -46,7 +46,7 @@
         <div class="text col-12 col-md-7">
           {{ if .title }}
             <h2>
-              <a href="{{ $url | relURL }}" title="{{ .title | safeHTMLAttr }}">
+              <a href="{{ $url | relURL }}" title="{{ .title | safeHTMLAttr }}" target="_blank">
               {{ .title | markdownify | safeHTML }}
               </a>
             </h2>
@@ -62,12 +62,12 @@
         <div class="buttons col-3 d-none d-lg-block">
           <div class="row justify-content-end">
             <div class="col">
-            <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
+            <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary" target="_blank">
               <i class="fa fa-external-link-alt" aria-hidden="true"></i> Project Website
             </a>
             {{ range .button }}
             {{ if and .title .url }}
-            <a href="{{ .url | relURL }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
+            <a href="{{ .url | relURL }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary" target="_blank">
               {{ if .icon }}<i class="fa fa-{{ .icon }}" aria-hidden="true"></i>{{ end }}
               {{ .title }}
             </a>
@@ -79,12 +79,12 @@
         <div class="buttons col-12 col-md-7 offset-0 offset-md-2 d-block d-lg-none">
           <div class="row justify-content-start">
             <div class="col">
-            <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
+            <a href="{{ $url | relURL }}" title="{{ $title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary" target="_blank">
               <i class="fa fa-external-link-alt" aria-hidden="true"></i> Project Website
             </a>
             {{ range .button }}
             {{ if and .title .url }}
-            <a href="{{ .url | relURL }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary">
+            <a href="{{ .url | relURL }}" title="{{ .title | safeHTMLAttr }}" class="mosaic-btn mosaic-btn-secondary" target="_blank">
               {{ if .icon }}<i class="fa fa-{{ .icon }}" aria-hidden="true"></i>{{ end }}
               {{ .title }}
             </a>

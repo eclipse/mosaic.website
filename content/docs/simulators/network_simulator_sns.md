@@ -17,10 +17,6 @@ in certain places. Those abstractions will be discussed later on.
 
 ## Configuration
 
-{{% alert tip %}}
-Read the detailed documentation of the {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config/" >}}.  
-{{% /alert %}}
-
 The SNS offers some configurability regarding the way transmissions are simulated.
 
 __Main Configuration:__
@@ -64,6 +60,10 @@ __Example Configuration:__
     }
 }
 ```
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config/" >}}.  
+{{% /alert %}}
 
 ## Transmission Logic
 SNS differentiates between two types of Ad hoc transmissions, geographically- and topologically-scoped transmissions, which

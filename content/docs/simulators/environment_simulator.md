@@ -17,7 +17,7 @@ This ambassador can be configured with a configuration file. The specific path i
 ```plaintext
 └─ <scenario_name>
    └─ environment
-      └─ environment.json ................. Environment ambassador configuration file
+      └─ environment_config.json ..................... Environment ambassador configuration file
 ```
 
 ### Installation
