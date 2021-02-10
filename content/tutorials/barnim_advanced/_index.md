@@ -1,14 +1,9 @@
 ---
 title: Barnim Advanced
-linktitle:
+linktitle: barnim_advanced
 toc: false
 type: tutorials
-date: "2019-05-05T00:00:00+01:00"
 draft: false
-menu:
-  tutorials:
-    parent: barnim_advanced
-    weight: 1
 ---
 
 {{% alert note %}}
@@ -25,7 +20,8 @@ used in the Barnim scenario. In this section, the actual source code used to cre
 * Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geocbroadcast, etc.). 
 * Calculating of alternative routes to the destination to circumnavigate a road obstacle.
 
-As mentioned in [Barnim Basic](/tutorials/barnim_basic/#overview-of-applications), the Barnim tutorial is structured in four applications.
+As mentioned in {{< link title="Barnim Basic" href="/tutorials/barnim_basic/#overview-of-applications" >}}, the Barnim
+tutorial is structured in four applications.
 1. `WeatherServer` - Broadcasts information about bad road conditions via cellular communication.
 2. `WeatherWarningApp` - Detects bad road conditions, broadcasts information via ITS-G5, circumnavigates areas with bad road conditions.
 3. `WeatherWarningAppCell`- Receives messages from `WeatherServer`, circumnavigates areas with bad road conditions.

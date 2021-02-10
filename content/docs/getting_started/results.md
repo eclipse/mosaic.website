@@ -15,7 +15,7 @@ Eclipse MOSAIC generates log files for each simulation run. Log files are genera
 coupled federate respectively simulator and for the RTI itself. The log files are stored in the 
 folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folder is created.
 
-```FOLDER
+```plaintext
 └─ log-<timestamp>
    ├─ apps
    |  └─ <unitType>_<unitId> ................. Detailed application specific logs for each unit

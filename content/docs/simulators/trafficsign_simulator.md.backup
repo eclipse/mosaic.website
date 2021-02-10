@@ -14,7 +14,7 @@ The **Traffic Sign Simulator** is available in MOSAIC Extended and can be used f
 
 To configure your simulation to enable vehicles to react on traffic signs your scenario needs to contain the following files:
 
-```FOLDER
+```plaintext
 <scenario-name>
   trafficsigns
     trafficsigns_config.xml [Traffic Sign Ambassador configuration]

@@ -21,7 +21,7 @@ menu:
 
 ### Folder Content
 
-```FOLDER
+```plaintext
 └─ <mosaic-root>
    ├─ etc
    |   ├─ hosts.json .................. Configuration of the execution host, e.g. temporary directory.

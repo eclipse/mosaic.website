@@ -36,7 +36,10 @@ There are two installation types of the MOSAIC OMNeT++ Federate:
 | [DEVELOPER](#installation-for-developers) | The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** are already installed on your system and<br>- `PATH` contains `/path/to/omnetpp/bin`<br>- `LD_LIBRARY_PATH` contains `/path/to/omnetpp/lib` and `/path/to/inet/src`<br>- `C_INCLUDE_PATH` contains `/path/to/omnetpp/include` and `/path/to/inet/src` |
 
 {{% alert note %}}
-If you already have **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** installed on your system, but you simply want to use **OMNeT++** for simulations with Eclipse MOSAIC without developing further the MOSAIC OMNeT++ Federate, you may also choose the [installation for developers]({{< ref "/docs/simulators/network_simulator_omnetpp#installation-for-developers" >}}) to avoid multiple installations of **OMNeT++** and **INET** on your system.
+If you already have **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** installed on your
+system, but you simply want to use **OMNeT++** for simulations with Eclipse MOSAIC without developing further the MOSAIC
+OMNeT++ Federate, you may also choose the {{< link title="installation for developers" href="/docs/simulators/network_simulator_omnetpp#installation-for-developers" >}}
+to avoid multiple installations of **OMNeT++** and **INET** on your system.
 {{% /alert %}}
 
 First of all, please make sure that you have the following libraries installed:
@@ -98,7 +101,7 @@ chmod +x omnet_installer.sh`
 For the installation type `DEVELOPER` the parameter `-f` is required.  
 The installation script should terminate with `SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
 
-[Extending MOSAIC OMNeT++ Federate]({{< ref "/docs/extending_mosaic/omnetpp_details" >}})
+{{< link title="Extending MOSAIC OMNeT++ Federate" href="/docs/extending_mosaic/omnetpp_details/" >}}
 
 ### OMNeT++ Federate Configuration
 
@@ -114,7 +117,7 @@ Now, when you run this scenario, Eclipse MOSAIC will automatically start the MOS
 
 The main configuration of the MOSAIC OMNeT++ Federate is done within the configuration files `omnetpp.ini` and `omnetpp_config.json` in the scenario:
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    └─ omnetpp
       ├─ omnetpp.ini ...................... OMNeT++ federate configuration file

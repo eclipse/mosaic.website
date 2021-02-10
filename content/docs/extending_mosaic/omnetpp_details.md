@@ -37,7 +37,7 @@ this concept is capable for later extensions e.g. for simulations when RSUs shou
 additional network interface to build the bridge fromAd hoc Domain to the Fixed Infrastructure Domain
 (i.e. Internet).
 
-{{< figure src="../images/implementation_simcoupling.jpeg" title="Architecture of one Node" numbered="true" >}}
+{{< figure src="../images/implementation_simcoupling.jpeg" title="Architecture of one Node" width="450px" numbered="true" >}}
 
 ##### Communication Stack
 
@@ -73,7 +73,7 @@ The modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp` of Application Layer
 points for application messages for the communication stack for the following reasons. The communication
 oriented models of INETMANET have their focus more on the framing for communication and less on
 the real content. That means that content is often modeled with dummy payloads where only the length is
-of interest. In contrast, V2X applications which are simulated in the [Application Simulator]({{< ref "/docs/simulators/application_simulator" >}}).
+of interest. In contrast, V2X applications which are simulated in the {{< link title="Application Simulator" href="/docs/simulators/application_simulator/" >}}.
 Rely on the correct transmission of contents. Hence, the modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp`
 are introduced to bridge this gap. They are triggered by the Eclipse MOSAIC ScenarioManager
 to send new messages to lower layers and forward messages themselves back to the ScenarioManager
@@ -114,7 +114,7 @@ names with the simulated network as root module. As it is possible to assign alr
 parameters in the modules NED file, not every parameter needs to be configured in the ini-file. The
 simulation consists of basically three parts.
 
-{{< figure src="../images/implementation_simulation.jpeg" title="Architecture of the whole Simulation Scenario" numbered="true" >}}
+{{< figure src="../images/implementation_simulation.jpeg" title="Architecture of the whole Simulation Scenario" width="550px" numbered="true" >}}
 
 ##### Simulated Nodes
 
@@ -185,7 +185,7 @@ exchange of interactions i.e. a time management mechanism must be jointly realiz
 purpose the conservative synchronization mechanism is implemented. The following figure gives an overview
 of the included compenents.
 
-{{< figure src="../images/implementation_vehicle.jpeg" title="Overview of Simulator Coupling" numbered="true" >}}
+{{< figure src="../images/implementation_vehicle.jpeg" title="Overview of Simulator Coupling" width="600px" numbered="true" >}}
 
 ##### Eclipse MOSAIC EventScheduler
 
@@ -211,7 +211,7 @@ this is used by the Eclipse MOSAIC ScenarioManager to report the `RECEIVE_V2X_ME
 
 This section provides a description how to set up the **OMNeT++ IDE** for the Eclipse MOSAIC OMNeT++ Federate Development.
 
-At this point it is awaited, that the [OMNeT++ Federate]({{< ref "/docs/simulators/network_simulator_omnetpp" >}}) is successfully installed.
+At this point it is awaited, that the {{< link title="OMNeT++ Federate" href="/docs/simulators/network_simulator_omnetpp/" >}} is successfully installed.
 
 ##### Prepare OMNeT++ IDE
 

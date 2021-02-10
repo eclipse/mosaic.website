@@ -33,7 +33,8 @@ mosaic.bat -c .\scenarios\<scenario_name>\scenario_config.json
 
 ### Example
 
-The following call starts the example scenario "Barnim" in Eclipse MOSAIC on a Windows machine and opens a [Visualization in your browser]({{< ref "/docs/visualization" >}}):
+The following call starts the example scenario "Barnim" in Eclipse MOSAIC on a Windows machine and opens a
+{{< link title="Visualization in your browser" href="/docs/visualization/" >}}:
 
 ```dos
 mosaic.bat -s Barnim -v
@@ -62,7 +63,7 @@ table th:nth-of-type(2) {
 | `-o`<br>`--log-level` | Override all specified logging-levels. This option is useful for debugging simulations. For example logging every possible event would be done with `-o TRACE`. |
 | `-b`<br>`--realtime-brake` | With this parameter, the simulation will be slowed down to a desired Real Time Factor, if possible. When simulations already run slower than real time, this factor will have no effect. For example, use `-b 1` to execute the simulation in real time. |
 | `-r`<br>`--random-seed` | The global random seed to set for the simulation run. This is usually defined in the `scenario_config.json`, but can be overridden using this option. |  
-| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the [Websocket Visualizer]({{< ref "/docs/visualization" >}}). |
+| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the {{< link title="Websocket Visualizer" href="/docs/visualization/" >}}. |
 | `-h`<br>`--help` | Prints a help screen. |
 
 While Eclipse MOSAIC is running, it prints some information on the command line:
@@ -98,7 +99,7 @@ Therefore, these logs are very helpful to retrace and understand the individual 
 files can be found in the `<mosaic-root>/logs/log-<timestamp>` directory.
 
 Moreover, Eclipse MOSAIC offers uniformly formatted and visually prepared results using various 
-**[Output Generator]({{< ref "/docs/visualization" >}})** implementations. For  example, the `FileOutputGenerator` generates 
+**{{< link title="Output Generator" href="/docs/visualization/" >}}** implementations. For  example, the `FileOutputGenerator` generates 
 detailed outputs of e.g. vehicle positions, speeds, or message exchanges. 
 In the scenarios brought by the latest release, this output mechanism is already configured. 
 
@@ -139,4 +140,4 @@ which defines the list of coupled simulators:
 
 This way, simulators can be easily added or removed from the simulation. Each of the coupled simulators is configured in the directory
 of the `scenario_config.json` file. The release bundle comes with a set of tutorial scenarios, which are described in detail
-in the [Tutorials section]({{< ref "/tutorials" >}}).
+in the {{< link title="Tutorials section" href="/tutorials/" >}}.

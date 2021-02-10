@@ -18,19 +18,19 @@ feature_col_width = 4
     name = "<i class='fas fa-comments' aria-hidden='true'></i> Get in Contact"
     description = "Do you have any questions? Do you want to discuss certain topics with us? Do not hesitate to contact us!"
     link_title = "How to contact us"
-    link_url = "/get_in_contact"
+    link_url = "/get_in_contact/"
     link_feature = true
 [[feature]]
   name = "<i class='fab fa-github' aria-hidden='true'></i> Contribute to Eclipse MOSAIC"
   description = "You are always welcome to contribute to Eclipse MOSAIC. Read the guidelines to learn how to proceed."
   link_title = "How to contribute"
-  link_url = "/contribution"
+  link_url = "/contribution/"
   link_feature = true
 [[feature]]
   name = "<i class='fa fa-book' aria-hidden='true'></i> Publications"
   description = "Find publications based on Eclipse MOSAIC and find out what others used Eclipse MOSAIC for."
   link_title = "Publications related to Eclipse MOSAIC"
-  link_url = "/publications"
+  link_url = "/publications/"
   link_feature = true
 
 +++

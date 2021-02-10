@@ -42,7 +42,7 @@ realizes a more flexible concept with the dynamic control of the VMS during simu
 to *speed* and featuring a visibility range. The interplay of information from infrastructure elements as well as communicated information 
 has been modelled in detail with applications covering realistic behavior of human drivers and autonomous vehicles. Additionally, 
 real estimation and control algorithms from external suppliers have been integrated into the simulation to 
-provide a software-in-the-loop environment. The **{{< link title="MOSAIC Mapping" href="docs/simulators/application_simulator/#eclipse-mosaic-mapping" >}}** 
+provide a software-in-the-loop environment. The **{{< link title="MOSAIC Mapping" href="docs/simulators/application_simulator#eclipse-mosaic-mapping" >}}** 
 allowed for a comprehensive configuration of the different application components to the simulated entities (variously equipped vehicles, RSUs and a TMC cloud server).
 
 The final result was a complex simulation scenario for Eclipse MOSAIC, 

@@ -1,14 +1,9 @@
 ---
-title:
-linktitle:
+title: Additional Examples
+linktitle: additional_examples
 toc: false
 type: tutorials
-date: "2019-05-05T00:00:00+01:00"
 draft: false
-menu:
-  tutorials:
-    parent: additional_examples
-    weight: 8
 ---
 
 # Additional Examples

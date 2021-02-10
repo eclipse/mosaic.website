@@ -16,6 +16,11 @@ transmission of V2X-messages using Ad hoc communication. In order to stay perfor
 in certain places. Those abstractions will be discussed later on.
 
 ## Configuration
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config/" >}}.  
+{{% /alert %}}
+
 The SNS offers some configurability regarding the way transmissions are simulated.
 
 __Main Configuration:__
@@ -161,6 +166,6 @@ messages using that topology. Also, the aforementioned "Face-Routing" could be o
 of delays could be made more realistic. 
 
 ## Accessing SNS-functionality from your applications
-In order for your scenario to enable the SNS follow the steps [here]({{< ref "docs/building_scenarios/scenario_configuration.md#communication-simulators-cell-ns3-omnetpp-sns" >}}).
+In order for your scenario to enable the SNS follow the steps {{< link title="here" href="docs/building_scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns" >}}.
 An overview of how to configure AdHoc-modules and usage of the API for Routing and Message-Building functions, 
-can be found [here]({{< ref "docs/develop_applications/communication.md" >}}).
+can be found {{< link title="here" href="docs/develop_applications/communication/" >}}.

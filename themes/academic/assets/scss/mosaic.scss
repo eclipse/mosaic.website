@@ -53,8 +53,13 @@ a {
   transition: all ease-in-out 0.1s !important;
   -webkit-transition: all ease-in-out 0.1s !important;
 }
-table a {
-  color: $mosaic-purple;
+table {
+  a {
+    color: #BF08A5;
+  }
+  code {
+    background-color: #eeebf0;
+  }
 }
 
 iframe {
@@ -195,3 +200,4 @@ body.page-docs #navbar-main > .container {
 #news img {
   border-radius: 0.7rem;
 }
+

@@ -1,19 +1,15 @@
 ---
 title: Barnim Basic
-linktitle:
+linktitle: barnim_basic
 toc: false
 type: tutorials
 date: "2019-05-05T00:00:00+01:00"
 draft: false
-menu:
-  tutorials:
-    parent: barnim_basic
-    weight: 1
 ---
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+**{{< link title="Download Eclipse MOSAIC" href="/download/" >}}**
 {{% /alert %}}
 
 The following tutorial shows some of the features of Eclipse MOSAIC and will take a closer look
@@ -68,6 +64,10 @@ As usual, the configuration takes place in `mapping/mapping_config.json` in your
 In this tutorial, there is only one vehicle type named `Car` configured in the `prototypes` section. 
 The `prototypes` attributes allows you to specify the properties and behaviour of all vehicles 
 which inherit this vehicle type.
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+{{% /alert %}}
 
 ```json
 "prototypes": [

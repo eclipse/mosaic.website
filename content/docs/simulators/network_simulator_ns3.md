@@ -62,7 +62,7 @@ Linux virtual machine with a virtual machine environment, such as
 
 ### ns3-ambassador folder structure
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    └─ ns3
       ├─ ns3_config.json ................. Ambassador configuration file
@@ -117,7 +117,7 @@ script, that can be found in the associated ns-3 federate folder.
 
 **ns3-ambassador federate folder structure:**
 
-```FOLDER
+```plaintext
 └─ mosaic/bin/fed/ns3
    └─ ns3
       ├─ Dockerfile.sh ....................Dockerfile for ns-3 federate
@@ -132,7 +132,7 @@ script, that can be found in the associated ns-3 federate folder.
 5. Configure and build the patched ns-3 with the ns-3 federate.
 
 **In order to start the simulation, the following steps need to be performed:**
-1. Set up the `confWifi.xml`-file in the scenario folder (see section [Configuration]({{< ref "/docs/simulators/network_simulator_ns3#configuration" >}})). An example confWifi.xml - file is shipped with the Tiergarten scenario.
+1. Set up the `confWifi.xml`-file in the scenario folder (see section {{< link title="Configuration" href="/docs/simulators/network_simulator_ns3#configuration" >}}). An example confWifi.xml - file is shipped with the Tiergarten scenario.
 2. For reasonable result logging, the logger-configuration in `mosaic/etc/logback.xml` has to be adapted to support the ns-3 ambassador and federate.
 3. At last ns-3 has to be activated in the `mosaic_config.xml` and the simulation can be started.
 

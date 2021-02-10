@@ -22,7 +22,7 @@ as well as possible interaction attempts between the units via different communi
 
 ### Folder Structure
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    ├─ application
    |  ├─ YourApplication.jar
@@ -41,9 +41,9 @@ This simulator does not need to be installed. It is delivered as part of the Ecl
 
 ### Overview
 Each simulation unit (e.g. vehicle, RSU, traffic light ..) can have different applications (depending on their application
-[Mapping]({{< ref "docs/simulators/application_simulator.md#eclipse-mosaic-mapping" >}})). The applications for the units are basically
-compiled JAVA classes, which **extend** the abstract class `AbstractApplication`. Those classes have to be deployed as pre-compiled
-JAR files into the `application` folder of the simulated scenario.
+{{< link title="Mapping" href="docs/simulators/application_simulator#eclipse-mosaic-mapping" >}}. The applications
+for the units are basically compiled JAVA classes, which **extend** the abstract class `AbstractApplication`. Those
+classes have to be deployed as pre-compiled JAR files into the `application` folder of the simulated scenario.
 
 {{< figure src="../images/application_overview.svg" title="Overview of interaction between applications and the unit's operating system with its modules. An example V2X message propagation is presented." >}}
 
@@ -73,7 +73,7 @@ Application interfaces handle call-backs to incoming events via their methods, l
 application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
 important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
 "Provides" column. The elementary interface (`Application`) provides the methods `onStartup()`, `onShutdown()`. Implementation details
-are given in [Development of applications]({{< ref "/docs/develop_applications" >}}).
+are given in {{< link title="Development of applications" href="/docs/develop_applications/" >}}.
 
 | Interface                            | Applicable to    | Provides                                              | Description            |
 | -------------------------------------| ---------------- | ----------------------------------------------------- | ---------------------- |
@@ -288,13 +288,13 @@ have to define one traffic light without any applications and add a weight to it
 ```
 
 For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to
-[Simulation Scenarios - Traffic Lights]({{< ref "/docs/building_scenarios#traffic-lights" >}}).
+{{< link title="Simulation Scenarios - Traffic Lights" href="/docs/building_scenarios/#traffic-lights" >}}.
 
 **Servers**
 
 The `servers`-array can be used to specify server units, which can be used to communicate with other units via the cell module.
 Capacity configurations for servers should be done when enabling the `CellModule`. Delay and transmission models are configured
-in the `network.json` of the cell module (see [here]({{< ref "/docs/simulators/network_simulator_cell" >}})).
+in the `network.json` of the cell module (see {{< link title="here" href="/docs/simulators/network_simulator_cell/" >}}).
 > Note: The `group` parameter in the mapping configuration has to match with the id in the network configuration in order to
 > properly function.
 ```json

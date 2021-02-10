@@ -39,7 +39,7 @@ In this section we use the scenario name `steglitz.*` as synonym for `path/to/st
 This achieves a couple of things. First off the script is going to create a SQLite-database,
 which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which should look like this:
 
-```FOLDER
+```plaintext
 └─ <working-directory>
    ├─ steglitz.osm
    ├─ application

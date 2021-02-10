@@ -8,6 +8,21 @@
   margin-right: calc(var(--bs-gutter-x) / 2);
   border-bottom: 0;
   overflow: hidden;
+  .docs-toc-item.active {
+    margin: 0 0 0.5rem 0 !important;
+    &> a {
+      color: rgba(0, 0, 0, 0.65);
+      background-color: #f9f7fb;
+    }
+    & > .docs-sidenav li {
+      a {
+        color: rgba(0, 0, 0, 0.65);
+      }
+      &.active a {
+        color: #fff;
+      }
+    }
+  }
 }
 
 .docs .article h1 {
@@ -24,9 +39,10 @@
 }
 
 .docs-article-container {
-  max-width: none; //760px;
+  min-height: calc(100vh - 428px);
+  max-width: none;
   table {
-    display: table; //block
+    display: table;
   }
 }
 

@@ -9,12 +9,12 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+**{{< link title="Download Eclipse MOSAIC" href="/download/" >}}**
 {{% /alert %}}
 
 In this brief tutorial we will discuss how to interact with traffic lights via Eclipse MOSAIC. Usually the position and 
 the lanes they control are coming from the OpenStreetmap-data, which we will also assume during this tutorial.Note that
-this tutorial is intended to be used with the {{< link title="Tiergarten scenario" href="/tutorials/tiergarten" >}},
+this tutorial is intended to be used with the {{< link title="Tiergarten scenario" href="/tutorials/tiergarten/" >}},
 so creating a new scenario for is not necessary here and the Traffic Light data is already exported.
 
 At first, we cover the general steps necessary to enable traffic lights and eventually “map” applications onto them. Each
@@ -64,6 +64,10 @@ how to actually map applications to a traffic light.
 
 ## Configure the mapping for traffic lights
 
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+{{% /alert %}}
+
 Now that we have the ids of the traffic lights we can modify the mapping to assign application(s) to them. Note that the 
 tutorial scenario already has applications assigned to two arbitrary traffic lights, so the mapping file bundled with it 
 can also be used as a starting point here. In general, the mapping looks the same as for vehicles or RSUs. First, we 
@@ -86,7 +90,7 @@ with the `TrafficLightExample` application. Note that the application that shoul
 it to a traffic light we found in the section before using the sumo gui:
 
 ```json
-"tls": [
+"trafficLights": [
 	{
 		"tlName": "27011311",
 		"name": "TrafficLight"

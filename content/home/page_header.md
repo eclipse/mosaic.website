@@ -51,7 +51,7 @@ alignment = "left" # left or center (default)
   name = "Open for Extensions"
   description = "Eclipse MOSAIC is Open Source! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page."
   link_title = "Contribute"
-  link_url = "/contribution"
+  link_url = "/contribution/"
   link_feature = true
 
 +++

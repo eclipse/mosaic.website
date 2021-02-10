@@ -40,6 +40,10 @@ We recommend using the 64 bit version of SUMO if you want to simulate scenarios 
 
 ### Configuration
 
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="SUMO Configuration" href="/docs/mosaic_configuration/sumo_config/" >}}.  
+{{% /alert %}}
+
 This ambassador can be configured with a configuration file. The specific path is `<scenarioName>/sumo/sumo_config.json`.
 If no such file exists, the following default configuration options are used:
 
@@ -56,7 +60,7 @@ If no such file exists, the following default configuration options are used:
 
 Next to `sumo_config.json`, the following configuration files are required for every SUMO simulation scenario:
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    └─ sumo
       ├─ <scenarioName>.net.xml .............. SUMO Network file

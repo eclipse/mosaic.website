@@ -1,3 +1,5 @@
+serverRootDir = "/mosaic"
+
 [url]
     mosaic_github = "https://github.com/eclipse/mosaic"
 

@@ -19,14 +19,14 @@ Furthermore, those measures can be used to open and close lanes, or to adjust th
 This tutorial provides information about TMC applications and how they can interact with the traffic simulator SUMO.
 
 {{% alert learning_objectives %}}
-The Traffic Management tutorial focuses on the road infrastructure and it gives you an opportunity to collect required data (e.g. traffic density) of the simulation scenario.
+The Traffic Management tutorial focuses on the road infrastructure, and it gives you an opportunity to collect required data (e.g. traffic density) of the simulation scenario.
 In conclusion, the main aims of this tutorial are:
 
 * Definition and Configuration the detectors as provided in `Highway.add.xml`.
 * Referencing the so-called 'additional file' like in `Highway.sumo.cfg`.
 * Understand the difference between `Lane Area Detectors` and `Induction Loop Detectors`.
 * Configuration and Mapping of TMC applications in [`mapping_congig.json`](#configuration-of-traffic-management-centers).
-* Implement of [TMC applications](#traffic-management-center-applications).
+* Implement of {{< link title="TMC applications" href="#traffic-management-center-applications" >}}.
 {{% /alert %}}
 
 ## Scenario Overview
@@ -68,6 +68,10 @@ within the road network:
 Currently, Eclipse MOSAIC supports `e1Detector` and `laneAreaDetector`. To get more detailed information on this topic, please consider the SUMO user documentation.
 
 ## Configuration of Traffic Management Centers
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+{{% /alert %}}
 
 In the mapping_config.json of the scenario, a traffic management center can be equipped with an application. Each traffic management center is therefore connected with one ore more detectors and retrieves updates from those detectors during simulation. A valid configuration of a TMC looks as following:
 

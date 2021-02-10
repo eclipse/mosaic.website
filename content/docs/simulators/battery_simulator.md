@@ -12,7 +12,7 @@ menu:
 ---
 
 {{% alert extended %}}
-The **Battery Simulator** is part of {{< link title="MOSAIC Extended" href="/download#overview" >}}.  
+The **Battery Simulator** is part of {{< link title="MOSAIC Extended" href="/download/#overview" >}}.  
 For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
 
@@ -20,7 +20,7 @@ The MOSAIC Battery Simulator is used to simulate electric vehicles. It takes env
 characteristics and the battery itself into account. The main feature of the battery ambassador is that it
 can utilize dynamic class loading to use a battery model provided by the user, depending on the given
 needs. This also holds true for the environment model and the vehicle model. However, simple models
-for vehicle, environment and the battery are provided and will be briefly explained in the following
+for vehicles, environment and the battery are provided and will be briefly explained in the following
 sections.
 
 ### Installation
@@ -33,7 +33,7 @@ This ambassador can be configured with a configuration file. The specific path i
 `<scenarioName>/battery/battery_config.json`
 
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    └─ battery
       └─ battery_config.json ................. Battery ambassador configuration file

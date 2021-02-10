@@ -6,7 +6,7 @@
 [[main]]
   identifier = "about"
   name = "About"
-  url = "/about"
+  url = "/about/"
   weight = 10
 #[[main]]
 #  name = "About (Deprecated)"
@@ -15,24 +15,24 @@
 #  weight = 11
 [[main]]
   name = "News"
-  url = "/news"
+  url = "/news/"
   weight = 20
 [[main]]
   name = "Documentation"
-  url = "/docs"
+  url = "/docs/"
   weight = 30
 [[main]]
   name = "Tutorials"
-  url = "/tutorials"
+  url = "/tutorials/"
   weight = 40
 [[main]]
   identifier = "Download"
   name = "Download"
-  url = "/download"
+  url = "/download/"
   weight = 50
 [[main]]
   name = "Community"
-  url = "/community"
+  url = "/community/"
   weight = 60
 
 
@@ -48,13 +48,13 @@
       weight = 1
     [[footer]]
       name = "Documentation"
-      url = "/docs"
+      url = "/docs/"
       identifier = "documentation"
       parent = "mosaic"
       weight = 2
     [[footer]]
       name = "Tutorials"
-      url = "/tutorials"
+      url = "/tutorials/"
       identifier = "tutorials"
       parent = "mosaic"
       weight = 3
@@ -66,7 +66,7 @@
       weight = 5
     [[footer]]
       name = "Publications"
-      url = "/publications"
+      url = "/publications/"
       identifier = "publications"
       parent = "mosaic"
       weight = 6
@@ -76,13 +76,13 @@
   weight = 2
     [[footer]]
       name = "Eclipse MOSAIC Community"
-      url = "/community"
+      url = "/community/"
       identifier = "mosaic-community"
       parent = "community"
       weight = 1
     [[footer]]
       name = "How to contribute"
-      url = "/contribution"
+      url = "/contribution/"
       identifier = "contribution"
       parent = "community"
       weight = 2
@@ -94,7 +94,7 @@
       weight = 3
     [[footer]]
       name = "Contact & Mailing list"
-      url = "/get_in_contact"
+      url = "/get_in_contact/"
       identifier = "get-in-contact"
       parent = "community"
       weight = 4
@@ -138,50 +138,56 @@
 [[docs]]
   name = "Getting Started"
   identifier = "getting_started"
-  url = "/docs/getting_started"
+  url = "/docs/getting_started/"
   weight = 10
   post = "Download and installation."
 [[docs]]
   name = "Visualization"
   identifier = "visualization"
-  url = "/docs/visualization"
+  url = "/docs/visualization/"
   weight = 30
   post = "Visualize and evaluate simulation results."
 [[docs]]
   name = "Simulators"
   identifier = "simulators"
-  url = "/docs/simulators"
+  url = "/docs/simulators/"
   weight = 40
   post = "Configure external and integrated simulators."
 [[docs]]
   name = "Building Scenarios"
   identifier = "building_scenarios"
-  url = "/docs/building_scenarios"
+  url = "/docs/building_scenarios/"
   weight = 50
   post = "Build your own simulation scenarios."
 [[docs]]
   name = "Create Applications"
   identifier = "develop_applications"
-  url = "/docs/develop_applications"
+  url = "/docs/develop_applications/"
   weight = 60
   post = "Develop applications for the Application Simulator."
 [[docs]]
   name = "Extending Eclipse MOSAIC"
   identifier = "extending_mosaic"
-  url = "/docs/extending_mosaic"
+  url = "/docs/extending_mosaic/"
   weight = 70
   post = "Extend Eclipse MOSAIC."
+[[docs]]
+  name = "MOSAIC Configuration"
+  identifier = "mosaic_configuration"
+  url = "/docs/mosaic_configuration/"
+  weight = 80
+  post = "Technical documentation, such as Javadoc."
 [[docs]]
   name = "API Documentation"
   identifier = "api_docs"
   url = "/docs/api_docs/"
-  weight = 80
+  weight = 90
   post = "Technical documentation, such as Javadoc."
 
 [[tutorials]]
   name = "Getting Started"
   identifier = "getting_started"
-  url = "/tutorials/getting_started"
+  url = "/tutorials/getting_started/"
   weight = 1
   post = """
   <img src="getting_started/images/mosaic-intro.png">
@@ -195,7 +201,7 @@
 [[tutorials]]
   name = "Barnim Basic"
   identifier = "barnim_basic"
-  url = "/tutorials/barnim_basic"
+  url = "/tutorials/barnim_basic/"
   weight = 10
   post = """
   <img src="barnim_basic/images/barnim-map-intro.png">
@@ -209,7 +215,7 @@
 [[tutorials]]
   name = "Barnim Advanced"
   identifier = "barnim_advanced"
-  url = "/tutorials/barnim_advanced"
+  url = "/tutorials/barnim_advanced/"
   weight = 20
   post = """
   <img src="barnim_basic/images/barnim-map-intro.png">
@@ -223,7 +229,7 @@
 [[tutorials]]
   name = "Tiergarten"
   identifier = "tiergarten"
-  url = "/tutorials/tiergarten"
+  url = "/tutorials/tiergarten/"
   weight = 30
   post = """
   <img src="tiergarten/images/tiergarten-intro.png">
@@ -237,7 +243,7 @@
 [[tutorials]]
   name = "Traffic Lights"
   identifier = "traffic_lights"
-  url = "/tutorials/traffic_lights"
+  url = "/tutorials/traffic_lights/"
   weight = 40
   post = """
   <img src="traffic_lights/images/trafficlights-intro.png">
@@ -249,7 +255,7 @@
 [[tutorials]]
   name = "LuST"
   identifier = "lust"
-  url = "/tutorials/lust"
+  url = "/tutorials/lust/"
   weight = 50
   post = """
   <img src="lust/images/lust-intro.png">
@@ -261,7 +267,7 @@
 [[tutorials]]
   name = "Traffic Management"
   identifier = "traffic_management"
-  url = "/tutorials/traffic_management"
+  url = "/tutorials/traffic_management/"
   weight = 60
   post = """
   <img src="traffic_management/images/highway-overview-intro.png">
@@ -274,7 +280,7 @@
 [[tutorials]]
   name = "Example Applications"
   identifier = "additional_examples"
-  url = "/tutorials/additional_examples"
+  url = "/tutorials/additional_examples/"
   weight = 80
   post = """
   <img src="additional_examples/images/examples-intro.png">

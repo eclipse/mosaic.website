@@ -9,7 +9,7 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+**{{< link title="Download Eclipse MOSAIC" href="/download/" >}}**
 {{% /alert %}}
 
 This tutorial aims to provide a general overview of the Eclipse MOSAIC application concept and shows two examples that
@@ -35,6 +35,10 @@ communication among applications on the same vehicle. The
 simulator that is used to simulate cellular network communication will be covered in tutorial 2.
 
 ## Mapping Configuration
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+{{% /alert %}}
 
 In order to use applications they have to be assigned (`mapped` in Eclipse MOSAIC terminology) to a simulation entity.
 In this tutorial, we will assign applications to an RSU that is placed along the road (the red symbol in the top
@@ -194,8 +198,8 @@ via the mapping configuration.
 
 #### Application simulator event model
 
-In order to send messages at a fixed interval we make use of the event based model of the [Eclipse MOSAIC
-Application Simulator](/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator).
+In order to send messages at a fixed interval we make use of the event based model of the
+{{< link title="Eclipse MOSAIC Application Simulator" href="/docs/simulators/application_simulator#eclipse-mosaic-application-simulator" >}}.
 A high level description in what we need to do in order to send messages at a specific interval can be summarized as follows:
 
 * Line up an event every X seconds. For this tutorial an interval of two seconds was chosen.
@@ -343,7 +347,7 @@ As can be seen in the mapping configuration there is an additional prototype def
 These prototype is used to map the referenced application onto two specific traffic lights, as shown in the following listing.
 
 ```json
-"tls": [
+"trafficLights": [
     {
         "tlName": "27011311",
         "name": "TrafficLight"
@@ -406,7 +410,7 @@ INFO  - Sending out AdHoc broadcast (at simulation time 2.000,000,000 s)
 ```	
 
 This concludes the first tutorial and hopefully gave an idea on how to use the
-{{< link title="Eclipse MOSAIC Application Simulator" href="/docs/simulators/application_simulator/" >}} to send out and
+{{< link title="Eclipse MOSAIC Application Simulator" href="/docs/simulators/application_simulator" >}} to send out and
 receiving messages to other simulation entities or inside the same vehicle. 
 
 The `OperatingSystem.log` files do not contain specific application output and is mainly used for debugging purposes and

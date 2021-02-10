@@ -14,7 +14,7 @@ menu:
 This ambassador can be configured with a configuration file. The specific path is `mosaic/scenarios/<scenarioName>/environment/environment_config.json`
 
 
-```FOLDER
+```plaintext
 └─ <scenario_name>
    └─ environment
       └─ environment.json ................. Environment ambassador configuration file
@@ -25,6 +25,10 @@ This ambassador can be configured with a configuration file. The specific path i
 This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC-installation package.
 
 ### Configuration
+
+{{% alert tip %}}
+Read the detailed documentation of the {{< link title="Environment Configuration" href="/docs/mosaic_configuration/environment_config/" >}}.  
+{{% /alert %}}
 
 The root node of the configuration is a list of environment events. Each event require the type of the event, a rectangle area, a 
 strength and the time window. The following example shows the configuration of an "Obstacle" event which is valid in the

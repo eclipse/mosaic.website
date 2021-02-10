@@ -23,7 +23,7 @@ whereas we talk about a "message" primarily when concerned with V2X-communicatio
 
 All interactions in this package are concerned with adding/registering simulation-units to the simulation.
 While most of the introductions are handled by the `Mapping`- or `Application`-ambassador, some of them
-are handled by the ambassadors for the traffic simulators (see [LuST]({{< ref "/tutorials/lust" >}})-scenario).
+are handled by the ambassadors for the traffic simulators (see {{< link title="LuST" href="/tutorials/lust/" >}}-scenario).
 In this case the interactions are used to initialize the scenario.
 
 | Interaction name | Description | Sent by |
