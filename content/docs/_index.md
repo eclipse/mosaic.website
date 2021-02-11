@@ -20,7 +20,7 @@ the according project websites contain more exhaustive information, of course.
 
 {{% alert note %}}
 Our **{{< link title="tutorials" href="/tutorials/" >}}** are intended for step-by-step practical learning. It should be possible to
-start them right away without prior experience with Eclipse MOSAIC. However, for several aspects, the should be
+start them right away without prior experience with Eclipse MOSAIC. However, for several aspects, the documentation should be
 consulted at least in parallel.
 {{% /alert %}}
 

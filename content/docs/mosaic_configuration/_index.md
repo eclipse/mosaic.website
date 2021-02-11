@@ -15,16 +15,16 @@ On the following pages we provide a complete documentation of configuration file
 
 | Simulator/Ambassador | Configuration File  | Documentation |
 | ---------------------|---------------------|-------------|
-| [Mapping](/docs/simulators/application_simulator/#eclipse-mosaic-mapping) | `mapping/mapping_config.json` | > [Mapping Configuration](mapping_ambassador_config) |
-| [Environment](/docs/simulators/environment_simulator) | `environment/environment_config.json` | > [Environment Simulator Configuration](environment_config) |
-| [Simple Network Simulator](/docs/simulators/network_simulator_sns) | `sns/sns_config.json` | > [SNS Configuration](sns_config) |
-| [Cell](/docs/simulators/network_simulator_cell) | `cell/regions.json` | > [Regions configuration](cell_region_config) |
-| [Cell](/docs/simulators/network_simulator_cell) | `cell/network.json` | > [Network configuration](cell_network_config) |
-| [SUMO](/docs/simulators/traffic_simulator_sumo) | `sumo/sumo_config.json` | > [SUMO Ambassador Configuration](sumo_config) |
+| {{< link title="Mapping" href="/docs/simulators/application_simulator/#eclipse-mosaic-mapping" >}} | `mapping/mapping_config.json` | > {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config" >}} |
+| {{< link title="Environment" href="/docs/simulators/environment_simulator" >}} | `environment/environment_config.json` | > {{< link title="Environment Simulator Configuration" href="/docs/mosaic_configuration/environment_config" >}} |
+| {{< link title="Simple Network Simulator" href="/docs/simulators/network_simulator_sns" >}} | `sns/sns_config.json` | > {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config" >}} |
+| {{< link title="Cell" href="/docs/simulators/network_simulator_cell" >}} | `cell/regions.json` | > {{< link title="Regions configuration" href="/docs/mosaic_configuration/cell_region_config" >}} |
+| {{< link title="Cell" href="/docs/simulators/network_simulator_cell" >}} | `cell/network.json` | > {{< link title="Network configuration" href="/docs/mosaic_configuration/cell_network_config" >}} |
+| {{< link title="SUMO" href="/docs/simulators/traffic_simulator_sumo" >}} | `sumo/sumo_config.json` | > {{< link title="SUMO Ambassador Configuration" href="/docs/mosaic_configuration/sumo_config" >}} |
 
 ### Readable Units
 Our configuration files accept readable units for some fields. 
-If a field or attribute can be filled with values of type `number` or `string` (e.g. the `maxSpeed` of a vehicle in the Mapping configuragion), 
+If a field or attribute can be filled with values of type `number` or `string` (e.g. the `maxSpeed` of a vehicle in the Mapping configuration), 
 you can write a number which then will be interpreted as the type as described in the documentation. Besides, you are able
 to input a readable text like e.g. `"10 km"` or `"35 mph"` which than will be converted automatically to the default
 unit. Following, you find a few examples:  
