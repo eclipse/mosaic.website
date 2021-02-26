@@ -8,7 +8,7 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+**[Download Eclipse MOSAIC](/download)**
 {{% /alert %}}
 
 The **Barnim Advanced** tutorial extends the preceding tutorial and focuses on the implementation of applications
@@ -20,7 +20,7 @@ used in the Barnim scenario. In this section, the actual source code used to cre
 * Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geocbroadcast, etc.). 
 * Calculating of alternative routes to the destination to circumnavigate a road obstacle.
 
-As mentioned in {{< link title="Barnim Basic" href="/tutorials/barnim_basic/#overview-of-applications" >}}, the Barnim
+As mentioned in [Barnim Basic](/tutorials/barnim_basic#overview-of-applications), the Barnim
 tutorial is structured in four applications.
 1. `WeatherServer` - Broadcasts information about bad road conditions via cellular communication.
 2. `WeatherWarningApp` - Detects bad road conditions, broadcasts information via ITS-G5, circumnavigates areas with bad road conditions.

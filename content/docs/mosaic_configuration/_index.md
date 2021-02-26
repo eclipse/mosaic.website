@@ -13,14 +13,16 @@ menu:
 
 On the following pages we provide a complete documentation of configuration files:
 
-| Simulator/Ambassador | Configuration File  | Documentation |
-| ---------------------|---------------------|-------------|
-| {{< link title="Mapping" href="/docs/simulators/application_simulator/#eclipse-mosaic-mapping" >}} | `mapping/mapping_config.json` | > {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config" >}} |
-| {{< link title="Environment" href="/docs/simulators/environment_simulator" >}} | `environment/environment_config.json` | > {{< link title="Environment Simulator Configuration" href="/docs/mosaic_configuration/environment_config" >}} |
-| {{< link title="Simple Network Simulator" href="/docs/simulators/network_simulator_sns" >}} | `sns/sns_config.json` | > {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config" >}} |
-| {{< link title="Cell" href="/docs/simulators/network_simulator_cell" >}} | `cell/regions.json` | > {{< link title="Regions configuration" href="/docs/mosaic_configuration/cell_region_config" >}} |
-| {{< link title="Cell" href="/docs/simulators/network_simulator_cell" >}} | `cell/network.json` | > {{< link title="Network configuration" href="/docs/mosaic_configuration/cell_network_config" >}} |
-| {{< link title="SUMO" href="/docs/simulators/traffic_simulator_sumo" >}} | `sumo/sumo_config.json` | > {{< link title="SUMO Ambassador Configuration" href="/docs/mosaic_configuration/sumo_config" >}} |
+| Configuration File  | Documentation |
+| --------------------|---------------|
+|  `scenario_config.json` | [Scenario Configuration](scenario_config) |
+|  `mapping/mapping_config.json` | [Mapping Configuration](mapping_ambassador_config) |
+|  `environment/environment_config.json` | [Environment Simulator Configuration](environment_config) |
+|  `sns/sns_config.json` | [SNS Configuration](sns_config) |
+|  `cell/cell_config.json` | [Cell Simulator configuration](cell_config) |
+|  `cell/regions.json` | [Cell Regions configuration](cell_region_config) |
+|  `cell/network.json` | [Cell Network configuration](cell_network_config) |
+|  `sumo/sumo_config.json` | [SUMO Ambassador Configuration](sumo_config)|
 
 ### Readable Units
 Our configuration files accept readable units for some fields. 

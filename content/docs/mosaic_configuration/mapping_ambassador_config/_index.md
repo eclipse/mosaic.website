@@ -4,7 +4,7 @@ linktitle: Mapping Configuration
 toc: true
 type: docs
 draft: false
-weight: 100
+weight: 101
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `mapping/mapping_config.json`**
+
 
 
 ---------------------------------------
-<a name="reference-cmappingambassadorscheme"></a>
-## CMappingAmbassadorScheme
+<a name="reference-mapping"></a>
+## Mapping
 
 This schema describes the JSON file structure for the mapping configuration, which is used to define simulation entities.
 
@@ -41,8 +45,8 @@ This schema describes the JSON file structure for the mapping configuration, whi
 |chargingStations|[`chargingStation[]`](#reference-chargingstation)|Array of electric vehicle charging stations based on ETSI TS 101 556-1. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.|No|None|None|
 
 **Further property restrictions:**  
-<a name="restriction-cmappingambassadorschemetypedistributions"></a> 
-### CMappingAmbassadorScheme.typeDistributions
+<a name="restriction-mappingtypedistributions"></a> 
+### Mapping.typeDistributions
 
 * **Type of each property**: `array`
 
@@ -204,7 +208,7 @@ Object to define an immutable pair of a geoPoint center position and a radius in
 
 ---------------------------------------
 <a name="reference-geopoint"></a>
-## geoPoint
+## GeoPoint
 
 Object to define geographical point coordinates.
 

@@ -56,7 +56,7 @@ If no such file exists, the following default configuration options are used:
 ```
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="SUMO Configuration" href="/docs/mosaic_configuration/sumo_config/" >}}.  
+Read the detailed documentation of the [SUMO Configuration](/docs/mosaic_configuration/sumo_config).  
 {{% /alert %}}
 
 Next to `sumo_config.json`, the following configuration files are required for every SUMO simulation scenario:

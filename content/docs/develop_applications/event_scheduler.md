@@ -12,7 +12,7 @@ menu:
     weight: 4
 ---
 
-The different modules of the {{< link title="Application Simulator" href="/docs/simulators/application_simulator#eclipse-mosaic-application-simulator" >}}
+The different modules of the [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator)
 communicate over events that are triggered at a specific simulation time. The following classes and interfaces model theses events.
 
 ### Event

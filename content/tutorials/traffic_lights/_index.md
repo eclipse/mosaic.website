@@ -9,12 +9,12 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download/" >}}**
+**[Download Eclipse MOSAIC](/download)**
 {{% /alert %}}
 
 In this brief tutorial we will discuss how to interact with traffic lights via Eclipse MOSAIC. Usually the position and 
 the lanes they control are coming from the OpenStreetmap-data, which we will also assume during this tutorial.Note that
-this tutorial is intended to be used with the {{< link title="Tiergarten scenario" href="/tutorials/tiergarten/" >}},
+this tutorial is intended to be used with the [Tiergarten scenario](/tutorials/tiergarten),
 so creating a new scenario for is not necessary here and the Traffic Light data is already exported.
 
 At first, we cover the general steps necessary to enable traffic lights and eventually “map” applications onto them. Each
@@ -65,7 +65,7 @@ how to actually map applications to a traffic light.
 ## Configure the mapping for traffic lights
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  
 {{% /alert %}}
 
 Now that we have the ids of the traffic lights we can modify the mapping to assign application(s) to them. Note that the 
@@ -77,14 +77,14 @@ define a prototype that is used for all subsequent traffic lights:
 {
 	"prototypes": [
 		{
-			"applications": [ "com.vsimrti.applications.additionalsamples.misc.TrafficLightExample" ],
+			"applications": [ "org.eclipse.mosaic.app.tutorial.trafficlight.TrafficLightControlApp" ],
 			"name": "TrafficLight"
 		}
 	]
 }
 ```
 
-The [listing](files/additional.add.xml 'ignore') shows an additional prototype called `TrafficLight` that gets associated
+The following listing shows an additional prototype called `TrafficLight` that gets associated
 with the `TrafficLightExample` application. Note that the application that should run on the traffic light has to extend
 `AbstractApplication<TrafficLightOperatingSystem>` in order to work. The next step is to use this prototype and assign
 it to a traffic light we found in the section before using the sumo gui:
@@ -92,18 +92,18 @@ it to a traffic light we found in the section before using the sumo gui:
 ```json
 "trafficLights": [
 	{
-		"tlName": "27011311",
+		"tlGroupId": "27011311",
 		"name": "TrafficLight"
 	},
 	{
-		"tlName": "252864801",
+		"tlGroupId": "252864801",
 		"name": "TrafficLight"
 	}
 ]
 ```
 
 The listing above shows as an example how this prototype is assigned via the `name` attribute to specific traffic lights.
-The important aspect here is that `tlName` refers to the id of the traffic light we found via the sumo gui in section
+The important aspect here is that `tlGroupId` refers to the id of the traffic light we found via the sumo gui in section
 which must exactly match each other.
 
 ## The Traffic Light API

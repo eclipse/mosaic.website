@@ -27,7 +27,7 @@ This simulator does not need to be installed. It is delivered as part of the Ecl
 ### Configuration
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="Environment Configuration" href="/docs/mosaic_configuration/environment_config/" >}}.  
+Read the detailed documentation of the [Environment Configuration](/docs/mosaic_configuration/environment_config).  
 {{% /alert %}}
 
 The root node of the configuration is a list of environment events. Each event require the type of the event, a rectangle area, a 

@@ -14,7 +14,7 @@ menu:
 
 Each scenario to be simulated with Eclipse MOSAIC requires a database which contains information about the road infrastructure and routes the 
 vehicles drive on. This information is used by various federates. For example, the SUMO federate needs to know initial routes for vehicles, 
-and the {{< link title="Application Simulator" href="/docs/simulators/application_simulator/" >}} requires detailed information about the road 
+and the [Application Simulator](/docs/simulators/application_simulator) requires detailed information about the road 
 infrastructure to provide applications with methods for route calculation. For this purpose, an embedded SQLite database is 
 used which is placed in the `application` folder of the scenario. This database consists of the following tables:
 

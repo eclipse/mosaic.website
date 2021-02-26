@@ -37,7 +37,7 @@ like any other node.
 
 ### Other Messages and Time Advance
 
-Apart from the ones for node creation, there are many other messages (see {{< link title="Interaction" href="/docs/extending_mosaic/interactions/" >}}), 
+Apart from the ones for node creation, there are many other messages (see [Interaction](/docs/extending_mosaic/interactions)), 
 signaling events to the Application Simulator. For most of them, an event in the future will be programmed, such that the implied action is 
 carried out at that simulation time. The processing of the events happens when the RTI calls the `advanceTime()` method on the ambassador. 
 Upon this, Application Simulator will obtain a list of all events up to the new time and let the processor of the event process them. Every 

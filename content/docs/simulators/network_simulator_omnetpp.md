@@ -38,7 +38,7 @@ There are two installation types of the MOSAIC OMNeT++ Federate:
 {{% alert note %}}
 If you already have **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** installed on your
 system, but you simply want to use **OMNeT++** for simulations with Eclipse MOSAIC without developing further the MOSAIC
-OMNeT++ Federate, you may also choose the {{< link title="installation for developers" href="/docs/simulators/network_simulator_omnetpp#installation-for-developers" >}}
+OMNeT++ Federate, you may also choose the [installation for developers](/docs/simulators/network_simulator_omnetpp#installation-for-developers)
 to avoid multiple installations of **OMNeT++** and **INET** on your system.
 {{% /alert %}}
 
@@ -101,7 +101,7 @@ chmod +x omnet_installer.sh`
 For the installation type `DEVELOPER` the parameter `-f` is required.  
 The installation script should terminate with `SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
 
-{{< link title="Extending MOSAIC OMNeT++ Federate" href="/docs/extending_mosaic/omnetpp_details/" >}}
+[Extending MOSAIC OMNeT++ Federate](/docs/extending_mosaic/omnetpp_details)
 
 ### OMNeT++ Federate Configuration
 

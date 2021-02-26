@@ -4,7 +4,7 @@ linktitle: SUMO Configuration
 toc: true
 type: docs
 draft: false
-weight: 105
+weight: 107
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `sumo/sumo_config.json`**
+
 
 
 ---------------------------------------
-<a name="reference-csumoscheme"></a>
-## CSumoScheme
+<a name="reference-sumo"></a>
+## SUMO
 
 Schema describing the JSON file structure for the SUMO configuration.
 
@@ -42,8 +46,8 @@ Schema describing the JSON file structure for the SUMO configuration.
 |additionalVehicleTypeParameters|`object`|Allows to configure specialised vType parameters, which can't be configured via mapping (e.g. parameters for the lane change model of vehicles). The key of this object has to match with the name of a protype defined in the mapping configuration.|No|None|None|
 
 **Further property restrictions:**  
-<a name="restriction-csumoschemeadditionalvehicletypeparameters"></a> 
-### CSumoScheme.additionalVehicleTypeParameters
+<a name="restriction-sumoadditionalvehicletypeparameters"></a> 
+### SUMO.additionalVehicleTypeParameters
 
 * **Type of each property**: `additionalVehicleType`
 

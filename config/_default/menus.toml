@@ -176,7 +176,7 @@
   identifier = "mosaic_configuration"
   url = "/docs/mosaic_configuration/"
   weight = 80
-  post = "Technical documentation, such as Javadoc."
+  post = "Complete documentation of configuration files."
 [[docs]]
   name = "API Documentation"
   identifier = "api_docs"

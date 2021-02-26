@@ -32,16 +32,16 @@ table th:first-of-type {
 
 | Domain | Simulator Name | Description |  
 |-|-|-|
-| **Application Simulation** | **{{< link title="MOSAIC Application" href="/docs/simulators/application_simulator/" >}}** | Application prototyping and simulation. |
+| **Application Simulation** | **[MOSAIC Application](application_simulator)** | Application prototyping and simulation. |
 ||
-| **Traffic / Vehicle Simulation** | **{{< link title="Eclipse SUMO" href="/docs/simulators/traffic_simulator_sumo/" >}}** | Microscopic Traffic simulation. |
+| **Traffic / Vehicle Simulation** | **[Eclipse SUMO](traffic_simulator_sumo)** | Microscopic Traffic simulation. |
 |                                  | **PHABMACS**     | Sub-microscopic vehicle simulation with 3D visualization. <br> _Documentation will be published soon._ |
 ||
-| **Network / Communication Simulation** | **{{< link title="OMNeT++" href="/docs/simulators/network_simulator_omnetpp/" >}}** | Event-based network simulator for ITS-G5 and cellular communication. |
-|                                        | **{{< link title="ns-3" href="/docs/simulators/network_simulator_ns3/" >}}** |  Event-based network simulator for ITS-G5 and cellular communication. |
-|                                        | **{{< link title="MOSAIC Simple Network Simulator" href="/docs/simulators/network_simulator_sns/" >}}** | Simulator for ITS-G5 ad-hoc communication using simplified models. |
-|                                        | **{{< link title="MOSAIC Cell" href="/docs/simulators/network_simulator_cell/" >}}** |  Simulator for cellular communication. |
+| **Network / Communication Simulation** | **[OMNeT++](network_simulator_omnetpp)** | Event-based network simulator for ITS-G5 and cellular communication. |
+|                                        | **[ns-3](network_simulator_ns3)** |  Event-based network simulator for ITS-G5 and cellular communication. |
+|                                        | **[MOSAIC Simple Network Simulator](network_simulator_sns)** | Simulator for ITS-G5 ad-hoc communication using simplified models. |
+|                                        | **[MOSAIC Cell](network_simulator_cell)** |  Simulator for cellular communication. |
 ||
-| **Environment Simulation** | **{{< link title="MOSAIC Environment" href="/docs/simulators/environment_simulator/" >}}** | Environmental event simulation. |
+| **Environment Simulation** | **[MOSAIC Environment](environment_simulator)** | Environmental event simulation. |
 ||
-| **E-Mobility Simulation** | **{{< link title="MOSAIC Battery" href="/docs/simulators/battery_simulator/" >}}** | Electric vehicle simulation. |
+| **E-Mobility Simulation** | **[MOSAIC Battery](battery_simulator)** | Electric vehicle simulation. |

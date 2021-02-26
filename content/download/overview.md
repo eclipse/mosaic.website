@@ -43,33 +43,33 @@ preparation and visualization. For commercial users we even provide additional s
 |:-|:--------------------------|:-------------:|:---------------:|
 |  |**License Type**           | Open Source <br> EPL 2.0|Commercial*|
 |  |||||| 
-|  | **{{< link href="/docs/extending_mosaic/" title="Runtime Infrastructure" >}}**                   |**✓**|**✓**|
-|  | **{{< link title="Interactions Library" href="/docs/extending_mosaic/interactions" >}}**        |**✓**|**✓**|
-|  | **{{< link title="Tutorials" href="/tutorials/" >}}**                                             |**✓**|**✓**|
+|  | **[Runtime Infrastructure](/docs/extending_mosaic)**                   |**✓**|**✓**|
+|  | **[Interactions Library](/docs/extending_mosaic/interactions)**        |**✓**|**✓**|
+|  | **[Tutorials](/tutorials/)**                                           |**✓**|**✓**|
 |*Simulators*||||| 
-|  | **{{< link title="Application Modelling" href="/docs/simulators/application_simulator" >}}**    |**✓**|**✓**|
-|  | **{{< link title="Eclipse SUMO" href="/docs/simulators/traffic_simulator_sumo" >}}**            |**✓**|**✓**|
-|  | **{{< link title="OMNeT++" href="/docs/simulators/network_simulator_omnetpp" >}}**              |**✓**|**✓**|
-|  | **{{< link title="ns-3" href="/docs/simulators/network_simulator_ns3" >}}**                     |**✓**|**✓**|
-|  | **{{< link title="Cellular Communication" href="/docs/simulators/network_simulator_cell" >}}**  |**✓**|**✓**| 
-|  | **{{< link title="ITS-G5 Communication" href="/docs/simulators/network_simulator_sns" >}}**     |**✓**|**✓**|
-|  | **{{< link title="Environment" href="/docs/simulators/environment_simulator" >}}**              |**✓**|**✓**|
-|  | **{{< link title="Battery / Charging" href="/docs/simulators/battery_simulator" >}}**           | -   |**✓**|
-|  | **{{< link title="Variable Message Signs" href="/docs/simulators/vms_simulator" >}}**           | -   |**✓**|
-|  | **PHABMACS Scenario API**                                                                        |**✓**|**✓**|
-|  | **PHABMACS Vehicle Simulator**                                                                   | -   |**✓**|
+|  | **[Application Modelling](/docs/simulators/application_simulator)**    |**✓**|**✓**|
+|  | **[Eclipse SUMO](/docs/simulators/traffic_simulator_sumo)**            |**✓**|**✓**|
+|  | **[OMNeT++](/docs/simulators/network_simulator_omnetpp)**              |**✓**|**✓**|
+|  | **[ns-3](/docs/simulators/network_simulator_ns3)**                     |**✓**|**✓**|
+|  | **[Cellular Communication](/docs/simulators/network_simulator_cell)**  |**✓**|**✓**| 
+|  | **[ITS-G5 Communication](/docs/simulators/network_simulator_sns)**     |**✓**|**✓**|
+|  | **[Environment](/docs/simulators/environment_simulator)**              |**✓**|**✓**|
+|  | **[Battery / Charging](/docs/simulators/battery_simulator)**           | -   |**✓**|
+|  | **[Variable Message Signs](/docs/simulators/vms_simulator)**           | -   |**✓**|
+|  | **PHABMACS Scenario API**                                              |**✓**|**✓**|
+|  | **PHABMACS Vehicle Simulator**                                         | -   |**✓**|
 |*Visualizers*||||| 
-|  | **{{< link title="Browser Visualization" href="/docs/visualization/" >}}**                       |**✓**|**✓**|
-|  | **{{< link title="File Output" href="/docs/visualization/filevis" >}}**                         |**✓**|**✓**|
-|  | **{{< link title="Statistics Output" href="/docs/visualization/statistics" >}}**                | -   |**✓**|
-|  | **{{< link title="3D Visualization" href="docs/visualization/phabmap" >}}**                    | -   |**✓**|
-|  | **{{< link title="ITEF" href="/docs/visualization/itef" >}}**                                   | -   |**✓**|
+|  | **[Browser Visualization](/docs/visualization)**                       |**✓**|**✓**|
+|  | **[File Output](/docs/visualization/filevis)**                         |**✓**|**✓**|
+|  | **[Statistics Output](/docs/visualization/statistics)**                | -   |**✓**|
+|  | **[3D Visualization](docs/visualization/phabmap)**                     | -   |**✓**|
+|  | **[ITEF](/docs/visualization/itef)**                                   | -   |**✓**|
 |*Tools* |||||| 
-|  | **{{< link title="Command Line Tool" href="/docs/getting_started/run_mosaic" >}}**               |**✓**|**✓**|
-|  | **Run Federates in Docker**                                                                      |**✓**|**✓**|
-|  | **{{< link title="Scenario Convert" href="/docs/building_scenarios/scenario_convert/" >}}**      |(✓)**|**✓**|
-|  | **Simulation Set Runner**      | -   |**✓**|
-|  | **TrafficGen**                                                                                   | -   |**✓**|
+|  | **[Command Line Tool](/docs/getting_started/run_mosaic)**              |**✓**|**✓**|
+|  | **Run Federates in Docker**                                            |**✓**|**✓**|
+|  | **[Scenario Convert](/docs/building_scenarios/scenario_convert)**      |(✓)**|**✓**|
+|  | **Simulation Set Runner**                                              | -   |**✓**|
+|  | **TrafficGen**                                                         | -   |**✓**|
 
 *) For the commercial version of MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will 
 create an individual offer suitable to your needs.

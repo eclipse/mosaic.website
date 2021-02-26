@@ -14,7 +14,7 @@ This tutorial aims to familiarize you with Eclipse MOSAIC tools, with which you 
 
 ## Overview
 
-This tutorial intends to highlight the most common workflows for the work with `scenario-convert`. We will use the extracted map data of <a href="/docs/building_scenarios/files/steglitz.osm" download>Berlin Steglitz</a> in [OSM XML format](https://wiki.openstreetmap.org/wiki/OSM_file_formats) for most of the use cases. However, you can also use any region of your choice for the following steps in this tutorial. For a complete reference of the script please check [here](/docs/building_scenarios/scenario_convert/#reference-documentation-for-scenario-convert).
+This tutorial intends to highlight the most common workflows for the work with `scenario-convert`. We will use the extracted map data of <a href="/docs/building_scenarios/files/steglitz.osm" download>Berlin Steglitz</a> in [OSM XML format](https://wiki.openstreetmap.org/wiki/OSM_file_formats) for most of the use cases. However, you can also use any region of your choice for the following steps in this tutorial. For a complete reference of the script please check [here](/docs/building_scenarios/scenario_convert#reference-documentation-for-scenario-convert).
 
 {{% alert note %}}if you are not familiar how to export map data, please study {{< target-blank "Getting OSM Data" "https://wiki.openstreetmap.org/wiki/Export" >}}. You can download simply the *.osm file of the desired region using the {{< target-blank "openstreetmap.org" "https://www.openstreetmap.org/" >}} 
 website or any other tool that supports *.osm file export (e.g.  {{< target-blank "JOSM" "https://josm.openstreetmap.de/" >}} or {{< target-blank "Merkaartor" "http://merkaartor.be/" >}}) and save it. {{% /alert %}}
@@ -105,7 +105,7 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm -o --generate-routes
 
 
 
-see for all [command line options](/docs/building_scenarios/scenario_convert/#reference-documentation-for-scenario-convert).
+see for all [command line options](/docs/building_scenarios/scenario_convert#reference-documentation-for-scenario-convert).
 
 __Exporting Traffic Lights__  
 Another feature of the scenario-convert script is the ability to export traffic lights from the osm-file to
@@ -124,8 +124,8 @@ A quick reminder on what we achieved:
 - Calculated routes between two coordinates.
 
 With all of this you can now start further developing your scenario. For a more detailed description on the next steps
-please have a look [here (Simulation Scenarios)](/docs/building_scenarios/scenarios/) and 
-[here (Application Development)](/docs/building_scenarios/application_development/).  
+please have a look [here (Simulation Scenarios)](/docs/building_scenarios) and 
+[here (Application Development)](/docs/develop_applications).  
 While this is the 'happy world' workflow it is often necessary to manually adapt routes and
 insert them into your scenario. The following workflow
 will explain how that is done and you will also get a more detailed overview of the scenario-convert-functions.

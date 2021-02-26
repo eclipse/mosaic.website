@@ -17,4 +17,8 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `###CONFIG_FILE###`**
+
 ###BODY###

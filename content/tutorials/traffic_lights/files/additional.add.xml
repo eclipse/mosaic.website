@@ -1,5 +1,0 @@
-<additionals>
-    <e1Detector id="detector_0" lane="319292433_3257049721_1288275815_3257049721_0" pos="700" freq="100.00" file="detectors.txt "/>
-    <e1Detector id="detector_1" lane="319292433_3257049721_1288275815_3257049721_1" pos="700" freq="100.00" file="detectors.txt "/>
-    <e1Detector id="detector_2" lane="319292433_3257049721_1288275815_3257049721_2" pos="700" freq="100.00" file="detectors.txt "/>
-</additionals>

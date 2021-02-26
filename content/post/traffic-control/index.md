@@ -22,7 +22,7 @@ image:
 
 ![alternative text for search engines](featured.png)
 
-In a recent, study we analyzed future traffic estimation and control algorithms towards their use on highways 
+In a recent study, we analyzed future traffic estimation and control algorithms towards their use on highways 
 with special focus on mixed traffic of conventional vehicles, connected vehicles, and autonomous vehicles. Connected 
 vehicles share telematic information with a Traffic Management Center (TMC) which can then estimate the traffic state 
 and initiate control mechanisms to improve traffic efficiency either via variable message signs as part of the infrastructure, or via V2X communication directly addressing connected vehicles in order to share 
@@ -36,13 +36,13 @@ efficient platooning maneuvers. The individual highlights of Eclipse MOSAIC for 
 
 With **Eclipse MOSAIC** this system has been modelled and simulated with all its various aspects in order to analyze 
 efficiency improvements of such estimation and control algorithms. As traffic simulator, we employed 
-**{{< link title="Eclipse SUMO" href="/docs/simulators/traffic_simulator_sumo/" >}}**, which already provides a basic 
-model for variable *speed* signs. However, the preferred {{< link title="MOSAIC VMS Simulator" href="/docs/simulators/vms_simulator/" >}} 
+**[Eclipse SUMO](/docs/simulators/traffic_simulator_sumo)**, which already provides a basic 
+model for variable *speed* signs. However, the preferred [MOSAIC VMS Simulator](/docs/simulators/vms_simulator) 
 realizes a more flexible concept with the dynamic control of the VMS during simulation runtime, including *arbitrary sign semantics* additional 
 to *speed* and featuring a visibility range. The interplay of information from infrastructure elements as well as communicated information 
 has been modelled in detail with applications covering realistic behavior of human drivers and autonomous vehicles. Additionally, 
 real estimation and control algorithms from external suppliers have been integrated into the simulation to 
-provide a software-in-the-loop environment. The **{{< link title="MOSAIC Mapping" href="docs/simulators/application_simulator#eclipse-mosaic-mapping" >}}** 
+provide a software-in-the-loop environment. The **[MOSAIC Mapping](docs/simulators/application_simulator#eclipse-mosaic-mapping)** 
 allowed for a comprehensive configuration of the different application components to the simulated entities (variously equipped vehicles, RSUs and a TMC cloud server).
 
 The final result was a complex simulation scenario for Eclipse MOSAIC, 
@@ -51,7 +51,7 @@ including a calibrated traffic model, various application and behavior models fo
 a new evaluation component in order to gain statistics out of a simulation.
 
 
-| Requirement | {{< link title="SUMO" href="/docs/simulators/traffic_simulator_sumo/" >}} | {{< link title="MOSAIC Application" href="/docs/simulators/application_simulator/" >}} | {{< link title="MOSAIC Cell" href="/docs/simulators/network_simulator_cell/" >}} | {{< link title="MOSAIC SNS" href="/docs/simulators/network_simulator_sns/" >}} | {{< link title="MOSAIC VMS" href="/docs/simulators/vms_simulator/" >}} | {{< link title="MOSAIC Output" href="/docs/visualization/statistics/" >}} |
+| Requirement | [SUMO](/docs/simulators/traffic_simulator_sumo) | [MOSAIC Application](/docs/simulators/application_simulator) | [MOSAIC Cell](/docs/simulators/network_simulator_cell) | [MOSAIC SNS](/docs/simulators/network_simulator_sns) | [MOSAIC VMS](/docs/simulators/vms_simulator) | [MOSAIC Output](/docs/visualization/statistics) |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Simulate Vehicle Traffic on Highways | X |  |  |  |  |  |
 | Measure Traffic Properties (Flow, Density) | X |  |  |  |  |  |
@@ -89,20 +89,20 @@ algorithms, provided by the [Technical University of Crete](https://www.pem.tuc.
 estimate the traffic volume on highways using traditional sensors, but also by receiving CAM messages of connected vehicles. Based on the
 traffic estimation, additional algorithms can control the traffic by setting speed limits on VMS, or by sending V2X messages (e.g. ETSI IVI messages)
 with speed recommendations or lane change advices to individual vehicles. The control algorithms were written in C++ and have already been used in real 
-traffic management centers. For this study, we integrated them into the {{< link title="MOSAIC Application" href="/docs/simulators/application_simulator/" >}} 
+traffic management centers. For this study, we integrated them into the [MOSAIC Application](/docs/simulators/application_simulator) 
 Simulator using the Java Native Interface (JNI).
 
 {{< figure src="teac-jni.png" title="Integration of Traffic Control Algorithms into MOSAIC Application using JNI" numbered="true" width="45%" >}}
 
 The estimation algorithms rely on information from vehicles and control algorithms are able to send back advices. Therefore, communication
 links are required to exchange V2X messages. To achieve this, two separate communications links have been modelled by integrating 
-the **{{< link title="MOSAIC Simple Network Simulator" href="/docs/simulators/network_simulator_sns/" >}}** for ITS-G5 communication, 
-and the  **{{< link title="MOSAIC Cell Simulator" href="/docs/simulators/network_simulator_cell/" >}}** for cellular communication (e.g. 5G or LTE-V2X).
+the **[MOSAIC Simple Network Simulator](/docs/simulators/network_simulator_sns)** for ITS-G5 communication, 
+and the  **[MOSAIC Cell Simulator](/docs/simulators/network_simulator_cell)** for cellular communication (e.g. 5G or LTE-V2X).
 In the former case, vehicles exchanged message with Road Side Units along the road, which then forwarded the information to the Traffic Management
 Center (TMC). In the latter case, vehicles were directly connected to the TMC.
 
 Finally, application models for connected and automated vehicles have been integrated by using the 
-**{{< link title="MOSAIC Application Simulator" href="/docs/simulators/application_simulator/" >}}**. With the help of these applications
+**[MOSAIC Application Simulator](/docs/simulators/application_simulator)**. With the help of these applications
 vehicles could react on advices sent by the TMC. Depending on the SAE level of the vehicle in the simulation, the vehicles
 would execute a certain advice immediately after some safety checks (fully automated vehicle) or with a certain delay 
 (connected vehicle with a human driver reacting on a lane-change advice).

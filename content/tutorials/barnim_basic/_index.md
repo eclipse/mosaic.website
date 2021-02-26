@@ -9,7 +9,7 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download/" >}}**
+**[Download Eclipse MOSAIC](/download/)**
 {{% /alert %}}
 
 The following tutorial shows some of the features of Eclipse MOSAIC and will take a closer look
@@ -66,7 +66,7 @@ The `prototypes` attributes allows you to specify the properties and behaviour o
 which inherit this vehicle type.
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  
 {{% /alert %}}
 
 ```json
@@ -202,4 +202,4 @@ The `scenario_config.json` configuration file of the Barnim tutorial should have
 }
 ```
 More information about the scenario configuration can be found
-{{< link title="here" href="/docs/building_scenarios/#main-configuration" >}}.
+[here](/docs/building_scenarios#main-configuration).

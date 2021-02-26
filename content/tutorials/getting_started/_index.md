@@ -8,7 +8,7 @@ draft: false
 
 # Getting Started with Eclipse MOSAIC
 
-Eclipse MOSAIC can be downloaded as an executable bundle (see {{< link title="our download section" href="/download/" >}}). This bundle
+Eclipse MOSAIC can be downloaded as an executable bundle (see [our download section](/download)). This bundle
 contains almost everything you need to execute simulation scenarios with Eclipse MOSAIC.
 
 Some prerequisites are required on your machine. Eclipse MOSAIC is a software based on JAVA, and therefore, a 
@@ -22,13 +22,13 @@ traffic-simulator SUMO is required:
 * [x] **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
 
 Additional simulators are not required by the pre-bundled scenarios. However, if you plan to simulate communication scenarios
-in high detail, the simulators {{< link title="ns-3" href="/docs/simulators/network_simulator_ns3/" >}} or 
-{{< link title="OMNeT++" href="/docs/simulators/network_simulator_omnetpp/" >}} are recommended. For that, additional 
-information can be found in our **{{< link title="documentation" href="/docs/getting_started/" >}}**.
+in high detail, the simulators [ns-3](/docs/simulators/network_simulator_ns3) or 
+[OMNeT++](/docs/simulators/network_simulator_omnetpp) are recommended. For that, additional 
+information can be found in our **[documentation](/docs/getting_started)**.
 
 ## Download and install
 
-1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip` bundle from {{< link title="our download section" href="/download/" >}}.** 
+1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip` bundle from [our download section](/download).** 
 2. Extract the package to an arbitrary path.
 
 ## Run Eclipse MOSAIC
@@ -46,13 +46,13 @@ On Windows:
 mosaic.bat -s Barnim -v
 ```
 
-This will execute the {{< link title="Barnim" href="/tutorials/barnim_basic/" >}} scenario. During the simulation, vehicles drive along the
+This will execute the [Barnim](/tutorials/barnim_basic) scenario. During the simulation, vehicles drive along the
 road and exchange V2X messages between each other. With the `-v` parameter, a web visualization opens in your default browser. The whole
 procedure should look like this:
 
 {{< figure src="../../docs/getting_started/images/mosaic-barnim.gif" title="Barnim scenario executed with Eclipse MOSAIC" numbered="true" >}}
 
-Further information about the start parameters of MOSAIC can be found in our {{< link title="documentation" href="/docs/getting_started/run_mosaic/" >}}.
+Further information about the start parameters of MOSAIC can be found in our [documentation](/docs/getting_started/run_mosaic).
 
 ## Gather simulation results
 
@@ -89,7 +89,7 @@ VEHICLE_UPDATES;8000000000;veh_0;34.978651295430026;186.33236029306624;52.655680
 V2X_MESSAGE_TRANSMISSION;8000000000;DENM;4;rsu_0;52.65027;13.545;0.0;CELL_GEOCAST;/255.255.255.255;null
 ```
 
-More information for output generation can be found in our {{< link title="documentation" href="/docs/visualization/filevis" >}}.
+More information for output generation can be found in our [documentation](/docs/visualization/filevis).
 
 
 ## Scenario Configuration
@@ -147,7 +147,7 @@ defines all entities present in the scenario, such as vehicles, servers, or road
 configuration files for the traffic simulator SUMO belong to the scenario folder. Depending on the scope and
 complexity of the simulation scenario, additional configuration files would be required. A detailed description of 
 the structure and configuration possibilities of scenarios and simulators can be found in 
-our  {{< link title="documentation" href="/docs/building_scenarios/" >}}.
+our  [documentation](/docs/building_scenarios).
 
 ## Custom scenarios and applications
 
@@ -155,17 +155,17 @@ The main purpose of Eclipse MOSAIC is to prototype and evaluate own use-cases in
 automated driving. To achieve this, own application models for vehicles, RSUs, or servers can be integrated and tested
 with custom simulation scenarios.
 
-1) Use the tool {{< link title="scenario-convert" href="/docs/building_scenarios/scenario_convert" >}} to create a custom simulation scenario. 
+1) Use the tool [scenario-convert](/docs/building_scenarios/scenario_convert) to create a custom simulation scenario. 
    This scenario would include the road network, vehicles and their routes through the network, locations of road side units, communication
    properties, and the like.
-2) Implement application models to be integrated with the {{< link title="Application Simulator" href="/docs/simulators/application_simulator/" >}}. 
-Applications are {{< link title="developed" href="/docs/develop_applications/" >}} in JAVA and implement pre-defined interface classes allowing them to have access to entity specific functions, e.g. 
+2) Implement application models to be integrated with the [Application Simulator](/docs/simulators/application_simulator). 
+Applications are [developed](/docs/develop_applications) in JAVA and implement pre-defined interface classes allowing them to have access to entity specific functions, e.g. 
    for exchanging V2X messages, influencing the vehicle's behavior, or controlling road infrastructure.
-3) Deploy your developed applications onto simulation entities using the {{< link title="Mapping Configuration" href="/docs/simulators/application_simulator#eclipse-mosaic-mapping" >}} principle. Each entity, e.g. vehicle, server, or 
+3) Deploy your developed applications onto simulation entities using the [Mapping Configuration](/docs/simulators/application_simulator#eclipse-mosaic-mapping) principle. Each entity, e.g. vehicle, server, or 
    RSU, is mapped with an application model developed in the previous step.
-4) Run your simulation and evaluate them with the help of pre-bundled {{< link title="Output Generators" href="/docs/visualization/filevis" >}}.
+4) Run your simulation and evaluate them with the help of pre-bundled [Output Generators](/docs/visualization/filevis).
 
 
 Furthermore, the release bundle comes with a set of tutorial scenarios, which are described in detail
-in subsequent [tutorials]({{< link href="/tutorials/" >}}). Those tutorials can be used to learn the configuration
+in subsequent [tutorials](/tutorials). Those tutorials can be used to learn the configuration
 of scenarios 

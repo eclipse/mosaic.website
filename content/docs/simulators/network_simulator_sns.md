@@ -25,7 +25,7 @@ __Main Configuration:__
 |:------------------------|:----------------------------------------------------------------------------------------------------------------|:-----------------------|:-------------------------------|
 |`maximumTtl`             | Defines the upper bound for the amount of hops a message can make. (Note: messages can have individual `ttl`'s) | int                    | `10`                           |
 |`singlehopRadius`        | Fallback radius to be used for transmission, if no radius is defined in the `AdhocConfiguration`                | double                 | `509.4`                        |
-|`singlehopDelay`         | A delay configuration for the direct communication between two nodes. ([See here]({{<relref "../extending_mosaic/delay_models.md" >}}))   | Delay  | `ConstantDelay       |
+|`singlehopDelay`         | A delay configuration for the direct communication between two nodes. ([See here](/docs/extending_mosaic/delay_models))   | Delay  | `ConstantDelay       |
 |`singlehopTransmission`  | This contains the transmission configurations for `lossProbability` and `maxRetries`.                           | CTransmission          | n/a                            |
 |`adhocTransmissionModel` | A class extending `AdhocTransmissionModel`, this will decide the logic for transmissions.                       | AdhocTransmissionModel | `SimpleAdhoc TransmissionModel` |
 
@@ -62,7 +62,7 @@ __Example Configuration:__
 ```
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="SNS Configuration" href="/docs/mosaic_configuration/sns_config/" >}}.  
+Read the detailed documentation of the [SNS Configuration](/docs/mosaic_configuration/sns_config).  
 {{% /alert %}}
 
 ## Transmission Logic
@@ -166,6 +166,6 @@ messages using that topology. Also, the aforementioned "Face-Routing" could be o
 of delays could be made more realistic. 
 
 ## Accessing SNS-functionality from your applications
-In order for your scenario to enable the SNS follow the steps {{< link title="here" href="docs/building_scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns" >}}.
+In order for your scenario to enable the SNS follow the steps [here](docs/building_scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns).
 An overview of how to configure AdHoc-modules and usage of the API for Routing and Message-Building functions, 
-can be found {{< link title="here" href="docs/develop_applications/communication/" >}}.
+can be found [here](docs/develop_applications/communication).

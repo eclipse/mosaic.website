@@ -1,0 +1,57 @@
+[
+  {
+    "id": "scenario_config",
+    "title": "Scenario Configuration",
+    "linkTitle": "Scenario Configuration",
+    "configFile": "scenario_config.json",
+    "path": "rti/mosaic-starter/src/main/resources/CScenarioScheme.json"
+  },{
+    "id": "mapping_ambassador_config",
+    "title": "Mapping Ambassador Configuration",
+    "linkTitle": "Mapping Configuration",
+    "configFile": "mapping/mapping_config.json",
+    "path": "fed/mosaic-mapping/src/main/resources/CMappingAmbassadorScheme.json"
+  },
+  {
+    "id": "environment_config",
+    "title": "Environment Configuration",
+    "linkTitle": "Environment Configuration",
+    "configFile": "environment/environment_config.json",
+    "path": "fed/mosaic-environment/src/main/resources/CEnvironmentScheme.json"
+  },
+  {
+    "id": "sns_config",
+    "title": "SNS Configuration",
+    "linkTitle": "SNS Configuration",
+    "configFile": "sns/sns_config.json",
+    "path": "fed/mosaic-sns/src/main/resources/CSnsScheme.json"
+  },
+  {
+    "id": "cell_config",
+    "title": "Cell Simulator – Basic Configuration",
+    "linkTitle": "Cell Basic Configuration",
+    "configFile": "cell/cell_config.json",
+    "path": "fed/mosaic-cell/src/main/resources/CCellScheme.json"
+  },
+  {
+    "id": "cell_network_config",
+    "title": "Cell Simulator – Network Configuration",
+    "linkTitle": "Cell Network Configuration",
+    "configFile": "cell/network.json",
+    "path": "fed/mosaic-cell/src/main/resources/CNetworkScheme.json"
+  },
+  {
+    "id": "cell_region_config",
+    "title": "Cell Simulator – Region Configuration",
+    "linkTitle": "Cell Region Configuration",
+    "configFile": "cell/regions.json",
+    "path": "fed/mosaic-cell/src/main/resources/CRegionScheme.json"
+  },
+  {
+    "id": "sumo_config",
+    "title": "SUMO Configuration",
+    "linkTitle": "SUMO Configuration",
+    "configFile": "sumo/sumo_config.json",
+    "path": "fed/mosaic-sumo/src/main/resources/CSumoScheme.json"
+  }
+]

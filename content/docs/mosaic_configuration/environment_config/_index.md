@@ -4,7 +4,7 @@ linktitle: Environment Configuration
 toc: true
 type: docs
 draft: false
-weight: 101
+weight: 102
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `environment/environment_config.json`**
+
 
 
 ---------------------------------------
-<a name="reference-cenvironmentscheme"></a>
-## CEnvironmentScheme
+<a name="reference-environment-events"></a>
+## Environment Events
 
 Schema describing the JSON file structure for the environment configuration. It is is used to define which events are evaluated by the simulator. Entities entering the areas of the events, are notified by the 'EnvironmentSensorUpdates' interaction
 

@@ -54,7 +54,7 @@ The network and regions configuration files are referenced in the cellular ambas
 file.
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="Network" href="/docs/mosaic_configuration/cell_network_config/" >}} and {{< link title="Regions Configuration" href="/docs/mosaic_configuration/cell_region_config/" >}}.  
+Read the detailed documentation of the [Network](/docs/mosaic_configuration/cell_network_config) and [Regions Configuration](/docs/mosaic_configuration/cell_region_config).  
 {{% /alert %}}
 
 ### Installation
@@ -92,8 +92,8 @@ used cell regions. Google Earth can be used to display it.
 
 {{% alert tip %}}
 Read the detailed documentations of:
-- {{< link title="Cell Network Configuration" href="/docs/mosaic_configuration/cell_network_config/" >}}
-- {{< link title="Cell Region Configuration" href="/docs/mosaic_configuration/cell_region_config/" >}}  
+- [Cell Network Configuration](/docs/mosaic_configuration/cell_network_config)
+- [Cell Region Configuration](/docs/mosaic_configuration/cell_region_config)  
 {{% /alert %}}
 
 The configuration for the global network in the cellular simulator in the file
@@ -313,7 +313,7 @@ through the transport over the cellular network.
 
 The cellular simulator offers various modes to estimate the delay of the transmissions. The type of
 estimation is specified with by `delayType` for the uplink and downlink for each region. You may also refer to the
-{{< link title="Delay-Chapter" href="/docs/extending_mosaic/delay_models/" >}}.
+[Delay-Chapter](/docs/extending_mosaic/delay_models).
 
 * `delay.type = ’ConstantDelay’`: The message is transmitted with the latency being exactly equal to delay.
 * `delay.type = ’SimpleRandomDelay’`: The latency can assume different (randomly generated and uniformly distributed) values between 
@@ -345,13 +345,13 @@ Application Simulator.
 
 It supports the following addressing and casting schemes.
 
-**`{{< link title="CellTopocast" href="/docs/develop_applications/communication#cellular-topocast" >}}`** is the normal unicast, where the Geocaster simply resolves
+**`[CellTopocast](/docs/develop_applications/communication#cellular-topocast)`** is the normal unicast, where the Geocaster simply resolves
 the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn't allow 
 broadcast or anycast addresses, but any transmission protocols (tcp, udp).
 
-**`{{< link title="CellGeoUnicast" href="/docs/develop_applications/communication#cellular-geocast" >}}`** addresses every node in the destination area individually.
+**`[CellGeoUnicast](/docs/develop_applications/communication#cellular-geocast)`** addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.
 
-**`{{< link title="CellGeoBroadcast" href="/docs/develop_applications/communication#cellular-geobroadcast" >}}`**, which is basically MBMS, uses one broadcast to all
+**`[CellGeoBroadcast](/docs/develop_applications/communication#cellular-geobroadcast)`**, which is basically MBMS, uses one broadcast to all
 nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
 CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).

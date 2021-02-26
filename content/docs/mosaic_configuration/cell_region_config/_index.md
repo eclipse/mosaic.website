@@ -4,7 +4,7 @@ linktitle: Cell Region Configuration
 toc: true
 type: docs
 draft: false
-weight: 104
+weight: 106
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `cell/regions.json`**
+
 
 
 ---------------------------------------
-<a name="reference-cregionschema"></a>
-## CRegionSchema
+<a name="reference-regions"></a>
+## Regions
 
 Schema describing the JSON file structure for the regional networks configuration. It is is used to extend the network with regional information, which enables the emulation of mobile networks. If configured very granular, these regions can reflect cells as used in the real world. Though for most use-cases it is sufficient to approximate the behaviour by defining larger regions.
 

@@ -9,7 +9,7 @@ draft: false
 
 {{% alert note %}}
 All files you need for this tutorial are included in the Eclipse MOSAIC zip file:  
-**{{< link title="Download Eclipse MOSAIC" href="/download" >}}**
+**[Download Eclipse MOSAIC](/download)**
 {{% /alert %}}
 
 Next to vehicles, road side units, and traffic lights, Eclipse MOSAIC provides also a simulation unit for traffic management, called TrafficManagement Center (TMC). 
@@ -26,7 +26,7 @@ In conclusion, the main aims of this tutorial are:
 * Referencing the so-called 'additional file' like in `Highway.sumo.cfg`.
 * Understand the difference between `Lane Area Detectors` and `Induction Loop Detectors`.
 * Configuration and Mapping of TMC applications in [`mapping_congig.json`](#configuration-of-traffic-management-centers).
-* Implement of {{< link title="TMC applications" href="#traffic-management-center-applications" >}}.
+* Implement of [TMC applications](#traffic-management-center-applications).
 {{% /alert %}}
 
 ## Scenario Overview
@@ -70,7 +70,7 @@ Currently, Eclipse MOSAIC supports `e1Detector` and `laneAreaDetector`. To get m
 ## Configuration of Traffic Management Centers
 
 {{% alert tip %}}
-Read the detailed documentation of the {{< link title="Mapping Configuration" href="/docs/mosaic_configuration/mapping_ambassador_config/" >}}.  
+Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  
 {{% /alert %}}
 
 In the mapping_config.json of the scenario, a traffic management center can be equipped with an application. Each traffic management center is therefore connected with one ore more detectors and retrieves updates from those detectors during simulation. A valid configuration of a TMC looks as following:

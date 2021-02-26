@@ -4,7 +4,7 @@ linktitle: SNS Configuration
 toc: true
 type: docs
 draft: false
-weight: 102
+weight: 103
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `sns/sns_config.json`**
+
 
 
 ---------------------------------------
-<a name="reference-csnsscheme"></a>
-## CSnsScheme
+<a name="reference-sns"></a>
+## SNS
 
 Schema describing the JSON file structure for the sns configuration.
 

@@ -97,13 +97,14 @@ async function createMarkdown(jsonScheme) {
     const jsonSchemeFile = path.join(repoDir, jsonScheme.path)
     if (await isFile(jsonSchemeFile)) {
         return new Promise((resolve, reject) => {
-            execFile(jsonschema2md, [jsonSchemeFile], (error, stdout, stderr) => {
+            execFile("node", [jsonschema2md, jsonSchemeFile], (error, stdout, stderr) => {
                 if (error || stderr) {
                     reject(new Error(`Could not execute file '${jsonschema2md}'. Reason: ${error ? error.message : stderr}`))
                 } else {
                     const markdown = markdownTemplate
                         .replace('###TITLE###', jsonScheme.title)
                         .replace('###LINK_TITLE###', jsonScheme.linkTitle)
+                        .replace('###CONFIG_FILE###', jsonScheme.configFile)
                         .replace('###WEIGHT###', jsonScheme.weight)
                         .replace('###BODY###', stdout)
                     resolve(markdown)

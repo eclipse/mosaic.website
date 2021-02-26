@@ -4,7 +4,7 @@ linktitle: Cell Network Configuration
 toc: true
 type: docs
 draft: false
-weight: 103
+weight: 105
 menu:
   docs:
     parent: mosaic_configuration
@@ -17,11 +17,15 @@ have the option of:
 - `integer` **or** `string`
 {{% /alert %}}
 
+---
+
+:page_with_curl: **Corresponding configuration file: `cell/network.json`**
+
 
 
 ---------------------------------------
-<a name="reference-cnetworkscheme"></a>
-## CNetworkScheme
+<a name="reference-network"></a>
+## Network
 
 Schema describing the JSON file structure for the network configuration. It is is used to define the properties of the global network. If defined as a number, then the default unit is Gb. Alternatively this can be defined as a string to specify the unit of measurement (e.g. '3 MB').
 

@@ -12,7 +12,7 @@ menu:
     weight: 1
 ---
 
-Applications in Eclipse MOSAIC are simulated by the {{< link title="Application Simulator" href="/docs/simulators/application_simulator/" >}}. Such 
+Applications in Eclipse MOSAIC are simulated by the [Application Simulator](/docs/simulators/application_simulator). Such 
 an application is programmed in Java and follows an event-based execution flow. Thereby, certain methods of the application are called by 
 the Application Simulator upon corresponding events (the application "reacts"). To actively gain execution at some later point in time, an 
 application can also schedule a generic event itself. When the application is executing, it has access to a set of methods, allowing to 
@@ -30,7 +30,7 @@ help:
 * What is required to get my own application to run in Eclipse MOSAIC?
 In Eclipse MOSAIC it is very easy to build your own application. First, it needs to inherit from the `AbstractApplication`
 class (see following section). Secondly, the application must be mapped to
-a vehicle (or RSU, or traffic light, ...) via the mapping configuration (see section {{< link title="mapping" href="/docs/building_scenarios/#applications-and-mapping" >}}). Finally,
+a vehicle (or RSU, or traffic light, ...) via the mapping configuration (see section [mapping](/docs/building_scenarios#applications-and-mapping)). Finally,
 the application must be compiled as a Jar-File and placed into the application directory of your
 scenario.
 
@@ -281,7 +281,7 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
  
 ### Navigation
 
-The navigation of vehicles (i.e. calculation of routes) is handled completely by the {{< link title="Application Simulator" href="/docs/simulators/application_simulator#eclipse-mosaic-application-simulator" >}}. Each vehicle is equipped
+The navigation of vehicles (i.e. calculation of routes) is handled completely by the [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator). Each vehicle is equipped
 with a navigation system which provides all required information and functions for navigational purposes:
 
 * Retrieve the current position and heading of the vehicle.
