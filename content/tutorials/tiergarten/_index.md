@@ -63,8 +63,9 @@ Mapping for the vehicles:
 
 ```json
 "applications": [
-  "com.dcaiti.vsimrti.app.tutorials.tiergarten.vehicle.TiergartenVehicle",
-  "com.dcaiti.vsimrti.app.tutorials.tiergarten.vehicle.TiergartenVehicleSlave"
+  "org.eclipse.mosaic.app.tutorial.EventSendingApp",
+  "org.eclipse.mosaic.app.tutorial.EventProcessingApp",
+  "org.eclipse.mosaic.app.tutorial.VehicleToTrafficLightApp"
 ]
 ```
 
@@ -72,20 +73,20 @@ Mapping for the RSU:
 
 ```json
 "applications": [
-  "com.dcaiti.vsimrti.app.tutorials.tiergarten.rsu.TiergartenRSU"
+  "org.eclipse.mosaic.app.tutorial.RoadSideUnitApp"
 ]
 ```
 
 In order for Eclipse MOSAIC to be able to locate these classes, the resulting .jar archive should be placed
 in the `application` folder of your scenario. For our tutorial we have packaged the needed
-classes `TiergartenVehicle`, `TiergartenVehicleSlave` and `TiergartenRSU` into one
+classes `EventSendingApp`, `EventProcessingApp`, `VehicleToTrafficLightApp` and `RoadSideUnitApp` into one
 .jar file. However, this isn't a strict requirement. What these classes actually do and how they are
 implemented will be covered in the next two parts of this tutorial.
 
 #### Vehicle and RSU sections
 
 This part of the mapping is used to actually bring entities like vehicles and RSUs into the simulation.
-For example, we placed the RSU that is equipped with the `TiergartenRSU` application at the
+For example, we placed the RSU that is equipped with the `RoadSideUnitApp` application at the
 specific geo coordinate with **latitude = 52.5130607** and **longitude = 13.328910**.
 Usually, this and the mapping of its application is all that is necessary to make use of an RSU.
 For this tutorial we go with just one RSU but analogous to adding multiple vehicles we could also
@@ -99,9 +100,9 @@ in more detail:
 "vehicles": [
 	{
 		"startingTime": 1.0,
-		"route": 0,
+		"route": "0",
 		"maxNumberVehicles": 1,
-		"types": [ { "name": "PKW" } ]
+		"types": [ { "name": "Car" } ]
 	},
 	...
 ]
@@ -121,16 +122,16 @@ prototype from the `prototypes`-section of the mapping.
 
 This second part describes the `TiergartenVehicle` and `TiergartenRSU` applications
 which are used for inter-vehicle communication in more detail. As a coarse overview, the
-`TiergartenRSU` application sends out a defined message at a fixed interval. These messages
-are received and written to the log file by the TiergartenVehicle application. First, we start
+`RoadSideUnitApp` application sends out a defined message at a fixed interval. These messages
+are received and written to the log file by the `VehicleReceivingApp` application. First, we start
 off with the class definition and will run through the methods we have to implement in order
 to get the communication working.
 
 #### Class definition
 
 ```java
-public class TiergartenVehicle extends AbstractApplication<VehicleOperatingSystem> 
-	implements VehicleApplication, CommunicationApplication {
+public class EventSendingApp extends AbstractApplication<VehicleOperatingSystem> 
+	implements CommunicationApplication {
   // to be implemented
 }
 ```
@@ -138,11 +139,8 @@ public class TiergartenVehicle extends AbstractApplication<VehicleOperatingSyste
 In general, every vehicle application will extend the `AbstractApplication` abstract class with the
 VehicleOperatingSystem type parameter. The VehicleOperatingSystem is the main way to interact with
 the underlying vehicle and gives a wide array of functionality to the user. Also, depending on the needs of the
-application, several interfaces have to be implemented. For our scenario we implement `VehicleApplication`
-to denote that the application is intended to run on a vehicle and `CommunicationApplication` to be able
-to use the actual communication facilities we need for this tutorial. In general, it makes sense to let the
-IDE generate the bodies of the methods that need implementation and fill them with functionality if needed or
-letting them empty otherwise.
+application, several interfaces have to be implemented. For our scenario we implement `CommunicationApplication` 
+to be able to receive and handle V2X messages.
 
 #### Application initialization
 
@@ -154,30 +152,33 @@ WLAN module can be achieved with the following code snipped:
 @Override
 public void onStartup() {
     getLog().infoSimTime(this, "Initialize application");
-    getOperatingSystem().getAdHocModule().enable(
-        new AdHocModuleConfiguration().addRadio().channel(AdHocChannel.CCH).power(50).create()
-    );
+    getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+            .addRadio()
+            .channel(AdHocChannel.CCH)
+            .power(50)
+            .create());
     getLog().infoSimTime(this, "Activated AdHoc Module");
 }
 ```
 
-Since we want to communicate over ad hoc Wifi we have to turn on the Wifi-module of the car. Here you can
-specify the mode of operation. The first argument says if the vehicle should be able to receive messages,
-how strong the Wifi antenna is (50mW in this case) and which ad hoc channel to use.
+Additional arguments specify the communication properties of the module, such as which ad hoc channel shall be used
+and how strong the Wifi antenna is (50mW in this case).
 **Note**: The honoring of these arguments depends on the underlying network simulator. Currently, *ns-3* and 
 *OMNeT++* make use of these arguments. For *SNS*, the method `distance(250)` shall be used instead of `power(50)`.
 
 ### Receiving the V2X messages
-In order to act upon received messages from other simulation entities, the `receiveV2XMessage` from
+In order to act upon received messages from other simulation entities, the `onMessageReceived` from
 the `CommunicationApplication` interface is used. In our tutorial scenario we don't do something special upon message receiving
-and just write the name of the sender into the log file.
+and just write the position of the sender RSU into the log file.
 
 ```java
 @Override
-public void receiveV2XMessage(ReceivedV2XMessage receivedV2XMessage) {
-    getLog().infoSimTime(this, "Received V2X Message from {}", 
-        receivedV2XMessage.getMessage().getRouting().getSourceAddressContainer().getSourceName()
-    );
+public void onMessageReceived(ReceivedV2xMessage receivedV2xMessage) {
+    if (receivedV2xMessage.getMessage() instanceof InterVehicleMsg) {
+        getLog().infoSimTime(this, "Received V2X message from RoadSideUnit at [{}]",
+                ((InterVehicleMsg) receivedV2xMessage.getMessage()).getSenderPosition()
+        );
+    }
 }
 ```
 
@@ -193,7 +194,7 @@ Since the receiving application is now set up we move on to the sending side of 
 The sending takes place from the RSU via a broadcast, so every vehicle in transmission range
 will receive the message sent by it. The picture above shows the communication range of the RSU
 which is dependent from the settings in the communication simulator.
-The actual sending takes place in the `TiergartenRSU` application which is equipped to the RSU
+The actual sending takes place in the `RoadSideUnitApp` application which is equipped to the RSU
 via the mapping configuration.
 
 #### Application simulator event model
@@ -212,15 +213,18 @@ A high level description in what we need to do in order to send messages at a sp
 @Override
 public void onStartup() {
     getLog().infoSimTime(this, "Initialize application");
-    getOperatingSystem().getAdHocModule().enable(
-        new AdHocModuleConfiguration().addRadio().channel(AdHocChannel.CCH).power(50).create()
-    );
+    getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+            .addRadio()
+            .channel(AdHocChannel.CCH)
+            .power(50)
+            .create());
+
     getLog().infoSimTime(this, "Activated WLAN Module");
     sample();
 }
 ```
 
-The setup for the RSU is the same as for the vehicle where we activate the Wifi module. Additionally, the `sample()`
+The setup for the RSU is more or less the same as for the vehicle where we activate the Wifi module. Additionally, the `sample()` 
 method gets called which is responsible for the events.
 
 #### Event scheduling
@@ -229,8 +233,7 @@ The next step is to line up the event at the interval we desire. The method we u
 
 ```java
 public void sample() {
-    final Event event = new Event(getOperatingSystem().getSimulationTime() + TIME_INTERVAL, this);
-    getOperatingSystem().getEventManager().addEvent(event);
+    getOs().getEventManager().addEvent(getOs().getSimulationTime() + TIME_INTERVAL, this);
     getLog().infoSimTime(this, "Sending out AdHoc broadcast");
     sendAdHocBroadcast();
 }
@@ -248,9 +251,9 @@ closer look at the `sendAdHocBroadcast()` method we defined in the `TiergartenRS
 
 ```java
 private void sendAdHocBroadcast() {
-    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(AdHocChannel.CCH);
+    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting().viaChannel(AdHocChannel.CCH).topoBroadCast();
     final InterVehicleMsg message = new InterVehicleMsg(routing, getOs().getPosition());
-    getOs().getAdHocModule().sendV2XMessage(message);
+    getOs().getAdHocModule().sendV2xMessage(message);
 }
 ```
 
@@ -270,8 +273,8 @@ messages from a vehicle instead of a RSU.
 ## Intra-Vehicle Communication
 
 This part of the tutorial describes the steps necessary for letting two applications to communicate
-with each other on the same vehicle.  Here, we use the `TiergartenVehicle` application as the sender
-and `TiergartenVehicleSlave` as the receiver.
+with each other on the same vehicle.  Here, we use the `EventSendingApp` application as the sender
+and `EventProcessingApp` as the receiver.
 In general, the approach is similar to the sending of a V2X message and also makes use of the event system.
 
 #### Message sending
@@ -280,21 +283,25 @@ First, we start off with the sending side. The event code should look familiar:
 
 ```java
 @Override
-public void afterUpdateVehicleInfo() {
-    final List<? extends Application> applications = getOperatingSystem().getApplications();
-    final IntraVehicleMsg message = new IntraVehicleMsg(getOperatingSystem().getId(),
-    random.nextInt(MAX_ID));
-    
+public void onVehicleUpdated(@Nullable VehicleData previousVehicleData, @Nonnull VehicleData updatedVehicleData) {
+    final List<? extends Application> applications = getOs().getApplications();
+    final IntraVehicleMsg message = new IntraVehicleMsg(getOs().getId(), getRandom().nextInt(0, MAX_ID));
+
+    // Example usage for how to detect sensor readings
+    if (getOs().getStateOfEnvironmentSensor(SensorType.OBSTACLE) > 0) {
+        getLog().infoSimTime(this, "Reading sensor");
+    }
+
     for (Application application : applications) {
-        final Event event = new Event(getOperatingSystem().getSimulationTime() + 1, application, message);
-        this.getOperatingSystem().getEventManager().addEvent(event);
+        final Event event = new Event(getOs().getSimulationTime() + 10, application, message);
+        this.getOs().getEventManager().addEvent(event);
     }
 }
 ```
 
-One noteworthy thing is that we use the `afterUpdateVehicleInfo()`-method to line up a new event.
-This method is called automatically if the vehicle info (for example, speed or heading) gets updated, which
-usually takes place at every time step of the simulation.
+One noteworthy thing is that we use the `onVehicleUpdated`-method to line up a new event.
+This method is called automatically if the vehicle data (for example, speed or heading) gets updated, which
+usually takes place at every time step of the traffic or vehicle simulation.
 
 The general approach works like this:
 
@@ -303,24 +310,25 @@ The general approach works like this:
 takes a randomly generated id and the name of the vehicle as payload. Again, this is for tutorial
 purposes and could be anything.
 3. After that we iterate over every application that runs on the vehicle, in this case two:  
-   - `TiergartenVehicle`
-   - `TiergartenVehicleSlave`
+   - `EventSendingApp`
+   - `EventProcessingApp`
 4. Then, an event is constructed for each app running on the vehicle and added to the event queue
 the same way as in the inter-vehicle example.
 
 #### Receiving the message
 
-The actual receiving of the message takes place in the `TiergartenVehicleSlave` application.
+The actual receiving of the message takes place in the `EventProcessingApp` application.
 Since the intra vehicle messages are basically treated as an event, the code is straight forward here:
 
 ```java
 @Override
-public void processEvent(Event event) throws Exception {
+public void processEvent(Event event) {
     Object resource = event.getResource();
-    if (resource != null && resource instanceof IntraVehicleMsg) {
+    if (resource instanceof IntraVehicleMsg) {
         final IntraVehicleMsg message = (IntraVehicleMsg) resource;
-        if (message.getOrigin().equals(getOperatingSystem().getId())) {
-            getLog().infoSimTime(this, "Received message from another application");
+        // message was passed from another app on the same vehicle
+        if (message.getOrigin().equals(getOs().getId())) {
+            getLog().infoSimTime(this, "Received message from another application: {}", message.toString());
         }
     }
 }
@@ -339,22 +347,26 @@ As can be seen in the mapping configuration there is an additional prototype def
 
 ```json
 {
-    "applications": [ "com.dcaiti.vsimrti.app.tutorials.tiergarten.trafficLight.TrafficLightApp" ],
+    "applications": [ "org.eclipse.mosaic.app.tutorial.TrafficLightApp" ],
     "name": "TrafficLight"
 }
 ```
 
-These prototype is used to map the referenced application onto two specific traffic lights, as shown in the following listing.
+These prototype is used to map the referenced application onto three specific traffic lights, as shown in the following listing.
 
 ```json
 "trafficLights": [
     {
-        "tlName": "27011311",
-        "name": "TrafficLight"
+        "name": "TrafficLight",
+        "tlGroupId": "26704448"
     },
     {
-        "tlName": "252864801",
-        "name": "TrafficLight"
+        "name": "TrafficLight",
+        "tlGroupId": "252864801"
+    },
+    {
+        "name": "TrafficLight",
+        "tlGroupId": "252864802"
     }
 ]
 ```
@@ -372,16 +384,16 @@ the results are quite simple and simply show the arrival of the Inter- and Intra
 executing the simulation using the following command: 
 
 ```unix/mac
-./mosaic.sh -u <user> -s Tiergarten
+./mosaic.sh -s Tiergarten
 ```
 
 ```windows
-mosaic.bat -u <user> -s Tiergarten
+mosaic.bat -s Tiergarten
 ```
 
 Afterwards, in the log directory of `Eclipse MOSAIC` a new folder should be created containing all log files of
-the simulation run. Within, the sub-folder `appsNT` contains the log files for each simulation unit and its application. 
-For example, for the vehicles we end up with two log files: `TiergartenVehicle.log` and `TiergartenVehicleSlave.log`.
+the simulation run. Within, the sub-folder `apps` contains the log files for each simulation unit and its application. 
+For example, for the vehicles we end up with two log files: `EventSendingApp.log` and `EventProcessingApp.log`.
 
 This following snippet shows the receiving of the V2X messages that were sent by the RSU:
 
@@ -390,14 +402,14 @@ INFO  - Initialize application (at simulation time 6.000,000,000 s)
 INFO  - Activated AdHoc Module (at simulation time 6.000,000,000 s)
 INFO  - Received V2X Message from rsu_0 (at simulation time 18.000,400,000 s)
 INFO  - Received V2X Message from rsu_0 (at simulation time 20.000,400,000 s)
-```	
+```
 
 Next, we see the contents of the `IntraVehicleMessage` that originates from another app on the vehicle:
 
 ```
 INFO  - Initialize application (at simulation time 2.000,000,000 s)
 INFO  - Received message from another application: IntraVehicleMsg{origin='veh_0', id=631} ...
-```	
+```
 
 The following log was generated by the RSU application and logs the sending of each
 ad hoc broadcast:
@@ -407,7 +419,7 @@ INFO  - Initialize application (at simulation time 0.000,000,000 s)
 INFO  - Activated WLAN Module (at simulation time 0.000,000,000 s)
 INFO  - Sending out AdHoc broadcast (at simulation time 0.000,000,000 s)
 INFO  - Sending out AdHoc broadcast (at simulation time 2.000,000,000 s)
-```	
+```
 
 This concludes the first tutorial and hopefully gave an idea on how to use the
 [Eclipse MOSAIC Application Simulator](/docs/simulators/application_simulator) to send out and

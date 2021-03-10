@@ -47,7 +47,6 @@ In the `*.sumo.cfg` file of the scenario, a so-called "additional file" has to b
 <configuration>
 	<input>
 		<net-file value="highway.net.xml" />
-		<route-files value="highway.rou.xml" />
 		<additional-files value="highway.add.xml" />
 	</input>
 	...
@@ -80,7 +79,7 @@ In the mapping_config.json of the scenario, a traffic management center can be e
 	{
 		"name": "HighwayManagement",
 		"applications": [ 
-			"com.dcaiti.vsimrti.app.tutorials.highway.HighwayManagementApp('3', 2)" 
+			"org.eclipse.mosaic.app.tutorial.HighwayManagementApp('3', 2)" 
 		],
 		"inductionLoops": [ 
 			"detector_0", "detector_1", "detector_2" 
@@ -102,27 +101,27 @@ The implementation of a TMC application follows the same scheme as every other a
 public class MyTmcApplication extends AbstractApplication<TrafficManagementCenterOperatingSystem> implements TrafficManagementCenterApplication {
 
 	@Override
-	public void afterUpdateLaneDetectors() {
-		// is called whenever a lane detector (induction loop) has new values
+	public void onInductionLoopUpdated(Collection<InductionLoop> updatedInductionLoops) {
+		// is called whenever an induction loop has new values
 	}
 
 	@Override
-	public void afterUpdateLaneSegments() {
-		// is called whenever a lane segment (lane area detector) has new values		
+	public void onLaneAreaDetectorUpdated(Collection<LaneAreaDetector> updatedLaneAreaDetectors) {
+		// is called whenever a lane area detector has new values		
 	}	
 }
 ```
-In order to access values from lane detectors (= e1Detector), the following methods can be used:
+In order to access values from an induction loop, the following methods can be used:
 
 ```java
-LaneDetector detector = getOs().getLaneSegment("detector_0");
+InductionLoop detector = getOs().getInductionLoop("detector_0");
 double avgSpeed = detector.getAverageSpeedMs();
 double flow = detector.getTrafficFlow(); // in veh/h aggregated over the last 1500 updates
 ```
-Values from lane segments (= laneAreaDetector) can be accessed as follows:
+Values from lane area detector can be accessed as follows:
 
 ```java
-LaneSegment detector = getOs().getLaneSegment("lane_segment_0");
+LaneAreaDetector detector = getOs().getLaneAreaDetector("lane_segment_0");
 double avgSpeed = detector.getMeanSpeed(); // in m/s
 double density = detector.getTrafficDensity(); // in veh/km
 int vehiclesInSegment = detector.countVehiclesOnSegment();

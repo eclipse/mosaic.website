@@ -11,8 +11,8 @@ serverRootDir = "/mosaic"
     mosaic_extended_rgb_positiv = "/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg"
 
 [versions]
-    mosaic = "20.0"
-    mosaic_snapshot = "20.1-SNAPSHOT"
+    mosaic = "21.0"
+    mosaic_snapshot = "21.1-SNAPSHOT"
 
     # Java
     java = "8"

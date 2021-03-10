@@ -79,7 +79,7 @@ Object to define the event location configuration, which is either a GeoArea (e.
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
 |area|[`area`](#reference-area)|Object to define the area in which the event is located in.|No|None|None|
-|roadSegmentId|`string`|The ID of the road segment the event is located on (Connection ID or road ID).|No|None|None|
+|connectionId|`string`|The ID of the road segment the event is located on (Connection ID).|No|None|None|
 
 
 

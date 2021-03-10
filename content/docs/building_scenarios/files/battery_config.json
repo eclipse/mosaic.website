@@ -1,5 +1,5 @@
 {
-	"vehicleModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.vehicle.ElectricSmart",
+	"vehicleModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.vehicle.ElectricSmart",
 	"vehicleModelConfig": {
 		"Mass": 1060,
         	"ReferenceArea": 1.95,
@@ -8,7 +8,7 @@
         	"EletricMotorOperatingVoltage": 350,
         	"ConsumerOperatingVoltage": 12
 	},
-	"batteryModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.battery.VerySimpleBatteryModel",
+	"batteryModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.battery.VerySimpleBatteryModel",
 	"batteryModelConfig": {
             "NumberOfCells": 93,
             "CellVoltage": 4.3,
@@ -18,7 +18,7 @@
             "MinSOC": 0.30,
             "MaxSOC": 0.70
         },
-	"environmentModelClass": "com.dcaiti.vsimrti.fed.battery.sim.models.environment.DefaultEnvironment",
+	"environmentModelClass": "com.dcaiti.mosaic.fed.battery.sim.models.environment.DefaultEnvironment",
 	"environmentModelConfig": {
         	"FluidDensity": 1.293,
         	"RollingResistanceCoefficient": 0.01

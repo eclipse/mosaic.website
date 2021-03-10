@@ -166,17 +166,17 @@
   weight = 60
   post = "Develop applications for the Application Simulator."
 [[docs]]
-  name = "Extending Eclipse MOSAIC"
-  identifier = "extending_mosaic"
-  url = "/docs/extending_mosaic/"
-  weight = 70
-  post = "Extend Eclipse MOSAIC."
-[[docs]]
   name = "MOSAIC Configuration"
   identifier = "mosaic_configuration"
   url = "/docs/mosaic_configuration/"
-  weight = 80
+  weight = 70
   post = "Complete documentation of configuration files."
+[[docs]]
+  name = "Extending Eclipse MOSAIC"
+  identifier = "extending_mosaic"
+  url = "/docs/extending_mosaic/"
+  weight = 80
+  post = "Extend Eclipse MOSAIC."
 [[docs]]
   name = "API Documentation"
   identifier = "api_docs"
@@ -253,22 +253,34 @@
     <li>Mapping applications onto traffic lights</li>
   </ul>"""
 [[tutorials]]
+  name = "Integrate Existing SUMO scenarios"
+  identifier = "integrate_existing_sumo_scenarios"
+  url = "/tutorials/integrate_existing_sumo_scenarios"
+  weight = 50
+  post = """
+  <img src="integrate_existing_sumo_scenarios/images/integrate_existing_sumo_scenarios-intro.png">
+  <p><b>What you will learn:</b></p>
+  <ul>
+    <li>Integrate existing SUMO scenarios with MOSAIC</li>
+    <li>Utilize different transport modalities in MOSAIC</li>
+  </ul>"""
+[[tutorials]]
   name = "LuST"
   identifier = "lust"
   url = "/tutorials/lust/"
-  weight = 50
+  weight = 60
   post = """
   <img src="lust/images/lust-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
     <li>Integration of existing SUMO scenarios into Eclipse MOSAIC</li>
-    <li>Simulate huge traffic amounts.</li>
+    <li>Simulate huge traffic amounts</li>
   </ul>"""
 [[tutorials]]
   name = "Traffic Management"
   identifier = "traffic_management"
   url = "/tutorials/traffic_management/"
-  weight = 60
+  weight = 70
   post = """
   <img src="traffic_management/images/highway-overview-intro.png">
   <p><b>What you will learn:</b></p>

@@ -1,5 +1,9 @@
 ---
-title: First release of Eclipse MOSAIC
+title: First Release of Eclipse MOSAIC
+categories: Changelog
+release:
+  name: "Eclipse MOSAIC 20.0"
+  github_url: "https://github.com/eclipse/mosaic/releases/tag/20.0"
 date: "2020-10-19T00:00:00Z"
 lastMod: "2020-10-19T00:00:00Z"
 math: false

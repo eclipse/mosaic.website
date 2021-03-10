@@ -13,8 +13,6 @@ draft: false
 The scenario files you need for this tutorial **are not included** in the Eclipse MOSAIC zip file.
 {{% /alert %}}
 
-{{< button icon="download" type="primary" link="https://github.com/lcodeca/LuSTScenario" title="Download LuST Tutorial" >}}
-
 The **Luxembourg SUMO Traffic (LuST)** scenario is a traffic simulation scenario which aims to provide realistic traffic
 patterns of a common mid-size European city during an average day
 ([see this paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7906642)). This traffic simulation scenario
@@ -47,20 +45,19 @@ You can find a prepared Eclipse MOSAIC scenario for the LuST scenario in the pre
 However, to get this scenario working, you need to execute the following steps:
 
 1. In the subdirectory sumo of the LuST scenario directory, you can find several scripts which will
-help you to download the actual SUMO scenario fromthe official sources on GitHub. Depending
+help you to download the actual SUMO scenario from the official sources on GitHub. Depending
 on which operating system you use and which version control system client you have installed,
 you can use one of the provided batch or shell script files. If you do not have a git or svn client
-installed, you can also manually download and unzip the SUMO scenario from [LuST Scenario](https://github.com/lcodeca/LuSTScenario). Please note that the SUMO scenario must be placed inside the
-sumo subdirectory of the scenario.
+installed, you can also manually download and unzip the SUMO scenario from [LuST Scenario](https://github.com/lcodeca/LuSTScenario). 
+Please note that the SUMO scenario must be placed inside the sumo subdirectory of the scenario.
 
-2. In order to execute Eclipse MOSAIC with the scenario, you need to pass the given `defaults.xml` to the
-executable. OnWindows, this can be done by executing Eclipse MOSAIC as follows:
+2. To run
 ```bat
 mosaic.bat -s LuST -d scenarios/LuST/defaults.xml -w 0
-```
-Please note that the execution of this scenariomight take a long time, due to the massive amount of
+```   
+Please note that the execution of this scenario might take a long time, due to the massive amount of
 vehicles simulated in this scenario. If you want to assess your mobility applications in combination
-with further simulators (e.g. cell), the simulationmight slow down even more.
+with further simulators (e.g. cell), the simulation might slow down even more.
 
 Finally, you can map your own applications onto vehicles using the prepared `mapping_config.json`.
 Please note that applications can only be mapped for each vehicle type (see limitations below). Furthermore,
@@ -75,8 +72,6 @@ available. The following limitations currently exist:
 * **No mapping of applications on single vehicles.** It is currently not possible to map applications on
 single vehicles. Instead, only vehicle types can be mapped with them. Of course, the applications
 are running solely on each simulated vehicle which belongs to the respective vehicle type.
-* **No definition of own vehicle spawner.** Currently, all simulated vehicles are spawned by the SUMO
-traffic scenario itself. There is no way to add additional vehicles via the *mapping_config.json.*
 * **No routing capabilities in applications.** Applications cannot use the navigation module of the
 vehicle. Furthermore, detailed information about the current route or the road position (upcoming
 nodes, type of the current road) is also not available to the applications.

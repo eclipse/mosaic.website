@@ -149,16 +149,16 @@ This configuration effects each vehicle that is equipped with the `TrafficSignsV
 {{% /alert %}}
 
 #### 8. Equip vehicles with Traffic Signs Vehicle Application
-To equip vehicles with the `TrafficSignsVehicleApplication` you need to add `com.dcaiti.vsimrti.applications.trafficsigns.TrafficSignsVehicleApplication` to the applications list of the vehicle in the `mapping/mapping_config.json`.
+To equip vehicles with the `TrafficSignsVehicleApplication` you need to add `com.dcaiti.mosaic.applications.trafficsigns.TrafficSignsVehicleApplication` to the applications list of the vehicle in the `mapping/mapping_config.json`.
 
 {{% alert note %}}
-[Read more about the Mapping configuration](/docs/simulators/application_simulator/#eclipse-mosaic-mapping)
+[Read more about the Mapping configuration](/docs/simulators/application_mapping)
 {{% /alert %}}
 
 You can specify the duration after which vehicles shall react on traffic signs by adding the `reactionTime` parameter (in seconds) to the application in `mapping_config.json`:
 ```json
 "applications": [
-    "com.dcaiti.vsimrti.applications.trafficsigns.TrafficSignsVehicleApplication(5)"
+    "com.dcaiti.mosaic.applications.trafficsigns.TrafficSignsVehicleApplication"
 ]
 ```
 

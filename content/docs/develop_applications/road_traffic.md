@@ -52,20 +52,3 @@ and their identifiers are generated during the import. Each connection ID consis
 * `ccc` - ID of the node the connection ends in.
 
 {{< figure src="../images/connections.jpeg" title="ID of connection in road network" numbered="true" width="50%" >}} 
-
-Some components of Eclipse MOSAIC need to identify further parts of the road network, such as one edge between two nodes, or one specific lane of one edge. 
-Therefore, the following objects are identified as following:
-
-`Edges` are described by one start and one end node. The identifier of an edge consists of two parts (using the string pattern `aaa_bbb_ccc_ddd`):
-
-* `aaa_bbb_ccc` - ID the connection the edge belongs to.
-* `ddd` - ID of the node the edge starts at.
-
-{{< figure src="../images/edges.jpeg" title="Structure of the Edge-ID" numbered="true" width="50%" >}}
-
-`Lanes` are described by an edge and a lane index. The identifier of a lane consists of two parts (using the string pattern `aaa_bbb_ccc_ddd_e`):
-
-* `aaa_bbb_ccc_ddd` - ID the edge the lane belongs to.
-* `e` - Index of the lane, starting by 0 (leftmost lane).
-
-{{< figure src="../images/lanes.jpeg" title="Structure of the Lane-ID" numbered="true" width="35%" >}}

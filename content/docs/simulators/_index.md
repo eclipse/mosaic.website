@@ -33,9 +33,10 @@ table th:first-of-type {
 | Domain | Simulator Name | Description |  
 |-|-|-|
 | **Application Simulation** | **[MOSAIC Application](application_simulator)** | Application prototyping and simulation. |
+|                            | **[MOSAIC Mapping](application_mapping)** | Defining simulation entities, traffic, and mapping of applications. |
 ||
 | **Traffic / Vehicle Simulation** | **[Eclipse SUMO](traffic_simulator_sumo)** | Microscopic Traffic simulation. |
-|                                  | **PHABMACS**     | Sub-microscopic vehicle simulation with 3D visualization. <br> _Documentation will be published soon._ |
+|                                  | **PHABMACS** *     | Sub-microscopic vehicle simulation with 3D visualization. <br> _Documentation will be published soon._ |
 ||
 | **Network / Communication Simulation** | **[OMNeT++](network_simulator_omnetpp)** | Event-based network simulator for ITS-G5 and cellular communication. |
 |                                        | **[ns-3](network_simulator_ns3)** |  Event-based network simulator for ITS-G5 and cellular communication. |
@@ -44,4 +45,6 @@ table th:first-of-type {
 ||
 | **Environment Simulation** | **[MOSAIC Environment](environment_simulator)** | Environmental event simulation. |
 ||
-| **E-Mobility Simulation** | **[MOSAIC Battery](battery_simulator)** | Electric vehicle simulation. |
+| **E-Mobility Simulation** | **[MOSAIC Battery](battery_simulator)** * | Electric vehicle simulation. |
+
+*) _Only part of the [MOSAIC Extended](/download) bundle._

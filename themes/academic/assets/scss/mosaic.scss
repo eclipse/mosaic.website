@@ -58,6 +58,9 @@ table {
     background-color: #eeebf0;
   }
 }
+table > tbody > tr:nth-child(2n) > td, table > tbody > tr:nth-child(2n) > th {
+  background-color: #f3f3f3;
+}
 
 iframe {
   border: 2px solid #ccc;
@@ -198,3 +201,19 @@ body.page-docs #navbar-main > .container {
   border-radius: 0.7rem;
 }
 
+.changelog-item {
+  margin-bottom: 0.2rem;
+  .date {
+    font-style: italic;
+  }
+  .dash {
+    color: #bbb;
+  }
+  .title {
+    font-style: italic;
+  }
+}
+
+div.alert > div > ul > li > p {
+  margin-bottom: 0;
+}

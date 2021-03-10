@@ -70,7 +70,20 @@ Follow the steps to build an example application:
         <artifactId>HelloWorldApp</artifactId>
         <version>0.0.1</version>
         <packaging>jar</packaging>
-        
+   
+        <properties>
+             <maven.compiler.source>1.8</maven.compiler.source>
+             <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      
+        <repositories> 
+            <repository>
+                <id>repo.eclipse.org</id>
+                <name>MOSAIC Repository</name>
+                <url>https://repo.eclipse.org/content/repositories/mosaic</url>
+            </repository>
+        </repositories>
+                  
         <dependencies>
             <dependency>
                 <groupId>org.eclipse.mosaic</groupId>

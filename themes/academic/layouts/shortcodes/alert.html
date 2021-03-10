@@ -2,6 +2,6 @@
   {{ if eq (.Get 0) "extended" }}<span class="extended-icon" style="background-image: url({{ (printf "/img/alert-extended.svg") | relURL }})"></span>{{ end }}
   <div>
   {{ if eq (.Get 0) "learning_objectives" }}<h3>Learning Objectives</h3>{{ end }}
-  {{ .Inner | markdownify | emojify }}
+  {{ .Inner | emojify }}<!-- do not use | markdownify here, as that would result in broken links -->
   </div>
 </div>

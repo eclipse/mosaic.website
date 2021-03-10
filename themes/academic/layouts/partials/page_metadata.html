@@ -54,14 +54,14 @@
 
   {{ $taxonomy := "categories" }}
   {{ if $page.Param $taxonomy }}
-  <span class="middot-divider"></span>
-  <span class="article-categories">
+  {{/*<span class="article-categories">
+    <span class="middot-divider"></span>
     <i class="fas fa-folder mr-1"></i>
     {{- range $index, $value := ($page.GetTerms $taxonomy) -}}
       {{- if gt $index 0 }}, {{ end -}}
       <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
     {{- end -}}
-  </span>
+  </span>*/}}
   {{ end }}
 
 </div>

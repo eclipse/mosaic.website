@@ -68,7 +68,7 @@ The following arguments are available:
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
     --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
     --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network
-                                           graph . Since several components of VSimRTI require one main graph without
+                                           graph . Since several components of MOSAIC require one main graph without
                                            disconnected ways and nodes, this option should be used only if the cleanup
                                            procedure is faulty.
     --skip-netconvert                      Skips starting sumo netconvert for creating netfile (only with xxx2sumo).

@@ -133,7 +133,7 @@ which defines the list of coupled simulators:
         "omnetpp": false,
         "sns": false,
         "sumo": true,
-        "visualizer": true
+        "output": true
     }
 }
 ```

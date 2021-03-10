@@ -161,7 +161,7 @@ with custom simulation scenarios.
 2) Implement application models to be integrated with the [Application Simulator](/docs/simulators/application_simulator). 
 Applications are [developed](/docs/develop_applications) in JAVA and implement pre-defined interface classes allowing them to have access to entity specific functions, e.g. 
    for exchanging V2X messages, influencing the vehicle's behavior, or controlling road infrastructure.
-3) Deploy your developed applications onto simulation entities using the [Mapping Configuration](/docs/simulators/application_simulator#eclipse-mosaic-mapping) principle. Each entity, e.g. vehicle, server, or 
+3) Deploy your developed applications onto simulation entities using the [Mapping Configuration](/docs/simulators/application_mapping) principle. Each entity, e.g. vehicle, server, or 
    RSU, is mapped with an application model developed in the previous step.
 4) Run your simulation and evaluate them with the help of pre-bundled [Output Generators](/docs/visualization/filevis).
 

@@ -46,7 +46,7 @@ The following table gives an overview of supported environments and simulators. 
 
 |  Component  | Required | | Version | |
 |:-----------:|:----------:|:-:|:----------:|:-:|
-| **[Java](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)** | yes | {{< version of="java_no_support" >}}<br/> _not supported_ | **{{< version of="java" >}}** <br/> _supported_ | {{< version of="java_limited_support" >}} <br/> _limited supported_ |
+| **[Java](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)** | yes | {{< version of="java_no_support" >}}<br/> _not supported_ | **{{< version of="java" >}}** <br/> _supported_ | {{< version of="java_limited_support" >}} <br/> _limited support_ |
 | | | | | |
 | **[Eclipse SUMO](https://www.eclipse.org/sumo)** | yes* | {{< version of="sumo_no_support" >}}<br/> _not supported_| **{{< version of="sumo_support" >}}** <br/> _supported_ | {{< version of="sumo_not_tested" >}} <br/> _not tested_ |
 | **[OMNeT++](https://omnetpp.org/download/old)** | optional | {{< version of="omnetpp_no_support_below" >}}<br/> _not supported_| **{{< version of="omnetpp" >}}** <br/> _supported_ | {{< version of="omnetpp_no_support_above" >}} <br/>  _not supported_ |

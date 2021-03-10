@@ -100,7 +100,7 @@ Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_conf
 As mentioned above, the RSU entity acts as a `WeatherServer` and it is configured in 
 the `rsus` section of the `mapping_config.json` file. 
 As shown below, the RSU has fixed coordinates and the application 
-`com.dcaiti.vsimrti.app.tutorials.barnim.WeatherServer` is mapped which gives `WeatherServer` functionality to the RSU.
+`org.eclipse.mosaic.app.tutorial.WeatherServerApp` is mapped which gives `WeatherServer` functionality to the RSU.
 
 ```json
 "rsus": [
@@ -195,9 +195,7 @@ The `scenario_config.json` configuration file of the Barnim tutorial should have
         "sumo": true,
         "application": true,
         "environment": true,
-        "battery": false,
-        "charging": false,
-        "visualizer": true
+        "output": true
     }
 }
 ```
