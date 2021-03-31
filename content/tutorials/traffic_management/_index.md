@@ -5,6 +5,8 @@ toc: false
 type: tutorials
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+pagination_prev: lust
+pagination_next: additional_examples
 ---
 
 {{% alert note %}}

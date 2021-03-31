@@ -253,7 +253,7 @@
     <li>Mapping applications onto traffic lights</li>
   </ul>"""
 [[tutorials]]
-  name = "Integrate Existing SUMO scenarios"
+  name = "Integrate SUMO scenarios"
   identifier = "integrate_existing_sumo_scenarios"
   url = "/tutorials/integrate_existing_sumo_scenarios"
   weight = 50

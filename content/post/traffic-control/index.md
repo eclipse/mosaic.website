@@ -1,5 +1,9 @@
 ---
 title: Studying Traffic Control Algorithms in MOSAIC
+categories:
+    - Simulation
+    - Communication
+    - Project
 date: "2021-01-18T00:00:00Z"
 lastMod: "2021-01-18T00:00:00Z"
 math: false

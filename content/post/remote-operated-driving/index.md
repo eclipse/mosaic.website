@@ -1,5 +1,9 @@
 ---
 title: Testing Remote-Operated Driving virtually with Eclipse MOSAIC
+categories:
+  - Simulation
+  - Communication
+  - PHABMACS
 date: "2021-02-26T00:00:00Z"
 lastMod: "2021-02-26T00:00:00Z"
 math: false
@@ -20,7 +24,7 @@ image:
 ![alternative text for search engines](overview.png)
 
 **Remote-Operated Driving** is the bridge technology from human towards fully automated driving. 
-In situations outside the driving domain of a highly-automated vehicle, e.g. if data is missing or the autonomous function is unsure to
+In situations outside the driving domain of a highly-automated vehicle, e.g. if data is missing, or the autonomous function is unsure to
 make a certain decision, remote-operation is the key. Also, in other use-cases, remote-operated driving is a helpful 
 technique, e.g. for driving electric car-sharing vehicles to their charging stations, or maneuvering vehicles remotely through
 a parking garage. 

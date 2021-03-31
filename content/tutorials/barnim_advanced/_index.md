@@ -1,9 +1,13 @@
 ---
 title: Barnim Advanced
+categories:
+ - Tutorial
 linktitle: barnim_advanced
 toc: false
 type: tutorials
 draft: false
+pagination_prev: barnim_basic
+pagination_next: tiergarten
 ---
 
 {{% alert note %}}
@@ -13,12 +17,16 @@ All files you need for this tutorial are included in the Eclipse MOSAIC zip file
 
 The **Barnim Advanced** tutorial extends the preceding tutorial and focuses on the implementation of applications
 used in the Barnim scenario. In this section, the actual source code used to create the applications is explained, 
- giving a first impression on the API of the **Eclipse MOSAIC Application** simulator. After completing this tutorial you will be able to:
+ giving a first impression on the API of the **Eclipse MOSAIC Application** simulator.
+
+{{% alert learning_objectives %}}
+After completing this tutorial you will be able to:
 
 * Define an arbitrary geographical area (e.g. circular, rectangular) and allow broadcast communication in this defined area.
 * Use and react to DENMs (Decentralized Environmental Notification Message), respectively create a specific message according to the requirements.
 * Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geocbroadcast, etc.). 
 * Calculating of alternative routes to the destination to circumnavigate a road obstacle.
+{{% /alert %}}
 
 As mentioned in [Barnim Basic](/tutorials/barnim_basic#overview-of-applications), the Barnim
 tutorial is structured in four applications.

@@ -5,6 +5,8 @@ toc: false
 type: tutorials
 date: "2021-01-02T00:00:00+01:00"
 draft: false
+pagination_prev: traffic_lights
+pagination_next: lust
 ---
 
 {{% alert note %}}

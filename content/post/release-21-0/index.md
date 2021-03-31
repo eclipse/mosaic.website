@@ -1,6 +1,7 @@
 ---
 title: 2021 Spring Release of Eclipse MOSAIC
-categories: Changelog
+categories:
+  - Release
 release:
   name: "Eclipse MOSAIC 21.0"
   github_url: "https://github.com/eclipse/mosaic/releases/tag/21.0"

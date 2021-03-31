@@ -1,6 +1,7 @@
 ---
 title: First Release of Eclipse MOSAIC
-categories: Changelog
+categories:
+  - Release
 release:
   name: "Eclipse MOSAIC 20.0"
   github_url: "https://github.com/eclipse/mosaic/releases/tag/20.0"

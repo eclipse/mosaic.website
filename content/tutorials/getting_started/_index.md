@@ -1,25 +1,38 @@
 ---
 title: Getting Started with Eclipse MOSAIC
+categories:
+   - Tutorial
 linktitle: tutorial_getting_started
 toc: false
 type: tutorials
 draft: false
+pagination_next: barnim_basic
 ---
-
-# Getting Started with Eclipse MOSAIC
 
 Eclipse MOSAIC can be downloaded as an executable bundle (see [our download section](/download)). This bundle
 contains almost everything you need to execute simulation scenarios with Eclipse MOSAIC.
 
+{{% alert learning_objectives %}}
+With this tutorial you learn...  
+- Where to download and how to run Eclipse MOSAIC.
+- How to gather simulation results.
+- How to configure simulation scenarios.
+- How to create your own scenarios.
+{{% /alert %}}
+
+## Requirements
+
+{{% alert note %}}
 Some prerequisites are required on your machine. Eclipse MOSAIC is a software based on JAVA, and therefore, a 
-JAVA Runtime Environment or Development Kit is required: 
+JAVA Runtime Environment or Development Kit is required:
+- **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [AdoptOpenJDK](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)
+{{% /alert %}}
 
-* [x] **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [AdoptOpenJDK](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)
-
+{{% alert note %}}
 In addition, the pre-bundled simulation scenarios are configured to use certain simulators. For traffic simulation, the open-source 
-traffic-simulator SUMO is required: 
-
-* [x] **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
+traffic-simulator SUMO is required:
+- **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
+{{% /alert %}}
 
 Additional simulators are not required by the pre-bundled scenarios. However, if you plan to simulate communication scenarios
 in high detail, the simulators [ns-3](/docs/simulators/network_simulator_ns3) or 

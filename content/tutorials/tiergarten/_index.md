@@ -5,6 +5,8 @@ toc: false
 type: tutorials
 date: "2019-05-05T00:00:00+01:00"
 draft: false
+pagination_prev: barnim_advanced
+pagination_next: traffic_lights
 ---
 
 {{% alert note %}}
@@ -14,14 +16,18 @@ All files you need for this tutorial are included in the Eclipse MOSAIC zip file
 
 This tutorial aims to provide a general overview of the Eclipse MOSAIC application concept and shows two examples that
 involve ad hoc communication via `IEEE` 802.11p between different participants and message passing from one application
-to another that run on the same vehicle. The tutorial is split up into five main parts:
+to another that run on the same vehicle.
 
-1. How to equip a vehicle with one or more applications. This process is called	`mapping`.
-2. An example application that shows how to implement communication between	different vehicles via a wireless ad hoc network.
-3. The next part of the tutorial shows how to accomplish message passing between two applications that run on the same vehicle.
-4. An overview of the traffic light application and a summary about what can be done with the traffic light from within the application.
-5. The last part of the tutorial shows how to retrieve the results of a simulation run.
+{{% alert learning_objectives %}}
+The tutorial is split up into five main parts:
 
+- How to equip a vehicle with one or more applications. This process is called	`mapping`.
+- An example application that shows how to implement communication between	different vehicles via a wireless ad hoc network.
+- The next part of the tutorial shows how to accomplish message passing between two applications that run on the same vehicle.
+- An overview of the traffic light application, and a summary about what can be done with the traffic light from within the application.
+- The last part of the tutorial shows how to retrieve the results of a simulation run.
+{{% /alert %}}
+   
 The scenario itself consists of three vehicles that drive down a road in consecutive
 order and pass a Road Side Unit (RSU) that emits messages in a fixed interval. The
 vehicles will receive the messages from the RSU as soon as they are in communication range.

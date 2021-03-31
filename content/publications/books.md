@@ -9,10 +9,10 @@ title = "Books and Book Chapters"
 +++
 
 Robert Protzmann, Björn Schünemann, and Ilja Radusch:
-<b>Simulation of Convergent Networks for Intelligent Transport Systems with VSimRTI.</b>
+**"Simulation of Convergent Networks for Intelligent Transport Systems with VSimRTI."**
 In Benoit Hilt, Marion Berbineau, Alexey Vinel, and Alain Pirovano, editors,
 Networking Simulation for Intelligent Transportation Systems: High Mobile Wireless Nodes, chapter 1, pages 1–28. John Wiley & Sons, 2017. ISBN: 978-1-119-40745-4
 
 C. Sommer, J. Härri, F. Hrizi, B. Schünemann, F. Dressler:
-<b>Simulation Tools and Techniques for Vehicular Communications and Applications.</b>
+**"Simulation Tools and Techniques for Vehicular Communications and Applications."**
 In C. Campolo and A. Molinaro and R. Scopigno, editors, Vehicular ad hoc Networks, pp.365-392, 2015, Springer International Publishing, ISBN: 978-3-319-15496-1

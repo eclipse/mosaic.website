@@ -25,7 +25,7 @@ subtitle = ""
 
   # Filter posts by a taxonomy term.
   [content.filters]
-    category = "Changelog"
+    category = "Release"
     exclude_featured = false
     exclude_future = true
     exclude_past = false
