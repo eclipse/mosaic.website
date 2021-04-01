@@ -199,6 +199,8 @@ body.page-docs #navbar-main > .container {
 
 #news img {
   border-radius: 0.7rem;
+  border: 1px solid #aaa;
+  box-shadow: 0 6px 6px -3px rgba(49, 2, 62, 0.25);
 }
 
 .changelog-item {
@@ -216,4 +218,31 @@ body.page-docs #navbar-main > .container {
 
 div.alert > div > ul > li > p {
   margin-bottom: 0;
+}
+
+.article-widget.wg-cards .cards .card {
+  .image {
+    margin-bottom: 0.4rem !important;
+  }
+  .subtitle {
+    margin-bottom: 0 !important;
+  }
+  .text {
+    font-size: 0.7rem;
+  }
+}
+.article-footer {
+  background-color: #eae8f0;
+  padding-bottom: 3rem;
+}
+
+.featured-image {
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  box-shadow: 0 18px 20px -3px rgba(49, 2, 62, 0.25);
+}
+
+.article-header-caption {
+  right: 1px;
+  bottom: 1px;
 }

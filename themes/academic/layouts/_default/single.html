@@ -10,9 +10,13 @@
       {{ .Content }}
     </div>
 
-    {{ partial "page_footer" . }}
-
   </div>
 </article>
+
+<div class="article-footer">
+  <div class="article-container">
+    {{ partial "page_footer" . }}
+  </div>
+</div>
 
 {{- end -}}
