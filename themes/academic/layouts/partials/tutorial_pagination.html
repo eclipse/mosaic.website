@@ -6,7 +6,7 @@
       <div class="post-nav-item col-12 col-md-6">
         {{ range (where .Site.Menus.tutorials "Identifier" .Params.pagination_prev) }}
           <div class="meta-nav">{{ i18n "previous" }}</div>
-          <a href="{{ .URL | relURL }}" rel="next">{{.Name}}</a>
+          <a href="{{ .URL | safeURL }}" rel="next">{{.Name}}</a>
         {{ end }}
       </div>
 
@@ -14,7 +14,7 @@
       <div class="post-nav-item col-12 col-md-6 align-self-end">
         {{ range (where .Site.Menus.tutorials "Identifier" .Params.pagination_next) }}
           <div class="meta-nav">{{ i18n "next" }}</div>
-          <a href="{{ .URL | relURL }}" rel="next">{{.Name}}</a>
+          <a href="{{ .URL | safeURL }}" rel="next">{{.Name}}</a>
         {{ end }}
       </div>
 

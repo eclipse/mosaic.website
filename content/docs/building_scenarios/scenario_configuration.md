@@ -60,7 +60,7 @@ to get more details on possible adaptions.
 Below is a short video of the scenario displayed in the SUMO-GUI. We marked the three different routes the cars
 follow.
 
-{{< video src="/docs/building_scenarios/images/steglitz_routes.mp4" controls=true >}}
+{{< video src="../images/steglitz_routes.mp4" controls=true >}}
 
 ## Communication Simulators (cell, ns3, omnetpp, sns)
 
