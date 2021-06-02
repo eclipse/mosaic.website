@@ -84,7 +84,7 @@
             for testing ADAS within a simulated environment. Vehicles are simulated with advanced simulation models
             providing them with realistic driving dynamics within normal traffic situations.\n\n Tested ADAS can utilize
             simulated sensor data as well as control simulated vehicles by using virtual actuators."""
-  url = "/docs/simulators/traffic_simulator_phabmacs/"
+  #url = "/docs/simulators/traffic_simulator_phabmacs/"
   position = "left"
 
 

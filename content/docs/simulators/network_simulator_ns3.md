@@ -24,7 +24,7 @@ based simulators. If you have no prior experience with ns-3, we recommend famili
 the ns-3 simulation environment and the ns-3 simulation basics first. The ns-3 documentation can be
 found under: {{< target-blank "https://www.nsnam.org/documentation" "https://www.nsnam.org/documentation" >}}
 
-To take your first steps with ns-3, you might want to download 2 the latest version, build a copy of ns-3 (it
+To take your first steps with ns-3, you might want to download the latest version, build a copy of ns-3 (it
 uses the Python-based build-system waf) and take a look at the examples, that are shipped within most
 of the ns-3 source code repositories and packages. You might also examine the simulation output and try
 to adjust it.
@@ -33,7 +33,8 @@ Typically, a ns-3 user will work under a Linux environment. For those running un
 exist environments which simulate the Linux environment to various degrees. The ns-3 project has in the
 past (but not presently) supported the Cygwin environment for these users (see {{< target-blank "http://www.cygwin.com" "http://www.cygwin.com" >}}
 for details on downloading). MiniGW is presently not officially supported, however there are also
-some people who managed to use it with ns-3. For detailed information of how to set up ns-3, please refer
+some people who managed to use it with ns-3. In addition the Windows Subsystem for Linux is a promissing option to
+run Linux applications under Windows. For detailed information of how to set up ns-3, please refer
 to their Wiki: {{< target-blank "https://www.nsnam.org/wiki/Installation" "https://www.nsnam.org/wiki/Installation" >}}
 
 For more information on how to set up ns-3 with Eclipse MOSAIC, please just refer to the following section. We
@@ -66,8 +67,7 @@ Linux virtual machine with a virtual machine environment, such as
 └─ <scenario_name>
    └─ ns3
       ├─ ns3_config.json ................. Ambassador configuration file
-      ├─ configTechnologies.xml ...........ns-3 federate configuration file
-      └─ confWifi.xml .....................ns-3 federate configuration file
+      └─ ns3_federate_config.xml ..........ns-3 federate configuration file
 ```
 
 ### Installation
@@ -97,6 +97,8 @@ Please make sure the following libraries are installed before running the instal
 * libxml2
 * libsqlite3
 * libprotobuf {{< version of="ns3_protobuf" >}}
+
+**Currently MOSAIC works with ns-3 3.28, only. This depends Python in version 3.6. No newer version of Python is supported.**
 
 #### Run the installation script
 
@@ -157,7 +159,7 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.
 3. Switch to the location of the Dockerfile in `<mosaic>/bin/fed/ns3`
 4. Execute the following command on command line:  
-    `docker build -t ns3-federate`.  
+    `docker build -t ns3-federate` .
     This could take a while to finish.
 5. Enter the name of the docker image `etc/runtime.json` in the `ns3`-section into the property `dockerImage`:  
 ```json
@@ -176,74 +178,135 @@ You can test the installation of your docker image with the Tiergarten scenario,
 
 ### Configuration
 
-The whole ns-3 specific configuration is done via the `confWifi.xml` and `configTechnologies.xml` files.
+The whole ns-3 specific configuration is done via the `ns3_config.json` and `ns3_federate_config.xml` files.
 
-**confWifi.xml:**
+**ns3_config.json:**
+```json
+{
+    "messages": {
+        "destinationType": {
+            "AD_HOC_GEOCAST": false,
+            "AD_HOC_TOPOCAST": true,
+            "CELL_GEOCAST": false,
+            "CELL_GEOCAST_MBMS": false,
+            "CELL_TOPOCAST": false
+        },
+        "destinationAddress": {
+            "ipv4UnicastAddress": false,
+            "ipv4BroadcastAddress": true,
+            "ipv4AnycastAddress" : false
+        },
+        "protocolType": {
+            "UDP": true,
+            "TCP": false
+        }
+    }
+}
+```
+
+**ns3_federate_config.xml:**
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wifi>
-    <!-- IPv4 address generator -->
-    <ipConfiguration>
-        <ip address="192.168.0.0" mask="255.255.0.0"/>
-    </ipConfiguration>
-    <!-- Calculate a propagation delay -->
-    <propagationDelayModel>
-        <delay model= "ns3::NonePropagationDelayModel"/>
-    </propagationDelayModel>
-    <!-- Modelize the propagation loss through a transmission medium -->
-    <propagationLossModel>
-        <loss model= "ns3::FriisPropagationLossModel"/>
-    </propagationLossModel>
-    <wifiConfiguration>
-        <!-- Create non QoS-enabled MAC layers -->
-        <wifiMac property="type" value="ns3::AdhocWifiMac"/>
-        <!-- Wifi PHY mode -->
-        <wifiManager property="phyMode" value="OfdmRate54Mbps"/>
-        <!-- Wifi manager -->
-        <wifiManager property="type" value="ns3::ConstantRateWifiManager"/>
-        <!-- The energy of a received signal should be higher than this threshold (dbm) to allow the PHY layer to detect the signal -->
-        <wifiPhy property="EnergyDetectionThreshold" value="-81.0"/>
-        <!-- The energy of a received signal should be higher than this threshold (dbm) to allow the PHY layer to declare CCA BUSY state -->
-        <wifiPhy property="CcaMode1Threshold" value="-99.0"/>
-        <!-- Transmission gain (dB) -->
-        <wifiPhy property="TxGain" value="0.0"/>
-        <!-- Reception gain (dB) -->
-        <wifiPhy property="RxGain" value="0.0"/>
-        <!--  Number of transmission power levels available between TxPowerStart and TxPowerEnd included -->
-        <wifiPhy property="TxPowerLevels" value="1"/>
-        <!-- Maximum available transmission level (dbm) -->
-        <wifiPhy property="TxPowerEnd" value="17.0"/>
-        <!-- Minimum available transmission level (dbm) -->
-        <wifiPhy property="TxPowerStart" value="17.0"/>
-        <!-- Loss (dB) in the Signal-to-Noise-Ratio due to non-idealities in the receiver -->
-        <wifiPhy property="RxNoiseFigure" value="0.0"/>
-        <!-- Channel center frequency = Channel starting frequency + 5 MHz * (nch - 1) -->
-        <wifiPhy property="ChannelNumber" value="1"/>
-      </wifiConfiguration>  
-</wifi>
+<?xml version="1.0" encoding="UTF-8"?>
+<ns3>
+ <LogLevel>
+     <!-- for name, refer to corresponding ns3 model -->
+     <!-- possible level values: error warn debug info function logic all * -->
+        <!-- including higher levels: level_error level_warn level_debug level_info level_function level_logic level_all ** -->
+     <!-- possible prefix values: func time node level prefix_func prefix_time prefix_node prefix_level prefix_all -->
+     <component name="*" value="prefix_level|prefix_time"/>
+
+     <component name="MosaicStarter" value="warn|error|debug|info"/>
+     <component name="MosaicSimulatorImpl" value="warn|error|debug|info"/>
+     <component name="MosaicNs3Server" value="warn|error|debug|info"/>
+     <component name="MosaicNodeManager" value="warn|error|debug|info"/>
+     <component name="MosaicProxyApp" value="warn|error|debug|info|function|func"/>
+     
+     <component name="UdpSocketImpl" value="warn|error|info"/>
+     <component name="UdpL4Protocol" value="warn|error|info"/>
+     <component name="Ipv4L3Protocol" value="warn|error|info"/>
+     <component name="Ipv4Interface" value="warn|error|info"/>
+     <component name="TrafficControlLayer" value="warn|error|info"/>
+     
+     <component name="PropagationLossModel" value="warn|error|info"/>
+     <component name="YansWifiPhy" value="warn|error|info"/>
+     <component name="WaveNetDevice" value="warn|error|info"/>
+     <component name="YansWifiChannel" value="warn|error|info"/>
+     <component name="InterferenceHelper" value="warn|error|info"/>
+     <!-- List can be extendy by other components to set logging for -->
+ </LogLevel>
+
+<!-- Mosaic Federate settings -->
+ <default name="ns3::MosaicProxyApp::Port" value="8010"/>
+ <default name="ns3::MosaicNodeManager::DelayModel" value="ns3::ConstantSpeedPropagationDelayModel"/>
+ <default name="ns3::MosaicNodeManager::LossModel" value="ns3::FriisPropagationLossModel"/>
+
+ 
+<!-- NS3 model settings -->
+ <default name="ns3::RandomPropagationDelayModel::Variable" value="ns3::UniformRandomVariable"/>
+ <default name="ns3::ConstantSpeedPropagationDelayModel::Speed" value="2.99792e+08"/>
+
+ <default name="ns3::RandomPropagationLossModel::Variable" value="ns3::ConstantRandomVariable[Constant=1.0]"/>
+
+ <default name="ns3::FriisPropagationLossModel::Frequency" value="5900000000"/>
+ <default name="ns3::FriisPropagationLossModel::SystemLoss" value="1"/>
+ <default name="ns3::FriisPropagationLossModel::MinLoss" value="0"/>
+
+ <default name="ns3::TwoRayGroundPropagationLossModel::Frequency" value="5900000000"/>
+ <default name="ns3::TwoRayGroundPropagationLossModel::SystemLoss" value="1"/>
+ <default name="ns3::TwoRayGroundPropagationLossModel::MinDistance" value="1"/>
+ <default name="ns3::TwoRayGroundPropagationLossModel::HeightAboveZ" value="2"/>
+
+ <default name="ns3::LogDistancePropagationLossModel::Exponent" value="2.0"/>
+ <default name="ns3::LogDistancePropagationLossModel::ReferenceDistance" value="1"/>
+ <default name="ns3::LogDistancePropagationLossModel::ReferenceLoss" value="47.85704"/>
+
+ <default name="ns3::WifiPhy::EnergyDetectionThreshold" value="-81.02"/>
+ <default name="ns3::WifiPhy::CcaMode1Threshold" value="-99.0"/>
+ <default name="ns3::WifiPhy::TxGain" value="0.0"/>
+ <default name="ns3::WifiPhy::RxGain" value="0.0"/>
+ <default name="ns3::WifiPhy::TxPowerLevels" value="1"/>
+ <default name="ns3::WifiPhy::TxPowerEnd" value="17"/>
+ <default name="ns3::WifiPhy::TxPowerStart" value="17"/>
+ <default name="ns3::WifiPhy::RxNoiseFigure" value="0"/>
+ <default name="ns3::WifiPhy::ChannelSwitchDelay" value="+250000.0ns"/>
+ <default name="ns3::WifiPhy::ChannelNumber" value="178"/>
+ <default name="ns3::WifiPhy::Frequency" value="5900"/>
+ <default name="ns3::WifiPhy::Antennas" value="1"/>
+ <default name="ns3::WifiPhy::ShortGuardEnabled" value="false"/>
+ <default name="ns3::WifiPhy::LdpcEnabled" value="false"/>
+ <default name="ns3::WifiPhy::STBCEnabled" value="false"/>
+ <default name="ns3::WifiPhy::GreenfieldEnabled" value="false"/>
+ <default name="ns3::WifiPhy::ShortPlcpPreambleSupported" value="false"/>
+ <default name="ns3::WifiPhy::ChannelWidth" value="10"/>
+
+ <default name="ns3::ConstantRateWifiManager::DataMode" value="OfdmRate6Mbps"/>
+ <default name="ns3::ConstantRateWifiManager::ControlMode" value="OfdmRate6Mbps"/>
+
+ <default name="ns3::QueueBase::MaxPackets" value="400"/>
+ <default name="ns3::WifiMacQueue::MaxDelay" value="+500000000.0ns"/>
+ <default name="ns3::WifiNetDevice::Mtu" value="2296"/>
+ 
+ <default name="ns3::WifiMac::CtsTimeout" value="+75000.0ns"/>
+ <default name="ns3::WifiMac::AckTimeout" value="+75000.0ns"/>
+ <default name="ns3::WifiMac::BasicBlockAckTimeout" value="+281000.0ns"/>
+ <default name="ns3::WifiMac::CompressedBlockAckTimeout" value="+107000.0ns"/>
+ <default name="ns3::WifiMac::Sifs" value="+16000.0ns"/>
+ <default name="ns3::WifiMac::EifsNoDifs" value="+60000.0ns"/>
+ <default name="ns3::WifiMac::Slot" value="+9000.0ns"/>
+ <default name="ns3::WifiMac::Pifs" value="+25000.0ns"/>
+ <default name="ns3::WifiMac::Rifs" value="+2000.0ns"/>
+ <default name="ns3::WifiMac::MaxPropagationDelay" value="+3333.0ns"/>
+ <default name="ns3::WifiMac::Ssid" value="default"/>
+ <global name="RngSeed" value="1"/>
+</ns3>
 ```
 
 The IP configuration information includes the network address and network mask. The ns-3 propagation
 module defines two generic interfaces, namely **PropagationLossModel** and **PropagationDelayModel**,
 for the modelling of propagation loss respectively propagation delay.
 
-In the default `confWifi.xml`, the Wi-Fi device uses the ns-3 standard propagation delay model
+In the default `ns3_federate_config.xml`, the Wi-Fi device uses the ns-3 standard propagation delay model
 `ns3::ConstantSpeedPropagationDelayModel` and the ns-3 standard propagation loss model
 `ns3::FriisPropagationLossModel`. Radio propagation models in ns-3 can easily be exchanged with
 the ns-3 class registration system (see the ns-3 documentation for details). The Wi-Fi configuration
 includes additional parameters, like sending power and antenna gain.
-
-**configTechnologies.xml:**
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <ns3Configuration>
-    <installers>    
-        <installer type="ns3::WifiVehicleInstaller" name="WifiVehicle" file="confWifi.xml" default="true" />
-        <installer type="ns3::MobilityModelInstaller" name="Mobility" default="true" /> 
-    </installers>
-</ns3Configuration>
-```
-
-The configuration manager of the ns-3 federate defines, which installer should be loaded for the Wi-Fi
-device (refering to the `confWifi.xml`) and the mobility model. Usually, you don’t need to take any
-changes and simply use the default configuration file, that ships with the ns-3 federate.

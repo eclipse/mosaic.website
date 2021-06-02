@@ -11,12 +11,12 @@ menu:
     parent: extending_mosaic
 ---
 
-The OMNeT++ Federate design is based on amicrosimulation where every participating vehicle respectively
+The OMNeT++ Federate design is based on a microsimulation where every participating vehicle respectively
 node is individually modeled and simulated and all entities are clued together in a scenario with
 one instance the manages the interaction between them. That means at first the internals of one node
-are introduced which incorporate mainly the communication stack and a mobilitymodel. Afterwards,
+are introduced which incorporate mainly the communication stack and a mobility model. Afterwards,
 especially the scenario management is presented which builds up on the individual nodes and controls
-themajor part of the simulation. These both aspects are in similar way needed formost mobile communication
+the major part of the simulation. These both aspects are in similar way needed for most mobile communication
 simulation with OMNeT++ even in an isolated setup. However, specifically for interaction and
 synchronization with the other simulators in the Eclipse MOSAIC environment, a third pillar is necessary. This
 scheduler module is very important for the system as it implements the time management and event
@@ -25,129 +25,84 @@ scheduling according to Eclipse MOSAIC specific concepts.
 ### Node Internals
 
 The main part of the node model consists of the communication stack. The submodules for communication
-are adopted from the INETMANET framework. Hence, it is primarily important to define the
-connections between the individual modules. However, there are also modules which needed to be
-implemented for the dedicated purpose of the coupling within the Eclipse MOSAIC environment. Finally, all
-modules are linked together to a compound module using the NED language. The following figure depicts the node architecture. It needs to be said that the concept currently supports two different
+are adopted from the INET framework. All
+modules are linked together to a compound module using the `NED` language. The following figure depicts the node architecture.
+The concept currently supports two different
 kinds of nodes for Vehicles and RSUs, while V2X-based traffic lights are treated as RSUs. For the first
 approach these two kinds of nodes have the equal construction in terms of modules. The difference at the
-moment is that they can be configured with different values for parameters e.g. that Vehicles and RSUs
-have a different antenna height which is important for Two Ray Ground ReflectionModel. Furthermore,
-this concept is capable for later extensions e.g. for simulations when RSUs should be equipped with an
-additional network interface to build the bridge fromAd hoc Domain to the Fixed Infrastructure Domain
-(i.e. Internet).
+moment is that they can be configured with different values for parameters in the `omnetpp.ini` e.g. that Vehicles and RSUs
+have a different antenna height which is important for Two Ray Ground ReflectionModel.
 
-{{< figure src="../images/implementation_simcoupling.jpeg" title="Architecture of one Node" width="450px" numbered="true" >}}
+{{< figure src="../images/implementation_vehicle.png" title="Architecture of one Node" width="600px" numbered="true" >}}
 
 ##### Communication Stack
 
 The right part of the block diagram in the figure above depicts the communication stack. It is based on the
-module Wlan which is a compound module itself and covers the complete IEEE 802.11 network interface
-card with the MAC and PHY Layer and the Radio Channel. The configuration of different values for
+module `Ieee80211`, which is a compound module itself and covers the complete IEEE 802.11 network interface
+card with the `MAC` and `PHY` Layer and the `Radio Channel`. The configuration of different values for
 standard parameters e.g. the PHY bit rate or size of the contention window of the MAC can be exchanged
-within the omnetpp.ini-file (which introduces the parameters of the according module ned-files). Please
+within the `omnetpp.ini`-file.
+
+(_Please
 note that the configuration allows different values for each kind of nodes and hence it is possible to
 configure another propagation model or carrier frequency for Vehicles compared to RSUs. Even if
 the possibility for such a configuration exists, it should be avoided and common parameters should
-consistently be configured twice with the same value.
+consistently be configured twice with the same value._)
 
-The next module in the communication stack is the NetworkLayer. Once again it is a compound module
-and already a collection of most important protocols. The following protocols from version IPv4 are
-supported in this layer.
+The next module in the communication stack is the `NetworkLayer`. Once again it is a compound module
+and already a collection of most important IPv4 protocols as well as the Interface- and RoutingTables.
+The NetworkLayer is also the home of the Routing Protocol, which could be e.g. GPSR. Yet, at the current
+status, the implementation focusses on single hop communication, meaning the NetworkLayer mainly
+forwards messages for 255.255.255.255-broadcast adresses from the TransportLayer to the MAC Layer.
 
-* IP (Internet Protocol) of course as primary protocol of the Network Layer
-* ICMP (Internet ControlMessage Protocol) for information and error messages
-* IGMP (Internet GroupManagement Protocol) for management ofmulticast functionality
-* ARP (Address Resolution Protocol) for mapping of IP Addresses toMAC Addresses
+The `TransportLayer` of the communication stack is made up of UDP.
 
-Furthermore, the standalone modules InterfaceTable and RoutingTable are related to the Network
-Layer. The first one is needed to support multiple Network Interface Cards e.g. for wireless and fixed LAN
-in one node. It is already included for possible further extensions as previously mentioned, but up to
-now it has only one entry which is the Network Interface Card for Wlan. The second one is a table for
-simple Routing. This module is needed for correct instantiation of a node via the FlatNetworkGenerator
-as explained later in this section.
-
-The `TransportLayer` of the communication stack is made up of TCP for reliable connections and UDP.
-
-The modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp` of Application Layer are the entry
-points for application messages for the communication stack for the following reasons. The communication
-oriented models of INETMANET have their focus more on the framing for communication and less on
-the real content. That means that content is often modeled with dummy payloads where only the length is
-of interest. In contrast, V2X applications which are simulated in the [Application Simulator](/docs/simulators/application_simulator).
-Rely on the correct transmission of contents. Hence, the modules `VSimRTIReliableApp` and `VSimRTIUnreliableApp`
-are introduced to bridge this gap. They are triggered by the Eclipse MOSAIC ScenarioManager
-to send new messages to lower layers and forward messages themselves back to the ScenarioManager
+The module `MosaicProxyApp` of Application Layer is the entry point for application messages for the communication stack.
+It is triggered by the Eclipse MOSAIC ScenarioManager 
+to send new messages to lower layers and forwards received messages back to the ScenarioManager
 upon reception. The main tasks are generally acting as an application within the scope of OMNeT++ and
-encapsulating themessage contents to packets to prepare them for sending. While functionality of an
-UDP application is fully supported in `VSimRTIUnreliableApp`, the complete TCP application functionality
-is restricted in `VSimRTIReliableApp`. Note that up to now it is not entirely clarified if and how TCP should
-be supported in V2X use cases for safety and traffic efficiency with their broadcast characteristics, think
-of different roles of server and client in TCP. When the Eclipse MOSAIC ScenarioManager properties are detailed
-later in this section, it is also explained how the connection between the Eclipse MOSAIC ScenarioManager and
-the Eclipse MOSAIC Apps is realized. This connection needs to be established dynamically and is therefore not
-assigned with a connecting arrow like the fixed connections between the modules of communication
-stack.
+encapsulating the message contents to packets to prepare them for sending.
 
 ##### Mobility Model
 
-The second important component of the node is the mobility module `VSimRTIMobility`, which extends
+The second important component of the node is the mobility module `MosaicMobility`, which extends
 the BasicMobility. Unlike other mobility models as RandomWaypoint it does not generate node movements
 itself and has a straight static character. Node position updates are always triggered by the Eclipse MOSAIC
 ScenarioManager. Hence,mobility is completely controlled by Eclipse MOSAIC and in turn by the coupled traffic
-simulator. After successful position update the `VSimRTIMobility` module informs other modules about
-this event via the NotificationBoard.
+simulator.
 
-##### Additional Functionality
-
-At last, the module NotificationBoard is defined for each node. This module was already mentioned in
-the model overview of INETMANET. It enables a very efficient way for dynamic communication between
-the individual modules. There is no direct and static connection needed between the modules, because
-modules can subscribe dynamically for notification about dedicated events.
 
 ### Simulation Setup
 
-The setup of the complete simulation is illustrated in the following Figure 3 From the view of OMNeT++,
-the simulation is a network which has a dynamic topology and is referenced as the simulated network
+The setup of the complete simulation is illustrated in the following Figure. From the view of OMNeT++,
+the simulation is a network (`Scenario.ned`), which has a dynamic topology and is referenced as the simulated network
 in the omnetpp.ini-file for configuration. The ini-file gives access to all parameters which are offered
 to be configured by the included simple modules. The parameters are referred to by their hierarchical
 names with the simulated network as root module. As it is possible to assign already default values for
 parameters in the modules NED file, not every parameter needs to be configured in the ini-file. The
 simulation consists of basically three parts.
 
-{{< figure src="../images/implementation_simulation.jpeg" title="Architecture of the whole Simulation Scenario" width="550px" numbered="true" >}}
+{{< figure src="../images/implementation_simulation.png" title="Architecture of the whole Simulation Scenario" width="600px" numbered="true" >}}
 
 ##### Simulated Nodes
 
 Obviously the major part of the simulation is dedicated to the nodes. They are compound modules either
-from type Vehicle or RSU and have the properties as described in the previous section. The number
+from type `Vehicle` or `RSU` and have the properties as described in the previous section. The number
 of nodes in the simulation can vary over simulation time and is dynamically managed by the Eclipse MOSAIC
 ScenarioManager.
 
-##### Common Communication Dependent Modules
+##### Ieee80211ScalarRadioMedium 
 
-The second part covers the modules which actually count to the communication stack, but are common
-for all simulated nodes. These modules are the ChannelControl and the FlatNetworkGenerator.
-The ChannelControl keeps track of all nodes, their positions and Radio Channels. The main task is to
-determine which nodes are in communication range and which other nodes are within interference
-distance. The FlatNetworkGenerator is part of the Network Layer. It is used to instantiate a network
-with a flat topology and assigns the IP addresses to all nodes. Additionally it runs Dijstra’s shortest path
-algorithm to discover the routes and adds them into the routing tables. It is assumed that the routing
-tables are of kind of the RoutingTable from the specific NetworkLayer package. This is the reason why
-every node is equipped with the RoutingTable submodule. This approach works out for the current
-simulation purposes, but when any Ad hoc Routing protocols will be introduced to the simulation model
-the FlatNetworkGenerator and the RoutingTable modules are likely be obsolete and would have to be
-replaced.
+The `Ieee80211ScalarRadioMedium` basically models the broadcast communication channel between the Radio Channel
+sub module (in Ieee80211 Nic) for each node and thus enables the actual V2X message transmission between the nodes.
 
-##### Eclipse MOSAIC ScenarioManager
+##### MosaicScenarioManager
 
-The `ScenarioManager` is an experimental feature that implements a central control instance in
-simulations with INETMANET framework. It is loaded with a script in XML notation and is used to setup and control simulation experiments. Actually the original ScenarioManager and the new
-Eclipse MOSAIC ScenarioManager have nearly nothing in common but the fact that both are used as a central
+The `MosaicScenarioManager` is used as the central
 management instance to enhance simple configurations to simulate more sophisticated scenarios. The
-general tasks of the Eclipse MOSAIC ScenarioManager contain the simulation start up with instantiation of
-common modules as ChannelControl and initialization of the Eclipse MOSAIC EventScheduler (detailed later)
-and the controlled simulation shut down. But most important beside these are the management of node
-mobility and management of V2X communication which are triggered by Eclipse MOSAIC during simulation.
+general tasks of the MosaicScenarioManager contain the simulation start up with initialization of the
+`MosaicEventScheduler` (detailed later) and controlled simulation shut down, and most important during simulation
+the management of node mobility and V2X communication, which are triggered by Eclipse MOSAIC.
 
 The **Mobility Management** is responsible for administration of simulated nodes and their mobility.
 This includes introducing nodes to simulation, updating node positions and removing nodes from
@@ -157,19 +112,18 @@ The node introduction method is triggered by Eclipse MOSAIC with the commands `A
 applications have to be simulated.
 
 Upon `MOVE_NODE` command, which contains the affected node id and new position to be updated, the
-node is moved via the `VSimRTIMobility` module.
+node is moved via the `MosaicMobility` module.
 
 At last the `REMOVE_NODE` command indicates that a node leaves the simulation. On this event, the according node is deleted and unregistered from managed modules.
 
-The **CommunicationManagement** controls the sending and receiving of V2X messages.
+The **CommunicationManagement** controls the configuration of the Radio during runtime as well as the sending and receiving of V2X messages.
 
 The `SEND_V2X_MESSAGE` command initiates the sending process. It contains the sender node id and
-the transport protocol. Thus the Eclipse MOSAIC ScenarioManager can select the according Eclipse MOSAIC app at the according node.
+the transport protocol. Thus the MosaicScenarioManager can select the according Eclipse MOSAIC app at the according node.
 
-When a message from another node successfully arrives at the application layer the Eclipse MOSAIC ScenarioManager
+When a message from another node successfully arrives at the ProxyApplication, the MosaicScenarioManager
 is notified by the according node. Then, it sets up a `RECV_V2X_MESSAGE` which is sent back
-to Eclipse MOSAIC via the Eclipse MOSAIC EventScheduler. This intermediate step is introduced, since the Eclipse MOSAIC
-EventScheduler is the only instance, which is connected to Eclipse MOSAIC and which knows when it is safe to
+to Eclipse MOSAIC via the MosaicEventScheduler. This intermediate step is introduced, since the MosaicEventScheduler is the only instance, which is connected to Eclipse MOSAIC and which knows when it is safe to
 receive and send interactions.
 
 ### Simulator Coupling
@@ -185,11 +139,12 @@ exchange of interactions i.e. a time management mechanism must be jointly realiz
 purpose the conservative synchronization mechanism is implemented. The following figure gives an overview
 of the included compenents.
 
-{{< figure src="../images/implementation_vehicle.jpeg" title="Overview of Simulator Coupling" width="600px" numbered="true" >}}
+{{< figure src="../images/implementation_simcoupling.png" title="Overview of Simulator Coupling" width="450px" numbered="true" >}}
 
 ##### Eclipse MOSAIC EventScheduler
 
-The Eclipse MOSAIC EventScheduler extends the simple standard scheduler of OMNeT++ to be able to implement the time management for the Conservative Synchronization with Eclipse MOSAIC. It is the only module in OMNeT++ which has access to the event queue or Future Event Set (FES). Since the OMNeT++ simulation
+The `MosaicEventScheduler` extends the standard scheduler of OMNeT++ to be able to implement the time management for
+synchronization with Eclipse MOSAIC. It is the only module in OMNeT++ which has access to the event queue or Future Event Set (FES). Since the OMNeT++ simulation
 is an event driven simulation the scheduler has to fulfill two tasks. The first task is the actual scheduling
 part which is always invoked by the simulation kernel to schedule the next event. It allows all events from
 the FES to be processed up to the granted logical time $T$. If there are only events with a later time $T'$ than
@@ -203,7 +158,7 @@ itself, since the RTI does not sufficiently have the information to do this. Aft
 step, the RTI completes the time management cycle with the Time Advance Grant for $T'$. At this point the
 scheduler can set its logical time to $T = T'$ and unblock the further processing.
 
-Additionally the Eclipse MOSAIC EventScheduler provides the service for other modules to send interactions back
+Additionally the `MosaicEventScheduler` provides the service for other modules to send interactions back
 to the OMNeT++ Ambassador, since it is also the one module which is connected to Eclipse MOSAIC. Currently,
 this is used by the Eclipse MOSAIC ScenarioManager to report the `RECEIVE_V2X_MESSAGES`.
 
@@ -293,7 +248,7 @@ instruction will tell you how to that:
 
 ---
 
-### The OMNeT++ Ambassador
+# The OMNeT++ Ambassador
 
 The OMNeT++ Ambassador is the intermediate component between OMNeT++ and Eclipse MOSAIC. As it
 implements the interface of an abstract federate ambassador in Eclipse MOSAIC. In the initialization phase the
@@ -311,16 +266,3 @@ simple byte protocol. After this procedure the third step of time management cyc
 the initial Time Advance Grant. This is the point when the OMNeT++ simulation is able to start and the
 initialization phase is finished. Hence the time management cycle can be executed from first step which
 is waiting for a new NER until no federate requests further events and the simulation is finished.
-
-### The Time Representation
-
-One important issue for the simulation coupling is the common representation of the logical time at the
-RTI and the different federates in the federation. Normally, the time is a federate-defined abstract data
-type. The requirements for such a time are the ability for comparison and addition and most important
-the possibility of conversion without the loss of precision. Otherwise, deadlocks in the synchronization
-procedure are guaranteed. On the one hand Eclipse MOSAIC treats times as a 64-bit integer with a resolution of
-nanoseconds. On the other hand the OMNeT++ simulation time is represented by the type `simtime_t`
-which is a typedef to double. It is generally known that conversions from floating point to fixed point are
-vulnerable to rounding errors. To circumvent this issue the underlying raw 64-bit integer of the `simtime_t`
-representation is also made accessible, which works perfect if the scale exponent for time precision was
-previously initialized to $-9$ (i.e. nanoseconds).
