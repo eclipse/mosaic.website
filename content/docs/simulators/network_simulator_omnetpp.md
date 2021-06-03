@@ -154,10 +154,11 @@ need to manually install OMNeT++ and can even run OMNeT++ on Windows hosts.
     * Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.
 3. Switch to the location of the Dockerfile in `<mosaic>/bin/fed/omnetpp`
-4. Execute the following command on command line:  
-    `docker build -t omnetpp-federate`.  
+4. Download `inet-4.1.2-src.tgz` and `omnetpp-5.5.1-src-linux.tgz` and place them in `<mosaic>/bin/fed/omnetpp`.
+5. Execute the following command on command line:
+    `docker build -t omnetpp-federate` .
     This could take a while to finish.
-5. Enter the name of the docker image `etc/runtime.json` in the `omnetpp`-section into the property `dockerImage`:  
+6. Enter the name of the docker image `etc/runtime.json` in the `omnetpp`-section into the property `dockerImage`:
 ```json
 "federates": [
    ...
