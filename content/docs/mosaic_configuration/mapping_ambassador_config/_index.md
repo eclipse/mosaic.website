@@ -235,7 +235,32 @@ Object to define a mapper for an Origin-Destination (OD) matrix. The mapper cont
 |types|[`prototype[]`](#reference-prototype)|Array of prototypes to define the vehicles that should be spawned.|No|None|None|
 |deterministic|`boolean`|If deterministic is true the spawning-process will be exactly the same with every execution. If left false the order is different and the selected weights will be reached slower than in the deterministic mode.|No|None|`true`|
 |odValues|`array[]`|Values for the OD-matrix. Unit should be vehicles/hour.| &#10003; Yes|None|None|
+|startingTime|`number`|Time at which the first vehicle will be created.|No|[0, +$\infty$]|`0`|
+|maxTime|`number`|Simulation time in seconds at which no more vehicles will be created.|No|[0, +$\infty$]|None|
+|departSpeedMode|`string`|The depart speed mode determines the vehicle's speed at insertion.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-matrixmapperdepartspeedmode)|`MAXIMUM`|
+|laneSelectionMode|`string`|The lane selection mode chooses the lane for the next departing vehicle.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-matrixmapperlaneselectionmode)|`DEFAULT`|
 
+**Further property restrictions:**  
+<a name="restriction-matrixmapperdepartspeedmode"></a> 
+### matrixMapper.departSpeedMode
+
+* **Allowed values**:
+   * `PRECISE`
+   * `RANDOM`
+   * `MAXIMUM`
+<a name="restriction-matrixmapperlaneselectionmode"></a> 
+### matrixMapper.laneSelectionMode
+
+* **Allowed values**:
+   * `DEFAULT`
+   * `ROUNDROBIN`
+   * `ROUNDROBIN_HIGHWAY`
+   * `HIGHWAY`
+   * `RANDOM`
+   * `FREE`
+   * `ALLOWED`
+   * `BEST`
+   * `FIRST`
 
 
 ---------------------------------------

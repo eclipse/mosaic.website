@@ -292,7 +292,8 @@ Instead of defining an equal list of types and weights for each single vehicle s
 
 It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the `matrixMappers`-list.
 Each MatrixMapper consists of a list of `points`, the vehicle-`types` to be used and the actual flow-values (`odValues`) between each
-of the points. It is possible to define multiple matrices. This way can achieve distinctively different compositions of the vehicle flows.
+of the points. It is possible to define multiple matrices using different values for `startingTime` and `maxTime`.
+This way can achieve distinctively different compositions of the vehicle flows.
 
 The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
 each of the points.

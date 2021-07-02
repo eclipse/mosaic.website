@@ -103,13 +103,15 @@ configured a vehicle type called `MyVehicle` in the Mapping configuration, you c
 
 Further information about SUMO and its configuration can be found in the official SUMO wiki.
 
-### Using the SUMO GUI with Eclipse MOSAIC
+## Using the SUMO GUI with Eclipse MOSAIC
 
 It is also possible to use the graphical interface of SUMO in order to visualize and interact with the simulation.
 To
 achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
 command
-line interface. In order to use the SUMO GUI the file `<mosaic>/etc/runtime.json` needs to be edited.
+line interface.
+
+In order to use the SUMO GUI the file `<mosaic>/etc/runtime.json` needs to be edited.
 Here, the entry
 `org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador` must be
 replaced with
@@ -119,6 +121,34 @@ replaced with
 Keep in mind to launch Eclipse MOSAIC with the argument `-w 0` in order to disable the watchdog timer.
 Otherwise, it
 would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.
+{{% /alert %}}
+
+## Using LibSumo with Eclipse MOSAIC
+
+The coupling between MOSAIC and SUMO is implemented in two ways. The default implementation uses
+a socket-based API provided by SUMO, short TraCI. This interface has been well-established over the recent years
+and integrates very well with MOSAIC. The main disadvantage of this method is, that it uses a socket to
+transmit all the simulation data from SUMO to MOSAIC, even if SUMO runs on the very same machine. This
+may result in a bottleneck and slows down the simulation especially for large-scale scenarios.
+
+To overcome this, there is a second method to couple SUMO and MOSAIC with each other. This integrates
+SUMO as a dynamic linked library into MOSAIC, which results in a much faster data exchange. In order
+to get this running, you need to follow these steps:
+* Make sure `SUMO_HOME` environment variable is set correctly to your SUMO installation.
+* Check, if there's a `bin/libsumojni.dll` or `bin/liblibsumojni.so` file in your SUMO installation directory. If not, you might
+  need to install the "extras" release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
+  the build of libsumo (see https://sumo.dlr.de/docs/Libsumo.html#building_it).
+* Only the recent SUMO version ({{< version of="sumo" >}}) is supported.
+
+If these pre-requisites are met, you can activate this feature editing the file `<mosaic>/etc/runtime.json`.
+Here, the entry
+`org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador` must be
+replaced with
+`org.eclipse.mosaic.fed.sumo.ambassador.LibSumoAmbassador`.
+
+{{% alert note %}}
+Please be aware that this feature is still experimental. Also, some SUMO commands are not yet supported
+(retrieving leader information, partly missing information about traffic lights and induction loops).
 {{% /alert %}}
 
 ## Adding Vehicles
@@ -134,7 +164,6 @@ database
 
 This duality of adding vehicles has some powerful use cases. For example, you can use an existing SUMO scenario and add your own
 traffic via MOSAIC and equip all vehicles with applications.
-
 
 ## Deep dive: Route Files / Additional Files
 

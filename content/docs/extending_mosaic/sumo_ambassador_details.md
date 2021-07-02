@@ -22,7 +22,7 @@ SUMO networks are created by importing other formats, such as OpenStreetMap data
 TIGE-maps; or by generating artificial networks. Furthermore, vehicle routes, based on different routing
 paradigms, can be computed.
 
-### SUMO and Eclipse MOSAIC
+## SUMO and Eclipse MOSAIC
 
 We have integrated the traffic simulator SUMO to be able to simulate heterogeneous driving vehicles and a set of vehicles that have a predefined routes based on an imported roadmap. Additionally, during
 the runtime of a simulation, it is possible that routes of simulated vehicles are changed and that vehicle positions are extracted at arbitrary points in time. The integration of SUMO into a Eclipse MOSAIC based simulation is illustrated in the following figure. The integrated Traffic Control Interface (TraCI) Server offers an interface to exchange commands and positions using a socket interface with a proprietary byte protocol. Analogous to the TraCI Server, a TraCI Client is implemented that is integrated in an ambassador implementing the TraCI protocol. Therefore, SUMO can be integrated without modifications.
@@ -89,7 +89,7 @@ and `TrafficLightPhase`. While a traffic light group contains a list of signals 
 tion (which can consist of several nodes), a list of all existing traffic light groups is sent to the RTI via a
 `ScenarioTrafficLightRegistration` interaction.
 
-### TraCI Client Implementation
+## TraCI Client Implementation
 
 The SumoAmbassador communicates with the federate (SUMO process) via TraCI. In this socket based
 communication protocol, the server (SUMO) listens to commands and responds accordingly.
@@ -118,7 +118,7 @@ following scheme:
 
 A more detailed description can be found here: [http://sumo.dlr.de/wiki/TraCI/Protocol](http://sumo.dlr.de/wiki/TraCI/Protocol)
 
-#### Commands
+### Commands
 
 Each TraCI command is identified by an command identifier. For example, the command 0xC4 is used to
 change the state of a vehicle. Most of the commands need further specification, such as the parameter of
@@ -147,9 +147,9 @@ Here is an example of a command message to change the speed of the vehicle "veh_
 +-------------------+
 ```
 
-#### AbstractTraciCommand
+### AbstractTraciCommand
 
-In the TraCI client implementation of the `SumoAmbassador` the whole construction of messages is done in
+In the TraCI client implementation of the `SumoAmbassador`, the whole construction of messages is done in
 the class `AbstractTraciCommand`. The message header containing the message and command lengths
 is constructed automatically as well as all parameters defined by the specific command. To achieve this,
 each class which extends the `AbstractTraciCommand` needs to define the command, the variable and
@@ -180,8 +180,8 @@ as soon as the command is executed. For this purpose, the command implementation
 method execute of the super class with the parameter values in the specified order:
 
 ```java
-public void setSpeed(TraciConnection traciCon, String vehicleId, double speedValue) {
-    super.execute(traciCon, vehicleId, value);
+public void setSpeed(Bridge bridge, String vehicleId, double speedValue) {
+    super.execute(bridge, vehicleId, value);
 }
 ```
 
@@ -210,15 +210,15 @@ protected VehicleGetRouteId() {
 ```
 
 This example shows the command implementation for getting the route id of a vehicle. As well as `write`,
-the method read returns a builder-like construct which provides methods to define how the response is
+the method `read` returns a builder-like construct which provides methods to define how the response is
 handled. Here, the first two bytes of the response should be skipped, as well as the string which follows
 afterwards. The value the command is interested in is the following string value which holds the id of
 the route. By using the method `readStringWithType` the string is read out and is passed to the method
 `constructResult` which needs to be implemented by the command as well:
 
 ```java
-public String getRouteId(TraciConnection con, String vehicle) {
-    return super.executeAndReturn(con, vehicle);
+public String getRouteId(Bridge bridge, String vehicle) {
+    return super.executeAndReturn(bridge, vehicle);
 }
 
 @Override
@@ -227,10 +227,10 @@ protected String constructResult(Status status, Object... objects) {
 }
 ```
 
-In this simple case the result of the command consists of one result object only (the route id). Therefore,
+In this simple case, the result of the command consists of one result object only (the route id). Therefore,
 it is just extracted from the array of result objects and directly returned.
 
-#### Writing parameters
+### Writing parameters
 
 In order to write parameters and read results according to the specification of the protocol, several reader
 and writer implementations exist. For parameters to be written in the command various writers exists
@@ -274,7 +274,7 @@ to a given value. Secondly, it needs to write out the actual value into the `Dat
 represents the channel to the TraCI server). Furthermore is each writer able to write fixed values, such as
 the command identifier which does not change, or variable arguments, such as the vehicle id.
 
-#### Reading results
+### Reading results
 
 In the following example, the IntegerTraciReader is shown:
 
@@ -306,7 +306,7 @@ increased accordingly. Thirdly, the reader needs to define if the read out value
 Such requirement can be, that a certain value is expected. In this case, a matcher might be passed to the
 super constructor.
 
-#### Accessing the commands
+### Accessing the commands
 
 For each command, only one object should be instantiated during runtime. To achieve this, the
 `CommandRegister` is used. This class stores a command once it is created returns only one instance per
@@ -319,13 +319,13 @@ final RouteAdd routeAddCommand = commandRegister.getOrCreate(RouteAdd.class);
 
 However, commands should not be accessed directly in the code, but rather using the various facades
 available:
-* `TraciRouteFacade` - Route specific command calls, such as addRoute and getRouteEdges .
-* `TraciSimulationFacade` - Provides methods to control the simulation, such as simulateStep .
-* `TraciTrafficLightFacade` - Provides methods to get or set values for traffic lights.
-* `TraciVehicleFacade` - Provides methods to get or set values for vehicles.
-All those facades can be accessed via the `TraciClient`.
+* `RouteFacade` - Route specific command calls, such as addRoute and getRouteEdges .
+* `SimulationFacade` - Provides methods to control the simulation, such as simulateStep .
+* `TrafficLightFacade` - Provides methods to get or set values for traffic lights.
+* `VehicleFacade` - Provides methods to get or set values for vehicles.
+All those facades can be accessed via the `TraciClientBridge`.
 
-#### Exception handling
+### Exception handling
 
 Exceptions are thrown and handled as following:
 
@@ -339,9 +339,31 @@ further commands. The facades decide how to handle this exception then and may t
 shuts down the TraCI connection. This also happens if a reader or writer throws any kind of
 Exception.
 
-#### Version handling
+### Version handling
 
 With future releases of SUMO new TraCI commands will emerge. To achieve downward compatibility
 each command can define the lowest TraCI Version it supports. For example, a command which was
 introduced with SUMO 0.30.0 and is annotated accordingly, would be skipped automatically if the version
 of the TraCI server is lower. However, this concept has not been tested yet properly.
+
+## LibSumo Coupling Implementation
+
+Next to the coupling implementation using TraCI, there is a second implementation integrating 
+LibSumo via Java Native Interface (JNI). It is possible to easily switch the coupling method using 
+either `TraciClientBridge`, or `LibSumoBridge` as the `Bridge` implementation. This replaces all
+commands to get or set values in the SUMO simulation. The `CommandRegister` is either initialized
+using the `"libsumo"` or `"traci"` package to load the command implementations. All the Facades 
+(`SimulationFacade`, `VehicleFacade` etc.) which contain all the actual "business" logic, remain untouched.
+
+The introduction of new commands requires the implementation of these three items:
+* Interface in `org.eclipse.mosaic.fed.sumo.bridge.api` package
+* Implementation of TraCI command in package `org.eclipse.mosaic.fed.sumo.bridge.traci`
+* Implementation of LibSumo command in package `org.eclipse.mosaic.fed.sumo.bridge.libsumo`
+
+All the code in the facades should always work with the interfaces from the `org.eclipse.mosaic.fed.sumo.bridge.api` package.
+
+{{< figure src="../images/sumo-traci-libsumo.png" title="Implementations of LibSumo and TraCI coupling." width="600px" numbered="true" >}}
+
+
+
+
