@@ -23,11 +23,11 @@ needs. This also holds true for the environment model and the vehicle model. How
 for vehicles, environment and the battery are provided and will be briefly explained in the following
 sections.
 
-### Installation
+## Installation
 
 This simulator does not need to be installed. It is delivered as part of the MOSAIC Extended installation package.
 
-### Configuration 
+## Configuration 
 
 This ambassador can be configured with a configuration file. The specific path is
 `<scenarioName>/battery/battery_config.json`

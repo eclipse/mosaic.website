@@ -25,9 +25,7 @@ The tool **scenario-convert** is part of **[MOSAIC Extended](/download#overview)
 However, you can use scenario-convert **for free** to generate scenarios which are executable with Eclipse MOSAIC. **[Get it here](https://www.dcaiti.tu-berlin.de/research/simulation/download/).**
 {{% /alert %}}
 
-<div style="text-align: center;">
 {{< button icon="download" type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download scenario-convert from DCAITI mirror" >}}
-</div>
 
 **scenario-convert** is a useful tool, which can be used to create new scenarios or import and export data from
 external sources like OpenStreetMap, SUMO etc into your existing scenarios.  

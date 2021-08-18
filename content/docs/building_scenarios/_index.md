@@ -363,7 +363,7 @@ of the conﬁgured regions (in `regions.json`) have to be in line with the scena
 * The **SNS** also comes without an additional expansion deﬁnition.
 
 Further information on the communication simulators can be found in:
-<br>[Eclipse MOSAIC SNS](docs/simulators/network_simulator_sns)
-<br>[Eclipse MOSAIC Cell](docs/simulators/network_simulator_cell)
-<br>[OMNeT++](docs/simulators/network_simulator_omnetpp)
-<br>[ns-3](docs/simulators/network_simulator_ns3)
+- [Eclipse MOSAIC SNS](docs/simulators/network_simulator_sns)
+- [Eclipse MOSAIC Cell](docs/simulators/network_simulator_cell)
+- [OMNeT++](docs/simulators/network_simulator_omnetpp)
+- [ns-3](docs/simulators/network_simulator_ns3)

@@ -19,7 +19,7 @@ It defines two major aspects for the simulation units:
 The JSON based configuration is located in `<scenario_name>/mapping/mapping_config.json`.
 
 
-### Configuration
+## Configuration
 
 The Mapping configuration is divided into different parts:
 * Pre Definitions of `prototypes` and `deviations`
@@ -27,7 +27,7 @@ The Mapping configuration is divided into different parts:
 * Advanced Vehicle Definitions (including route generation) in `matrixMappers`
 * Common Definitions in `config`
 
-#### Prototypes
+### Prototypes
 
 `prototypes` define models for other objects, which can be reused later in the other sections of the Mapping. This allows reusing the
 definition of certain entities such as vehicles or the combination of multiple applications, reducing redundancies and resulting in
@@ -86,7 +86,7 @@ According to the config above, the basic parameter value conforms to the expecte
 attribute conforms to the $\sigma$ of the Gaussian distribution(meaning for the example of maxSpeed that ~68% of the values will 
 be located in the interval [65.0, 75.0]). The deviation will be limited to &plusmn;2$\sigma$.
 
-#### Entities
+### Entities
 
 **Vehicles**
 
@@ -227,8 +227,7 @@ Additionally, TMCs are an extension of Servers and can be configured in the same
 > in every simulation run with regard to the given ratios at each point in time the simulation).
 > The Stochastic Mapping results in a random order of mapped units.
 
-#### Use Type Distributions in Complex Traffic Scenarios
-
+### Use Type Distributions in Complex Traffic Scenarios
 In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
 again and again, you can use `typeDistributions`. By doing so, it is very simple to adjust the list of types and weights at only one
 place in the configuration file.
@@ -288,8 +287,7 @@ Instead of defining an equal list of types and weights for each single vehicle s
 ```
 
 
-#### Advanced vehicle spawners with route generation
-
+### Advanced vehicle spawners with route generation
 It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the `matrixMappers`-list.
 Each MatrixMapper consists of a list of `points`, the vehicle-`types` to be used and the actual flow-values (`odValues`) between each
 of the points. It is possible to define multiple matrices using different values for `startingTime` and `maxTime`.
@@ -337,8 +335,7 @@ each of the points.
 ]
 ```
 
-#### Common Configuration
-
+### Common Configuration
 Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:
 
 ```json
@@ -369,7 +366,7 @@ Next to the specific configuration of prototypes and simulation entities, some g
 Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  
 {{% /alert %}}
 
-### Unit Identifiers
+## Unit Identifiers
 
 Every traffic object in Eclipse MOSAIC has a globally unique string identifier. These identifiers are used to identify 
 a traffic object in Eclipse MOSAIC as well as in different ambassadors. From user’s aspect, these identifiers will be seen in the log files

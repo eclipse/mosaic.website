@@ -76,6 +76,7 @@ With this tutorial you learn more about the following objectives:
 - Learn the structure of the configuration files and equip the simulation units with applications.
 - Learn the difference between Ad-hoc and cellular communication.
 {{% /alert %}}
+- Learn how to create and handle events.
 
 | Application                 | Description |
 |-----------------------------|-------------|
@@ -83,3 +84,5 @@ With this tutorial you learn more about the following objectives:
 | `CamSendingApp`             | Sending CAMs (Cooperative Awareness Messages) with additional information that can be defined by user. Difference between usage of different modules: Cell and Ad-hoc. | 
 | `UserTaggedValueReadingApp` | Reaction on the received V2X messages, reading the sent User Tagged value. |
 | `SumoTraciIntercationApp`   | Direct communication with SUMO using TraCI (sending messages to TraCI and reacting on its response). | 
+| `SimpleCommuterApp` | Simulates the behaviour of a commuting vehicle. After reaching the goal position and resting for a specified amount of time the app will trigger a DriveBackEvent, which causes the vehicle to reroute back to the start position. |
+| `EmergencyBrakeApp` | Performs an emergency brake in case an obstacle is detected by the vehicle's obstacle senors. Additionally the emergency brake detection will send out a DENM (Decentralized Environmental Notification Message) in case an emergency brake is performed. |

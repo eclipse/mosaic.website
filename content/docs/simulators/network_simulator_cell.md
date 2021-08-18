@@ -37,6 +37,10 @@ Geocaster and a Downlink between the Geocaster and the vehicle. While the Uplink
 point-to-point communication (Unicast), the Downlink supports point-to-point (Unicast) as well as
 point-to-multipoint (Multicast).
 
+## Installation
+
+This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC-installation package.
+
 ### CellAmbassador folder structure
 
 The Eclipse MOSAIC Cell simulator can be configured via three distinct configuration files, which can be
@@ -57,11 +61,7 @@ file.
 Read the detailed documentation of the [Network](/docs/mosaic_configuration/cell_network_config) and [Regions Configuration](/docs/mosaic_configuration/cell_region_config).  
 {{% /alert %}}
 
-### Installation
-
-This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC-installation package.
-
-### Configuration
+## Configuration
 
 We provide a cellular configuration file in the example scenarios of Tiergarten and Barnim. Please note
 that in the default configuration of this scenario the Cellular Simulator is deactivated. To activate the
@@ -191,8 +191,10 @@ Servers are also configured in the `network.json` as follows:
      }
  }
  ```
-> Note: The fields `defaultDownlinkCapacity`, `defaultUplinkCapacity` are used if you don't define any bitrates for your cell configurations
-> their default values are 100 Gigabit, so you usually don't need to set them. 
+{{% alert note %}}
+The fields `defaultDownlinkCapacity`, `defaultUplinkCapacity` are used if you don't define any bitrates for your cell configurations
+their default values are 100 Gigabit, so you usually don't need to set them.
+{{% /alert %}} 
 
 Servers get their configuration for the delay and retransmission models from the `network.json` and the configuration for the
 capacity-model has to be made from within an application, by activating the `CellModule` and properly setting the bit rates.
@@ -232,9 +234,11 @@ above could look as follows:
 }
 ```
 
-> Note that all bandwidths are given in bit per second and all delays in nanoseconds, unless explicitly defined differently.
-> Also, every json configuration goes through a minifier, so comments are allowed in the configuration files. An example
-> would be the comment before the `globalNetwork` option.
+{{% alert note %}}
+Note that all bandwidths are given in bit per second and all delays in nanoseconds, unless explicitly defined differently.
+Also, every json configuration goes through a minifier, so comments are allowed in the configuration files. An example
+would be the comment before the `globalNetwork` option.
+{{% /alert %}}
 
 ### Delay regions
 
@@ -297,8 +301,10 @@ example definition for a single region called `Ernst-Reuter-Platz` could look li
 }
 ```
 
+{{% alert note %}}
 Note that `nw` represents the upper-left (north-west) point of the rectangle and `se` the lower-right (southeast).
 For further information about the possible options, please refer to the Eclipse MOSAIC API documentation.
+{{% /alert %}}
 
 The actual configuration of the uplink and the downlink modules for each region exhibits the identical
 format as configuration of the globalNetwork in the `network.json`.
@@ -306,7 +312,7 @@ format as configuration of the globalNetwork in the `network.json`.
 When no regions are found, or if a node (a vehicle) is not within a specified region, the globalNetwork
 defined in the `network.json`-File will be used as the delay model.
 
-### Transmission simulation
+## Transmission simulation
 
 One of the most important feature of the cellular simulator is an estimation of the delay experienced
 through the transport over the cellular network.
@@ -335,7 +341,7 @@ retransmit is recalculated on every try.
 In case of multicast the `lossProbability` is used as packet loss rate. The value is factored into the delay calculation.
 In contrast to the unicast, just one transmission attempt is made for multicast.
 
-### Operation
+## Operation
 
 Beside the transmission simulation, the Addressing and Routing is the other important aspect of the Cellular Simulator. This task is enabled
 by the Geocaster.

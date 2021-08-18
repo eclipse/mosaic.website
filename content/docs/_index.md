@@ -18,7 +18,7 @@ the documentation first, especially the sections on [How To Get Started](/docs/g
 [Simulator Overview](/docs/simulators). For external simulators like Eclipse SUMO, OMNeT++ / INET or ns-3,
 the according project websites contain more exhaustive information, of course.
 
-{{% alert note %}}
+{{% alert info %}}
 Our **[tutorials](/tutorials)** are intended for step-by-step practical learning. It should be possible to
 start them right away without prior experience with Eclipse MOSAIC. However, for several aspects, the documentation should be
 consulted at least in parallel.

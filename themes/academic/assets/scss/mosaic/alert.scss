@@ -3,13 +3,19 @@
 .alert, div.alert > div {
   font-size: 0.75rem;
   border-radius: 0.8rem;
+
+  p + ul,
+  p + ol {
+    margin-top: -0.35rem;
+  }
 }
 
 // MOSAIC EXTENDED
 div.alert.alert-extended {
-  color: darken($mosaic-purple, 20%);
-  background-color: lighten($mosaic-purple, 70%);
-  border-color: $mosaic-purple;
+  color: #610554;
+  background-color: #fddef1;
+  border-color: #ddc1d9;
+  box-shadow: 0 1px 3px #d8c9d6;
   position: relative;
 
   .extended-icon {
@@ -32,13 +38,14 @@ div.alert.alert-extended {
 
 // Learning Objectives
 div.alert.alert-learning_objectives {
-  color: darken($mosaic-green, 20%);
-  background-color: lighten($mosaic-green, 54%);
-  border-color: $mosaic-green;
+  color: #610554;
+  background-color: #fddef1;
+  border-color: #ddc1d9;
+  box-shadow: 0 1px 3px #d8c9d6;
 
   & > div:first-child::before {
     content: '\f19d'; // graduation hat
-    color: $mosaic-green;
+    color: $mosaic-purple;
     font-size: 1.3rem;
     top: -0.4rem;
     left: -2.3rem;
@@ -47,7 +54,7 @@ div.alert.alert-learning_objectives {
   h3 {
     font-size: 1rem;
     margin: 0.2rem 0 0.3rem;
-    color: darken($mosaic-green, 23%);
+    color: darken($mosaic-purple, 13%);
   }
 
   ul li {
@@ -64,41 +71,50 @@ div.alert.alert-learning_objectives {
       position: absolute;
       left: -1.1rem;
       top: 0.7rem;
+      text-shadow: 0 1px 1px #fff, 0 0 2px rgba(0,0,0,0.1);
     }
   }
 }
 
 // TIP
 div.alert.alert-tip {
-  color: darken($mosaic-green, 20%);
-  background-color: lighten($mosaic-green, 54%);
-  border-color: $mosaic-green;
+  color: #395411;
+  background-color: #dff3c4;
+  border-color: #bee08e;
+  box-shadow: 0 1px 3px #dbdcdb;
 
   & > div:first-child::before {
     content: '\f06a';
     color: $mosaic-green;
+    text-shadow: 0 1px 1px #fff, 0 0 2px rgba(0,0,0,0.1);
   }
 }
 
 // NOTE
-div.alert.alert-note {
-  color: darken($mosaic-blue, 20%);
-  background-color: lighten($mosaic-blue, 54%);
-  border-color: $mosaic-blue;
+div.alert.alert-note,
+div.alert.alert-info {
+  color: #055160;
+  background-color: #d3edfd;
+  border-color: #a3d3f3;
+  box-shadow: 0 1px 3px #d2d2d2;
 
   & > div:first-child::before {
     color: $mosaic-blue;
+    text-shadow: 0 1px 1px #fff, 0 0 2px rgba(0,0,0,0.1);
   }
 }
 
 // WARNING
 div.alert.alert-warning {
-  color: darken($mosaic-orange, 25%);
-  background-color: lighten($mosaic-orange, 35%);
-  border-color: $mosaic-orange;
+  color: #633103;
+  background-color: #ffe0c4;
+  border-color: #e4c3a4;
+  box-shadow: 0 1px 3px #e2d8ce;
 
   & > div:first-child::before {
     color: $mosaic-orange;
-    left: -2.4rem;
+    font-size: 1.24rem;
+    left: -2.1rem;
+    text-shadow: 0 1px 1px #fff, 0 0 2px rgba(0,0,0,0.1);
   }
 }

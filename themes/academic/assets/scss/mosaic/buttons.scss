@@ -14,11 +14,13 @@
     background-color: #fff;
     color: $mosaic-purple;
   }
-
   i {
     transition: all 0.16s ease;
     margin-right: 0.3rem;
   }
+}
+table .mosaic-btn {
+  margin: 0;
 }
 
 .mosaic-btn-light {

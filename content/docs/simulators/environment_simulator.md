@@ -20,11 +20,11 @@ This ambassador can be configured with a configuration file. The specific path i
       └─ environment_config.json ..................... Environment ambassador configuration file
 ```
 
-### Installation
+## Installation
 
 This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC-installation package.
 
-### Configuration
+## Configuration
 
 {{% alert tip %}}
 Read the detailed documentation of the [Environment Configuration](/docs/mosaic_configuration/environment_config).  

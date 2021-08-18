@@ -13,21 +13,22 @@ menu:
 simulation tool. It is designed to handle large road networks faster than real-time and simulates each vehicle
  individually.
 
-|                        |                                                      | |
-|------------------------|------------------------------------------------------|-|
-| **Operating System**   | GNU/Linux and Microsoft Windows                      | |
-| **License**            | EPL-2.0                                              | |
-| **Website**            | [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/) | |
-| **Supported versions** | Recommended version:<br>Full support:<br>Limited support: | {{< version of="sumo" >}}<br>{{< version of="sumo_full_support" >}}<br>{{< version of="sumo_limited_support">}} |
-|                        |                                                      | |
+|                          |                                                      | |
+|--------------------------|------------------------------------------------------|-|
+| **Operating System**     | GNU/Linux, _macOS_, Microsoft Windows                | |
+| **Written in**           | C++                                                  | |
+| **License**              | EPL-2.0                                              | |
+| **Website**              | [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/) | |
+| **Supported version(s)** | Recommended version:<br>Full support:<br>Limited support: | {{< version of="sumo" >}}<br>{{< version of="sumo_full_support" >}}<br>{{< version of="sumo_limited_support">}} |
+|                          |                                                      | |
 
-### Installation
+## Installation
 
 {{< button icon="external-link-alt" title="Download Eclipse SUMO" link="https://sumo.dlr.de/wiki/Downloads" >}}
 
 Download the SUMO binary bundle or installer from the SUMO website. Linux users may build SUMO from the source code.
-Please refer to the
-SUMO Wiki for further information.
+Depending on the distribution, it is even possible to install SUMO as package from a software repository.
+Please refer to the SUMO Wiki for further information.
 
 {{% alert note %}}
 In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system wide by adding the SUMO
@@ -40,10 +41,9 @@ define the installation directory of SUMO.
 We recommend using the 64 bit version of SUMO if you want to simulate scenarios with large traffic networks.
 {{% /alert %}}
 
-### Configuration
+## Configuration
 
-
-This ambassador can be configured with a configuration file. The specific path is `<scenarioName>/sumo/sumo_config.json`.
+The SUMO ambassador can be configured with a configuration file. The specific path is `<scenarioName>/sumo/sumo_config.json`.
 If no such file exists, the following default configuration options are used:
 
 ```json
@@ -99,7 +99,9 @@ configured a vehicle type called `MyVehicle` in the Mapping configuration, you c
 }
 ```
 
->Note: All parameters have to be specified as Strings.
+{{% alert note %}}
+All parameters have to be specified as Strings.
+{{% /alert %}}
 
 Further information about SUMO and its configuration can be found in the official SUMO wiki.
 

@@ -21,7 +21,7 @@ be consulted at least in parallel.
 {{% /alert %}}
 
 {{% alert tip %}}
-The Search allows jumping directly to specific topics in the **[documentation](/docs)**.
+The search allows jumping directly to specific topics in the **[documentation](/docs)**.
 {{% /alert %}}
 
 {{< menu_overview tutorials >}}

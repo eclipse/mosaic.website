@@ -15,6 +15,10 @@ The Simple Network Simulator (SNS) aims to provide simple and fast capabilities 
 transmission of V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions
 in certain places. Those abstractions will be discussed later on.
 
+## Installation
+
+This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.
+
 ## Configuration
 
 The SNS offers some configurability regarding the way transmissions are simulated.
@@ -29,8 +33,11 @@ __Main Configuration:__
 |`singlehopTransmission`  | This contains the transmission configurations for `lossProbability` and `maxRetries`.                           | CTransmission          | n/a                            |
 |`adhocTransmissionModel` | A class extending `AdhocTransmissionModel`, this will decide the logic for transmissions.                       | AdhocTransmissionModel | `SimpleAdhoc TransmissionModel` |
 
-> On default the SNS will use the `SimpleAdhocTransmissionModel` with a `ConstantDelay` using 0 as delay. This means it usually
-> makes sense to specify the `AdhocTransmissionModel` explicitly and use a more realistic `Delay`.
+{{% alert note %}}
+On default the SNS will use the `SimpleAdhocTransmissionModel` with a `ConstantDelay` using 0 as delay. This means it usually
+makes sense to specify the `AdhocTransmissionModel` explicitly and use a more realistic `Delay`.
+{{% /alert %}}
+
 __Example Configuration:__
 ```json
 {

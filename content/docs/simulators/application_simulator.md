@@ -15,26 +15,54 @@ The **Application Simulator** plays an important role in the simulation of vehic
 to model the application logic for different simulation units (e.g. vehicles, road side units (RSUs), traffic lights, and others) 
 as well as possible interaction attempts between the units via different communication links.
 
-### Folder Structure
+## Installation
+
+This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.
+
+## Configuration
+
+The Application simulator offers configuration possibilities for several aspects, e.g.
+1. the simulator itself
+1. the developed and simulated application(s) (depending on the application)
+1. the mapping.
+
+In terms of the scenario folder structure, the configuration files are located in the folders, as outlined in the overview:
 
 ```plaintext
 └─ <scenario_name>
    ├─ application
-   |  ├─ YourApplication.jar
-   |  ├─ application_config.json ............. Configuration file for the ambassador.
-   |  └─ <scenario_name>.db .................. Database file for navigation.
+   |  ├─ application_config.json ............. Configuration file for the application simulator.
+   |  ├─ <scenario_name>.db .................. Database file for navigation.
+   |  ├─ YourApplication.jar ................. Application(s) to be simulated.
+   |  └─ your_application_config.json ........ Optional configuration for application(s).
    └─ mapping
-      └─ mapping_config.json ................. Configuration file for the ambassador.
+      └─ mapping_config.json ................. Configuration file for the application mapping.
 ```
 
-This ambassador can be configured with a configuration file. The specific path is
-`<scenario_name>/application/application_config.json`. However, it is not necessary to provide such file.
+The **Application Simulator** is configured in the file `<scenario_name>/application/application_config.json`.
+It is not necessary to provide the file, as in this case of a non-existing file, the following default configuration options are used:
 
-### Installation
+```json
+{
+    "messageCacheTime": "30s",
+    "minimalPayloadLength": 200,
+    "encodePayloads": true,
+    "navigationConfiguration" : {
+        "type": "database"
+    }
+}
+```
 
-This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.
+Furthermore, depending on the deployed **Applications**, the applications itself may offer configuration options 
+in custom configuration files (e.g. `ETSIApplication.json` or `ETSIApplication_veh_0.json` - [see below](#etsi-application-for-vehicles)).
 
-### Overview
+{{% alert tip %}}
+The **Mapping** configuration is presented in close detail in [Application - Mapping](/docs/simulators/application_mapping).  
+{{% /alert %}}
+
+
+## Application Architecture
+
 Each simulation unit (e.g. vehicle, RSU, traffic light ..) can have different applications (depending on their application
 [Mapping](docs/simulators/application_mapping). The applications
 for the units are basically compiled JAVA classes, which **extend** the abstract class `AbstractApplication`. Those
@@ -42,7 +70,7 @@ classes have to be deployed as pre-compiled JAR files into the `application` fol
 
 {{< figure src="../images/application_overview.svg" title="Overview of interaction between applications and the unit's operating system with its modules. An example V2X message propagation is presented." >}}
 
-#### Application Operating System
+### Application Operating System
 The `AbstractApplication` possesses a unit-specific `OperatingSystem`, which allows interactions with the simulated parameters.
 The operating system provides access to information like the current time or position of the units and could control unit-specific
 actions (like `slowDown()` for vehicles).
@@ -63,7 +91,7 @@ The following table lists all modules a unit's operating system could provide.
 > **Note:** The presented communication modules `AdHocModule`, `CellModule` are used for the sending part of a transmission. The message
 > reception is realized by Application Interfaces provided by the `CommunicationApplication`.
 
-#### Application Interfaces
+### Application Interfaces
 Application interfaces handle call-backs to incoming events via their methods, like `onVehicleUpdated()`, called by the
 application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
 important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
@@ -84,28 +112,6 @@ are given in [Development of applications](/docs/develop_applications).
 
 **Note:** A roadside unit (RSU) is the most unit and usually communicates only. Thus, an RSU application implements `CommunicationApplication`.
 
----
-
-### Configuration
-
-The Application simulator is configured in the file `<scenario_name>/application/application_config.json`:
-
-```json
-{
-    "messageCacheTime": "30s",
-    "minimalPayloadLength": 200,
-    "encodePayloads": true,
-    "navigationConfiguration" : {
-        "type": "database"
-    }
-}
-```
-
-Furthermore, depending on the deployed applications, the applications itself may offer configuration options 
-in custom configuration files (e.g. `ETSIApplication.json` or `ETSIApplication_veh_0.json`).
-
----
-
 ## Basic Applications
 
 Eclipse MOSAIC is shipped with several example applications which can be loaded on the vehicles. Next to the applications shipped with
@@ -114,8 +120,7 @@ the tutorial scenarios **Barnim** and **Tiergarten**, there are further example 
 Additionally, we provide an ETSI conform application which implement specific CAM generation rules for vehicles 
 (`org.eclipse.mosaic.fed.application.app.etsi.VehicleCamSendingApp`), which is described in the following:
 
-#### ETSI Application for vehicles
-
+### ETSI Application for vehicles
 This application generates ETSI data for its simulation unit (e.g. heading, position, speed and time for
 vehicles). According to its configuration, the application then sends out CAMs to other vehicles in range.
 Note that the messages are only send when the time lies between the configured minimum and maximum

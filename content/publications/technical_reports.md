@@ -8,6 +8,6 @@ title = "Technical Reports"
 #subtitle = ""
 +++
 
-C. Sommer, B. Scheuermann, T. Tielert, B. Schünemann:
-**"Proceedings of the 1st GI/ITG KuVS Fachgespräch Inter-Vehicle Communication (FG-IVC 2013)."**
+C. Sommer, B. Scheuermann, T. Tielert, B. Schünemann:  
+**["Proceedings of the 1st GI/ITG KuVS Fachgespräch Inter-Vehicle Communication (FG-IVC 2013)"](https://publica.fraunhofer.de/dokumente/N-256421.html)**  
 University of Innsbruck, Institute of Computer Science, Technical Report, CCS-2013-01, February 2013.

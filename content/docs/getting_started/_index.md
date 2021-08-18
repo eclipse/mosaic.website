@@ -11,9 +11,7 @@ menu:
     parent: getting_started
 ---
 
-<div style="text-align: center;">
 {{< button icon="download" type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
-</div>
 
 1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip` bundle from the mirror above.** 
 2. Extract the package to an arbitrary path. This installation path is referenced as `<mosaic-root>` throughout the entire document.
@@ -55,6 +53,12 @@ The following table gives an overview of supported environments and simulators. 
 
 \* All provided scenarios require SUMO to be installed. However, if a different traffic or vehicle simulator 
 is coupled, SUMO is not certainly required.
+
+
+{{% alert note %}}
+An Eclipse MOSAIC bundle is built with every commit on our main branch in our [<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse/mosaic). You
+can access and download this distribution following [this link](https://ci.eclipse.org/mosaic/job/mosaic/job/main/).
+{{% /alert %}}
 
 ### Update Eclipse MOSAIC
 

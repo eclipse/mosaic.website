@@ -58,7 +58,16 @@ table {
     background-color: #eeebf0;
   }
 }
-table > tbody > tr:nth-child(2n) > td, table > tbody > tr:nth-child(2n) > th {
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
+  background-color: inherit;
+}
+table > tbody > tr:nth-child(odd) > td,
+table > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+table > tbody > tr:nth-child(2n) > td,
+table > tbody > tr:nth-child(2n) > th {
   background-color: #f3f3f3;
 }
 
@@ -85,6 +94,11 @@ h1 {
 
 hr {
   height: 0;
+}
+
+p + ul,
+p + ol {
+  margin-top: -0.85rem;
 }
 
 .todo {

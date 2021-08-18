@@ -7,6 +7,14 @@ weight = 50  # Order that this section will appear.
 title = "Projects"
 subtitle = ""
 [[project]]
+    title = "AI-NET"
+    subtitle = "Accellerating digital transformation in Europe by Intelligent NETwork automation"
+    desc = "The primary objective of the AINET project is to provide enablers and solutions for high-performance services deployed and operated at the network edge. Here, Fraunhofer FOKUS and DCAITI research on tele-operated and connected driving as an use-case for a high-demanding network service."
+    url = "https://www.celticnext.eu/project-ai-net/"
+    [project.logo]
+    filename = "ai-net.png"
+    width = "90%"
+[[project]]
     title = "RealLabHH"
     subtitle = "Interconnecting VRUs with traffic infrastructure to improve road safety"
     desc = "RealLabHH prepares a broad spectrum digital mobility solutions to be presented at the ITS World Congress 2021 in Hamburg. While pedestrians, cyclists and scooter drivers stand for climate friendly mobility, they are Vulnerable Road Users (VRU) and need specific protection, which could be realized with communication and precise positioning."

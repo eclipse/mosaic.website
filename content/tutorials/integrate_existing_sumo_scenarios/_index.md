@@ -76,6 +76,7 @@ and 1 vehicle.
 ````
 
 You can try running the scenario using the following command:
+
 ````plaintext
 sumo -c <path-to-config>/sievenkingplatz.sumocfg
 ````
@@ -175,7 +176,7 @@ Now it's time to fill out the `scenario_config.json`. For now, you can copy the 
 }
 ````
 > Note: The `cartesianOffset` values are taken from the net-file and can generally just be copied over.
-> 
+
 ### 5. Additional SUMO configuration
 In the `sievekingplatz.sumocfg` the `step-length` is defined, this parameter will, by default, be ignored in MOSAIC and has to be
 set in the `sumo_config.json` (located in the `sumo`-directory) to ensure the same behaviour. 
