@@ -186,7 +186,7 @@ have to define one traffic light without any applications and add a weight to it
 ```
 
 For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to
-[Simulation Scenarios - Traffic Lights](/docs/building_scenarios#traffic-lights).
+[Simulation Scenarios - Traffic Lights](/docs/scenarios#traffic-lights).
 
 **Servers**
 
@@ -286,6 +286,43 @@ Instead of defining an equal list of types and weights for each single vehicle s
 ]
 ```
 
+**Charging Stations**
+{{% alert extended %}}
+While you can define Charging Stations in your mapping configuration the necessary **Charging Station and Battery Simulators** 
+are part of [MOSAIC Extended](/download#overview).  
+For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
+{{% /alert %}}
+The `chargingStations`-section can be used to specify charging stations which handle electric vehicle battery charging.
+A charging station is defined by a position, and a collection of charging spots, where each charging spot represents a
+possibility for an electric vehicle to dock. The charging spots can be defined separately from each other supporting different
+charging types (`AC_3_PHASE`, `AC_1_PHASE` and `DC`).
+
+```json
+ "chargingStations": [
+     {
+         "position": {
+             "latitude": 52.51284101639178,
+             "longitude": 13.328037261722278
+         },
+         "group": "chargingStation",
+         "chargingSpots": [
+             {
+                 "chargingType": "AC_3_PHASE",
+                 "maxVoltage": 400,
+                 "maxCurrent": 16
+             },
+             {
+                 "chargingType": "AC_3_PHASE",
+                 "maxVoltage": 400,
+                 "maxCurrent": 16
+             }
+         ],
+         "applications": [
+             "<package>.ChargingStationApp"
+         ]
+     }
+ ]
+```
 
 ### Advanced vehicle spawners with route generation
 It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the `matrixMappers`-list.

@@ -160,7 +160,7 @@ defines all entities present in the scenario, such as vehicles, servers, or road
 configuration files for the traffic simulator SUMO belong to the scenario folder. Depending on the scope and
 complexity of the simulation scenario, additional configuration files would be required. A detailed description of 
 the structure and configuration possibilities of scenarios and simulators can be found in 
-our  [documentation](/docs/building_scenarios).
+our  [documentation](/docs/scenarios).
 
 ## Custom scenarios and applications
 
@@ -168,7 +168,7 @@ The main purpose of Eclipse MOSAIC is to prototype and evaluate own use-cases in
 automated driving. To achieve this, own application models for vehicles, RSUs, or servers can be integrated and tested
 with custom simulation scenarios.
 
-1) Use the tool [scenario-convert](/docs/building_scenarios/scenario_convert) to create a custom simulation scenario. 
+1) Use the tool [scenario-convert](/docs/scenarios/create_a_new_scenario) to create a custom simulation scenario. 
    This scenario would include the road network, vehicles and their routes through the network, locations of road side units, communication
    properties, and the like.
 2) Implement application models to be integrated with the [Application Simulator](/docs/simulators/application_simulator). 

@@ -32,10 +32,10 @@ For more information on the **INET** extension you should look closer on the [we
 While we recommend GNU/Linux platforms for installing OMNeT++, the official project provides an Windows installation based on mingw.
 
 Beside mingw for Windows you might consider
-- the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/)
 - the installation in [Docker environment](#installation-in-docker-environment)
+- the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/)
 - the installation of Linux in a virtual machine environment, such as
-{{< target-blank "VMware" "https://www.vmware.com/products/workstation-player.html" >}} or {{< target-blank "VirtualBox" "https://www.virtualbox.org/" >}}.
+  {{< target-blank "VMware" "https://www.vmware.com/products/workstation-player.html" >}} or {{< target-blank "VirtualBox" "https://www.virtualbox.org/" >}}.
 
 We prepared an installation script, which manages most of the required work. The script provides two installation types
 tailored to the needs of USERs or even DEVELOPERs. With the additional method of using Docker or the purely manual installation,
@@ -155,6 +155,11 @@ need to manually install OMNeT++ and can even run OMNeT++ on Windows hosts.
 ]
 ```
 
+{{% alert note %}}
+If MOSAIC cannot open a connection to the federate, try to add the option `-Dmosaic.no-detach=true` to the java call in the mosaic.sh file on Linux, or
+`-Dmosaic.no-detach=false` in the mosaic.bat file on Windows.
+{{% /alert %}}
+
 ## Configuration
 
 To use OMNeT++ as network simulator in an Eclipse MOSAIC simulation, open `<scenarioName>/scenario_config.json` and enable OMNeT++:
@@ -177,7 +182,7 @@ The main configuration of the MOSAIC OMNeT++ Federate is done within the configu
 ```
 
 The `omnetpp_config.json` mainly allows the configuration of a filter for different message routing options employed in the ambassador.
-The current integration of ns-3 does not support all combinations (e.g. no TCP is possible for ad-hoc communication).
+The current integration of OMNeT++/INET does not support all combinations (e.g. no TCP is possible for ad-hoc communication).
 Accordingly, changes in this config would require adaptions in the OMNeT++/INET integration as well
 and are therefore only recommended developers not for users.
 

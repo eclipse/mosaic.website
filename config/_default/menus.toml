@@ -154,9 +154,9 @@
   weight = 40
   post = "Configure external and integrated simulators."
 [[docs]]
-  name = "Building Scenarios"
-  identifier = "building_scenarios"
-  url = "/docs/building_scenarios/"
+  name = "Scenarios"
+  identifier = "scenarios"
+  url = "/docs/scenarios/"
   weight = 50
   post = "Build your own simulation scenarios."
 [[docs]]

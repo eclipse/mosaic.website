@@ -204,4 +204,4 @@ The `scenario_config.json` configuration file of the Barnim tutorial should have
 }
 ```
 More information about the scenario configuration can be found
-[here](/docs/building_scenarios#main-configuration).
+[here](/docs/scenarios#main-configuration).

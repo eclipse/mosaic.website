@@ -1,6 +1,6 @@
 ---
-title: Simulation Scenarios
-linktitle: Simulation Scenarios
+title: Scenario Overview
+linktitle: Scenario Overview
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -8,15 +8,18 @@ draft: false
 weight: 10
 menu:
   docs:
-    parent: building_scenarios
+    parent: scenarios
 ---
 
-This section provides information on creating own simulation scenarios. A scenario is generally a 
+This section provides information on creating own simulation scenarios completely from scratch, using the tool [Scenario Convert](docs/scenarios/create_a_new_scenario).
+Furthermore, the section explains how to run series of simulations for the same scenario, yet for different parametrizations, using the [Simulation Runner](docs/scenarios/run_simulation_series).
+
+A scenario is generally a 
 folder structure that reflects the different components usually found in a simulation. Each of the folders
 contains various configuration files which in total describe the simulation setup, including 
 the movements of the vehicles, the definition of the road network, communication properties, and the like. 
 
-The following file structure shows the minimum setup of a typical simulation scenario in Eclipse MOSAIC:
+The following file structure shows the very minimum setup of a simulation scenario in Eclipse MOSAIC (a traffic simulator and the mapping for initial vehicle choreography):
 
 ```plaintext
 └─ <scenarioName>
@@ -24,17 +27,19 @@ The following file structure shows the minimum setup of a typical simulation sce
    |  └─ <scenarioName>.db................ Scenario database file
    ├─ mapping
    |  └─ mapping_config.json ............. Mapping configuration file
-   ├─ sumo
+   ├─ sumo*
    |  └─ <scenarioName>.net.xml .......... SUMO network file
    |  └─ <scenarioName>.sumocfg .......... SUMO configuration file
-   └─ scenario_config.json ............... Basic configuration of the simulation scenario
+   └─ scenario_config.json ............... General configuration of the simulation scenario
 ```
 
-In addition to those files, each simulator need to be provided with their custom configuration files. 
+*) Most tutorials are based on Eclipse SUMO. However, if a different traffic or vehicle simulator is coupled, the SUMO configuration is not certainly required, but the configuration for the other simulator.
+
+In addition to those files, each simulator (e.g. Cell, ns-3, OMNeT++, Environment ...) needs to be provided with its custom configuration files. 
 
 ## Main Configuration
 
-The main configuration file of a scenario is `scenario_config.json`. In this file basic properties are configured, such as the name of the scenario, the random seed, and activated simulators. Such a file looks like the following:
+The main configuration file of a scenario is `scenario_config.json`. In this file general properties are configured, such as the name of the scenario, the random seed, and activated simulators. Such a file looks like the following:
 
 ```json
 {
@@ -64,13 +69,13 @@ The main configuration file of a scenario is `scenario_config.json`. In this fil
     },
     "federates": {
         "application": true,
-        "environment": false,
         "cell": false,
+        "environment": true,
+        "sns": true,
         "ns3": false,
         "omnetpp": false,
-        "sns": false,
-        "sumo": true,
-        "visualizer": true
+        "output": true,
+        "sumo": true
     }
 }
 ```
@@ -78,7 +83,7 @@ The main configuration file of a scenario is `scenario_config.json`. In this fil
 The following fields needs to be configured:
 * **`id`** - The name of the scenario
 * **`duration`** - The duration of the simulation in seconds.
-* **`randomSeed`** - The seed to initialze the random number generator with in order to have deterministic results. If not set, a random seed is taken. 
+* **`randomSeed`** - The seed to initialize the random number generator with in order to have deterministic results. If not set, a random seed is taken. 
 * **`projection`** - Configures the coordinate transformation from geographic coordinates to cartesian coordinates. Having a correct setting 
 here is crucial to get correct results that map to real world coordinates so the simulation results can be visualized in some way. 
 The center coordinate will be used to determine the correct UTM zone, the `cartesianOffset` can be determined by having a look at the trafﬁc simulators network ﬁle, 
@@ -103,13 +108,14 @@ For example, the `<scenarioName>.sumocfg` describes the main configuration of th
 ```
 
 While the `*.net.xml` is a mandatory file to be placed within the `sumo` directory, the `*.rou.xml` is automatically generated
-by the SumoAmbassador when the simulation is started. More information about the configuration of SUMO can be found 
-[here](docs/simulators/application_simulator#configuration).
+by the SumoAmbassador when the simulation is started.
+
+More information about the configuration of SUMO can be found in Section [Eclipse SUMO Overview](docs/simulators/traffic_simulator_sumo#configuration).
 
 ## Applications and Mapping
 
 {{% alert tip %}}
-Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config/).  
+Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  
 {{% /alert %}}
 
 ### Vehicles
@@ -201,7 +207,7 @@ or by referring to previously defined prototypes:
 }
 ```
 
-Please note that traffic light name and traffic light itself in the mapping file stand for a traffic light group controlling a whole junction. Traffic light group can consist of many individual traffic lights controlling an exact lane. The value of the "tlGroupId" key MUST coincide with the name of the traffic light group in the traffic simulator related configuration file (with tlLogic id for SUMO and with junction id for Phabmacs). 
+Please note that traffic light name and traffic light itself in the mapping file stand for a traffic light group controlling a whole junction. Traffic light group can consist of many individual traffic lights controlling an exact lane. The value of the "tlGroupId" key MUST coincide with the name of the traffic light group in the traffic simulator related configuration file (with tlLogic id for SUMO and with junction id for PHABMACS). 
 
 For SUMO, the description of traffic light groups and their programs can be found in `<scenarioname>.net.xml`:
 
@@ -228,9 +234,8 @@ Corresponding `mapping_config.json`:
 }
 ```
 
-More information on the mapping configuration can be found ([here](docs/simulators/application_simulator#configuration).
+For more information about how SUMO traffic lights work, please refer to [SUMO Traffic Lights](https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html). 
 
-For more information about how SUMO traffic lights work please refer to [SUMO Traffic Lights](https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html). 
 <!--
 For Phabmacs, one should create a separate configuration file containing the description of traffic light groups and traffic light programs. 
 
@@ -347,7 +352,7 @@ An example of how the traffic light configuration can look like in berlinTraffic
 
 The `application` folder furthermore needs a generated database file `<scenarioName>.db` . This database file
 contains information about the road network (road topology) and all routes the vehicles can drive on. This file
-is usually generated by the tool `scenario-convert`, which is described [here](docs/building_scenarios/scenario_convert) in detail.
+is usually generated by the tool `scenario-convert`, which is described [here](docs/scenarios/create_a_new_scenario) in detail.
 
 ## Communication Simulator
 
@@ -363,7 +368,7 @@ of the conﬁgured regions (in `regions.json`) have to be in line with the scena
 * The **SNS** also comes without an additional expansion deﬁnition.
 
 Further information on the communication simulators can be found in:
-- [Eclipse MOSAIC SNS](docs/simulators/network_simulator_sns)
 - [Eclipse MOSAIC Cell](docs/simulators/network_simulator_cell)
+- [Eclipse MOSAIC SNS](docs/simulators/network_simulator_sns)
 - [OMNeT++](docs/simulators/network_simulator_omnetpp)
 - [ns-3](docs/simulators/network_simulator_ns3)

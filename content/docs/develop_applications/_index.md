@@ -30,7 +30,7 @@ help:
 * What is required to get my own application to run in Eclipse MOSAIC?
 In Eclipse MOSAIC it is very easy to build your own application. First, it needs to inherit from the `AbstractApplication`
 class (see following section). Secondly, the application must be mapped to
-a vehicle (or RSU, or traffic light, ...) via the mapping configuration (see section [mapping](/docs/building_scenarios#applications-and-mapping)). Finally,
+a vehicle (or RSU, or traffic light, ...) via the mapping configuration (see section [mapping](/docs/scenarios#applications-and-mapping)). Finally,
 the application must be compiled as a Jar-File and placed into the application directory of your
 scenario.
 

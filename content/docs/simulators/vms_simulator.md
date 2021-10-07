@@ -1,19 +1,23 @@
 ---
 title: Variable Message Signs Simulator
-linktitle: VMS Simulator
+linktitle: Traffic - VMS
 toc: true
 type: docs
 draft: false
-weight: 120
+weight: 21
 menu:
   docs:
     parent: simulators
 ---
 
+## Installation
+
 {{% alert extended %}}
 The **VMS Simulator** is part of **[MOSAIC Extended](/download#overview)**.  
 For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}
+
+## Overview
 
 The VMS Simulator extends simulations with variable message signs (VMS), which could by dynamically controlled. A VMS can be placed anywhere along a road and
 has, amongst others, the following properties:

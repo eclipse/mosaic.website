@@ -91,7 +91,7 @@ We will go along the following steps and explain everything in detail:
 5. Have a look at some additional SUMO configuration.
 
 ### 1. Creating the scenario database
-To create the scenario database we will use the [scenario_convert](/docs/building_scenarios/scenario_convert)
+To create the scenario database we will use the [scenario_convert](/docs/scenarios/create_a_new_scenario)
 script, that comes bundled with the MOSAIC extended version from the  [download section](/download).
 Start by calling: 
 ````plaintext
@@ -109,7 +109,7 @@ Note, that we also have to specify the database here.
 
 ### 3. Create the MOSAIC scenario folder structure
 MOSAIC requires a special folder structure to organize the configuration of different federates. If you haven't dealt with MOSAIC
-scenarios yet have a look [here](/docs/building_scenarios/scenario_configuration).
+scenarios yet have a look [here](/docs/scenarios/scenario_configuration).
 Start by creating a following folder structure representing the most basic set-up for a MOSAIC scenario:
 ```plaintext
 └─ sievekingplatz

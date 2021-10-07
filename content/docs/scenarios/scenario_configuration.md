@@ -8,14 +8,14 @@ draft: false
 weight: 30
 menu:
   docs:
-    parent: building_scenarios
+    parent: scenarios
 ---
 
-This chapter aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC.
+This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC.
 We will continue with the tutorial-style explanations following up on the Steglitz-example from the
-[previous chapter](scenario_convert). For more detailed explanations of the configurations have a
-look at [this chapter](/docs/building_scenarios).  
-If you already played with the [Barnim](/tutorials/barnim_basic)-tutorial you probably noticed, that it contains far
+[previous page](create_a_new_scenario). For more detailed explanations of the configurations have a
+look at [the overview](/docs/scenarios).  
+If you already played with the [Barnim](/tutorials/barnim_basic)-tutorial, you probably noticed that it contains far
 more folders in the scenario structure compared to the Steglitz example. Those additional directories contain
 configurations for various simulators.
 
@@ -29,7 +29,7 @@ configurations for various simulators.
    ├─ output
    ├─ sns
    ├─ sumo
-   └─ scenario_config.json .................. Basic configuration of the simulation scenario
+   └─ scenario_config.json .................. General configuration of the simulation scenario
 ```
 
 ## Let the cars loose
@@ -50,12 +50,12 @@ We'll end up with a folder looking like this:
    ├─ sumo
    |  ├─ steglitz.net.xml
    |  └─ steglitz.sumocfg
-   └─ scenario_config.json .................. Basic configuration of the simulation scenario
+   └─ scenario_config.json .................. General configuration of the simulation scenario
 ```
 
-If you have a look in the [mapping_config.json](/docs/building_scenarios/files/steglitz_mapping_config.json), 
+If you have a look in the [mapping_config.json](/docs/scenarios/files/steglitz_mapping_config.json), 
 you can see that the scenario-convert script automatically assigns cars to the three routes created. You can use this
-file as a blueprint for your own scenario, have a look [here](/docs/building_scenarios#applications-and-mapping)
+file as a blueprint for your own scenario, have a look [here](/docs/scenarios#applications-and-mapping)
 to get more details on possible adaptions.  
 Below is a short video of the scenario displayed in the SUMO-GUI. We marked the three different routes the cars
 follow.
@@ -85,25 +85,31 @@ you an overview on how to configure those.
 
 ## Other Simulators
 
-Here we'll discuss two simulators integrated with Eclipse MOSAIC and their use-cases, namely the `Event Server` and the
-`Battery Simulator`.
+In order to employ other simulators for the scenario, make sure to have it enabled in the `scenario_config.json`.
 
-### Event server
-The event server can be used to emit events to vehicles inside it's predefined borders. In the Barnim scenario
-an event server is used to simulate an icy area, which is then noticed by the sensor of a weather server RSU.  
+### Environment Simulator
+The Environment Simulator can be used to emit events to vehicles inside predefined borders. In the Barnim scenario
+the Environment Simulator is used to simulate an icy area, which is then noticed by the sensors of equipped vehicles.  
 Every defined event requires a type, a defined geographical area (e.g. circular, rectangular), the strength and a time frame. Have a look
- at the [eventserver_config.json](files/eventserver_config.json) to see how this can be
-configured. If you want to use the event server make sure to have it enabled in the `scenario_config.json`.
+ at the [environment_config.json](files/eventserver_config.json) to see how this can be configured.
 
-### Battery
-The battery simulator is used to simulate electric vehicles. It offers a lot of customization, because you can
-dynamically load your own battery, vehicle and environment models. Have a look a the [battery_config.json](files/battery_config.json), taken from the Barnim scenario.
-The three models used are included with Eclipse MOSAIC and you can freely use them. 
+### Battery Simulator
+The Battery Simulator allows to simulate discharging and recuperation of electric vehicles, and in connection with the
+Charging Station Simulator also re-charging. It offers a lot of customization, as you can
+dynamically load your own battery, vehicle and environment models. Have a look a the [battery_config.json](files/battery_config.json),
+taken from the Barnim scenario.
+
+### Charging Station Simulator
+
+The Charging Station Simulator extends the modeling possibilities of the Battery Simulator for re-charging.
+Since Charging Stations are also application units in the Application Simulator, most of the configuration and modeling is
+provided by mapping a possible application to the charging station.
+Accordingly, the [charging_config.json](files/charging_config.json) covers, with the charging station range, merely one parameter.
 
 ## Output
 
 There are various options to generate output results of your simulations (see the
-[visualization chapter](/docs/visualization/filevis)). 
+[Visualization chapter](/docs/visualization/filevis)). 
 
 The first step is to create a file called `output_config.xml` in a new directory called `output`.
 If you used the scenario-convert tool the file should be generated automatically. 
@@ -119,19 +125,19 @@ If you used the scenario-convert tool the file should be generated automatically
    ├─ sumo
    |  ├─ steglitz.net.xml
    |  └─ steglitz.sumocfg
-   └─ scenario_config.json .................. Basic configuration of the simulation scenario
+   └─ scenario_config.json .................. General configuration of the simulation scenario
 ```
 
 Example configuration for output generation can be taken from the example scenarios from the tutorials section.
 
-Next make sure the visualization federate is activated in the `scenario_config.json`.
+Finally, make sure the visualization federate is activated in the `scenario_config.json`.
 <!--
 ```xml
 <!-- Visualization -- >
 <federate id="output" active="true"/>
 ```
 
-Now we have to configure the statistics visualizer itself. This [visualizer_config.xml](/docs/building_scenarios/files/steglitz_visualizer_config.xml) contains the basic
+Now we have to configure the statistics visualizer itself. This [visualizer_config.xml](/docs/scenarios/files/steglitz_visualizer_config.xml) contains the basic
 configuration in order to calculate the average travel times for the vehicles. If you want to make adaptions, please
 refer to [statistics visualizer](/docs/visualization/statistics).  
 Go ahead and run the simulation one more time. Afterwards the log-directory should contain a file called 
@@ -143,7 +149,3 @@ Car;186.369;336;
 This tells us that there was a total amount of 336 vehicles of the type `Car` in the simulation, which traveled
 for 186.369  seconds on average.
 -->
-
-__Conclusion__  
-After this small, hands-on introduction to visualizers you should know where to configure them and after some additional
-reading, you should be able to configure different types of visualizers for your use-cases.

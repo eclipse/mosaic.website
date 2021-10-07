@@ -173,6 +173,6 @@ messages using that topology. Also, the aforementioned "Face-Routing" could be o
 of delays could be made more realistic. 
 
 ## Accessing SNS-functionality from your applications
-In order for your scenario to enable the SNS follow the steps [here](docs/building_scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns).
+In order for your scenario to enable the SNS follow the steps [here](docs/scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns).
 An overview of how to configure AdHoc-modules and usage of the API for Routing and Message-Building functions, 
 can be found [here](docs/develop_applications/communication).

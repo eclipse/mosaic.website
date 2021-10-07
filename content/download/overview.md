@@ -54,7 +54,8 @@ preparation and visualization. For commercial users we even provide additional s
 |  | **[Cellular Communication](/docs/simulators/network_simulator_cell)**  |**✓**|**✓**| 
 |  | **[ITS-G5 Communication](/docs/simulators/network_simulator_sns)**     |**✓**|**✓**|
 |  | **[Environment](/docs/simulators/environment_simulator)**              |**✓**|**✓**|
-|  | **[Battery / Charging](/docs/simulators/battery_simulator)**           | -   |**✓**|
+|  | **[Battery](/docs/simulators/emobility_simulator_battery)**            | -   |**✓**|
+|  | **[Charging Station](/docs/simulators/emobility_simulator_charging)**  | -   |**✓**|
 |  | **[Variable Message Signs](/docs/simulators/vms_simulator)**           | -   |**✓**|
 |  | **PHABMACS Scenario API**                                              |**✓**|**✓**|
 |  | **PHABMACS Vehicle Simulator**                                         | -   |**✓**|
@@ -67,8 +68,8 @@ preparation and visualization. For commercial users we even provide additional s
 |*Tools* |||||| 
 |  | **[Command Line Tool](/docs/getting_started/run_mosaic)**              |**✓**|**✓**|
 |  | **Run Federates in Docker**                                            |**✓**|**✓**|
-|  | **[Scenario Convert](/docs/building_scenarios/scenario_convert)**      |(✓)**|**✓**|
-|  | **Simulation Set Runner**                                              | -   |**✓**|
+|  | **[Scenario Convert](/docs/scenarios/create_a_new_scenario)**          |(✓)**|**✓**|
+|  | **[Simulation Runner](docs/scenarios/run_simulation_series)**          | -   |**✓**|
 |  | **TrafficGen**                                                         | -   |**✓**|
 
 *) For the commercial version of MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will 

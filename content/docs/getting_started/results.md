@@ -20,12 +20,13 @@ folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folde
    ├─ apps
    |  └─ <unitType>_<unitId> ................. Detailed application specific logs for each unit
    |      ├─ OperatingSystem.log ............. Detailed operating system logs for the unit
-   |      └─ ExampleApp.log .................. Detailed application specific logs for each application.
+   |      └─ ExampleApp.log .................. Detailed application specific logs for each application
    ├─ activities.csv ......................... Simulation details in comma separated value-format
-   ├─ Application.log  ....................... Information about the application ambassador
+   ├─ Application.log  ....................... Application simulator logs, including information for all units
+   ├─ Battery.log ............................ Battery simulator log
    ├─ Cell.log ............................... Cellular network log
    ├─ ChargingStation.log .................... ChargingStation ambassador log
-   ├─ Communication.log ...................... (Ad hoc) network simulation ambassador log
+   ├─ Communication.log ...................... (Ad hoc) network simulation ambassador log (ns-3, OMNeT++, SNS)
    ├─ CommunicationDetails.log ............... Detailed output of network simulator (ns-3 or OMNeT++)
    ├─ Environment.log ........................ Logs of the environmental eventserver
    ├─ Mapping.log ............................ Mapping configuration logs

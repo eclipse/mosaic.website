@@ -10,6 +10,8 @@
   font-weight: bold;
   margin: 1rem 1rem 1rem 0;
   transition: all 0.16s ease;
+  text-shadow: 1px 1px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 1px 0 rgba(255,255,255,0.4), 1px 1px 1px 0 rgba(0,0,0,0.4);
   &:hover, &:focus {
     background-color: #fff;
     color: $mosaic-purple;
@@ -27,6 +29,8 @@ table .mosaic-btn {
   color: $mosaic-purple !important;
   border-color: #fff;
   background-color: #fff;
+  box-shadow: none;
+  text-shadow: none;
   @extend .gradient-white-darken;
 
   &:hover, &:focus {

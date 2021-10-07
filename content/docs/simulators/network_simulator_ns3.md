@@ -135,6 +135,11 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.
 
 You can test the installation of your docker image with the Tiergarten scenario, by activating ns3 in the `scenario_config.json`.
 
+{{% alert note %}}
+If MOSAIC cannot open a connection to the federate, try to add the option `-Dmosaic.no-detach=true` to the java call in the mosaic.sh file on Linux, or
+`-Dmosaic.no-detach=false` in the mosaic.bat file on Windows.
+{{% /alert %}}
+
 ## Configuration
 
 The whole ns-3 specific configuration is done via the files `ns3_config.json` and `ns3_federate_config.xml`

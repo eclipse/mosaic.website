@@ -45,6 +45,7 @@ table th:first-of-type {
 ||
 | **Environment Simulation** | **[MOSAIC Environment](environment_simulator)** | Environmental event simulation. |
 ||
-| **E-Mobility Simulation** | **[MOSAIC Battery](battery_simulator)** * | Electric vehicle simulation. |
+| **E-Mobility Simulation** | **[MOSAIC Battery](emobility_simulator_battery)** * | Simulator for discharging, charging and recuperation of electric vehicles. |
+|                           | **[MOSAIC Charging](emobility_simulator_charging)** * | Simulator for requests towards charging stations. |
 
 *) _Only part of the [MOSAIC Extended](/download) bundle._
