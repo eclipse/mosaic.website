@@ -228,9 +228,6 @@ Point-to-multipoint communication (multicast).
 |uplink|[`server.uplink`](#reference-server.uplink)|Object to define uplink properties of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.|No|None|None|
 |downlink|[`server.downlink`](#reference-server.downlink)||No|None|None|
 
-**The following additional properties are allowed:**  
-* [undefined](#reference-undefined) 
-
 
 
 ---------------------------------------
@@ -246,9 +243,6 @@ Object to define uplink properties of a network. The uplink direction only allow
 |delay|[`delay`](#reference-delay)|Object to define a delay model.| &#10003; Yes|None|None|
 |transmission|[`transmission`](#reference-transmission)|Object to define the properties of a transmission.| &#10003; Yes|None|None|
 
-**The following additional properties are allowed:**  
-* [undefined](#reference-undefined) 
-
 
 
 ---------------------------------------
@@ -260,7 +254,4 @@ Object to define uplink properties of a network. The uplink direction only allow
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
 |unicast|[`unicast`](#reference-unicast)|Point-to-point communication (unicast).| &#10003; Yes|None|None|
-
-**The following additional properties are allowed:**  
-* [undefined](#reference-undefined) 
 

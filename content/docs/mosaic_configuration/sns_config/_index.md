@@ -35,7 +35,7 @@ Schema describing the JSON file structure for the sns configuration.
 |---|---|---|---|---|---|
 |maximumTtl|`integer`|The threshold for the amount of hops for a transmission. This is an additional, hard threshold, which can't be exceeded.|No|[0, +$\infty$]|`10`|
 |singlehopRadius|`number`|Default radius in m to be used if an AdhocConfiguration doesn't specify a radius.|No|None|`509.4`|
-|adhocTransmissionModel|[`adhocTransmissionModel`](#reference-adhoctransmissionmodel)|Object to define an adhoc transimssion model.|No|None|None|
+|adhocTransmissionModel|[`adhocTransmissionModel`](#reference-adhoctransmissionmodel)|Object to define an adhoc transmission model.|No|None|None|
 |singlehopDelay|[`delay`](#reference-delay)|Object to define a delay model.|No|None|[constantDelay](#reference-constantdelay)|
 |singlehopTransmission|[`transmission`](#reference-transmission)|Object to define the properties of a transmission.| &#10003; Yes|None|None|
 
@@ -43,15 +43,15 @@ Schema describing the JSON file structure for the sns configuration.
 
 ---------------------------------------
 <a name="reference-adhoctransmissionmodel"></a>
-## adocTransmissionModel
+## adhocTransmissionModel
 
-Object to define an adhoc transimssion model.
+Object to define an adhoc transmission model.
 
 **Properties**
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
-|type|`string`|Type of the transmission model. The simple model assumes, that all receivers can be reached even though this might not be the case in reality.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-adoctransmissionmodeltype)|None|
+|type|`string`|Type of the transmission model. The simple model assumes, that all receivers can be reached even though this might not be the case in reality.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-adhoctransmissionmodeltype)|None|
 |simpleMultihopDelay|[`delay`](#reference-delay)|Object to define a delay model.|No|None|[constantDelay](#reference-constantdelay)|
 |simpleMultihopTransmission|[`transmission`](#reference-transmission)|Object to define the properties of a transmission.| &#10003; Yes|None|None|
 

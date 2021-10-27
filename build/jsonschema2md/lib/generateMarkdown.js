@@ -196,7 +196,7 @@ function createPropertiesDetails(schema, title, headerLevel, knownTypes, autoLin
     if (defined(schema.oneOf)) {
         for (var name in schema.oneOf) {
             if (defined(schema.oneOf[name].title)){
-                additionalProperties += '* ['+schema.oneOf[name].title+'](#reference-'+schema.oneOf[name].title+') \n';
+                additionalProperties += '* [' + schema.oneOf[name].title + '](#reference-' + schema.oneOf[name].title + ') \n';
             }
         }
     }
@@ -222,7 +222,7 @@ function createPropertiesDetails(schema, title, headerLevel, knownTypes, autoLin
     // display content of additionalProperties field
     additionalProperties = '';
     if (defined(schema.additionalProperties)) {
-        if (schema.additionalProperties.type != 'array') {
+        if (typeof schema.additionalProperties === 'object' && schema.additionalProperties.type != 'array') {
             additionalProperties += '* ['+schema.additionalProperties.title+'](#reference-'+schema.additionalProperties.title+') \n';
         } else if (schema.additionalProperties.type == 'array') {
             additionalProperties += '* array[['+schema.additionalProperties.items.title+'](#reference-'+schema.additionalProperties.items.title+')] \n';

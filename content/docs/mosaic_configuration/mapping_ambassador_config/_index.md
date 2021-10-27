@@ -42,7 +42,7 @@ This schema describes the JSON file structure for the mapping configuration, whi
 |servers|[`server[]`](#reference-server)|Array of servers. Servers are a form of units that have no geographical location. The network properties of a server can be defined in the network.json-configuration in the cell-module.|No|None|None|
 |tmcs|[`tmc[]`](#reference-tmc)|Array of Traffic Management Centers (TMCs). TMCs are specialized forms of servers having direct access to data collected by induction loops and lane area detectors. The network properties of a TMC can be defined in the network.json-configuration in the cell-module.|No|None|None|
 |trafficLights|[`trafficLights[]`](#reference-trafficlights)|Array of prototypes for traffic lights. Since it is a traffic light only applications can be defined. Traffic light prototypes can be distributed among all traffic lights of an application by weight or assigned to specific traffic lights by using the ID of traffic light groups as reference.|No|None|None|
-|chargingStations|[`chargingStation[]`](#reference-chargingstation)|Array of electric vehicle charging stations based on ETSI TS 101 556-1. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.|No|None|None|
+|chargingStations|[`chargingStation[]`](#reference-chargingstation)|Array of electric vehicle charging stations. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.|No|None|None|
 
 **Further property restrictions:**  
 <a name="restriction-mappingtypedistributions"></a> 
@@ -217,7 +217,7 @@ Object to define geographical point coordinates.
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
 |longitude|`number`|East-west position of a point on earth.| &#10003; Yes|[-180, 180]|None|
-|latitude|`number`|North-south position of a point on earth.| &#10003; Yes|[-$\infty$, 90]|None|
+|latitude|`number`|North-south position of a point on earth.| &#10003; Yes|[-90, 90]|None|
 
 
 
@@ -351,16 +351,14 @@ Object to define a prototype for a traffic light. Since it is a traffic light on
 <a name="reference-chargingstation"></a>
 ## chargingStation
 
-Object to define an electric vehicle charging station based on ETSI TS 101 556-1. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.
+Object to define an electric vehicle charging station. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.
 
 **Properties**
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
 |position|[`geoPoint`](#reference-geopoint)|Object to define geographical point coordinates.| &#10003; Yes|None|None|
-|operator|`string`|The EV charging station operator (e.g. energy provider) identification.| &#10003; Yes|None|None|
-|group|`string`|The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple charginStation entities.|No|None|None|
-|access|`string`|Access restrictions, e.g. open to all or restricted to some communities, free of access or paying access.| &#10003; Yes|None|None|
+|group|`string`|The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple chargingStation entities.|No|None|None|
 |name|`string`|Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.|No|None|None|
 |chargingSpots|[`chargingSpot[]`](#reference-chargingspot)|List of the electric vehicle charging spots associated with this electric vehicle charging station.| &#10003; Yes|None|None|
 |applications|`string[]`|The application to be used for this object.|No|None|None|
@@ -371,13 +369,21 @@ Object to define an electric vehicle charging station based on ETSI TS 101 556-1
 <a name="reference-chargingspot"></a>
 ## chargingSpot
 
-Object to define an electric vehicle charging spot based on ETSI TS 101 556-1. A set of 1 to 4 parking places arranged around a pole, where it is possible to charge an electric vehicle.
+Object to define an electric vehicle charging spot.
 
 **Properties**
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
-|id|`number`|Unique identifier of the charging spot.|No|None|None|
-|type|`integer`|The type of this electric vehicle charging spot in compliance with current standards, including IEC 62196-2.| &#10003; Yes|[1, 3]|None|
-|parkingPlaces|`integer`|Number of available parking places, i.e. 1 to 4 parking places arranged around a pole.| &#10003; Yes|[1, 4]|None|
+|chargingType|`string`|The type of this electric vehicle charging spot.| &#10003; Yes|Enum[<i class="fas fa-info-circle"></i>](#restriction-chargingspotchargingtype)|None|
+|maxVoltage|`number`|Maximum voltage available at this charging spot.| &#10003; Yes|[0, +$\infty$]|None|
+|maxCurrent|`number`|Maximum current available at this charging spot.| &#10003; Yes|[0, +$\infty$]|None|
 
+**Further property restrictions:**  
+<a name="restriction-chargingspotchargingtype"></a> 
+### chargingSpot.chargingType
+
+* **Allowed values**:
+   * `AC_1_PHASE`
+   * `AC_3_PHASE`
+   * `DC`

@@ -23,6 +23,9 @@ On the following pages we provide a complete documentation of configuration file
 |  `cell/regions.json` | [Cell Regions configuration](cell_region_config) |
 |  `cell/network.json` | [Cell Network configuration](cell_network_config) |
 |  `sumo/sumo_config.json` | [SUMO Ambassador Configuration](sumo_config)|
+| | |
+|  `battery/battery_config.json` | [Battery Simulator Configuration](battery_config) (_Extended_)|
+|  `charging/charging_config.json` | [Charging Simulator Configuration](charging_config) (_Extended_)|
 
 ### Readable Units
 Our configuration files accept readable units for some fields. 

@@ -2,7 +2,10 @@ const path = require('path')
 const fs = require('fs')
 const { exec, execFile } = require('child_process');
 
-let repoDir = ''
+const repoDir = {
+    'eclipse': '',
+    'extended': '',
+}
 const startWeight = 100
 const jsonschema2md = path.join(__dirname, 'jsonschema2md/bin/wetzel.js')
 const jsonSchemesFile = path.join(__dirname, '..', 'mosaic-json-schemes.json')
@@ -34,12 +37,18 @@ async function isDir(filePath) {
     })
 }
 
-async function storeRepoPaths(absoluteRepoPathEclipse) {
+async function storeRepoPaths(absoluteRepoPathEclipse, absoluteRepoPathExtended) {
     // Check Eclipse MOSAIC repository path
     if (await isDir(absoluteRepoPathEclipse)) {
-        repoDir = absoluteRepoPathEclipse
+        repoDir['eclipse'] = absoluteRepoPathEclipse
     } else {
         return Promise.reject(new Error(`Eclipse MOSAIC repository directory does not exist at: ${ absoluteRepoPathEclipse }`))
+    }
+    // Check MOSAIC Extended repository path
+    if (await isDir(absoluteRepoPathExtended)) {
+        repoDir['extended'] = absoluteRepoPathExtended
+    } else {
+        return Promise.reject(new Error(`MOSAIC Extended repository directory does not exist at: ${ absoluteRepoPathExtended }`))
     }
 }
 
@@ -94,7 +103,7 @@ async function getMarkdownTemplate() {
 }
 
 async function createMarkdown(jsonScheme) {
-    const jsonSchemeFile = path.join(repoDir, jsonScheme.path)
+    const jsonSchemeFile = path.join(repoDir[jsonScheme.source], jsonScheme.path)
     if (await isFile(jsonSchemeFile)) {
         return new Promise((resolve, reject) => {
             execFile("node", [jsonschema2md, jsonSchemeFile], (error, stdout, stderr) => {
@@ -128,14 +137,19 @@ async function gitAdd(filePath) {
     })
 }
 
-async function convert(absoluteRepoPathEclipse) {
+async function convert(absoluteRepoPathEclipse, absoluteRepoPathExtended) {
     if (!absoluteRepoPathEclipse) {
         throw new Error(`Missing absolute path to Eclipse MOSAIC repository directory.`)
     } else if (!path.isAbsolute(absoluteRepoPathEclipse)) {
         throw new Error(`Path to Eclipse MOSAIC repository directory is not absolute.`)
     }
+    if (!absoluteRepoPathExtended) {
+        throw new Error(`Missing absolute path to MOSAIC Extended repository directory.`)
+    } else if (!path.isAbsolute(absoluteRepoPathExtended)) {
+        throw new Error(`Path to MOSAIC Extended repository directory is not absolute.`)
+    }
 
-    await storeRepoPaths(absoluteRepoPathEclipse)
+    await storeRepoPaths(absoluteRepoPathEclipse, absoluteRepoPathExtended)
     const jsonSchemes = await collectJsonSchemes()
     await getMarkdownTemplate()
     for (let index = 0; index < jsonSchemes.length; index++) {
