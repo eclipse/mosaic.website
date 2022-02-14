@@ -42,13 +42,14 @@
   min-height: calc(100vh - 428px);
   max-width: none;
   table {
-    display: table;
+    overflow: scroll;
   }
 }
 
 .docs-content {
   padding-bottom: 0 !important;
 }
+
 
 .docs .article {
   font-size: 0.8rem;

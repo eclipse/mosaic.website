@@ -250,6 +250,12 @@ div.alert > div > ul > li > p {
   padding-bottom: 3rem;
 }
 
+article.article.post figure img {
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  box-shadow: 0 14px 35px -3px rgba(49, 2, 62, 0.25);
+}
+
 .featured-image {
   border-radius: 5px;
   border: 1px solid #aaa;

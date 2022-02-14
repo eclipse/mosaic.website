@@ -84,7 +84,7 @@ private void sample() {
 
 The `Event` created in this method is passed with a `this` argument, which represents an `EventProcessor` which gets notified 
 as soon as the proposed event time is reached. As this class implements the `EventProcessor` interface, the method 
-`processEvent()` will be called by the application simulator ons the simulation time is reached:
+`processEvent()` will be called by the application simulator once the simulation time is reached:
 
 ```java
 @Override

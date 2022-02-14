@@ -30,6 +30,11 @@ However, you can use scenario-convert **for free** to generate scenarios which a
 
 {{< button icon="download" type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download scenario-convert from DCAITI mirror" >}}
 
+1. Download `scenario-convert` via the link above
+2. Extract the `.zip` and go to the extracted folder
+3. To use the commands listed later, rename the extracted `scenario-convert-<version>.jar` (e.g. `scenario-convert-20.0`) into `scenario-convert`
+4. Move `scenario-convert` to an arbitrary location where you want to create your scenario
+
 `scenario-convert` will create a database, which is the basis for all map-related tasks performed by Eclipse MOSAIC (e.g. navigation,
 route calculation...).  
 Based on a MOSAIC database, scenario-convert can export the data to SUMO-conform formats.
@@ -38,7 +43,8 @@ routes or  build own routes via route generation tools (e.g. DUAROUTER by SUMO).
 
 This chapter intends to highlight the most common workflows for the work with `scenario-convert`.
 We will be using [steglitz.osm](files/steglitz.osm) OSM-file for most of the
-use cases So feel free to follow along with the steps to get a better understanding on how the `scenario-convert`-script functions.
+use cases. Best is to save `steglitz.osm` in the same directory where `scenario-convert` is located. 
+So feel free follow along with the steps to get a better understanding on how the `scenario-convert`-script functions.
 
 {{% alert note %}}
  [Here](#reference-documentation-for-scenario-convert) you can find a complete reference to all options scenario-convert offers. 
@@ -61,7 +67,8 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
 In this section we use the scenario name `steglitz.*` as synonym for `path/to/steglitz.*`.
 {{% /alert %}}
 
-This achieves a couple of things. First off the script is going to create a SQLite-database,
+Please be aware that the scenario generated with the call above contains no routes yet, see [Import Routes](#importing-routes-to-your-scenario) for more details.
+The complete call achieves a couple of things. First off the script is going to create a SQLite-database,
 which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which should look like this:
 
 ```plaintext
@@ -102,7 +109,7 @@ Let's walk through all these files:
 5. Afterwards the `mapping_config.json` and `scenario_config.json` are created and all files are moved to the right place.
 In the `scenario_config.json` values like the center coordinate will automatically be set using data from the SUMO related files.
 
-While this is technically sufficient to start working on your scenario there are a couple of other things
+While this is technically sufficient to start working on your scenario, like [importing routes](#importing-routes-to-your-scenario) to it, there are a couple of other things
 you can do to achieve better results.
 
 ### Clean the OSM-file using Osmosis
@@ -138,7 +145,7 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --skip-osm-filter
 ### Generating Routes
 The scenario-convert also offers the option `--generate-routes`, which will generate
 a route-file, given some additional information. For example purposes we will run the
-following command:
+ command below. In case you generated the `steglitz scenario` in one of the steps above already, please delete or rename the `steglitz` directory and run:
 ```bash
 java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
@@ -164,6 +171,9 @@ A quick reminder on what we achieved:
 With all of this you can now start further developing your scenario. For a more detailed description on the next steps
 please have a look at [Additional Scenario Configuration](/docs/scenarios/scenario_configuration) and 
 [Application Development](/docs/develop_applications).  
+
+You can now move your `steglitz` directory to `/scenarios` and test it by running 
+`./mosaic.sh -s steglitz` on Linux or `.\mosaic.bat -s steglitz` on Windows.
 
 While this is the 'happy world' workflow, it is often necessary to manually adapt routes and
 insert them into your scenario. The following workflow

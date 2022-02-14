@@ -57,7 +57,7 @@ offers the possibility to configure a specific geographical area which can be ei
 The following figure illustrates a vehicle ***veh_2*** which is communicating with the other 
 vehicles(***veh_1***, ***veh_3***) within a radius **R**. 
 
-{{< figure src="../images/tiergarten-geobroadcast-circular-area.png" title="Illustration of Geobroadcast in a spezific circular area" numbered="true" >}}
+{{< figure src="../images/tiergarten-geobroadcast-circular-area.png" title="Illustration of Geobroadcast in a specific circular area" numbered="true" >}}
 
 A circular communication area can be defined with the `geoBroadCast(GeoCircle geoCircle)` from an Eclipse MOSAIC application,
 as shown below:

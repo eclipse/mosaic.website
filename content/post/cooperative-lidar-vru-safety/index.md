@@ -29,7 +29,7 @@ projects: []
 
 **People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown with PHABMACS and MOSAIC Extended.**
 
-{{< figure src="featured.png" numbered="false" width="70%" >}}
+{{< figure src="header.png" numbered="false" width="70%" >}}
 
 During the research project **[RealLabor Hamburg](https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/)**, we used MOSAIC to create a complex traffic situation for investigating the general benefit of LiDAR based object detection and the effectiveness of merging the LiDAR sensor data (point clouds) from multiple vehicles before applying object detection. In this case, the LiDAR data would not be processed locally on the vehicles but communicated to a server (possibly in the Mobile Edge Cloud) and processed there - accordingly it results in a Cooperative LiDAR Data Fusion.
 

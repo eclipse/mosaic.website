@@ -35,7 +35,7 @@ the application must be compiled as a Jar-File and placed into the application d
 scenario.
 
 * How can I access vehicle functions from within the application, such as sending V2X messages?
-Every applications has access to the `OperatingSystem` of the underlying unit which allows to
+Every application has access to the `OperatingSystem` of the underlying unit which allows to
 change its state or to initiate actions, such as sending messages to other vehicles.
 
 * How can I react to events during the simulation, such as receiving V2X messages?
