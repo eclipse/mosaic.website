@@ -129,12 +129,12 @@ which contains the list of simulators to use for the scenario. This way, simulat
     },
     "federates": {
         "application": true,
-        "environment": false,
         "cell": false,
+        "environment": true,
+        "sns": true,
         "ns3": false,
         "omnetpp": false,
         "output": true,
-        "sns": false,
         "sumo": true
     }
 }

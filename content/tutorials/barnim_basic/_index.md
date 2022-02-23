@@ -42,8 +42,8 @@ With multi hop routing, the DENM message is transported upstream towards other v
  icy part of the road. Since they have careful and responsible drivers they slow down to avoid accidents.
 4. Cars that are equipped with the appropriate communication equipment are able to receive the DENM, which 
 induces them to use a different route (green) which is safer and faster due to the lack of ice on it.
-5. Last but not least, the **WeatherServer** (technically implemented as an RSU) propagates information over the
-cellular network and could therefore be located virtually everywhere.
+5. Last but not least, there is a **WeatherServer** that propagates weather information over the
+cellular network.
 
 {{< figure src="images/barnim-map.png" title="Overview of Barnim tutorial scenario" numbered="true" >}}
 
@@ -51,18 +51,18 @@ cellular network and could therefore be located virtually everywhere.
 
 In this section, the applications will be described briefly which are used in the Barnim tutorial. 
 
-| Application | Description  |
-| ----------- | ------------ |
-| `org.eclipse.mosaic.app.tutorial.`**`SlowDownApp`** | Induces a speed reduction as soon as the onboard sensors detect hazardous conditions. After leaving the hazardous area, the vehicles will resume by increasing their speed again. |
-| `org.eclipse.mosaic.app.tutorial.`**`WeatherWarningApp`** | Vehicles with this application mapped simulate to be equipped equipped with ad hoc wifi. They might not be able to receive DENMs due to range limitations and drive into the icy section nonetheless. |
+| Application | Description                                                                                                                                                                                                          |
+| ----------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `org.eclipse.mosaic.app.tutorial.`**`SlowDownApp`** | Induces a speed reduction as soon as the onboard sensors detect hazardous conditions. After leaving the hazardous area, the vehicles will resume by increasing their speed again.                                    |
+| `org.eclipse.mosaic.app.tutorial.`**`WeatherWarningApp`** | Vehicles with this application mapped simulate to be equipped equipped with ad hoc wifi. They might not be able to receive DENMs due to range limitations and drive into the icy section nonetheless.                |
 | `org.eclipse.mosaic.app.tutorial.`**`WeatherWarningAppCell`** | A specialized form of the weather warning application above that can make use of cellular communication, simulates the Cellular communication enabled vehicles which are able to communicate with the WeatherServer. |
-| `org.eclipse.mosaic.app.tutorial.`**`WeatherServerApp`** | Simulates a fixed Weather-Server equipped with cellular communication. Despite the greater distance it is able to warn vehicles that can also make use of cellular communication. |
+| `org.eclipse.mosaic.app.tutorial.`**`WeatherServerApp`** | Simulates a Weather-Server equipped with cellular communication. It is able to warn vehicles that can make use of cellular communication.                                                                       |
 
 ## Mapping configuration
 
 This section gives a short explanation of the mapping we use in this scenario. 
 First, we use five different types of entities. 
-One RSU which acts as the WeatherServer and four types of cars, each of them loaded with different applications. 
+One server, namely the WeatherServer, and four types of cars, each of them loaded with different applications. 
 As usual, the configuration takes place in `mapping/mapping_config.json` in your scenario folder.
 
 In this tutorial, there is only one vehicle type named `Car` configured in the `prototypes` section. 
@@ -101,20 +101,21 @@ Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_conf
     }
 ]
 ```
-As mentioned above, the RSU entity acts as a `WeatherServer` and it is configured in 
-the `rsus` section of the `mapping_config.json` file. 
-As shown below, the RSU has fixed coordinates and the application 
-`org.eclipse.mosaic.app.tutorial.WeatherServerApp` is mapped which gives `WeatherServer` functionality to the RSU.
+The `WeatherServer` is configured in 
+the `servers` section of the `mapping_config.json` file. 
+For the `CellAmbassador` to be able to recognize the `WeatherServer`, the `group`-field in the mapping below is 
+`WeatherServer`. 
+For a correct recognition, this field matches the `id`-field in the `cell/network.json`.
+Check out [server configuration](https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/#server-configuration) for more info.
 
 ```json
-"rsus": [
+"servers": [
         {
-            "lat": 52.65027,
-            "lon": 13.54500,
             "name": "WeatherServer",
+            "group": "WeatherServer",
             "applications": [ "org.eclipse.mosaic.app.tutorial.WeatherServerApp" ]
         }
-    ]
+]
 ```
 In the `vehicles` section, we define the actual vehicles driving in the simulation. Each item represents 
 a flow of vehicles on a certain route, which can be configured the following:

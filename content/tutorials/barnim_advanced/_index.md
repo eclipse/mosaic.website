@@ -37,7 +37,7 @@ tutorial is structured in four applications.
 
 ### WeatherServer Application
 
-Basically, the `WeatherServer` is an enhanced RSU which has knowledge about the hazardous area and it is responsible to 
+Basically, the `WeatherServer` is a simulation unit without geographical location which has knowledge about the hazardous area and it is responsible to 
 transmit DEN-Messages periodically to vehicles equipped with  `WeatherWarningAppCell`-application via cellular communication. 
 Firstly, the hazardous area (Road-ID and GeoPoint coordinates), the type of the warning (Sensor type), message interval 
 and the resulted speed will be defined to be used later: 
@@ -62,6 +62,7 @@ CellModule as communication mode:
 public void onStartup() {
 	getLog().infoSimTime(this, "Initialize WeatherServer application");
 	getOperatingSystem().getCellModule().enable();
+    getLog().infoSimTime(this, "Setup weather server {} at time {}", getOs().getId(), getOs().getSimulationTime());
 	getLog().infoSimTime(this, "Activated Cell Module");
 	sample();
 }
@@ -82,7 +83,7 @@ private void sample() {
 }
 ```
 
-The `Event` created in this method is passed with a `this` argument, which represents an `EventProcessor` which gets notified 
+The `Event` created in this method is passed with a `this` argument, which represents an `EventProcessor` that gets notified 
 as soon as the proposed event time is reached. As this class implements the `EventProcessor` interface, the method 
 `processEvent()` will be called by the application simulator once the simulation time is reached:
 
@@ -107,7 +108,7 @@ private Denm constructDenm() {
 	return new Denm(routing,
 			new DenmContent(
 					getOperatingSystem().getSimulationTime(),
-					getOs().getInitialPosition(),
+					null,
 					HAZARD_ROAD,
 					SENSOR_TYPE,
 					strength,
@@ -125,7 +126,7 @@ private Denm constructDenm() {
 
 The WeatherWarningApp application illustrates the vehicles and their behaviour in particular with regard to the 
 detecting hazardous area, the receiving and sending messages. We will also cover how alternative routes 
-will be calculated and how the change the route in order to circumnavigate the affected road area.
+will be calculated and how vehicles change their route in order to circumnavigate the affected road area.
 
 The simulating vehicles can be operated as Cellular or Ad-hoc equipped. Accordingly, the kind of used communication 
 network will be activated in the `onStartup()` method as following:
