@@ -148,7 +148,8 @@ Object to define vehicles to be spawned in the simulation. This property describ
 |laneSelectionMode|`string`|The lane selection mode chooses the lane for the next departing vehicle.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclelaneselectionmode)|`DEFAULT`|
 |spawningMode|`string`|Adjusts the departure time of individual vehicles.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclespawningmode)|`CONSTANT`|
 |deterministic|`boolean`|Determines if selection of a vehicles type when spawning follows a deterministic or stochastic model. When set to true the spawning-process will choose exactly the same types with every execution. When set to false the order of types may be different and selected weights will be reached more slowly.|No|None|`true`|
-|pos|`number`|Position within the route where the vehicle(s) should be spawned.|No|[0, +$\infty$]|`0`|
+|departConnectionIndex|`number`|The index of the connection of the route where the vehicle will start on.|No|[0, +$\infty$]|`0`|
+|pos|`number`|Position within the connection of the route where the vehicle(s) should be spawned.|No|[0, +$\infty$]|`0`|
 |route|`string`|Route that the vehicle(s) should use. If an origin and a destination are specified this route will be treated as a preference (i.e. it will be selected if it connects the two points in question).|No|None|None|
 |lanes|`number[]`|Array of numbers to define the lanes to be used. The vehicles will be evenly distributed among the given lanes. When no value is given lane zero will be used for all vehicles.|No|None|None|
 |types|[`prototype[1-*]`](#reference-prototype)|List of possible vehicle types to be spawned. In this list you can simply refer to an existing prototype by its name attribute to include everything defined there. You can also overwrite every attribute of the prototype. If you don't have an existing prototype the definitions found here will be used as the prototype definition itself.|No|None|None|

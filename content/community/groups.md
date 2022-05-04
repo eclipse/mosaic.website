@@ -41,7 +41,7 @@ subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from
         md = "6"
         lg = "5"
     [card.image]
-        file = "/img/logos/partners/dcaiti.png"
+        file = "/img/logos/partners/dcaiti.svg"
         url = "https://www.dcaiti.tu-berlin.de/"
         alt = "DCAITI logo"
         width = "70%"

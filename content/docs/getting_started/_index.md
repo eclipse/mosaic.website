@@ -13,7 +13,7 @@ menu:
 
 {{< button icon="download" type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download Eclipse MOSAIC from DCAITI mirror" >}}
 
-1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip` bundle from the mirror above.** 
+1. **Download the `eclipse-mosaic-{{< version of="mosaic" >}}.zip/tar.gz` bundle from the mirror above.** 
 2. Extract the package to an arbitrary path. This installation path is referenced as `<mosaic-root>` throughout the entire document.
 3. **Install additional software** required by the simulation (see below), e.g. [Eclipse SUMO](https://www.eclipse.org/sumo)
 

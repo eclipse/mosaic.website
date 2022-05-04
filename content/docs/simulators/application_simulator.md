@@ -45,7 +45,6 @@ It is not necessary to provide the file, as in this case of a non-existing file,
 ```json
 {
     "messageCacheTime": "30s",
-    "minimalPayloadLength": 200,
     "encodePayloads": true,
     "navigationConfiguration" : {
         "type": "database"
@@ -54,7 +53,7 @@ It is not necessary to provide the file, as in this case of a non-existing file,
 ```
 
 Furthermore, depending on the deployed **Applications**, the applications itself may offer configuration options 
-in custom configuration files (e.g. `ETSIApplication.json` or `ETSIApplication_veh_0.json` - [see below](#etsi-application-for-vehicles)).
+in custom configuration files (e.g. `EtsiApplication.json` or `EtsiApplication_veh_0.json` - [see below](#etsi-application-for-vehicles)).
 
 {{% alert tip %}}
 The **Mapping** configuration is presented in close detail in [Application - Mapping](/docs/simulators/application_mapping).  
@@ -126,17 +125,19 @@ vehicles). According to its configuration, the application then sends out CAMs t
 Note that the messages are only send when the time lies between the configured minimum and maximum
 interval.
 
-Currently, the default configuration (`ETSIApplication.json`) for the ETSI application looks like this:
+Currently, the default configuration (`EtsiApplication.json`) for the ETSI application looks like this:
 
 ```json
 {
+    /* The minimal length in bytes assumed for the payload to be send with each CAM. */
+    "minimalPayloadLength": 200,
     /* The maximum time offset (here 1 second) of sending CA-messages 
      * (the offset will be different for every single vehicle to avoid interference) */
-    "maxStartOffset": 1000000000,  
+    "maxStartOffset": "1s",  
     /* CAMs are sent at most every 1 second */
-    "minInterval": 100000000,
+    "minInterval": "500ms",
     /* CAMs are sent at least every 1 second */
-    "maxInterval": 1000000000,
+    "maxInterval": "1s",
     /* CAMs are sent when the position of the vehicle changes at least about 4 meters */
     "positionChange": 4,
     /* CAMs are sent when the heading of the vehicle changes at least about 4 degrees */

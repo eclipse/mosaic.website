@@ -14,10 +14,10 @@ weight = 30  # Order that this section will appear in.
         url = "https://www.fokus.fraunhofer.de/asct"
         width = "60%"
     [[image_text_block.image]]
-        file = "/img/logos/partners/dcaiti.png"
+        file = "/img/logos/partners/dcaiti.svg"
         alt = "DCAITI logo"
         url = "https://www.dcaiti.tu-berlin.de/"
-        width = "55%"
+        width = "62%"
         
 [[image_text_block]]
     content = """The future of Eclipse MOSAIC is driven by several industry and academic partners in the [openMobility
