@@ -155,7 +155,7 @@ This will calculate three routes between the two given coordinates.
 Alternatively you can use the following command in order to generate routes with node-id's as start and end point, which can be found in the `steglitz.nod.xml` file.
 
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm -o --generate-routes
+java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-node-id 267350668 --route-end-node-id 313139970 --number-of-routes 3
 ```
 See [below](#reference-documentation-for-scenario-convert) for all command line options.

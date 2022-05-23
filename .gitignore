@@ -1,7 +1,9 @@
 .DS_Store
 .xcf
-.stackbit/
+.hugo_build.lock
 .idea/
+.stackbit/
+.vscode/
 node_modules/
 parsed-content/
 public/

@@ -86,7 +86,7 @@ Object to define a prototype, which can complete the definitions of other object
 |accel|`number`|Acceleration in m/s^2.|No|(0, +$\infty$]|None|
 |decel|`number`|Deceleration in m/s^2.|No|(0, +$\infty$]|None|
 |length|`string`<br>`number`|Length of the vehicle. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to specify the unit of measurement (e.g. '500 cm').|No|(0, +$\infty$]|None|
-|maxSpeed|`string`<br>`number`|Maximal speed. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. '50 kmh').|No|(0, +$\infty$]|None|
+|maxSpeed|`string`<br>`number`|Maximal speed. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. '50 kmh').|No|[0, +$\infty$]|None|
 |minGap|`string`<br>`number`|Distance in meter between front bumper of a vehicle and the back bumper of its leader in a traffic jam. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to include the unit of measurement (e.g. '300 cm').|No|(0, +$\infty$]|None|
 |sigma|`number`|Driver imperfection. This is a parameter of the car-following model.|No|[0, 1]|None|
 |tau|`number`|Driver reaction time in seconds. This is a parameter of the car-following model.|No|[0, +$\infty$]|None|
