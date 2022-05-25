@@ -19,7 +19,7 @@ have the option of:
 
 ---
 
-:page_with_curl: **Corresponding configuration file: `battery/battery_config.json`**
+<span class="page_with_curl">:page_with_curl:</span> **Corresponding configuration file: `battery/battery_config.json`**
 
 
 

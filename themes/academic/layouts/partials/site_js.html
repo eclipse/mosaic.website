@@ -1,23 +1,43 @@
     {{ $scr := $.Scratch }}
 
     {{/* Attempt to load local vendor JS, otherwise load from CDN. */}}
-    {{ $js := site.Data.assets.js }}
+    {{ $cdn_js := site.Data.assets.cdn.js }}
+    {{ $static_js := site.Data.assets.static.js }}
+
+    
+
     {{ if not ($scr.Get "use_cdn") }}
-      <script src="{{ printf "/js/vendor/%s" ($scr.Get "vendor_js_filename") | relURL }}"></script>
-    {{ else }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.jQuery.url $js.jQuery.version) $js.jQuery.sri | safeHTML }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.popper.url $js.popper.version) $js.popper.sri | safeHTML }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.imagesLoaded.url $js.imagesLoaded.version) $js.imagesLoaded.sri | safeHTML }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.isotope.url $js.isotope.version) $js.isotope.sri | safeHTML }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.fancybox.url $js.fancybox.version) $js.fancybox.sri | safeHTML }}
+      {{ partial "javascript_tag" (dict "key" "jquery") }}
+      {{ partial "javascript_tag" (dict "key" "popper") }}
+      {{ partial "javascript_tag" (dict "key" "imagesLoaded") }}
+      {{ partial "javascript_tag" (dict "key" "isotope") }}
+      {{ partial "javascript_tag" (dict "key" "fancybox") }}
 
       {{ if or .Params.diagram site.Params.diagram }}
-        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" (printf $js.mermaid.url $js.mermaid.version) $js.mermaid.sri | safeHTML }}
+        {{ partial "javascript_tag" (dict "key" "mermaid") }}
       {{ end }}
 
       {{ if $.Scratch.Get "highlight_enabled" }}
-        {{ $v := $js.highlight.version }}
-        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.highlight.url $v) $js.highlight.sri | safeHTML }}
+        {{ $v := $cdn_js.highlight.version }}
+        {{ partial "javascript_tag" (dict "key" "highlight") }}
+        {{ range site.Params.highlight_languages }}
+          {{ partial "javascript_tag" (dict "filename" (printf "highlight-%s.min.js" .)) }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.jQuery.url $cdn_js.jQuery.version) $cdn_js.jQuery.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.popper.url $cdn_js.popper.version) $cdn_js.popper.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.imagesLoaded.url $cdn_js.imagesLoaded.version) $cdn_js.imagesLoaded.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.isotope.url $cdn_js.isotope.version) $cdn_js.isotope.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.fancybox.url $cdn_js.fancybox.version) $cdn_js.fancybox.sri | safeHTML }}
+
+      {{ if or .Params.diagram site.Params.diagram }}
+        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" (printf $cdn_js.mermaid.url $cdn_js.mermaid.version) $cdn_js.mermaid.sri | safeHTML }}
+      {{ end }}
+
+      {{ if $.Scratch.Get "highlight_enabled" }}
+        {{ $v := $cdn_js.highlight.version }}
+        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.highlight.url $v) $cdn_js.highlight.sri | safeHTML }}
         {{ range site.Params.highlight_languages }}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ $v }}/languages/{{ . }}.min.js"></script>
         {{ end }}
@@ -29,10 +49,10 @@
     {{ if eq site.Params.map.engine 1 }}
       <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.Params.map.api_key }}"></script>
       {{ if ($scr.Get "use_cdn") }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.gmaps.url $js.gmaps.version) $js.gmaps.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.gmaps.url $cdn_js.gmaps.version) $cdn_js.gmaps.sri | safeHTML }}
       {{ end }}
     {{ else if and (or (eq site.Params.map.engine 2) (eq site.Params.map.engine 3)) ($scr.Get "use_cdn") }}
-      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.leaflet.url $js.leaflet.version) $js.leaflet.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.leaflet.url $cdn_js.leaflet.version) $cdn_js.leaflet.sri | safeHTML }}
     {{ end }}
 
     {{/* Initialise code highlighting. */}}
@@ -66,10 +86,14 @@
         };
     </script>
     {{ end }}
-
+    
     {{/* Load hash anchors for documentation pages. */}}
     {{ if eq .Type "docs" }}
-    {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.anchor.url $js.anchor.version) $js.anchor.sri | safeHTML }}
+    {{ if not ($scr.Get "use_cdn") }}
+      {{ partial "javascript_tag" (dict "key" "anchor") }}
+    {{ else }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.anchor.url $cdn_js.anchor.version) $cdn_js.anchor.sri | safeHTML }}
+    {{ end }}
     <script>
       anchors.add();
     </script>
@@ -104,15 +128,20 @@
     {{ end }}
 
     {{/* Fuse search engine. */}}
-    {{ if and (eq site.Params.search.engine 1) ($scr.Get "use_cdn") }}
-    {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.fuse.url $js.fuse.version) $js.fuse.sri | safeHTML }}
-    {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.mark.url $js.mark.version) $js.mark.sri | safeHTML }}
+    {{ if (eq site.Params.search.engine 1) }}
+      {{ if not ($scr.Get "use_cdn") }}
+        {{ partial "javascript_tag" (dict "key" "fuse") }}
+        {{ partial "javascript_tag" (dict "key" "mark") }}
+      {{ else }}
+        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.fuse.url $cdn_js.fuse.version) $cdn_js.fuse.sri | safeHTML }}
+        {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.mark.url $cdn_js.mark.version) $cdn_js.mark.sri | safeHTML }}
+      {{ end }}
     {{ end }}
 
     {{/* Algolia search engine. */}}
     {{ if eq site.Params.search.engine 2 }}
     {{ if ($scr.Get "use_cdn") }}
-    {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.instantsearch.url $js.instantsearch.version) $js.instantsearch.sri | safeHTML }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $cdn_js.instantsearch.url $cdn_js.instantsearch.version) $cdn_js.instantsearch.sri | safeHTML }}
     {{ end }}
     <script>
       const algoliaConfig = {

@@ -131,7 +131,6 @@
       url = "https://www.eclipse.org/legal"
       identifier = "legal"
       parent = "eclipse"
-      blank = true
       weight = 5
 
 

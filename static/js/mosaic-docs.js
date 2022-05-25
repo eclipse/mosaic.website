@@ -1,5 +1,9 @@
 $(window).on('load', function() {
     var $docsNav = $('#docs-nav')
-    var $docsTocItem = $docsNav.find('li.active').parent().parent('.docs-toc-item')
-    $docsNav.scrollTop($docsTocItem.position().top - 30)
+    if ($docsNav.length > 0) {
+        var $docsTocItem = $docsNav.find('li.active').parent().parent('.docs-toc-item')
+        if ($docsTocItem.length > 0) {
+            $docsNav.scrollTop($docsTocItem.position().top - 30)
+        }
+    }
 })

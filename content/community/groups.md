@@ -4,7 +4,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear in.
 
-title = "Who are we?"
+title = "Who we are"
 subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from different groups."
 
 [[card]]
@@ -44,7 +44,7 @@ subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from
         file = "/img/logos/partners/dcaiti.svg"
         url = "https://www.dcaiti.tu-berlin.de/"
         alt = "DCAITI logo"
-        width = "70%"
+        width = "100%"
         wrap_height = "4.2rem"
         vertical_alignment = "center"
     [card.button]

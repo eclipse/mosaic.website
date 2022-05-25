@@ -1,0 +1,28 @@
+{{- $key := .key -}}
+{{- $filename := .filename -}}
+
+{{- if and (not $key) (not $filename) -}}
+    ERROR! Neither parameter 'key' nor 'filename' is passed to partial 'javascript_tag'.
+{{- else -}}
+    {{- $url := "" -}}
+    {{- if $key -}}
+        {{- range $k, $v := site.Data.assets.static.js -}}
+            {{- if eq $k $key -}}
+                {{- $url = $v.url -}}
+            {{- end -}}
+        {{- end -}}
+    {{- else if $filename -}}
+        {{- $url = $filename -}}
+    {{- end -}}
+
+    {{- if eq $url "" -}}
+        {{- printf "ERROR! Could not find javascript file for key '%s' or parameter 'filename' is empty '%s'." $key $filename | safeHTML -}}
+    {{- else -}}
+        {{- $src := (printf "js/thirdparty/%s" $url) -}}
+        {{- if not (fileExists (printf "/static/%s" $src)) -}}
+            {{- printf "ERROR! Could not find javascript file for key '%s'." $key | safeHTML -}}
+        {{- else -}}
+            {{- printf "<script src=\"%s\"></script>" (printf "%s%s" site.BaseURL $src) | safeHTML -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

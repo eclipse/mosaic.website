@@ -9,9 +9,11 @@
             {{ range .Children }}
               {{ if and .URL .Name}}
                 {{ $target := "" }}
+                {{ $isExternal := false }}
                 {{ if gt (len .URL) 4 }}
                   {{ if eq "http" (slicestr .URL 0 4) }}
                     {{ $target = " target=\"_blank\" rel=\"noopener\"" }}
+                    {{ $isExternal = true }}
                   {{ end }}
                 {{ end }}
                 <li>
@@ -20,6 +22,9 @@
                       <img src="{{ .Pre | relURL | safeHTMLAttr}}" title="{{ .Name | safeHTMLAttr }}" {{ if .Post }}class="{{ .Post | safeHTMLAttr }}"{{ end }} />
                     {{ else }}
                       {{ .Name | safeHTML }}
+                    {{ end }}
+                    {{ if $isExternal }}
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
                     {{ end }}
                   </a>
                 </li>

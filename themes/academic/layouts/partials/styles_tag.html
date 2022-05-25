@@ -1,0 +1,28 @@
+{{- $key := .key -}}
+{{- $filename := .filename -}}
+
+{{- if and (not $key) (not $filename) -}}
+    ERROR! Neither parameter 'key' nor 'filename' is passed to partial 'styles_tag'.
+{{- else -}}
+    {{- $url := "" -}}
+    {{- if $key -}}
+        {{- range $k, $v := site.Data.assets.static.css -}}
+            {{- if eq $k $key -}}
+                {{- $url = $v.url -}}
+            {{- end -}}
+        {{- end -}}
+    {{- else if $filename -}}
+        {{- $url = $filename -}}
+    {{- end -}}
+
+    {{- if eq $url "" -}}
+        {{- printf "ERROR! Could not find css file for key '%s' or parameter 'filename' is empty '%s'." $key $filename | safeHTML -}}
+    {{- else -}}
+        {{- $src := (printf "css/thirdparty/%s" $url) -}}
+        {{- if not (fileExists (printf "/static/%s" $src)) -}}
+            {{- printf "ERROR! Could not find css file for key '%s'." $key | safeHTML -}}
+        {{- else -}}
+            {{- printf "<link rel=\"stylesheet\" href=\"%s\">" (printf "%s%s" site.BaseURL $src) | safeHTML -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

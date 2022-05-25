@@ -1,5 +1,12 @@
 @import "colors";
 
+.article-style aside p::before,
+div.alert > div:first-child::before {
+  top: -0.8rem;
+  left: -2.3rem;
+  font-size: 1.8rem;
+}
+
 .alert, div.alert > div {
   font-size: 0.75rem;
   border-radius: 0.8rem;
@@ -46,9 +53,9 @@ div.alert.alert-learning_objectives {
   & > div:first-child::before {
     content: '\f19d'; // graduation hat
     color: $mosaic-purple;
-    font-size: 1.3rem;
-    top: -0.4rem;
-    left: -2.3rem;
+    font-size: 1.6rem;
+    top: -0.6rem;
+    left: -2.1rem;
   }
 
   h3 {
@@ -97,9 +104,12 @@ div.alert.alert-info {
   background-color: #d3edfd;
   border-color: #a3d3f3;
   box-shadow: 0 1px 3px #d2d2d2;
-
+  
   & > div:first-child::before {
+    left: -2.2rem;
+    top: -0.55rem;
     color: $mosaic-blue;
+    font-size: 1.6rem;
     text-shadow: 0 1px 1px #fff, 0 0 2px rgba(0,0,0,0.1);
   }
 }
