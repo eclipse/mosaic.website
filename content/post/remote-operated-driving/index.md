@@ -40,6 +40,9 @@ which allows selecting different viewing angles as well as sensor fusion of diff
 holistic environment model. The final result can be seen in the video below.
 
 {{< youtube KC5ZTy1CDz8 >}}
+<a title="Watch 'Simulating Remote Operated Driving | FOKUS Smart Mobility' on YouTube" href="https://www.youtube.com/watch?v=KC5ZTy1CDz8">
+  <i class="fab fa-youtube"></i> Watch "Simulating Remote Operated Driving | FOKUS Smart Mobility" on YouTube
+</a>
 
 <br/>
 
