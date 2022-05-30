@@ -85,20 +85,21 @@
               color: white;
             }
           }
-          .icon {
-            display: block;
-            width: 0;
-            height: 0;
+          .title-wrap {
+            float: left;
+          }
+          .i {
+            padding-top: 10px;
           }
           .title {
             display: block;
-            margin: -0.45rem 0 0 1.3rem;
+            margin: -0.4rem 0 -0.35rem 0;
           }
           .subtitle {
             display: block;
             font-weight: normal;
             font-size: 0.6rem;
-            margin: -0.3rem 0 -0.3rem 1.3rem;
+            margin: -0.3rem 0 -0.3rem 0;
             color: #666;
           }
         }
