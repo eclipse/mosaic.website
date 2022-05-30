@@ -29,7 +29,7 @@ __Main Configuration:__
 |:------------------------|:----------------------------------------------------------------------------------------------------------------|:-----------------------|:-------------------------------|
 |`maximumTtl`             | Defines the upper bound for the amount of hops a message can make. (Note: messages can have individual `ttl`'s) | int                    | `10`                           |
 |`singlehopRadius`        | Fallback radius to be used for transmission, if no radius is defined in the `AdhocConfiguration`                | double                 | `509.4`                        |
-|`singlehopDelay`         | A delay configuration for the direct communication between two nodes. ([See here](/docs/extending_mosaic/delay_models))   | Delay  | `ConstantDelay       |
+|`singlehopDelay`         | A delay configuration for the direct communication between two nodes. ([See here](/docs/extending_mosaic/delay_models))   | Delay  | `ConstantDelay`       |
 |`singlehopTransmission`  | This contains the transmission configurations for `lossProbability` and `maxRetries`.                           | CTransmission          | n/a                            |
 |`adhocTransmissionModel` | A class extending `AdhocTransmissionModel`, this will decide the logic for transmissions.                       | AdhocTransmissionModel | `SimpleAdhoc TransmissionModel` |
 
@@ -103,10 +103,8 @@ The figure below depicts this behaviour
 {{< figure src="../images/SimpleMultiHop.png" title="Simple GeoBroadCast: The RSU is sending to all entities in the destination area. All arrows (transmissions) will have a uniquely calculated delay or possible loss." >}}
 
 The realistic model accounts for possible transmission failures more accurately. The easiest case is that the sender itself is inside
-of the destination area[^1] and will start a [Flooding Transmission](#flooding-transmission) within this area (see figure below).
+of the destination area (or is able to communicate with an entity inside the destination area) and will start a [Flooding Transmission](#flooding-transmission) within this area (see figure below).
 {{< figure src="../images/FloodingTransmission.png" title="GeoBroadCast using [Flooding Transmission](#flooding-transmission). Note: the area is not limited to circles." >}}
-
-[^1]: Or is able to communicate with an entity inside the destination area.
 
 In case the sending entity is outside of the destination area, a [Forwarding Transmission](#approaching-transmission) has to
 be executed first. This is can also be described as an _AnyCast_, since the goal of this transmission is to reach _any_ entity
@@ -136,8 +134,8 @@ and the number of attempts. Though the amount of hops will always be 1 for this 
 
 ### `SophisticatedAdhocTransmissionModel`
 This model offers are more realistic simulation of adhoc transmissions, using an implementation of a greedy-forwarding and flooding
-algorithm (see [here (greedy forwarding)](https://en.wikipedia.org/wiki/Geographic_routing) & 
-[here (flooding)](https://en.wikipedia.org/wiki/Flooding_(computer_networking))). For TopoCasts this model behaves very
+algorithm (see [greedy forwarding](https://en.wikipedia.org/wiki/Geographic_routing) & 
+[flooding](https://en.wikipedia.org/wiki/Flooding_(computer_networking))). For TopoCasts this model behaves very
 similarly to the `SimpleAdhocTransmissionModel`, since TopoCasts are always configured with only one hop. 
 For GeoCasts however, this model follows the flowchart above, trying to "approach" a destination area if it can't be reached directly.
  
@@ -159,7 +157,7 @@ area, even though there is a possible "chain" using the yellow nodes.
 
 #### Flooding
 The implementation of Flooding is fairly equivalent as described on
-[wikipedia](https://en.wikipedia.org/wiki/Flooding_(computer_networking)). Each entity forwards the message to all entities
+[Wikipedia](https://en.wikipedia.org/wiki/Flooding_(computer_networking)). Each entity forwards the message to all entities
 in its communication range. Entities, that already received the message won't receive it again; this is different from many real-life
 implementations, where messages are send to all reachable entities except the sender. However, since the simulation has total
 knowledge of all simulated entities, it is easier to overcome a lot of the disadvantages, that flooding faces
@@ -173,6 +171,6 @@ messages using that topology. Also, the aforementioned "Face-Routing" could be o
 of delays could be made more realistic. 
 
 ## Accessing SNS-functionality from your applications
-In order for your scenario to enable the SNS follow the steps [here](docs/scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns).
+To enable SNS in your scenario follow the steps as described in [Scenario Configuration](docs/scenarios/scenario_configuration#communication-simulators-cell-ns3-omnetpp-sns).  
 An overview of how to configure AdHoc-modules and usage of the API for Routing and Message-Building functions, 
-can be found [here](docs/develop_applications/communication).
+can be found under [Application Development](docs/develop_applications/communication).
