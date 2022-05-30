@@ -12,8 +12,7 @@ subtitle = "Get the latest version of Eclipse&nbsp;MOSAIC<br>from our partners a
   image_opacity = "0.4"
   
 [[button]]
-  title = "Download Eclipse MOSAIC from DCAITI Mirror"
+  title = "<i class='fa fa-download' aria-hidden='true'></i><span>Download Eclipse MOSAIC from DCAITI Mirror</span>"
   url = "https://www.dcaiti.tu-berlin.de/research/simulation/download/"
-  icon = "download"
 
 +++

@@ -21,16 +21,15 @@ alignment = "left" # left or center (default)
 
 
 [[button]]
-  download_mosaic = true
-  title = "Download Now"
+  title = "<i class='fa fa-download' aria-hidden='true'></i><span>Download Now</span>"
   url = "/download/"
 
 [[button]]
-  title = "<i class='fa fa-book' aria-hidden='true'></i> Read the Docs"
+  title = "<i class='fa fa-book' aria-hidden='true'></i><span>Read the Docs</span>"
   url = "/docs/"
 
 [[button]]
-  title = "<i class='fa fa-graduation-cap' aria-hidden='true'></i> Tutorials"
+  title = "<i class='fa fa-graduation-cap' aria-hidden='true'></i><span>Tutorials</span>"
   url = "/tutorials/"
 
 [[feature]]
