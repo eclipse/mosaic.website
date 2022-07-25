@@ -21,8 +21,9 @@ alignment = "left" # left or center (default)
 
 
 [[button]]
-  title = "<i class='fa fa-download' aria-hidden='true'></i><span>Download Now</span>"
+  title = "<span>Download Now</span>"
   url = "/download/"
+  include_latest_release = true
 
 [[button]]
   title = "<i class='fa fa-book' aria-hidden='true'></i><span>Read the Docs</span>"

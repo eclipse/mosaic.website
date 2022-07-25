@@ -1,6 +1,6 @@
 ---
 title: SUMO Configuration
-linktitle: SUMO Configuration
+linktitle: SUMO
 toc: true
 type: docs
 draft: false

@@ -1,20 +1,21 @@
 ---
 title: Communication in Applications
-linktitle: V2X Communication
+linktitle: Communication
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
-weight: 3
+weight: 50
 menu:
   docs:
     parent: develop_applications
-    weight: 3
+    weight: 50
 ---
 
 Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
 communication should occur. Communication can be achieved with external 
-network simulators ({{< link tilte="OMNeT++" href="/docs/simulators/network_simulator_omnetpp/" >}}, [ns-3](/docs/simulators/network_simulator_ns3)) or one of the built-in communication simulators [SNS](/docs/simulators/network_simulator_sns)
+network simulators ([OMNeT++](/docs/simulators/network_simulator_omnetpp), 
+[ns-3](/docs/simulators/network_simulator_ns3)) or one of the built-in communication simulators [SNS](/docs/simulators/network_simulator_sns)
 or [Eclipse MOSAIC Cell](/docs/simulators/network_simulator_cell). Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
 detail.
 
@@ -38,6 +39,13 @@ Generally, the following modes are available based on network:
  * Topobroadcast
  * Topocast
 
+## General Configuration
+The first step to enable your application to use communication capabilities, is to make sure it extends the `AbstractSimulationUnit`-class
+or one of its child-classes (e.g. `VehicleUnit`, `ChargingStationUnit`) found in package
+`org.eclipse.mosaic.fed.application.ambassador.simulation`. Additionally, if you want your application to act upon
+the reception or transmission of messages, make sure it implements the interface `CommunicationApplication`.
+Afterwards, depending on your use case, you can enable the desired communication modules following the instruction in
+[Cellular Configuration](#cellular-communication) and [Ad-hoc Configuration](#ad-hoc-configuration).
 
 ---
  
@@ -48,6 +56,20 @@ area into several smaller parts called **"cells"**. Each cell has a fixed-locati
 
 Eclipse MOSAIC enables the communication with all the existing vehicles via Geobroadcast mode or direct communication via
 Geocast in a specific area (circular, rectangular). In contrast, the Topocast mode is not restricted to a specific area.
+
+### Cellular Configuration
+To enable and configure the Cell-module in your application you have to call the `enable`-method of your applications Cell-module.
+Typically, you will do this inside the `onStartup()`-method to enable cell capabilities from the get-go.
+
+Below is an example configuration defining maximal uplink and downlink bit rates.
+```java
+@Override
+public void onStartup() {
+    getOs().getCellModule().enable(new CellModuleConfiguration()
+        .maxDownlinkBitrate(50 * DATA.MEGABIT)
+        .maxUplinkBitrate(50 * DATA.MEGABIT)
+}
+```
 
 ### Cellular Geobroadcast 
 
@@ -129,7 +151,7 @@ MessageRouting routing = getOs().getCellModule().createMessageRouting().topoCast
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 ```
 
-### Setting Protocol types
+### Setting Protocol Types
 
 By default, all cell messages use UDP, however you can set the protocol using the `protocol(...)` method of the `MessageRoutingBuilder`:
 ```java 
@@ -161,24 +183,22 @@ The following table shows the possible channels on the 5.9 GHz band used for V2X
 |Channel Name  | SCH1| SCH2 | SCH3 | CCH | SCH4 | SCH5 | SCH6|
 |Frequency Band| 5.86 | 5.87 | 5.88 | 5.89 |5.9 | 5.91 | 5.92 |
 
-### Configuring AdHoc Capabilities
-The first step to enable your application to use Ad hoc capabilities, is to make sure it extends the `AbstractSimulationUnit`-class
-or one of its child-classes (e.g. `VehicleUnit`, `ChargingStationUnit`) found in package
-`org.eclipse.mosaic.fed.application.ambassador.simulation`. Additionally, if you want your application to act upon
-the reception or transmission of messages, make sure it implements the interface `CommunicationApplication`.  
-Once this is done, make sure to configure and enable the AdHoc-module in your application. Below is an example configuration
-taken from the Tiergarten-tutorial. Instead of configuring the `.power(...)[mW]` it is also possible to configure 
-a `.distance(...)[m]`.
+### Ad-hoc Configuration
+Make sure you set up your application as described in [General Configuration](#general-configuration).
+Afterwards, to configure and enable the AdHoc-module in your application you have to call the `enable`-method of your applications' 
+Adhoc-module and define a configuration.
+Usually you will do this in the `onStartup()`-method to enable the module from the get-go.
+Below is an example configuration taken from the Tiergarten-tutorial. Instead of configuring the `.power(...)[mW]` 
+it is also possible to configure a `.distance(...)[m]`.
 ```java
-// Example of AdHocConfiguration (see TiergartenVehicle.java) 
 @Override
 public void onStartup() {
-    getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+        getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
         .addRadio()
         .channel(AdHocChannel.CCH)
         .power(50)
         .create());
-}
+        }
 ```
 
 ### Ad-hoc Topobroadcast
@@ -188,7 +208,7 @@ communicating entities must be operated on the same Ad-hoc channel and there are
 * Singlehop
 * Multihop 
 
-#### Singlehop approach in Topobroadcast
+#### Singlehop Approach in Topobroadcast
 
 For Singlehop, it is not necessary to specify the number of hops explicitly which indicates the lifespan of a message,
 because in Singlehop, any message has a lifespan of **hop = 1**. Moreover, Eclipse MOSAIC allows to use the default method
@@ -218,7 +238,7 @@ no longer be forwarded by the receiver.
 
 {{< figure src="../images/tiergarten-adhoc-topobroadcast-singlehop.png" title="Overview Singlehop with specified Ad-hoc channel" numbered="true" >}}
 
-#### Multihop approach in Topobroadcast
+#### Multihop Approach in Topobroadcast
 
 In Multihop, the lifespan (amount of hops) of a message can be specified, allowing larger communication distances.
 
@@ -232,10 +252,9 @@ hop amount was set to 2, the forwarding will stop after 2 increments.
 The next code snippet shows a configuration example with an Ad-hoc channel and a message lifespan **hops = 2**.
 
 ```java
-AdHocChannel commonChannel = AdHocChannel.SCH1;
 int hops = 2;
 
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(commonChannel, hops);
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(hops);
 
 getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
 ```
@@ -259,7 +278,7 @@ AdHocChannel commonChannel = AdHocChannel.SCH1;
 
 int hops = 2;
 
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoCast(ipv4Address, hops, commonChannel);
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoCast(ipv4Address, hops);
 
 getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
 ```
@@ -299,8 +318,6 @@ channel.
 GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
 
 GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
-
-final double radius = 3000.0;
 
 GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
 
@@ -350,7 +367,7 @@ A Cooperative Awareness Messages (CAM) consists of four parts:
 
 First, generic information like protocol version, creation time stamp are submitted. Normally this data set follows a network beacon, which already contains data like position and speed. Nevertheless, this functionality must be implemented in the network layer, that means in the network simulator. At the moment this is not supported and is therefore compensated in the next message part, the message body. The body can contain either RSU or Vehicle awareness data. In the first case, only the RSU type is submitted, but this probably changes with a new CAM specification. In the second case, we provide date like vehicle width, length, position, speed, type and heading. The specification is not completely implemented, especially acceleration data and light, brake status are missing. The third part of the CAM specification, the service list, is also not implemented. This will probably change, when a list of services is defined by the ETSI. Last but not least a message contains a tagged list, a key value map with optional data. This is fully implemented and is used for our traffic light CAM messages, which provide the traffic light status in such a list.
 
-### User defined tagged values
+### User Defined Tagged Values
 
 If you are required to exchange custom data within CAMs, the field UserTaggedValue can be used. For adding such data to the CAM, the application needs to implement the method `beforeGetAndResetUserTaggedValue()` from the `CommunicationApplication` interface. If a CAM is about to be sent, the custom data can be set using the `getOs().setUserTaggedValue(byte[])` method. The receiver can simple access the data by accessing the field directly from the received CAM message:
 

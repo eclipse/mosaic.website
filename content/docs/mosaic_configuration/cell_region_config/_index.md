@@ -1,6 +1,6 @@
 ---
 title: Cell Simulator – Region Configuration
-linktitle: Cell Region Configuration
+linktitle: Cell Region
 toc: true
 type: docs
 draft: false

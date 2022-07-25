@@ -184,3 +184,27 @@ We write a new additional file (`mosaic_types.add.xml`), which contains types sp
 with the aforementioned `additionalVehicleTypeParameters` (Note: these are not validated in any form). The image below shows
 a schematic view of how the configuration files and RTI components interact with each other.
 {{< figure src="../images/sumo_route_files.svg" title="Schematic overview of vehicle type handling in Eclipse MOSAIC" >}}
+
+## Access SUMO TraCI From Applications
+
+If SUMO is used as a traffic simulator and a special functionality is required, the `sendSumoTraciRequest`
+function in the `OperatingSystem` can be used.
+
+The function expects a string (a unique identifier which will be assigned to the response) and a byte array
+(representing the complete Traffic Control Interface (TraCI) request including the header). The message
+identifier can be an empty string.
+
+In all cases the command will trigger a response. The application can receive the response from the
+method `onSumoTraciResult`. This method will receive a `SumoTraciResult`
+object. This response contains the specified identifier. The application must handle the
+identification process of the response itself.
+
+{{% alert note %}}
+Be careful when using this interface and the TraCI commands. The
+commands are delivered to TraCI without any prior checks.
+{{% /alert %}}
+
+{{% alert note %}}
+You can find the example application SumoTraciInteractionApp
+in the additional examples bundle on the {{< target-blank "DCAITI website" "https://www.dcaiti.tu-berlin.de/research/simulation/download/" >}}.
+{{% /alert %}}

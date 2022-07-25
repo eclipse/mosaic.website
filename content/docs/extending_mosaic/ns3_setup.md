@@ -27,7 +27,7 @@ The following instructions steps lead you to a common **development setup for th
 - Google Protocol Buffers (protobuf)
 
 ### Premake 5
-There are multiple ways how you can install Premake 5 (https://premake.github.io/).  
+There are multiple ways how you can install Premake 5 ([https://premake.github.io/](https://premake.github.io/)).  
 For our purpose it doesn't matter which way you choose: 
 - install package of your Linux distribution **or**
 - download binary **or**

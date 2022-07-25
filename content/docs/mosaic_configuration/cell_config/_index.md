@@ -1,6 +1,6 @@
 ---
 title: Cell Simulator – Basic Configuration
-linktitle: Cell Basic Configuration
+linktitle: Cell Basic
 toc: true
 type: docs
 draft: false

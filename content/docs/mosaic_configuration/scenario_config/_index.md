@@ -1,6 +1,6 @@
 ---
 title: Scenario Configuration
-linktitle: Scenario Configuration
+linktitle: Scenario
 toc: true
 type: docs
 draft: false

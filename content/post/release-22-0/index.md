@@ -47,7 +47,7 @@ You can find the new version in our [Download section](/download), and in our [G
 [ <i class="fab fa-github"></i> fabmax](https://github.com/fabmax),
 [ <i class="fab fa-github"></i> felixlutz](https://github.com/felixlutz),
 [ <i class="fab fa-github"></i> kschrab](https://github.com/kschrab),
-[ <i class="fab fa-github"></i> ninabohm](https://github.com/nonabohm),
+[ <i class="fab fa-github"></i> ninabohm](https://github.com/ninabohm),
 [ <i class="fab fa-github"></i> schwepmo](https://github.com/schwepmo), and 
 [ <i class="fab fa-github"></i> rprotzmann](https://github.com/rprotzmann)
 

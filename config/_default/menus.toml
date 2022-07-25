@@ -159,7 +159,7 @@
   weight = 50
   post = "Build your own simulation scenarios."
 [[docs]]
-  name = "Create Applications"
+  name = "Developing Applications"
   identifier = "develop_applications"
   url = "/docs/develop_applications/"
   weight = 60

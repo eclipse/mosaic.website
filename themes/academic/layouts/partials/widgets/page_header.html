@@ -78,9 +78,9 @@
             {{ range $page.Params.button }}
               <div class="col-md-12">
                 {{ if .title }}{{ if .url }}
-                  {{- $version_set := .download_mosaic -}}
+                  {{- $version_set := .include_latest_release -}}
                   {{- $version := "UNDEFINED" -}}
-                  {{ if .download_mosaic }}
+                  {{ if .include_latest_release }}
                     {{- range $key, $value := $.Site.Data.mosaic.versions -}}
                       {{- if eq $key "mosaic" -}}
                         {{- $version = $value -}}
@@ -91,12 +91,20 @@
                     {{- end -}}
                   {{- end -}}
                   <a class="mosaic-btn mosaic-btn-light {{ if $version_set }}mosaic-btn-download{{ end }} float-end" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
-                    {{ if .download_mosaic }}
+                    {{ if .include_latest_release }}
                       <span class="icon"><i class='fa fa-download' aria-hidden='true'></i></span>
-                    {{ end }}
-                    <span class="title">{{ .title | safeHTML }}</span>
-                    {{ if $version_set }}
-                      <span class="subtitle">Latest Release: {{ $version | safeHTML }}</span>
+                      <span class="title-wrap">
+                        <span class="title">
+                          {{ .title | safeHTML }}
+                          {{ if $version_set }}
+                          <span class="subtitle">Latest Release: {{ $version | safeHTML }}</span>
+                          {{ end }}
+                        </span>
+                      </span>
+                    {{ else }}
+                      <span class="title">
+                        {{ .title | safeHTML }}
+                      </span>
                     {{ end }}
                   </a>
                 {{ end }}{{ end }}

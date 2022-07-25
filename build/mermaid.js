@@ -12,7 +12,7 @@ async function convert() {
     // Collect all Mermaid files (*.mmd)
     let allFilesMmd = []
     for (let directory of directories) {
-        const directoryPath = path.join(__dirname, directory)
+        const directoryPath = path.join(__dirname, '..', directory)
         const allFiles = await getFiles(directoryPath, true);
         const mmdFiles = allFiles.filter(fileData => /\.mmd$/.test(fileData.filename))
         allFilesMmd = allFilesMmd.concat(mmdFiles)
