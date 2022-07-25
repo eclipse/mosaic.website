@@ -1,6 +1,6 @@
 ---
 title: Cell Simulator – Network Configuration
-linktitle: Cell Network Configuration
+linktitle: Cell Network
 toc: true
 type: docs
 draft: false

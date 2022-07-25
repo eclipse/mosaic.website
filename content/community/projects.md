@@ -26,7 +26,7 @@ subtitle = ""
     title = "eBaseCamp"
     subtitle = "Electrification of logistics and delivery services with a digital booking platform"
     desc = "The eBaseCamp projects studies and implements concepts for electrification of commercial logistics and delivery traffic with digital booking platform, smart charging and interoperable networking."
-    url = "https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKTIII-Projekte/ikt-III-projekt-eBaseCamp.html"
+    url = "https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKT-Projekte/ikt-III-projekt-eBaseCamp.html"
     [project.logo]
         filename = "ebasecamp.png"
         width = "60%"

@@ -55,7 +55,7 @@ Please note that the SUMO scenario must be placed inside the sumo subdirectory o
 
 2. To run
 ```bat
-mosaic.bat -s LuST -d scenarios/LuST/defaults.xml -w 0
+mosaic.bat -s LuST
 ```   
 Please note that the execution of this scenario might take a long time, due to the massive amount of
 vehicles simulated in this scenario. If you want to assess your mobility applications in combination

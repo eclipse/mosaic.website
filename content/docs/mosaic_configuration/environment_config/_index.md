@@ -1,6 +1,6 @@
 ---
 title: Environment Configuration
-linktitle: Environment Configuration
+linktitle: Environment
 toc: true
 type: docs
 draft: false

@@ -15,6 +15,10 @@ The **Application Simulator** plays an important role in the simulation of vehic
 to model the application logic for different simulation units (e.g. vehicles, road side units (RSUs), traffic lights, and others) 
 as well as possible interaction attempts between the units via different communication links.
 
+{{% alert tip %}}
+Learn more about how to [develop applications](/docs/develop_applications/).  
+{{% /alert %}}
+
 ## Installation
 
 This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.
@@ -81,35 +85,18 @@ vehicles) / `RoutingModule` (Routing-only for static units) and `AdHocModule` / 
 The following table lists all modules a unit's operating system could provide.
 
 | Module           | Description                                                                              |
-| ---------------- | -----------------------------------------------------------------------------------------|
+|------------------|------------------------------------------------------------------------------------------|
 | NavigationModule | Full featured access to the central navigation component for vehicles                    |
 | RoutingModule    | Access to routing functionalities for static units as RSUs                               |
 | AdHocModule      | Communication via ad hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing) |
 | CellModule       | Communication via cellular services (different configuration / addressing modes)         |
+| PerceptionModule | Access to perception capabilities via the central perception component                   |
 
-> **Note:** The presented communication modules `AdHocModule`, `CellModule` are used for the sending part of a transmission. The message
-> reception is realized by Application Interfaces provided by the `CommunicationApplication`.
+{{% alert note %}}
+The presented communication modules `AdHocModule`, `CellModule` are used for the sending part of a transmission. The message
+reception is realized by Application Interfaces provided by the `CommunicationApplication`.
+{{% /alert %}}
 
-### Application Interfaces
-Application interfaces handle call-backs to incoming events via their methods, like `onVehicleUpdated()`, called by the
-application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
-important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
-"Provides" column. The elementary interface (`Application`) provides the methods `onStartup()`, `onShutdown()`. Implementation details
-are given in [Development of applications](/docs/develop_applications).
-
-| Interface                            | Applicable to    | Provides                                              | Description            |
-| -------------------------------------| ---------------- | ----------------------------------------------------- | ---------------------- |
-| `Application / AbstractApplication`  | *all*            | `onStartup`, `onShutdown`                             | Elementary application class providing an operating system          |
-| `ConfigurableApplication`            | *all*            |                                                       | Basic application class providing an operating system and a configuration, which automatically loaded from a JSON file. |
-| `CommunicationApplication`           | *all*            | `onMessageReceived`, `onAcknowledgementReceived`, `onCamBuilding`, `onMessageTransmitted` | All applications that implement some form of V2X communication are to implement this interface. |
-| `VehicleApplication`                 | vehicle          | `onVehicleUpdated`                                    | General vehicle funtionality |
-| `ElectricVehicleApplication`         | vehicle          | `onBatteryStateUpdated`, `onChargingRequestRejected`  | Electric vehicle functionality |
-| `TrafficSignAwareApplication`        | vehicle          | `onTrafficSignInvalidated`, `onTrafficSignNoticed`    | Used by vehicles which are aware of traffic signs. |
-| `TrafficLightApplication`            | traffic light    | `onTrafficLightGroupUpdated`                          | Traffic light functionality |
-| `TrafficManagementCenterApplication` | TMC              | `onInductionLoopUpdated`, `onLaneAreaDetectorUpdated` | Traffic management functionality |
-| `MosaicApplication`                  | *all*            | `onSumoTraciResponded`, `onInteractionReceived`       | Features that involve customized RTI-interactions of MOSAIC |
-
-**Note:** A roadside unit (RSU) is the most unit and usually communicates only. Thus, an RSU application implements `CommunicationApplication`.
 
 ## Basic Applications
 

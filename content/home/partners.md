@@ -33,21 +33,21 @@ logo_height = "50px"
 [[logo]]
     name = "AVL"
     logo = "avl.png"
-    url = "https://openmobility.eclipse.org/members/avl"
+    url = "https://www.eclipse.org/membership/showMember.php?member_id=1352"
 [[logo]]
     name = "Bosch"
     logo = "bosch.svg"
-    url = "https://openmobility.eclipse.org/members/bosch"
+    url = "https://www.eclipse.org/membership/showMember.php?member_id=979"
 [[logo]]
     name = "DLR"
     logo = "dlr.png"
-    url = "https://openmobility.eclipse.org/members/dlr"
+    url = "https://www.eclipse.org/membership/showMember.php?member_id=1235"
 [[logo]]
     name = "Itemis"
     logo = "itemis.png"
-    url = "https://openmobility.eclipse.org/members/itemis"
+    url = "https://www.eclipse.org/membership/showMember.php?member_id=817"
 [[logo]]
     name = "Vector"
     logo = "vector.png"
-    url = "https://openmobility.eclipse.org/members/vector"
+    url = "https://www.eclipse.org/membership/showMember.php?member_id=816"
 +++

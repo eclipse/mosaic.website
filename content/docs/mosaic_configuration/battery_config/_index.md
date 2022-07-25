@@ -1,6 +1,6 @@
 ---
 title: Battery Configuration
-linktitle: Battery Configuration
+linktitle: Battery
 toc: true
 type: docs
 draft: false

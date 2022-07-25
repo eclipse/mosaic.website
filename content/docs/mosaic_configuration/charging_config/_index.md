@@ -1,6 +1,6 @@
 ---
 title: Charging Configuration
-linktitle: Charging Configuration
+linktitle: Charging
 toc: true
 type: docs
 draft: false

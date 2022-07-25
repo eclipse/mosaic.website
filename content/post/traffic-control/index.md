@@ -24,7 +24,7 @@ image:
 **The simulative investigation of communication-based Traffic Management solutions requires combining models from different domains. Eclipse MOSAIC suits very well for this purpose as it couples multiple simulators to model vehicle movement pattern, infrastructure sensors, (variable) traffic signs, as well as different communication links (ITS-G5, 4G/5G) between vehicles and backends, and the application logic in entities like vehicles and a Traffic Management Center.**
 
 
-![alternative text for search engines](featured.png)
+![Inframix System Overview](featured.png)
 
 In a recent study, we analyzed future traffic estimation and control algorithms towards their use on highways 
 with special focus on mixed traffic of conventional vehicles, connected vehicles, and autonomous vehicles. Connected 

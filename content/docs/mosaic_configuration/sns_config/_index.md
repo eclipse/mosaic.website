@@ -1,6 +1,6 @@
 ---
 title: SNS Configuration
-linktitle: SNS Configuration
+linktitle: SNS
 toc: true
 type: docs
 draft: false

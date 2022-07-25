@@ -351,13 +351,13 @@ Application Simulator.
 
 It supports the following addressing and casting schemes.
 
-**`[CellTopocast](/docs/develop_applications/communication#cellular-topocast)`** is the normal unicast, where the Geocaster simply resolves
+**[CellTopocast](/docs/develop_applications/communication#cellular-topocast)** is the normal unicast, where the Geocaster simply resolves
 the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn't allow 
 broadcast or anycast addresses, but any transmission protocols (tcp, udp).
 
-**`[CellGeoUnicast](/docs/develop_applications/communication#cellular-geocast)`** addresses every node in the destination area individually.
+**[CellGeoUnicast](/docs/develop_applications/communication#cellular-geocast)** addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.
 
-**`[CellGeoBroadcast](/docs/develop_applications/communication#cellular-geobroadcast)`**, which is basically MBMS, uses one broadcast to all
+**[CellGeoBroadcast](/docs/develop_applications/communication#cellular-geobroadcast)**, which is basically MBMS, uses one broadcast to all
 nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
 CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).

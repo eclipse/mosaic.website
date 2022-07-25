@@ -1,15 +1,15 @@
 ---
 title: Event Scheduling
-linktitle: Event Scheduling
+linktitle: Event Scheduler
 toc: true
 type: docs
 date: "2019-08-11"
 draft: false
-weight: 4
+weight: 65
 menu:
   docs:
-    parent: develop_applications
-    weight: 4
+    parent: extending_mosaic
+    weight: 65
 ---
 
 The different modules of the [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator)
