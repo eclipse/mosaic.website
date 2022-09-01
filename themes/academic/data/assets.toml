@@ -85,7 +85,7 @@
   url = "instantsearch-theme-algolia.min.css"
 [static.css.highlight]
   version = "9.18.1"
-  url = "highlight.min.css"
+  url = "/css/thirdparty/highlight.min.css"
 [static.css.cookieconsent]
   version = "3.1.1"
   url = "cookieconsent.min.css"

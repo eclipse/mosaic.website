@@ -66,19 +66,22 @@ The `VehicleObject`-class contains information about the perceived vehicles' pos
 ## Perception Modifiers
 The perception module can be configured with different `PerceptionModifier`s, which can be used
 to emulate occlusion, false negatives, position areas, etc.
-MOSAIC already implements three modifiers, `SimpleOcclusionModifier`, `DistanceModifier` and `PositionErrorModifier`.
+MOSAIC already implements three modifiers, `SimpleOcclusionModifier`, `WallOcclusionModifier`, `DistanceModifier` and `PositionErrorModifier`.
 
-| Modifier                  | Description                                                                                                                                                  | Image                                                 |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| `SimpleOcclusionModifier` | Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles. | {{< figure src="../images/occlusion_modifier.svg" >}} |
-| `DistanceModifier`        | Stochastic modifier that reduces perception probability with the distance to the ego vehicle.                                                                | {{< figure src="../images/distance_modifier.svg" >}}  |
-| `PositionErrorModifier`   | Applies a gaussian error to lateral and longitudinal distances of perceived vehicles.                                                                        | {{< figure src="../images/position_modifier.svg" >}}  |
+| Modifier                  | Description                                                                                                                                                                                           | Image                                                      |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| `SimpleOcclusionModifier` | Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles.                                          | {{< figure src="../images/occlusion_modifier.svg" >}}      |
+| `WallOcclusionModifier`   | Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the `--import-buildings` option in scenario-convert. | {{< figure src="../images/wall_occlusion_modifier.svg" >}} |
+| `DistanceModifier`        | Stochastic modifier that reduces perception probability with the distance to the ego vehicle.                                                                                                         | {{< figure src="../images/distance_modifier.svg" >}}       |
+| `PositionErrorModifier`   | Applies a gaussian error to lateral and longitudinal distances of perceived vehicles.                                                                                                                 | {{< figure src="../images/position_modifier.svg" >}}       |
 
 To configure modifiers they have to be passed to the `PerceptionModuleConfiguration`:
 ```java
 private void enablePerceptionModule() {
     // filter to emulate occlusion
     SimpleOcclusionModifier simpleOcclusionModifier = new SimpleOcclusionModifier(3, 5);
+    // filter to emulate occlusion by buildings
+    WallOcclusionModifier wallOcclusionModifier = new WallOcclusionModifier();
     // filter to reduce perception probability based on distance to ego vehicle
     DistanceModifier distanceModifier = new DistanceModifier(getRandom(), 0.0);
     // filter adding noise to longitudinal and lateral
@@ -86,7 +89,7 @@ private void enablePerceptionModule() {
 
     SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
             VIEWING_ANGLE, VIEWING_RANGE,
-            simpleOcclusionModifier, distanceModifier, positionErrorModifier
+            simpleOcclusionModifier, wallOcclusionModifier, distanceModifier, positionErrorModifier
     );
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }

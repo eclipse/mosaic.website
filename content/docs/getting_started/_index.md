@@ -37,7 +37,7 @@ menu:
 
 ### Additional Software
 
-Each simulation with Eclipse MOSAIC requires additional software. As MOSAIC is written in JAVA, first of all, a JAVA runtime environment (JRE) needs to be installed for your operating system.
+Each simulation with Eclipse MOSAIC requires additional software. As MOSAIC is written in JAVA, first, a JAVA runtime environment (JRE) needs to be installed for your operating system.
 Furthermore, each simulation requires additional simulators to be installed, for example the traffic simulation tool Eclipse SUMO or the communication simulators OMNeT++ / INET or ns-3.
 
 The following table gives an overview of supported environments and simulators. Please make sure that you install those versions only.
@@ -51,9 +51,10 @@ The following table gives an overview of supported environments and simulators. 
 |            **[INET](https://inet.omnetpp.org/Download.html)**             | optional |  {{< version of="inet_no_support_below" >}}<br/> _not supported_   |     **{{< version of="inet" >}}** <br/> _supported_     |   {{< version of="inet_no_support_above" >}} <br/> _not supported_   |
 |            **[ns-3](https://www.nsnam.org/releases/ns-3-28)**             | optional |   {{< version of="ns3_no_support_below" >}}<br/> _not supported_   |     **{{< version of="ns3" >}}** <br/> _supported_      |        {{< version of="ns3_not_tested" >}} <br/> _not tested_        |
 
-* All provided scenarios require SUMO to be installed. However, if a different traffic or vehicle simulator 
-is coupled, SUMO is not certainly required.
-
+{{% alert note %}}
+**All provided scenarios require SUMO to be installed.** However, if a different traffic or vehicle simulator 
+is coupled, SUMO is not necessarily required.
+{{% /alert %}}
 
 {{% alert note %}}
 An Eclipse MOSAIC bundle is built with every commit on our main branch in our [<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse/mosaic). You

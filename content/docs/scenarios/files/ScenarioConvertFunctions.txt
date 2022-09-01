@@ -65,6 +65,7 @@ The following arguments are available:
                                            as comma-separated list (e.g. 12345,87123,89123)
     --number-of-routes <INTEGER>           Defines the number of alternative routes to be calculated (default=1).
 
+    --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
     --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
     --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network

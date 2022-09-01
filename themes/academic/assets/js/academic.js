@@ -503,15 +503,15 @@
       switch (themeMode) {
         case 0:
           showActiveTheme(2);
-          console.info('Initialize theme variation to Light.');
+          // console.info('Initialize theme variation to Light.');
           break;
         case 1:
           showActiveTheme(0);
-          console.info('Initialize theme variation to Dark.');
+          // console.info('Initialize theme variation to Dark.');
           break;
         default:
           showActiveTheme(1);
-          console.info('Initialize theme variation to Auto.');
+          // console.info('Initialize theme variation to Auto.');
           break;
       }
     }

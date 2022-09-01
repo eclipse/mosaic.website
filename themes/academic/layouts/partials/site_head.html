@@ -82,21 +82,8 @@
   {{ else if isset site.Params "highlight" }}
     {{ $scr.Set "highlight_enabled" site.Params.highlight }}
   {{ end }}
-  {{ if ($scr.Get "highlight_enabled") }}
-    {{ $v := $cdn_css.highlight.version }}
-    {{ with site.Params.highlight_style }}
-      {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $cdn_css.highlight.url $cdn_css.highlight.version .) | safeHTML }}
-      {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $cdn_css.highlight.url $cdn_css.highlight.version .) | safeHTML }}
-    {{ else }}
-      {{ if eq ($scr.Get "light") true }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $cdn_css.highlight.url $cdn_css.highlight.version "github") | safeHTML }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $cdn_css.highlight.url $cdn_css.highlight.version "dracula") | safeHTML }}
-      {{ else }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\" disabled>" (printf $cdn_css.highlight.url $cdn_css.highlight.version "github") | safeHTML }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\">" (printf $cdn_css.highlight.url $cdn_css.highlight.version "dracula") | safeHTML }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $static_css.highlight.url) | safeHTML }}
+  {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $static_css.highlight.url) | safeHTML }}
 
   {{ if or (eq site.Params.map.engine 2) (eq site.Params.map.engine 3) }}
     {{ if not ($scr.Get "use_cdn") }}
@@ -137,13 +124,6 @@
       {{end}}
     {{end}}
   {{end}}
-
-
-  {{/* We cannot use SRI with Google Fonts because the CSS is dynamically generated according to the user agent. */}}
-  {{/* Hugo's htmlEscape cannot escape "|" in Google Font URIs so we implement our own escape functionality. */}}
-  {{ with ($scr.Get "google_fonts") }}
-  <link rel="stylesheet" {{ printf "href=\"https://fonts.googleapis.com/css?family=%s&display=swap\"" . | replaceRE "\\|" "%7C" | safeHTMLAttr }}>
-  {{ end }}
 
   {{ $css_comment := printf "/*!* Source Themes Academic v%s (https://sourcethemes.com/academic/) */\n" site.Data.academic.version }}
   {{ $css_bundle_head := $css_comment | resources.FromString "css/bundle-head.css" }}

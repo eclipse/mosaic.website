@@ -1,4 +1,5 @@
 // Override this file to add your own SCSS styling.
+@import "mosaic/fonts";
 @import "mosaic/mosaic-helpers";
 @import "mosaic/alert";
 @import "mosaic/buttons";
@@ -29,6 +30,7 @@ body {
   max-height: 46px;
   height: 200px;
 }
+
 @media screen and (max-width: 576px) {
   .navbar-brand img {
     max-height: 34px;
@@ -42,6 +44,7 @@ body {
 a,
 h3.article-title a {
   color: $mosaic-purple;
+
   &:hover {
     color: $mosaic-orange;
   }
@@ -53,21 +56,25 @@ a {
   transition: all ease-in-out 0.1s !important;
   -webkit-transition: all ease-in-out 0.1s !important;
 }
+
 table {
   code {
     background-color: #eeebf0;
   }
 }
-table > tbody > tr:hover > td,
-table > tbody > tr:hover > th {
+
+table>tbody>tr:hover>td,
+table>tbody>tr:hover>th {
   background-color: inherit;
 }
-table > tbody > tr:nth-child(odd) > td,
-table > tbody > tr:nth-child(odd) > th {
+
+table>tbody>tr:nth-child(odd)>td,
+table>tbody>tr:nth-child(odd)>th {
   background-color: #f9f9f9;
 }
-table > tbody > tr:nth-child(2n) > td,
-table > tbody > tr:nth-child(2n) > th {
+
+table>tbody>tr:nth-child(2n)>td,
+table>tbody>tr:nth-child(2n)>th {
   background-color: #f3f3f3;
 }
 
@@ -85,9 +92,15 @@ h3.article-title a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $mosaic-navy;
 }
+
 h1 {
   font-size: 1.75rem;
 }
@@ -96,8 +109,8 @@ hr {
   height: 0;
 }
 
-p + ul,
-p + ol {
+p+ul,
+p+ol {
   margin-top: -0.85rem;
 }
 
@@ -114,7 +127,7 @@ p + ol {
   }
 }
 
-body.page-docs #navbar-main > .container {
+body.page-docs #navbar-main>.container {
   max-width: 1700px;
 }
 
@@ -126,6 +139,7 @@ body.page-docs #navbar-main > .container {
 
 .navbar-brand {
   max-height: 57px;
+
   img {
     height: 47px;
     margin-top: 1px;
@@ -142,8 +156,9 @@ body.page-docs #navbar-main > .container {
 
   .main-menu-item ul li .nav-link {
     color: $mosaic-navy;
+
     &.active {
-      color: $mosaic-purple !important;
+      color: $mosaic-purple  !important;
       text-decoration: underline;
     }
   }
@@ -158,6 +173,7 @@ body.page-docs #navbar-main > .container {
     display: none !important;
   }
 }
+
 @media (max-width: 767.98px) {
   .navbar-collapse {
     background-color: #f8f4fb;
@@ -168,6 +184,7 @@ body.page-docs #navbar-main > .container {
 .home-section {
   padding: 50px 0 70px;
 }
+
 @media screen and (max-width: 576px) {
   .home-section {
     padding: 1rem 0;
@@ -178,6 +195,7 @@ body.page-docs #navbar-main > .container {
   h1 {
     margin-bottom: 1rem;
   }
+
   p {
     color: #817f88;
     font-style: italic;
@@ -198,6 +216,7 @@ body.page-docs #navbar-main > .container {
     margin-bottom: 1.9rem !important;
     border-bottom: 2px dotted #ccc;
   }
+
   .partner-logos {
     a img {
       transform: scale(1);
@@ -219,18 +238,21 @@ body.page-docs #navbar-main > .container {
 
 .changelog-item {
   margin-bottom: 0.2rem;
+
   .date {
     font-style: italic;
   }
+
   .dash {
     color: #bbb;
   }
+
   .title {
     font-style: italic;
   }
 }
 
-div.alert > div > ul > li > p {
+div.alert>div>ul>li>p {
   margin-bottom: 0;
 }
 
@@ -238,13 +260,16 @@ div.alert > div > ul > li > p {
   .image {
     margin-bottom: 0.4rem !important;
   }
+
   .subtitle {
     margin-bottom: 0 !important;
   }
+
   .text {
     font-size: 0.7rem;
   }
 }
+
 .article-footer {
   background-color: #eae8f0;
   padding-bottom: 3rem;

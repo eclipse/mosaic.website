@@ -8,6 +8,11 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
+R. Protzmann, K. Schrab, M. Schweppenhäuser, and I. Radusch:  
+**"Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."**  
+_SUMO User Conference 2022_,
+Berlin, Germany, 2022.
+
 K. Massow, F. M. Thiele, K. Schrab, B. S. Bunk, I. Tschinibaew and I. Radusch:  
 **["Scenario Definition for Prototyping Cooperative Advanced Driver Assistance Systems."](https://publica.fraunhofer.de/dokumente/N-624731.html)**  
 _IEEE 23rd International Conference on Intelligent Transportation Systems (ITSC 2020)_  

@@ -20,18 +20,18 @@ used which is placed in the `application` folder of the scenario. This database 
 
 ### Database tables
 
-| Database Name | Description |
-|:------ |:--------------------------------------------- |
-| `Node` | Contains all Nodes of the road network such as junctions and nodes describing the geometry of a road. Each node is identified by an unique ID (long).(refer to {{< target-blank "http://wiki.openstreetmap.org/wiki/Node" "http://wiki.openstreetmap.org/wiki/Node" >}}) |
-| `Way` | Provides various properties for each way of the road network.(refer to {{< target-blank "http://wiki.openstreetmap.org/wiki/Way" "http://wiki.openstreetmap.org/wiki/Way" >}} |
-| `WayConsistsOf` | Provides a list of nodes for each way of the road network. |
-| `Connection` | Contains a list of all connections of the road network including the way it originally is part of. Each connection describes an *directed* edge between two junctions in the road network. |
-| `ConnectionConsistsOf` | Provides a list of nodes each connection consists of. |
-| `Restriction` | Provides information about turn restrictions. Each turn restriction is described by a from-connection, a via-node, and a to-connection. This data is used for route calculation purposes. |
-| `TrafficSignals` | Contains  detailed  information  about  traffic  lights and their signalling program. <b>Currently not used</b>. |
-| `Route` | Contains a list of all routes known for the simulation scenario. All routes referenced in the `Mapping` configuration must be presentin this table. |
-| `Building` <br>`Corner` <br>`Wall` | Provides information about buildings alongside the road network, e.g. for visualization purposes or sophisticated communication simulation models. |
-| `Version` | Contains the version of the Eclipse MOSAIC installation which was initially used to create the database. |
+| Database Name                           | Description                                                                                                                                                                                                                                                              |
+|:----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Node`                                  | Contains all Nodes of the road network such as junctions and nodes describing the geometry of a road. Each node is identified by an unique ID (long).(refer to {{< target-blank "http://wiki.openstreetmap.org/wiki/Node" "http://wiki.openstreetmap.org/wiki/Node" >}}) |
+| `Way`                                   | Provides various properties for each way of the road network.(refer to {{< target-blank "http://wiki.openstreetmap.org/wiki/Way" "http://wiki.openstreetmap.org/wiki/Way" >}}                                                                                            |
+| `WayConsistsOf`                         | Provides a list of nodes for each way of the road network.                                                                                                                                                                                                               |
+| `Connection`                            | Contains a list of all connections of the road network including the way it originally is part of. Each connection describes an *directed* edge between two junctions in the road network.                                                                               |
+| `ConnectionConsistsOf`                  | Provides a list of nodes each connection consists of.                                                                                                                                                                                                                    |
+| `Restriction`                           | Provides information about turn restrictions. Each turn restriction is described by a from-connection, a via-node, and a to-connection. This data is used for route calculation purposes.                                                                                |
+| `Roundabouts`<br>`RoundaboutConsistsOf` | Contains information about connections belonging to roundabouts.                                                                                                                                                                                                         |
+| `Route`                                 | Contains a list of all routes known for the simulation scenario. All routes referenced in the `Mapping` configuration must be presentin this table.                                                                                                                      |
+| `Building` <br>`BuildingCorner`         | Provides information about buildings alongside the road network, e.g. for visualization purposes, [occlusion models](/docs/develop_applications/perception), or sophisticated communication simulation models.                                                           |
+| `Properties`                            | Contains the version of the Eclipse MOSAIC installation which was initially used to create the database.                                                                                                                                                                 |
 
 ### Road network model
 
