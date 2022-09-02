@@ -25,6 +25,8 @@ theme = "academic"
 
 diagram = true
 
+timeout = 300000
+
 # Get last modified date for content from Git?
 enableGitInfo = false
 
