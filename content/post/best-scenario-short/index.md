@@ -39,5 +39,7 @@ With MOSAIC, vehicles can be equipped with any kind of application, including si
 We presented the scenario on [CSUM 2022](https://csum.civ.uth.gr/) (taking place 31 August - 2 September 2022) and also prepared a paper presenting our methodology on creating the scenario.
 The paper will be published soon in the conference proceedings via Springer Link.
 
-Meanwhile, you can already use the scenario which is available on GitHub: [ <i class="fab fa-github"></i> https://github.com/mosaic-addons/best-scenario](https://github.com/mosaic-addons/best-scenario)
+**Our paper about the BeST scenario won the Best Paper / Young Researcher Award at CSUM 2022!** 
+
+You can freely use the scenario which is available on GitHub: [ <i class="fab fa-github"></i> https://github.com/mosaic-addons/best-scenario](https://github.com/mosaic-addons/best-scenario)
 

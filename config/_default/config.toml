@@ -25,6 +25,7 @@ theme = "academic"
 
 diagram = true
 
+# Due to some problems with Eclipse Jenkins we raised the timeout for page generation
 timeout = 300000
 
 # Get last modified date for content from Git?
