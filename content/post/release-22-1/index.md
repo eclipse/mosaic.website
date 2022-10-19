@@ -31,9 +31,9 @@ You can find the new version in our [Download section](/download), and in our [G
 ```shell
 [A+] Perception module is now working with viewing angles larger than 180 degrees.
 [A+] Introducing perception modifiers, such as occlusion or simple error models.
-[A+] Improved API of vehicle operating system; action methods (e.g., change speed) now accept nanoseconds 
+[A+] Improved API of vehicle operating system; action methods (e.g., change speed) now accept nanoseconds.
 [M+] Improved handling of priorities when processing time advance requests.
-[M+] Allow parallel execution of federates based on same Docker image (e.g., when running simulations in p
+[M+] Allow parallel execution of federates based on same Docker image (e.g., when running simulations in parallel).
 [M+] Added configuration option to configure decimal separator in file output generator.
 [C+] Upgraded ns-3 federate to support ns3-36.1.
 [C+] Improved default logging of OMNeT++ and ns-3 simulations to be less verbose.
