@@ -39,18 +39,24 @@ The following listing shows a basic example for the configuration of the FileOut
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <output id="fileoutput" enabled="true" update="5" loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
-	<filename>output.csv</filename>
-	<directory>.</directory>
-	<separator>;</separator>
-	<subscriptions>
-		<subscription id="...">
-		...
-		</subscription>
-		...
-	</subscriptions>>
+    <filename>output.csv</filename>
+    <directory>.</directory>
+    <separator>;</separator>
+    <decimalSeparator>.</decimalSeparator>
+    <subscriptions>
+        <subscription id="...">
+        ...
+        </subscription>
+        ...
+    </subscriptions>>
 </output>
 ```
-_Basic configuration parameters for FileOutput_
+{{% alert note %}}
+Note: The `<decimalSeparator>`-element is an optional parameter defining how floating-point numbers will be written.
+Be careful not to use the same characters for `<separator>` and `<decimalSeparator>` as it will break the output. 
+{{% /alert %}}
+
+__Basic configuration parameters for FileOutput__
 
 The usage of the parameters is described in the following table:
 
@@ -63,8 +69,6 @@ The usage of the parameters is described in the following table:
 | `end`     | Sets the end time in seconds for output generation. This has nothing to do with the run time of the actual simulation   |
 | `loader`  | Sets where the output is loaded from using the Java-class (see previous listing)                               |
 
-_Basic Configuration of file output_
-
 #### Interaction record
 
 Each interaction record is derived from a certain interaction type and composed of several entries,which are separated by Element `separator`. 
@@ -73,14 +77,14 @@ The configuration of the file output is explained at the example of the `Vehicle
 
 ```xml
 <subscription id="VehicleUpdates" enabled="true">
-	<entries>
-		<entry>"UPDATE_VEHICLE"</entry>
-		<entry>Time</entry>
-		<entry>Updated:Name</entry>
-		<entry>Updated:Speed</entry>
-		<entry>Updated:Position.Latitude</entry>
-		<entry>Updated:Position.Longitude</entry>
-	</entries>
+    <entries>
+        <entry>"UPDATE_VEHICLE"</entry>
+        <entry>Time</entry>
+        <entry>Updated:Name</entry>
+        <entry>Updated:Speed</entry>
+        <entry>Updated:Position.Latitude</entry>
+        <entry>Updated:Position.Longitude</entry>
+    </entries>
 </subscription>
 ```
 _Specific Configuration for interaction_
@@ -193,9 +197,9 @@ This can be configured by setting the `start` and `end` attributes accordingly:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <output id="fileoutput" enabled="true" 
-			start="300" end="1000" update="5" 
-			loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
-	...
+            start="300" end="1000" update="5" 
+            loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
+    ...
 </output>
 ```
 _An example for restricting output generation of interactions within a time frame_
@@ -209,7 +213,7 @@ many outputs.
 
 ```xml
 <output id="output" loader="org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader">
-	<write>file+compress</write>
-	...
+    <write>file+compress</write>
+    ...
 </output>
 ```

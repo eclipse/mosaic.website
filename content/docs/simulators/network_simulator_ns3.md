@@ -48,6 +48,7 @@ and a **Python** interpreter. At least you need the following packages to be ins
 ```plaintext
 gcc
 g++
+cmake
 python3
 python3-dev
 ```
