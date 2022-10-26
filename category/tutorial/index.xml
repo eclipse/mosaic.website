@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/category/tutorial/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/category/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tutorial</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>Tutorial</title>
+      <link>https://www.eclipse.org/mosaic/category/tutorial/</link>
+    </image>
+    
+  </channel>
+</rss>

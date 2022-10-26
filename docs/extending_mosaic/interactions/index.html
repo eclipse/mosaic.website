@@ -1,0 +1,2074 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates in order to enable users to easily design and integrate new federates and connect them to existing federates.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/">
+  <meta property="og:title" content="Interactions in Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates in order to enable users to easily design and integrate new federates and connect them to existing federates."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-08-06T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-08-06T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Interactions in Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-extending_mosaic page-interactions ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mapping">mapping</a>
+      <ul>
+        <li><a href="#mappingadvanced">mapping.advanced</a></li>
+      </ul>
+    </li>
+    <li><a href="#communication">communication</a></li>
+    <li><a href="#vehicle">vehicle</a></li>
+    <li><a href="#traffic">traffic</a></li>
+    <li><a href="#electricity">electricity</a></li>
+    <li><a href="#environment">environment</a></li>
+    <li><a href="#trafficsigns">trafficsigns</a></li>
+    <li><a href="#application">application</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Interactions in Eclipse MOSAIC</h1>
+
+          <div class="article-style">
+            <p>This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates
+in order to enable users to easily design and integrate new federates and connect them to existing
+federates. Note that we use the word &ldquo;interaction&rdquo; whenever we describe communication between federates,
+whereas we talk about a &ldquo;message&rdquo; primarily when concerned with V2X-communication.</p>
+<p>All interactions are categorized by the package they are contained in, which corresponds to their main context/purpose.
+The &ldquo;Sent by&rdquo; column is not necessarily complete for all interactions but should give an idea where interactions are used.</p>
+<h2 id="mapping">mapping</h2>
+<p>All interactions in this package are concerned with adding/registering simulation-units to the simulation.
+While most of the introductions are handled by the <code>Mapping</code>- or <code>Application</code>-ambassador, some of them
+are handled by the ambassadors for the traffic simulators (see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/lust/">
+    LuST
+</a>
+-scenario).
+In this case the interactions are used to initialize the scenario.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>VehicleRegistration</code></td>
+<td style="text-align:left">This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.</td>
+<td style="text-align:left"><code>Mapping</code>,<br><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ChargingStationRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a charging station to the simulation. All units are introduced at simulation start time, e.g. 0s.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RsuRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a roadside unit to the simulation.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TmcRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ServerRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a server to the simulation. It holds a list of all applications.</td>
+<td style="text-align:left"><code>Mapping3</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficLightRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a traffic light (group) to the simulation. It holds a traffic light group, which unites all traffic light signals used for one traffic light system.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficSignRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a traffic sign.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mappingadvanced">mapping.advanced</h3>
+<p>Interactions in this package are still concerned with the mapping of vehicles but differ from simple simulation unit registration.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ScenarioTrafficLightRegistration</code></td>
+<td style="text-align:left">This interaction contains the phases and their duration of each traffic light in the simulation. This interaction shall be generated by the traffic simulators at start up (e.g. SUMO)</td>
+<td style="text-align:left"><code>Sumo</code>,<br><code>Phabmacs</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ScenarioVehicleRegistration</code></td>
+<td style="text-align:left">This interaction is used to add vehicles to a simulation using a preconfigured scenario, which could be defined by using Sumo.</td>
+<td style="text-align:left"><code>Sumo(Scenario)</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RoutelessVehicleRegistration</code></td>
+<td style="text-align:left">This interaction is sent the vehicle mapping component to indicate the introduction of a new vehicle whose route is not yet known. This interaction is usually handled by the <code>Application</code>-ambassador, which calculates a route for the given vehicle and sends out an VehicleRegistration-interaction afterwards.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="communication">communication</h2>
+<p>This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>AdHocCommunicationConfiguration</code></td>
+<td style="text-align:left">This interaction is intended to be used to exchange information about the configuration of a vehicle’s ad-hoc communication facilities.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CellularCommunicationConfiguration</code></td>
+<td style="text-align:left">This interaction is intended to be used to exchange information about the configuration of a vehicle’s cellular communication facilities.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+</tbody>
+</table>
+<p>Interactions related to V2X-message transfer.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>V2xMessageAcknowledgement</code></td>
+<td style="text-align:left">This interaction is used by a communication simulator to inform about success or failure of a packet transmission. Typically, the application simulator should subscribe to this interaction.</td>
+<td style="text-align:left"><code>Cell</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>V2xMessageReception</code></td>
+<td style="text-align:left">This interaction is intended to be used to exchange information about a received V2X message.</td>
+<td style="text-align:left"><code>Omnet++</code>,<br><code>ns-3</code>,<br><code>SimpleNetworkSimulator</code>,<br><code>cell</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>V2xFullMessageReception</code></td>
+<td style="text-align:left">This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction.</td>
+<td style="text-align:left"><code>Omnet++</code>,<br><code>ns-3</code>,<br><code>SimpleNetworkSimulator</code>,<br><code>Cell</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>V2xMessageRemoval</code></td>
+<td style="text-align:left">This interaction is intended to be used to exchange information about  V2X messages, that are to be deleted.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>V2xMessageTransmission</code></td>
+<td style="text-align:left">This interaction is sent in order to trigger the transportation of a V2XMessage over a wireless network to a given geographical destination area.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="vehicle">vehicle</h2>
+<p>The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic simulators.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>VehicleActuatorsChange</code></td>
+<td style="text-align:left">This interaction is used to directly control the throttle/brake of an vehicle. At the moment this is only supported by Phabmacs.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleDistanceSensorActivation</code></td>
+<td style="text-align:left">This interaction is used to enable the distance sensors of a vehicle. A multitude of sensors can be enabled with one interaction given they use the same maximum lookahead distance.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleFederateAssignment</code></td>
+<td style="text-align:left">This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the PhSCA-ambassador.</td>
+<td style="text-align:left"><code>PhaSCA</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleLaneChange</code></td>
+<td style="text-align:left">This interaction initiates a lane change for the given vehicle, which should be consumed by the traffic simulators.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleParametersChange</code></td>
+<td style="text-align:left">This interaction requests to update various parameters of the vehicle or its driver.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleResume</code></td>
+<td style="text-align:left">This interaction requests the given vehicle to continue its journey after being stopped beforehand. The interaction should be handled by traffic simulators</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleRouteChange</code></td>
+<td style="text-align:left">This interaction is used to change a route for vehicle by its id. It can be assumed that the given route id has been propagated by either a VehicleRoutesInitialization- or VehicleRouteRegistration-interaction.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleRouteRegistration</code></td>
+<td style="text-align:left">This interaction is used to propagate a newly generated route which is not yet known. It consists of the id of the route and a list of all its edges.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleSightDistanceConfiguration</code></td>
+<td style="text-align:left">This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleSlowDown</code></td>
+<td style="text-align:left">This interaction initiates the vehicle to slow down in a given interval. The request should be handled by traffic simulators. The name &lsquo;SlowDown&rsquo; is inherited by Sumo and a little bit misleading, the speed can also be increased.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleSpeedChange</code></td>
+<td style="text-align:left">This interaction sets the current speed of the given vehicle. This should be handled by traffic simulators</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleStop</code></td>
+<td style="text-align:left">This interaction requests the given vehicle to stop at the given road position, it should be handled by traffic simulators.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="traffic">traffic</h2>
+<p>Interactions in this package are focused around traffic management and communication with traffic simulators.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>CellularHandoverUpdates</code></td>
+<td style="text-align:left">This interaction is used by the cell ambassador to communicate handovers.</td>
+<td style="text-align:left"><code>cell</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>InductionLoopDetectorSubscription</code></td>
+<td style="text-align:left">This interaction subscribes a unit to the data of an induction loop detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LaneAreaDetectorSubscription</code></td>
+<td style="text-align:left">This interaction subscribes a unit to the data of a lane area detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LanePropertyChange</code></td>
+<td style="text-align:left">This interaction contains lane properties to be changed. Concretely, it sets a list of allowed and disallowed vehicle classes per lane and a new maximum speed limit that shall be changed. The changed lane properties have to be omitted to the traffic simulator to be handled.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficDetectorUpdates</code></td>
+<td style="text-align:left">This extension of {@link Interaction} combines updates of lane area and induction loop detectors.  Usually the updates are supplied by the traffic simulator and will be filtered by applications subscribed to them.</td>
+<td style="text-align:left"><code>Sumo</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficLightStateChange</code></td>
+<td style="text-align:left">This interaction is intended to be used to forward a request to change the state of a simulated traffic light. This interaction can be used to implement different controlling strategies for traffic lights.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficLightUpdates</code></td>
+<td style="text-align:left">This interaction is a container for traffic light updates. It is sent by the SumoAmbassador to inform simulation units about updated traffic light states.</td>
+<td style="text-align:left"><code>Sumo</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleUpdates</code></td>
+<td style="text-align:left">This interaction is used to update the position of some or all vehicles of the simulation. It consists of three lists, containing newly added vehicles, vehicles which were updated since the last simulation step, and vehicles which have been removed from the traffic simulation.</td>
+<td style="text-align:left"><code>Sumo</code>,<br><code>Phabmacs</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleTypesInitialization</code></td>
+<td style="text-align:left"><strong>This interaction is required for each simulation.</strong> It contains predefined vehicle types. Other ambassadors may cache this interaction in order to have access on vehicle types, which are later identified by their identifier.</td>
+<td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleRoutesInitialization</code></td>
+<td style="text-align:left"><strong>This interaction is required for each simulation.</strong> It contains all routes vehicles will take during the simulation. Other ambassadors may cache this interaction in order to have access on the routes, which are later identified by their identifier.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="electricity">electricity</h2>
+<p>All interactions contained in this package are related to electric vehicles and the surrounding infrastructure.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ChargingDenialResponse</code></td>
+<td style="text-align:left">This interaction is sent out by the charging station ambassador to inform the application simulator (the vehicles) when a charging station is already in use. e.g. a vehicle wants to start charging on an engaged charging station -&gt; ChargingStartDenial.</td>
+<td style="text-align:left"><code>ChargingStation</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ChargingStartResponse</code></td>
+<td style="text-align:left">This interaction is intended to be used to forward a started charging process at a ChargingSpot to the RTI.</td>
+<td style="text-align:left"><code>ChargingStation</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ChargingStationUpdates</code></td>
+<td style="text-align:left">This extension interaction is intended to be used to forward the updated state of a ChargingStation to the RTI.</td>
+<td style="text-align:left"><code>ChargingStation</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ChargingStopResponse</code></td>
+<td style="text-align:left">This interaction is intended to be used to forward a stopped charging process at a charging station to the RTI.</td>
+<td style="text-align:left"><code>ChargingStation</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleChargingStartRequest</code></td>
+<td style="text-align:left">This interaction is intended to be used to forward a request from a vehicle to <strong>start</strong> charging its battery at a charging station to the RTI.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleChargingStopRequest</code></td>
+<td style="text-align:left">This interaction is intended to be used to forward a request from a vehicle to <strong>stop</strong> charging its battery at a charging station to the RTI.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleElectricityUpdates</code></td>
+<td style="text-align:left">This interaction is used to inform the applications of simulation units about changed electric information, send out by the battery ambassador.</td>
+<td style="text-align:left"><code>Battery</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment">environment</h2>
+<p>The interactions in this package are used for handling the communication about environment sensors.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>EnvironmentSensorActivation</code></td>
+<td style="text-align:left">This interaction is intended to be used to signal interest in sensor information for a specific simulation unit.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>EnvironmentSensorUpdates</code></td>
+<td style="text-align:left">This interaction is intended to be used to exchange sensor data.</td>
+<td style="text-align:left"><code>EventServer</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GlobalEnvironmentUpdates</code></td>
+<td style="text-align:left">This extension of interaction contains a list of current environment events and their locations. Those events can than be used to react upon a changing environment.</td>
+<td style="text-align:left"><code>EventServer</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="trafficsigns">trafficsigns</h2>
+<p>Interactions in this package are used to communicate changes in variable traffic signs, e.g. changing the speed limit.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>AbstractTrafficSignChange</code></td>
+<td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable traffic sign. All interaction-classes, that are concerned with changing traffic signs extend this class.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficSignLaneAssignmentChange</code></td>
+<td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable lane assignment sign.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TrafficSignSpeedLimitChange</code></td>
+<td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable speed sign.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleSeenTrafficSingsUpdate</code></td>
+<td style="text-align:left">This interaction stores a map of all traffic signs which are in sight distance of a specific vehicle and a map of all  traffic signs which became invalid for that vehicle.</td>
+<td style="text-align:left"><code>TrafficSign</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="application">application</h2>
+<p>Interactions in this package are used for applications. They are used to communicate custom information/data via the RTI.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Interaction name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Sent by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ApplicationInteraction</code></td>
+<td style="text-align:left">This interaction is intended to be used in custom applications, it can be extended for simulation units to react upon different influences and can be used for intercommunication between applications.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ItefLogging</code></td>
+<td style="text-align:left">This interaction is used to exchange log-tuples for the ITEF (Integrated Testing and Evaluation Framework).</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SumoTraciRequest</code></td>
+<td style="text-align:left">This interaction is used to send a byte array message to SUMO TraCI. The request will be handled by TraCI and trigger a SumoTraciResponse.</td>
+<td style="text-align:left"><code>Application</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SumoTraciResponse</code></td>
+<td style="text-align:left">This interaction holds the TraCI response for a SumoTraciRequest. It is sent by the SumoAmbassador and will usually be handled by the Application that sent the request.</td>
+<td style="text-align:left"><code>Sumo</code></td>
+</tr>
+</tbody>
+</table>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/extending_mosaic/simulator_coupling/" rel="next">Simulator Coupling</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/" rel="prev">Application Ambassador - Implementation Details</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

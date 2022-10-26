@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Download Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/docs/getting_started/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/docs/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    <description>Download Eclipse MOSAIC</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>Download Eclipse MOSAIC</title>
+      <link>https://www.eclipse.org/mosaic/docs/getting_started/</link>
+    </image>
+    
+    <item>
+      <title>Run a simulation with Eclipse MOSAIC</title>
+      <link>https://www.eclipse.org/mosaic/docs/getting_started/run_mosaic/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/getting_started/run_mosaic/</guid>
+      <description>&lt;p&gt;To run a single simulation via Command Line Interface (CLI), call the Eclipse MOSAIC start script with the
+following command line arguments.&lt;/p&gt;
+&lt;h3 id=&#34;gnulinux&#34;&gt;GNU/Linux&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./mosaic.sh -s &amp;lt;scenario-name&amp;gt;
+./mosaic.sh -c ./scenarios/&amp;lt;scenario_name&amp;gt;/scenario_config.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-dos&#34;&gt;mosaic.bat -s &amp;lt;scenario-name&amp;gt;
+mosaic.bat -c .\scenarios\&amp;lt;scenario_name&amp;gt;\scenario_config.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;The following call starts the example scenario &amp;ldquo;Barnim&amp;rdquo; in Eclipse MOSAIC on a Windows machine and opens a
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
+    Visualization in your browser
+&lt;/a&gt;
+:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-dos&#34;&gt;mosaic.bat -s Barnim -v
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-running-the-pre-bundled-example-scenario-barnim-with-eclipse-mosaic&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-barnim.gif&#34; data-caption=&#34;Running the pre-bundled example scenario &amp;ldquo;Barnim&amp;rdquo; with Eclipse MOSAIC&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-barnim.gif&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Running the pre-bundled example scenario &amp;ldquo;Barnim&amp;rdquo; with Eclipse MOSAIC
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;cli-options&#34;&gt;CLI Options&lt;/h3&gt;
+&lt;p&gt;The Eclipse MOSAIC start script supports the following arguments:&lt;/p&gt;
+&lt;style&gt;
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 80%;
+}
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Option&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-c&lt;/code&gt;&lt;br&gt;&lt;code&gt;--configuration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The primary configuration file which is scenario dependent and located in the according scenario folder. This file transitively includes other necessary configuration files. Usually you will use the file &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/scenarios/&amp;lt;scenario_name&amp;gt;/scenario_config.json&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-s&lt;/code&gt;&lt;br&gt;&lt;code&gt;--scenario&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;If the main configuration file of your scenario is located in the default scenario directory of MOSAIC (i.e. in &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/scenarios/&amp;lt;scenario_name&amp;gt;/scenario_config.json&lt;/code&gt;), this option can be used instead of the &lt;code&gt;-c&lt;/code&gt; option by passing only the scenario name &lt;code&gt;-s &amp;lt;scenario_name&amp;gt;&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-w&lt;/code&gt;&lt;br&gt;&lt;code&gt;--watchdog-interval&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The interval of the internal alive check (in seconds) which is used by MOSAIC to detect execution stalls. This parameter is not mandatory and it is also possible to turn off the watchdog (&lt;code&gt;-w 0&lt;/code&gt;) for debug sessions.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-o&lt;/code&gt;&lt;br&gt;&lt;code&gt;--log-level&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Override all specified logging-levels. This option is useful for debugging simulations. For example logging every possible event would be done with &lt;code&gt;-o TRACE&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-b&lt;/code&gt;&lt;br&gt;&lt;code&gt;--realtime-brake&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;With this parameter, the simulation will be slowed down to a desired Real Time Factor, if possible. When simulations already run slower than real time, this factor will have no effect. For example, use &lt;code&gt;-b 1&lt;/code&gt; to execute the simulation in real time.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-r&lt;/code&gt;&lt;br&gt;&lt;code&gt;--random-seed&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The global random seed to set for the simulation run. This is usually defined in the &lt;code&gt;scenario_config.json&lt;/code&gt;, but can be overridden using this option.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-v&lt;/code&gt;&lt;br&gt;&lt;code&gt;--start-visualizer&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
+    Websocket Visualizer
+&lt;/a&gt;
+.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-h&lt;/code&gt;&lt;br&gt;&lt;code&gt;--help&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Prints a help screen.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 22.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
+2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
+2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
+2020-09-08 16:46:09,945 INFO  FederationManagement - Add ambassador/federate with id &#39;sumo&#39;
+2020-09-08 16:46:09,946 INFO  FederationManagement - Deploying federate &#39;sumo&#39; locally in .\tmp\sumo
+2020-09-08 16:46:09,962 INFO  FederationManagement - Starting federate &#39;sumo&#39; locally in .\tmp\sumo
+16:46:17 - Simulating: 195000000000ns (195.0s / 1000.0s) - 19.5% (RTF:33.10, ETC:25.2s)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The current simulation progress is shown in the following format.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;current wall clock time&lt;/li&gt;
+&lt;li&gt;current simulation time in [ns] and [s]&lt;/li&gt;
+&lt;li&gt;progress in %&lt;/li&gt;
+&lt;li&gt;Real Time Factor (RTF) and Estimated Time to Completion (ETC)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The RTF is the ratio of simulated time to simulation duration in wall clock time, e.g. a real time factor
+greater than 1.0 means, the simulation is running faster than real time. Both RTF and ETC are calculated
+based on the performance of the last five seconds of the simulation and should only give a rough overview,
+how long a simulation can take. Depending on the simulation setup, the values can differ heavily between
+start and end of a simulation.&lt;/p&gt;
+&lt;h2 id=&#34;gather-results&#34;&gt;Gather results&lt;/h2&gt;
+&lt;p&gt;All active simulators as well as the according ambassadors generate certain logging output, depending on their configured logging level.
+Therefore, these logs are very helpful to retrace and understand the individual states during the simulation time. The generated log
+files can be found in the &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/logs/log-&amp;lt;timestamp&amp;gt;&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Moreover, Eclipse MOSAIC offers uniformly formatted and visually prepared results using various
+&lt;strong&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
+    Output Generator
+&lt;/a&gt;
+&lt;/strong&gt; implementations. For  example, the &lt;code&gt;FileOutputGenerator&lt;/code&gt; generates
+detailed outputs of e.g. vehicle positions, speeds, or message exchanges.
+In the scenarios brought by the latest release, this output mechanism is already configured.&lt;/p&gt;
+&lt;h2 id=&#34;scenario-configuration&#34;&gt;Scenario Configuration&lt;/h2&gt;
+&lt;p&gt;The configuration of a simulation scenario consists of a detailed description for each coupled simulator. The main configuration file is found under &lt;code&gt;scenario_config.json&lt;/code&gt;,
+which defines the list of coupled simulators:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;simulation&amp;quot;: {
+        &amp;quot;id&amp;quot;: &amp;quot;Barnim&amp;quot;,
+        &amp;quot;duration&amp;quot;: &amp;quot;1000s&amp;quot;,
+        &amp;quot;randomSeed&amp;quot;: 268965854,
+        &amp;quot;projection&amp;quot;: {
+            &amp;quot;centerCoordinates&amp;quot;: {
+                &amp;quot;latitude&amp;quot;: 52.511289,
+                &amp;quot;longitude&amp;quot;: 13.3167457
+            },
+            &amp;quot;cartesianOffset&amp;quot;: {
+                &amp;quot;x&amp;quot;: -385769.05,
+                &amp;quot;y&amp;quot;: -5819239.29
+            }
+        }
+    },
+    &amp;quot;federates&amp;quot;: {
+        &amp;quot;application&amp;quot;: true,
+        &amp;quot;environment&amp;quot;: false,
+        &amp;quot;cell&amp;quot;: false,
+        &amp;quot;ns3&amp;quot;: false,
+        &amp;quot;omnetpp&amp;quot;: false,
+        &amp;quot;sns&amp;quot;: false,
+        &amp;quot;sumo&amp;quot;: true,
+        &amp;quot;output&amp;quot;: true
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This way, simulators can be easily added or removed from the simulation. Each of the coupled simulators is configured in the directory
+of the &lt;code&gt;scenario_config.json&lt;/code&gt; file. The release bundle comes with a set of tutorial scenarios, which are described in detail
+in the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/&#34;&gt;
+    Tutorials section
+&lt;/a&gt;
+.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Simulation Results</title>
+      <link>https://www.eclipse.org/mosaic/docs/getting_started/results/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/getting_started/results/</guid>
+      <description>&lt;p&gt;Eclipse MOSAIC generates log files for each simulation run. Log files are generated for the ambassadors of each
+coupled federate respectively simulator and for the RTI itself. The log files are stored in the
+folder &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/logs/log-&amp;lt;timestamp&amp;gt;&lt;/code&gt;. For each simulation run a new folder is created.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ log-&amp;lt;timestamp&amp;gt;
+   ├─ apps
+   |  └─ &amp;lt;unitType&amp;gt;_&amp;lt;unitId&amp;gt; ................. Detailed application specific logs for each unit
+   |      ├─ OperatingSystem.log ............. Detailed operating system logs for the unit
+   |      └─ ExampleApp.log .................. Detailed application specific logs for each application
+   ├─ activities.csv ......................... Simulation details in comma separated value-format
+   ├─ Application.log  ....................... Application simulator logs, including information for all units
+   ├─ Battery.log ............................ Battery simulator log
+   ├─ Cell.log ............................... Cellular network log
+   ├─ ChargingStation.log .................... ChargingStation ambassador log
+   ├─ Communication.log ...................... (Ad hoc) network simulation ambassador log (ns-3, OMNeT++, SNS)
+   ├─ CommunicationDetails.log ............... Detailed output of network simulator (ns-3 or OMNeT++)
+   ├─ Environment.log ........................ Logs of the environmental eventserver
+   ├─ Mapping.log ............................ Mapping configuration logs
+   ├─ MOSAIC.log ............................. General information, e.g. startup sequence information
+   ├─ Navigation.log ......................... Detailed logs about navigation component in the application ambassador
+   ├─ Traffic.log ............................ Traffic simulation log (SUMO or others)
+   └─ output.csv ............................. Recorded data of the integrated File Output Generator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In addition to standard logging output for each federate there is a &lt;code&gt;activities.csv&lt;/code&gt; file which contains
+detailed information about sent and received interactions. This file can be used to trace a
+simulation run for deep debugging. To enable this feature, the log level of the logger &lt;code&gt;activities&lt;/code&gt; has to be
+set to &lt;code&gt;INFO&lt;/code&gt; in the &lt;code&gt;logback.xml&lt;/code&gt; (see section below).&lt;/p&gt;
+&lt;h2 id=&#34;logging&#34;&gt;Logging&lt;/h2&gt;
+&lt;p&gt;The main configuration file for logging is &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/etc/logback.xml&lt;/code&gt;. In this file, the log output
+can be configured in great detail. This file can be adjusted to your needs, e.g. you can set up a more detailed logging
+for communication components but set a less verbose output for Eclipse MOSAIC&amp;rsquo;s internal interactions or traffic
+simulation depending on your simulation focus.&lt;/p&gt;
+&lt;p&gt;Eclipse MOSAIC uses &lt;em&gt;LOGback&lt;/em&gt; as logging framework. &lt;em&gt;LOGback&lt;/em&gt; offers a lot of parameters to adapt the output to your needs. Please refer to
+
+
+
+
+
+&lt;a href=&#34;https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    this site
+&lt;/a&gt;
+ for a detailed overview of all
+parameters you can use in the &lt;code&gt;logback.xml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Please note that you can adjust the output to your needs by setting different log levels (&lt;code&gt;ERROR&lt;/code&gt;, &lt;code&gt;INFO&lt;/code&gt;,
+&lt;code&gt;DEBUG&lt;/code&gt; etc.) for each component in the file at &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/etc/logback.xml&lt;/code&gt;. This might also influence
+the simulation performance because of a possibly high amount of data to be logged.&lt;/p&gt;
+&lt;h3 id=&#34;federate-specific-logging&#34;&gt;Federate specific logging&lt;/h3&gt;
+&lt;p&gt;Depending on the simulation purpose, further configuration possibilities for federate specific logging
+may be of interest.&lt;/p&gt;
+&lt;p&gt;For instance, OMNeT++ exhibits an elaborated logging concept. The &lt;code&gt;omnetpp.ini&lt;/code&gt; in the scenario folder
+includes options to adjust the logging levels. The outputs of this federate are written to &lt;code&gt;CommunicationDetails.log&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

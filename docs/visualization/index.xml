@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebSocket Visualizer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/docs/visualization/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/docs/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <description>WebSocket Visualizer</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>WebSocket Visualizer</title>
+      <link>https://www.eclipse.org/mosaic/docs/visualization/</link>
+    </image>
+    
+    <item>
+      <title>File Output Generator</title>
+      <link>https://www.eclipse.org/mosaic/docs/visualization/filevis/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/visualization/filevis/</guid>
+      <description>&lt;p&gt;The File Output Generator is a tool which gives you the opportunity to log specific Eclipse MOSAIC interaction types. For
+each interaction the File Output receives, one line (or more in case of an iteration object) is added
+to a CSV output file. This allows to track the movements of vehicles or to monitor the V2X message exchange.&lt;/p&gt;
+&lt;p&gt;One example output could be the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-csv&#34;&gt;CELL_CONFIGURATION;6000000000;veh_0;true;7200000000;1400000000
+V2X_MESSAGE_TRANSMISSION;6000000000;DENM;3;rsu_0;52.65027;13.545;0.0;CELL_GEOCAST;/255.255.255.255;null
+VEHICLE_UPDATES;7000000000;veh_0;35.501624617716296;186.33236029307432;52.655993308955196;13.569065826100868;0.0;35.501624617716296;-0.6083753822837039;0.0;false;1;4067968_28830219_3290027832_2450938914;0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;false;false;false
+VEHICLE_REGISTRATION;7000000000;veh_1;ElectricVehicle;null;Unequipped;5.0;2.5;70.0;2.6;4.5;0.5;1.0;1.0;0.0;1;1;0.0
+VEHICLE_UPDATES;8000000000;veh_0;34.978651295430026;186.33236029306624;52.65568017869267;13.569019012494635;0.0;70.48027591314633;-0.5229733222862691;0.0;false;1;4067968_28830219_3290027832_2450938914;0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;false;false;false
+V2X_MESSAGE_TRANSMISSION;8000000000;DENM;4;rsu_0;52.65027;13.545;0.0;CELL_GEOCAST;/255.255.255.255;null
+VEHICLE_UPDATES;9000000000;veh_0;35.73455352933612;186.33236029306624;52.65536028153272;13.56897118787549;0.0;106.21482944248245;0.7559022339060917;0.0;false;1;4067968_28830219_3290027832_2450938914;0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;false;false;false
+VEHICLE_UPDATES;9000000000;veh_1;35.52345835176762;186.33265000325784;52.65599046030636;13.569112899208802;0.0;35.52345835176762;-0.5865416482323766;0.0;false;1;4067968_28830219_3290027832_2450938914;1;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;false;false;false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;configuring-the-fileoutput&#34;&gt;Configuring the FileOutput&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The main configuration file is located at &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/scenarios/&amp;lt;scenarioName&amp;gt;/output/output_config.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;basic-configuration&#34;&gt;Basic configuration&lt;/h4&gt;
+&lt;p&gt;The following listing shows a basic example for the configuration of the FileOutput:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;output id=&amp;quot;fileoutput&amp;quot; enabled=&amp;quot;true&amp;quot; update=&amp;quot;5&amp;quot; loader=&amp;quot;org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader&amp;quot;&amp;gt;
+    &amp;lt;filename&amp;gt;output.csv&amp;lt;/filename&amp;gt;
+    &amp;lt;directory&amp;gt;.&amp;lt;/directory&amp;gt;
+    &amp;lt;separator&amp;gt;;&amp;lt;/separator&amp;gt;
+    &amp;lt;decimalSeparator&amp;gt;.&amp;lt;/decimalSeparator&amp;gt;
+    &amp;lt;subscriptions&amp;gt;
+        &amp;lt;subscription id=&amp;quot;...&amp;quot;&amp;gt;
+        ...
+        &amp;lt;/subscription&amp;gt;
+        ...
+    &amp;lt;/subscriptions&amp;gt;&amp;gt;
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;Note: The &lt;code&gt;&amp;lt;decimalSeparator&amp;gt;&lt;/code&gt;-element is an optional parameter defining how floating-point numbers will be written.
+Be careful not to use the same characters for &lt;code&gt;&amp;lt;separator&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;decimalSeparator&amp;gt;&lt;/code&gt; as it will break the output.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Basic configuration parameters for FileOutput&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The usage of the parameters is described in the following table:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Usage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the id for the output&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;enabled&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to &amp;ldquo;false&amp;rdquo;, output is not used (default value is &amp;ldquo;true&amp;rdquo;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the update interval in seconds for the output&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;start&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the start time in seconds for output generation. This has nothing to do with the run time of the actual simulation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;end&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the end time in seconds for output generation. This has nothing to do with the run time of the actual simulation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;loader&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets where the output is loaded from using the Java-class (see previous listing)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;interaction-record&#34;&gt;Interaction record&lt;/h4&gt;
+&lt;p&gt;Each interaction record is derived from a certain interaction type and composed of several entries,which are separated by Element &lt;code&gt;separator&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The configuration of the file output is explained at the example of the &lt;code&gt;VehicleUpdates&lt;/code&gt; interaction:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot; enabled=&amp;quot;true&amp;quot;&amp;gt;
+    &amp;lt;entries&amp;gt;
+        &amp;lt;entry&amp;gt;&amp;quot;UPDATE_VEHICLE&amp;quot;&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Time&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Updated:Name&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Updated:Speed&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Updated:Position.Latitude&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Updated:Position.Longitude&amp;lt;/entry&amp;gt;
+    &amp;lt;/entries&amp;gt;
+&amp;lt;/subscription&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Specific Configuration for interaction&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Attribute &lt;code&gt;id&lt;/code&gt; indicates the interaction type, namely the class name of the interaction.&lt;/li&gt;
+&lt;li&gt;The element &lt;code&gt;entries&lt;/code&gt; defines the format and content of the handled subscription record.&lt;/li&gt;
+&lt;li&gt;The element &lt;code&gt;entries&lt;/code&gt; is composed of several sub-elements &lt;code&gt;entry&lt;/code&gt;, which correspond to columns of a subscription
+record and the sequence of the columns is the same as that of sub-elements entry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In total, there are three basic types of entries:&lt;/p&gt;
+&lt;h4 id=&#34;constant&#34;&gt;Constant&lt;/h4&gt;
+&lt;p&gt;Every quoted entry is defined as a constant. The content inside the quotation will be directly written
+into each corresponding interaction record.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;&amp;quot;UPDATE_VEHICLE&amp;quot;&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for constant type entry&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;basic-method&#34;&gt;Basic method&lt;/h4&gt;
+&lt;p&gt;The Basic method type accesses values of the interaction object by using the appropriate &lt;code&gt;getXXX()&lt;/code&gt; methods. For an entry, the
+root object for method invoking is the corresponding interaction class, here &lt;code&gt;VehicleUpdates&lt;/code&gt;. As this object provides
+the simulation time by calling the getter method &lt;code&gt;getTime()&lt;/code&gt;, the entry &lt;code&gt;Time&lt;/code&gt; retrieves the requested value.
+If a null object is returned before the last method of cascaded methods is invoked, then &lt;code&gt;null&lt;/code&gt; will be written
+to the corresponding field.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;Time&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for constant type entry&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;iteration&#34;&gt;Iteration&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;Updated:Id&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for method type entry with iteration&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The first part of this example is &lt;code&gt;Updated&lt;/code&gt; , which means to invoke the getUpdated method of class
+&lt;code&gt;VehicleUpdates&lt;/code&gt;. Then a list of &lt;code&gt;VehicleInfo&lt;/code&gt; objects is returned. The character &lt;code&gt;:&lt;/code&gt; indicates the iteration,
+which means that for each of the &lt;code&gt;VehicleInfo&lt;/code&gt; objects in the returned list the &lt;code&gt;getId&lt;/code&gt; method is invoked.&lt;/p&gt;
+&lt;h4 id=&#34;cascading&#34;&gt;Cascading&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;Updated:Position.Latitude&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for method type entry with iteration and cascading&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this example, there is a dot operation, which is a cascade operation. Here &lt;code&gt;getPosition&lt;/code&gt; method of &lt;code&gt;VehicleInfo&lt;/code&gt;
+class is called and a &lt;code&gt;GlobalPosition&lt;/code&gt; object is returned. Then we continuously invoke the &lt;code&gt;getLatitude&lt;/code&gt;
+method of this &lt;code&gt;GlobalPosition&lt;/code&gt; object.&lt;/p&gt;
+&lt;h4 id=&#34;extended-method&#34;&gt;Extended Method&lt;/h4&gt;
+&lt;p&gt;All the methods involved above are the basic methods. There also is some functionality, which we cannot
+extract from these existing methods. So an extended method set is offered to meet these requirements
+and also as an extension point in the future.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;TimeInSec&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for simple extended method type entry&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;With existing methods of &lt;code&gt;VehicleUpdates&lt;/code&gt; and its super class &lt;code&gt;Interaction&lt;/code&gt;, we cannot get the timestamp of
+a interaction in second. (only &lt;code&gt;Interaction.getTime&lt;/code&gt;, which returns a time in ns, is available). Here, &lt;code&gt;getTimeInSec&lt;/code&gt;
+is a method extension for &lt;code&gt;Interaction&lt;/code&gt; class. The extended method set will be listed later.&lt;/p&gt;
+&lt;h2 id=&#34;further-details&#34;&gt;Further details&lt;/h2&gt;
+&lt;p&gt;The method type of entry definition supports cascaded iteration as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;List1:List2:Id&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for cascaded iteration&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It is possible to handle several different iterating operations, coming from the entry definition:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;Senders:Id&amp;lt;/entry&amp;gt;
+&amp;lt;entry&amp;gt;Receivers:Id&amp;lt;/entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for multi-level iteration&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;getSenders()&lt;/code&gt; and &lt;code&gt;getReceivers()&lt;/code&gt; are two different iterations. In this case, a combination of both Ids from
+the lists will be generated. The result may look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-csv&#34;&gt;sender1, receiver1
+sender1, receiver2
+sender2, receiver1
+sender2, receiver2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Output result of the above listing&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Note: the longest matched prefix will be considered as the same iterating operation, which means they are in the same level of iteration structure.&lt;/p&gt;
+&lt;h2 id=&#34;additional-features&#34;&gt;Additional features&lt;/h2&gt;
+&lt;h4 id=&#34;limit-output-on-time-frame&#34;&gt;Limit output on time frame&lt;/h4&gt;
+&lt;p&gt;You can configure the File Output Generator to write out interactions within a specific frame of simulation time.
+This can be configured by setting the &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; attributes accordingly:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;output id=&amp;quot;fileoutput&amp;quot; enabled=&amp;quot;true&amp;quot; 
+            start=&amp;quot;300&amp;quot; end=&amp;quot;1000&amp;quot; update=&amp;quot;5&amp;quot; 
+            loader=&amp;quot;org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader&amp;quot;&amp;gt;
+    ...
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for restricting output generation of interactions within a time frame&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;compress-output&#34;&gt;Compress Output&lt;/h4&gt;
+&lt;p&gt;The tag &lt;code&gt;&amp;lt;write&amp;gt;file+compress&amp;lt;/write&amp;gt;&lt;/code&gt; can be added to the output configuration, in order
+to compress the output using gzip compression. This feature is suitable for large-scale scenarios with
+many outputs.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;output&amp;quot; loader=&amp;quot;org.eclipse.mosaic.fed.output.generator.file.FileOutputLoader&amp;quot;&amp;gt;
+    &amp;lt;write&amp;gt;file+compress&amp;lt;/write&amp;gt;
+    ...
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistics Output</title>
+      <link>https://www.eclipse.org/mosaic/docs/visualization/statistics/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/visualization/statistics/</guid>
+      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
+  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
+  &lt;div&gt;
+&lt;p&gt;The &lt;strong&gt;Statistics Output Generator&lt;/strong&gt; is part of &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
+    MOSAIC Extended
+&lt;/a&gt;
+&lt;/strong&gt;.&lt;br&gt;
+For further information on licenses, feel free to contact us via &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
+    mosaic@fokus.fraunhofer.de
+&lt;/a&gt;
+&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Statistics Output is another output generating tool to easily measure basic simulation outcomes.
+You will be able to obtain short or detailed results of the simulation, e.g. travel times or the average speeds
+of groups of vehicles, or the average flow on induction loops.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The main configuration file for all output generators is located at &lt;code&gt;&amp;lt;scenarioName&amp;gt;/output/output_config.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to use the Statistics Output, the attribute &lt;code&gt;enabled&lt;/code&gt; of the root element &lt;code&gt;output&lt;/code&gt; must be
+set to &amp;ldquo;true&amp;rdquo;, as shown in the following listing.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
+	[..]
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Configuration header for Statistics Output&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;specification&#34;&gt;Specification&lt;/h2&gt;
+&lt;p&gt;In this section, we take a closer look at the Statistics Output by using examples and demonstrations. For
+each type of retrieving data we create a &lt;code&gt;&amp;lt;statistic&amp;gt;&amp;lt;/statistic&amp;gt;&lt;/code&gt; block. Inside the block we define
+one certain data type we want to retrieve in a &lt;source&gt; element. If you want to retrieve different data
+types, just create another &lt;code&gt;&amp;lt;statistic&amp;gt;&lt;/code&gt; block for each of them.&lt;/p&gt;
+&lt;p&gt;You can also set the wanted file name in the attribute filename of the statistic element. If the
+attribute has not been given, each &lt;code&gt;&amp;lt;statistic&amp;gt;&lt;/code&gt; block will get the name accordingly to the order number,
+for example &lt;code&gt;1. StatisticsVisualizer-Block.csv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In the output attribute two options (&lt;code&gt;short&lt;/code&gt;|&lt;code&gt;verbose&lt;/code&gt;) can be selected. The short option provides us
+a compact log file with information about only the highest level of the retrieved data (e.g. aggregate
+values of grouped vehicles) in contrast to verbose option which also provides informations about every
+individual vehicle in each group.&lt;/p&gt;
+&lt;p&gt;For a successful start, the element source must be placed in the first position in the &lt;code&gt;statistic&lt;/code&gt; children
+element list. Different options of possible data types, one of which must be specified in the source
+element can be seen below.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;statistic filename=&amp;quot;ChooseItYourself&amp;quot; output=&amp;quot;short&amp;quot;&amp;gt;
+	&amp;lt;source&amp;gt;NameOfSource&amp;lt;/source&amp;gt;
+&amp;lt;/statistic&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Source options of Statistics Output&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;application&#34;&gt;Application&lt;/h2&gt;
+&lt;p&gt;This section will demonstrate the basic idea and usage of the Statistics Output depending on the
+individual requirements. Next to retrieving raw data, the Statistics Output has further features for
+processing of the obtained data.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt;: Data to obtain, choose between:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;VehicleSpeeds&lt;/code&gt; - Obtain the speeds of the vehicles of each simulation step.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleStops&lt;/code&gt; - The total number of stops during the journey of each vehicle.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleTravelTimes&lt;/code&gt; - The total travel time in s of the vehicles.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleDelayTimes&lt;/code&gt; - The deviation of the travel time compared to the fastest travel time possible for the vehicles (in s).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleTravelledDistances&lt;/code&gt; - The travelled distance of the vehicles in m.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleFuelConsumptions&lt;/code&gt; - The fuel consumptions of the vehicles in l per km.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleHeadways&lt;/code&gt; - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To obtain this value, an application has to be deployed on the vehicles which activates the front distance sensor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DetectorFlow&lt;/code&gt; - The flows of each subscribed induction loop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g. Highway tutorial).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;group-by&lt;/code&gt;: The vehicles will be grouped by its vehicle type name (&lt;code&gt;VehicleType&lt;/code&gt;), group they belong
+to (&lt;code&gt;VehicleGroup&lt;/code&gt;), or obtained data value (e.g. &lt;code&gt;Interval:200&lt;/code&gt; categorizes values into groups of
+size 200).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;aggregation&lt;/code&gt;: &lt;code&gt;Average&lt;/code&gt; | &lt;code&gt;Harmonic&lt;/code&gt; aggregation of the obtained values. An attribute &lt;code&gt;deviation&lt;/code&gt;
+can be set to true or false (it’s false if the attribute is not given). This attribute can be used for
+grouped values to get the deviation of each value from the aggregated group value or to get a
+standard deviation based on biased sample variance for groups (in the short output version).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;filter&lt;/code&gt;: Filtering with the attribute &lt;code&gt;filterType&lt;/code&gt; (possible values are &lt;code&gt;keep&lt;/code&gt; and &lt;code&gt;remove&lt;/code&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Filtering by required value slots with two options to specify them: &lt;code&gt;MoreThan:Value&lt;/code&gt; or &lt;code&gt;LessThan:Value&lt;/code&gt; (e.g. &lt;code&gt;MoreThan:5&lt;/code&gt; to collect values which are bigger than 5 only)&lt;/li&gt;
+&lt;li&gt;Filtering by vehicle type. &lt;code&gt;VehicleType:Type&lt;/code&gt; (e.g. &lt;code&gt;VehicleType:Car&lt;/code&gt; to collect values only of vehicles of type &amp;ldquo;Car&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Filtering by time. &lt;code&gt;Time:From-To&lt;/code&gt; (e.g. &lt;code&gt;Time:0-100&lt;/code&gt; to collect values only of the first 100s of simulation time)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The following example will show an example of how you can specify the Statictics Output according to
+your desired criteria. VehicleTravelTimes are the data we want to retrieve from vehicles and we want
+to group vehicles by the abstract group we can define in mapping configuration file (see e.g. Barnim
+scenario) and then calculate the average vehicle travel time value for each of these groups.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
+	&amp;lt;statistic filename=&amp;quot;AverageVehicleTravelTimes&amp;quot; output=&amp;quot;short&amp;quot;&amp;gt;
+		&amp;lt;source&amp;gt;VehicleTravelTimes&amp;lt;/source&amp;gt;
+		&amp;lt;group-by&amp;gt;VehicleGroup&amp;lt;/group-by&amp;gt;
+		&amp;lt;aggregation&amp;gt;Average&amp;lt;/aggregation&amp;gt;
+	&amp;lt;/statistic&amp;gt;
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Getting the Average time by vehicle class&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;You can also combine filters if you want to get a certain interval with upper and lower boundaries. With
+the following input instruction, only vehicles with the obtained data values between 250 and 500 will be
+left after filtering.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;filter filterType=&amp;quot;keep&amp;quot;&amp;gt;LessThan:500&amp;lt;/filter&amp;gt;
+&amp;lt;filter filterType=&amp;quot;remove&amp;quot;&amp;gt;LessThan:250&amp;lt;/filter&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for filtering&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Please notice that some sources are being not only obtained in each simulation step but also collected for
+further processing as separate values for each of these steps (like &lt;code&gt;VehicleSpeeds&lt;/code&gt;, &lt;code&gt;VehicleHeadways&lt;/code&gt;).
+These data types need to be aggregated to one value per vehicle if you want to group them by value or
+filter them.&lt;/p&gt;
+&lt;p&gt;For demonstration, the Statistics Output is configured for the scenario Barnim and calculates the
+average travel times of the vehicles and additionally groups them. As a result, the simulation produces
+the following CSV file in the log directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-csv&#34;&gt;Group;Value;Total;
+AdHoc;399.14;24;
+Cellular;463.87;12;
+Unequipped;459.18;84;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;The AverageVehicleTravelTime.csv file produced by the Statistics Output in the Barnim scenario&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integrated Test and Evaluation Framework (ITEF)</title>
+      <link>https://www.eclipse.org/mosaic/docs/visualization/itef/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/visualization/itef/</guid>
+      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
+  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;strong&gt;ITEF&lt;/strong&gt; is part of 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
+    MOSAIC Extended
+&lt;/a&gt;
+.&lt;br&gt;
+For further information on licenses, feel free to contact us via &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
+    mosaic@fokus.fraunhofer.de
+&lt;/a&gt;
+&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The Integrated Test and Evaluation Framework (ITEF) is a webtool for planning and evaluating vehicular communication scenarios. It is suited for field operational tests as well as simulations.&lt;/p&gt;
+&lt;p&gt;ITEF also offers a variety of visualization features, making a comparison of different vehicles or between equipped and unequipped vehicles easy. It is structured into 4 screens, whereas the following 3 screens are intended for the visualization.&lt;/p&gt;
+&lt;p&gt;The Replay screen (see Figure 1) is intended to be used for an initial overview of the test run. The main feature is the display of the vehicle movements on a map, while the player can be used to playback the movement situation. In this manner, the ITEF allows a location and time dependent evaluation of simulation test runs.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-itef-replay-screen&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/replayrun.png&#34; data-caption=&#34;ITEF Replay Screen&#34;&gt;
+
+
+  &lt;img src=&#34;../images/replayrun.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    ITEF Replay Screen
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The Evaluate screen (see Figure 2) allows the detailed investigation of the correlations in a test run. The main feature of this screen is to display the behavior summarized over the whole run. The structure of this screen with is similar to the Replay screen. However, the focus here is on the detailed (statistical) summary of evaluated metrics.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-itef-evaluate-screen&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/evaluaterun.png&#34; data-caption=&#34;ITEF Evaluate Screen&#34;&gt;
+
+
+  &lt;img src=&#34;../images/evaluaterun.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    ITEF Evaluate Screen
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Finally, the Statistics screen (see Figure 3) provides statistical evaluations of the test and simulation
+run. Currently, statistics on Vehicle Speed, Travel Time, Travel Distance and severalmore are supported.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-itef-statistics-screen&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/statistics.png&#34; data-caption=&#34;ITEF Statistics Screen&#34;&gt;
+
+
+  &lt;img src=&#34;../images/statistics.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    ITEF Statistics Screen
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>3D Visualization (PHABMap)</title>
+      <link>https://www.eclipse.org/mosaic/docs/visualization/phabmap/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/visualization/phabmap/</guid>
+      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
+  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
+  &lt;div&gt;
+&lt;p&gt;The 3D visualization &lt;strong&gt;PHABMap&lt;/strong&gt; is part of &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
+    MOSAIC Extended
+&lt;/a&gt;
+&lt;/strong&gt;.&lt;br&gt;
+For further information on licenses, feel free to contact us via &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
+    mosaic@fokus.fraunhofer.de
+&lt;/a&gt;
+&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D
+engine and models to visualize vehicle movements and various events which occur during the simulation.
+Next to the road network, which can be optionally rendered by the visualizer, the following units and
+events are visualized:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vehicle movements coming from the traffic simulation&lt;/li&gt;
+&lt;li&gt;Road Side Units at their defined location&lt;/li&gt;
+&lt;li&gt;V2X-messages sent via cellular communication (indicated as green circles)&lt;/li&gt;
+&lt;li&gt;V2X-messages sent via ITS-G5 communication (indicated as blue circles)&lt;/li&gt;
+&lt;li&gt;V2X-messages received by vehicles (indicated as red circles)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-3d-visualization-tool-phabmap-displaying-events-from-the-simulation&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/phabmap.jpg&#34; data-caption=&#34;The 3D visualization tool PHABMap displaying events from the simulation&#34;&gt;
+
+
+  &lt;img src=&#34;../images/phabmap.jpg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    The 3D visualization tool PHABMap displaying events from the simulation
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

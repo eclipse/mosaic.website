@@ -1,0 +1,2191 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC. We will continue with the tutorial-style explanations following up on the Steglitz-example from the previous page  .">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/">
+  <meta property="og:title" content="Additional Scenario Configuration | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC. We will continue with the tutorial-style explanations following up on the Steglitz-example from the previous page  ."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Additional Scenario Configuration | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-scenarios page-scenario_configuration ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#let-the-cars-loose">Let the cars loose</a></li>
+    <li><a href="#communication-simulators-cell-ns3-omnetpp-sns">Communication Simulators (cell, ns3, omnetpp, sns)</a></li>
+    <li><a href="#other-simulators">Other Simulators</a>
+      <ul>
+        <li><a href="#environment-simulator">Environment Simulator</a></li>
+        <li><a href="#battery-simulator">Battery Simulator</a></li>
+        <li><a href="#charging-station-simulator">Charging Station Simulator</a></li>
+      </ul>
+    </li>
+    <li><a href="#output">Output</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Additional Scenario Configuration</h1>
+
+          <div class="article-style">
+            <p>This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC.
+We will continue with the tutorial-style explanations following up on the Steglitz-example from the
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/create_a_new_scenario/">
+    previous page
+</a>
+. For more detailed explanations of the configurations have a
+look at 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/">
+    the overview
+</a>
+.<br>
+If you already played with the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/barnim_basic/">
+    Barnim
+</a>
+-tutorial, you probably noticed that it contains far
+more folders in the scenario structure compared to the Steglitz example. Those additional directories contain
+configurations for various simulators.</p>
+<pre><code class="language-plaintext">└─ Barnim
+   ├─ application
+   ├─ cell
+   ├─ environment
+   ├─ mapping
+   ├─ ns3
+   ├─ output
+   ├─ sns
+   ├─ sumo
+   └─ scenario_config.json .................. General configuration of the simulation scenario
+</code></pre>
+<h2 id="let-the-cars-loose">Let the cars loose</h2>
+<p>As a starting point we&rsquo;ll look at the scenario that we created using this command:</p>
+<pre><code>java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
+--route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
+</code></pre>
+<p>We&rsquo;ll end up with a folder looking like this:</p>
+<pre><code class="language-plaintext">└─ steglitz
+   ├─ application
+   |  └─ steglitz.db
+   ├─ mapping
+   |  └─ mapping_config.json
+   ├─ sumo
+   |  ├─ steglitz.net.xml
+   |  └─ steglitz.sumocfg
+   └─ scenario_config.json .................. General configuration of the simulation scenario
+</code></pre>
+<p>If you have a look in the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+
+    
+    
+      
+        
+          
+            
+            
+            
+          
+        
+      
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/files/steglitz_mapping_config.json" target="_blank" rel="noopener">
+    mapping_config.json
+</a>
+,
+you can see that the scenario-convert script automatically assigns cars to the three routes created. You can use this
+file as a blueprint for your own scenario, have a look 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/#applications-and-mapping">
+    here
+</a>
+
+to get more details on possible adaptions.<br>
+Below is a short video of the scenario displayed in the SUMO-GUI. We marked the three different routes the cars
+follow.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<video controls >
+  <source src="../images/steglitz_routes.mp4" type="video/mp4">
+</video>
+<h2 id="communication-simulators-cell-ns3-omnetpp-sns">Communication Simulators (cell, ns3, omnetpp, sns)</h2>
+<p>We won&rsquo;t implement any functionality for the steglitz example here but rather have a look at the
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/barnim_basic/">
+    Barnim
+</a>
+-tutorial. In the <code>scenario_config.json</code> of the Barnim scenario you can see where the
+communication simulators are activated:</p>
+<pre><code class="language-json">&quot;federates&quot;: {
+    &quot;cell&quot;: false,
+    &quot;omnetpp&quot;: false,
+    &quot;ns3&quot;: false,
+    &quot;sns&quot;: true
+}
+</code></pre>
+<p>Our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/">
+    tutorials
+</a>
+ and 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/additional_examples/">
+    additional examples
+</a>
+ demonstrate use cases for
+communication usages and you should have a look at them if you are uncertain where to start. Furthermore we
+recommend copying the configuration-files for the simulator you are going to use from the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/tutorials/barnim_basic/">
+    Barnim scenario
+</a>
+. It
+contains the most complete configurations and is well maintained.<br>
+If you are an expert with one of the external network simulators (
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_ns3/">
+    ns3
+</a>
+,
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">
+    OMNeT++
+</a>
+) the Barnim scenario will also give
+you an overview on how to configure those.</p>
+<h2 id="other-simulators">Other Simulators</h2>
+<p>In order to employ other simulators for the scenario, make sure to have it enabled in the <code>scenario_config.json</code>.</p>
+<h3 id="environment-simulator">Environment Simulator</h3>
+<p>The Environment Simulator can be used to emit events to vehicles inside predefined borders. In the Barnim scenario
+the Environment Simulator is used to simulate an icy area, which is then noticed by the sensors of equipped vehicles.<br>
+Every defined event requires a type, a defined geographical area (e.g. circular, rectangular), the strength and a time frame. Have a look
+at the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+
+    
+    
+      
+        
+          
+            
+            
+            
+          
+        
+      
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/files/eventserver_config.json" target="_blank" rel="noopener">
+    environment_config.json
+</a>
+ to see how this can be configured.</p>
+<h3 id="battery-simulator">Battery Simulator</h3>
+<p>The Battery Simulator allows to simulate discharging and recuperation of electric vehicles, and in connection with the
+Charging Station Simulator also re-charging. It offers a lot of customization, as you can
+dynamically load your own battery, vehicle and environment models. Have a look a the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+
+    
+    
+      
+        
+          
+            
+            
+            
+          
+        
+      
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/files/battery_config.json" target="_blank" rel="noopener">
+    battery_config.json
+</a>
+,
+taken from the Barnim scenario.</p>
+<h3 id="charging-station-simulator">Charging Station Simulator</h3>
+<p>The Charging Station Simulator extends the modeling possibilities of the Battery Simulator for re-charging.
+Since Charging Stations are also application units in the Application Simulator, most of the configuration and modeling is
+provided by mapping a possible application to the charging station.
+Accordingly, the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+
+    
+    
+      
+        
+          
+            
+            
+            
+          
+        
+      
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/files/charging_config.json" target="_blank" rel="noopener">
+    charging_config.json
+</a>
+ covers, with the charging station range, merely one parameter.</p>
+<h2 id="output">Output</h2>
+<p>There are various options to generate output results of your simulations (see the
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/visualization/filevis/">
+    Visualization chapter
+</a>
+).</p>
+<p>The first step is to create a file called <code>output_config.xml</code> in a new directory called <code>output</code>.
+If you used the scenario-convert tool the file should be generated automatically.</p>
+<pre><code class="language-plaintext">└─ steglitz
+   ├─ application
+   |  └─ steglitz.db
+   ├─ mapping
+   |  └─ mapping_config.json
+   ├─ output
+   |  └─ output_config.xml
+   ├─ sumo
+   |  ├─ steglitz.net.xml
+   |  └─ steglitz.sumocfg
+   └─ scenario_config.json .................. General configuration of the simulation scenario
+</code></pre>
+<p>Example configuration for output generation can be taken from the example scenarios from the tutorials section.</p>
+<p>Finally, make sure the visualization federate is activated in the <code>scenario_config.json</code>.</p>
+<!--
+```xml
+<!-- Visualization -- >
+<federate id="output" active="true"/>
+```
+
+Now we have to configure the statistics visualizer itself. This [visualizer_config.xml](/docs/scenarios/files/steglitz_visualizer_config.xml) contains the basic
+configuration in order to calculate the average travel times for the vehicles. If you want to make adaptions, please
+refer to [statistics visualizer](/docs/visualization/statistics).  
+Go ahead and run the simulation one more time. Afterwards the log-directory should contain a file called 
+`AverageVehicleTravelTime.csv` in a directory called `StatisticsVisualizer`:
+```csv
+group;group-value;total;
+Car;186.369;336;
+```
+This tells us that there was a total amount of 336 vehicles of the type `Car` in the simulation, which traveled
+for 186.369  seconds on average.
+-->
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/scenarios/create_a_new_scenario/" rel="next">Create a New Scenario</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/scenarios/run_simulation_series/" rel="prev">Run Simulation Series</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

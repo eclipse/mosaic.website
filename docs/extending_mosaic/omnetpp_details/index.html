@@ -1,0 +1,2077 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This section provides a description how to set up the OMNeT&#43;&#43; IDE for the Eclipse MOSAIC OMNeT&#43;&#43; Federate Development.
+If you wish to use another IDE than OMNeT&#43;&#43; IDE (based on Eclipse), you can use ns-3 Federate Development Setup  as inspiration - it describes the setup of Visual Studio Code.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/">
+  <meta property="og:title" content="OMNeT&#43;&#43; Federate Development | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="This section provides a description how to set up the OMNeT&#43;&#43; IDE for the Eclipse MOSAIC OMNeT&#43;&#43; Federate Development.
+If you wish to use another IDE than OMNeT&#43;&#43; IDE (based on Eclipse), you can use ns-3 Federate Development Setup  as inspiration - it describes the setup of Visual Studio Code."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>OMNeT&#43;&#43; Federate Development | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-extending_mosaic page-omnetpp_details ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prepare-omnet-ide">Prepare OMNeT++ IDE</a></li>
+    <li><a href="#configure-rebuild-configuration">Configure Rebuild Configuration</a></li>
+    <li><a href="#configure-debug-configuration">Configure Debug Configuration</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>OMNeT&#43;&#43; Federate Development</h1>
+
+          <div class="article-style">
+            <p>This section provides a description how to set up the <strong>OMNeT++ IDE</strong> for the Eclipse MOSAIC OMNeT++ Federate Development.</p>
+<p>If you wish to use another IDE than OMNeT++ IDE (based on Eclipse), you can use 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/extending_mosaic/ns3_setup/#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code">
+    ns-3 Federate Development Setup
+</a>
+
+as inspiration - it describes the setup of Visual Studio Code.</p>
+<div class="alert alert-warning">
+  <div>
+<p>At this point it is awaited, that the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">
+    OMNeT++ Federate
+</a>
+ is successfully installed.</p>
+  </div>
+</div>
+<h2 id="prepare-omnet-ide">Prepare OMNeT++ IDE</h2>
+<ol>
+<li>
+<p>Create an empty directory somewhere inside your home directory. We will call it <code>&lt;omnetpp_workspace&gt;</code> from here on. This directory will be used as a workspace in your OMNeT++ IDE.</p>
+</li>
+<li>
+<p>Open your OMNeT++ IDE by executing <code>omnetpp</code> in your terminal.</p>
+</li>
+<li>
+<p>Select <code>&lt;omnetpp_workspace&gt;</code> as workspace and continue by clicking <code>Launch</code>.</p>
+</li>
+<li>
+<p>Close the &ldquo;Welcome&rdquo; screen.</p>
+</li>
+<li>
+<p>Since your workspace is empty, the OMNeT++ IDE will ask you if you want to install the INET framework and OMNeT++ programming examples.<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-omnet-ide-prevent-automatic-installation-of-inet">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-install-inet.png" data-caption="OMNeT&#43;&#43; IDE: prevent automatic installation of INET">
+
+
+  <img src="../images/omnetpp-ide-install-inet.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    OMNeT++ IDE: prevent automatic installation of INET
+  </figcaption>
+
+
+</figure>
+
+Uncheck INET and decide for yourself if you want to install the examples.</p>
+<ul>
+<li>By clicking <code>OK</code> the examples are going to be installed into your <code>&lt;omnetpp_workspace&gt;</code></li>
+<li>If you already have INET installed somewhere you can skip the download and import your existing INET project:
+<ol>
+<li><code>Cancel</code> the dialog.</li>
+<li>Choose <code>File</code> &gt; <code>Open Projects from File System...</code></li>
+<li>In the new window choose the directory of your existing INET installation as <code>Import Source</code> and click <code>Finish</code></li>
+</ol>
+</li>
+</ul>
+<p>The INET framework is supported in version 4.1.1. To ensure the correct version is installed, install it manually:</p>
+<ol>
+<li>Download 
+
+
+
+
+<a href="https://github.com/inet-framework/inet/releases" target="_blank" rel="noopener">
+    INET 4.1.1
+</a>
+</li>
+<li>Unpack it into the working directory of OMNeT++ IDE (Eclipse)</li>
+<li>Rename the unpacked directory <code>inet4</code> to <code>inet</code></li>
+<li>Insert the directory <code>inet</code> as project to OMNeT++ IDE (as described above)</li>
+<li>Build INET</li>
+</ol>
+</li>
+<li>
+<p>The project <code>inet</code> should now be visible in the <code>Project Explorer</code> of your OMNeT++ IDE.</p>
+</li>
+<li>
+<p>Right-click on free space in the <code>Project Explorer</code> and choose <code>New</code> &gt; <code>OMNeT++ Project...</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-omnet-ide-create-new-omnet-project">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-new-project.png" data-caption="OMNeT&#43;&#43; IDE: Create new OMNeT&#43;&#43; Project">
+
+
+  <img src="../images/omnetpp-ide-new-project.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    OMNeT++ IDE: Create new OMNeT++ Project
+  </figcaption>
+
+
+</figure>
+
+</li>
+<li>
+<p>In the new window:</p>
+<ol>
+<li>Name the new project <code>federate</code></li>
+<li><strong>Uncheck</strong> the box before <code>Use default location</code>, click <code>Browse</code> and select:<br>
+<code>&lt;mosaic&gt;/bin/fed/omnetpp/omnetpp_federate_src/src</code><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-omnet-ide-create-new-omnet-project">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-new-project-2.png" data-caption="OMNeT&#43;&#43; IDE: Create new OMNeT&#43;&#43; Project">
+
+
+  <img src="../images/omnetpp-ide-new-project-2.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    OMNeT++ IDE: Create new OMNeT++ Project
+  </figcaption>
+
+
+</figure>
+</li>
+<li>Click <code>Next</code></li>
+</ol>
+</li>
+<li>
+<p>On the following <code>Initial Contents</code> page select <code>Empty Project</code> and continue by clicking <code>Finish</code><br>
+You should now find two projects in the <code>Project Explorer</code> of your OMNeT++ IDE: <code>inet</code> and <code>federate</code></p>
+</li>
+<li>
+<p>Right-click on the <code>federate</code> project and choose <code>Properties</code></p>
+<ol>
+<li>Go to <code>Project references</code> and <strong>check</strong> the box before <code>inet</code><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-choose-project-references">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-project-references.png" data-caption="Choose project references">
+
+
+  <img src="../images/omnetpp-ide-project-references.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Choose project references
+  </figcaption>
+
+
+</figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>That&rsquo;s it! None of the files should now be marked with an error symbol.</p>
+<hr>
+<h2 id="configure-rebuild-configuration">Configure Rebuild Configuration</h2>
+<p>Since the Eclipse MOSAIC OMNeT++ Federate is not a classic OMNeT++ project, it cannot be build regulary with
+the OMNeT++ IDE by just clicking on the <code>Build</code> button. However, to make the build process easy and intuitive
+we provide a simple build script and the following desciption how to configure the OMNeT++ IDE to enable
+building on a single click:</p>
+<ol>
+<li>In the OMNeT++ IDE select <code>Run</code> &gt; <code>External Tools</code> &gt; <code>External Tools Configuration...</code></li>
+<li>Double-click in the left column on <code>Program</code> to create a new configuration.</li>
+<li>Call it <code>rebuild federate</code></li>
+<li>In the <code>Main</code> tab:
+<ol>
+<li>Under <code>Location</code> choose <code>Browse Workspace...</code> and select <code>federate/rebuild_federate.sh</code></li>
+<li>Still in the <code>Main</code> tab under <code>Working Directory</code> choose <code>Browse Workspace...</code> and select <code>federate</code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-omnet-ide-build-configuration">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-build-config.png" data-caption="OMNeT&#43;&#43; IDE Build Configuration">
+
+
+  <img src="../images/omnetpp-ide-build-config.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    OMNeT++ IDE Build Configuration
+  </figcaption>
+
+
+</figure>
+</li>
+</ol>
+</li>
+<li>In the <code>Build</code> tab <strong>uncheck</strong> the box before <code>Build before launch</code><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-omnet-ide-build-configuration">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-build-config-2.png" data-caption="OMNeT&#43;&#43; IDE Build Configuration">
+
+
+  <img src="../images/omnetpp-ide-build-config-2.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    OMNeT++ IDE Build Configuration
+  </figcaption>
+
+
+</figure>
+</li>
+<li>Now you can <code>Apply</code> your changes and click on <code>Run</code>.</li>
+<li>Since you have built the project at least once, you can rebuild it again by clicking here:<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-run-rebuild">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-run-rebuild.png" data-caption="Run rebuild">
+
+
+  <img src="../images/omnetpp-ide-run-rebuild.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Run rebuild
+  </figcaption>
+
+
+</figure>
+</li>
+</ol>
+<p><strong>The following video shows the above described steps:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<video controls >
+  <source src="../images/omnetpp-ide-rebuild-federate.mp4" type="video/mp4">
+</video>
+<hr>
+<h2 id="configure-debug-configuration">Configure Debug Configuration</h2>
+<p>To debug the Eclipse MOSAIC OMNeT++ Federate during simulation you need to create a Debug Configuration. The following
+instruction will tell you how to do that:</p>
+<ol>
+<li>In your OMNeT++ IDE choose <code>Run</code> &gt; <code>Debug Configurations...</code></li>
+<li>In the new window double-click on <code>OMNeT++ Simulation</code> in the left column and name the new created debug configuration <code>federate</code>.</li>
+<li>In the <code>Executable</code> row check <code>other</code> and type <code>/federate/federate</code></li>
+<li>In the <code>Working dir</code> row type <code>/federate</code></li>
+<li>In the <code>Ini file(s)</code> row type <code>debug.ini omnetpp.ini</code></li>
+<li>At the end of the page click on the <code>More &gt;&gt;</code> link. And make sure all fields in the <code>Advanced</code> area are <strong>empty</strong>.</li>
+<li>For <code>Projects to build</code> select <code>Do not build automatically before launch</code></li>
+<li>Now <code>Apply</code> your changes and try your configuration by clicking <code>Debug</code></li>
+</ol>
+<p><strong>The following images shows the final debug configuration:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-final-debug-configuration">
+
+
+  <a data-fancybox="" href="../images/omnetpp-ide-debug-config.png" data-caption="Final debug configuration">
+
+
+  <img src="../images/omnetpp-ide-debug-config.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Final debug configuration
+  </figcaption>
+
+
+</figure>
+
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/" rel="next">Sumo Ambassador Implementation</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/extending_mosaic/ns3_setup/" rel="prev">ns-3 Federate Development Setup</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

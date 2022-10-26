@@ -1,0 +1,2304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Core Concepts | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/docs/extending_mosaic/index.xml" rel="self" type="application/rss+xml" />
+    <description>Core Concepts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>Core Concepts</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/</link>
+    </image>
+    
+    <item>
+      <title>Simulator Coupling</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/simulator_coupling/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/simulator_coupling/</guid>
+      <description>&lt;p&gt;This section provides general information which helps to couple your own simulator with Eclipse MOSAIC. For a
+successful coupling, two parts are required: the Federate Ambassador is the communication interface
+between the RTI and your simulator. It implements predefined interfaces of the Eclipse MOSAIC core library
+and is directly coupled with Eclipse MOSAIC. Second, your simulator needs to communicate with the Federate
+Ambassador. For this purpose, you either need to implement your own protocol to control the simulator,
+or use existing ones of your respective simulator (e.g. SUMO provides the TraCI byte buffer protocol).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;implementing-a-federate-ambassador&#34;&gt;Implementing a Federate Ambassador&lt;/h2&gt;
+&lt;p&gt;In order to simplify federate development and to make the usage of the mechanisms provided by the RTI
+safer, an abstract class called &lt;code&gt;AbstractFederateAmbassador&lt;/code&gt; is provided by the Eclipse MOSAIC core package.
+It implements the &lt;code&gt;FederateAmbassador&lt;/code&gt; interface and handles incoming interactions as well as time
+advance grants according to the specified federate behaviour. When a federate implementation is making
+use of the &lt;code&gt;AbstractFederateAmbassador&lt;/code&gt; as a super class, it has to provide two information to the
+superclass while constructing an instance of the class. These are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;isTimeConstrained&lt;/code&gt;: The general way this parameter can be understood, is that if it is set to &lt;strong&gt;true&lt;/strong&gt;
+the federate is sensitive towards the time stamp order of interactions. The &lt;code&gt;AbstractFederateAmbassador&lt;/code&gt;
+will then queue incoming interactions and request a time advance from the RTI in order to ensure that
+processing the received interaction is safe. At the time the requested time advance is granted, every
+queued interaction with a time stamp smaller or equal to the granted time will be delivered to the
+federate for processing. If set to &lt;strong&gt;false&lt;/strong&gt;, incoming interactions will be forwarded immediately to
+the federate, thus resulting in a &lt;em&gt;receive-order&lt;/em&gt; of interactions at the federate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;isTimeRegulating&lt;/code&gt;: Specifies whether the federate will publish time stamped interactions and
+thus can influence the time advances of other federates in the federation. If set to &lt;strong&gt;true&lt;/strong&gt;, the &lt;code&gt;AbstractFederateAmbassador&lt;/code&gt;
+will request time advances with respect to the specified lookahead
+value of the federate in order to avoid that time management schedules the execution of other
+federates while queued interactions are processed. If set to &lt;strong&gt;false&lt;/strong&gt;, time advance requests that are
+issued due to incoming interactions will be flagged with an unlimited lookahead, allowing the RTI to
+schedule other federates while incoming interactions are processed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-flowchart-of-interaction-handling&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/flowchart_timeconstrained_timeregulating.png&#34; data-caption=&#34;Flowchart of Interaction handling&#34;&gt;
+
+
+  &lt;img src=&#34;../images/flowchart_timeconstrained_timeregulating.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Flowchart of Interaction handling
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;further-notes&#34;&gt;Further notes&lt;/h3&gt;
+&lt;p&gt;Coupling a multitude of different simulators and properly syncing them is a non-trivial task and requires a lot of effort in order to
+function correctly. If you have read up on High Level Architecture before
+(have a look 
+
+
+
+
+&lt;a href=&#34;https://en.wikipedia.org/wiki/High_Level_Architecture&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    here
+&lt;/a&gt;
+ and at the linked references) you might notice, that the
+previous flowchart does not completely reflect the proposed mechanisms. For instance, the &lt;code&gt;isTimeRegulating&lt;/code&gt; flag has no effect, when the
+&lt;code&gt;isTimeConstrained&lt;/code&gt; flag is not set.&lt;br&gt;
+So at some points you might stumble upon federates, which have their &lt;code&gt;isTimeConstrained&lt;/code&gt; and &lt;code&gt;isTimeRegulating&lt;/code&gt; flags set to different
+values as you would expect. An example of this is the &lt;code&gt;ApplicationAmbassador&lt;/code&gt;. One would expect it to be time-constrained as well as
+time-regulating. This isn&amp;rsquo;t the case though, because the &lt;code&gt;ApplicationAmbassador&lt;/code&gt; implements its own time- and event-management,
+which would interfere with the internal mechanisms.&lt;br&gt;
+When implementing your own federate, you can use the existing ones as reference.&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;A federate that is &lt;code&gt;timeConstrained&lt;/code&gt; and &lt;code&gt;timeRegulated&lt;/code&gt; can handle a time stamped interaction
+only after receiving a corresponding time advance grant. For that reason, the &lt;code&gt;AbstractFederateAmbassador&lt;/code&gt;
+caches the incoming interactions in a local queue and requests a time advance with the interactions
+time stamp. After getting a grant for that time stamp, it forwards the interaction via the &lt;code&gt;processInteraction&lt;/code&gt;
+method call and afterwards invokes &lt;code&gt;processTimeAdvanceGrant&lt;/code&gt; to allow the federate to proceed in its
+local simulation time. In the activity diagram in the following figure, the process of handling of incoming interactions
+with respect to the federate configuration is illustrated.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-sequence-diagram-illustrating-the-flow-of-information&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/federate-sequence.jpeg&#34; data-caption=&#34;Sequence diagram illustrating the flow of information.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/federate-sequence.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Sequence diagram illustrating the flow of information.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;integration-into-eclipse-mosaic&#34;&gt;Integration into Eclipse MOSAIC&lt;/h3&gt;
+&lt;p&gt;The first step to integrate a new component is the extension of the configuration file &lt;code&gt;etc/runtime.json&lt;/code&gt;.
+An example for a federate configuration can be found in following listing.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;federates&amp;quot;: [
+    ...
+    {
+        &amp;quot;id&amp;quot;: &amp;quot;omnetpp&amp;quot;,
+        &amp;quot;classname&amp;quot;: &amp;quot;org.eclipse.mosaic.fed.omnetpp.ambassador.OmnetppAmbassador&amp;quot;,
+        &amp;quot;configuration&amp;quot;: &amp;quot;omnetpp_config.json&amp;quot;,
+        &amp;quot;configurationDeployPath&amp;quot;: &amp;quot;omnetpp-federate/simulations&amp;quot;,
+        &amp;quot;priority&amp;quot;: 50,
+        &amp;quot;dockerImage&amp;quot;: &amp;quot;&amp;quot;,
+        &amp;quot;host&amp;quot;: &amp;quot;local&amp;quot;,
+        &amp;quot;port&amp;quot;: 4998,
+        &amp;quot;deploy&amp;quot;: true,
+        &amp;quot;start&amp;quot;: true,
+        &amp;quot;subscriptions&amp;quot;: [
+            &amp;quot;VehicleRegistration&amp;quot;,
+            &amp;quot;RsuRegistration&amp;quot;,
+            &amp;quot;TrafficLightRegistration&amp;quot;,
+            ...
+        ],
+        &amp;quot;javaClasspathEntries&amp;quot;: []
+    },
+    ...       
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following parameters are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;class&lt;/code&gt; - Attribute giving the full qualified name of the Java class which implements the Feder-
+ateAmbassador interface.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;id&lt;/code&gt; - The id of the federate. This value should be as short as possible and will be also used for
+identifying the configuration folder within scenarios.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;deploy&lt;/code&gt; - If set to true, the federate placed under bin/fed/&lt;id&gt; will be copied to the execution
+host (according to the host configuration file).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;start&lt;/code&gt; - If set to true, the federate will be started by the federation management using the start
+command specified in the configuration file or this implementation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;subscriptions&lt;/code&gt; - A list of interaction names which the Federate Ambassador subscribes for. If any other
+ambassador sends out one of those interactions, this ambassador will receive them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;interaction-extension&#34;&gt;Interaction extension&lt;/h2&gt;
+&lt;p&gt;Another possibility to extend Eclipse MOSAIC is to add a new interaction to the set of predefined interactions. In the following
+figure, the abstract class &lt;code&gt;Interaction&lt;/code&gt;, implemented interaction extensions, and a place holder for further
+extensions (rectangles with grey fonts and a dotted border) are illustrated. When the InteractionManagement
+forwards interactions among federates, it chooses the destination based on a interaction id and
+an optional condition. Furthermore, it synchronizes the interaction delivery based on their times. The
+abstract class &lt;code&gt;Interaction&lt;/code&gt; offers these attributes but no further content. The exchanged content has to be
+implemented by extending the class &lt;code&gt;Interaction&lt;/code&gt;. The already implemented extensions cover the content
+necessary to simulate common scenarios. However, for further scenarios further interactions might be
+required.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-interaction-classes-and-their-relationships&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-message-classes.png&#34; data-caption=&#34;Interaction classes and their relationships..&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-message-classes.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Interaction classes and their relationships..
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Interactions in Eclipse MOSAIC</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/</guid>
+      <description>&lt;p&gt;This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates
+in order to enable users to easily design and integrate new federates and connect them to existing
+federates. Note that we use the word &amp;ldquo;interaction&amp;rdquo; whenever we describe communication between federates,
+whereas we talk about a &amp;ldquo;message&amp;rdquo; primarily when concerned with V2X-communication.&lt;/p&gt;
+&lt;p&gt;All interactions are categorized by the package they are contained in, which corresponds to their main context/purpose.
+The &amp;ldquo;Sent by&amp;rdquo; column is not necessarily complete for all interactions but should give an idea where interactions are used.&lt;/p&gt;
+&lt;h2 id=&#34;mapping&#34;&gt;mapping&lt;/h2&gt;
+&lt;p&gt;All interactions in this package are concerned with adding/registering simulation-units to the simulation.
+While most of the introductions are handled by the &lt;code&gt;Mapping&lt;/code&gt;- or &lt;code&gt;Application&lt;/code&gt;-ambassador, some of them
+are handled by the ambassadors for the traffic simulators (see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/lust/&#34;&gt;
+    LuST
+&lt;/a&gt;
+-scenario).
+In this case the interactions are used to initialize the scenario.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a charging station to the simulation. All units are introduced at simulation start time, e.g. 0s.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;RsuRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a roadside unit to the simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TmcRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ServerRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a server to the simulation. It holds a list of all applications.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficLightRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic light (group) to the simulation. It holds a traffic light group, which unites all traffic light signals used for one traffic light system.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic sign.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;mappingadvanced&#34;&gt;mapping.advanced&lt;/h3&gt;
+&lt;p&gt;Interactions in this package are still concerned with the mapping of vehicles but differ from simple simulation unit registration.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioTrafficLightRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction contains the phases and their duration of each traffic light in the simulation. This interaction shall be generated by the traffic simulators at start up (e.g. SUMO)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Phabmacs&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioVehicleRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to add vehicles to a simulation using a preconfigured scenario, which could be defined by using Sumo.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo(Scenario)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;RoutelessVehicleRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent the vehicle mapping component to indicate the introduction of a new vehicle whose route is not yet known. This interaction is usually handled by the &lt;code&gt;Application&lt;/code&gt;-ambassador, which calculates a route for the given vehicle and sends out an VehicleRegistration-interaction afterwards.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;communication&#34;&gt;communication&lt;/h2&gt;
+&lt;p&gt;This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AdHocCommunicationConfiguration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about the configuration of a vehicle’s ad-hoc communication facilities.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;CellularCommunicationConfiguration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about the configuration of a vehicle’s cellular communication facilities.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Interactions related to V2X-message transfer.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageAcknowledgement&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used by a communication simulator to inform about success or failure of a packet transmission. Typically, the application simulator should subscribe to this interaction.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageReception&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about a received V2X message.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xFullMessageReception&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageRemoval&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about  V2X messages, that are to be deleted.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageTransmission&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent in order to trigger the transportation of a V2XMessage over a wireless network to a given geographical destination area.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;vehicle&#34;&gt;vehicle&lt;/h2&gt;
+&lt;p&gt;The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic simulators.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleActuatorsChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to directly control the throttle/brake of an vehicle. At the moment this is only supported by Phabmacs.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleDistanceSensorActivation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to enable the distance sensors of a vehicle. A multitude of sensors can be enabled with one interaction given they use the same maximum lookahead distance.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleFederateAssignment&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the PhSCA-ambassador.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;PhaSCA&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleLaneChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction initiates a lane change for the given vehicle, which should be consumed by the traffic simulators.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleParametersChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction requests to update various parameters of the vehicle or its driver.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleResume&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction requests the given vehicle to continue its journey after being stopped beforehand. The interaction should be handled by traffic simulators&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRouteChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to change a route for vehicle by its id. It can be assumed that the given route id has been propagated by either a VehicleRoutesInitialization- or VehicleRouteRegistration-interaction.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRouteRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to propagate a newly generated route which is not yet known. It consists of the id of the route and a list of all its edges.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSightDistanceConfiguration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSlowDown&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction initiates the vehicle to slow down in a given interval. The request should be handled by traffic simulators. The name &amp;lsquo;SlowDown&amp;rsquo; is inherited by Sumo and a little bit misleading, the speed can also be increased.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSpeedChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction sets the current speed of the given vehicle. This should be handled by traffic simulators&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleStop&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction requests the given vehicle to stop at the given road position, it should be handled by traffic simulators.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;traffic&#34;&gt;traffic&lt;/h2&gt;
+&lt;p&gt;Interactions in this package are focused around traffic management and communication with traffic simulators.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;CellularHandoverUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used by the cell ambassador to communicate handovers.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;InductionLoopDetectorSubscription&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction subscribes a unit to the data of an induction loop detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;LaneAreaDetectorSubscription&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction subscribes a unit to the data of a lane area detector, usually this will be TMCs. In order to retrieve the data, traffic simulators have to be told to omit the subscribed data.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;LanePropertyChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction contains lane properties to be changed. Concretely, it sets a list of allowed and disallowed vehicle classes per lane and a new maximum speed limit that shall be changed. The changed lane properties have to be omitted to the traffic simulator to be handled.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficDetectorUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This extension of {@link Interaction} combines updates of lane area and induction loop detectors.  Usually the updates are supplied by the traffic simulator and will be filtered by applications subscribed to them.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficLightStateChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a request to change the state of a simulated traffic light. This interaction can be used to implement different controlling strategies for traffic lights.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficLightUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is a container for traffic light updates. It is sent by the SumoAmbassador to inform simulation units about updated traffic light states.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to update the position of some or all vehicles of the simulation. It consists of three lists, containing newly added vehicles, vehicles which were updated since the last simulation step, and vehicles which have been removed from the traffic simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Phabmacs&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleTypesInitialization&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;This interaction is required for each simulation.&lt;/strong&gt; It contains predefined vehicle types. Other ambassadors may cache this interaction in order to have access on vehicle types, which are later identified by their identifier.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRoutesInitialization&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;This interaction is required for each simulation.&lt;/strong&gt; It contains all routes vehicles will take during the simulation. Other ambassadors may cache this interaction in order to have access on the routes, which are later identified by their identifier.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;electricity&#34;&gt;electricity&lt;/h2&gt;
+&lt;p&gt;All interactions contained in this package are related to electric vehicles and the surrounding infrastructure.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingDenialResponse&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent out by the charging station ambassador to inform the application simulator (the vehicles) when a charging station is already in use. e.g. a vehicle wants to start charging on an engaged charging station -&amp;gt; ChargingStartDenial.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStartResponse&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a started charging process at a ChargingSpot to the RTI.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This extension interaction is intended to be used to forward the updated state of a ChargingStation to the RTI.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStopResponse&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a stopped charging process at a charging station to the RTI.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleChargingStartRequest&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a request from a vehicle to &lt;strong&gt;start&lt;/strong&gt; charging its battery at a charging station to the RTI.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleChargingStopRequest&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a request from a vehicle to &lt;strong&gt;stop&lt;/strong&gt; charging its battery at a charging station to the RTI.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleElectricityUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to inform the applications of simulation units about changed electric information, send out by the battery ambassador.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Battery&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;environment&#34;&gt;environment&lt;/h2&gt;
+&lt;p&gt;The interactions in this package are used for handling the communication about environment sensors.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;EnvironmentSensorActivation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to signal interest in sensor information for a specific simulation unit.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;EnvironmentSensorUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange sensor data.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;EventServer&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;GlobalEnvironmentUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This extension of interaction contains a list of current environment events and their locations. Those events can than be used to react upon a changing environment.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;EventServer&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;trafficsigns&#34;&gt;trafficsigns&lt;/h2&gt;
+&lt;p&gt;Interactions in this package are used to communicate changes in variable traffic signs, e.g. changing the speed limit.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AbstractTrafficSignChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable traffic sign. All interaction-classes, that are concerned with changing traffic signs extend this class.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignLaneAssignmentChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable lane assignment sign.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignSpeedLimitChange&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable speed sign.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSeenTrafficSingsUpdate&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction stores a map of all traffic signs which are in sight distance of a specific vehicle and a map of all  traffic signs which became invalid for that vehicle.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSign&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;application&#34;&gt;application&lt;/h2&gt;
+&lt;p&gt;Interactions in this package are used for applications. They are used to communicate custom information/data via the RTI.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Interaction name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Sent by&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ApplicationInteraction&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used in custom applications, it can be extended for simulation units to react upon different influences and can be used for intercommunication between applications.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ItefLogging&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to exchange log-tuples for the ITEF (Integrated Testing and Evaluation Framework).&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoTraciRequest&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to send a byte array message to SUMO TraCI. The request will be handled by TraCI and trigger a SumoTraciResponse.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoTraciResponse&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction holds the TraCI response for a SumoTraciRequest. It is sent by the SumoAmbassador and will usually be handled by the Application that sent the request.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Application Ambassador - Implementation Details</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/application_ambassador_details/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/application_ambassador_details/</guid>
+      <description>&lt;p&gt;The Application Simulator is completely implemented as an Eclipse MOSAIC Ambassador in Java. The main class &lt;code&gt;ApplicationAmbassador&lt;/code&gt; is
+started by the RTI and creates different components, like the &lt;code&gt;SimulationKernel&lt;/code&gt; singleton or the &lt;code&gt;CentralNavigationComponent&lt;/code&gt;.
+Subsequently, it will find all the Java Archive (JAR) files in the &lt;code&gt;application&lt;/code&gt; configuration directory, belonging to the currently started
+scenario, and add their classes to the class path. These JARs contain the application classes. Furthermore, the ApplicationAmbassador is
+registered as a handle for different Eclipse MOSAIC messages in the configuration file &lt;code&gt;etc/runtime.json&lt;/code&gt; in the Eclipse MOSAIC folder. After
+initialization, the Application Simulator will receive these messages from Eclipse MOSAIC when they appear and perform corresponding actions.&lt;/p&gt;
+&lt;h3 id=&#34;node-creation&#34;&gt;Node Creation&lt;/h3&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-application-simulator-basic-flow--node-creation-classes&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/class_overview.png&#34; data-caption=&#34;Application Simulator basic flow / node creation classes&#34;&gt;
+
+
+  &lt;img src=&#34;../images/class_overview.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Application Simulator basic flow / node creation classes
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Application classes are only instantiated when a node, carrying that application, is created. This is signaled by messages for node creation
+like (&lt;code&gt;AddedVehicle,AddedRsu,AddedTrafficLight&lt;/code&gt;, &amp;hellip;). When the &lt;code&gt;Mapping&lt;/code&gt; ambassador spawns a new node, it will send those messages to the
+RTI. The message then contains the fully qualified names of all applications associated with the spawned node, as well as the vehicle type
+itself.  Depending on this type, the Application Simulator creates a new &lt;code&gt;SimulationUnit&lt;/code&gt; object (i.e. a subclass of &lt;code&gt;SimulationUnit&lt;/code&gt; like
+&lt;code&gt;Vehicle&lt;/code&gt;, &lt;code&gt;RoadSideUnit&lt;/code&gt; or &lt;code&gt;TrafficLight&lt;/code&gt;), representing the new node. This task is served by the &lt;code&gt;UnitSimulatorclass&lt;/code&gt;, which performs
+book keeping of all &lt;code&gt;SimulationUnits&lt;/code&gt;. Upon Creation of a node, the &lt;code&gt;UnitSimulator&lt;/code&gt; will schedule an event to start all applications,
+belonging to the new node. The required information is saved in a &lt;code&gt;StartApplications&lt;/code&gt; object, which also includes a &lt;code&gt;ApplicationUnit&lt;/code&gt;
+object, an abstract representation of a node (a.k.a. unit) having at least one application.&lt;/p&gt;
+&lt;p&gt;However, as, for example, SUMO does not simulate vehicles strictly from their creation on, but only since their first movement, Applications
+for vehicles cannot be started directly upon an &lt;code&gt;AddedVehicle&lt;/code&gt; message. Instead, every added vehicle will be kept in the &lt;code&gt;addedVehicles&lt;/code&gt;
+Map, until a &lt;code&gt;VehicleMovements&lt;/code&gt; message, belonging to that vehicle is processed. The vehicle will then be added by the &lt;code&gt;UnitSimulator&lt;/code&gt;
+like any other node.&lt;/p&gt;
+&lt;h3 id=&#34;other-messages-and-time-advance&#34;&gt;Other Messages and Time Advance&lt;/h3&gt;
+&lt;p&gt;Apart from the ones for node creation, there are many other messages (see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/interactions/&#34;&gt;
+    Interaction
+&lt;/a&gt;
+),
+signaling events to the Application Simulator. For most of them, an event in the future will be programmed, such that the implied action is
+carried out at that simulation time. The processing of the events happens when the RTI calls the &lt;code&gt;advanceTime()&lt;/code&gt; method on the ambassador.
+Upon this, Application Simulator will obtain a list of all events up to the new time and let the processor of the event process them. Every
+potential event processor implements the &lt;code&gt;EventProcessor&lt;/code&gt; interface. The corresponding method is the &lt;code&gt;advanceTime()&lt;/code&gt; method of
+&lt;code&gt;ApplicationAmbassador&lt;/code&gt;, which calls &lt;code&gt;scheduleEvents()&lt;/code&gt; on the event scheduler. Subsequently, some interesting messages and their
+handling process is sketched shortly:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Message&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Signals that a vehicle has moved.  The &lt;code&gt;Vehicle&lt;/code&gt; object, which is a subclass of &lt;code&gt;SimulationUnit&lt;/code&gt;, that corresponds to the moved vehicle will be updated to contain the new position. The new information is encapsulated in a &lt;code&gt;VehicleInfo&lt;/code&gt; object, containing different vehicle data. To update the data, an event is scheduled at the given time and processed upon time advance. Vehicles not yet added to the simulation (see 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#node-creation&#34;&gt;
+    Node Creation
+&lt;/a&gt;
+), are added by calling &lt;code&gt;addVehicleIfNotYetAdded()&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;MessageReception&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This message represents the reception of a V2X-message by a simulated node. The &lt;code&gt;SimulationUnit&lt;/code&gt; with the id saved in the &lt;code&gt;ReceivedV2XMessage&lt;/code&gt; object is scheduled for the processing of the message at the given simulation time. When simulation time reaches the reception time, the &lt;code&gt;SimulationUnit&lt;/code&gt; will obtain the message from the message cache and hand it to all applications that implement the &lt;code&gt;CommunicationApplication&lt;/code&gt; interface in the method &lt;code&gt;SimulationUnit.processReceiveV2XMessage()&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ApplicationInteraction&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;While most other messages are specific to the a &lt;code&gt;SimulationUnit&lt;/code&gt;, that then forwards the event to its applications, the &lt;code&gt;ApplicationSpecificMessage&lt;/code&gt; is directly handed to all applications.  Thereby, the &lt;code&gt;SimulationUnit&lt;/code&gt;, whose applications shall receive the message can be specified. If this is not done, all applications of all units will get the message and have the opportunity to handle it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sumo Ambassador Implementation</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/sumo_ambassador_details/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/sumo_ambassador_details/</guid>
+      <description>&lt;p&gt;The Simulation of Urban Mobility (SUMO) simulator is an open source microscopic, multi-modal traf-
+fic simulation package which is developed by the Institute of Transportation research at the German
+Aerospace Centre. It is designed to handle large road networks faster than real-time. Each vehicle has
+an own route and is simulated individually. To simulate the movements of the vehicles on the network,
+a model is used that uses discrete time steps of e.g. 1 s. Thousands of vehicles can be simulated in real
+time on a desktop PC, including simulation of traffic lights, right-of-way rules, and lane changing models.
+Simulations can either run via the command line or are visualized using the openGL-API (SUMO-GUI).
+SUMO networks are created by importing other formats, such as OpenStreetMap data, Shapefiles or
+TIGE-maps; or by generating artificial networks. Furthermore, vehicle routes, based on different routing
+paradigms, can be computed.&lt;/p&gt;
+&lt;h2 id=&#34;sumo-and-eclipse-mosaic&#34;&gt;SUMO and Eclipse MOSAIC&lt;/h2&gt;
+&lt;p&gt;We have integrated the traffic simulator SUMO to be able to simulate heterogeneous driving vehicles and a set of vehicles that have a predefined routes based on an imported roadmap. Additionally, during
+the runtime of a simulation, it is possible that routes of simulated vehicles are changed and that vehicle positions are extracted at arbitrary points in time. The integration of SUMO into a Eclipse MOSAIC based simulation is illustrated in the following figure. The integrated Traffic Control Interface (TraCI) Server offers an interface to exchange commands and positions using a socket interface with a proprietary byte protocol. Analogous to the TraCI Server, a TraCI Client is implemented that is integrated in an ambassador implementing the TraCI protocol. Therefore, SUMO can be integrated without modifications.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-sumo-connected-to-eclipse-mosaic&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/sumo-connected-to-mosaic.jpeg&#34; data-caption=&#34;SUMO connected to Eclipse MOSAIC&#34;&gt;
+
+
+  &lt;img src=&#34;../images/sumo-connected-to-mosaic.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    SUMO connected to Eclipse MOSAIC
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;During a simulation run, per default SUMO is paused and TraCI is listening for commands. After each
+advanced time grant, SUMO offers the new vehicle positions which are broadcast by its ambassador
+to other federates. Furthermore, if the ambassador receives a request to change the route of a specific
+vehicle, it is forwarded to SUMO. Thus, at the next time-advancement, the new route is integrated.&lt;/p&gt;
+&lt;h3 id=&#34;simulation-of-vehicles&#34;&gt;Simulation of Vehicles&lt;/h3&gt;
+&lt;p&gt;For each vehicle which has been defined in the mapping configuration, a &lt;code&gt;VehicleRegistration&lt;/code&gt; interaction is sent
+to the &lt;code&gt;SumoAmbassador&lt;/code&gt; which adds those vehicles to the simulation via TraCI. Furthermore, vehicle
+data is subscribed which is updated with every simulation step. After each step of the simulation this
+data is bundled into a &lt;code&gt;VehicleInfo&lt;/code&gt; object which is distributed among other ambassadors within the
+&lt;code&gt;VehicleUpdates&lt;/code&gt; interaction. The following data is available for each vehicle:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Position&lt;/li&gt;
+&lt;li&gt;Speed, Acceleration, Heading, Slope&lt;/li&gt;
+&lt;li&gt;State of vehicle signals (e.g. turn indicators)&lt;/li&gt;
+&lt;li&gt;Emission dispersion (CO2, NOX, etc.)&lt;/li&gt;
+&lt;li&gt;Fuel consumption&lt;/li&gt;
+&lt;li&gt;Information about the road the vehicle is driving on (road position)&lt;/li&gt;
+&lt;li&gt;Id of the route&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;traffic-lights-in-sumo&#34;&gt;Traffic lights in SUMO&lt;/h3&gt;
+&lt;p&gt;Depending on which light is active (red, yellow or green), every traffic light got different phases. In theory,
+any combination of dis- or enabled lights is possible, but SUMO only handles combinations which make
+sense. In SUMOs traffic light concept every traffic light got a bitset of the status of each phase. Every
+bitset is a combination as mentioned above. When a car approaches a junction, it gets the actual bitset
+(combination) of the traffic light. To explain the code, an example is given:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;tl-logic type=&amp;quot;static&amp;quot;&amp;gt;
+    &amp;lt;key&amp;gt;0&amp;lt;/key&amp;gt;
+    &amp;lt;subkey&amp;gt;my program&amp;lt;/subkey&amp;gt;
+    &amp;lt;phaseno&amp;gt;8&amp;lt;/phaseno&amp;gt;
+    &amp;lt;offset&amp;gt;0&amp;lt;/offset&amp;gt;
+    &amp;lt;phase duration=&amp;quot;31&amp;quot; state=&amp;quot;GGggrrrrGGggrrrr&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;5&amp;quot; state=&amp;quot;yyggrrrryyggrrrr&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;6&amp;quot; state=&amp;quot;rrGGrrrrrrGGrrrr&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;5&amp;quot; state=&amp;quot;rryyrrrrrryyrrrr&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;31&amp;quot; state=&amp;quot;rrrrGGggrrrrGGgg&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;5&amp;quot; state=&amp;quot;rrrryyggrrrryygg&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;6&amp;quot; state=&amp;quot;rrrrrrGGrrrrrrGG&amp;quot;/&amp;gt;
+    &amp;lt;phase duration=&amp;quot;5&amp;quot; state=&amp;quot;rrrrrryyrrrrrryy&amp;quot;/&amp;gt;
+&amp;lt;/tl-logic&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This example shows the traffic light program of one junction. It shows the different status’ of each light
+of each traffic signal, which are positioned on the junction. In this example every string of a phase e.g.
+&amp;ldquo;GGggrrrrGGggrrrr&amp;rdquo; (first phase) got 16 characters. Every char stands for one light on the junction. On
+this junction are four traffic lights with four signals each. To understand the different status of each light
+in one period (8 phases) the program should be read from top to the bottom. It is possible to change or
+create your own program by editing the .net file with the tool Netedit.&lt;/p&gt;
+&lt;h3 id=&#34;handling-of-traffic-lights-in-eclipse-mosaic&#34;&gt;Handling of traffic lights in Eclipse MOSAIC&lt;/h3&gt;
+&lt;p&gt;After the TraCI connection has been established, all available traffic light groups are read out of SUMO via
+TraCI. This information is packed into the three classes &lt;code&gt;TrafficLightGroup&lt;/code&gt;, &lt;code&gt;TrafficLightSignal&lt;/code&gt;,
+and &lt;code&gt;TrafficLightPhase&lt;/code&gt;. While a traffic light group contains a list of signals which control one intersec-
+tion (which can consist of several nodes), a list of all existing traffic light groups is sent to the RTI via a
+&lt;code&gt;ScenarioTrafficLightRegistration&lt;/code&gt; interaction.&lt;/p&gt;
+&lt;h2 id=&#34;traci-client-implementation&#34;&gt;TraCI Client Implementation&lt;/h2&gt;
+&lt;p&gt;The SumoAmbassador communicates with the federate (SUMO process) via TraCI. In this socket based
+communication protocol, the server (SUMO) listens to commands and responds accordingly.&lt;/p&gt;
+&lt;p&gt;Each message send to SUMO consist of a header and the command or result message, according to the
+following scheme:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 0                7 8                15
++--------------------------------------+
+| Message Length including this header |
++--------------------------------------+
+|      (Message Length, continued)     |
++--------------------------------------+  \
+|      Length      |    Identifier     |  |
++--------------------------------------+   &amp;gt; Command / Result_0
+|      Command / Result_0 content      |  |
++--------------------------------------+  /
+...
++--------------------------------------+  \
+|      Length      |    Identifier     |  |
++--------------------------------------+   &amp;gt; Command / Result_n -1
+|     Command / Result_n-1 content     |  |
++--------------------------------------+  /
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A more detailed description can be found here: 
+
+
+
+
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Protocol&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    http://sumo.dlr.de/wiki/TraCI/Protocol
+&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;commands&#34;&gt;Commands&lt;/h3&gt;
+&lt;p&gt;Each TraCI command is identified by an command identifier. For example, the command 0xC4 is used to
+change the state of a vehicle. Most of the commands need further specification, such as the parameter of
+the vehicle which is required to be changed. Those parameters are usually accessed by variable identifiers
+(e.g. 0x40 addresses the speed of an entity). A full list of commands and variables supported by TraCI can
+be found here: 
+
+
+
+
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    http://sumo.dlr.de/wiki/TraCI
+&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Here is an example of a command message to change the speed of the vehicle &amp;ldquo;veh_0&amp;rdquo; to 14m/s:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 0                 7 8                 15                23 24               31
++-----------------------------------------------------------------------------+
+|                             25 (Message length)                             |
++-----------------------------------------------------------------------------+
+|    21 (Length)    |  0xC4 (Command)  |   0x40 (Variable) |       
++-----------------------------------------------------------------------------+
+             5 (String length as 4 Byte Integer)           |        &amp;quot;v&amp;quot;       |
++-----------------------------------------------------------------------------+
+|        &amp;quot;e&amp;quot;        |        &amp;quot;h&amp;quot;       |        &amp;quot;_&amp;quot;        |        &amp;quot;0&amp;quot;       |
++-----------------------------------------------------------------------------+
+| 0x0B (Double type)|                   40.0 (8 Byte Double) 
++-----------------------------------------------------------------------------+
+             
++-----------------------------------------------------------------------------+  
+                    |
++-------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;abstracttracicommand&#34;&gt;AbstractTraciCommand&lt;/h3&gt;
+&lt;p&gt;In the TraCI client implementation of the &lt;code&gt;SumoAmbassador&lt;/code&gt;, the whole construction of messages is done in
+the class &lt;code&gt;AbstractTraciCommand&lt;/code&gt;. The message header containing the message and command lengths
+is constructed automatically as well as all parameters defined by the specific command. To achieve this,
+each class which extends the &lt;code&gt;AbstractTraciCommand&lt;/code&gt; needs to define the command, the variable and
+all parameters which are required for the specific command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected VehicleSetSpeed() {
+    super(TraciVersion.LOWEST);
+
+    write()
+        .command(0xC4)                // = change vehicle state
+        .variable(0x04)               // = set speed of entity
+        .writeStringParam()           // = vehicle id
+        .writeDoubleParamWithType();  // = speed value
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This example shows the command implementation for setting the speed for a vehicle. In the constructor,
+the write methods provides a builder-like construct allowing to define the command, the variable, and all
+parameters which are later passed dynamically to the command. Here, the command is specified as &lt;code&gt;0xC4&lt;/code&gt; (= change vehicle state) and the variable as &lt;code&gt;0x04&lt;/code&gt; (= speed of the entity). Furthermore, two parameters are
+defined: The first string parameter represents the ID of the vehicle, the second double parameter defines
+the speed value to be set (according to 
+
+
+
+
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State
+&lt;/a&gt;
+).
+Note, the order of the specified command contents is from crucial importance. E.g. the &lt;code&gt;command&lt;/code&gt; must
+always be specified before the &lt;code&gt;variable&lt;/code&gt;, and the variable before all parameters.&lt;/p&gt;
+&lt;p&gt;All parameters defined in the constructor (here: &lt;code&gt;[String, Double]&lt;/code&gt; ), need to be assigned with values
+as soon as the command is executed. For this purpose, the command implementation needs to call the
+method execute of the super class with the parameter values in the specified order:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void setSpeed(Bridge bridge, String vehicleId, double speedValue) {
+    super.execute(bridge, vehicleId, value);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Within the execute method, the &lt;code&gt;AbstractTraciCommand&lt;/code&gt; constructs the whole message and sends it to
+the TraCI server (SUMO). Furthermore, the &lt;code&gt;AbstractTraciCommand&lt;/code&gt; also reads the response, extracts the
+status of the response (successful or error) and reads all values returned by the server. Usually, commands
+which changes the state of an entity only (like &lt;code&gt;VehicleSetSpeed&lt;/code&gt;) do not respond with complex results.
+However, a command which wants to retrieve a value of an entity needs to read out the result from the
+response (e.g. &lt;code&gt;VehicleGetRouteId&lt;/code&gt; which returns the current route identifier of the vehicle). For this
+purpose, each command needs to specify how the response should be handled:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected VehicleGetRouteId() {
+    super(TraciVersion.LOWEST);
+
+    write()
+        .command(0xA4)      // = retrieve vehicle state
+        .variable(0x53)     // = route id of entity
+        .writeStringParam(); // = write vehicle id
+
+    read()
+        .skipBytes(2)          // = skip command and variable in response
+        .skipString()          // = skip vehicle id, not relevant
+        .readStringWithType(); // = read route id
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This example shows the command implementation for getting the route id of a vehicle. As well as &lt;code&gt;write&lt;/code&gt;,
+the method &lt;code&gt;read&lt;/code&gt; returns a builder-like construct which provides methods to define how the response is
+handled. Here, the first two bytes of the response should be skipped, as well as the string which follows
+afterwards. The value the command is interested in is the following string value which holds the id of
+the route. By using the method &lt;code&gt;readStringWithType&lt;/code&gt; the string is read out and is passed to the method
+&lt;code&gt;constructResult&lt;/code&gt; which needs to be implemented by the command as well:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public String getRouteId(Bridge bridge, String vehicle) {
+    return super.executeAndReturn(bridge, vehicle);
+}
+
+@Override
+protected String constructResult(Status status, Object... objects) { 
+    return (String) objects[0];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this simple case, the result of the command consists of one result object only (the route id). Therefore,
+it is just extracted from the array of result objects and directly returned.&lt;/p&gt;
+&lt;h3 id=&#34;writing-parameters&#34;&gt;Writing parameters&lt;/h3&gt;
+&lt;p&gt;In order to write parameters and read results according to the specification of the protocol, several reader
+and writer implementations exist. For parameters to be written in the command various writers exists
+to write single bytes, strings, integers, and doubles, or special writers for writing lists. The same is for
+readers.&lt;/p&gt;
+&lt;p&gt;In the following example, the IntegerTraciWriter is shown:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class IntegerTraciWriter extends AbstractTraciParameterWriter&amp;lt;Integer&amp;gt; {
+
+    public IntegerTraciWriter() {
+        super(4); 
+    }
+
+    public IntegerTraciWriter(int value) {
+        super(4, value); 
+    }
+
+    @Override
+    public int getVariableLength(Integer argument) {
+        return getLength();
+    }
+
+    @Override
+    public void write(DataOutputStream out) throws IOException {
+        out.writeInt(value);
+    }
+
+    @Override
+    public void writeVariableArgument(DataOutputStream out, Integer argument) {
+        out.writeInt(argument);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each writer has two tasks. Firstly, it needs to determine the length of the parameter value. For example,
+an integer parameter is always 4 bytes long, whereas the length of a string parameter depends on the
+size of the argument. Therefore, each writer needs to be able to determine the variable length according
+to a given value. Secondly, it needs to write out the actual value into the &lt;code&gt;DataOutputStream&lt;/code&gt; (which
+represents the channel to the TraCI server). Furthermore is each writer able to write fixed values, such as
+the command identifier which does not change, or variable arguments, such as the vehicle id.&lt;/p&gt;
+&lt;h3 id=&#34;reading-results&#34;&gt;Reading results&lt;/h3&gt;
+&lt;p&gt;In the following example, the IntegerTraciReader is shown:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class IntegerTraciReader extends AbstractTraciResultReader&amp;lt;Integer&amp;gt; {
+
+    public IntegerTraciReader() {
+        super(null);
+    }
+
+    public IntegerTraciReader(Matcher&amp;lt;Integer&amp;gt; matcher) {
+        super(matcher);
+    }
+
+    @Override
+    protected Integer readFromStream(DataInputStream in) throws IOException {
+        return readInt(in);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A reader has three tasks. Firstly, it reads out a value from the &lt;code&gt;DataInputStream&lt;/code&gt; (which represents the
+response channel to the TraCI client) according to the protocol specification. For example, an integer
+can be read out directly, while a string requires several single reading operations. Secondly, the reader
+needs to take track of the number of bytes it has read in total. To achieve this it is recommended to use
+the provided methods of the super class, such as &lt;code&gt;readInt&lt;/code&gt;, &lt;code&gt;readString&lt;/code&gt;, or &lt;code&gt;readByte&lt;/code&gt; .However, if values
+need to be read directly from the DataInputStream, the protected field &lt;code&gt;numBytesRead&lt;/code&gt; must always be
+increased accordingly. Thirdly, the reader needs to define if the read out value fulfils certain requirements.
+Such requirement can be, that a certain value is expected. In this case, a matcher might be passed to the
+super constructor.&lt;/p&gt;
+&lt;h3 id=&#34;accessing-the-commands&#34;&gt;Accessing the commands&lt;/h3&gt;
+&lt;p&gt;For each command, only one object should be instantiated during runtime. To achieve this, the
+&lt;code&gt;CommandRegister&lt;/code&gt; is used. This class stores a command once it is created returns only one instance per
+command class:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;final RouteAdd routeAddCommand = commandRegister.getOrCreate(RouteAdd.class);
+//... do something
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, commands should not be accessed directly in the code, but rather using the various facades
+available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;RouteFacade&lt;/code&gt; - Route specific command calls, such as addRoute and getRouteEdges .&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SimulationFacade&lt;/code&gt; - Provides methods to control the simulation, such as simulateStep .&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TrafficLightFacade&lt;/code&gt; - Provides methods to get or set values for traffic lights.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleFacade&lt;/code&gt; - Provides methods to get or set values for vehicles.
+All those facades can be accessed via the &lt;code&gt;TraciClientBridge&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exception-handling&#34;&gt;Exception handling&lt;/h3&gt;
+&lt;p&gt;Exceptions are thrown and handled as following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If a command results in a status response with the status code Error, a &lt;code&gt;TraciCommandException&lt;/code&gt;
+is thrown. If this exception is thrown, the TraCI connection is still alive and can be used for
+further commands. The facades decide how to handle this exception then and may throw an
+&lt;code&gt;InternalFederateException&lt;/code&gt; or log a warning message.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If a command could not be written properly, or the result could not be read out as wished, an
+&lt;code&gt;InternalFederateException&lt;/code&gt; is thrown and an &lt;code&gt;Emergency Exit&lt;/code&gt; is initiated, which eventually
+shuts down the TraCI connection. This also happens if a reader or writer throws any kind of
+Exception.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;version-handling&#34;&gt;Version handling&lt;/h3&gt;
+&lt;p&gt;With future releases of SUMO new TraCI commands will emerge. To achieve downward compatibility
+each command can define the lowest TraCI Version it supports. For example, a command which was
+introduced with SUMO 0.30.0 and is annotated accordingly, would be skipped automatically if the version
+of the TraCI server is lower. However, this concept has not been tested yet properly.&lt;/p&gt;
+&lt;h2 id=&#34;libsumo-coupling-implementation&#34;&gt;LibSumo Coupling Implementation&lt;/h2&gt;
+&lt;p&gt;Next to the coupling implementation using TraCI, there is a second implementation integrating
+LibSumo via Java Native Interface (JNI). It is possible to easily switch the coupling method using
+either &lt;code&gt;TraciClientBridge&lt;/code&gt;, or &lt;code&gt;LibSumoBridge&lt;/code&gt; as the &lt;code&gt;Bridge&lt;/code&gt; implementation. This replaces all
+commands to get or set values in the SUMO simulation. The &lt;code&gt;CommandRegister&lt;/code&gt; is either initialized
+using the &lt;code&gt;&amp;quot;libsumo&amp;quot;&lt;/code&gt; or &lt;code&gt;&amp;quot;traci&amp;quot;&lt;/code&gt; package to load the command implementations. All the Facades
+(&lt;code&gt;SimulationFacade&lt;/code&gt;, &lt;code&gt;VehicleFacade&lt;/code&gt; etc.) which contain all the actual &amp;ldquo;business&amp;rdquo; logic, remain untouched.&lt;/p&gt;
+&lt;p&gt;The introduction of new commands requires the implementation of these three items:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interface in &lt;code&gt;org.eclipse.mosaic.fed.sumo.bridge.api&lt;/code&gt; package&lt;/li&gt;
+&lt;li&gt;Implementation of TraCI command in package &lt;code&gt;org.eclipse.mosaic.fed.sumo.bridge.traci&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Implementation of LibSumo command in package &lt;code&gt;org.eclipse.mosaic.fed.sumo.bridge.libsumo&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the code in the facades should always work with the interfaces from the &lt;code&gt;org.eclipse.mosaic.fed.sumo.bridge.api&lt;/code&gt; package.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-implementations-of-libsumo-and-traci-coupling&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/sumo-traci-libsumo.png&#34; data-caption=&#34;Implementations of LibSumo and TraCI coupling.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/sumo-traci-libsumo.png&#34; alt=&#34;&#34; width=&#34;600px&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Implementations of LibSumo and TraCI coupling.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>OMNeT&#43;&#43; Federate Development</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/</guid>
+      <description>&lt;p&gt;This section provides a description how to set up the &lt;strong&gt;OMNeT++ IDE&lt;/strong&gt; for the Eclipse MOSAIC OMNeT++ Federate Development.&lt;/p&gt;
+&lt;p&gt;If you wish to use another IDE than OMNeT++ IDE (based on Eclipse), you can use 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/ns3_setup/#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;
+    ns-3 Federate Development Setup
+&lt;/a&gt;
+
+as inspiration - it describes the setup of Visual Studio Code.&lt;/p&gt;
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;At this point it is awaited, that the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
+    OMNeT++ Federate
+&lt;/a&gt;
+ is successfully installed.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;prepare-omnet-ide&#34;&gt;Prepare OMNeT++ IDE&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create an empty directory somewhere inside your home directory. We will call it &lt;code&gt;&amp;lt;omnetpp_workspace&amp;gt;&lt;/code&gt; from here on. This directory will be used as a workspace in your OMNeT++ IDE.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open your OMNeT++ IDE by executing &lt;code&gt;omnetpp&lt;/code&gt; in your terminal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;code&gt;&amp;lt;omnetpp_workspace&amp;gt;&lt;/code&gt; as workspace and continue by clicking &lt;code&gt;Launch&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Close the &amp;ldquo;Welcome&amp;rdquo; screen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since your workspace is empty, the OMNeT++ IDE will ask you if you want to install the INET framework and OMNeT++ programming examples.&lt;br&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-omnet-ide-prevent-automatic-installation-of-inet&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-install-inet.png&#34; data-caption=&#34;OMNeT&amp;#43;&amp;#43; IDE: prevent automatic installation of INET&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-install-inet.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    OMNeT++ IDE: prevent automatic installation of INET
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+Uncheck INET and decide for yourself if you want to install the examples.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;By clicking &lt;code&gt;OK&lt;/code&gt; the examples are going to be installed into your &lt;code&gt;&amp;lt;omnetpp_workspace&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If you already have INET installed somewhere you can skip the download and import your existing INET project:
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Cancel&lt;/code&gt; the dialog.&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;File&lt;/code&gt; &amp;gt; &lt;code&gt;Open Projects from File System...&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the new window choose the directory of your existing INET installation as &lt;code&gt;Import Source&lt;/code&gt; and click &lt;code&gt;Finish&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The INET framework is supported in version 4.1.1. To ensure the correct version is installed, install it manually:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download 
+
+
+
+
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    INET 4.1.1
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Unpack it into the working directory of OMNeT++ IDE (Eclipse)&lt;/li&gt;
+&lt;li&gt;Rename the unpacked directory &lt;code&gt;inet4&lt;/code&gt; to &lt;code&gt;inet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Insert the directory &lt;code&gt;inet&lt;/code&gt; as project to OMNeT++ IDE (as described above)&lt;/li&gt;
+&lt;li&gt;Build INET&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The project &lt;code&gt;inet&lt;/code&gt; should now be visible in the &lt;code&gt;Project Explorer&lt;/code&gt; of your OMNeT++ IDE.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right-click on free space in the &lt;code&gt;Project Explorer&lt;/code&gt; and choose &lt;code&gt;New&lt;/code&gt; &amp;gt; &lt;code&gt;OMNeT++ Project...&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-omnet-ide-create-new-omnet-project&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-new-project.png&#34; data-caption=&#34;OMNeT&amp;#43;&amp;#43; IDE: Create new OMNeT&amp;#43;&amp;#43; Project&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-new-project.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    OMNeT++ IDE: Create new OMNeT++ Project
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the new window:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Name the new project &lt;code&gt;federate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Uncheck&lt;/strong&gt; the box before &lt;code&gt;Use default location&lt;/code&gt;, click &lt;code&gt;Browse&lt;/code&gt; and select:&lt;br&gt;
+&lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp/omnetpp_federate_src/src&lt;/code&gt;&lt;br&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-omnet-ide-create-new-omnet-project&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-new-project-2.png&#34; data-caption=&#34;OMNeT&amp;#43;&amp;#43; IDE: Create new OMNeT&amp;#43;&amp;#43; Project&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-new-project-2.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    OMNeT++ IDE: Create new OMNeT++ Project
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;Click &lt;code&gt;Next&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the following &lt;code&gt;Initial Contents&lt;/code&gt; page select &lt;code&gt;Empty Project&lt;/code&gt; and continue by clicking &lt;code&gt;Finish&lt;/code&gt;&lt;br&gt;
+You should now find two projects in the &lt;code&gt;Project Explorer&lt;/code&gt; of your OMNeT++ IDE: &lt;code&gt;inet&lt;/code&gt; and &lt;code&gt;federate&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right-click on the &lt;code&gt;federate&lt;/code&gt; project and choose &lt;code&gt;Properties&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;code&gt;Project references&lt;/code&gt; and &lt;strong&gt;check&lt;/strong&gt; the box before &lt;code&gt;inet&lt;/code&gt;&lt;br&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-choose-project-references&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-project-references.png&#34; data-caption=&#34;Choose project references&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-project-references.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Choose project references
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That&amp;rsquo;s it! None of the files should now be marked with an error symbol.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;configure-rebuild-configuration&#34;&gt;Configure Rebuild Configuration&lt;/h2&gt;
+&lt;p&gt;Since the Eclipse MOSAIC OMNeT++ Federate is not a classic OMNeT++ project, it cannot be build regulary with
+the OMNeT++ IDE by just clicking on the &lt;code&gt;Build&lt;/code&gt; button. However, to make the build process easy and intuitive
+we provide a simple build script and the following desciption how to configure the OMNeT++ IDE to enable
+building on a single click:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In the OMNeT++ IDE select &lt;code&gt;Run&lt;/code&gt; &amp;gt; &lt;code&gt;External Tools&lt;/code&gt; &amp;gt; &lt;code&gt;External Tools Configuration...&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Double-click in the left column on &lt;code&gt;Program&lt;/code&gt; to create a new configuration.&lt;/li&gt;
+&lt;li&gt;Call it &lt;code&gt;rebuild federate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Main&lt;/code&gt; tab:
+&lt;ol&gt;
+&lt;li&gt;Under &lt;code&gt;Location&lt;/code&gt; choose &lt;code&gt;Browse Workspace...&lt;/code&gt; and select &lt;code&gt;federate/rebuild_federate.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Still in the &lt;code&gt;Main&lt;/code&gt; tab under &lt;code&gt;Working Directory&lt;/code&gt; choose &lt;code&gt;Browse Workspace...&lt;/code&gt; and select &lt;code&gt;federate&lt;/code&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-omnet-ide-build-configuration&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-build-config.png&#34; data-caption=&#34;OMNeT&amp;#43;&amp;#43; IDE Build Configuration&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-build-config.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    OMNeT++ IDE Build Configuration
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Build&lt;/code&gt; tab &lt;strong&gt;uncheck&lt;/strong&gt; the box before &lt;code&gt;Build before launch&lt;/code&gt;&lt;br&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-omnet-ide-build-configuration&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-build-config-2.png&#34; data-caption=&#34;OMNeT&amp;#43;&amp;#43; IDE Build Configuration&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-build-config-2.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    OMNeT++ IDE Build Configuration
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;Now you can &lt;code&gt;Apply&lt;/code&gt; your changes and click on &lt;code&gt;Run&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Since you have built the project at least once, you can rebuild it again by clicking here:&lt;br&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-run-rebuild&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-run-rebuild.png&#34; data-caption=&#34;Run rebuild&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-run-rebuild.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Run rebuild
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;The following video shows the above described steps:&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+&lt;video controls &gt;
+  &lt;source src=&#34;../images/omnetpp-ide-rebuild-federate.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;configure-debug-configuration&#34;&gt;Configure Debug Configuration&lt;/h2&gt;
+&lt;p&gt;To debug the Eclipse MOSAIC OMNeT++ Federate during simulation you need to create a Debug Configuration. The following
+instruction will tell you how to do that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In your OMNeT++ IDE choose &lt;code&gt;Run&lt;/code&gt; &amp;gt; &lt;code&gt;Debug Configurations...&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the new window double-click on &lt;code&gt;OMNeT++ Simulation&lt;/code&gt; in the left column and name the new created debug configuration &lt;code&gt;federate&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Executable&lt;/code&gt; row check &lt;code&gt;other&lt;/code&gt; and type &lt;code&gt;/federate/federate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Working dir&lt;/code&gt; row type &lt;code&gt;/federate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Ini file(s)&lt;/code&gt; row type &lt;code&gt;debug.ini omnetpp.ini&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;At the end of the page click on the &lt;code&gt;More &amp;gt;&amp;gt;&lt;/code&gt; link. And make sure all fields in the &lt;code&gt;Advanced&lt;/code&gt; area are &lt;strong&gt;empty&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;For &lt;code&gt;Projects to build&lt;/code&gt; select &lt;code&gt;Do not build automatically before launch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Now &lt;code&gt;Apply&lt;/code&gt; your changes and try your configuration by clicking &lt;code&gt;Debug&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;The following images shows the final debug configuration:&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-final-debug-configuration&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/omnetpp-ide-debug-config.png&#34; data-caption=&#34;Final debug configuration&#34;&gt;
+
+
+  &lt;img src=&#34;../images/omnetpp-ide-debug-config.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Final debug configuration
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ns-3 Federate Development Setup</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/ns3_setup/</link>
+      <pubDate>Fri, 23 Jul 2021 20:00:00 +0200</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/ns3_setup/</guid>
+      <description>&lt;p&gt;The following instructions steps lead you to a common &lt;strong&gt;development setup for the Eclipse MOSAIC ns-3 Federate&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;strong&gt;For the Eclipse MOSAIC ns-3 Federate development you should be familiar with:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Eclipse MOSAIC&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C++ development&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ns-3&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;dependency-installation&#34;&gt;Dependency installation&lt;/h2&gt;
+&lt;h3 id=&#34;google-protocol-buffers&#34;&gt;Google Protocol Buffers&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Make sure you have the following dependency installed before you continue:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Google Protocol Buffers (protobuf)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;premake-5&#34;&gt;Premake 5&lt;/h3&gt;
+&lt;p&gt;There are multiple ways how you can install Premake 5 (
+
+
+
+
+&lt;a href=&#34;https://premake.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    https://premake.github.io/
+&lt;/a&gt;
+).&lt;br&gt;
+For our purpose it doesn&amp;rsquo;t matter which way you choose:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;install package of your Linux distribution &lt;strong&gt;or&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;download binary &lt;strong&gt;or&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;build from source&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ns-3&#34;&gt;ns-3&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Download ns-3: &lt;a href=&#34;https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2&#34;&gt;https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;./build.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;download--install-eclipse-mosaic-ns-3-federate&#34;&gt;Download &amp;amp; Install Eclipse MOSAIC ns-3 Federate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Clone the federate&amp;rsquo;s repository: &lt;code&gt;git clone https://github.com/mosaic-addons/ns3-federate&lt;/code&gt; &lt;br&gt;
+The federate&amp;rsquo;s repository directory is referred to as &lt;code&gt;[federate]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Install the Premake 5 Autoconf Plugin to &lt;code&gt;[federate]/.modules/autoconf&lt;/code&gt;:
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;cd [federate]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget -O premake-autoconf.zip https://github.com/Blizzard/premake-autoconf/archive/master.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unzip premake-autoconf.zip -d .modules/autoconf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Setup &lt;code&gt;premake5.lua&lt;/code&gt;&lt;/strong&gt; – Premake5 is configured by the file &lt;code&gt;[federate]/premake5.lua&lt;/code&gt; of the federate project.&lt;br&gt;
+Unfortunately, the build definitions have been historically grown and are interlocked with the installer script.&lt;br&gt;
+In order to start development at the federate, you need to change a few parts in &lt;code&gt;premake5.lua&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The installer script copies &lt;code&gt;ClientServerChannel.*&lt;/code&gt;. This is not necessary -&amp;gt; uncomment 2 lines:
+&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;   files { &amp;quot;src/**.h&amp;quot;
+         , &amp;quot;src/**.cc&amp;quot;
+--         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannel.h&amp;quot;
+--         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannel.cc&amp;quot;
+         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannelMessages.pb.h&amp;quot;
+         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannelMessages.pb.cc&amp;quot;
+         }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;add path to ns-3 include directory:
+&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;includedirs { &amp;quot;/usr/include&amp;quot;
+            , &amp;quot;/usr/include/libxml2&amp;quot;
+            , &amp;quot;src&amp;quot;
+            , &amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build&amp;quot;
+            , PROTO_CC_PATH
+            }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;add path to ns-3 lib directory:
+&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;libdirs { &amp;quot;/usr/lib&amp;quot;
+        , &amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build/lib&amp;quot;
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are alternative and more eloquent configuration ways. Keep up to date! There might be some changes introduced.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Makefile Generation&lt;/strong&gt; – Having configured premake, you can run it to generate the Makefiles:
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;cd [federate]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;premake5 gmake --generate-protobuf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build Federate&lt;/strong&gt; – Having generated the federate&amp;rsquo;s Makefiles, the federate can be built.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Option 1: Simple build with &lt;code&gt;make -j1&lt;/code&gt;&lt;br&gt;
+&lt;em&gt;Building in parallel might cause errors, so the use of one thread (parameter &lt;code&gt;-j1&lt;/code&gt;) is recommended.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Option 2: Build and Generate &lt;code&gt;compile_commands.json&lt;/code&gt; – &lt;em&gt;Clang&lt;/em&gt; defines a
+
+
+
+
+
+&lt;a href=&#34;https://clang.llvm.org/docs/JSONCompilationDatabase.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    database format for compilation information
+&lt;/a&gt;
+,
+containing necessary information to build the project which enables different tools to parse the source code in the same
+way (flags/debug/release/dependency version&amp;hellip;). This is needed by VS Code&amp;rsquo;s plugin &lt;em&gt;clangd&lt;/em&gt;.&lt;br&gt;
+(If you use an IDE which does not need this database, you can omit this &lt;em&gt;option 2&lt;/em&gt;.)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install a software capable of generation of &lt;code&gt;compile_commands.json&lt;/code&gt;.
+For instance 
+
+
+
+
+&lt;a href=&#34;https://github.com/nickdiego/compiledb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    compiledb
+&lt;/a&gt;
+, whose installation is shown below.&lt;/li&gt;
+&lt;li&gt;Call that software&lt;/li&gt;
+&lt;li&gt;Build federate&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;pip install compiledb  # or some other installation method
+cd [federate]
+compiledb make -j1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After run of the last command, &lt;code&gt;compile_commands.json&lt;/code&gt; is generated in the current directory and can be read by VS Code&amp;rsquo;s plugin &lt;em&gt;clangd&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Installation&lt;/strong&gt; – Run with MOSAIC with ns-3:
+&lt;ol&gt;
+&lt;li&gt;Adjust the ns-3-section of MOSAIC&amp;rsquo;s &lt;code&gt;runtime.json&lt;/code&gt;:
+&lt;pre&gt;&lt;code&gt;...
+&amp;quot;deploy&amp;quot;: false,
+&amp;quot;start&amp;quot;: false,
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Run federate in IDE&lt;/li&gt;
+&lt;li&gt;Run MOSAIC with an scenario having ns-3 enabled.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;Developing Eclipse MOSAIC ns-3 Federate with Visual Studio Code&lt;/h2&gt;
+&lt;p&gt;This section describes the use of 
+
+
+
+
+&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    &lt;em&gt;Visual Studio Code&lt;/em&gt;
+&lt;/a&gt;
+ (VS Code).
+You should be familiar with VS Code&amp;rsquo;s basic usage.&lt;/p&gt;
+&lt;p&gt;Alternatively you can use any other development environment like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;VIM&lt;/li&gt;
+&lt;li&gt;Eclipse&lt;/li&gt;
+&lt;li&gt;NetBeans&lt;/li&gt;
+&lt;li&gt;Code::Blocks&lt;/li&gt;
+&lt;li&gt;JetBrains CLion&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;plugins&#34;&gt;Plugins&lt;/h3&gt;
+&lt;p&gt;This setup assumes the following VS Code plugins are installed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;clangd&lt;/li&gt;
+&lt;li&gt;CodeLLDB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tasks-launch-examples&#34;&gt;Tasks, Launch: Examples&lt;/h3&gt;
+&lt;p&gt;For basic debugging and building you can use these configuration files. They define&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a build task,&lt;/li&gt;
+&lt;li&gt;a debug launch configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;.vscode/launch.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    &amp;quot;version&amp;quot;: &amp;quot;0.2.0&amp;quot;,
+    &amp;quot;configurations&amp;quot;: [
+
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;lldb&amp;quot;,
+            &amp;quot;request&amp;quot;: &amp;quot;launch&amp;quot;,
+            &amp;quot;name&amp;quot;: &amp;quot;Debug&amp;quot;,
+            &amp;quot;program&amp;quot;: &amp;quot;${workspaceFolder}/bin/Debug/ns3-federate&amp;quot;,
+            &amp;quot;args&amp;quot;: [&amp;quot;--port=5011&amp;quot;, &amp;quot;--configFile=ns3_federate_config.xml&amp;quot;],
+            &amp;quot;cwd&amp;quot;: &amp;quot;${workspaceFolder}&amp;quot;,
+            &amp;quot;env&amp;quot;: {&amp;quot;LD_LIBRARY_PATH&amp;quot;:&amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build/lib&amp;quot;}
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;.vscode/tasks.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    &amp;quot;version&amp;quot;: &amp;quot;2.0.0&amp;quot;,
+    &amp;quot;tasks&amp;quot;: [
+        {
+            &amp;quot;label&amp;quot;: &amp;quot;make&amp;quot;,
+            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+            &amp;quot;command&amp;quot;: &amp;quot;make -j1&amp;quot;,
+            &amp;quot;group&amp;quot;: {
+                &amp;quot;kind&amp;quot;: &amp;quot;build&amp;quot;,
+                &amp;quot;isDefault&amp;quot;: true
+            },
+            &amp;quot;presentation&amp;quot;: {
+                &amp;quot;reveal&amp;quot;: &amp;quot;always&amp;quot;,
+                &amp;quot;panel&amp;quot;: &amp;quot;new&amp;quot;
+            },
+            &amp;quot;problemMatcher&amp;quot;: []
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Event Scheduling</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/event_scheduler/</link>
+      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/event_scheduler/</guid>
+      <description>&lt;p&gt;The different modules of the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
+    Application Simulator
+&lt;/a&gt;
+
+communicate over events that are triggered at a specific simulation time. The following classes and interfaces model theses events.&lt;/p&gt;
+&lt;h3 id=&#34;event&#34;&gt;Event&lt;/h3&gt;
+&lt;p&gt;The class &lt;code&gt;Event&lt;/code&gt; contains the information that is necessary to process an event. An event describes when it should be processed and which information is processed. Moreover an event has an assigned priority.&lt;/p&gt;
+&lt;h4 id=&#34;attributes-of-event&#34;&gt;Attributes of Event&lt;/h4&gt;
+&lt;p&gt;The class Event contains the following attributes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;long time&lt;/code&gt;: defines the time when the execution of the event is triggered.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;long nice&lt;/code&gt;: defines the priority of the event. When multiple events are scheduled for the sametime, the events are ordered in ascending order.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;List&amp;lt;EventProcessor&amp;gt; processors&lt;/code&gt;: is a list of components that shall process the event.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Object resource&lt;/code&gt;: is an object that contains additional information designated for the processor of the event. The resource can be any object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;methods-of-event&#34;&gt;Methods of Event&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Event()&lt;/code&gt;: There are multiple constructors for Event with different parameters. Every constructor sets default values for the attributes that are not defined by the arguments of the constructor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Event newTime(long time)&lt;/code&gt;: allows the creation of a new event with a new execution time based&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;String getResourceSimpleClassName()&lt;/code&gt;: returns the class name of the resource as String.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int compareTo(Event event)&lt;/code&gt;: implements the standardized Java interface 
+
+
+
+
+&lt;a href=&#34;https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    Comparable
+&lt;/a&gt;
+.  Toorder the events, first the time of the event is evaluated. In case the times are equal, the priority of the events is compared.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interface-eventmanager&#34;&gt;Interface EventManager&lt;/h3&gt;
+&lt;p&gt;The interface &lt;code&gt;EventManager&lt;/code&gt; defines the method &lt;code&gt;void addEvent(Event event)&lt;/code&gt; that needs to be implemented to add an event to the execution.&lt;/p&gt;
+&lt;h3 id=&#34;interface-eventscheduler&#34;&gt;Interface EventScheduler&lt;/h3&gt;
+&lt;p&gt;The interface &lt;code&gt;EventScheduler&lt;/code&gt; extends the interface &lt;code&gt;EventManager&lt;/code&gt; and is used for classes that trigger events.&lt;/p&gt;
+&lt;h4 id=&#34;methods-of-eventscheduler&#34;&gt;Methods of EventScheduler&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;boolean isEmpty()&lt;/code&gt;: returns true if the scheduler contains no elements, otherwise it returns false.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;long getNextEventTime()&lt;/code&gt;: returns the time of the next event.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;long getScheduledTime()&lt;/code&gt;: returns the time when the last event has been executed.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;List&amp;lt;Event&amp;gt; scheduleEvents(long time)&lt;/code&gt;: returns a list of objects that are scheduled for a
+certain simulation time.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Set&amp;lt;Event&amp;gt; getAllEvents()&lt;/code&gt;: returns a set of all events that are considered by the scheduler.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;eventschedulerimpl&#34;&gt;EventSchedulerImpl&lt;/h3&gt;
+&lt;p&gt;The class &lt;code&gt;EventSchedulerImpl&lt;/code&gt; is an implementation of the interface &lt;code&gt;EventScheduler&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;interface-eventprocessor&#34;&gt;Interface EventProcessor&lt;/h3&gt;
+&lt;p&gt;The interface &lt;code&gt;EventProcessor&lt;/code&gt; defines how the execution module gets the events. The execution module
+therefore has to implement the following methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void processEvent(Event event)&lt;/code&gt;: The module processes the event.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;boolean canProcessEvent()&lt;/code&gt;: returns true when the module is currently able to process new
+events, otherwise it returns false.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interceptedevent&#34;&gt;InterceptedEvent&lt;/h3&gt;
+&lt;h3 id=&#34;class-eventinterceptor&#34;&gt;Class EventInterceptor&lt;/h3&gt;
+&lt;p&gt;In some situation it is useful to intercept events before they actually reach the intended processors. By
+intercepting the events it is possible to apply further monitoring and to filter which events the event
+processors receive. The class &lt;code&gt;EventInterceptor&lt;/code&gt; is used to construct objects of the type &lt;code&gt;InterceptedEvent&lt;/code&gt;.
+In the constructor it is possible to specify an EventManager that manages the intercepted events. Moreover, objects of the type &lt;code&gt;EventProcessor&lt;/code&gt; can be specified that shall process the intercepted events.&lt;/p&gt;
+&lt;h3 id=&#34;class-interceptedevent&#34;&gt;Class InterceptedEvent&lt;/h3&gt;
+&lt;p&gt;The class &lt;code&gt;InterceptedEvents&lt;/code&gt; extends the class Event. It is used to provide type safe allocations of
+events that shall be intercepted.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Delay Models</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/delay_models/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/delay_models/</guid>
+      <description>&lt;p&gt;MOSAIC has different types of delays implemented for different use cases. This page will
+give a short introduction into the types and their usages, as well as example configurations,
+which are used throughout MOSAIC. The implementations can be
+found in the package &lt;code&gt;org.eclipse.mosaic.lib.model.delay&lt;/code&gt;.
+Note prior to the release of MOSAIC delay values were configured using Milliseconds as unit,
+this has been refactored to Nanoseconds. Alternatively you can specify delay values using
+a String with a unit (eg &lt;code&gt;&amp;quot;delay&amp;quot;: &amp;quot;20 ms&amp;quot;&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;delay-models&#34;&gt;Delay Models&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;Delay&lt;/code&gt; class represents an implementation for a specific delay model. The following model implementation exist:&lt;/p&gt;
+&lt;h3 id=&#34;constantdelay&#34;&gt;ConstantDelay&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;ConstantDelay&lt;/code&gt;-class is arguably the simplest implementation of &lt;code&gt;Delay&lt;/code&gt;. This model is configured with a single
+field &lt;code&gt;delay&lt;/code&gt;, which the &lt;code&gt;generateDelay(...)&lt;/code&gt;-method will simply return.&lt;br&gt;
+While this delay doesn&amp;rsquo;t provide realistic behaviour in most cases it is optimal for testing purposes as it
+can easily be retraced.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Configuration:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;delay&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;ConstantDelay&amp;quot;,
+    &amp;quot;delay&amp;quot;: &amp;quot;20 ms&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;simplerandomdelay&#34;&gt;SimpleRandomDelay&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;SimpleRandomDelay&lt;/code&gt; model allows for the generated delays to be randomly distributed between a &lt;code&gt;minDelay&lt;/code&gt; and a &lt;code&gt;maxDelay&lt;/code&gt;.
+Additionally, the &lt;code&gt;steps&lt;/code&gt; field is used to limit the amount of different delays, by equally separating the interval into
+the amount of steps specified. This delay provides a simple and performant way to randomize and thereby more realistically reflect real-world delays.&lt;/p&gt;
+&lt;p&gt;For example, with the configuration below, one of the following delays is randomly chosen: &lt;code&gt;[0.4, 0.9, 1.4, 1.9, 2.4] ms&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Configuration:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;delay&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;SimpleRandomDelay&amp;quot;,
+    &amp;quot;steps&amp;quot;: 5,
+    &amp;quot;minDelay&amp;quot;: &amp;quot;0.4 ms&amp;quot;,
+    &amp;quot;maxDelay&amp;quot;: &amp;quot;2.4 ms&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;gamma-delays&#34;&gt;Gamma Delays&lt;/h3&gt;
+&lt;p&gt;MOSAIC provides two types of delays using a Gamma-distribution to sample values, namely &lt;code&gt;GammaRandomDelay&lt;/code&gt; and &lt;code&gt;GammaSpeedDelay&lt;/code&gt;.
+The parameters for the used Gamma-distribution have been determined experimentally. The &lt;code&gt;GammaSpeedDelay&lt;/code&gt; extends the &lt;code&gt;GammaRandomDelay&lt;/code&gt;
+by a speed penalty. Both delay-types aim to provide more realistic solution, than the previous models, but come with the downside of complexity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Configurations:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;delay&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;GammaRandomDelay&amp;quot;,
+    &amp;quot;minDelay&amp;quot;: &amp;quot;10 ms&amp;quot;,
+    &amp;quot;expDelay&amp;quot;: &amp;quot;30 ms&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;delay&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;GammaSpeedDelay&amp;quot;,
+    &amp;quot;minDelay&amp;quot;: &amp;quot;10 ms&amp;quot;,
+    &amp;quot;expDelay&amp;quot;: &amp;quot;30 ms&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deep Dive Perception Module</title>
+      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/perception_deep_dive/</link>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/perception_deep_dive/</guid>
+      <description>&lt;p&gt;This page aims to give details into the concepts of MOSAICs perception module, for information on the usage view the
+documentation 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/#perception&#34;&gt;
+    here
+&lt;/a&gt;
+.
+Perception in MOSAIC is evaluated in a two-step process:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First a spatial search, using a spatial index, is performed to get a pre-selection of relevant vehicles&lt;/li&gt;
+&lt;li&gt;Second a Field-Of-View Filter is used to get a list of actually perceived vehicles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;spatial-search--spatial-indexes&#34;&gt;Spatial Search &amp;amp; Spatial indexes&lt;/h3&gt;
+&lt;p&gt;A spatial index is a data structure representing simulation entities on a 2D-plane allowing for fast spatial searches.
+For our purpose this means, that we create a minimum bounding rectangle for a vehicles&#39; perception range and perform a
+spatial search for entities in that rectangle.
+To allow every vehicle to access the spatial index we opted for a global implementation in the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
+    Application Simulator
+&lt;/a&gt;
+, which is only updated when some vehicle
+requests a spatial search (lazy loading).
+MOSAIC provides three implementations for the spatial index: &lt;code&gt;Trivial&lt;/code&gt;, &lt;code&gt;QuadTree&lt;/code&gt; and &lt;code&gt;Grid&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;trivial&#34;&gt;Trivial&lt;/h4&gt;
+&lt;p&gt;The trivial index doesn&amp;rsquo;t implement any index data-structure and just iterates over all entities in a for loop.
+This is sufficient for small scenarios with limited amount of vehicles.&lt;/p&gt;
+&lt;h4 id=&#34;quad-tree&#34;&gt;Quad-Tree&lt;/h4&gt;
+&lt;p&gt;The Quad-Tree index represents entities in a tree data structure, that stores entities in a node up to a &lt;code&gt;splitSize&lt;/code&gt; amount.
+Every node strictly has &lt;em&gt;no&lt;/em&gt; or &lt;em&gt;four&lt;/em&gt; children. The four children divide the space into four equally sized quadrants.
+Additionally, a &lt;code&gt;joinSize&lt;/code&gt; and a &lt;code&gt;maxDepth&lt;/code&gt; are configured, that control, when four children are joined back to one node and
+the maximum depth of the tree respectively.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-visualization-of-spatial-search-in-a-quad-tree&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/spatial-search-quadtree.png&#34; data-caption=&#34;Visualization of Spatial Search in a Quad-Tree&#34;&gt;
+
+
+  &lt;img src=&#34;../images/spatial-search-quadtree.png&#34; alt=&#34;&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Visualization of Spatial Search in a Quad-Tree
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The Quad-Tree has the advantage of dynamically separating the space according to the utilization of the map.
+However, in practise we measured slightly worse performance compared to the grid.&lt;/p&gt;
+&lt;h4 id=&#34;grid&#34;&gt;Grid&lt;/h4&gt;
+&lt;p&gt;The grid is a simple data-structure that divides the space into equally sized cells with configured &lt;code&gt;cellWidth&lt;/code&gt;s and &lt;code&gt;cellHeight&lt;/code&gt;s.
+Entities positions are converted to grid-coordinates and stored in a map.
+When doing a spatial search the pre-selection of vehicles happens by returning all entities in cells, that overlap with the search area.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-visualization-of-spatial-search-in-a-grid&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/spatial-search-grid.png&#34; data-caption=&#34;Visualization of Spatial Search in a Grid&#34;&gt;
+
+
+  &lt;img src=&#34;../images/spatial-search-grid.png&#34; alt=&#34;&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Visualization of Spatial Search in a Grid
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;While showing slightly better performance than the Quad-Tree, the grid requires the memory allocation of all cells at start-up,
+which can lead to large memory consumption in big scenarios.
+Additionally, the optimal grid size depends on the viewing ranges of your entities. In the best case scenario a maximum of four grid-cells
+have to be queried. This is the case if the &lt;code&gt;cellWidth&lt;/code&gt; and &lt;code&gt;cellHeight&lt;/code&gt; are at least the size of your longest viewing range.&lt;/p&gt;
+&lt;h3 id=&#34;field-of-view-filter&#34;&gt;Field-Of-View Filter&lt;/h3&gt;
+&lt;p&gt;After a pre-selection of entities has been made using the spatial index we have to evaluate if vehicles are actually in the field-of-view
+of the ego vehicle.
+The field-of-view boils down to the sector of a circle, which is defined by its two bounding vectors $\overrightarrow{b}$
+and $\overrightarrow{c}$ and the radius/sight distance $h$.
+Using the dot product, we can figure out if an object lies to the right or the left of a vector. Combining this with a check if the distance
+is smaller than $h$ allows us to determine whether an object $\overrightarrow{m}$ lies within the perception range.&lt;/p&gt;
+&lt;p style=&#34;align-content: center; font-size: 20px&#34;&gt;
+$$
+\begin{align}
+  &amp;\text{1. }\overrightarrow{c} \cdot \overrightarrow{m} \geq 0 \\
+  &amp;\text{2. }\overrightarrow{m} \cdot \overrightarrow{b} \geq 0 \\
+  &amp;\text{3. }|\overrightarrow{m}| \leq h
+\end{align}
+$$
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-field-of-view-calculation&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/field-of-view.png&#34; data-caption=&#34;Field-Of-View Calculation&#34;&gt;
+
+
+  &lt;img src=&#34;../images/field-of-view.png&#34; alt=&#34;&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Field-Of-View Calculation
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;strong&gt;Left&lt;/strong&gt;: Minimum Bounding Rectangle spanned by left and right bounding vectors $\overrightarrow{b}$ &amp;amp; $\overrightarrow{c}$ with length $h$,
+the &lt;em&gt;origin&lt;/em&gt; () and, all cardinal direction vectors $\overrightarrow{a}_0$ to $\overrightarrow{a}_3$ contained within the viewing anlge $\gamma$.&lt;br/&gt;
+&lt;strong&gt;Right&lt;/strong&gt;: Field-Of-View evaluation ($\overrightarrow{m}$ is within range, $\overrightarrow{n}$ is not)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

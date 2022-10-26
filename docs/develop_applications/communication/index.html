@@ -1,0 +1,2428 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Communication can be achieved with external network simulators ( OMNeT&#43;&#43;  , ns-3  ) or one of the built-in communication simulators SNS  or Eclipse MOSAIC Cell  .">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/develop_applications/communication/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/develop_applications/communication/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/develop_applications/communication/">
+  <meta property="og:title" content="Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Communication can be achieved with external network simulators ( OMNeT&#43;&#43;  , ns-3  ) or one of the built-in communication simulators SNS  or Eclipse MOSAIC Cell  ."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-develop_applications page-communication ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#general-configuration">General Configuration</a></li>
+    <li><a href="#cellular-communication">Cellular Communication</a>
+      <ul>
+        <li><a href="#cellular-configuration">Cellular Configuration</a></li>
+        <li><a href="#cellular-geobroadcast">Cellular Geobroadcast</a></li>
+        <li><a href="#cellular-geocast">Cellular Geocast</a></li>
+        <li><a href="#cellular-topocast">Cellular Topocast</a></li>
+        <li><a href="#setting-protocol-types">Setting Protocol Types</a></li>
+      </ul>
+    </li>
+    <li><a href="#ad-hoc-communication">Ad-hoc Communication</a>
+      <ul>
+        <li><a href="#ad-hoc-configuration">Ad-hoc Configuration</a></li>
+        <li><a href="#ad-hoc-topobroadcast">Ad-hoc Topobroadcast</a></li>
+        <li><a href="#ad-hoc-topocast">Ad-hoc Topocast</a></li>
+        <li><a href="#ad-hoc-geobroadcast">Ad-hoc Geobroadcast</a></li>
+        <li><a href="#ad-hoc-geocast">Ad-hoc Geocast</a></li>
+      </ul>
+    </li>
+    <li><a href="#cam---implementation">CAM - Implementation</a>
+      <ul>
+        <li><a href="#user-defined-tagged-values">User Defined Tagged Values</a></li>
+        <li><a href="#timing-requirements">Timing Requirements</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Communication in Applications</h1>
+
+          <div class="article-style">
+            <p>Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
+communication should occur. Communication can be achieved with external
+network simulators (
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">
+    OMNeT++
+</a>
+,
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_ns3/">
+    ns-3
+</a>
+) or one of the built-in communication simulators 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_sns/">
+    SNS
+</a>
+
+or 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_cell/">
+    Eclipse MOSAIC Cell
+</a>
+. Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
+detail.</p>
+<ul>
+<li>Cellular Communication</li>
+<li>Ad-hoc Communication</li>
+</ul>
+<p>Depending on the needs of the application, there are different approaches to solve the communication issue in Eclipse MOSAIC
+simulations. However, a distinction must be made between inter vehicle communication and Vehicle-to-X communication.
+Also, it is possible to modify the selected communication mode dependent on requirements.</p>
+<p>Generally, the following modes are available based on network:</p>
+<p><strong>Cellular Communication</strong></p>
+<ul>
+<li>Geobroadcast</li>
+<li>Geocast</li>
+<li>Topocast</li>
+</ul>
+<p><strong>Ad-hoc Communication</strong></p>
+<ul>
+<li>Geobroadcast</li>
+<li>Geocast</li>
+<li>Topobroadcast</li>
+<li>Topocast</li>
+</ul>
+<h2 id="general-configuration">General Configuration</h2>
+<p>The first step to enable your application to use communication capabilities, is to make sure it extends the <code>AbstractSimulationUnit</code>-class
+or one of its child-classes (e.g. <code>VehicleUnit</code>, <code>ChargingStationUnit</code>) found in package
+<code>org.eclipse.mosaic.fed.application.ambassador.simulation</code>. Additionally, if you want your application to act upon
+the reception or transmission of messages, make sure it implements the interface <code>CommunicationApplication</code>.
+Afterwards, depending on your use case, you can enable the desired communication modules following the instruction in
+
+
+
+
+
+
+  
+  
+
+<a href="#cellular-communication">
+    Cellular Configuration
+</a>
+ and 
+
+
+
+
+
+  
+  
+
+<a href="#ad-hoc-configuration">
+    Ad-hoc Configuration
+</a>
+.</p>
+<hr>
+<h2 id="cellular-communication">Cellular Communication</h2>
+<p>The cellular network is known from wireless mobile communication and the principle is to divide the entire geographic
+area into several smaller parts called <strong>&ldquo;cells&rdquo;</strong>. Each cell has a fixed-location transceiver with a coverage ratio.</p>
+<p>Eclipse MOSAIC enables the communication with all the existing vehicles via Geobroadcast mode or direct communication via
+Geocast in a specific area (circular, rectangular). In contrast, the Topocast mode is not restricted to a specific area.</p>
+<h3 id="cellular-configuration">Cellular Configuration</h3>
+<p>To enable and configure the Cell-module in your application you have to call the <code>enable</code>-method of your applications Cell-module.
+Typically, you will do this inside the <code>onStartup()</code>-method to enable cell capabilities from the get-go.</p>
+<p>Below is an example configuration defining maximal uplink and downlink bit rates.</p>
+<pre><code class="language-java">@Override
+public void onStartup() {
+    getOs().getCellModule().enable(new CellModuleConfiguration()
+        .maxDownlinkBitrate(50 * DATA.MEGABIT)
+        .maxUplinkBitrate(50 * DATA.MEGABIT)
+}
+</code></pre>
+<h3 id="cellular-geobroadcast">Cellular Geobroadcast</h3>
+<p>The principle function of the Geobroadcast is to communicate with all entities within a geographical area. Eclipse MOSAIC
+offers the possibility to configure a specific geographical area which can be either a circular or a rectangular area.</p>
+<p>The following figure illustrates a vehicle <em><strong>veh_2</strong></em> which is communicating with the other
+vehicles(<em><strong>veh_1</strong></em>, <em><strong>veh_3</strong></em>) within a radius <strong>R</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-illustration-of-geobroadcast-in-a-specific-circular-area">
+
+
+  <a data-fancybox="" href="../images/tiergarten-geobroadcast-circular-area.png" data-caption="Illustration of Geobroadcast in a specific circular area">
+
+
+  <img src="../images/tiergarten-geobroadcast-circular-area.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Illustration of Geobroadcast in a specific circular area
+  </figcaption>
+
+
+</figure>
+
+<p>A circular communication area can be defined with the <code>geoBroadCast(GeoCircle geoCircle)</code> from an Eclipse MOSAIC application,
+as shown below:</p>
+<pre><code class="language-java">GeoCircle transmissionArea = new GeoCircle(GeoPoint.latlon(52.5, 13.2), 3000);
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<p>A rectangular destination area can be defined similarly:</p>
+<pre><code class="language-java">GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
+GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
+GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="cellular-geocast">Cellular Geocast</h3>
+<p>Compared to Geobroadcasting, a Geocast addresses a receiver with an unique address. Addressing can be in the form of an
+IP-Address or a receiver-ID (e.g. veh_0). Again, the communication area can be configured as circular or rectangular.</p>
+<p>Assume, the <em><strong>veh_1</strong></em> has a message which is addressed to <em><strong>veh_2</strong></em>. In order to send the message, <em><strong>veh_1</strong></em> first
+examines whether the vehicle with ID <em><strong>veh_2</strong></em> is located within the transmission area. If this is the case, the
+message will be transmitted. In figure below is this situation illustrated.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-cellular-geocast-to-address-a-receiver-within-a-defined-area">
+
+
+  <a data-fancybox="" href="../images/tiergarten-geocast-circular-area.png" data-caption="Cellular Geocast to address a receiver within a defined area">
+
+
+  <img src="../images/tiergarten-geocast-circular-area.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Cellular Geocast to address a receiver within a defined area
+  </figcaption>
+
+
+</figure>
+
+<p>The following methods are provided for the configuring the transmission area (Circle or Rectangle) and the addressing to
+the receiver(hostname or ip address).</p>
+<ul>
+<li><code>geoCast(GeoCircle geoCircle, String receiverName) </code></li>
+<li><code>geoCast(GeoRectangle geoRectangle, String receiverName)</code></li>
+<li><code>geoCast(GeoCircle geoCircle, byte[] ipAddress)</code></li>
+<li><code>geoCast(GeoRectangle geoRectangle, byte[] ipAddress)</code></li>
+</ul>
+<pre><code class="language-java">GeoCircle transmissionArea = new GeoCircle( GeoPoint.latlon(52.5, 13.2), 3000);
+
+String receiverName = &quot;veh_0&quot;;
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoCast(transmissionArea, receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="cellular-topocast">Cellular Topocast</h3>
+<p>Compared to Geocast or Geobroadcast, the Topocast is totally independent of geographical conditions and the addressing
+can be in the form of an IP-Address or a receiver-ID.</p>
+<p>The next figure illustrates how the <em><strong>veh_0</strong></em> is communicating with <em><strong>veh_1</strong></em> in Topocast mode.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-topocast-mode-for-direct-addressing-without-geographical-constraints">
+
+
+  <a data-fancybox="" href="../images/tiergarten-cellular-topocast.png" data-caption="Topocast mode for direct addressing without geographical constraints">
+
+
+  <img src="../images/tiergarten-cellular-topocast.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Topocast mode for direct addressing without geographical constraints
+  </figcaption>
+
+
+</figure>
+
+<p>The code example below shows how we can configure the requirements of the communication in Topocast mode.</p>
+<pre><code class="language-java">String receiverName = &quot;veh_0&quot;;
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().topoCast(receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="setting-protocol-types">Setting Protocol Types</h3>
+<p>By default, all cell messages use UDP, however you can set the protocol using the <code>protocol(...)</code> method of the <code>MessageRoutingBuilder</code>:</p>
+<pre><code class="language-java">String receiverName = &quot;veh_0&quot;;
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .protocol(Protocoltype.TCP)
+        .topoCast(receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<hr>
+<h2 id="ad-hoc-communication">Ad-hoc Communication</h2>
+<p>The Ad-hoc network does not rely on a pre-existing infrastructure. Provided that vehicles are equipped with Ad-hoc
+modules, they are able to communicate with each other dynamically. In case of a sufficient number of Ad-hoc equipped
+vehicles, a message can be transferred via hops quickly over a long distance.</p>
+<p>Eclipse MOSAIC also enables the communication via a specific Ad-hoc channel within the wireless Ad-hoc network. However, the
+Ad-hoc channels for vehicular communication are limited and standardized by the IEEE 802.11p.
+The licensed frequency band 5.9 GHz (5.85-5.925 GHz) for Intelligent Transportation Systems(ITS) will be used as Ad-hoc
+channels.</p>
+<p>The following table shows the possible channels on the 5.9 GHz band used for V2X communication.</p>
+<table>
+<thead>
+<tr>
+<th>Channel Number</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Channel Name</td>
+<td>SCH1</td>
+<td>SCH2</td>
+<td>SCH3</td>
+<td>CCH</td>
+<td>SCH4</td>
+<td>SCH5</td>
+<td>SCH6</td>
+</tr>
+<tr>
+<td>Frequency Band</td>
+<td>5.86</td>
+<td>5.87</td>
+<td>5.88</td>
+<td>5.89</td>
+<td>5.9</td>
+<td>5.91</td>
+<td>5.92</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ad-hoc-configuration">Ad-hoc Configuration</h3>
+<p>Make sure you set up your application as described in 
+
+
+
+
+
+  
+  
+
+<a href="#general-configuration">
+    General Configuration
+</a>
+.
+Afterwards, to configure and enable the AdHoc-module in your application you have to call the <code>enable</code>-method of your applications'
+Adhoc-module and define a configuration.
+Usually you will do this in the <code>onStartup()</code>-method to enable the module from the get-go.
+Below is an example configuration taken from the Tiergarten-tutorial. Instead of configuring the <code>.power(...)[mW]</code>
+it is also possible to configure a <code>.distance(...)[m]</code>.</p>
+<pre><code class="language-java">@Override
+public void onStartup() {
+        getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+        .addRadio()
+        .channel(AdHocChannel.CCH)
+        .power(50)
+        .create());
+        }
+</code></pre>
+<h3 id="ad-hoc-topobroadcast">Ad-hoc Topobroadcast</h3>
+<p>In Topobroadcast mode, the communication between vehicles is regardless of the geographic conditions. However, the
+communicating entities must be operated on the same Ad-hoc channel and there are two options to use the Topobroadcast:</p>
+<ul>
+<li>Singlehop</li>
+<li>Multihop</li>
+</ul>
+<h4 id="singlehop-approach-in-topobroadcast">Singlehop Approach in Topobroadcast</h4>
+<p>For Singlehop, it is not necessary to specify the number of hops explicitly which indicates the lifespan of a message,
+because in Singlehop, any message has a lifespan of <strong>hop = 1</strong>. Moreover, Eclipse MOSAIC allows to use the default method
+<code>topoBroadCast()</code> which automatically assigns a Control Channel (CCH) for the simulation entity and a lifespan based on
+the Singlehop principle. Alternatively you can use the non-default method <code>topoBroadCast(AdHocChannel)</code> in order to
+specify the Ad-hoc channel.</p>
+<p>Below are some configuration examples of the default addressing method <code>topoBroadCast()</code> and non-default addressing
+method <code>topoBroadCast(AdHocChannel)</code>.</p>
+<pre><code class="language-java">MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast();
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<pre><code class="language-java">AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(commonChannel);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<p>The following figure shows a simplified model based on the Singlehop principle. The <em>veh_1</em> sends messages to all
+simulation entites(<em><strong>RSU</strong></em>, <em><strong>veh_2</strong></em>) that are using the same Ad-hoc channel. After transmission, the message can
+no longer be forwarded by the receiver.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-overview-singlehop-with-specified-ad-hoc-channel">
+
+
+  <a data-fancybox="" href="../images/tiergarten-adhoc-topobroadcast-singlehop.png" data-caption="Overview Singlehop with specified Ad-hoc channel">
+
+
+  <img src="../images/tiergarten-adhoc-topobroadcast-singlehop.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Overview Singlehop with specified Ad-hoc channel
+  </figcaption>
+
+
+</figure>
+
+<h4 id="multihop-approach-in-topobroadcast">Multihop Approach in Topobroadcast</h4>
+<p>In Multihop, the lifespan (amount of hops) of a message can be specified, allowing larger communication distances.</p>
+<p>The following figure shows a Multihop example with a data package D (M, h = 2) from the vehicle <em>veh_0</em> which contains a
+message M and a hop number h = 2. Assuming that a lot of simulation entities are using the same Ad-hoc channel the
+message can be forwarded over a along distance. After each forward the hop number will be incremented by 1. Since the
+hop amount was set to 2, the forwarding will stop after 2 increments.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-overview-multihop-principle">
+
+
+  <a data-fancybox="" href="../images/tiergarten-adhoc-topobroadcast.png" data-caption="Overview Multihop principle">
+
+
+  <img src="../images/tiergarten-adhoc-topobroadcast.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Overview Multihop principle
+  </figcaption>
+
+
+</figure>
+
+<p>The next code snippet shows a configuration example with an Ad-hoc channel and a message lifespan <strong>hops = 2</strong>.</p>
+<pre><code class="language-java">int hops = 2;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(hops);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<div class="alert alert-note">
+  <div>
+<p>In order to use the Multihop approach in OMNeT++ and ns-3 provided by Eclipse MOSAIC, its necessary to implement a
+routing protocol in network simulators (
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">
+    OMNeT++
+</a>
+,
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_ns3/">
+    ns-3
+</a>
+). But the built in communication simulator
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_sns/">
+    SNS
+</a>
+ includes a simple routing protocol &ldquo;Flooding&rdquo;.</p>
+  </div>
+</div>
+<h3 id="ad-hoc-topocast">Ad-hoc Topocast</h3>
+<p>In addition to the Topobroadcast, the communication in Topocast mode will be addressed explicitly to the recipient and
+the addressing can be done either through receiver name (vehicle-ID e.g. veh_0) or the IP-Address of the vehicle.</p>
+<pre><code class="language-java">final byte[] ipv4Address = {127,36,50,4};
+
+AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+int hops = 2;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoCast(ipv4Address, hops);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="ad-hoc-geobroadcast">Ad-hoc Geobroadcast</h3>
+<p>In contrast to Cellular Network above, the simulation entities act as active communication part (transmitter and
+receiver) and all simulation entities within range are getting messages in Geobroadcast mode.</p>
+<p>As example in the following illustration, The vehicles <em><strong>veh_0</strong></em>, <em><strong>veh_2</strong></em>, <em><strong>veh_3</strong></em> and the <em><strong>RSU</strong></em> are
+Ad-hoc equipped and there is no vehicle in the communication range of <em><strong>RSU</strong></em>, therefore a hop is not possible to next
+vehicle <em><strong>veh_0</strong></em>. But the vehicles <em><strong>veh_2</strong></em> and <em><strong>veh_3</strong></em> are able to communicate with each other.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-principle-of-ad-hoc-geobroadcast-mode">
+
+
+  <a data-fancybox="" href="../images/tiergarten-adhoc-network.png" data-caption="Principle of Ad-hoc Geobroadcast mode">
+
+
+  <img src="../images/tiergarten-adhoc-network.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Principle of Ad-hoc Geobroadcast mode
+  </figcaption>
+
+
+</figure>
+
+<p>With the methods</p>
+<ul>
+<li><code>geoBroadCast(GeoCircle geoCircle)</code></li>
+<li><code>geoBroadCast(GeoRectangle geoRectangle)</code></li>
+</ul>
+<p>of the Eclipse MOSAIC class <code>AdHocMessageRoutingBuilder</code> ,we are able, to configure the required area as a circle or a
+rectangle.</p>
+<pre><code class="language-java">GeoPoint center = GeoPoint.latlon(52.5, 13.2);
+
+GeoCircle adHocModule = new GeoCircle(center, 3000);
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(adHocModule);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<p>Analogous to the examples above, we can also configure the transmission area as a rectangle.</p>
+<p>The next code snippet illustrates a possible configuration with a rectangular transmission area and a specified Ad-hoc
+channel.</p>
+<pre><code class="language-java">GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
+
+GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
+
+GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(transmissionArea, AdHocChannel.SCH1);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="ad-hoc-geocast">Ad-hoc Geocast</h3>
+<p>The class AdHocMessageRoutingBuilder only has one method for Geocasting mode,
+<code>geoCast(DestinationAddress destinationAddress, AdHocChannel adHocChannel)</code>. Communication is possible if the
+IP-address of receiver is known and both (receiver and transmitter) are on the same Ad-hoc channel.</p>
+<div class="alert alert-note">
+  <div>
+<p>In this context the name Geocast is misleading, because a geological condition is not necessary.</p>
+  </div>
+</div>
+<p>As you can see in the next picture, the RSU uses the Ad-hoc channel <em>SCH1</em> and several vehicles use different
+Ad-hoc channels. Assuming the RSU tries to send a message to <em>veh_1</em> and has knowledge about the IP-Address of <em>veh_1</em>,
+if the vehicle <em>veh_1</em> also uses the same channel <em>SCH1</em>, the transmission will be completed successfully.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-ad-hoc-geocast-communication-between-entities-using-the-same-channel">
+
+
+  <a data-fancybox="" href="../images/tiergarten-geocast-adHoc.png" data-caption="Ad-hoc Geocast communication between entities using the same channel">
+
+
+  <img src="../images/tiergarten-geocast-adHoc.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Ad-hoc Geocast communication between entities using the same channel
+  </figcaption>
+
+
+</figure>
+
+<p>Below you can see a possible configuration.</p>
+<pre><code class="language-java">final byte[] ipv4Address = {127,36,50,4};
+
+DestinationAddress destAddress = new DestinationAddress(ipv4Address);
+
+AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoCast(destAddress, commonChannel);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h2 id="cam---implementation">CAM - Implementation</h2>
+<p>A Cooperative Awareness Messages (CAM) consists of four parts:</p>
+<ul>
+<li>Header with generic information</li>
+<li>MessageBody</li>
+<li>ServiceList</li>
+<li>TaggedValue list</li>
+</ul>
+<p>First, generic information like protocol version, creation time stamp are submitted. Normally this data set follows a network beacon, which already contains data like position and speed. Nevertheless, this functionality must be implemented in the network layer, that means in the network simulator. At the moment this is not supported and is therefore compensated in the next message part, the message body. The body can contain either RSU or Vehicle awareness data. In the first case, only the RSU type is submitted, but this probably changes with a new CAM specification. In the second case, we provide date like vehicle width, length, position, speed, type and heading. The specification is not completely implemented, especially acceleration data and light, brake status are missing. The third part of the CAM specification, the service list, is also not implemented. This will probably change, when a list of services is defined by the ETSI. Last but not least a message contains a tagged list, a key value map with optional data. This is fully implemented and is used for our traffic light CAM messages, which provide the traffic light status in such a list.</p>
+<h3 id="user-defined-tagged-values">User Defined Tagged Values</h3>
+<p>If you are required to exchange custom data within CAMs, the field UserTaggedValue can be used. For adding such data to the CAM, the application needs to implement the method <code>beforeGetAndResetUserTaggedValue()</code> from the <code>CommunicationApplication</code> interface. If a CAM is about to be sent, the custom data can be set using the <code>getOs().setUserTaggedValue(byte[])</code> method. The receiver can simple access the data by accessing the field directly from the received CAM message:</p>
+<pre><code class="language-java">    byte[] value = cam.getUserTaggedValue ();
+    if (value  != null) {
+        // read  user  tagged  value}
+    }
+</code></pre>
+<h3 id="timing-requirements">Timing Requirements</h3>
+<p>CAMs are generated by the CAM Management and passed to lower layers when any of following rules apply:</p>
+<ul>
+<li>maximum time interval between CAM generations: $1s$;</li>
+<li>minimum time interval between CAM generations: $0.1s$;</li>
+<li>generate CAM when absolute difference between current heading (towards North) and last CAM heading &gt; $4 deg$;</li>
+<li>generate CAM when distance between current position and last CAM position &gt; $5m$</li>
+<li>generate CAM when absolute difference between current speed and last CAM speed &gt; $1ms$;</li>
+<li>These rules are checked latest every $100ms$;</li>
+</ul>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/develop_applications/operating_system/" rel="next">Unit Operating System</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/develop_applications/navigation/" rel="prev">Navigation in Applications</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

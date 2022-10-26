@@ -1,0 +1,2487 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_region_config/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/mosaic/docs/mosaic_configuration/cell_region_config/index.xml" type="application/rss+xml" title="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_region_config/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_region_config/">
+  <meta property="og:title" content="Cell Simulator – Region Configuration | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Cell Simulator – Region Configuration | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-mosaic_configuration page-cell_region_config ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#regions">Regions</a></li>
+    <li><a href="#mobilenetworkproperties">mobileNetworkProperties</a></li>
+    <li><a href="#georectangle">geoRectangle</a></li>
+    <li><a href="#geopoint">geoPoint</a></li>
+    <li><a href="#mobilenetworkpropertiesuplink">mobileNetworkProperties.uplink</a></li>
+    <li><a href="#delay">delay</a></li>
+    <li><a href="#gammadelay">gammaDelay</a>
+      <ul>
+        <li><a href="#gammadelaytype">gammaDelay.type</a></li>
+      </ul>
+    </li>
+    <li><a href="#constantdelay">constantDelay</a>
+      <ul>
+        <li><a href="#constantdelaytype">constantDelay.type</a></li>
+      </ul>
+    </li>
+    <li><a href="#simplerandomdelay">simpleRandomDelay</a>
+      <ul>
+        <li><a href="#simplerandomdelaytype">simpleRandomDelay.type</a></li>
+      </ul>
+    </li>
+    <li><a href="#tranmission">tranmission</a></li>
+    <li><a href="#mobilenetworkpropertiesdownlink">mobileNetworkProperties.downlink</a></li>
+    <li><a href="#unicast">unicast</a></li>
+    <li><a href="#multicast">multicast</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Cell Simulator – Region Configuration</h1>
+
+          <div class="article-style">
+            <div class="alert alert-tip">
+  <div>
+<p>You can use a <a href="/mosaic/docs/mosaic_configuration/#readable-units" title="Readable Unit">Readable Unit</a> anywhere where you
+have the option of:</p>
+<ul>
+<li>
+<p><code>number</code> <strong>or</strong> <code>string</code></p>
+</li>
+<li>
+<p><code>integer</code> <strong>or</strong> <code>string</code></p>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<p><span class="page_with_curl">📃</span> <strong>Corresponding configuration file: <code>cell/regions.json</code></strong></p>
+<hr>
+<p><a name="reference-regions"></a></p>
+<h2 id="regions">Regions</h2>
+<p>Schema describing the JSON file structure for the regional networks configuration. It is is used to extend the network with regional information, which enables the emulation of mobile networks. If configured very granular, these regions can reflect cells as used in the real world. Though for most use-cases it is sufficient to approximate the behaviour by defining larger regions.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regions</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-mobilenetworkproperties">
+    <code>mobileNetworkProperties[]</code>
+</a>
+</td>
+<td>An array of regional network configruations.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-mobilenetworkproperties"></a></p>
+<h2 id="mobilenetworkproperties">mobileNetworkProperties</h2>
+<p>Object to define a network with specific geograpgical extensions. It applies for all regions except the global network, which covers the remaining space. The CMobileNetworkProperties only needs to be employed, when geographic information are accessed.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>Network-Id for identification.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>area</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-georectangle">
+    <code>geoRectangle</code>
+</a>
+</td>
+<td>Object to define an immutable pair of two different geoPoints. Together they form a rectangular area.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>polygon</td>
+<td><code>object</code></td>
+<td>The area of the network as a polygon.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>uplink</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-mobilenetworkproperties.uplink">
+    <code>mobileNetworkProperties.uplink</code>
+</a>
+</td>
+<td>Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>downlink</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-mobilenetworkproperties.downlink">
+    <code>mobileNetworkProperties.downlink</code>
+</a>
+</td>
+<td>Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-georectangle"></a></p>
+<h2 id="georectangle">geoRectangle</h2>
+<p>Object to define an immutable pair of two different geoPoints. Together they form a rectangular area.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nw</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-geopoint">
+    <code>geoPoint</code>
+</a>
+</td>
+<td>Object to define geographical point coordinates.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>se</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-geopoint">
+    <code>geoPoint</code>
+</a>
+</td>
+<td>Object to define geographical point coordinates.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-geopoint"></a></p>
+<h2 id="geopoint">geoPoint</h2>
+<p>Object to define geographical point coordinates.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lon</td>
+<td><code>number</code></td>
+<td>East-west position of a point on earth.</td>
+<td>✓ Yes</td>
+<td>[-180, 180]</td>
+<td>None</td>
+</tr>
+<tr>
+<td>lat</td>
+<td><code>number</code></td>
+<td>North-south position of a point on earth.</td>
+<td>✓ Yes</td>
+<td>[-$\infty$, 90]</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-mobilenetworkproperties-uplink"></a></p>
+<h2 id="mobilenetworkpropertiesuplink">mobileNetworkProperties.uplink</h2>
+<p>Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delay</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-delay">
+    <code>delay</code>
+</a>
+</td>
+<td>Object to define a delay model.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>transmission</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-transmission">
+    <code>transmission</code>
+</a>
+</td>
+<td>Object to define the properties of a transmission.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>capacity</td>
+<td><code>integer</code><br><code>string</code></td>
+<td>The capacity of the uplink.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-delay"></a></p>
+<h2 id="delay">delay</h2>
+<p>Object to define a delay model.</p>
+<p><strong>Additionally ONE of the following property definitions apply:</strong></p>
+<ul>
+<li>
+
+
+
+
+
+  
+  
+
+<a href="#reference-gammaDelay">
+    gammaDelay
+</a>
+</li>
+<li>
+
+
+
+
+
+  
+  
+
+<a href="#reference-constantDelay">
+    constantDelay
+</a>
+</li>
+<li>
+
+
+
+
+
+  
+  
+
+<a href="#reference-simpleRandomDelay">
+    simpleRandomDelay
+</a>
+</li>
+</ul>
+<hr>
+<p><a name="reference-gammadelay"></a></p>
+<h2 id="gammadelay">gammaDelay</h2>
+<p>Object to define a model for GammaRandomDelay or GammaSpeedDelay. GammaRandomDelay bases directly on the Gamma distribution (b=2,p=2) with minimum and expected value. Due to the nature of the Gamma distribution, the resulting delays can be far higher than the expected value. GammaSpeedDelay bases on the GammaRandomDelay and includes an additional speed penalty according to the current speed of the vehicle.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>string</code></td>
+<td>Type of Gamma delay.</td>
+<td>✓ Yes</td>
+<td>Enum
+
+
+
+
+
+  
+  
+
+<a href="#restriction-gammadelaytype">
+    <i class="fas fa-info-circle"></i>
+</a>
+</td>
+<td>None</td>
+</tr>
+<tr>
+<td>minDelay</td>
+<td><code>number</code><br><code>string</code></td>
+<td>Minimum delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &lsquo;3 seconds&rsquo;)</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>expDelay</td>
+<td><code>number</code><br><code>string</code></td>
+<td>Expected delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &lsquo;3 seconds&rsquo;)</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Further property restrictions:</strong><br>
+<a name="restriction-gammadelaytype"></a></p>
+<h3 id="gammadelaytype">gammaDelay.type</h3>
+<ul>
+<li><strong>Allowed values</strong>:
+<ul>
+<li><code>GammaRandomDelay</code></li>
+<li><code>GammaSpeedDelay</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="reference-constantdelay"></a></p>
+<h2 id="constantdelay">constantDelay</h2>
+<p>Object to define a model for constant delay, which delivers always the same delay.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>string</code></td>
+<td>Type of the constant delay</td>
+<td>✓ Yes</td>
+<td>Enum
+
+
+
+
+
+  
+  
+
+<a href="#restriction-constantdelaytype">
+    <i class="fas fa-info-circle"></i>
+</a>
+</td>
+<td>None</td>
+</tr>
+<tr>
+<td>delay</td>
+<td><code>number</code><br><code>string</code></td>
+<td>The delay, given in ns if defined as a number. Alternatively this can be defined as a string to include the unit of measurement (e.g. &lsquo;3 seconds&rsquo;)</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Further property restrictions:</strong><br>
+<a name="restriction-constantdelaytype"></a></p>
+<h3 id="constantdelaytype">constantDelay.type</h3>
+<ul>
+<li><strong>Allowed values</strong>:
+<ul>
+<li><code>ConstantDelay</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="reference-simplerandomdelay"></a></p>
+<h2 id="simplerandomdelay">simpleRandomDelay</h2>
+<p>Object to define a model for a radnomised delay. Delivers number-of-steps different uniformly distributed delays in the interval defined by min and max (e.g. minDelay=30ms, maxDelay=60ms, steps=4 -&gt; possible delays={30,40,50,60}ms.).</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>string</code></td>
+<td>Type of the delay.</td>
+<td>✓ Yes</td>
+<td>Enum
+
+
+
+
+
+  
+  
+
+<a href="#restriction-simplerandomdelaytype">
+    <i class="fas fa-info-circle"></i>
+</a>
+</td>
+<td>None</td>
+</tr>
+<tr>
+<td>steps</td>
+<td><code>integer</code></td>
+<td>Number of possible delays between min and max.</td>
+<td>✓ Yes</td>
+<td>[0, +$\infty$]</td>
+<td>None</td>
+</tr>
+<tr>
+<td>minDelay</td>
+<td><code>number</code><br><code>string</code></td>
+<td>Minimum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &lsquo;3 seconds&rsquo;)</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>maxDelay</td>
+<td><code>number</code><br><code>string</code></td>
+<td>Maximum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &lsquo;3 seconds&rsquo;)</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Further property restrictions:</strong><br>
+<a name="restriction-simplerandomdelaytype"></a></p>
+<h3 id="simplerandomdelaytype">simpleRandomDelay.type</h3>
+<ul>
+<li><strong>Allowed values</strong>:
+<ul>
+<li><code>SimpleRandomDelay</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="reference-transmission"></a></p>
+<h2 id="tranmission">tranmission</h2>
+<p>Object to define the properties of a transmission.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lossProbability</td>
+<td><code>number</code></td>
+<td>Probability of packet retransmission (in case of configured retries &gt; 0) or packet loss (retries = 0) for the packet retransmission/loss model. A value of 0 equals a lossfree transmission.</td>
+<td>✓ Yes</td>
+<td>[0, 1]</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>maxRetries</td>
+<td><code>integer</code></td>
+<td>Maximum Number of retransmissions.</td>
+<td>No</td>
+<td>[0, +$\infty$]</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-mobilenetworkproperties-downlink"></a></p>
+<h2 id="mobilenetworkpropertiesdownlink">mobileNetworkProperties.downlink</h2>
+<p>Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unicast</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-unicast">
+    <code>unicast</code>
+</a>
+</td>
+<td>Object to define point-to-point communication.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>multicast</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-multicast">
+    <code>multicast</code>
+</a>
+</td>
+<td>Object to define point-to-multipoint communication.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>capacity</td>
+<td><code>integer</code><br><code>string</code></td>
+<td>The capacity of the downlink.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-unicast"></a></p>
+<h2 id="unicast">unicast</h2>
+<p>Object to define point-to-point communication.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delay</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-delay">
+    <code>delay</code>
+</a>
+</td>
+<td>Object to define a delay model.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>transmission</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-transmission">
+    <code>transmission</code>
+</a>
+</td>
+<td>Object to define the properties of a transmission.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-multicast"></a></p>
+<h2 id="multicast">multicast</h2>
+<p>Object to define point-to-multipoint communication.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delay</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-delay">
+    <code>delay</code>
+</a>
+</td>
+<td>Object to define a delay model.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>transmission</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-transmission">
+    <code>transmission</code>
+</a>
+</td>
+<td>Object to define the properties of a transmission.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>usableCapacity</td>
+<td><code>number</code></td>
+<td>The usableCapacity configures the ratio of the overall downlink capacity allowed to be used.</td>
+<td>✓ Yes</td>
+<td>[0, 1]</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+        
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+        
+          
+          
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+          
+        
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

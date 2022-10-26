@@ -1,0 +1,2845 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/mosaic/index.xml" type="application/rss+xml" title="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/">
+  <meta property="og:title" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2022-10-18T00:00:00&#43;00:00">
+  
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.eclipse.org/mosaic/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "https://www.eclipse.org/mosaic/"
+}
+</script>
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-home ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<span class="js-widget-page d-none"></span>
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+	  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+
+  <section id="page_header" class="home-section wg-page-header   bg-image parallax "  >
+  
+    
+    
+      
+      
+    
+    
+    
+    
+      
+    
+    <div class="page-header-background" style="background-image: url(https://www.eclipse.org/mosaic/img/background-home-02.jpg);opacity: 1.0;"></div>
+  
+    <div class="container">
+      
+
+
+
+
+<div class="page-header row">
+  
+    <div class="alignment-left col-md-12">
+      <div class="row">
+        <div class="col-12 col-md-9">
+          
+          <div class="row">
+            <div class="page-header-logo col-md-12">
+              <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-negativ.svg" style="height:13rem;" title="Eclipse MOSAIC">
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="col-12">
+              <div class="section-heading text-left">
+                
+                <p>A Multi-Domain and Multi-Scale Simulation Framework<br>for Connected and Automated Mobility.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+          <div class="buttons col-md-3 d-none d-md-block justify-content-right">
+            
+              <div class="col-md-12">
+                <a class="mosaic-btn mosaic-btn-light mosaic-btn-download float-end" href="/mosaic/download/" title="&lt;span&gt;Download Now&lt;/span&gt;">
+                    
+                      <span class="icon"><i class='fa fa-download' aria-hidden='true'></i></span>
+                      <span class="title-wrap">
+                        <span class="title">
+                          <span>Download Now</span>
+                          
+                          <span class="subtitle">Latest Release: 22.1</span>
+                          
+                        </span>
+                      </span>
+                    
+                  </a>
+                
+              </div>
+            
+              <div class="col-md-12">
+                <a class="mosaic-btn mosaic-btn-light  float-end" href="/mosaic/docs/" title="&lt;i class=&#39;fa fa-book&#39; aria-hidden=&#39;true&#39;&gt;&lt;/i&gt;&lt;span&gt;Read the Docs&lt;/span&gt;">
+                    
+                      <span class="title">
+                        <i class='fa fa-book' aria-hidden='true'></i><span>Read the Docs</span>
+                      </span>
+                    
+                  </a>
+                
+              </div>
+            
+              <div class="col-md-12">
+                <a class="mosaic-btn mosaic-btn-light  float-end" href="/mosaic/tutorials/" title="&lt;i class=&#39;fa fa-graduation-cap&#39; aria-hidden=&#39;true&#39;&gt;&lt;/i&gt;&lt;span&gt;Tutorials&lt;/span&gt;">
+                    
+                      <span class="title">
+                        <i class='fa fa-graduation-cap' aria-hidden='true'></i><span>Tutorials</span>
+                      </span>
+                    
+                  </a>
+                
+              </div>
+            
+          </div>
+        
+      </div>
+    </div>
+  
+
+  
+  <div class="features col-md-12 align-items-end">
+    <div class="row justify-content-center">
+      
+      
+        
+        
+        
+          
+        
+        <div class="feature col-12 col-md-4 mb-3 mb-md-0">
+          <div class="feature-inner is-linked-feature">
+            
+            <a href="/mosaic/about#co_simulation" title="Learn More" class="linked-feature">
+            
+              
+              <h3>Co-Simulation Framework</h3>
+              <p>Eclipse MOSAIC couples best in class simulators together to create complex simulation scenarios quickly and easily. Standardized interfaces allow to couple new simulators without effort to extend the modeling capabilities.</p>
+              
+                
+                  <p class="feature-link">Learn More</p>
+                
+              
+            
+            </a>
+            
+          </div>
+        </div>
+      
+        
+        
+        
+          
+        
+        <div class="feature col-12 col-md-4 mb-3 mb-md-0">
+          <div class="feature-inner is-linked-feature">
+            
+            <a href="/mosaic/about#model_collection" title="Learn More" class="linked-feature">
+            
+              
+              <h3>Multi-Domain / Multi-Scale Models</h3>
+              <p>The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailed vehicle simulation) which all can be combined.</p>
+              
+                
+                  <p class="feature-link">Learn More</p>
+                
+              
+            
+            </a>
+            
+          </div>
+        </div>
+      
+        
+        
+        
+          
+        
+        <div class="feature col-12 col-md-4 mb-3 mb-md-0">
+          <div class="feature-inner is-linked-feature">
+            
+            <a href="/mosaic/contribution/" title="Contribute" class="linked-feature">
+            
+              
+              <h3>Open for Extensions</h3>
+              <p>Eclipse MOSAIC is Open Source! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page.</p>
+              
+                
+                  <p class="feature-link">Contribute</p>
+                
+              
+            
+            </a>
+            
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+	  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+
+    
+  
+
+  
+
+  <section id="simulator_coupling" class="home-section wg-text-image   "  >
+  
+    <div class="container">
+      
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+
+  
+    <div class="text-image image-top row">
+      
+      
+
+      
+      
+      <div class="col-12">
+        
+        <div class="text-and-buttons">
+          <div class="text text-center">
+
+
+  <div class="section-heading row mb-3">
+    
+
+    
+  </div>
+
+
+<div class="simulator-coupling d-none d-xl-block" style="width: 100%; margin: auto;">
+  <div class="row">
+    <div class="federates col-12">
+      <div class="row">
+        <div class="domain applications col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Applications</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row slim-gutters">
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Safety App</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap safety_app position-top-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Safety Application</h3>
+        </div>
+        <div class="col-4">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">Vehicles may be equipped with an application that analyzes the surrounding environment (i.e. wheather
+conditions, driving behaviour of other road participants) and reacts on specific events and conditions.</div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Traffic App</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap traffic_app position-top-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Traffic Application</h3>
+        </div>
+        <div class="col-4">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text"><p>As an example, Traffic Management Centers may be equipped with an application that receives V2X messages of
+road participants, analyzes the traffic volume and controls traffic lights and variable message signs to
+reduce traffic density.</p>
+<p>Furthermore, vehicles may be equipped with applications that receive V2X messages
+from the TMC with further information or specific route suggestions.</p>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-4">
+                  <div class="simulator user">Your App</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap your_app position-top-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Your Application</h3>
+        </div>
+        <div class="col-4">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">Write your application for your specific demands for any simulation unit.</div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC Application Simulator</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap mosaic_app_simulator position-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Eclipse MOSAIC Application</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Application Simulator plays an important role in the simulation of vehicles and its functions. It
+provides the capability to model the application logic for different simulation units (e.g. vehicles, road
+side units (RSUs), traffic lights, and others) as well as possible interaction attempts between the units
+via different communication links.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/application_simulator/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain communication col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Communication</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">OMNeT++</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap omnetpp position-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Network Simulator OMNeT&#43;&#43;</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text"><p>The simulation platform for discrete-event systems OMNeT++ together with the INET framework provide all
+models necessary for <strong>Vehicle-2-X</strong> communication.</p>
+<p>The <i>Network Simulator OMNeT++</i> couples OMNeT++
+and INET to the Eclipse MOSAIC framework. It can be used for examinations that require precise communication
+simulation.</p>
+</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/network_simulator_omnetpp/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">ns-3</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap ns3 position-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Network Simulator ns-3</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">ns-3 is a discrete-event network simulator and mainly focuses upon improving the core architecture, software
+integration, models, and educational components for real-world network devices and protocols. It simulates
+both unicast and multicast protocols and is used extensively in research on mobile ad-hoc networks.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/network_simulator_ns3/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC SNS</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap sns position-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Network Simulator SNS</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the transmission of
+V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions in
+certain places.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/network_simulator_sns/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">MOSAIC Cell</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap cell position-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Network Simulator Cell</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The built-in Eclipse MOSAIC Cell Simulator enables the applications to use cellular network communication.
+The simulation of cellular communication in Eclipse MOSAIC consists of two parts: The Cellular Simulator
+itself and the applications that can communicate over cellular networks in the Application Simulator.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/network_simulator_cell/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain traffic-vehicles col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Traffic & Vehicles</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">Eclipse SUMO</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap sumo position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Traffic Simulator Eclipse SUMO</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">Eclipse SUMO is an highly portable, microscopic and continuous road traffic simulation tool. It is designed
+to handle large road networks faster than real-time and simulates each vehicle individually.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/simulators/traffic_simulator_sumo/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">PHABMACS</div>
+                  
+
+
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="desc-wrap phabmacs position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Traffic Simulator PHABMACS</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text"><p>The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework
+for testing ADAS within a simulated environment. Vehicles are simulated with advanced simulation models
+providing them with realistic driving dynamics within normal traffic situations.</p>
+<p>Tested ADAS can utilize
+simulated sensor data as well as control simulated vehicles by using virtual actuators.</p>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain evaluation-tools col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Evaluation Tools</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row slim-gutters">
+                <div class="simulator-wrap col-6">
+                  <div class="simulator">2D Visualization</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap 2d_visualization position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>2D Visualization</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">To get a simple and instant impression of vehicle movements of a simulation Eclipse MOSAIC provides a
+2D visualization presented in your favourite browser.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/visualization/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-6">
+                  <div class="simulator extended">3D Visualization</div>
+                  
+
+
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="desc-wrap 3d_visualization position-top-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>3D Visualization</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D
+engine and models to visualize vehicle movements and various events which occur during the simulation like
+sent and received V2X messages.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/visualization/phabmap/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">FileOutput</div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap file_output position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>FileOutput</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text"><p>With the tool FileOutput you have the opportunity to log specific Eclipse MOSAIC interactions.</p>
+<p>Interactions
+are events that are managed by the <i>Interaction Management</i> and i.e. enable coupled simulators to react
+on specific events fired by another simulator.</p>
+</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/visualization/filevis/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">Statistics</div>
+                  
+
+
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="desc-wrap statistics position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Simulation Visualizers</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Statictics Visualizer is a visualisation tool to easily measure basic simulation outcomes. With the
+Statistics Visualizer you will be able to obtain short or detailed results of the simulation, e.g. travel
+times or the average speeds of groups of vehicles, or the average flow on induction loops.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/visualization/statistics/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">ITEF</div>
+                  
+
+
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="desc-wrap itef position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>ITEF</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Integrated Test and Evaluation Framework (ITEF) is a webtool for planning and evaluating vehicular
+communication scenarios. It is suited for field operational tests as well as simulations.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/visualization/itef/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="domain aso col-1">
+          <div class="domain-inner row">
+            <div class="simulators col-12 align-self-center">
+              <div class="row">
+                <div class="simulator-wrap col-12 mt-4">
+                  <div class="simulator user"><i class="fas fa-plus-square"></i></div>
+                  
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap new_simulator position-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Couple your own simulator</h3>
+        </div>
+        <div class="col-4">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">Read our documentation and learn how to couple your own or a third-party simulator to Eclipse MOSAIC.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/extending_mosaic/simulator_coupling/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eclipse-mosaic col-12">
+      <div class="inner">
+        <div class="row">
+          <div class="eclipse-mosaic-title text-left">
+            <h2>Eclipse MOSAIC Simulation Runtime Infrastructure</h2>
+            
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap eclipse_mosaic_framework position-top-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Eclipse MOSAIC Simulation Framework</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Eclipse MOSAIC Co-Simulation Framework flexibly couples simulators from different domains to create a
+holistic collection of simulation models for different scales.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+          </div>
+          <div class="core col-12">
+            <div class="row justify-content-between">
+              <div class="management-wrap col-3">
+                <div class="management">Federation Management</div>
+                
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap federation_management position-top-right">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Federation Management</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The Federation Management is responsible for the administration of participating federates. This includes
+deploying, starting, stopping, and undeploying federates in a distributed system.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/extending_mosaic/#federation-management"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+              </div>
+              <div class="management-wrap col-3">
+                <div class="management">Time Management</div>
+                
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap time_management position-top">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Time Management</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The time management is necessary for coordinating the simulation and synchronizing participating federates.
+It assures that each federate processes its events in correct order.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/extending_mosaic/#time-management"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+              </div>
+              <div class="management-wrap col-3">
+                <div class="management">Interaction Management</div>
+                
+
+
+  
+  
+    
+    
+    
+    
+    
+    <div class="desc-wrap interaction_management position-top-left">
+      <div class="row">
+        <div class="content col-8">
+          <h3>Interaction Management</h3>
+        </div>
+        <div class="col-4">
+          
+            <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg);"></div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="content col-12">
+          <div class="text">The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse
+MOSAIC and its federates are decoupled through a publish-subscribe paradigm provided by the Interaction
+Management. A published interaction is forwarded to each subscriber directly after it has been published.</div>
+          
+            <div class="footer">
+              <a class="mosaic-btn mosaic-btn-secondary" href="/mosaic/docs/extending_mosaic/#interaction-management"><i class="fa fa-book" aria-hidden="true"></i>Read more in Documentation</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="simulator-coupling-fallback d-block d-xl-none mb-3">
+  <img src="/mosaic/img/simulator-coupling.png">
+</div>
+<p>The Eclipse MOSAIC Co-Simulation Framework flexibly couples simulators from different domains to create a holistic
+collection of simulation models for different scales. Eclipse MOSAIC improves the development and virtual testing of new
+Mobility Apps. Simulators could be exchanged according to the scenario and additional simulators could be coupled easily
+to extend Eclipse MOSAIC.</p>
+</div>
+          <div class="buttons">
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+	  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+
+    
+  
+
+  
+
+  <section id="news" class="home-section wg-pages   "  >
+  
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 section-heading text-center">
+    <h1></h1>
+    
+  </div>
+  <div class="col-12 col-md-12">
+
+    
+
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+<div class="row mb-4">
+  <div class="col-4 d-none d-md-block">
+    
+    
+    
+    <a href="/mosaic/post/release-22-1/" >
+      <img src="/mosaic/post/release-22-1/featured_hu75cec75f3e0e0c020f4b51243ec3f220_95814_370x0_resize_q90_lanczos.jpg" alt="2022 Autumn Release of Eclipse MOSAIC">
+    </a>
+    
+  </div>
+  <div class="col-12 d-block d-md-none mb-3">
+    
+    
+    
+    <a href="/mosaic/post/release-22-1/" >
+      <img src="/mosaic/post/release-22-1/featured_hu75cec75f3e0e0c020f4b51243ec3f220_95814_540x0_resize_q90_lanczos.jpg" alt="2022 Autumn Release of Eclipse MOSAIC">
+    </a>
+    
+  </div>
+
+  <div class="col-12 col-md-8 mb-3 mb-md-0">
+
+    <h3 class="article-title mb-2 mt-0">
+      <a href="/mosaic/post/release-22-1/" >2022 Autumn Release of Eclipse MOSAIC</a>
+    </h3>
+
+    
+    <div class="article-style">
+      The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 22.1 to the open source community. This new version extends the recently introduced perception facilities in the Application simulator and upgrades the ns-3 simulator coupling.
+    </div>
+    
+
+    <div class="stream-meta">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Oct 19, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+<div class="row mb-4">
+  <div class="col-4 d-none d-md-block">
+    
+    
+    
+    <a href="/mosaic/post/best-scenario-short/" >
+      <img src="/mosaic/post/best-scenario-short/featured_huf520711774bf117a2259a6bb0268fcdb_554914_370x0_resize_lanczos_2.png" alt="Introducing the BeST Scenario">
+    </a>
+    
+  </div>
+  <div class="col-12 d-block d-md-none mb-3">
+    
+    
+    
+    <a href="/mosaic/post/best-scenario-short/" >
+      <img src="/mosaic/post/best-scenario-short/featured_huf520711774bf117a2259a6bb0268fcdb_554914_540x0_resize_lanczos_2.png" alt="Introducing the BeST Scenario">
+    </a>
+    
+  </div>
+
+  <div class="col-12 col-md-8 mb-3 mb-md-0">
+
+    <h3 class="article-title mb-2 mt-0">
+      <a href="/mosaic/post/best-scenario-short/" >Introducing the BeST Scenario</a>
+    </h3>
+
+    
+    <div class="article-style">
+      We present a large-scale traffic scenario of Berlin for the Evaluation of Smart Mobility Applications. This scenario provides 24 hours of motorized private traffic, including almost 2,25 million individual trips. The Berlin SUMO Traffic (BeST) scenario is open-source and prepared to be compatible with Eclipse MOSAIC.
+    </div>
+    
+
+    <div class="stream-meta">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Aug 31, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+</div>
+
+      
+    
+
+    
+    <div class="see-all">
+      <a href="/mosaic/post/">
+        See all posts
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+	  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+
+    
+  
+
+  
+
+  <section id="partners" class="home-section wg-partners   "  >
+  
+    <div class="container">
+      
+<div class="image-text-block row mb-4">
+  
+  <div class="image col-3 d-none d-md-block">
+    <div class="row justify-content-center">
+      
+      <a href="https://www.fokus.fraunhofer.de/asct" class="view-list-item mb-3">
+        
+        <img class="mx-auto" src="/mosaic/img/logos/partners/fh_fokus.png" alt="Fraunhofer logo" width="60%">
+      </a>
+      
+      <a href="https://www.dcaiti.tu-berlin.de/" class="view-list-item mb-3">
+        
+        <img class="mx-auto" src="/mosaic/img/logos/partners/dcaiti.svg" alt="DCAITI logo" width="62%">
+      </a>
+      
+    </div>
+  </div>
+
+  
+  <div class="image col-12 d-block d-md-none mb-3">
+    <div class="row justify-content-center">
+      
+      <div class="col-6">
+        <a href="https://www.fokus.fraunhofer.de/asct" class="view-list-item mb-3">
+          
+          <img class="mx-auto" src="/mosaic/img/logos/partners/fh_fokus.png" alt="Fraunhofer logo" width="60%">
+        </a>
+      </div>
+      
+      <div class="col-6">
+        <a href="https://www.dcaiti.tu-berlin.de/" class="view-list-item mb-3">
+          
+          <img class="mx-auto" src="/mosaic/img/logos/partners/dcaiti.svg" alt="DCAITI logo" width="62%">
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="text col-12 col-md-9">
+    <a href="https://www.fokus.fraunhofer.de/asct">Fraunhofer FOKUS</a> and <a href="https://www.dcaiti.tu-berlin.de/">DCAITI (Daimler Center for Automotive IT
+Innovations)</a> developed this simulation platform, formerly known as VSimRTI,
+to support research in the field of connected and automated mobility for more than 12 years.
+  </div>
+</div>
+
+<div class="image-text-block row mb-4">
+  
+  <div class="image col-3 d-none d-md-block">
+    <div class="row justify-content-center">
+      
+      <a href="https://openmobility.eclipse.org" class="view-list-item mb-3">
+        
+        <img class="mx-auto" src="/mosaic/img/logos/partners/open-mobility.png" alt="openMobility logo" width="60%">
+      </a>
+      
+    </div>
+  </div>
+
+  
+  <div class="image col-12 d-block d-md-none mb-3">
+    <div class="row justify-content-center">
+      
+      <div class="col-6">
+        <a href="https://openmobility.eclipse.org" class="view-list-item mb-3">
+          
+          <img class="mx-auto" src="/mosaic/img/logos/partners/open-mobility.png" alt="openMobility logo" width="60%">
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="text col-12 col-md-9">
+    The future of Eclipse MOSAIC is driven by several industry and academic partners in the <a href="https://openmobility.eclipse.org">openMobility
+Working Group</a> at the Eclipse Foundation.
+  </div>
+</div>
+
+
+<div class="partner-logos row js-layout-row justify-content-center mt-5">
+  
+  
+    <div class="col">
+      <a href="https://www.eclipse.org/membership/showMember.php?member_id=1352" class="ml-4 mr-4 mb-4">
+        <img src="/mosaic/img/logos/partners/avl.png" style="height: 50px;">
+      </a>
+    </div>
+  
+    <div class="col">
+      <a href="https://www.eclipse.org/membership/showMember.php?member_id=979" class="ml-4 mr-4 mb-4">
+        <img src="/mosaic/img/logos/partners/bosch.svg" style="height: 50px;">
+      </a>
+    </div>
+  
+    <div class="col">
+      <a href="https://www.eclipse.org/membership/showMember.php?member_id=1235" class="ml-4 mr-4 mb-4">
+        <img src="/mosaic/img/logos/partners/dlr.png" style="height: 50px;">
+      </a>
+    </div>
+  
+    <div class="col">
+      <a href="https://www.eclipse.org/membership/showMember.php?member_id=817" class="ml-4 mr-4 mb-4">
+        <img src="/mosaic/img/logos/partners/itemis.png" style="height: 50px;">
+      </a>
+    </div>
+  
+    <div class="col">
+      <a href="https://www.eclipse.org/membership/showMember.php?member_id=816" class="ml-4 mr-4 mb-4">
+        <img src="/mosaic/img/logos/partners/vector.png" style="height: 50px;">
+      </a>
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+  <div class="footer-wrap">
+    <div class="container">
+      <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

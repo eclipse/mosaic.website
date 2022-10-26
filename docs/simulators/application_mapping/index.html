@@ -1,0 +1,2223 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Closely related to the Application Simulator, the Mapping Ambassador is used for the initial choreography of a simulation. It defines two major aspects for the simulation units:
+ number, properties, position (e.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/simulators/application_mapping/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/simulators/application_mapping/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/simulators/application_mapping/">
+  <meta property="og:title" content="Simulation Entities and Application Mapping | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="Closely related to the Application Simulator, the Mapping Ambassador is used for the initial choreography of a simulation. It defines two major aspects for the simulation units:
+ number, properties, position (e."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Simulation Entities and Application Mapping | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-simulators page-application_mapping ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#prototypes">Prototypes</a></li>
+        <li><a href="#entities">Entities</a></li>
+        <li><a href="#use-type-distributions-in-complex-traffic-scenarios">Use Type Distributions in Complex Traffic Scenarios</a></li>
+        <li><a href="#advanced-vehicle-spawners-with-route-generation">Advanced vehicle spawners with route generation</a></li>
+        <li><a href="#common-configuration">Common Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#unit-identifiers">Unit Identifiers</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Simulation Entities and Application Mapping</h1>
+
+          <div class="article-style">
+            <p>Closely related to the Application Simulator, the <strong>Mapping</strong> Ambassador is used for the initial choreography of a simulation.
+It defines two major aspects for the simulation units:</p>
+<ol>
+<li>number, properties, position (e.g. of RSUs, traffic lights) or initial routes (of vehicles, simulated in a traffic/vehicle simulator)</li>
+<li>specific application(s) to be &ldquo;mapped&rdquo; on the simulation units and simulated in the Application Simulation</li>
+</ol>
+<p>The JSON based configuration is located in <code>&lt;scenario_name&gt;/mapping/mapping_config.json</code>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The Mapping configuration is divided into different parts:</p>
+<ul>
+<li>Pre Definitions of <code>prototypes</code> and <code>deviations</code></li>
+<li>Entity Definitions of <code>vehicles</code>, <code>rsus</code>, <code>tls</code> <code>servers</code> and <code>tmcs</code></li>
+<li>Advanced Vehicle Definitions (including route generation) in <code>matrixMappers</code></li>
+<li>Common Definitions in <code>config</code></li>
+</ul>
+<h3 id="prototypes">Prototypes</h3>
+<p><code>prototypes</code> define models for other objects, which can be reused later in the other sections of the Mapping. This allows reusing the
+definition of certain entities such as vehicles or the combination of multiple applications, reducing redundancies and resulting in
+shorter Mapping configurations.</p>
+<pre><code class="language-json">&quot;prototypes&quot;: [
+    {
+        &quot;name&quot;: &quot;CamVehicle&quot;,
+        &quot;accel&quot;: 2.6,
+        &quot;decel&quot;: 4.5,
+        &quot;length&quot;: 5.00,
+        &quot;maxSpeed&quot;: 70.0,
+        &quot;applications&quot;: [ &quot;org.eclipse.mosaic.fed.application.app.etsi.VehicleCamSendingApp&quot; ]
+    }
+]
+</code></pre>
+<p>Prototypes can be created for all types of entities. Next to the list of <code>applications</code> which is available for all types of entities,
+vehicle types provide various other parameters to be adjusted.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vehicleClass</code></td>
+<td>The class of the vehicle, e.g. <code>Car</code>, <code>ElectricVehicle</code>, <code>EmergencyVehicle</code>, <code>Bicycle</code>, <code>HeavyGoodsVehicle</code>, and more.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>accel</code></td>
+<td>The maximum acceleration of the vehicle in $m/s^2$.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>decel</code></td>
+<td>The maximum deceleration of the vehicle in $m/s^2$, e.g. when stopping for traffic lights.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>emergencyDecel</code></td>
+<td>The maximum deceleration of the vehicle in $m/s^2$, in order to avoid accidents.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>The length of the vehicle in $m$.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>maxSpeed</code></td>
+<td>The maximum speed of the vehicle in $m/s$.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>minGap</code></td>
+<td>The minimum gap towards the leader in $m$, i.e. the space in front in a traffic jam.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>sigma</code></td>
+<td>The driver&rsquo;s imperfection $[0,1]$.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tau</code></td>
+<td>The reaction time (or time headway) of the vehicle in $s$.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>speedFactor</code></td>
+<td>This factor is used to determine the speed limit to comply on roads, e.g. <code>1.1</code> would exceed the speed limit by 10%.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>laneChangeMode</code></td>
+<td>The lane changing behavior of the vehicle: <code>COOPERATIVE</code>. <code>CAUTIOUS</code>, <code>AGGRESSIVE</code>, <code>PASSIVE</code>, <code>OFF</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>applications</code></td>
+<td>The list of applications to map onto this vehicle type.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For the majority of the parameters above (see column &ldquo;Deviation&rdquo;), a normal distribution can be created. In that case, each individual
+vehicle spawned with this prototype will be loaded with a random value within this distribution. To achieve this, a separate <code>deviations</code>
+attribute must be added to the type:</p>
+<pre><code class="language-json">&quot;prototypes&quot;: [
+        {
+            &quot;name&quot;: &quot;Car&quot;,
+            &quot;length&quot;: 5.0, 
+            &quot;maxSpeed&quot;: 70.0,
+            &quot;deviations&quot;: {
+                &quot;length&quot;: 1.2,
+                &quot;maxSpeed&quot;: 5.0
+            }
+        }
+    ]
+</code></pre>
+<p>According to the config above, the basic parameter value conforms to the expected value, and the given value in the <code>deviations</code>
+attribute conforms to the $\sigma$ of the Gaussian distribution(meaning for the example of maxSpeed that ~68% of the values will
+be located in the interval [65.0, 75.0]). The deviation will be limited to ±2$\sigma$.</p>
+<h3 id="entities">Entities</h3>
+<p><strong>Vehicles</strong></p>
+<p>The <code>vehicles</code>-section is the centerpiece of the Mapping configuration. It defines the departures (times and number),
+routes, and types of the vehicles.</p>
+<p>Each spawner in this list generates a traffic stream of vehicles on a certain <code>route</code>. The vehicles stream begins at <code>startingTime</code> and
+generates vehicles until <code>maxNumberVehicles</code> is reached. The time between two consecutively vehicles is implicitly given by the
+<code>targetFlow</code> property, which defines how many vehicles per hour are going to be spawned.</p>
+<p>Each vehicle spawner must refer to at least one vehicle type (<code>types</code>). A vehicle type must either refer to a type from the <code>prototypes</code>
+section by using its <code>name</code>, or be defined as a completely new vehicle type with all necessary parameters. If more than one vehicle type
+is referenced in the <code>types</code> attribute, <code>weight</code>s can be used to specify the ratios to choose between them when loading an individual
+vehicle. If no weights are defined, individual vehicle types are assumed to be distributed equally.</p>
+<blockquote>
+<p>Note: if at least one vehicle type has a weight defined, all types without a defined weight are ignored.</p>
+</blockquote>
+<pre><code class="language-json">&quot;vehicles&quot;: [
+    {
+        &quot;startingTime&quot;: 5.0,
+        &quot;targetFlow&quot;: 1800,
+        &quot;maxNumberVehicles&quot;: 120,
+        &quot;route&quot;: &quot;1&quot;,
+        &quot;types&quot;: [
+            {
+                &quot;name&quot;: &quot;CAMVehicle&quot;,
+                &quot;weight&quot;: 0.1
+            },
+            {
+                &quot;name&quot;: &quot;NormalVehicle&quot;, // this vehicle has no applications 
+                &quot;applications&quot;: [ ],  
+                &quot;weight&quot;: 0.2
+            }
+        ]
+    }
+]
+</code></pre>
+<p>Additional notes:</p>
+<ul>
+<li>The <code>route</code> refers to a route usually defined in the scenario database file (<code>*.db</code>) of the scenario.</li>
+<li>In order to define only one single vehicle to be spawned, the <code>maxNumberVehicles</code> property can be set to <code>1</code>.</li>
+<li>By defining the <code>endingTime</code> property, the flow is stopped from being generated when the given simulation time is reached.</li>
+<li>By defining the <code>spawningMode</code> to one of the following values, the departure time of the individual vehicles can be adjusted:
+<ul>
+<li><code>CONSTANT</code> - default case, all vehicles have equal time distance to match <code>target_flow</code>.</li>
+<li><code>POISSON</code> -  vehicles depart within a Poisson distribution, resulting in a more natural traffic flow.</li>
+<li><code>GROW</code> - the flow of departing vehicles increases linear up to <code>target_flow</code>.</li>
+<li><code>SHRINK</code> - the flow of departing vehicles decreases linear starting at <code>target_flow</code>.</li>
+<li><code>GROW_AND_SHRINK</code> - the flow of departing vehicles increases up to <code>target_flow</code> and decreases afterwards.</li>
+</ul>
+</li>
+<li>By defining the <code>laneSelectionMode</code> to one the following values, the selection of the departure lane can be adjusted:
+<ul>
+<li><code>DEFAULT</code> - selects the lane for the next vehicle based on the list of given <code>lanes</code> in a roundrobin manner.</li>
+<li><code>ROUNDROBIN_HIGHWAY</code> - trucks will be spawned on the rightmost lane, all other vehicles according to <code>DEFAULT</code>.</li>
+<li><code>HIGHWAY</code> - trucks will be spawned on the rightmost lane, all other vehicles according to <code>BEST</code>.</li>
+<li><code>RANDOM</code> - the vehicle will be placed randomly on one of the available lanes of the road.</li>
+<li><code>FREE</code> - the vehicle will be placed on a free lane of the road.</li>
+<li><code>BEST</code> - the vehicle will be placed on the best lane of the road, according to the current traffic situation and departure speed.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Road Side Units</strong></p>
+<p>The <code>rsus</code>-section offers the possibility to define instances of application supported Road Side Units (RSU)s and place them on a
+defined position (<code>lat</code>, <code>lon</code> coordinates). Referring to <code>prototype</code> definitions with simply specifying its name in the <code>name</code>
+property will automatically fill in relevant properties of the RSU.</p>
+<pre><code class="language-json">&quot;rsus&quot;: [
+    {
+        &quot;lat&quot;: 52.65027,
+        &quot;lon&quot;: 13.54500,
+        &quot;name&quot;: &quot;WeatherServer&quot;,
+        &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.WeatherServerApp&quot; ]
+    }
+]
+</code></pre>
+<p><strong>Traffic Lights</strong></p>
+<p>In the <code>trafficLights</code>-section, applications can be mapped to traffic light groups. Usually, individual traffic lights are part of
+traffic light groups to control a whole junction, whereas the junction possesses a certain position. The traffic light groups and
+their positions are defined in the simulator specific configuration file (e.g. the *.net.xml for SUMO and *.ttl.json for PHABMACS).
+The <code>tlGroupId</code>-property allows mapping of applications to the traffic light groups, referring them by Id.</p>
+<p>Alternatively, the definition of the <code>weight</code>-property leads to a random distribution of the referred applications through ALL traffic lights of the
+scenario (Note: The weights do not have to add up to 100 or 1). Consequently, all traffic lights will be mapped using the specified
+prototypes as soon as one weight differs from zero. So in case you don’t want all traffic lights to have applications running on them you
+have to define one traffic light without any applications and add a weight to it. If neither tlGroupId nor weight are defined for an app, the weight will be set to 1.</p>
+<pre><code class="language-json">&quot;trafficLights&quot;: [
+    {
+        &quot;tlGroupId&quot;: &quot;26704448&quot;,
+        &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.TrafficLightApp&quot; ]
+    },
+    {
+        &quot;tlGroupId&quot;: &quot;252864802&quot;,
+        &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.TrafficLightApp&quot; ]
+    }
+]
+</code></pre>
+<p>For more information, explained for detailed examples with different mapping options regarding traffic lights, please refer to
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/#traffic-lights">
+    Simulation Scenarios - Traffic Lights
+</a>
+.</p>
+<p><strong>Servers</strong></p>
+<p>The <code>servers</code>-array can be used to specify server units, which can be used to communicate with other units via the cell module.
+Capacity configurations for servers should be done when enabling the <code>CellModule</code>. Delay and transmission models are configured
+in the <code>network.json</code> of the cell module (see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_cell/">
+    here
+</a>
+).</p>
+<blockquote>
+<p>Note: The <code>group</code> parameter in the mapping configuration has to match with the id in the network configuration in order to
+properly function.</p>
+</blockquote>
+<pre><code class="language-json">&quot;servers&quot;: [
+    {
+        &quot;name&quot;: &quot;MyServer&quot;,
+        &quot;group&quot;: &quot;TestServers&quot;,
+        &quot;applications&quot;: [ &quot;ServerApp1&quot;, &quot;ServerApp2&quot; ]
+    }
+]
+</code></pre>
+<p><strong>Traffic Management Centers</strong></p>
+<p>The <code>tmc</code>-section offers the possibility to define instances of a Traffic Management Center (TMC). A TMC
+provides the possibility to interact with the infrastructure of the road, i.e. retrieving traffic properties
+from detectors (e.g. traffic flow), and changing properties from the road (e.g. speed limits).
+Additionally, TMCs are an extension of Servers and can be configured in the same way that servers are</p>
+<pre><code class="language-json">&quot;tmcs&quot;: [
+    {
+        &quot;name&quot;: &quot;HighwayManagement&quot;,
+        &quot;group&quot;: &quot;TestTmcServers&quot;,
+        &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.HighwayManagementApp('3', 3)&quot; ],
+        &quot;inductionLoops&quot;: [ &quot;detector_0&quot;, &quot;detector_1&quot;, &quot;detector_2&quot; ],
+        &quot;laneAreaDetectors&quot;: [ ]
+    }
+]
+</code></pre>
+<blockquote>
+<p>All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
+in every simulation run with regard to the given ratios at each point in time the simulation).
+The Stochastic Mapping results in a random order of mapped units.</p>
+</blockquote>
+<h3 id="use-type-distributions-in-complex-traffic-scenarios">Use Type Distributions in Complex Traffic Scenarios</h3>
+<p>In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
+again and again, you can use <code>typeDistributions</code>. By doing so, it is very simple to adjust the list of types and weights at only one
+place in the configuration file.</p>
+<p>Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:</p>
+<pre><code class="language-json">&quot;vehicles&quot;: [
+    {
+        &quot;startingTime&quot;: 5.0,
+        &quot;targetFlow&quot;: 1800,
+        &quot;maxNumberVehicles&quot;: 120,
+        &quot;route&quot;: &quot;1&quot;,
+        &quot;types&quot;: [
+            { &quot;name&quot;: &quot;TypeA&quot;, &quot;weight&quot;: 0.1 },
+            { &quot;name&quot;: &quot;TypeB&quot;, &quot;weight&quot;: 0.9 }        
+        ]
+    },
+    {
+        &quot;startingTime&quot;: 55.0,
+        &quot;targetFlow&quot;: 1800,
+        &quot;maxNumberVehicles&quot;: 120,
+        &quot;route&quot;: &quot;2&quot;,
+        &quot;types&quot;: [
+            { &quot;name&quot;: &quot;TypeA&quot;, &quot;weight&quot;: 0.1 },
+            { &quot;name&quot;: &quot;TypeB&quot;, &quot;weight&quot;: 0.9 }        
+        ]
+    }
+]
+</code></pre>
+<p>&hellip; you can use <code>typeDistributions</code> to define the distribution of types for each vehicle once and reuse them:</p>
+<pre><code class="language-json">&quot;typeDistributions&quot;: {
+    &quot;exampleTypeDist&quot; : [
+        { &quot;name&quot;: &quot;TypeA&quot;, &quot;weight&quot;: 0.1 },
+        { &quot;name&quot;: &quot;TypeB&quot;, &quot;weight&quot;: 0.9 }       
+    ]
+},
+&quot;vehicles&quot;: [
+    {
+        &quot;startingTime&quot;: 5.0,
+        &quot;targetFlow&quot;: 1800,
+        &quot;maxNumberVehicles&quot;: 120,
+        &quot;route&quot;: &quot;1&quot;,
+        &quot;typeDistribution&quot;: &quot;exampleTypeDist&quot;
+    },
+    {
+        &quot;startingTime&quot;: 55.0,
+        &quot;targetFlow&quot;: 1800,
+        &quot;maxNumberVehicles&quot;: 120,
+        &quot;route&quot;: &quot;2&quot;,
+        &quot;typeDistribution&quot;: &quot;exampleTypeDist&quot;
+    }
+]
+</code></pre>
+<p><strong>Charging Stations</strong></p>
+<div class="alert alert-extended">
+  <span class="extended-icon" style="background-image: url(/mosaic/img/alert-extended.svg)"></span>
+  <div>
+<p>While you can define Charging Stations in your mapping configuration the necessary <strong>Charging Station and Battery Simulators</strong>
+are part of 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/download/#overview">
+    MOSAIC Extended
+</a>
+.<br>
+For further information on licenses, feel free to contact us via <strong>
+
+
+
+
+
+  
+  
+
+<a href="mailto:mosaic@fokus.fraunhofer.de">
+    mosaic@fokus.fraunhofer.de
+</a>
+</strong>.</p>
+  </div>
+</div>
+<p>The <code>chargingStations</code>-section can be used to specify charging stations which handle electric vehicle battery charging.
+A charging station is defined by a position, and a collection of charging spots, where each charging spot represents a
+possibility for an electric vehicle to dock. The charging spots can be defined separately from each other supporting different
+charging types (<code>AC_3_PHASE</code>, <code>AC_1_PHASE</code> and <code>DC</code>).</p>
+<pre><code class="language-json"> &quot;chargingStations&quot;: [
+     {
+         &quot;position&quot;: {
+             &quot;latitude&quot;: 52.51284101639178,
+             &quot;longitude&quot;: 13.328037261722278
+         },
+         &quot;group&quot;: &quot;chargingStation&quot;,
+         &quot;chargingSpots&quot;: [
+             {
+                 &quot;chargingType&quot;: &quot;AC_3_PHASE&quot;,
+                 &quot;maxVoltage&quot;: 400,
+                 &quot;maxCurrent&quot;: 16
+             },
+             {
+                 &quot;chargingType&quot;: &quot;AC_3_PHASE&quot;,
+                 &quot;maxVoltage&quot;: 400,
+                 &quot;maxCurrent&quot;: 16
+             }
+         ],
+         &quot;applications&quot;: [
+             &quot;&lt;package&gt;.ChargingStationApp&quot;
+         ]
+     }
+ ]
+</code></pre>
+<h3 id="advanced-vehicle-spawners-with-route-generation">Advanced vehicle spawners with route generation</h3>
+<p>It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the <code>matrixMappers</code>-list.
+Each MatrixMapper consists of a list of <code>points</code>, the vehicle-<code>types</code> to be used and the actual flow-values (<code>odValues</code>) between each
+of the points. It is possible to define multiple matrices using different values for <code>startingTime</code> and <code>maxTime</code>.
+This way can achieve distinctively different compositions of the vehicle flows.</p>
+<p>The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
+each of the points.</p>
+<pre><code class="language-json">
+&quot;matrixMappers&quot;: [
+    {
+        &quot;points&quot;: [ 
+            {
+                &quot;name&quot;: &quot;CityA&quot;, 
+                &quot;position&quot;: {
+                    &quot;center&quot;: {
+                        &quot;latitude&quot;: 52,
+                        &quot;longitude&quot;: 13
+                    },
+                    &quot;radius&quot;: 1000
+                }       
+            },
+            {
+                &quot;name&quot;: &quot;CityB&quot;, 
+                &quot;position&quot;: {
+                    &quot;center&quot;: {
+                        &quot;latitude&quot;: 48,
+                        &quot;longitude&quot;: 10
+                    },
+                    &quot;radius&quot;: 1000
+                }       
+            }
+        ],
+        &quot;types&quot;: [
+            {
+                &quot;name&quot;: &quot;CAMVehicle&quot;
+            }
+        ],
+        &quot;odValues&quot;: [
+            [0, 100], //100 vehicles from CityA to CityB
+            [200, 0]  //200 vehicles from CityB to CityA
+        ]
+    }
+]
+</code></pre>
+<h3 id="common-configuration">Common Configuration</h3>
+<p>Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:</p>
+<pre><code class="language-json">{
+    &quot;config&quot;: {
+        &quot;scaleTraffic&quot; : 1.0, 
+        &quot;start&quot;: 0, 
+        &quot;end&quot;: 500,
+        &quot;adjustStartingTimes&quot;: false,
+        &quot;randomizeFlows&quot;: false,
+        &quot;randomizeStartingTimes&quot; : false,
+        &quot;randomizeWeights&quot;: false
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scaleTraffic</code></td>
+<td>Scales the <code>targetFlow</code> of spawned vehicles per hour as well as the <code>maxNumberVehicles</code> by the given factor.</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>Adjusts the point in time (in $s$) to start spawning vehicles. Any vehicle spawner with a lower <code>startingTime</code> will be ignored.</td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td>Adjusts the point in time (in $s$) to end spawning vehicles. Any vehicle spawner with a greater <code>startingTime</code> will be ignored.</td>
+</tr>
+<tr>
+<td><code>adjustStartingTimes</code></td>
+<td>If set to <code>true</code>, the starting time of each spawner is reduced by the value in <code>start</code>.</td>
+</tr>
+<tr>
+<td><code>randomizeFlows</code></td>
+<td>If set to <code>true</code>, the departure time of vehicles within a vehicle spawner is slightly randomized.</td>
+</tr>
+<tr>
+<td><code>randomizeStartingTimes</code></td>
+<td>If set to <code>true</code>, the starting time of each vehicle spawner is slightly randomized.</td>
+</tr>
+<tr>
+<td><code>randomizeWeights</code></td>
+<td>If set to <code>true</code>, each <code>weight</code> greater than zero is slightly randomized.</td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-tip">
+  <div>
+<p>Read the detailed documentation of the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">
+    Mapping Configuration
+</a>
+.</p>
+  </div>
+</div>
+<h2 id="unit-identifiers">Unit Identifiers</h2>
+<p>Every traffic object in Eclipse MOSAIC has a globally unique string identifier. These identifiers are used to identify
+a traffic object in Eclipse MOSAIC as well as in different ambassadors. From user’s aspect, these identifiers will be seen in the log files
+which are generated after a simulation. The following table explains, which identifier belongs to which traffic object.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Traffic Object</strong></th>
+<th><strong>Eclipse MOSAIC Internal ID</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vehicle</strong></td>
+<td><code>veh_&lt;seq_nr&gt;</code></td>
+</tr>
+<tr>
+<td><strong>RSU</strong></td>
+<td><code>rsu_&lt;seq_nr&gt;</code></td>
+</tr>
+<tr>
+<td><strong>TMC</strong></td>
+<td><code>tmc_&lt;seq_nr&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Traffic Light</strong></td>
+<td><code>tl_&lt;group_id&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>seq_nr</code> is the sequence number of simulated vehicles, RSUs, TMCs, each starting from zero.</li>
+<li><code>group_id</code> is the group id of the traffic light.</li>
+</ul>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/simulators/application_simulator/" rel="next">Eclipse MOSAIC Application Simulator</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/simulators/traffic_simulator_sumo/" rel="prev">Eclipse SUMO - Simulation of Urban MObility</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

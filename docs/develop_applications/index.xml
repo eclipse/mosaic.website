@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Applications for MOSAIC with Java | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/docs/develop_applications/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/docs/develop_applications/index.xml" rel="self" type="application/rss+xml" />
+    <description>Create Applications for MOSAIC with Java</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>Create Applications for MOSAIC with Java</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/</link>
+    </image>
+    
+    <item>
+      <title>Event Scheduling</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/event_scheduling/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/event_scheduling/</guid>
+      <description>&lt;p&gt;Applications are implemented by reacting to specific events. Those events are, amongst others:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The simulation has started: All static units (e.g. road side units) are set up (&lt;code&gt;onStartup()&lt;/code&gt; is called)&lt;/li&gt;
+&lt;li&gt;Once a vehicle has been added to the simulation, all its configured applications are initialized (&lt;code&gt;onStartup()&lt;/code&gt; is called)&lt;/li&gt;
+&lt;li&gt;The data of the vehicle has changed, e.g. after the traffic simulator has finished one simulationstep (&lt;code&gt;onVehicleUpdated()&lt;/code&gt; is called).&lt;/li&gt;
+&lt;li&gt;A unit has received a V2X message from another entity (&lt;code&gt;onMessageReceived&lt;/code&gt; is called).&lt;/li&gt;
+&lt;li&gt;A unit which has send a V2X message via a ITS-G5 topocast receives an acknowledgement (&lt;code&gt;onAcknowledgementReceived()&lt;/code&gt; is called).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another example:&lt;/p&gt;
+
+
+
+&lt;div class=&#34;svg-wrap mt-1 mb-4&#34;&gt;
+  &lt;div class=&#34;inner&#34;&gt;
+    &lt;svg aria-labelledby=&#34;chart-title-mermaid-1658409613458 chart-desc-mermaid-1658409613458&#34; role=&#34;img&#34; viewBox=&#34;-50 -10 937 875&#34; style=&#34;max-width: 937px; background-color: white;&#34; height=&#34;875&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;100%&#34; id=&#34;mermaid-1658409613458&#34;&gt;&lt;title id=&#34;chart-title-mermaid-1658409613458&#34;&gt;&lt;/title&gt;&lt;desc id=&#34;chart-desc-mermaid-1658409613458&#34;&gt;&lt;/desc&gt;&lt;style&gt;#mermaid-1658409613458 {font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1658409613458 .error-icon{fill:#552222;}#mermaid-1658409613458 .error-text{fill:#552222;stroke:#552222;}#mermaid-1658409613458 .edge-thickness-normal{stroke-width:2px;}#mermaid-1658409613458 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1658409613458 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1658409613458 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1658409613458 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1658409613458 .marker{fill:#333333;stroke:#333333;}#mermaid-1658409613458 .marker.cross{stroke:#333333;}#mermaid-1658409613458 svg{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;}#mermaid-1658409613458 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 text.actor&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .actor-line{stroke:grey;}#mermaid-1658409613458 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-1658409613458 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-1658409613458 #arrowhead path{fill:#333;stroke:#333;}#mermaid-1658409613458 .sequenceNumber{fill:white;}#mermaid-1658409613458 #sequencenumber{fill:#333;}#mermaid-1658409613458 #crosshead path{fill:#333;stroke:#333;}#mermaid-1658409613458 .messageText{fill:#333;stroke:#333;}#mermaid-1658409613458 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 .labelText,#mermaid-1658409613458 .labelText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .loopText,#mermaid-1658409613458 .loopText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-1658409613458 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-1658409613458 .noteText,#mermaid-1658409613458 .noteText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .actorPopupMenu{position:absolute;}#mermaid-1658409613458 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-1658409613458 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 .actor-man circle,#mermaid-1658409613458 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-1658409613458 :root{--mermaid-font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;}&lt;/style&gt;&lt;g&gt;&lt;/g&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;computer&#34;&gt;&lt;path d=&#34;M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34; id=&#34;database&#34;&gt;&lt;path d=&#34;M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;clock&#34;&gt;&lt;path d=&#34;M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;75&#34; y1=&#34;5&#34; x1=&#34;75&#34; id=&#34;actor0&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-0&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;332&#34; y1=&#34;5&#34; x1=&#34;332&#34; id=&#34;actor1&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-1&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;157&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;253.5&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;332&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;332&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;562&#34; y1=&#34;5&#34; x1=&#34;562&#34; id=&#34;actor2&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-2&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;487&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;562&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;562&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;762&#34; y1=&#34;5&#34; x1=&#34;762&#34; id=&#34;actor3&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-3&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;687&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;762&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;762&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;12&#34; markerWidth=&#34;12&#34; markerUnits=&#34;userSpaceOnUse&#34; refY=&#34;5&#34; refX=&#34;9&#34; id=&#34;arrowhead&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker refY=&#34;4&#34; refX=&#34;16&#34; orient=&#34;auto&#34; markerHeight=&#34;8&#34; markerWidth=&#34;15&#34; id=&#34;crosshead&#34;&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 9,2 V 6 L16,4 Z&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;black&#34;&gt;&lt;/path&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 0,1 L 6,7 M 6,1 L 0,7&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;none&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;28&#34; markerWidth=&#34;20&#34; refY=&#34;7&#34; refX=&#34;18&#34; id=&#34;filled-head&#34;&gt;&lt;path d=&#34;M 18,7 L9,13 L14,7 L9,1 Z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;40&#34; markerWidth=&#34;60&#34; refY=&#34;15&#34; refX=&#34;15&#34; id=&#34;sequencenumber&#34;&gt;&lt;circle r=&#34;6&#34; cy=&#34;15&#34; cx=&#34;15&#34;&gt;&lt;/circle&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;g&gt;&lt;/g&gt;&lt;g&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;155&#34; x=&#34;557&#34;&gt;&lt;/rect&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;199&#34; x=&#34;757&#34;&gt;&lt;/rect&gt;&lt;/g&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;80&#34; x=&#34;204&#34;&gt;VehicleRegistration&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;109&#34; x2=&#34;327&#34; y1=&#34;109&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;124&#34; x=&#34;450&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;153&#34; x2=&#34;562&#34; y1=&#34;153&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;168&#34; x=&#34;550&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;197&#34; x2=&#34;762&#34; y1=&#34;197&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;212&#34; x=&#34;204&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;241&#34; x2=&#34;327&#34; y1=&#34;241&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;256&#34; x=&#34;447&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;285&#34; x2=&#34;557&#34; y1=&#34;285&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;300&#34; x=&#34;547&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;329&#34; x2=&#34;757&#34; y1=&#34;329&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;344&#34; x=&#34;204&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;373&#34; x2=&#34;327&#34; y1=&#34;373&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;388&#34; x=&#34;447&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;417&#34; x2=&#34;557&#34; y1=&#34;417&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;432&#34; x=&#34;547&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;461&#34; x2=&#34;757&#34; y1=&#34;461&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;476&#34; x=&#34;547&#34;&gt;sendV2xMessage()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;505&#34; x2=&#34;337&#34; y1=&#34;505&#34; x1=&#34;757&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;520&#34; x=&#34;204&#34;&gt;V2xMessageTransmission&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;549&#34; x2=&#34;80&#34; y1=&#34;549&#34; x1=&#34;327&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;564&#34; x=&#34;204&#34;&gt;V2xMessageReceiption&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;593&#34; x2=&#34;327&#34; y1=&#34;593&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;608&#34; x=&#34;447&#34;&gt;onMessageReceived()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;637&#34; x2=&#34;557&#34; y1=&#34;637&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;652&#34; x=&#34;204&#34;&gt;VehicleUpdates (remove)&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;681&#34; x2=&#34;327&#34; y1=&#34;681&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;696&#34; x=&#34;447&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;725&#34; x2=&#34;557&#34; y1=&#34;725&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;740&#34; x=&#34;547&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;769&#34; x2=&#34;757&#34; y1=&#34;769&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;157&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;253.5&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;332&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;332&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;487&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;562&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;562&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;687&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;762&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;762&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/div&gt;
+  
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Example sequence of onStartup, onUpdate, onMessageReceived and onShutdown of two applications.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;code&gt;onStartup()&lt;/code&gt; method, which enables the ITS-G5 communication module of the unit, could be implemented the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onStartup() { 
+    getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+            .addRadio().channel(AdHocChannel.CCH).power(50).create()
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A &lt;code&gt;onMessageReceived()&lt;/code&gt; method, which reacts upon a &lt;strong&gt;DENM&lt;/strong&gt; message, could be implemented as:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onMessageReceived(ReceivedV2xMessage receivedV2xMessage) {
+    final V2xMessage msg = receivedV2xMessage.getMessage();
+
+    if (msg instanceof Denm) {        
+        Denm denm = (Denm)msg;
+        GeoPoint eventLocation = denm.getEventLocation();
+        //TODO you can add further implementation here
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;trigger-own-events&#34;&gt;Trigger Own Events&lt;/h2&gt;
+&lt;p&gt;It is possible to trigger own events at specific times within the application. For this purpose, the application has access to an own event manager. Each event requires a
+simulation timestamp when it should be called, and an event processor.&lt;/p&gt;
+&lt;p&gt;The following code triggers an event in 10 seconds after the application has been initialied:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onStartup() {
+    Event event = new Event(getOs().getSimulationTime() + 10 * TIME.SECOND, this);
+    getOs().getEventManager().addEvent(event);
+}
+
+@Override
+public void processEvent(Event event) {
+    getLog().info(&amp;quot;Event has been triggered&amp;quot;);
+    // TODO
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To address a specific method to process the event, Java lambda expressions could be used:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onStartup() {
+    Event event = new Event(getOs().getSimulationTime() + 10 * TIME.SECOND, this::mySpecificMethod);
+    getOs().getEventManager().addEvent(event);
+}
+
+public void mySpecificMethod(Event event) {
+    getLog().info(&amp;quot;Event has been triggered&amp;quot;);
+    // TODO
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Application Interfaces</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/application_interfaces/</link>
+      <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/application_interfaces/</guid>
+      <description>&lt;p&gt;Application interfaces handle call-backs to incoming events via their methods, like &lt;code&gt;onVehicleUpdated()&lt;/code&gt;, called by the
+application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
+important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
+&amp;ldquo;Provides&amp;rdquo; column. The elementary interface (&lt;code&gt;Application&lt;/code&gt;) provides the methods &lt;code&gt;onStartup()&lt;/code&gt;, &lt;code&gt;onShutdown()&lt;/code&gt;. Implementation details
+are given in 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/&#34;&gt;
+    Development of applications
+&lt;/a&gt;
+.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Interface&lt;/th&gt;
+&lt;th&gt;Applicable to&lt;/th&gt;
+&lt;th&gt;Provides&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Application / AbstractApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;all&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onStartup&lt;/code&gt;, &lt;code&gt;onShutdown&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Elementary application class providing an operating system&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ConfigurableApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;all&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Basic application class providing an operating system and a configuration, which automatically loaded from a JSON file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;CommunicationApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;all&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onMessageReceived&lt;/code&gt;, &lt;code&gt;onAcknowledgementReceived&lt;/code&gt;, &lt;code&gt;onCamBuilding&lt;/code&gt;, &lt;code&gt;onMessageTransmitted&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;All applications that implement some form of V2X communication are to implement this interface.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;VehicleApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;vehicle&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onVehicleUpdated&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;General vehicle funtionality&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ElectricVehicleApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;vehicle&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onBatteryStateUpdated&lt;/code&gt;, &lt;code&gt;onChargingRequestRejected&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Electric vehicle functionality&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TrafficSignAwareApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;vehicle&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onTrafficSignInvalidated&lt;/code&gt;, &lt;code&gt;onTrafficSignNoticed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used by vehicles which are aware of traffic signs.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TrafficLightApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;traffic light&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onTrafficLightGroupUpdated&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Traffic light functionality&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TrafficManagementCenterApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;TMC&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onInductionLoopUpdated&lt;/code&gt;, &lt;code&gt;onLaneAreaDetectorUpdated&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Traffic management functionality&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MosaicApplication&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;all&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onSumoTraciResponded&lt;/code&gt;, &lt;code&gt;onInteractionReceived&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Features that involve customized RTI-interactions of MOSAIC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;em&gt;All interfaces can be found in the package&lt;/em&gt; &lt;code&gt;org.eclipse.mosaic.fed.application.app.api.*&lt;/code&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;For example, when implementing the &lt;code&gt;VehicleApplication&lt;/code&gt;, your application is able to react on movements of the vehicle:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MyApplication extends AbstractApplication&amp;lt;VehicleOperatingSystem&amp;gt; 
+                           implements VehicleApplication 
+{
+    
+  ...
+
+  @Override
+  public void onVehicleUpdated(VehicleData previous, VehicleData current) {
+      ...
+  }
+
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To create a Road Side Unit application which should react on incoming V2X messages, one need to implement the &lt;code&gt;CommunicationApplication&lt;/code&gt; interface.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MyRsuApplication extends AbstractApplication&amp;lt;RoadSideUnitOperatingSystem&amp;gt; 
+                              implements CommunicationApplication 
+{
+    
+  ...
+
+  @Override
+  public void onMessageReceived(ReceivedV2xMessage v2xMessage) {
+      ...
+  }
+
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course, you can also combine the interfaces with each other.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Unit Operating System</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/operating_system/</link>
+      <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/operating_system/</guid>
+      <description>&lt;p&gt;In order to define the type of unit your application can run on, you need to speficy the operating system by choosing one of the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;VehicleOperatingSystem&lt;/code&gt; - for applications mapped to normal vehicles.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ElectricVehicleOperatingSystem&lt;/code&gt; - for applications for vehicles with electro mobility features.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RoadSideUnitOperatingSystem&lt;/code&gt; - for applications mapped to RSUs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TrafficLightOperatingSystem&lt;/code&gt; - for applications mapped to traffic lights.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TrafficManagementCenterOperatingSystem&lt;/code&gt; - for applications mapped to TMCs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ChargingStationOperatingSystem&lt;/code&gt; - for applications mapped to charging stations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MyVehicleApplication extends AbstractApplication&amp;lt;VehicleOperatingSystem&amp;gt; {
+  ...    
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MyRsuApplication extends AbstractApplication&amp;lt;RoadSideUnitOperatingSystem&amp;gt; {
+  ...    
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;em&gt;For more information see package:&lt;/em&gt; &lt;code&gt;org.eclipse.mosaic.fed.application.app.api.os.*&lt;/code&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;using-the-operating-system&#34;&gt;Using the Operating System&lt;/h2&gt;
+&lt;p&gt;Each application has access to the operating system of its unit. Depending on the type of unit, the operating system provides different methods. For example,
+an application which is mapped on vehicles, has access to the &lt;code&gt;VehicleOperatingSystem&lt;/code&gt; by calling &lt;code&gt;this.getOperatingSystem()&lt;/code&gt; (or &lt;code&gt;this.getOs()&lt;/code&gt; to keep it short). The following examples show a bit
+of the capabilities the &lt;code&gt;VehicleOperatingSystem&lt;/code&gt; provides:&lt;/p&gt;
+&lt;p&gt;Get the current simulation time (in nanoseconds):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;long time = this.getOs().getSimulationTime();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Return the name of the unit (e.g. &amp;ldquo;veh_0&amp;rdquo;):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String nameOfUnit = this.getOs().getId();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Get access to vehicle data, such as speed, position, heading, and the like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;double speed = this.getOs().getVehicleData().getSpeed();
+GeoPoint position = this.getOs().getVehicleData().getPosition();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Change parameters of the vehicle during the simulation, such as its maximum speed:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;this.getOs().requestVehicleParametersUpdate()
+        .changeMaxSpeed(10) // m/s
+        .changeMaxAcceleration(2.4)
+        .apply();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Get the current lane index of the vehicle and change lane to left (within 5000 ms):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int laneIndex = this.getOs().getRoadPosition().getLaneIndex();
+int newLaneIndex = Math.max(0, laneIndex - 1);
+this.getOs().changeLane(newLaneIndex, 5000);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sending a V2X message via ITS-G5 singlehop broadcast:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;MessageRouting routing = this.getOs().getAdHocModule().createMessageRouting().topoBroadCast();
+V2xMessage message = new MyV2xMessage(routing);
+this.getOs().getAdHocModule().sendV2xMessage(message);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Park the vehicle in 200 meters at the right side of the road for 3 minutes:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;double distance = 200;
+double duration = 3 * 60 * 1000;
+IRoadPosition stopPosition = RoadPositionFactory.createAlongRoute(
+        getOs().getNavigationModule().getRoadPosition(),
+        getOs().getNavigationModule().getCurrentRoute(),
+        0,
+        distance
+);
+this.getOs().stop(distance, duration, Stop.StopMode.PARK);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;learn-more-about-operating-system-modules&#34;&gt;Learn More About Operating System Modules&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/navigation/&#34;&gt;
+    Navigation Module
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;
+    Communication Module
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;
+    Perception Module
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Communication in Applications</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/communication/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/communication/</guid>
+      <description>&lt;p&gt;Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
+communication should occur. Communication can be achieved with external
+network simulators (
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
+    OMNeT++
+&lt;/a&gt;
+,
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;
+    ns-3
+&lt;/a&gt;
+) or one of the built-in communication simulators 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
+    SNS
+&lt;/a&gt;
+
+or 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
+    Eclipse MOSAIC Cell
+&lt;/a&gt;
+. Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
+detail.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cellular Communication&lt;/li&gt;
+&lt;li&gt;Ad-hoc Communication&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Depending on the needs of the application, there are different approaches to solve the communication issue in Eclipse MOSAIC
+simulations. However, a distinction must be made between inter vehicle communication and Vehicle-to-X communication.
+Also, it is possible to modify the selected communication mode dependent on requirements.&lt;/p&gt;
+&lt;p&gt;Generally, the following modes are available based on network:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cellular Communication&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Geobroadcast&lt;/li&gt;
+&lt;li&gt;Geocast&lt;/li&gt;
+&lt;li&gt;Topocast&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Ad-hoc Communication&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Geobroadcast&lt;/li&gt;
+&lt;li&gt;Geocast&lt;/li&gt;
+&lt;li&gt;Topobroadcast&lt;/li&gt;
+&lt;li&gt;Topocast&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;general-configuration&#34;&gt;General Configuration&lt;/h2&gt;
+&lt;p&gt;The first step to enable your application to use communication capabilities, is to make sure it extends the &lt;code&gt;AbstractSimulationUnit&lt;/code&gt;-class
+or one of its child-classes (e.g. &lt;code&gt;VehicleUnit&lt;/code&gt;, &lt;code&gt;ChargingStationUnit&lt;/code&gt;) found in package
+&lt;code&gt;org.eclipse.mosaic.fed.application.ambassador.simulation&lt;/code&gt;. Additionally, if you want your application to act upon
+the reception or transmission of messages, make sure it implements the interface &lt;code&gt;CommunicationApplication&lt;/code&gt;.
+Afterwards, depending on your use case, you can enable the desired communication modules following the instruction in
+
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#cellular-communication&#34;&gt;
+    Cellular Configuration
+&lt;/a&gt;
+ and 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#ad-hoc-configuration&#34;&gt;
+    Ad-hoc Configuration
+&lt;/a&gt;
+.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cellular-communication&#34;&gt;Cellular Communication&lt;/h2&gt;
+&lt;p&gt;The cellular network is known from wireless mobile communication and the principle is to divide the entire geographic
+area into several smaller parts called &lt;strong&gt;&amp;ldquo;cells&amp;rdquo;&lt;/strong&gt;. Each cell has a fixed-location transceiver with a coverage ratio.&lt;/p&gt;
+&lt;p&gt;Eclipse MOSAIC enables the communication with all the existing vehicles via Geobroadcast mode or direct communication via
+Geocast in a specific area (circular, rectangular). In contrast, the Topocast mode is not restricted to a specific area.&lt;/p&gt;
+&lt;h3 id=&#34;cellular-configuration&#34;&gt;Cellular Configuration&lt;/h3&gt;
+&lt;p&gt;To enable and configure the Cell-module in your application you have to call the &lt;code&gt;enable&lt;/code&gt;-method of your applications Cell-module.
+Typically, you will do this inside the &lt;code&gt;onStartup()&lt;/code&gt;-method to enable cell capabilities from the get-go.&lt;/p&gt;
+&lt;p&gt;Below is an example configuration defining maximal uplink and downlink bit rates.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onStartup() {
+    getOs().getCellModule().enable(new CellModuleConfiguration()
+        .maxDownlinkBitrate(50 * DATA.MEGABIT)
+        .maxUplinkBitrate(50 * DATA.MEGABIT)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cellular-geobroadcast&#34;&gt;Cellular Geobroadcast&lt;/h3&gt;
+&lt;p&gt;The principle function of the Geobroadcast is to communicate with all entities within a geographical area. Eclipse MOSAIC
+offers the possibility to configure a specific geographical area which can be either a circular or a rectangular area.&lt;/p&gt;
+&lt;p&gt;The following figure illustrates a vehicle &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt; which is communicating with the other
+vehicles(&lt;em&gt;&lt;strong&gt;veh_1&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;veh_3&lt;/strong&gt;&lt;/em&gt;) within a radius &lt;strong&gt;R&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-illustration-of-geobroadcast-in-a-specific-circular-area&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-geobroadcast-circular-area.png&#34; data-caption=&#34;Illustration of Geobroadcast in a specific circular area&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-geobroadcast-circular-area.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Illustration of Geobroadcast in a specific circular area
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;A circular communication area can be defined with the &lt;code&gt;geoBroadCast(GeoCircle geoCircle)&lt;/code&gt; from an Eclipse MOSAIC application,
+as shown below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GeoCircle transmissionArea = new GeoCircle(GeoPoint.latlon(52.5, 13.2), 3000);
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A rectangular destination area can be defined similarly:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
+GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
+GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cellular-geocast&#34;&gt;Cellular Geocast&lt;/h3&gt;
+&lt;p&gt;Compared to Geobroadcasting, a Geocast addresses a receiver with an unique address. Addressing can be in the form of an
+IP-Address or a receiver-ID (e.g. veh_0). Again, the communication area can be configured as circular or rectangular.&lt;/p&gt;
+&lt;p&gt;Assume, the &lt;em&gt;&lt;strong&gt;veh_1&lt;/strong&gt;&lt;/em&gt; has a message which is addressed to &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt;. In order to send the message, &lt;em&gt;&lt;strong&gt;veh_1&lt;/strong&gt;&lt;/em&gt; first
+examines whether the vehicle with ID &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt; is located within the transmission area. If this is the case, the
+message will be transmitted. In figure below is this situation illustrated.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-cellular-geocast-to-address-a-receiver-within-a-defined-area&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-geocast-circular-area.png&#34; data-caption=&#34;Cellular Geocast to address a receiver within a defined area&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-geocast-circular-area.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Cellular Geocast to address a receiver within a defined area
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The following methods are provided for the configuring the transmission area (Circle or Rectangle) and the addressing to
+the receiver(hostname or ip address).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geoCast(GeoCircle geoCircle, String receiverName) &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geoCast(GeoRectangle geoRectangle, String receiverName)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geoCast(GeoCircle geoCircle, byte[] ipAddress)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geoCast(GeoRectangle geoRectangle, byte[] ipAddress)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GeoCircle transmissionArea = new GeoCircle( GeoPoint.latlon(52.5, 13.2), 3000);
+
+String receiverName = &amp;quot;veh_0&amp;quot;;
+MessageRouting routing = getOs().getCellModule().createMessageRouting().geoCast(transmissionArea, receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cellular-topocast&#34;&gt;Cellular Topocast&lt;/h3&gt;
+&lt;p&gt;Compared to Geocast or Geobroadcast, the Topocast is totally independent of geographical conditions and the addressing
+can be in the form of an IP-Address or a receiver-ID.&lt;/p&gt;
+&lt;p&gt;The next figure illustrates how the &lt;em&gt;&lt;strong&gt;veh_0&lt;/strong&gt;&lt;/em&gt; is communicating with &lt;em&gt;&lt;strong&gt;veh_1&lt;/strong&gt;&lt;/em&gt; in Topocast mode.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-topocast-mode-for-direct-addressing-without-geographical-constraints&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-cellular-topocast.png&#34; data-caption=&#34;Topocast mode for direct addressing without geographical constraints&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-cellular-topocast.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Topocast mode for direct addressing without geographical constraints
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The code example below shows how we can configure the requirements of the communication in Topocast mode.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String receiverName = &amp;quot;veh_0&amp;quot;;
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting().topoCast(receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;setting-protocol-types&#34;&gt;Setting Protocol Types&lt;/h3&gt;
+&lt;p&gt;By default, all cell messages use UDP, however you can set the protocol using the &lt;code&gt;protocol(...)&lt;/code&gt; method of the &lt;code&gt;MessageRoutingBuilder&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String receiverName = &amp;quot;veh_0&amp;quot;;
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .protocol(Protocoltype.TCP)
+        .topoCast(receiverName);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ad-hoc-communication&#34;&gt;Ad-hoc Communication&lt;/h2&gt;
+&lt;p&gt;The Ad-hoc network does not rely on a pre-existing infrastructure. Provided that vehicles are equipped with Ad-hoc
+modules, they are able to communicate with each other dynamically. In case of a sufficient number of Ad-hoc equipped
+vehicles, a message can be transferred via hops quickly over a long distance.&lt;/p&gt;
+&lt;p&gt;Eclipse MOSAIC also enables the communication via a specific Ad-hoc channel within the wireless Ad-hoc network. However, the
+Ad-hoc channels for vehicular communication are limited and standardized by the IEEE 802.11p.
+The licensed frequency band 5.9 GHz (5.85-5.925 GHz) for Intelligent Transportation Systems(ITS) will be used as Ad-hoc
+channels.&lt;/p&gt;
+&lt;p&gt;The following table shows the possible channels on the 5.9 GHz band used for V2X communication.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Channel Number&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;th&gt;6&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Channel Name&lt;/td&gt;
+&lt;td&gt;SCH1&lt;/td&gt;
+&lt;td&gt;SCH2&lt;/td&gt;
+&lt;td&gt;SCH3&lt;/td&gt;
+&lt;td&gt;CCH&lt;/td&gt;
+&lt;td&gt;SCH4&lt;/td&gt;
+&lt;td&gt;SCH5&lt;/td&gt;
+&lt;td&gt;SCH6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Frequency Band&lt;/td&gt;
+&lt;td&gt;5.86&lt;/td&gt;
+&lt;td&gt;5.87&lt;/td&gt;
+&lt;td&gt;5.88&lt;/td&gt;
+&lt;td&gt;5.89&lt;/td&gt;
+&lt;td&gt;5.9&lt;/td&gt;
+&lt;td&gt;5.91&lt;/td&gt;
+&lt;td&gt;5.92&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;ad-hoc-configuration&#34;&gt;Ad-hoc Configuration&lt;/h3&gt;
+&lt;p&gt;Make sure you set up your application as described in 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#general-configuration&#34;&gt;
+    General Configuration
+&lt;/a&gt;
+.
+Afterwards, to configure and enable the AdHoc-module in your application you have to call the &lt;code&gt;enable&lt;/code&gt;-method of your applications&#39;
+Adhoc-module and define a configuration.
+Usually you will do this in the &lt;code&gt;onStartup()&lt;/code&gt;-method to enable the module from the get-go.
+Below is an example configuration taken from the Tiergarten-tutorial. Instead of configuring the &lt;code&gt;.power(...)[mW]&lt;/code&gt;
+it is also possible to configure a &lt;code&gt;.distance(...)[m]&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onStartup() {
+        getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+        .addRadio()
+        .channel(AdHocChannel.CCH)
+        .power(50)
+        .create());
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ad-hoc-topobroadcast&#34;&gt;Ad-hoc Topobroadcast&lt;/h3&gt;
+&lt;p&gt;In Topobroadcast mode, the communication between vehicles is regardless of the geographic conditions. However, the
+communicating entities must be operated on the same Ad-hoc channel and there are two options to use the Topobroadcast:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Singlehop&lt;/li&gt;
+&lt;li&gt;Multihop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;singlehop-approach-in-topobroadcast&#34;&gt;Singlehop Approach in Topobroadcast&lt;/h4&gt;
+&lt;p&gt;For Singlehop, it is not necessary to specify the number of hops explicitly which indicates the lifespan of a message,
+because in Singlehop, any message has a lifespan of &lt;strong&gt;hop = 1&lt;/strong&gt;. Moreover, Eclipse MOSAIC allows to use the default method
+&lt;code&gt;topoBroadCast()&lt;/code&gt; which automatically assigns a Control Channel (CCH) for the simulation entity and a lifespan based on
+the Singlehop principle. Alternatively you can use the non-default method &lt;code&gt;topoBroadCast(AdHocChannel)&lt;/code&gt; in order to
+specify the Ad-hoc channel.&lt;/p&gt;
+&lt;p&gt;Below are some configuration examples of the default addressing method &lt;code&gt;topoBroadCast()&lt;/code&gt; and non-default addressing
+method &lt;code&gt;topoBroadCast(AdHocChannel)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast();
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(commonChannel);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following figure shows a simplified model based on the Singlehop principle. The &lt;em&gt;veh_1&lt;/em&gt; sends messages to all
+simulation entites(&lt;em&gt;&lt;strong&gt;RSU&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt;) that are using the same Ad-hoc channel. After transmission, the message can
+no longer be forwarded by the receiver.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-overview-singlehop-with-specified-ad-hoc-channel&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-adhoc-topobroadcast-singlehop.png&#34; data-caption=&#34;Overview Singlehop with specified Ad-hoc channel&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-adhoc-topobroadcast-singlehop.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Overview Singlehop with specified Ad-hoc channel
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;multihop-approach-in-topobroadcast&#34;&gt;Multihop Approach in Topobroadcast&lt;/h4&gt;
+&lt;p&gt;In Multihop, the lifespan (amount of hops) of a message can be specified, allowing larger communication distances.&lt;/p&gt;
+&lt;p&gt;The following figure shows a Multihop example with a data package D (M, h = 2) from the vehicle &lt;em&gt;veh_0&lt;/em&gt; which contains a
+message M and a hop number h = 2. Assuming that a lot of simulation entities are using the same Ad-hoc channel the
+message can be forwarded over a along distance. After each forward the hop number will be incremented by 1. Since the
+hop amount was set to 2, the forwarding will stop after 2 increments.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-overview-multihop-principle&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-adhoc-topobroadcast.png&#34; data-caption=&#34;Overview Multihop principle&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-adhoc-topobroadcast.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Overview Multihop principle
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The next code snippet shows a configuration example with an Ad-hoc channel and a message lifespan &lt;strong&gt;hops = 2&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int hops = 2;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(hops);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;In order to use the Multihop approach in OMNeT++ and ns-3 provided by Eclipse MOSAIC, its necessary to implement a
+routing protocol in network simulators (
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
+    OMNeT++
+&lt;/a&gt;
+,
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;
+    ns-3
+&lt;/a&gt;
+). But the built in communication simulator
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
+    SNS
+&lt;/a&gt;
+ includes a simple routing protocol &amp;ldquo;Flooding&amp;rdquo;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;ad-hoc-topocast&#34;&gt;Ad-hoc Topocast&lt;/h3&gt;
+&lt;p&gt;In addition to the Topobroadcast, the communication in Topocast mode will be addressed explicitly to the recipient and
+the addressing can be done either through receiver name (vehicle-ID e.g. veh_0) or the IP-Address of the vehicle.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;final byte[] ipv4Address = {127,36,50,4};
+
+AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+int hops = 2;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoCast(ipv4Address, hops);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ad-hoc-geobroadcast&#34;&gt;Ad-hoc Geobroadcast&lt;/h3&gt;
+&lt;p&gt;In contrast to Cellular Network above, the simulation entities act as active communication part (transmitter and
+receiver) and all simulation entities within range are getting messages in Geobroadcast mode.&lt;/p&gt;
+&lt;p&gt;As example in the following illustration, The vehicles &lt;em&gt;&lt;strong&gt;veh_0&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;veh_3&lt;/strong&gt;&lt;/em&gt; and the &lt;em&gt;&lt;strong&gt;RSU&lt;/strong&gt;&lt;/em&gt; are
+Ad-hoc equipped and there is no vehicle in the communication range of &lt;em&gt;&lt;strong&gt;RSU&lt;/strong&gt;&lt;/em&gt;, therefore a hop is not possible to next
+vehicle &lt;em&gt;&lt;strong&gt;veh_0&lt;/strong&gt;&lt;/em&gt;. But the vehicles &lt;em&gt;&lt;strong&gt;veh_2&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;veh_3&lt;/strong&gt;&lt;/em&gt; are able to communicate with each other.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-principle-of-ad-hoc-geobroadcast-mode&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-adhoc-network.png&#34; data-caption=&#34;Principle of Ad-hoc Geobroadcast mode&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-adhoc-network.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Principle of Ad-hoc Geobroadcast mode
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;With the methods&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geoBroadCast(GeoCircle geoCircle)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geoBroadCast(GeoRectangle geoRectangle)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;of the Eclipse MOSAIC class &lt;code&gt;AdHocMessageRoutingBuilder&lt;/code&gt; ,we are able, to configure the required area as a circle or a
+rectangle.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GeoPoint center = GeoPoint.latlon(52.5, 13.2);
+
+GeoCircle adHocModule = new GeoCircle(center, 3000);
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(adHocModule);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Analogous to the examples above, we can also configure the transmission area as a rectangle.&lt;/p&gt;
+&lt;p&gt;The next code snippet illustrates a possible configuration with a rectangular transmission area and a specified Ad-hoc
+channel.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
+
+GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
+
+GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(transmissionArea, AdHocChannel.SCH1);
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ad-hoc-geocast&#34;&gt;Ad-hoc Geocast&lt;/h3&gt;
+&lt;p&gt;The class AdHocMessageRoutingBuilder only has one method for Geocasting mode,
+&lt;code&gt;geoCast(DestinationAddress destinationAddress, AdHocChannel adHocChannel)&lt;/code&gt;. Communication is possible if the
+IP-address of receiver is known and both (receiver and transmitter) are on the same Ad-hoc channel.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;In this context the name Geocast is misleading, because a geological condition is not necessary.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see in the next picture, the RSU uses the Ad-hoc channel &lt;em&gt;SCH1&lt;/em&gt; and several vehicles use different
+Ad-hoc channels. Assuming the RSU tries to send a message to &lt;em&gt;veh_1&lt;/em&gt; and has knowledge about the IP-Address of &lt;em&gt;veh_1&lt;/em&gt;,
+if the vehicle &lt;em&gt;veh_1&lt;/em&gt; also uses the same channel &lt;em&gt;SCH1&lt;/em&gt;, the transmission will be completed successfully.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-ad-hoc-geocast-communication-between-entities-using-the-same-channel&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/tiergarten-geocast-adHoc.png&#34; data-caption=&#34;Ad-hoc Geocast communication between entities using the same channel&#34;&gt;
+
+
+  &lt;img src=&#34;../images/tiergarten-geocast-adHoc.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Ad-hoc Geocast communication between entities using the same channel
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Below you can see a possible configuration.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;final byte[] ipv4Address = {127,36,50,4};
+
+DestinationAddress destAddress = new DestinationAddress(ipv4Address);
+
+AdHocChannel commonChannel = AdHocChannel.SCH1;
+
+MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoCast(destAddress, commonChannel);
+
+getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;cam---implementation&#34;&gt;CAM - Implementation&lt;/h2&gt;
+&lt;p&gt;A Cooperative Awareness Messages (CAM) consists of four parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Header with generic information&lt;/li&gt;
+&lt;li&gt;MessageBody&lt;/li&gt;
+&lt;li&gt;ServiceList&lt;/li&gt;
+&lt;li&gt;TaggedValue list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First, generic information like protocol version, creation time stamp are submitted. Normally this data set follows a network beacon, which already contains data like position and speed. Nevertheless, this functionality must be implemented in the network layer, that means in the network simulator. At the moment this is not supported and is therefore compensated in the next message part, the message body. The body can contain either RSU or Vehicle awareness data. In the first case, only the RSU type is submitted, but this probably changes with a new CAM specification. In the second case, we provide date like vehicle width, length, position, speed, type and heading. The specification is not completely implemented, especially acceleration data and light, brake status are missing. The third part of the CAM specification, the service list, is also not implemented. This will probably change, when a list of services is defined by the ETSI. Last but not least a message contains a tagged list, a key value map with optional data. This is fully implemented and is used for our traffic light CAM messages, which provide the traffic light status in such a list.&lt;/p&gt;
+&lt;h3 id=&#34;user-defined-tagged-values&#34;&gt;User Defined Tagged Values&lt;/h3&gt;
+&lt;p&gt;If you are required to exchange custom data within CAMs, the field UserTaggedValue can be used. For adding such data to the CAM, the application needs to implement the method &lt;code&gt;beforeGetAndResetUserTaggedValue()&lt;/code&gt; from the &lt;code&gt;CommunicationApplication&lt;/code&gt; interface. If a CAM is about to be sent, the custom data can be set using the &lt;code&gt;getOs().setUserTaggedValue(byte[])&lt;/code&gt; method. The receiver can simple access the data by accessing the field directly from the received CAM message:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;    byte[] value = cam.getUserTaggedValue ();
+    if (value  != null) {
+        // read  user  tagged  value}
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;timing-requirements&#34;&gt;Timing Requirements&lt;/h3&gt;
+&lt;p&gt;CAMs are generated by the CAM Management and passed to lower layers when any of following rules apply:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;maximum time interval between CAM generations: $1s$;&lt;/li&gt;
+&lt;li&gt;minimum time interval between CAM generations: $0.1s$;&lt;/li&gt;
+&lt;li&gt;generate CAM when absolute difference between current heading (towards North) and last CAM heading &amp;gt; $4 deg$;&lt;/li&gt;
+&lt;li&gt;generate CAM when distance between current position and last CAM position &amp;gt; $5m$&lt;/li&gt;
+&lt;li&gt;generate CAM when absolute difference between current speed and last CAM speed &amp;gt; $1ms$;&lt;/li&gt;
+&lt;li&gt;These rules are checked latest every $100ms$;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Navigation in Applications</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/navigation/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/navigation/</guid>
+      <description>&lt;p&gt;The navigation of vehicles (i.e. calculation of routes) is handled completely by the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
+    Application Simulator
+&lt;/a&gt;
+. Each vehicle is equipped
+with a navigation system which provides all required information and functions for navigational purposes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Retrieve the current position and heading of the vehicle.&lt;/li&gt;
+&lt;li&gt;Get the target of the vehicle.&lt;/li&gt;
+&lt;li&gt;Calculate various routes from the current position to an arbitrary target.&lt;/li&gt;
+&lt;li&gt;Choose a suitable route out of existing ones from the current position to an arbitrary target.&lt;/li&gt;
+&lt;li&gt;Switch onto a specific route.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to provide routing functionality, a map model based on Open Street Map data is used, which
+needs to be transformed before the simulation using scenario-convert (see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/create_a_new_scenario/&#34;&gt;
+    Create a New Scenario
+&lt;/a&gt;
+).
+The map data including initial routes for vehicles is provided with the database file which needs to be located in
+&lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/&amp;lt;scenario_name&amp;gt;.db&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To enable non-moving entities (i.e. RSUs, Servers, &amp;hellip;) to access routing capabilities the &lt;code&gt;IRoutingModule&lt;/code&gt; can be implemented
+which omits operations likes route switching.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;If the database needs to be located somewhere else, the path can be specified in
+&lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/application_config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    ...
+    &amp;quot;navigationConfiguration&amp;quot;: {
+        &amp;quot;databaseFile&amp;quot;: &amp;quot;path/to/scenario.db&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;Note: Different from other modules bundled with the application simulator the navigation module doesn&amp;rsquo;t need to be explicitly enabled.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The following snippet shows, how the navigation system can be used within an application:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//get navigation module
+INavigationModule navigationModule = getOs().getNavigationModule();
+
+//choose current target as target position
+RoutingPosition targetPosition = new RoutingPosition(navigationModule.getTargetPosition());
+
+//set routing parameters to fastest route search
+RoutingParameters params = new RoutingParameters().costFunction(IRoutingCostFunction.Fastest);
+
+//calculate routes
+RoutingResponse response = navigationModule.calculateRoutes(targetPosition, params);
+
+//switch to best route
+if (response.getBestRoute() != null) {
+    boolean routeSwitched = navigationModule.switchRoute(response.getBestRoute());
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Perception in Applications</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/perception/</link>
+      <pubDate>Wed, 13 Jul 2022 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/perception/</guid>
+      <description>&lt;p&gt;The 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
+    Application Simulator
+&lt;/a&gt;
+ bundles a perception module
+for vehicle units. This module allows to emulate basic detection of other traffic entities using a field of view filter.
+To warrant fast simulation MOSAIC utilizes a spatial index, which allows for quick pre-selection of relevant entities.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;The perception module can be configured in the &lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/application_config.json&lt;/code&gt;.
+The most important configuration is the choice of a perception backend and its parameters.
+MOSAIC implements a &lt;em&gt;Trivial&lt;/em&gt;, &lt;em&gt;QuadTree&lt;/em&gt; and &lt;em&gt;Grid&lt;/em&gt; backend, with &lt;em&gt;QuadTree&lt;/em&gt; being the default setting.
+Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the &lt;em&gt;Grid&lt;/em&gt; index.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;perceptionConfiguration&amp;quot;: {
+        &amp;quot;perceptionBackend&amp;quot;: &amp;quot;Grid&amp;quot;,
+        &amp;quot;gridCellWidth&amp;quot;: &amp;quot;5m&amp;quot;,
+        &amp;quot;gridCellHeight&amp;quot;: &amp;quot;5m&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For more information on choosing a backend for your scenario see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/perception_deep_dive/&#34;&gt;
+    here
+&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
+while the range has to be larger than 0.
+Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static VIEWING_ANGLE = 120; // [degree]
+private final static VIEWING_RANGE = 100; // [meter]
+
+@Override
+public void onStartup() {
+    // set up the configuration for the perception module
+    SimplePerceptionConfiguration perceptionModuleConfiguration = 
+        new SimplePerceptionConfiguration(VIEWING_ANGLE, VIEWING_RANGE);
+    // enable the perception module using the defined configuration
+    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);  
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Currently, the module only supports the perception of other vehicles, but this will be extended in the future.&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicles()&lt;/code&gt;-method is called:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of vehicles in perception range
+List&amp;lt;VehicleObject&amp;gt; perceivedVehicles = getOs().getPerceptionModule().getPerceivedVehicles();
+// log the list of perceived vehicle IDs
+getLog().infoSimTime(this, &amp;quot;Perceived vehicles: {}&amp;quot;,
+        perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed and heading.&lt;/p&gt;
+&lt;h2 id=&#34;perception-modifiers&#34;&gt;Perception Modifiers&lt;/h2&gt;
+&lt;p&gt;The perception module can be configured with different &lt;code&gt;PerceptionModifier&lt;/code&gt;s, which can be used
+to emulate occlusion, false negatives, position areas, etc.
+MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&lt;/code&gt;, &lt;code&gt;WallOcclusionModifier&lt;/code&gt;, &lt;code&gt;DistanceModifier&lt;/code&gt; and &lt;code&gt;PositionErrorModifier&lt;/code&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modifier&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Image&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SimpleOcclusionModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/occlusion_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/occlusion_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;WallOcclusionModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the &lt;code&gt;--import-buildings&lt;/code&gt; option in scenario-convert.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/wall_occlusion_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/wall_occlusion_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DistanceModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Stochastic modifier that reduces perception probability with the distance to the ego vehicle.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/distance_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/distance_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PositionErrorModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to lateral and longitudinal distances of perceived vehicles.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/position_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/position_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To configure modifiers they have to be passed to the &lt;code&gt;PerceptionModuleConfiguration&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule() {
+    // filter to emulate occlusion
+    SimpleOcclusionModifier simpleOcclusionModifier = new SimpleOcclusionModifier(3, 5);
+    // filter to emulate occlusion by buildings
+    WallOcclusionModifier wallOcclusionModifier = new WallOcclusionModifier();
+    // filter to reduce perception probability based on distance to ego vehicle
+    DistanceModifier distanceModifier = new DistanceModifier(getRandom(), 0.0);
+    // filter adding noise to longitudinal and lateral
+    PositionErrorModifier positionErrorModifier = new PositionErrorModifier(getRandom());
+
+    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
+            VIEWING_ANGLE, VIEWING_RANGE,
+            simpleOcclusionModifier, wallOcclusionModifier, distanceModifier, positionErrorModifier
+    );
+    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All configured modifiers will be executed in order of configuration.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;Note: Evaluating perception modifiers requires many list operations, which is costly in terms of performance. Depending on the size
+of your scenario you may want to limit usage.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Scenario Database</title>
+      <link>https://www.eclipse.org/mosaic/docs/develop_applications/road_traffic/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/road_traffic/</guid>
+      <description>&lt;p&gt;Each scenario to be simulated with Eclipse MOSAIC requires a database which contains information about the road infrastructure and routes the
+vehicles drive on. This information is used by various federates. For example, the SUMO federate needs to know initial routes for vehicles,
+and the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
+    Application Simulator
+&lt;/a&gt;
+ requires detailed information about the road
+infrastructure to provide applications with methods for route calculation. For this purpose, an embedded SQLite database is
+used which is placed in the &lt;code&gt;application&lt;/code&gt; folder of the scenario. This database consists of the following tables:&lt;/p&gt;
+&lt;h3 id=&#34;database-tables&#34;&gt;Database tables&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Database Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Node&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Contains all Nodes of the road network such as junctions and nodes describing the geometry of a road. Each node is identified by an unique ID (long).(refer to &lt;a href=&#34;http://wiki.openstreetmap.org/wiki/Node&#34; target=&#34;_blank&#34;&gt;http://wiki.openstreetmap.org/wiki/Node&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Way&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Provides various properties for each way of the road network.(refer to &lt;a href=&#34;http://wiki.openstreetmap.org/wiki/Way&#34; target=&#34;_blank&#34;&gt;http://wiki.openstreetmap.org/wiki/Way&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;WayConsistsOf&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Provides a list of nodes for each way of the road network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Connection&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Contains a list of all connections of the road network including the way it originally is part of. Each connection describes an &lt;em&gt;directed&lt;/em&gt; edge between two junctions in the road network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ConnectionConsistsOf&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Provides a list of nodes each connection consists of.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Restriction&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Provides information about turn restrictions. Each turn restriction is described by a from-connection, a via-node, and a to-connection. This data is used for route calculation purposes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Roundabouts&lt;/code&gt;&lt;br&gt;&lt;code&gt;RoundaboutConsistsOf&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Contains information about connections belonging to roundabouts.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Route&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Contains a list of all routes known for the simulation scenario. All routes referenced in the &lt;code&gt;Mapping&lt;/code&gt; configuration must be presentin this table.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Building&lt;/code&gt; &lt;br&gt;&lt;code&gt;BuildingCorner&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Provides information about buildings alongside the road network, e.g. for visualization purposes, 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;
+    occlusion models
+&lt;/a&gt;
+, or sophisticated communication simulation models.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Properties&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Contains the version of the Eclipse MOSAIC installation which was initially used to create the database.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;road-network-model&#34;&gt;Road network model&lt;/h3&gt;
+&lt;p&gt;This section describes the model of the road network used by various components of Eclipse MOSAIC. In the next figure various nodes
+and connections can be seen. A &lt;code&gt;node&lt;/code&gt; is either a junction or describes the geometry of a road. A &lt;code&gt;connection&lt;/code&gt; is a directed edge
+between two junction nodes. That also means, that two separate connections exists for a road segment which can be traversed in both
+directions. Each connection consists of at least two nodes (start and end junction node). Between those nodes, other nodes can exist
+which describe the curvature of the road segment. Furthermore, each connection has a reference to its originating &lt;code&gt;way&lt;/code&gt;, which may
+consist of various connections. A way contains further properties, such as the maximum speed or the type of the road.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-nodes-and-connections-of-the-road-network&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/node-connections.jpeg&#34; data-caption=&#34;Nodes and connections of the road network&#34;&gt;
+
+
+  &lt;img src=&#34;../images/node-connections.jpeg&#34; alt=&#34;&#34; width=&#34;50%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Nodes and connections of the road network
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Nodes and ways are identified by unique IDs derived from the base OSM network file. Connections, however, are not part of the OSM standard
+and their identifiers are generated during the import. Each connection ID consists of three parts (using the string pattern &lt;code&gt;aaa_bbb_ccc&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;aaa&lt;/code&gt; - ID of the originating way&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bbb&lt;/code&gt; - ID of the node the connection starts at.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ccc&lt;/code&gt; - ID of the node the connection ends in.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-id-of-connection-in-road-network&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/connections.jpeg&#34; data-caption=&#34;ID of connection in road network&#34;&gt;
+
+
+  &lt;img src=&#34;../images/connections.jpeg&#34; alt=&#34;&#34; width=&#34;50%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    ID of connection in road network
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

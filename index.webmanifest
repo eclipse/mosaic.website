@@ -1,0 +1,18 @@
+{
+  "name": "Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility",
+  "short_name": "Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility",
+  "lang": "en-us",
+  "theme_color": "#68145C",
+  "background_color": "#68145C",
+  "icons": [{
+    "src": "/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }, {
+    "src": "/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_512x512_fill_lanczos_center_2.png",
+    "sizes": "512x512",
+    "type": "image/png"
+     }],
+  "display": "standalone",
+  "start_url": "/mosaic/?utm_source=web_app_manifest"
+}

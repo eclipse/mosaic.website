@@ -1,0 +1,1791 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown in a simulation study using PHABMACS and MOSAIC Extended.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/">
+  <meta property="og:title" content="Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown in a simulation study using PHABMACS and MOSAIC Extended."><meta property="og:image" content="https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/featured.png">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-01-24T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-01-24T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/"
+  },
+  "headline": "Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended",
+  
+  "image": [
+    "https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/featured.png"
+  ],
+  
+  "datePublished": "2022-01-24T00:00:00Z",
+  "dateModified": "2022-01-24T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Fraunhofer FOKUS"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.eclipse.org/mosaic/images/logo.svg"
+    }
+  },
+  "description": "People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown in a simulation study using PHABMACS and MOSAIC Extended."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-post page-cooperative-lidar-vru-safety ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  <article class="article post">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 24, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p><strong>People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown with PHABMACS and MOSAIC Extended.</strong></p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png" >
+
+
+  <img data-src="/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="70%" height="795">
+</a>
+
+
+
+</figure>
+
+<p>During the research project <strong>
+
+
+
+
+<a href="https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/" target="_blank" rel="noopener">
+    RealLabor Hamburg
+</a>
+</strong>, we used MOSAIC to create a complex traffic situation for investigating the general benefit of LiDAR based object detection and the effectiveness of merging the LiDAR sensor data (point clouds) from multiple vehicles before applying object detection. In this case, the LiDAR data would not be processed locally on the vehicles but communicated to a server (possibly in the Mobile Edge Cloud) and processed there - accordingly it results in a Cooperative LiDAR Data Fusion.</p>
+<h2 id="scenario-for-data-collection">Scenario for Data Collection</h2>
+<p>As a first step, we set up a simulation scenario at the Sievekingplatz in Hamburg.
+At the chosen road section, complicated traffic situations can arise due to the multi-lane road, the parallel bike lane, and the bus stop.
+To simulate such a situation, we added a halting bus, a bike riding along the bike lane, and three passenger cars driving in a row.
+With the <strong>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/application_mapping/">
+    Mapping
+</a>
+</strong> configuration file, the vehicles are timed such that the second vehicle in the row can not perceive the bike when passing the bus, even in the safety-relevant close range.</p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-frame-of-the-sievekingplatz-scenario-the-trajectories-of-the-vehicles-are-marked-in-yellow">
+
+
+  <a data-fancybox="" href="/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png" data-caption="Frame of the Sievekingplatz scenario. The trajectories of the vehicles are marked in yellow.">
+
+
+  <img data-src="/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="80%" height="426">
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Frame of the Sievekingplatz scenario. The trajectories of the vehicles are marked in yellow.
+  </figcaption>
+
+
+</figure>
+
+<p>The simulation of LiDAR sensors is implemented in the <strong>PHABMACS</strong> vehicle simulator, which is integrated in <strong>MOSAIC Extended</strong>.
+With the <code>phabmacs_config.json</code> file it is possible to configure LiDAR sensors according to real products. In this case we configured it according to the Velodyne HDL-64E.</p>
+<p>In the <strong>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/application_simulator/">
+    Application Simulator
+</a>
+</strong>, each of the passenger cars is equipped with a LiDAR sensor which scans the environment and creates a 3D point cloud at a rate of 10 Hz.
+To pool the LiDAR data from the passenger vehicles together at a server, we mapped a <code>LidarTransmissionApp</code> on each vehicle, forwarding the LiDAR point cloud to the server, using the <code>PointCloudMessages</code>.
+Additionally, all simulated vehicles (cars, bus and bike) are mapped with a <code>ReportingApp</code>, using the <code>ReportMessages</code> to report vehicle information such as e.g., position and heading. These data are the ground truth for original location information, used in the later accuracy comparison.
+On the server, a <code>DataManagementApp</code> handles all received messages for the cooperative data fusion and exports data to log files, using the <strong>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/visualization/filevis/">
+    Output Generator
+</a>
+</strong>.
+The <strong>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_cell/">
+    Cell Simulator
+</a>
+</strong> models the message transmission between the mobile entities and the server. An overview of all components can be seen below.</p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-scenario-components-overview">
+
+
+  <a data-fancybox="" href="/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png" data-caption="Scenario components overview">
+
+
+  <img data-src="/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="80%" height="458">
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Scenario components overview
+  </figcaption>
+
+
+</figure>
+
+<h2 id="evaluation-of-lidar-data-processing">Evaluation of LiDAR Data Processing</h2>
+<p>Based on the data collected from the simulation, we evaluated the effectiveness of merging sensor data before object detection.
+We specifically focused on the detectability of the bike based on the point cloud data.
+For this purpose, we estimated object detection results by filtering the LiDAR hits on the bike, using locational vehicle data gained from the <code>ReportMessages</code>.</p>
+<p>In FIGURE 3, the number of LiDAR hits on the bike at each sampling step are displayed.
+As there are always some LiDAR hits, we can conclude that at all times the bike is visible from at least one perspective.
+Though at certain frames some passenger cars could not perceive the bike, as it was occluded by the bus from their perspective.
+Especially when <code>car_2</code> is passing the bike, there are some frames (~16.8-17.8s) at which the general visibility of the bike is very limited.
+In these frames an object detection could profit a lot from merging the individual point clouds, as it would increase the overall amount of LiDAR hits and therefore the detection of an object could be more likely.</p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-total-amount-of-lidar-hits-on-the-car-from-each-lidar-and-the-sum-of-all-lidar-hits">
+
+
+  <a data-fancybox="" href="/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png" data-caption="The total amount of LiDAR hits on the car from each LiDAR and the sum of all LiDAR hits.">
+
+
+  <img data-src="/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="46%" height="480">
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    The total amount of LiDAR hits on the car from each LiDAR and the sum of all LiDAR hits.
+  </figcaption>
+
+
+</figure>
+
+<p>To further evaluate the merging of point clouds we compared it with the merging of objects.
+For the <em>PointCloudMerge</em>, the latest point cloud from all vehicles with a LiDAR sensor are unified, resulting in one large global point cloud. This point cloud is then used to derive a bounding box for the bike.
+For the <em>ObjectMerge</em> a bounding box for each individual point cloud is derived. From all these bounding boxes, the one which is dimensionally most similar to the actual bounding box of the bike, is selected as final result.
+To compare the results of both processing methods the <em>Bounding Box RMSE</em> was used as a metric.
+This metric represents the relation between the bounding box calculated from the point clouds and the actual bounding box of the bike, considering width and length of the bounding boxes.
+A value of <code>0.0</code> corresponds to no error and therefore a perfect match of the bounding boxes.</p>
+<p>In FIGURE 4 the results of both merging methods can be seen.
+The results show that the bounding boxes are more accurate in many time steps when applying the <em>PointCloudMerge</em> method.
+Also, some peaks in the metric observable with the <em>ObjectMerge</em> method could be averted.
+The often more accurate bounding boxes with <em>PointCloudMerge</em> could lead to an overall more stable object detection and more accurate labeling, which is important to correctly estimate behavior of objects in an autonomous driving context.</p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure--comparison-of-different-data-merging-methods-with-the-boundingbox-rmse-metric">
+
+
+  <a data-fancybox="" href="/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png" data-caption=": Comparison of different data merging methods with the BoundingBox RMSE metric.">
+
+
+  <img data-src="/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="46%" height="480">
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    : Comparison of different data merging methods with the <em>BoundingBox RMSE</em> metric.
+  </figcaption>
+
+
+</figure>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>We created a complex traffic situation collecting LiDAR sensor data for the preliminary evaluation of a system for merging 3D point clouds before applying object detection.</p>
+<p>MOSAICs <strong>Multi-Domain</strong> aspect was utilized as the evaluated system including moving vehicles, a bus and a bike, dedicated applications for reporting and data processing, as well as the communication link for data transmission was modelled with the simulators PHABMACS, Application Simulator and Cell Simulator. Especially PHABMACS can model high-resolution LiDAR sensors and precise driving maneuvers - just according to MOSAICs <strong>Multi-Scale</strong> aspect. On top, the Output Generator supported with formatted data recording for post-processing of simulation results.</p>
+<p>The results show that merging point clouds is indeed a processing method for LiDAR data worth to investigate further, as it could increase the likelihood of detecting an object and increase the accuracy of the labeling.</p>
+<hr>
+<p>Further information about RealLabHH and the use case of protecting VRUs: <a href="https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/">https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/</a></p>
+<p>RealLabHH was completed in December 2021 after 1.5 years. It was funded by the German Federal Ministry of Transport and Digital Infrastructure (BMVI).</p>
+
+    </div>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <div class="article-container">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr wg-cards mt-5">
+    <h3>Related</h3>
+    <div class="related cards mt-3 row">
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/remote-operated-driving/">
+                      <img src="/mosaic/post/remote-operated-driving/featured_hua5059d34082940a9059a5f1fddb1ee87_343662_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/remote-operated-driving/">Testing Remote-Operated Driving virtually with Eclipse MOSAIC</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>Remote-Operated Driving is the bridge technology from human towards fully automated driving. In situations outside the driving domain of a highly-automated vehicle, e.g. if data is missing, or the autonomous function is unsure to make a certain decision, remote-operation is the key.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/remote-operated-driving/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/eclipse-mosaic/">
+                      <img src="/mosaic/post/eclipse-mosaic/featured_hu85d7f974a6a281b36bca4c515ee99cfe_362358_350x0_resize_q90_lanczos.jpg" alt="featured.jpg">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/eclipse-mosaic/">Testing mobility scenarios with the Open-Source simulation environment Eclipse MOSAIC</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/eclipse-mosaic/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/best-scenario-short/">
+                      <img src="/mosaic/post/best-scenario-short/featured_huf520711774bf117a2259a6bb0268fcdb_554914_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/best-scenario-short/">Introducing the BeST Scenario</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>We present a large-scale traffic scenario of Berlin for the Evaluation of Smart Mobility Applications. This scenario provides 24 hours of motorized private traffic, including almost 2,25 million individual trips. The Berlin SUMO Traffic (BeST) scenario is open-source and prepared to be compatible with Eclipse MOSAIC.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/best-scenario-short/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+
+
+  </div>
+</div>
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+  <div class="footer-wrap">
+    <div class="container">
+      <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

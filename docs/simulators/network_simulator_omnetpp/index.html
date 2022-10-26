@@ -1,0 +1,2090 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="OMNeT&#43;&#43; is a simulation platform for discrete-event systems. Even though it is primarily targeted at simulating computer networks and distributed systems, it cannot be used without any extensions for wireless communication.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/">
+  <meta property="og:title" content="Network Simulator OMNeT&#43;&#43; | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="OMNeT&#43;&#43; is a simulation platform for discrete-event systems. Even though it is primarily targeted at simulating computer networks and distributed systems, it cannot be used without any extensions for wireless communication."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Network Simulator OMNeT&#43;&#43; | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-simulators page-network_simulator_omnetpp ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#installation-for-users">Installation for Users</a></li>
+        <li><a href="#installation-for-developers">Installation for Developers</a></li>
+        <li><a href="#installation-in-docker-environment">Installation in Docker environment</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Network Simulator OMNeT&#43;&#43;</h1>
+
+          <div class="article-style">
+            <p><strong>OMNeT++</strong> is a simulation platform for discrete-event systems. Even though it is primarily targeted at simulating computer networks and
+distributed systems, it cannot be used without any extensions for wireless communication. For this kind of simulations, external model frameworks have to be included.</p>
+<p>For the integration to Eclipse MOSAIC the <strong>INET</strong> framework is selected as it provides all models necessary for simulating
+Vehicle-2-X communication in ad-hoc mode (based on IEEE 1609 and IEEE 802.11(p)) and even more.
+For more information on the <strong>INET</strong> extension you should look closer on the 
+
+
+
+
+<a href="https://inet.omnetpp.org" target="_blank" rel="noopener">
+    website
+</a>
+.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Operating System</strong></td>
+<td>GNU/Linux (recommended), <em>macOS</em>, <em>Microsoft Windows (with mingw, WSL, Docker)</em></td>
+</tr>
+<tr>
+<td><strong>Written in</strong></td>
+<td>C++ and NED language</td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>free to use for academic use (GPL-like), commercial license available</td>
+</tr>
+<tr>
+<td><strong>Website</strong></td>
+<td>OMNeT++   
+
+
+
+
+<a href="https://www.omnetpp.org" target="_blank" rel="noopener">
+    https://www.omnetpp.org
+</a>
+<br> INET     
+
+
+
+
+<a href="https://inet.omnetpp.org" target="_blank" rel="noopener">
+    https://inet.omnetpp.org
+</a>
+</td>
+</tr>
+<tr>
+<td><strong>Supported version(s)</strong></td>
+<td>OMNeT++ 5.5.1 <br>INET 4.1.1</td>
+</tr>
+<tr>
+<td><strong>Dependencies</strong></td>
+<td>libprotobuf 3.7.0<br> protoc <br> bison<br> flex<br> gcc <br> python3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation</h2>
+<p>While we recommend GNU/Linux platforms for installing OMNeT++, the official project provides an Windows installation based on mingw.</p>
+<p>Beside mingw for Windows you might consider</p>
+<ul>
+<li>the installation in 
+
+
+
+
+
+  
+  
+
+<a href="#installation-in-docker-environment">
+    Docker environment
+</a>
+</li>
+<li>the 
+
+
+
+
+<a href="https://docs.microsoft.com/windows/wsl/" target="_blank" rel="noopener">
+    Windows Subsystem for Linux
+</a>
+</li>
+<li>the installation of Linux in a virtual machine environment, such as
+<a href="https://www.vmware.com/products/workstation-player.html" target="_blank">VMware</a> or <a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a>.</li>
+</ul>
+<p>We prepared an installation script, which manages most of the required work. The script provides two installation types
+tailored to the needs of USERs or even DEVELOPERs. With the additional method of using Docker or the purely manual installation,
+the following options are possible:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">
+
+
+
+
+
+  
+  
+
+<a href="#installation-for-users">
+    USER
+</a>
+<br>(installation script)</td>
+<td style="text-align:left">This installation type addresses those who only want to use the <strong>OMNeT++</strong> network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, <strong>OMNeT++ 5.5.1</strong> and <strong>INET 4.1.1</strong> will automatically be installed inside <code>&lt;mosaic&gt;/bin/fed/omnetpp</code> during the installation.</td>
+</tr>
+<tr>
+<td style="text-align:left">
+
+
+
+
+
+  
+  
+
+<a href="#installation-for-developers">
+    DEVELOPER
+</a>
+<br>(installation script)</td>
+<td style="text-align:left">The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that <strong>OMNeT++ 5.5.1</strong> and <strong>INET 4.1.1</strong> are already installed on your system and<br>- <code>PATH</code> contains <code>/path/to/omnetpp/bin</code><br>- <code>LD_LIBRARY_PATH</code> contains <code>/path/to/omnetpp/lib</code> and <code>/path/to/inet/src</code><br>- <code>C_INCLUDE_PATH</code> contains <code>/path/to/omnetpp/include</code> and <code>/path/to/inet/src</code></td>
+</tr>
+<tr>
+<td style="text-align:left">
+
+
+
+
+
+  
+  
+
+<a href="#installation-in-docker-environment">
+    Docker
+</a>
+</td>
+<td style="text-align:left">This installation type addresses those who only want to use the <strong>OMNeT++</strong> network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, <strong>OMNeT++ 5.5.1</strong> and <strong>INET 4.1.1</strong> will automatically be installed bundled as a Docker image.</td>
+</tr>
+<tr>
+<td style="text-align:left">manual installation</td>
+<td style="text-align:left">This type addresses developers. You can install and build everything manually without the use of the installer script. See 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/extending_mosaic/omnetpp_details/">
+    Extending MOSAIC OMNeT++ Federate
+</a>
+ for details on federate build process.</td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-note">
+  <div>
+<p>If you already have <strong>OMNeT++ 5.5.1</strong> and <strong>INET 4.1.1</strong> installed on your
+system, but you simply want to use <strong>OMNeT++</strong> for simulations with Eclipse MOSAIC without developing further the MOSAIC
+OMNeT++ Federate, you may also choose the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/#installation-for-developers">
+    installation for developers
+</a>
+
+to avoid multiple installations of <strong>OMNeT++</strong> and <strong>INET</strong> on your system.</p>
+  </div>
+</div>
+<p>Follow the links and download the source code of OMNeT++, INET and the MOSAIC OMNeT++ Federate:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Software</th>
+<th style="text-align:left">Version</th>
+<th style="text-align:left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>OMNeT++</strong></td>
+<td style="text-align:left">5.5.1</td>
+<td style="text-align:left">
+
+
+
+
+<a href="https://github.com/omnetpp/omnetpp/releases/tag/omnetpp-5.5.1" target="_blank" rel="noopener">
+    https://github.com/omnetpp/omnetpp/releases/
+</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>INET</strong></td>
+<td style="text-align:left">4.1.1</td>
+<td style="text-align:left">
+
+
+
+
+<a href="https://github.com/inet-framework/inet/releases/tag/v4.1.1" target="_blank" rel="noopener">
+    https://github.com/inet-framework/inet/releases
+</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>MOSAIC OMNeT++ Federate</strong></td>
+<td style="text-align:left">22.1</td>
+<td style="text-align:left">
+
+
+
+
+<a href="https://github.com/mosaic-addons/omnetpp-federate/releases/tag/22.1" target="_blank" rel="noopener">
+    https://github.com/mosaic-addons/omnetpp-federate/releases
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The installer script is located in the OMNeT++ federate folder</p>
+<pre><code class="language-plaintext">└─ mosaic/bin/fed/
+   └─ omnetpp
+      ├─ Dockerfile.sh ..................... Dockerfile for OMNeT++ federate
+      ├─ omnet_installer.sh ................ Installation script for OMNeT++
+      └─ rebuild_federate.sh ............... Rebuild script to ease compilation process for Developers
+</code></pre>
+<p>Available parameters of <code>omnet_installer.sh</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>-t</code></td>
+<td style="text-align:left"><code>--installation-type</code></td>
+<td style="text-align:left"><code>&lt;INSTALLATION_TYPE&gt;</code></td>
+<td style="text-align:left">Either <code>USER</code> or <code>DEVELOPER</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-o</code></td>
+<td style="text-align:left"><code>--omnetpp</code></td>
+<td style="text-align:left"><code>&lt;PATH_TO_OMNET_TGZ&gt;</code></td>
+<td style="text-align:left">Provide the archive containing the OMNeT++ source. If not given, the script tries to download an appropriate version.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-i</code></td>
+<td style="text-align:left"><code>--inet</code></td>
+<td style="text-align:left"><code>&lt;PATH_TO_INET_TGZ&gt;</code></td>
+<td style="text-align:left">Provide the archive containing the inet source code. If not given, the script tries to download an appropriate version.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-f</code></td>
+<td style="text-align:left"><code>--federate</code></td>
+<td style="text-align:left"><code>&lt;PATH_TO_FEDERATE_ZIP&gt;</code></td>
+<td style="text-align:left">Provide the archive containing the OMNeT++-federate and patches for coupling OMNeT++ to Eclipse MOSAIC. If not given, the omnetpp-federate is downloaded by this installation script.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-so</code></td>
+<td style="text-align:left"><code>--skip-omnetpp</code></td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Skip the installation of OMNeT++</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-si</code></td>
+<td style="text-align:left"><code>--skip-inet</code></td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Skip the installation of INET</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-q</code></td>
+<td style="text-align:left"><code>--quiet</code></td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Less output and no interaction required</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-j</code></td>
+<td style="text-align:left"><code>--parallel</code></td>
+<td style="text-align:left"><code>&lt;NUMBER_OF_THREADS&gt;</code></td>
+<td style="text-align:left">Enables make to use the given number of compilation threads.<br>Per default your systems maximum is selected automatically.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-u</code></td>
+<td style="text-align:left"><code>--uninstall</code></td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Uninstalls the OMNeT++ federate</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-h</code></td>
+<td style="text-align:left"><code>--help</code></td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Shows this usage screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="installation-for-users">Installation for Users</h3>
+<p>Run the installation script (this takes a few minutes):</p>
+<pre><code class="language-bash">cd &lt;mosaic&gt;/bin/fed/omnetpp
+chmod +x omnet_installer.sh`
+./omnet_install.sh \
+    --installation-type USER \
+    --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
+    --inet /path/to/inet-4.1.1-src.tgz \
+    --federate /path/to/omnetpp-federate-22.1.zip
+</code></pre>
+<p>The parameters <code>--omnetpp</code>, <code>--inet</code>, and <code>--federate</code> are optional. If not given, the respective source code package will be downloaded by the installation script.<br>
+The installation script should terminate with <code>SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.</code> otherwise the installation failed.</p>
+<h3 id="installation-for-developers">Installation for Developers</h3>
+<p>Run the installation script (this takes a few minutes):</p>
+<pre><code class="language-bash">cd &lt;mosaic&gt;/bin/fed/omnetpp
+chmod +x omnet_installer.sh`
+./omnet_install.sh \
+    --installation-type DEVELOPER \
+    --federate /path/to/omnetpp-federate-22.1.zip
+</code></pre>
+<p>For the installation type <code>DEVELOPER</code> the parameter <code>-f</code> is required. The installation script should terminate with <code>SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.</code> otherwise the installation failed.</p>
+<p>Please continue reading 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/extending_mosaic/omnetpp_details/">
+    here
+</a>
+ for more details on setting up a development environment for the OMNeT++ federate.</p>
+<h3 id="installation-in-docker-environment">Installation in Docker environment</h3>
+<div class="alert alert-note">
+  <div>
+<p>This is an experimental feature. Please refer to our mailing list if you experience any problems.</p>
+  </div>
+</div>
+<p>This guide gives instructions to execute the OMNeT++ federate inside a docker container. If you already installed
+OMNeT++ on your machine following the steps before, you can skip this section.</p>
+<p>Docker is a new approach to execute software. More precisely, it &ldquo;wraps software in a complete filesystem
+that contains everything it needs to run: code, runtime, system tools, and system libraries&rdquo;. As a result, the
+software is executed within a container and its execution does not rely on the environment the container is running in.</p>
+<p>In context of Eclipse MOSAIC, this approach allows to execute OMNeT++ within a docker container. The user does not
+need to manually install OMNeT++ and can even run OMNeT++ on Windows hosts.</p>
+<ol>
+<li>Install Docker ≥ 1.13 on your machine.</li>
+<li>To get everything to work, please make sure to execute the following steps depending on your operating system:
+<ul>
+<li>Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.</li>
+<li>Linux - Make sure your user account belongs to the unix-group <code>docker</code>. You may need to restart your machine.</li>
+</ul>
+</li>
+<li>Switch to the location of the Dockerfile in <code>&lt;mosaic&gt;/bin/fed/omnetpp</code></li>
+<li>Download <code>inet-4.1.1-src.tgz</code> and <code>omnetpp-5.5.1-src-linux.tgz</code> and place them in <code>&lt;mosaic&gt;/bin/fed/omnetpp</code>.</li>
+<li>Execute the following command on command line:
+<code>docker build -t omnetpp-federate</code> .
+This could take a while to finish.</li>
+<li>Enter the name of the docker image <code>etc/runtime.json</code> in the <code>omnetpp</code>-section into the property <code>dockerImage</code>:</li>
+</ol>
+<pre><code class="language-json">&quot;federates&quot;: [
+   ...
+   {
+      &quot;id&quot;: &quot;omnetpp&quot;,
+      &quot;dockerImage&quot;: &quot;omnetpp-federate&quot;,
+      ...
+   },
+   ...
+]
+</code></pre>
+<div class="alert alert-note">
+  <div>
+<p>If MOSAIC cannot open a connection to the federate, try to add the option <code>-Dmosaic.no-detach=true</code> to the java call in the mosaic.sh file on Linux, or
+<code>-Dmosaic.no-detach=false</code> in the mosaic.bat file on Windows.</p>
+  </div>
+</div>
+<h2 id="configuration">Configuration</h2>
+<p>To use OMNeT++ as network simulator in an Eclipse MOSAIC simulation, open <code>&lt;scenarioName&gt;/scenario_config.json</code> and enable OMNeT++:</p>
+<pre><code class="language-json">&quot;federates&quot;: {
+   ...
+   &quot;omnetpp&quot;: true,
+   ...
+}
+</code></pre>
+<p>Now, when you run this scenario, Eclipse MOSAIC will automatically start the MOSAIC OMNeT++ Federate.</p>
+<p>The main configuration of the MOSAIC OMNeT++ Federate is done within the configuration files <code>omnetpp.ini</code> and <code>omnetpp_config.json</code> in the scenario:</p>
+<pre><code class="language-plaintext">└─ &lt;scenario_name&gt;
+   └─ omnetpp
+      ├─ omnetpp.ini ...................... OMNeT++ federate configuration file
+      └─ omnetpp_config.json .............. Ambassador configuration file
+</code></pre>
+<p>The <code>omnetpp_config.json</code> mainly allows the configuration of a filter for different message routing options employed in the ambassador.
+The current integration of OMNeT++/INET does not support all combinations (e.g. no TCP is possible for ad-hoc communication).
+Accordingly, changes in this config would require adaptions in the OMNeT++/INET integration as well
+and are therefore only recommended developers not for users.</p>
+<p>The whole OMNeT++ specific configuration is done via the <code>omnetpp.ini</code> file. It covers static parts for the
+simulator coupling such as the specific Eclipse MOSAIC Event Scheduler and the ScenarioManager. Furthermore,
+logging configurations and the typical parameters for the communication layers (MAC, PHY and Radio
+Channel) are addressed. The communication parameters are different for vehicles and RSUs. Please refer
+to the OMNeT++ documentation on the OMNeT++ homepage for further information about the structure
+of the <code>omnetpp.ini</code> file.</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/simulators/vms_simulator/" rel="next">Variable Message Signs Simulator</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+      
+        <div class="meta-nav">Next</div>
+        <a href="/mosaic/docs/simulators/network_simulator_ns3/" rel="prev">Network Simulator ns-3</a>
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

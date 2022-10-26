@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>e-Mobility | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.org/mosaic/category/e-mobility/</link>
+      <atom:link href="https://www.eclipse.org/mosaic/category/e-mobility/index.xml" rel="self" type="application/rss+xml" />
+    <description>e-Mobility</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 25 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <title>e-Mobility</title>
+      <link>https://www.eclipse.org/mosaic/category/e-mobility/</link>
+    </image>
+    
+    <item>
+      <title>Virtual Testing of Touring Solutions for Vehicle Fleets</title>
+      <link>https://www.eclipse.org/mosaic/post/tour-management/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.org/mosaic/post/tour-management/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Courier-, Express- &amp;amp; Parcel-providers (CEP-Providers) play an evermore important role in the daily lives of many people. To
+guarantee timely deliveries and customer satisfaction, these providers rely on sophisticated algorithms to manage the disposition of their
+fleets. In the course of the eBaseCamp-project, Eclipse MOSAIC has been utilized and extended to model a delivery service leveraged by
+e-mobility and a Base Camp infrastructure.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./ebasecamp_system_overview.svg&#34; &gt;
+
+
+  &lt;img src=&#34;./ebasecamp_system_overview.svg&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The aim of the research project 
+
+
+
+
+&lt;a href=&#34;https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKT-Projekte/ikt-III-projekt-eBaseCamp.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    eBaseCamp
+&lt;/a&gt;
+ was to replace the emission- and fuel-hungry Diesel fleets of CEP-providers with
+clean emissionless electric vehicles and evaluate the economical and ecological impact.
+To achieve this goal a Base Camp infrastructure is proposed, providing parking spaces, charging spots, and further facilities for electric fleets.
+To measure potential emission and fuel savings, an entire day of deliveries in Berlin was modeled,
+complete with realistic background traffic, and configurable delivery positions &amp;amp; fleet sizes.
+In a first step the logistic applications were developed and tested on an excerpt of the map covering Charlottenburg (district of Berlin).&lt;/p&gt;
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-left-osm-map-of-charlottenburg-right-sumo-simulation-at-800am-of-charlottenburg&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/charlottenburg_combined_hufee6e8d88046ca53a5659a90c51234db_1402627_2000x2000_fit_q90_lanczos.jpg&#34; data-caption=&#34;Left: OSM-Map of Charlottenburg Right: SUMO Simulation at 8:00am of Charlottenburg&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/charlottenburg_combined_hufee6e8d88046ca53a5659a90c51234db_1402627_2000x2000_fit_q90_lanczos.jpg&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;75%&#34; height=&#34;1200&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    &lt;strong&gt;Left&lt;/strong&gt;: OSM-Map of Charlottenburg &lt;strong&gt;Right&lt;/strong&gt;: SUMO Simulation at 8:00am of Charlottenburg
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Utilizing &lt;strong&gt;Eclipse MOSAIC&lt;/strong&gt;s Application Simulator a system has been developed, that allows for remote tour planning and vehicle routing
+requests.
+This system enables drivers to request new deliveries on demand while not having to worry about finding the fastest routes themselves.
+On the server-side state-of-the-art libraries are used to solve Shortest Path and the Vehicle Routing Problem (VRP) to provide drivers with optimal tours.&lt;/p&gt;
+&lt;h3 id=&#34;the-simulation-setup&#34;&gt;The Simulation Setup&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Infrastructure&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Initially, the infrastructure for the Base Camps and delivery bases had to be modeled.
+We extended the road network with SUMO parking areas as shown in the picture below, which allows for variable locations
+and easy integration with &lt;strong&gt;Eclipse MOSAIC&lt;/strong&gt;.
+For each parking spot in the Base Camp a Charging Spot was configured using the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_charging/&#34;&gt;
+    Charging Simulator (MOSAIC Extended)
+&lt;/a&gt;
+, which delivery vehicles can dock on to.&lt;/p&gt;
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-left-modeled-base-camp-right-modeled-delivery-base&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/basecamp_hu35996ea52cc3b8f14031f9e7e4a97a22_229864_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Left: Modeled Base Camp Right: Modeled Delivery Base&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/basecamp_hu35996ea52cc3b8f14031f9e7e4a97a22_229864_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;75%&#34; height=&#34;740&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    &lt;strong&gt;Left&lt;/strong&gt;: Modeled Base Camp &lt;strong&gt;Right&lt;/strong&gt;: Modeled Delivery Base
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Day Plans&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In a second step we analyzed the typical day plans of delivery drivers and evaluated how these will change with
+the integration of a Base Camp Infrastructure (see image below).
+Additionally, we developed a tool which uniformly distributes Delivery Stops with variable times in configured areas.
+Together with configurable timings for loading and unloading and variable starting hours, the general evaluation setup was ready.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-left-classical-day-plan-of-delivery-drivers-right-day-plan-with-the-integration-of-a-base-camp-infrastructure&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./day_plans.svg&#34; data-caption=&#34;Left: Classical day plan of delivery drivers Right: day plan with the integration of a Base Camp Infrastructure&#34;&gt;
+
+
+  &lt;img src=&#34;./day_plans.svg&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    &lt;strong&gt;Left:&lt;/strong&gt; Classical day plan of delivery drivers &lt;strong&gt;Right:&lt;/strong&gt; day plan with the integration of a Base Camp Infrastructure
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Battery Simulator&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In order to achieve convincing results for the energy demand of electronic vehicles we revamped the
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_battery/&#34;&gt;
+    Battery Simulator (MOSAIC Extended)
+&lt;/a&gt;
+, introducing a new WLTC-validated
+Lithium-Ion Battery Model and capabilities for DC-Charging.
+Furthermore, we realistically modeled the Mercedes eSprinter for the &lt;strong&gt;Battery Simulator&lt;/strong&gt; to run the simulations with.&lt;/p&gt;
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-comparison-of-the-soc-values-of-a-validated-battery-model-left-and-the-new-eclipse-mosaic-lithium-ion-battery-model-right&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/battery_models_hua43c8868f8600358ef03ae318854d6cf_113472_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Comparison of the SOC-values of a validated Battery Model (left) and the new Eclipse MOSAIC Lithium-Ion Battery Model (right)&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/tour-management/battery_models_hua43c8868f8600358ef03ae318854d6cf_113472_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;75%&#34; height=&#34;482&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Comparison of the SOC-values of a validated Battery Model (&lt;strong&gt;left&lt;/strong&gt;) and the new Eclipse MOSAIC Lithium-Ion Battery Model (&lt;strong&gt;right&lt;/strong&gt;)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p style=&#34;font-size:9px&#34;&gt;[1] Han, Wang, Filev. „Optimized Design of Multi-Speed Transmissions for Battery Electric Vehicles”, 2019&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Touring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Finally, with all prerequisites fulfilled implementation of the &lt;strong&gt;ITS&lt;/strong&gt;-Application could begin.
+Vehicles will programmatically follow their day plans, with delivery stops and routes being requested from a remote server,
+once the previous delivery is finished. This allows the Touring-Server to intelligently plan the execution of all existing stops.
+Algorithmically this means that the Vehicle Routing Problem (VRP) has to be solved. The Server-Application has bindings for
+the state-of-the-art libraries 
+
+
+
+
+&lt;a href=&#34;https://jsprit.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    jsprit
+&lt;/a&gt;
+ and 
+
+
+
+
+&lt;a href=&#34;https://developers.google.com/optimization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    OR-Tools
+&lt;/a&gt;
+, and can
+be configured with one or the other.&lt;/p&gt;
+&lt;p&gt;View the short video demonstration below to get an overview on the complete system in function!&lt;/p&gt;
+&lt;video controls style=&#34;width:50%&#34;&gt;
+  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/WYotnZCfWisLppV/download&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?&lt;/h3&gt;
+&lt;p&gt;Alongside the touring solutions, we developed a Floating Car Data (FCD) based system for Traffic State Estimation.
+This system enables vehicles of the fleet to periodically send data including their positions, speeds and heading
+to a central server. The server uses the combined FCD-packages to estimate the current traffic state in an
+edge-based manner using a clustering approach.&lt;/p&gt;
+&lt;p&gt;In the future we aim to couple our solutions to work hand-in-hand by considering the traffic state for tour planning and also
+using tour planning to provide better traffic state estimation, by allowing small detours to improve data quality for less frequented
+roads.
+We call this approach Data-Routing and hope to enable stable traffic state estimation while lowering the rate of equipped vehicles.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;
+
+
+
+
+&lt;a href=&#34;https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKT-Projekte/ikt-III-projekt-eBaseCamp.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    &lt;img src=&#34;ebasecamp.png&#34; alt=&#34;eBaseCamp&#34;&gt;
+&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;This work was part of the 
+
+
+
+
+&lt;a href=&#34;https://www.digitale-technologien.de/DT/Redaktion/DE/Standardartikel/IKT-EM/IKT-Projekte/ikt-III-projekt-eBaseCamp.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+    eBaseCamp
+&lt;/a&gt;
+ project.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

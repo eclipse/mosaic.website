@@ -1,0 +1,1890 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="The Simulation Runner is part of  MOSAIC Extended  .
+For further information on licenses, feel free to contact us via  mosaic@fokus.fraunhofer.de  .
+  This chapter explains how to efficiently run a simulation series of a scenario using the Simulation Runner.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
+  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+  
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/">
+  <meta property="og:title" content="Run Simulation Series | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="The Simulation Runner is part of  MOSAIC Extended  .
+For further information on licenses, feel free to contact us via  mosaic@fokus.fraunhofer.de  .
+  This chapter explains how to efficiently run a simulation series of a scenario using the Simulation Runner."><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2021-08-27T00:00:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2021-08-27T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Run Simulation Series | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-scenarios page-run_simulation_series ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="docs container">
+  <div class="row flex-xl-nowrap">
+    <div class="docs-sidebar col-12 col-md-3 col-xl-3">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+<div class="docs-version">
+  
+  
+  
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  </a>
+</div>
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+    
+    
+    
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/getting_started/">Getting Started</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/">Download</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/run_mosaic/">Run Eclipse MOSAIC</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/getting_started/results/">Simulation Results</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/visualization/">Visualization</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/filevis/">File Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/simulators/">Simulators</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/simulators/">Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_simulator/">Application - Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/application_mapping/">Application - Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_sumo/">Traffic - Eclipse SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_omnetpp/">Network - OMNeT&#43;&#43;</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_ns3/">Network - ns-3</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_sns/">Network - SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/network_simulator_cell/">Network - Cell</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/environment_simulator/">Environment Simulator</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_battery/">E-Mobility - Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/emobility_simulator_charging/">E-Mobility - Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/scenarios/">Scenarios</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/">Scenario Overview</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/create_a_new_scenario/">Create a New Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/scenarios/scenario_configuration/">Additional Scenario Configuration</a>
+        </li>
+        
+        <li class="active">
+          <a href="/mosaic/docs/scenarios/run_simulation_series/">Run Simulation Series</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/develop_applications/">Developing Applications</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/">Create Applications</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/event_scheduling/">Event Scheduling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/application_interfaces/">Application Interfaces</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/navigation/">Navigation</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/perception/">Perception</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/road_traffic/">Scenario Database</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/mosaic_configuration/">MOSAIC Configuration</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/">Configuration Files</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/scenario_config/">Scenario</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sns_config/">SNS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_config/">Cell Basic</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_network_config/">Cell Network</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/cell_region_config/">Cell Region</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/sumo_config/">SUMO</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/battery_config/">Battery</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/mosaic_configuration/charging_config/">Charging</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/extending_mosaic/">Extending Eclipse MOSAIC</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/simulator_coupling/">Simulator Coupling</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/interactions/">Interactions</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/application_ambassador_details/">Application Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/sumo_ambassador_details/">Sumo Ambassador</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/delay_models/">Delay Models</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/perception_deep_dive/">Perception Details</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="/mosaic/docs/api_docs/">API Documentation</a>
+      <ul class="nav docs-sidenav">
+        
+        <li >
+          <a href="/mosaic/docs/api_docs/">Javadoc</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+    
+    <div class="nav-bottom">
+      <img src="/mosaic/img/logos/mosaic/EclipseMOSAIC-Medallion-RGB-single-navy.svg">
+    </div>
+  
+</nav>
+
+    </div>
+
+    
+    <div class="docs-toc d-none d-xl-block col-xl-2">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#system-specific-definition">System Specific Definition</a></li>
+        <li><a href="#scenario-definition">Scenario Definition</a></li>
+      </ul>
+    </li>
+    <li><a href="#parametrization">Parametrization</a>
+      <ul>
+        <li><a href="#parameters">Parameters</a></li>
+        <li><a href="#permutation-of-parameters">Permutation of parameters</a></li>
+        <li><a href="#dimensions">Dimensions</a></li>
+      </ul>
+    </li>
+    <li><a href="#additional-information">Additional Information</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <style>
+      @media (min-width:1140px) {
+        .docs-sidebar {
+          flex: 0 1 320px;
+        }
+        .docs-toc {
+          flex: 0 1 280px;
+        }
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          flex: 0 1 calc(100% - 320px);
+          width: 100%;
+        }
+        main.docs-content {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 600px) !important;
+          flex: 0 1 calc(100% - 600px);
+          width: 100%;
+        }
+      }
+      @media (max-width: 770px) {
+        main.docs-content {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+      @media (min-width: 771px) and(max-width: 1139px) {
+        main.docs-content.no-docs-toc {
+          padding-bottom: 0 !important;
+          max-width: calc(100% - 320px) !important;
+          width: 100%;
+        }
+      }
+    </style>
+    <main class="docs-content col-12 col-md-9 col-xl-auto py-md-3 pl-md-4" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Run Simulation Series</h1>
+
+          <div class="article-style">
+            <div class="alert alert-extended">
+  <span class="extended-icon" style="background-image: url(/mosaic/img/alert-extended.svg)"></span>
+  <div>
+<p>The <strong>Simulation Runner</strong> is part of <strong>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/download/#overview">
+    MOSAIC Extended
+</a>
+</strong>.<br>
+For further information on licenses, feel free to contact us via <strong>
+
+
+
+
+
+  
+  
+
+<a href="mailto:mosaic@fokus.fraunhofer.de">
+    mosaic@fokus.fraunhofer.de
+</a>
+</strong>.</p>
+  </div>
+</div>
+<p>This chapter explains how to efficiently run a simulation series of a scenario using the Simulation Runner.</p>
+<p>The Simulation Runner is a tool for automatic simulation parametrization and execution. It provides a comfortable way to configure the execution of multiple simulations, e.g. of simulation series including several runs where only few parameters are changed in each run. With the Simulation Runner, a simulation series can be defined, for example, where the V2X penetration rate is changed in each simulation run. As a result, all  Eclipse MOSAIC simulation runs are started automatically according to the defined parameters.</p>
+<h2 id="usage">Usage</h2>
+<p>The Simulation Runner is started as follows:</p>
+<pre><code class="language-bash">./simulation-runner.sh -c /scenarios/&lt;scenario_name&gt;/simrunner_config.xml -u &lt;user-id&gt; -p &lt;number_of_parallel_simulations&gt;
+</code></pre>
+<p><em>On Windows use <code>simulation-runner.bat</code></em></p>
+<p>The configuration file <code>/scenarios/&lt;scenario_name&gt;/mosaic/simrunner_config.xml</code> contains the parameterization information.</p>
+<p>With the option <code>-e</code> the Eclipse MOSAIC executable can be passed. Passing the Eclipse MOSAIC executable is optional if it is located in the mosaic folder or given in the <code>simrunner_config.xml</code>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The following example shows a complete configuration. Using this configuration, the Simulation Runner would try to run a scenario called Barnim while adapting the mapping, the configuration file of SNS, and Eclipse MOSAIC configuration files. The actual simulation is triggered by generating an adapted scenario folder and calling the same executable the user would normally trigger himself.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:noNamespaceSchemaLocation=&quot;http://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/vsimrti/simrun_config.xsd&quot;&gt;
+
+  &lt;!-- basic configuration --&gt;
+  &lt;mosaic 
+      location=&quot;/path/to/mosaic_folder&quot; 
+      executable=&quot;mosaic.sh&quot; 
+      parallelSimulations=&quot;2&quot;
+  &lt;scenario 
+      name=&quot;Barnim&quot; 
+      config=&quot;scenarios/Barnim/scenario_config.json&quot; 
+      persistent=&quot;false&quot; 
+      progressLogger=&quot;false&quot;&gt;
+      &lt;!--argument&gt;-o TRACE&lt;/argument--&gt;
+      &lt;!--argument&gt;-w 0&lt;/argument--&gt;
+  &lt;/scenario&gt;
+  
+  &lt;!-- define connected values for controlled changes --&gt;
+  &lt;dimension name=&quot;PenetrationRates&quot;&gt;
+     &lt;parameter name=&quot;V2XVehiclePercentage&quot; 
+         file=&quot;mapping/mapping_config.json&quot; 
+         fileFormat=&quot;json&quot; item=&quot;vehicles[0].types[0].weight&quot; 
+         type=&quot;ValueList&quot;&gt;
+         &lt;value&gt;0.0&lt;/value&gt;
+         &lt;value&gt;0.5&lt;/value&gt;
+         &lt;value&gt;0.75&lt;/value&gt;
+     &lt;/parameter&gt;
+     &lt;parameter name=&quot;ClassicVehiclePercentage&quot; 
+         file=&quot;mapping/mapping_config.json&quot; 
+         fileFormat=&quot;json&quot; 
+         item=&quot;vehicles[0].types[1].weight&quot; type=&quot;ValueList&quot;&gt;
+         &lt;value&gt;1&lt;/value&gt;
+         &lt;value&gt;0.5&lt;/value&gt;
+         &lt;value&gt;0.25&lt;/value&gt;
+     &lt;/parameter&gt;
+     &lt;parameter name=&quot;Simulationtime&quot; 
+         file=&quot;scenario_config.json&quot; 
+         fileFormat=&quot;json&quot; 
+         item=&quot;simulation.duration&quot;
+         type=&quot;ValueList&quot;&gt;
+         &lt;value&gt;100&lt;/value&gt;
+         &lt;value&gt;100&lt;/value&gt;
+         &lt;value&gt;100&lt;/value&gt;
+     &lt;/parameter&gt;
+  &lt;/dimension&gt;
+  
+  &lt;!-- define values for automatically permuted simulations --&gt;
+  &lt;parameter name=&quot;SinglehopRadius&quot; 
+      file=&quot;sns/sns_config.json&quot; 
+      fileFormat=&quot;json&quot; 
+      item=&quot;singlehopRadius&quot; 
+      type=&quot;ValueList&quot;&gt;
+      &lt;value&gt;500&lt;/value&gt;
+      &lt;value&gt;600&lt;/value&gt;
+  &lt;/parameter&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>The configuration contains three distinct parts of configuration. The system specific definition, the scenario definition and the parametrization. While the first two parts will be explained as part of this section, the parametrization will be explained in it’s own section.</p>
+<h3 id="system-specific-definition">System Specific Definition</h3>
+<pre><code class="language-xml">&lt;mosaic 
+   location=&quot;/path/to/mosaic_folder&quot;
+   executable=&quot;mosaic.sh&quot; 
+   parallelSimulations=&quot;2&quot; /&gt;
+</code></pre>
+<p>The system specific part of the configuration above is the only part of the configuration that can be overwritten using a second configuration file. It contains the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>location</code></td>
+<td style="text-align:left">Location of the Eclipse MOSAIC installation to use (can be relative or absolute). This attribute can be omitted in case the mosaic executable is in the same location as the simulation-runner executable.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>executable</code></td>
+<td style="text-align:left">The provided executable is used to start the simulation. This value is optional and will automatically be set to the default *.bat or *.sh file when omitted. (relative path to <code>location</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>parallelSimulations</code></td>
+<td style="text-align:left">Defines how many simulations are started in parallel to speed up things. Be aware that you should only use this if you have multiple cores available. This might also coincide with the threads option in the Eclipse MOSAIC configuration. The default is <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenario-definition">Scenario Definition</h3>
+<pre><code class="language-xml">&lt;scenario 
+   name=&quot;Barnim&quot; 
+   config=&quot;scenarios/Barnim/scenario_config.json&quot; 
+   persistent=&quot;false&quot; 
+   progressLogger=&quot;false&quot;&gt;
+   &lt;!--argument&gt;-o TRACE&lt;/argument--&gt;
+   &lt;!--argument&gt;-w 0&lt;/argument--&gt;
+&lt;/scenario&gt;
+</code></pre>
+<p>The scenario definition above contains everything needed to identify the scenario to execute along with parameters that need to be passed to the Eclipse MOSAIC executable. It contains the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>name</code></td>
+<td style="text-align:left">The name of the simulation to run. This is expected to be the same as the scenario&rsquo;s folder name and is used to automatically generate the path pointing to the scenario&rsquo;s <code>scenario_config.json</code> in a default case. It can be omitted if the config option is set.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>config</code></td>
+<td style="text-align:left">This is an optional value containing the concrete path to the scenario&rsquo;s <code>scenario_config.json</code>. This can be used if the scenario is not placed in the default scenarios folder (which is discouraged) and overwrites the path generated by the name attribute. Either name or config have to be defined! (path relative to <code>location</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>persistent</code></td>
+<td style="text-align:left">Defines if the generated files in the Simulation Runner (scenarios with adapted configurations), etc (hohsts.json, logback.xml, runtime.json) and tmp directories will be kept after simulation (value <code>true</code>) or deleted (value <code>false</code>).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>progressLogger</code></td>
+<td style="text-align:left">Writes summary of Simulation Runner execution to std out (value <code>true</code>), default is <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>stdoutLogger</code></td>
+<td style="text-align:left">Writes log messages from the Eclipse MOSAIC executable to stdout when (value <code>true</code>), default is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The configuration can also contain a number of additional arguments that are passed to the executable without any changes, separated by spaces.</p>
+<h2 id="parametrization">Parametrization</h2>
+<p>The heart of this tool is the parametrization of simulations. Using this, one can define values in the default configuration that are adapted between simulation runs. How many simulation runs are performed is defined by the number of changes configured, enriched with the information about simulation repetitions.
+For the example in listing &lsquo;Example Configuration&rsquo; it is expected that the mapping file to be changed has one <code>vehicles</code> definition spawning multiple cars with a weighted <code>type</code> distribution defining first the equipped and then the unequipped vehicles.</p>
+<h3 id="parameters">Parameters</h3>
+<pre><code class="language-xml">&lt;parameter name=&quot;V2XVehiclePercentage&quot; file=&quot;mapping3/mapping_config.json&quot; fileFormat=&quot;json&quot; item=&quot;vehicles[0].types[0].weight&quot; type=&quot;ValueList&quot;&gt;
+  &lt;value&gt;0&lt;/value&gt;
+  &lt;value&gt;50&lt;/value&gt;
+  &lt;value&gt;75&lt;/value&gt;
+&lt;/parameter&gt;
+</code></pre>
+<p>Each value that should be changed in a run is defined by a <code>parameter</code> element identified by a <code>name</code> (see listing above). The base value is the <code>file</code> which should be changed (relative to the scenario folder). Currently it is needed to define what <code>fileFormat</code> is expected from that file, which has impact on the syntax of the item definition which denotes what part of this file should be changed (this will be explained in a bit). The final value is the <code>type</code> which denotes how the value change behaves. The child elements depend on this definition and will also be explained in a bit.</p>
+<p><code>fileFormat</code> can be one of <code>xml</code> or <code>json</code>. The item syntax is as followed:</p>
+<ul>
+<li><code>xml</code>: contains an XPath1 expression</li>
+<li><code>json</code>: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;prototypes&quot;: [ { &quot;name&quot;: &quot;PKW&quot; } ],
+  &quot;vehicles&quot;: [
+    {
+      &quot;startingTime&quot;: 5.0,
+      &quot;targetFlow&quot;: 1200,
+      &quot;maxNumberVehicles&quot;: 250,
+      &quot;route&quot;: &quot;1&quot;,
+      &quot;types&quot;: [
+        {
+          &quot;applications&quot;: [ &quot;com.dcaiti.vsimrti.app.WeatherWarningApp.WeatherWarningApp&quot; ],
+          &quot;name&quot;: &quot;PKW&quot;,
+          &quot;weight&quot;: 0.2
+        },
+        {
+          &quot;name&quot;: &quot;PKW&quot;,
+          &quot;weight&quot;: 0.8
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<p><code>type</code> can currently only have two entries:</p>
+<ul>
+<li><code>ValueList</code>: This expects a list of values as child elements of the parameter. Each value will be used for at least one permutation.</li>
+<li><code>IntegerGenerator</code>: This automatically generates integer values to write as values. The generated numbers can be configured by adding these attributes to the parameter element:<br>
+– <code>offset</code>: denoting a minimal number where generation should start (this will be the first value), default is <code>0</code>.<br>
+– <code>step</code>: denoting the number that will be added to the previous value to generate the new one, default is <code>1</code>.</li>
+</ul>
+<p>In contrast to <code>ValueList</code> this can create an infinite number of values.</p>
+<h3 id="permutation-of-parameters">Permutation of parameters</h3>
+<p>When multiple such parameter elements are defined, a permutation for each specific value definition is generated. Lets say defined are parameters A and B and each parameter has values a and b. The resulting permutations would be:</p>
+<pre><code>A=a, B=a
+A=b, B=a
+A=a, B=b
+A=b, B=b
+</code></pre>
+<h3 id="dimensions">Dimensions</h3>
+<p>Sometimes it is wanted to group some value changes. This can be necessary when changed values need to sum up to a specific value or when specific (named) output files need to be defined. This can be done by enclosing the affected <code>parameters</code> into a <code>dimension</code> definition. Doing this the values of each <code>parameter</code> are connected by their index. For this to work the number of values for each parameter have to be the same. The example in listing &lsquo;Example Configuration&rsquo; utilizes this function to make sure the vehicle percentages sum up to 100. The generated permutations for the dimension enclosed parameters are:</p>
+<pre><code>V2XVehiclePercentage=0,  ClassicVehiclePercentage=100
+V2XVehiclePercentage=50, ClassicVehiclePercentage=50
+V2XVehiclePercentage=75, ClassicVehiclePercentage=25
+</code></pre>
+<p>When additionally parameters are defined which are not enclosed in the <code>dimension</code> tag or another dimension tag is defined, then the permutations will be extended even further. The full permutation for listing &lsquo;Example Configuration&rsquo; is as follows:</p>
+<pre><code>PenetrationRates(V2XVehiclePercentage=0,  ClassicVehiclePercentage=100), SinglehopRadius=500
+PenetrationRates(V2XVehiclePercentage=50, ClassicVehiclePercentage=50),  SinglehopRadius=500
+PenetrationRates(V2XVehiclePercentage=75, ClassicVehiclePercentage=25),  SinglehopRadius=500
+PenetrationRates(V2XVehiclePercentage=0,  ClassicVehiclePercentage=100), SinglehopRadius=600
+PenetrationRates(V2XVehiclePercentage=50, ClassicVehiclePercentage=50),  SinglehopRadius=600
+PenetrationRates(V2XVehiclePercentage=75, ClassicVehiclePercentage=25),  SinglehopRadius=600
+</code></pre>
+<h2 id="additional-information">Additional Information</h2>
+<p>These are some side effects to remember when working with this tool.</p>
+<p><strong>Ports:</strong> The Simulation Runner supports automatic assigning of free ports for federates. This means that all federates configured in the <code>simrunner_config.xml</code> will get a free port configured by default. This enables multiple simulations to be run simultaneously as long as the federates are started by Eclipse MOSAIC. If some federates are not started through Eclipse MOSAIC but are already running, this will not work.</p>
+<p><strong>Paths:</strong> Relative paths of the files to be modified will be expanded with the deployment directory of the current simulation run, as defined in the value <code>location</code>, to an absolute one.</p>
+<p><strong>Adaptations:</strong> All values will be modified in copies of the original scenario. The copies will be placed in the Simulation Runner folder in the Eclipse MOSAIC base directory and will be (if not deactivated by configuration) deleted upon completion of the simulation.</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav prev-next-pages col-12">
+  <div class="row">
+    <div class="post-nav-item col-6">
+      
+      
+      
+        <div class="meta-nav">Previous</div>
+        <a href="/mosaic/docs/scenarios/scenario_configuration/" rel="next">Additional Scenario Configuration</a>
+      
+    </div>
+
+    <div class="post-nav-item col-6 align-self-end">
+      
+        
+      
+    </div>
+  </div>
+</div>
+
+          </div>
+          
+        </div>
+
+        
+          
+
+          
+
+          
+
+          
+  
+  
+
+
+        
+
+
+        <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+    </p>
+    
+  </div>
+</footer>
+
+
+
+      </article>
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+    
+      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+    
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
