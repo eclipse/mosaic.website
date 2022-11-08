@@ -16,7 +16,10 @@ All files you need for this tutorial are included in the Eclipse MOSAIC zip file
 
 This tutorial aims to provide a general overview of the Eclipse MOSAIC application concept and shows two examples that
 involve ad hoc communication via `IEEE` 802.11p between different participants and message passing from one application
-to another that run on the same vehicle.
+to another that run on the same vehicle. This scenario mainly focusses on how to use applications and communication. 
+
+Note, there is no specific situation which should be explained with the given setup. The scenario is located in "Tiergarten" 
+as an example of a straight road found here.
 
 {{% alert learning_objectives %}}
 The tutorial is split up into five main parts:

@@ -25,7 +25,7 @@ With this tutorial you learn...
 {{% alert note %}}
 Some prerequisites are required on your machine. Eclipse MOSAIC is a software based on JAVA, and therefore, a 
 JAVA Runtime Environment or Development Kit is required:
-- **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [AdoptOpenJDK](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)
+- **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [Eclipse Temurin OpenJDK](https://adoptium.net/de/temurin/releases?version=8)
 {{% /alert %}}
 
 {{% alert note %}}
@@ -65,6 +65,7 @@ procedure should look like this:
 
 {{< figure src="../../docs/getting_started/images/mosaic-barnim.gif" title="Barnim scenario executed with Eclipse MOSAIC" numbered="true" >}}
 
+To slow down the simulation (e.g. to get a slower visualization), you can use the realtime brake parameter `-b 5`. 
 Further information about the start parameters of MOSAIC can be found in our [documentation](/docs/getting_started/run_mosaic).
 
 ## Gather simulation results

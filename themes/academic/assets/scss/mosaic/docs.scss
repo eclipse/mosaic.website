@@ -42,7 +42,11 @@
   min-height: calc(100vh - 428px);
   max-width: none;
   table {
-    overflow: scroll;
+    display: table;
+    width: auto;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

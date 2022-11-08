@@ -15,9 +15,9 @@ serverRootDir = "/mosaic"
     mosaic_snapshot = "23.0-SNAPSHOT"
 
     # Java
-    java = "8"
+    java = "8, 11, 17"
     java_no_support = "7 and below"
-    java_limited_support = "11 and above"
+    java_limited_support = "18 and above"
 
     # SUMO
     sumo = "1.14.1"
@@ -40,6 +40,7 @@ serverRootDir = "/mosaic"
 
     # ns-3
     ns3 = "3.36.1"
+    ns3_release_link = "3-36"
     ns3_no_support_below = "below 3.36.1"
     ns3_not_tested = "above 3.36.1"
     ns3_docker = "1.13"

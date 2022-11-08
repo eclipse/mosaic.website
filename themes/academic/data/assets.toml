@@ -22,6 +22,21 @@
 [static.js.highlight]
   version = "9.18.1"
   url = "highlight.min.js"
+[static.js.highlight_dos]
+  version = "9.18.1"
+  url = "highlight-dos.min.js"
+[static.js.highlight_java]
+  version = "9.18.1"
+  url = "highlight-java.min.js"
+[static.js.highlight_json]
+  version = "9.18.1"
+  url = "highlight-json.min.js"
+[static.js.highlight_shell]
+  version = "9.18.1"
+  url = "highlight-shell.min.js"
+[static.js.highlight_xml]
+  version = "9.18.1"
+  url = "highlight-xml.min.js"
 [static.js.mathJax]
   version = "3.1.0"
   url = "tex-chtml.min.js"
@@ -85,7 +100,7 @@
   url = "instantsearch-theme-algolia.min.css"
 [static.css.highlight]
   version = "9.18.1"
-  url = "/css/thirdparty/highlight.min.css"
+  url = "highlight.min.css"
 [static.css.cookieconsent]
   version = "3.1.1"
   url = "cookieconsent.min.css"

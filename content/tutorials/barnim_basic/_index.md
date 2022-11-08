@@ -36,14 +36,16 @@ to icy conditions. The rest of the scenario can be described as follows:
 
 1. A car (**Car A**) which is equipped with ad hoc communication (WiFi) capabilities detects an environmental 
 hazard - in this case an icy section on the road.
-2. **Car A** now sends out a DENM which reaches other cars in its (relatively small) dissemination area. 
+2. **Car A** now sends out a Decentralized Environmental Notification Message (DENM), which reaches other cars in its (relatively small) dissemination area. 
 With multi hop routing, the DENM message is transported upstream towards other vehicles.
 3. Cars that do not have any form of communication equipment are not warned and drive towards the
  icy part of the road. Since they have careful and responsible drivers they slow down to avoid accidents.
 4. Cars that are equipped with the appropriate communication equipment are able to receive the DENM, which 
 induces them to use a different route (green) which is safer and faster due to the lack of ice on it.
 5. Last but not least, there is a **WeatherServer** that propagates weather information over the
-cellular network.
+cellular network. 
+6. Im summary, while the simulation is running, you should see with the [Websocket Visualizer](/docs/visualization),
+vehicles as moving markers indicating when they are sending **V2X** messages (green vehicles) and receiving **V2X** messages (red vehicles).
 
 {{< figure src="images/barnim-map.png" title="Overview of Barnim tutorial scenario" numbered="true" >}}
 
@@ -119,11 +121,11 @@ Check out [server configuration](https://www.eclipse.org/mosaic/docs/simulators/
 ```
 In the `vehicles` section, we define the actual vehicles driving in the simulation. Each item represents 
 a flow of vehicles on a certain route, which can be configured the following:
-* `startingTime`: start time of the vehicle first vehicle.
-* `targetFlow` : Density of vehicles per hour. 
-* `maxNumberVehicles`: Number of vehicles in the simulation.
-* `route`: Select the route for the vehicles
-* `types`: Mapping the application, vehicle type, communication type, weighting factor.
+* `startingTime`: Start time of the first vehicle.
+* `targetFlow` : Time distance between two departing vehicles, given in vehicles per hour (1800 veh/h = 2 sec time distance). 
+* `maxNumberVehicles`: Maximum number of vehicles to be spawned in that particular flow.
+* `route`: The initial route, the vehicles use when they are spawned.
+* `types`: Mapping of the application and vehicle type. A weighting factor controls the mapping probability for each type.
 
 The `types` attribute defines the vehicle type and the applications mapped to the vehicle. By having
 the `weight` attribute, we define a distribution of vehicle types. In this case, 10% of the vehicles
@@ -204,5 +206,16 @@ The `scenario_config.json` configuration file of the Barnim tutorial should have
     }
 }
 ```
-More information about the scenario configuration can be found
-[here](/docs/scenarios#main-configuration).
+
+More information about the scenario configuration can be found [here](/docs/scenarios#main-configuration).
+
+## How the running scenario should look like
+
+{{< figure src="images/barnim-final.jpg" title="The running scenario" numbered="true" >}}
+When the scenario is running, it should look as presented in the Figure above. Some vehicles are able to take a different route as they are receiving warning messages from other vehicles.
+
+{{% alert tip %}}
+If the scenario is running too fast and you can not observe vehicle markers in the visualization, you can slow down the simulation using the realtime brake `-b`&nbsp;/&nbsp;`--realtime-brake`. 
+For example, using `-b 5` would slow down to 5 times realtime, that is 5 seconds in simulation would require 1 second in real time.
+{{% /alert %}}
+

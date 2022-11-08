@@ -82,8 +82,12 @@
   {{ else if isset site.Params "highlight" }}
     {{ $scr.Set "highlight_enabled" site.Params.highlight }}
   {{ end }}
-  {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $static_css.highlight.url) | safeHTML }}
-  {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $static_css.highlight.url) | safeHTML }}
+  {{ if not ($scr.Get "use_cdn") }}
+    {{ partial "styles_tag" (dict "key" "highlight") }}
+  {{ else }}
+    {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\">" (printf $static_css.highlight.url) | safeHTML }}
+  {{ end }}
+
 
   {{ if or (eq site.Params.map.engine 2) (eq site.Params.map.engine 3) }}
     {{ if not ($scr.Get "use_cdn") }}
@@ -102,7 +106,7 @@
       {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" (printf $cdn_css.instantsearchTheme.url $cdn_css.instantsearchTheme.version) $cdn_css.instantsearchTheme.sri | safeHTML }}
     {{ end }}
   {{ end }}
-  
+
   {{/* Load async scripts. */}}
   {{ $js_files := site.Data.assets.cdn.js }}
   {{ if not ($scr.Get "use_cdn") }}

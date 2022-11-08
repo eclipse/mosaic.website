@@ -42,14 +42,20 @@ Furthermore, each simulation requires additional simulators to be installed, for
 
 The following table gives an overview of supported environments and simulators. Please make sure that you install those versions only.
 
-|                                 Component                                 | Required |                                                                    |                         Version                         |                                                                      |
-|:-------------------------------------------------------------------------:|:--------:|:------------------------------------------------------------------:|:-------------------------------------------------------:|:--------------------------------------------------------------------:|
-| **[Java](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot)** |   yes    |     {{< version of="java_no_support" >}}<br/> _not supported_      |     **{{< version of="java" >}}** <br/> _supported_     |  {{< version of="java_limited_support" >}} <br/> _limited support_   |
-|                                                                           |          |                                                                    |                                                         |                                                                      |
-|             **[Eclipse SUMO](https://www.eclipse.org/sumo)**              |   yes*   |     {{< version of="sumo_no_support" >}}<br/> _not supported_      | **{{< version of="sumo_support" >}}** <br/> _supported_ |       {{< version of="sumo_not_tested" >}} <br/> _not tested_        |
-|              **[OMNeT++](https://omnetpp.org/download/old)**              | optional | {{< version of="omnetpp_no_support_below" >}}<br/> _not supported_ |   **{{< version of="omnetpp" >}}** <br/> _supported_    | {{< version of="omnetpp_no_support_above" >}} <br/>  _not supported_ |
-|            **[INET](https://inet.omnetpp.org/Download.html)**             | optional |  {{< version of="inet_no_support_below" >}}<br/> _not supported_   |     **{{< version of="inet" >}}** <br/> _supported_     |   {{< version of="inet_no_support_above" >}} <br/> _not supported_   |
-|            **[ns-3](https://www.nsnam.org/releases/ns-3-28)**             | optional |   {{< version of="ns3_no_support_below" >}}<br/> _not supported_   |     **{{< version of="ns3" >}}** <br/> _supported_      |        {{< version of="ns3_not_tested" >}} <br/> _not tested_        |
+<style>
+table {
+  display: table;
+}
+</style>
+
+|                                    Component                                     | Required |                                                                    |                         Version                         |                                                                      |
+|:--------------------------------------------------------------------------------:|:--------:|-------------------------------------------------------------------:|:-------------------------------------------------------:|:---------------------------------------------------------------------|
+|         **[Java](https://adoptium.net/de/temurin/releases?version=8)**           |   yes    |          {{< version of="java_no_support" >}}<br/> _not supported_ |     **{{< version of="java" >}}** <br/> _supported_     | {{< version of="java_limited_support" >}} <br/> _not tested_         |
+|                                                                                  |          |                                                                    |                                                         |                                                                      |
+|                 **[Eclipse SUMO](https://www.eclipse.org/sumo)**                 |   yes*   |          {{< version of="sumo_no_support" >}}<br/> _not supported_ | **{{< version of="sumo_support" >}}** <br/> _supported_ | {{< version of="sumo_not_tested" >}} <br/> _not tested_              |
+|                 **[OMNeT++](https://omnetpp.org/download/old)**                  | optional | {{< version of="omnetpp_no_support_below" >}}<br/> _not supported_ |   **{{< version of="omnetpp" >}}** <br/> _supported_    | {{< version of="omnetpp_no_support_above" >}} <br/>  _not supported_ |
+|                **[INET](https://inet.omnetpp.org/Download.html)**                | optional |    {{< version of="inet_no_support_below" >}}<br/> _not supported_ |     **{{< version of="inet" >}}** <br/> _supported_     | {{< version of="inet_no_support_above" >}} <br/> _not supported_     |
+| **[ns-3](https://www.nsnam.org/releases/{{< version of="ns3_release_link" >}})** | optional |     {{< version of="ns3_no_support_below" >}}<br/> _not supported_ |     **{{< version of="ns3" >}}** <br/> _supported_      | {{< version of="ns3_not_tested" >}} <br/> _not tested_               |
 
 {{% alert note %}}
 **All provided scenarios require SUMO to be installed.** However, if a different traffic or vehicle simulator 

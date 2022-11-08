@@ -39,9 +39,10 @@ With this tutorial you learn more about the following objectives:
 - Use of the VehicleApplication methods to equip the simulation unit with different behaviour. 
 {{% /alert %}}
 
-| Application              | Description |
-|--------------------------|-------------|
-| `OnUpdateVehicleInfoApp` | VehicleApplication interface methods overview and usage. Understanding of these methods dependency from simulation update interval. | 
+| Application              | Description                                                                                                                                |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `OnUpdateVehicleInfoApp` | VehicleApplication interface methods overview and usage. Understanding of these methods dependency from simulation update interval.        |
+| `PerceptionApp`          | This application showcases the functionalities of the [perception module and perception modifiers](/docs/develop_applications/perception). |
 
 ### Inter App Communication (Intra unit)
 
