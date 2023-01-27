@@ -16,22 +16,50 @@ The [Application Simulator](/docs/simulators/application_simulator#eclipse-mosai
 for vehicle units. This module allows to emulate basic detection of other traffic entities using a field of view filter.
 To warrant fast simulation MOSAIC utilizes a spatial index, which allows for quick pre-selection of relevant entities.
 
+{{% alert note %}}
+Currently, vehicles are the only units being able to perceive other units.
+Additionally, only the perception of other vehicles and traffic lights is supported. 
+{{% /alert %}}
+
 ## Configuration
 The perception module can be configured in the `mosaic/scenarios/<scenario_name>/application/application_config.json`.
 The most important configuration is the choice of a perception backend and its parameters.
-MOSAIC implements a *Trivial*, *QuadTree* and *Grid* backend, with *QuadTree* being the default setting.
-Below is an example of a `application_config.json` on how to configure the *Grid* index.
+For every perceivable unit-type exists a defined index. The current configuration for the vehicle index happens via the parameter
+`vehicleIndex`, and for the traffic light index `trafficLightIndex`.
+Current index implementations are shown in the table below:
+
+| Unit Type      | Index Name         | Description                                                                                                                                                                                                                                                                          | Configurable Parameters   |
+|----------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| Vehicles       | `VehicleMap`       | An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.                                                                                                                                                        | n.a.                      |
+| Vehicles       | `VehicleTree`      | An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.                                                                                                                                  | `splitSize`, `maxDepth`   |
+| Vehicles       | `VehicleGrid`      | An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.                                                                                                    | `cellWidth`, `cellHeight` |
+| Vehicles       | `SumoIndex`        | A placeholder to use SUMO's [context subscription](https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html) to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously. | n.a.                      |
+| Traffic Lights | `TrafficLightMap`  | An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.                                                                            | n.a.                      |
+| Traffic Lights | `TrafficLightTree` | An index using a KD-tree store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.                                                                                                                                   | `bucketSize`              |
+
+Below is an example of a `application_config.json` on how to configure the perception using a grid index for vehicles
+and the trivial index for traffic lights.
 ```json
 {
     "perceptionConfiguration": {
-        "perceptionBackend": "Grid",
-        "gridCellWidth": "5m",
-        "gridCellHeight": "5m"
+        "vehicleIndex": {
+            "type": "VehicleGrid",
+            "cellWidth": "5m",
+            "cellHeight": "5m"
+        },
+        "trafficLightIndex": {
+            "type": "TrafficLightMap"
+        }
     }
 }
 ```
+{{% alert note %}}
+If no index is configured, perception for the respective units is disabled.
+{{% /alert %}}
+
 For more information on choosing a backend for your scenario see [here](/docs/extending_mosaic/perception_deep_dive).
 
+**Application Configuration**  
 In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:
@@ -49,9 +77,8 @@ public void onStartup() {
 }
 ```
 
-Currently, the module only supports the perception of other vehicles, but this will be extended in the future.
-
 ## Usage
+**Vehicles**  
 To get a list of vehicles in perception range the `getPerceivedVehicles()`-method is called:
 ```java
 // get list of vehicles in perception range
@@ -61,7 +88,25 @@ getLog().infoSimTime(this, "Perceived vehicles: {}",
         perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 ```
 
-The `VehicleObject`-class contains information about the perceived vehicles' position, speed and heading.
+The `VehicleObject`-class contains information about the perceived vehicles' position, speed, and heading, as well as its dimensions
+(length, width, height).
+
+**Traffic Lights**  
+Retrieving all traffic lights in perception range is achieved using the `getPerceivedTrafficLights()`:
+```java
+// get list of traffic lights in perception range
+List<TrafficLightObject> perceivedTrafficLights = getOs().getPerceptionModule().getPerceivedTrafficLights();
+// log the list of perceived traffic light IDs
+getLog().infoSimTime(this, "Perceived traffic lights: {}",
+        perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
+```
+
+The `TrafficLightObject`-class contains information about the perceived traffic lights' position, state (i.e., green, red, ...), and
+the incoming and outgoing lanes that are controlled by the individual signal.
+
+{{% alert note %}}
+The perception of traffic lights uses the position of the stop lines at the intersection, and this is the only 
+{{% /alert %}}
 
 ## Perception Modifiers
 The perception module can be configured with different `PerceptionModifier`s, which can be used

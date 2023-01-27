@@ -213,7 +213,7 @@ equip them with the `HelloWorldApp`, which we will have a look at next.
     ],
     "vehicles": [
         {
-            "startingTime": 10.0,
+            "startingTime": "10.0 s",
             "route": "3",
             "targetFlow": 1200,
             "maxNumberVehicles": 3,

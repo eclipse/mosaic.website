@@ -8,15 +8,26 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
-R. Protzmann, K. Schrab, M. Schweppenhäuser, and I. Radusch:  
-**"Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."**  
-_SUMO User Conference 2022_,
-Berlin, Germany, 2022.
+K. Schrab, R. Protzmann, I. Radusch\
+**["A Large-Scale Traffic Scenario of Berlin for Evaluating Smart Mobility Applications."](https://github.com/mosaic-addons/best-scenario)**\
+_Proceedings of 6th Conference on Sustainable Urban Mobility (CSUM 2022)_.\
+Skiathos, Greece, August 31 - September 2, 2022.
+
+
+M. Neubauer, G. Ruddeck, K. Schrab, R. Protzmann, I. Radusch\
+**"A Pedestrian Movement Model for 3D Visualization in a Driving Simulation Environment."** <!--https://publica.fraunhofer.de/handle/publica/428389-->\
+_IEEE/ACM 26th International Symposium on Distributed Simulation and Real Time Applications (DS-RT 2022)_,\
+Alès, France, 26-28 September 2022, ISBN: `978-1-6654-9799-2`, DOI: `10.1109/DS-RT55542.2022.9932038`.
+
+R. Protzmann, K. Schrab, M. Schweppenhäuser, and I. Radusch:\
+**"Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."** <!--https://publica.fraunhofer.de/handle/publica/428384-->\
+_SUMO User Conference 2022_,\
+Berlin, Germany, 2022, DOI: `10.52825/scp.v3i.123`.
 
 K. Massow, F. M. Thiele, K. Schrab, B. S. Bunk, I. Tschinibaew and I. Radusch:  
 **["Scenario Definition for Prototyping Cooperative Advanced Driver Assistance Systems."](https://publica.fraunhofer.de/dokumente/N-624731.html)**  
 _IEEE 23rd International Conference on Intelligent Transportation Systems (ITSC 2020)_  
-Rhodes, Greece, 2020, pp. 1-8, doi: `10.1109/ITSC45102.2020.9294238.`
+Rhodes, Greece, 2020, pp. 1-8, DOI: `10.1109/ITSC45102.2020.9294238.`
 
 Doko A., Markantonakis V., Papamichail I., Papageorgiou M., Schrab K., Neubauer M. and Protzmann R.:  
 **"A dynamic lane assignment strategy for mixed vehicle traffic – A simulation-based investigation."**  

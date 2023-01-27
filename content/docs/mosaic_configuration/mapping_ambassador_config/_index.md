@@ -61,8 +61,8 @@ Object to define additional configuration options for the mapping
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
-|start|`number`|Defines the point in time (in seconds) to start spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration.|No|[0, +$\infty$]|None|
-|end|`number`|Defines the point in time (in seconds) to end spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration or until the simulation ends.|No|[0, +$\infty$]|None|
+|start|`string`<br>`number`|Defines the point in time (in seconds) to start spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration.|No|None|None|
+|end|`string`<br>`number`|Defines the point in time (in seconds) to end spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration or until the simulation ends.|No|None|None|
 |scaleTraffic|`number`|Scales the traffic by the given factor. E.g. 2.0 would double the number of spawned vehicles|No|[0, +$\infty$]|`1`|
 |adjustStartingTimes|`boolean`|If set to true and if the parameter start is set, the starting times of each spawner is adjusted accordingly, so that we shouldn't wait in case that the simulation starting time and spawner starting time are widely spread out. All spawners before start will be completely ignored then.|No|None|`false`|
 |randomizeFlows|`boolean`|If set to true, all flow definitions defined by vehicle spawners with more than one vehicle resulting in slightly randomized departure times. The specified `targetFlow` of the vehicle spawner is kept.|No|None|`false`|
@@ -83,18 +83,42 @@ Object to define a prototype, which can complete the definitions of other object
 |---|---|---|---|---|---|
 |name|`string`|The name of this prototype is used to match it against other objects.| &#10003; Yes|None|None|
 |group|`string`|The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple prototype entities.|No|None|None|
+|color|`string`|The color of the vehicle for visualization purposes.|No|None|None|
 |accel|`number`|Acceleration in m/s^2.|No|(0, +$\infty$]|None|
 |decel|`number`|Deceleration in m/s^2.|No|(0, +$\infty$]|None|
 |length|`string`<br>`number`|Length of the vehicle. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to specify the unit of measurement (e.g. '500 cm').|No|(0, +$\infty$]|None|
 |maxSpeed|`string`<br>`number`|Maximal speed. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. '50 kmh').|No|None|None|
+|speedFactor|`number`|The speed factor of the vehicle to apply to speed limits. E.g., with a value of 1.1 the vehicle would exceed the speed limit of an edge by 10 percent.|No|[0, +$\infty$]|None|
 |minGap|`string`<br>`number`|Distance in meter between front bumper of a vehicle and the back bumper of its leader in a traffic jam. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to include the unit of measurement (e.g. '300 cm').|No|(0, +$\infty$]|None|
 |sigma|`number`|Driver imperfection. This is a parameter of the car-following model.|No|[0, 1]|None|
 |tau|`number`|Driver reaction time in seconds. This is a parameter of the car-following model.|No|[0, +$\infty$]|None|
 |weight|`number`|The weight is used to distribute objects between multiple types. All weights do NOT have to add up to 1 or 100. (Example: A vehicle spawner defining a traffic stream contains two prototypeDeserializers with the weights being 4 and 6. The resulting traffic stream will consist to 40% of the one type and 60% of the other)|No|[0, +$\infty$]|None|
+|deviations|[`deviations`](#reference-deviations)|Object to define a standard deviation of single parameters of a specific prototype. For each spawned vehicle, a variation of the prototype will be generated, if at least one of the following parameters is larger than 0.|No|None|None|
+|laneChangeMode|`string`|Predefined modes adjusting the lane change behavior.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-prototypelanechangemode)|None|
+|speedMode|`string`|Predefined modes adjusting the speed appliance behavior.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-prototypespeedmode)|None|
 |vehicleClass|`string`|Class of the vehicle. The classes are used in lane definitions and allow/disallow the use of lanes for certain vehicle types (e.g. a taxi lane).|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-prototypevehicleclass)|None|
 |applications|`string[]`|The applications to be used for this object.|No|None|None|
 
 **Further property restrictions:**  
+<a name="restriction-prototypelanechangemode"></a> 
+### prototype.laneChangeMode
+
+* **Allowed values**:
+   * `DEFAULT`
+   * `OFF`
+   * `CAUTIOUS`
+   * `COOPERATIVE`
+   * `AGGRESSIVE`
+   * `PASSIVE`
+<a name="restriction-prototypespeedmode"></a> 
+### prototype.speedMode
+
+* **Allowed values**:
+   * `DEFAULT`
+   * `CAUTIOUS`
+   * `NORMAL`
+   * `AGGRESSIVE`
+   * `SPEEDER`
 <a name="restriction-prototypevehicleclass"></a> 
 ### prototype.vehicleClass
 
@@ -119,6 +143,28 @@ Object to define a prototype, which can complete the definitions of other object
 
 
 ---------------------------------------
+<a name="reference-deviations"></a>
+## Prototype Parameter Deviations
+
+Object to define a standard deviation of single parameters of a specific prototype. For each spawned vehicle, a variation of the prototype will be generated, if at least one of the following parameters is larger than 0.
+
+**Properties**
+
+|   |Type|Description|Required|Boundaries|Default|
+|---|---|---|---|---|---|
+|length|`number`|The standard deviation to apply on the length of the prototype.|No|[0, +$\infty$]|None|
+|width|`number`|The standard deviation to apply on the width of the prototype.|No|[0, +$\infty$]|None|
+|height|`number`|The standard deviation to apply on the height of the prototype.|No|[0, +$\infty$]|None|
+|minGap|`number`|The standard deviation to apply on the minimum gap of the prototype.|No|[0, +$\infty$]|None|
+|maxSpeed|`number`|The standard deviation to apply on the maximum speed of the prototype.|No|[0, +$\infty$]|None|
+|speedFactor|`number`|The standard deviation to apply on the speed factor of the prototype.|No|[0, +$\infty$]|None|
+|accel|`number`|The standard deviation to apply on the acceleration value of the prototype.|No|[0, +$\infty$]|None|
+|decel|`number`|The standard deviation to apply on the deceleration value of the prototype.|No|[0, +$\infty$]|None|
+|tau|`number`|The standard deviation to apply on the desired headway time (tau) of the prototype.|No|[0, +$\infty$]|None|
+
+
+
+---------------------------------------
 <a name="reference-typedistribution"></a>
 ## typeDistribution
 
@@ -139,8 +185,8 @@ Object to define vehicles to be spawned in the simulation. This property describ
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
-|startingTime|`number`|Time at which the first vehicle will be created.|No|[0, +$\infty$]|`0`|
-|maxTime|`number`|Simulation time in seconds at which no more vehicles will be created.|No|[0, +$\infty$]|None|
+|startingTime|`string`<br>`number`|Time in seconds at which the first vehicle will be created.|No|None|None|
+|maxTime|`string`<br>`number`|Simulation time in seconds at which no more vehicles will be created.|No|None|None|
 |targetFlow|`number`|Density of vehicles per hour. Vehicles will be spawned uniformly.|No|[0, +$\infty$]|`600`|
 |maxNumberVehicles|`number`|Maximum number of vehicles to be created from this source.|No|[0, +$\infty$]|None|
 |departSpeed|`string`<br>`number`|The speed at which the vehicle is supposed to depart. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. '10 kmh'). Depending on the simulator this value may only be used if departSpeedMode is set to PRECISE.|No|None|None|
@@ -236,8 +282,8 @@ Object to define a mapper for an Origin-Destination (OD) matrix. The mapper cont
 |types|[`prototype[]`](#reference-prototype)|Array of prototypes to define the vehicles that should be spawned.|No|None|None|
 |deterministic|`boolean`|If deterministic is true the spawning-process will be exactly the same with every execution. If left false the order is different and the selected weights will be reached slower than in the deterministic mode.|No|None|`true`|
 |odValues|`array[]`|Values for the OD-matrix. Unit should be vehicles/hour.| &#10003; Yes|None|None|
-|startingTime|`number`|Time at which the first vehicle will be created.|No|[0, +$\infty$]|`0`|
-|maxTime|`number`|Simulation time in seconds at which no more vehicles will be created.|No|[0, +$\infty$]|None|
+|startingTime|`string`<br>`number`|Time in seconds at which the first vehicle will be created.|No|None|None|
+|maxTime|`string`<br>`number`|Simulation time in seconds at which no more vehicles will be created.|No|None|None|
 |departSpeedMode|`string`|The depart speed mode determines the vehicle's speed at insertion.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-matrixmapperdepartspeedmode)|`MAXIMUM`|
 |laneSelectionMode|`string`|The lane selection mode chooses the lane for the next departing vehicle.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-matrixmapperlaneselectionmode)|`DEFAULT`|
 

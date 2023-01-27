@@ -135,7 +135,7 @@ have no additional functionality to receive messages from the weather server.
 ```json
 "vehicles": [
         {
-            "startingTime": 5.0,
+            "startingTime": "5.0 s",
             "targetFlow": 1800,
             "maxNumberVehicles": 120,
             "route": "1",

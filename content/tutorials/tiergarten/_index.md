@@ -108,7 +108,7 @@ in more detail:
 ```json
 "vehicles": [
 	{
-		"startingTime": 1.0,
+		"startingTime": "1.0 s",
 		"route": "0",
 		"maxNumberVehicles": 1,
 		"types": [ { "name": "Car" } ]

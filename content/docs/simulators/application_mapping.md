@@ -95,14 +95,21 @@ routes, and types of the vehicles.
 
 Each spawner in this list generates a traffic stream of vehicles on a certain `route`. The vehicles stream begins at `startingTime` and 
 generates vehicles until `maxNumberVehicles` is reached. The time between two consecutively vehicles is implicitly given by the
-`targetFlow` property, which defines how many vehicles per hour are going to be spawned. 
+`targetFlow` property, which defines how many vehicles per hour are going to be spawned.
+{{% alert tip %}}
+All times (e.g., `startingTime`) can be defined as numbers or alternatively using a string and defining a unit (e.g. `"5.0 s"`).
+As some configurations use nanoseconds and others use seconds you are always on the save side using the string declaration as
+MOSAIC will convert values correctly.
+{{% /alert %}}
 
 Each vehicle spawner must refer to at least one vehicle type (`types`). A vehicle type must either refer to a type from the `prototypes`
 section by using its `name`, or be defined as a completely new vehicle type with all necessary parameters. If more than one vehicle type
 is referenced in the `types` attribute, `weight`s can be used to specify the ratios to choose between them when loading an individual
 vehicle. If no weights are defined, individual vehicle types are assumed to be distributed equally. 
->Note: if at least one vehicle type has a weight defined, all types without a defined weight are ignored.
 
+{{% alert note %}}
+If at least one vehicle type has a weight defined, all types without a defined weight are ignored.
+{{% /alert %}}
 ```json
 "vehicles": [
     {
@@ -193,8 +200,11 @@ For more information, explained for detailed examples with different mapping opt
 The `servers`-array can be used to specify server units, which can be used to communicate with other units via the cell module.
 Capacity configurations for servers should be done when enabling the `CellModule`. Delay and transmission models are configured
 in the `network.json` of the cell module (see [here](/docs/simulators/network_simulator_cell)).
-> Note: The `group` parameter in the mapping configuration has to match with the id in the network configuration in order to
-> properly function.
+
+{{% alert note %}}
+The `group` parameter in the mapping configuration has to match with the id in the network configuration in order to properly function.
+{{% /alert %}}
+
 ```json
 "servers": [
     {
@@ -222,10 +232,12 @@ Additionally, TMCs are an extension of Servers and can be configured in the same
     }
 ]
 ```
+{{% alert note %}}
+All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
+in every simulation run with regard to the given ratios at each point in time the simulation).
+The Stochastic Mapping results in a random order of mapped units.
+{{% /alert %}}
 
-> All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
-> in every simulation run with regard to the given ratios at each point in time the simulation).
-> The Stochastic Mapping results in a random order of mapped units.
 
 ### Use Type Distributions in Complex Traffic Scenarios
 In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
