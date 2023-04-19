@@ -12,7 +12,7 @@ metadata:
 spec:
   containers:
     - name: "jnlp"
-      image: "eclipsecbi/jiro-agent-basic:remoting-4.2.1"
+      image: "eclipsecbi/jiro-agent-basic:remoting-4.13.3"
       volumeMounts:
       - name: "volume-known-hosts"
         mountPath: /home/jenkins/.ssh
