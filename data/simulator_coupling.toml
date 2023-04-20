@@ -79,14 +79,23 @@
   position = "left"
 [phabmacs]
   is_extended = true
-  title = "Traffic Simulator PHABMACS"
+  title = "Vehicle Dynamics Simulator PHABMACS"
   text = """The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework
             for testing ADAS within a simulated environment. Vehicles are simulated with advanced simulation models
             providing them with realistic driving dynamics within normal traffic situations.\n\n Tested ADAS can utilize
             simulated sensor data as well as control simulated vehicles by using virtual actuators."""
   #url = "/docs/simulators/traffic_simulator_phabmacs/"
   position = "left"
-
+[carla]
+  title = "Vehicle Simulator CARLA"
+  text = """CARLA is an open-source vehicle and environment simulator which supports development, training, and validation of
+            autonomous driving systems. In addition to open-source code and protocols, CARLA provides open digital assets
+            (urban layouts, buildings, vehicles) that were created for this purpose and can be used freely. The simulation
+            platform supports flexible specification of sensor suites, environmental conditions, full control of all static
+            and dynamic actors, maps generation and much more.\n\n _The coupling interface to integrate the CARLA simulator
+            is currently under internal development and will be published soon_."""
+  #url = "/docs/simulators/traffic_simulator_phabmacs/"
+  position = "left"
 
 # Evaluation Tools
 [3d_visualization]

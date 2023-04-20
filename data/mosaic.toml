@@ -11,8 +11,8 @@ serverRootDir = "/mosaic"
     mosaic_extended_rgb_positiv = "/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg"
 
 [versions]
-    mosaic = "22.1"
-    mosaic_snapshot = "23.0-SNAPSHOT"
+    mosaic = "23.0"
+    mosaic_snapshot = "23.1-SNAPSHOT"
 
     # Java
     java = "8, 11, 17"
@@ -20,13 +20,13 @@ serverRootDir = "/mosaic"
     java_limited_support = "18 and above"
 
     # SUMO
-    sumo = "1.14.1"
+    sumo = "1.16.0"
     sumo_no_support = "0.32.0 and below"
-    sumo_support = "1.0.1 - 1.14.1"
-    sumo_full_support = "1.2.0 - 1.14.1"
+    sumo_support = "1.0.1 - 1.16.0"
+    sumo_full_support = "1.2.0 - 1.16.0"
     sumo_minimum = "1.0.1"
     sumo_limited_support = "1.0.1, 1.1.0"
-    sumo_not_tested = "above 1.14.1"
+    sumo_not_tested = "above 1.16.0"
 
     # OMNeT++ und INET
     omnetpp = "5.5.1"

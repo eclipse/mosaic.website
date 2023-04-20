@@ -10,8 +10,9 @@ title = "Conference Proceedings"
 
 K. Schrab, R. Protzmann, I. Radusch\
 **["A Large-Scale Traffic Scenario of Berlin for Evaluating Smart Mobility Applications."](https://github.com/mosaic-addons/best-scenario)**\
-_Proceedings of 6th Conference on Sustainable Urban Mobility (CSUM 2022)_.\
-Skiathos, Greece, August 31 - September 2, 2022.
+_Nathanail, E.G., Gavanas, N., Adamos, G. (eds) Smart Energy for Smart Transport._\
+_CSUM 2022. Lecture Notes in Intelligent Transportation and Infrastructure. Springer, Cham_.\
+Skiathos, Greece, August 31 - September 2, 2022, DOI: `10.1007/978-3-031-23721-8_24`.
 
 
 M. Neubauer, G. Ruddeck, K. Schrab, R. Protzmann, I. Radusch\

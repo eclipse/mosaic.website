@@ -28,15 +28,15 @@ For every perceivable unit-type exists a defined index. The current configuratio
 `vehicleIndex`, and for the traffic light index `trafficLightIndex`.
 Current index implementations are shown in the table below:
 
-| Unit Type      | Index Name         | Description                                                                                                                                                                                                                                                                          | Configurable Parameters   |
-|----------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| Vehicles       | `VehicleMap`       | An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.                                                                                                                                                        | n.a.                      |
-| Vehicles       | `VehicleTree`      | An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.                                                                                                                                  | `splitSize`, `maxDepth`   |
-| Vehicles       | `VehicleGrid`      | An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.                                                                                                    | `cellWidth`, `cellHeight` |
-| Vehicles       | `SumoIndex`        | A placeholder to use SUMO's [context subscription](https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html) to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously. | n.a.                      |
-| Traffic Lights | `TrafficLightMap`  | An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.                                                                            | n.a.                      |
-| Traffic Lights | `TrafficLightTree` | An index using a KD-tree store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.                                                                                                                                   | `bucketSize`              |
-
+| Perceived Objects | Index Name         | Description                                                                                                                                                                                                                                                                          | Configurable Parameters   |
+|-------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| Vehicles          | `VehicleMap`       | An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.                                                                                                                                                        | n.a.                      |
+| Vehicles          | `VehicleTree`      | An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.                                                                                                                                  | `splitSize`, `maxDepth`   |
+| Vehicles          | `VehicleGrid`      | An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.                                                                                                    | `cellWidth`, `cellHeight` |
+| Vehicles          | `SumoIndex`        | A placeholder to use SUMO's [context subscription](https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html) to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously. | n.a.                      |
+| Traffic Lights    | `TrafficLightMap`  | An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.                                                                            | n.a.                      |
+| Traffic Lights    | `TrafficLightTree` | An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.                                                                                                                                | `bucketSize`              |
+| Building Walls    | `WallIndex`        | An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the [scenario database](/docs/develop_applications/road_traffic).                                                                                         | `bucketSize`              |
 Below is an example of a `application_config.json` on how to configure the perception using a grid index for vehicles
 and the trivial index for traffic lights.
 ```json
@@ -49,6 +49,9 @@ and the trivial index for traffic lights.
         },
         "trafficLightIndex": {
             "type": "TrafficLightMap"
+        },
+        "wallIndex": {
+            "type": "WallTree"
         }
     }
 }
