@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Download Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/getting_started/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/getting_started/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/getting_started/index.xml" rel="self" type="application/rss+xml" />
     <description>Download Eclipse MOSAIC</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Download Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/docs/getting_started/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/getting_started/</link>
     </image>
     
     <item>
       <title>Run a simulation with Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/docs/getting_started/run_mosaic/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/getting_started/run_mosaic/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/getting_started/run_mosaic/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/getting_started/run_mosaic/</guid>
       <description>&lt;p&gt;To run a single simulation via Command Line Interface (CLI), call the Eclipse MOSAIC start script with the
 following command line arguments.&lt;/p&gt;
 &lt;h3 id=&#34;gnulinux&#34;&gt;GNU/Linux&lt;/h3&gt;
@@ -54,10 +54,7 @@ mosaic.bat -c .\scenarios\&amp;lt;scenario_name&amp;gt;\scenario_config.json
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
-    Visualization in your browser
-&lt;/a&gt;
-:&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;Visualization in your browser&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-dos&#34;&gt;mosaic.bat -s Barnim -v
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -163,10 +160,7 @@ table th:nth-of-type(2) {
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
-    Websocket Visualizer
-&lt;/a&gt;
-.&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;Websocket Visualizer&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-h&lt;/code&gt;&lt;br&gt;&lt;code&gt;--help&lt;/code&gt;&lt;/td&gt;
@@ -176,7 +170,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 22.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 23.0 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -227,10 +221,7 @@ files can be found in the &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/logs/log-&amp;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/&#34;&gt;
-    Output Generator
-&lt;/a&gt;
-&lt;/strong&gt; implementations. For  example, the &lt;code&gt;FileOutputGenerator&lt;/code&gt; generates
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;Output Generator&lt;/a&gt;&lt;/strong&gt; implementations. For  example, the &lt;code&gt;FileOutputGenerator&lt;/code&gt; generates
 detailed outputs of e.g. vehicle positions, speeds, or message exchanges.
 In the scenarios brought by the latest release, this output mechanism is already configured.&lt;/p&gt;
 &lt;h2 id=&#34;scenario-configuration&#34;&gt;Scenario Configuration&lt;/h2&gt;
@@ -291,18 +282,15 @@ in the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/&#34;&gt;
-    Tutorials section
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/&#34;&gt;Tutorials section&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Simulation Results</title>
-      <link>https://www.eclipse.org/mosaic/docs/getting_started/results/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/getting_started/results/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/getting_started/results/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/getting_started/results/</guid>
       <description>&lt;p&gt;Eclipse MOSAIC generates log files for each simulation run. Log files are generated for the ambassadors of each
 coupled federate respectively simulator and for the RTI itself. The log files are stored in the
 folder &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/logs/log-&amp;lt;timestamp&amp;gt;&lt;/code&gt;. For each simulation run a new folder is created.&lt;/p&gt;
@@ -340,10 +328,7 @@ simulation depending on your simulation focus.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    this site
-&lt;/a&gt;
- for a detailed overview of all
+&lt;a href=&#34;https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this site&lt;/a&gt; for a detailed overview of all
 parameters you can use in the &lt;code&gt;logback.xml&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;Please note that you can adjust the output to your needs by setting different log levels (&lt;code&gt;ERROR&lt;/code&gt;, &lt;code&gt;INFO&lt;/code&gt;,
 &lt;code&gt;DEBUG&lt;/code&gt; etc.) for each component in the file at &lt;code&gt;&amp;lt;mosaic-root&amp;gt;/etc/logback.xml&lt;/code&gt;. This might also influence

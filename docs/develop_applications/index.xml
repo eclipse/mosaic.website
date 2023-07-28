@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Create Applications for MOSAIC with Java | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/develop_applications/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/develop_applications/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/develop_applications/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/develop_applications/index.xml" rel="self" type="application/rss+xml" />
     <description>Create Applications for MOSAIC with Java</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Jul 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Create Applications for MOSAIC with Java</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/</link>
     </image>
     
     <item>
       <title>Event Scheduling</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/event_scheduling/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/event_scheduling/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/event_scheduling/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/event_scheduling/</guid>
       <description>&lt;p&gt;Applications are implemented by reacting to specific events. Those events are, amongst others:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The simulation has started: All static units (e.g. road side units) are set up (&lt;code&gt;onStartup()&lt;/code&gt; is called)&lt;/li&gt;
@@ -31,7 +31,7 @@
 
 &lt;div class=&#34;svg-wrap mt-1 mb-4&#34;&gt;
   &lt;div class=&#34;inner&#34;&gt;
-    &lt;svg aria-labelledby=&#34;chart-title-mermaid-1658409613458 chart-desc-mermaid-1658409613458&#34; role=&#34;img&#34; viewBox=&#34;-50 -10 937 875&#34; style=&#34;max-width: 937px; background-color: white;&#34; height=&#34;875&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;100%&#34; id=&#34;mermaid-1658409613458&#34;&gt;&lt;title id=&#34;chart-title-mermaid-1658409613458&#34;&gt;&lt;/title&gt;&lt;desc id=&#34;chart-desc-mermaid-1658409613458&#34;&gt;&lt;/desc&gt;&lt;style&gt;#mermaid-1658409613458 {font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1658409613458 .error-icon{fill:#552222;}#mermaid-1658409613458 .error-text{fill:#552222;stroke:#552222;}#mermaid-1658409613458 .edge-thickness-normal{stroke-width:2px;}#mermaid-1658409613458 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1658409613458 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1658409613458 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1658409613458 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1658409613458 .marker{fill:#333333;stroke:#333333;}#mermaid-1658409613458 .marker.cross{stroke:#333333;}#mermaid-1658409613458 svg{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;}#mermaid-1658409613458 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 text.actor&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .actor-line{stroke:grey;}#mermaid-1658409613458 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-1658409613458 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-1658409613458 #arrowhead path{fill:#333;stroke:#333;}#mermaid-1658409613458 .sequenceNumber{fill:white;}#mermaid-1658409613458 #sequencenumber{fill:#333;}#mermaid-1658409613458 #crosshead path{fill:#333;stroke:#333;}#mermaid-1658409613458 .messageText{fill:#333;stroke:#333;}#mermaid-1658409613458 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 .labelText,#mermaid-1658409613458 .labelText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .loopText,#mermaid-1658409613458 .loopText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-1658409613458 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-1658409613458 .noteText,#mermaid-1658409613458 .noteText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1658409613458 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-1658409613458 .actorPopupMenu{position:absolute;}#mermaid-1658409613458 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-1658409613458 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1658409613458 .actor-man circle,#mermaid-1658409613458 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-1658409613458 :root{--mermaid-font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;}&lt;/style&gt;&lt;g&gt;&lt;/g&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;computer&#34;&gt;&lt;path d=&#34;M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34; id=&#34;database&#34;&gt;&lt;path d=&#34;M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;clock&#34;&gt;&lt;path d=&#34;M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z&#34; transform=&#34;scale(.5)&#34;&gt;&lt;/path&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;75&#34; y1=&#34;5&#34; x1=&#34;75&#34; id=&#34;actor0&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-0&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;332&#34; y1=&#34;5&#34; x1=&#34;332&#34; id=&#34;actor1&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-1&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;157&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;253.5&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;332&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;332&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;562&#34; y1=&#34;5&#34; x1=&#34;562&#34; id=&#34;actor2&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-2&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;487&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;562&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;562&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;762&#34; y1=&#34;5&#34; x1=&#34;762&#34; id=&#34;actor3&#34;&gt;&lt;/line&gt;&lt;g id=&#34;root-3&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;687&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;762&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;762&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;12&#34; markerWidth=&#34;12&#34; markerUnits=&#34;userSpaceOnUse&#34; refY=&#34;5&#34; refX=&#34;9&#34; id=&#34;arrowhead&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker refY=&#34;4&#34; refX=&#34;16&#34; orient=&#34;auto&#34; markerHeight=&#34;8&#34; markerWidth=&#34;15&#34; id=&#34;crosshead&#34;&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 9,2 V 6 L16,4 Z&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;black&#34;&gt;&lt;/path&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 0,1 L 6,7 M 6,1 L 0,7&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;none&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;28&#34; markerWidth=&#34;20&#34; refY=&#34;7&#34; refX=&#34;18&#34; id=&#34;filled-head&#34;&gt;&lt;path d=&#34;M 18,7 L9,13 L14,7 L9,1 Z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;40&#34; markerWidth=&#34;60&#34; refY=&#34;15&#34; refX=&#34;15&#34; id=&#34;sequencenumber&#34;&gt;&lt;circle r=&#34;6&#34; cy=&#34;15&#34; cx=&#34;15&#34;&gt;&lt;/circle&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;g&gt;&lt;/g&gt;&lt;g&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;155&#34; x=&#34;557&#34;&gt;&lt;/rect&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;199&#34; x=&#34;757&#34;&gt;&lt;/rect&gt;&lt;/g&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;80&#34; x=&#34;204&#34;&gt;VehicleRegistration&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;109&#34; x2=&#34;327&#34; y1=&#34;109&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;124&#34; x=&#34;450&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;153&#34; x2=&#34;562&#34; y1=&#34;153&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;168&#34; x=&#34;550&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;197&#34; x2=&#34;762&#34; y1=&#34;197&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;212&#34; x=&#34;204&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;241&#34; x2=&#34;327&#34; y1=&#34;241&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;256&#34; x=&#34;447&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;285&#34; x2=&#34;557&#34; y1=&#34;285&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;300&#34; x=&#34;547&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;329&#34; x2=&#34;757&#34; y1=&#34;329&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;344&#34; x=&#34;204&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;373&#34; x2=&#34;327&#34; y1=&#34;373&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;388&#34; x=&#34;447&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;417&#34; x2=&#34;557&#34; y1=&#34;417&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;432&#34; x=&#34;547&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;461&#34; x2=&#34;757&#34; y1=&#34;461&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;476&#34; x=&#34;547&#34;&gt;sendV2xMessage()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;505&#34; x2=&#34;337&#34; y1=&#34;505&#34; x1=&#34;757&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;520&#34; x=&#34;204&#34;&gt;V2xMessageTransmission&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;549&#34; x2=&#34;80&#34; y1=&#34;549&#34; x1=&#34;327&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;564&#34; x=&#34;204&#34;&gt;V2xMessageReceiption&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;593&#34; x2=&#34;327&#34; y1=&#34;593&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;608&#34; x=&#34;447&#34;&gt;onMessageReceived()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;637&#34; x2=&#34;557&#34; y1=&#34;637&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;652&#34; x=&#34;204&#34;&gt;VehicleUpdates (remove)&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;681&#34; x2=&#34;327&#34; y1=&#34;681&#34; x1=&#34;80&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;696&#34; x=&#34;447&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;725&#34; x2=&#34;557&#34; y1=&#34;725&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;text style=&#34;font-family: &amp;quot;trebuchet ms&amp;quot;, verdana, arial, sans-serif; font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;740&#34; x=&#34;547&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;769&#34; x2=&#34;757&#34; y1=&#34;769&#34; x1=&#34;337&#34;&gt;&lt;/line&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;157&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;253.5&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;332&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;332&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;487&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;562&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;562&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;687&#34;&gt;&lt;/rect&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400; font-family: &amp;quot;Open Sans&amp;quot;, sans-serif;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;762&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;762&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
+    &lt;svg aria-labelledby=&#34;chart-title-mermaid-1666691301138 chart-desc-mermaid-1666691301138&#34; role=&#34;img&#34; viewBox=&#34;-50 -10 903 875&#34; style=&#34;max-width: 903px; background-color: white;&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;100%&#34; id=&#34;mermaid-1666691301138&#34;&gt;&lt;title id=&#34;chart-title-mermaid-1666691301138&#34;/&gt;&lt;desc id=&#34;chart-desc-mermaid-1666691301138&#34;/&gt;&lt;style&gt;#mermaid-1666691301138 {font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1666691301138 .error-icon{fill:#552222;}#mermaid-1666691301138 .error-text{fill:#552222;stroke:#552222;}#mermaid-1666691301138 .edge-thickness-normal{stroke-width:2px;}#mermaid-1666691301138 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1666691301138 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1666691301138 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1666691301138 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1666691301138 .marker{fill:#333333;stroke:#333333;}#mermaid-1666691301138 .marker.cross{stroke:#333333;}#mermaid-1666691301138 svg{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;}#mermaid-1666691301138 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1666691301138 text.actor&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1666691301138 .actor-line{stroke:grey;}#mermaid-1666691301138 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-1666691301138 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-1666691301138 #arrowhead path{fill:#333;stroke:#333;}#mermaid-1666691301138 .sequenceNumber{fill:white;}#mermaid-1666691301138 #sequencenumber{fill:#333;}#mermaid-1666691301138 #crosshead path{fill:#333;stroke:#333;}#mermaid-1666691301138 .messageText{fill:#333;stroke:none;}#mermaid-1666691301138 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1666691301138 .labelText,#mermaid-1666691301138 .labelText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1666691301138 .loopText,#mermaid-1666691301138 .loopText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1666691301138 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-1666691301138 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-1666691301138 .noteText,#mermaid-1666691301138 .noteText&amp;gt;tspan{fill:black;stroke:none;}#mermaid-1666691301138 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-1666691301138 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-1666691301138 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-1666691301138 .actorPopupMenu{position:absolute;}#mermaid-1666691301138 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-1666691301138 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-1666691301138 .actor-man circle,#mermaid-1666691301138 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-1666691301138 :root{--mermaid-font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;}&lt;/style&gt;&lt;g/&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;computer&#34;&gt;&lt;path d=&#34;M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z&#34; transform=&#34;scale(.5)&#34;/&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34; id=&#34;database&#34;&gt;&lt;path d=&#34;M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z&#34; transform=&#34;scale(.5)&#34;/&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;defs&gt;&lt;symbol height=&#34;24&#34; width=&#34;24&#34; id=&#34;clock&#34;&gt;&lt;path d=&#34;M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z&#34; transform=&#34;scale(.5)&#34;/&gt;&lt;/symbol&gt;&lt;/defs&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;75&#34; y1=&#34;5&#34; x1=&#34;75&#34; id=&#34;actor0&#34;/&gt;&lt;g id=&#34;root-0&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;0&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;316&#34; y1=&#34;5&#34; x1=&#34;316&#34; id=&#34;actor1&#34;/&gt;&lt;g id=&#34;root-1&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;241&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;316&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;316&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;528&#34; y1=&#34;5&#34; x1=&#34;528&#34; id=&#34;actor2&#34;/&gt;&lt;g id=&#34;root-2&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;453&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;528&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;528&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g&gt;&lt;line stroke=&#34;#999&#34; stroke-width=&#34;0.5px&#34; class=&#34;200&#34; y2=&#34;809&#34; x2=&#34;728&#34; y1=&#34;5&#34; x1=&#34;728&#34; id=&#34;actor3&#34;/&gt;&lt;g id=&#34;root-3&#34;&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;0&#34; x=&#34;653&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;32.5&#34; x=&#34;728&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;728&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;12&#34; markerWidth=&#34;12&#34; markerUnits=&#34;userSpaceOnUse&#34; refY=&#34;5&#34; refX=&#34;9&#34; id=&#34;arrowhead&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker refY=&#34;4&#34; refX=&#34;16&#34; orient=&#34;auto&#34; markerHeight=&#34;8&#34; markerWidth=&#34;15&#34; id=&#34;crosshead&#34;&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 9,2 V 6 L16,4 Z&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;black&#34;/&gt;&lt;path style=&#34;stroke-dasharray: 0, 0;&#34; d=&#34;M 0,1 L 6,7 M 6,1 L 0,7&#34; stroke-width=&#34;1px&#34; stroke=&#34;#000000&#34; fill=&#34;none&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;28&#34; markerWidth=&#34;20&#34; refY=&#34;7&#34; refX=&#34;18&#34; id=&#34;filled-head&#34;&gt;&lt;path d=&#34;M 18,7 L9,13 L14,7 L9,1 Z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;40&#34; markerWidth=&#34;60&#34; refY=&#34;15&#34; refX=&#34;15&#34; id=&#34;sequencenumber&#34;&gt;&lt;circle r=&#34;6&#34; cy=&#34;15&#34; cx=&#34;15&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;g/&gt;&lt;g/&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;155&#34; x=&#34;523&#34;/&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;activation0&#34; ry=&#34;0&#34; rx=&#34;0&#34; height=&#34;570&#34; width=&#34;10&#34; stroke=&#34;#666&#34; fill=&#34;#EDF2AE&#34; y=&#34;199&#34; x=&#34;723&#34;/&gt;&lt;/g&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;80&#34; x=&#34;196&#34;&gt;VehicleRegistration&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;109&#34; x2=&#34;311&#34; y1=&#34;109&#34; x1=&#34;80&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;124&#34; x=&#34;425&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;153&#34; x2=&#34;528&#34; y1=&#34;153&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;168&#34; x=&#34;525&#34;&gt;onStartup()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;197&#34; x2=&#34;728&#34; y1=&#34;197&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;212&#34; x=&#34;196&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;241&#34; x2=&#34;311&#34; y1=&#34;241&#34; x1=&#34;80&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;256&#34; x=&#34;422&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;285&#34; x2=&#34;523&#34; y1=&#34;285&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;300&#34; x=&#34;522&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;329&#34; x2=&#34;723&#34; y1=&#34;329&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;344&#34; x=&#34;196&#34;&gt;VehicleUpdates&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;373&#34; x2=&#34;311&#34; y1=&#34;373&#34; x1=&#34;80&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;388&#34; x=&#34;422&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;417&#34; x2=&#34;523&#34; y1=&#34;417&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;432&#34; x=&#34;522&#34;&gt;onVehicleUpdated()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;461&#34; x2=&#34;723&#34; y1=&#34;461&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;476&#34; x=&#34;522&#34;&gt;sendV2xMessage()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;505&#34; x2=&#34;321&#34; y1=&#34;505&#34; x1=&#34;723&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;520&#34; x=&#34;196&#34;&gt;V2xMessageTransmission&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;549&#34; x2=&#34;80&#34; y1=&#34;549&#34; x1=&#34;311&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;564&#34; x=&#34;196&#34;&gt;V2xMessageReceiption&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;593&#34; x2=&#34;311&#34; y1=&#34;593&#34; x1=&#34;80&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;608&#34; x=&#34;422&#34;&gt;onMessageReceived()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;637&#34; x2=&#34;523&#34; y1=&#34;637&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;652&#34; x=&#34;196&#34;&gt;VehicleUpdates (remove)&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;681&#34; x2=&#34;311&#34; y1=&#34;681&#34; x1=&#34;80&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;696&#34; x=&#34;422&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;725&#34; x2=&#34;523&#34; y1=&#34;725&#34; x1=&#34;321&#34;/&gt;&lt;text style=&#34;font-size: 16px; font-weight: 400;&#34; dy=&#34;1em&#34; class=&#34;messageText&#34; alignment-baseline=&#34;middle&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34; y=&#34;740&#34; x=&#34;522&#34;&gt;onShutdown()&lt;/text&gt;&lt;line style=&#34;fill: none;&#34; marker-end=&#34;url(#arrowhead)&#34; stroke=&#34;none&#34; stroke-width=&#34;2&#34; class=&#34;messageLine0&#34; y2=&#34;769&#34; x2=&#34;723&#34; y1=&#34;769&#34; x1=&#34;321&#34;/&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;0&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;75&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;75&#34;&gt;RTI&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;241&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;316&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;316&#34;&gt;ApplicationSimulator&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;453&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;528&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;528&#34;&gt;Application1&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g&gt;&lt;rect class=&#34;actor&#34; ry=&#34;3&#34; rx=&#34;3&#34; height=&#34;65&#34; width=&#34;150&#34; stroke=&#34;#666&#34; fill=&#34;#eaeaea&#34; y=&#34;789&#34; x=&#34;653&#34;/&gt;&lt;text style=&#34;text-anchor: middle; font-size: 14px; font-weight: 400;&#34; class=&#34;actor&#34; alignment-baseline=&#34;central&#34; dominant-baseline=&#34;central&#34; y=&#34;821.5&#34; x=&#34;728&#34;&gt;&lt;tspan dy=&#34;0&#34; x=&#34;728&#34;&gt;Application2&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
   &lt;/div&gt;
   
 &lt;/div&gt;
@@ -91,9 +91,9 @@ public void mySpecificMethod(Event event) {
     
     <item>
       <title>Application Interfaces</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/application_interfaces/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/application_interfaces/</link>
       <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/application_interfaces/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/application_interfaces/</guid>
       <description>&lt;p&gt;Application interfaces handle call-backs to incoming events via their methods, like &lt;code&gt;onVehicleUpdated()&lt;/code&gt;, called by the
 application simulator. The following table lists all interfaces usable for application implementation, the type of unit as well as
 important other interfaces it implements. Interface specific public methods which have to be implemented by the user are listed in the
@@ -123,10 +123,7 @@ are given in
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/&#34;&gt;
-    Development of applications
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/&#34;&gt;Development of applications&lt;/a&gt;.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -234,9 +231,9 @@ are given in
     
     <item>
       <title>Unit Operating System</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/operating_system/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/operating_system/</link>
       <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/operating_system/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/operating_system/</guid>
       <description>&lt;p&gt;In order to define the type of unit your application can run on, you need to speficy the operating system by choosing one of the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;VehicleOperatingSystem&lt;/code&gt; - for applications mapped to normal vehicles.&lt;/li&gt;
@@ -328,10 +325,7 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/navigation/&#34;&gt;
-    Navigation Module
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/navigation/&#34;&gt;Navigation Module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -357,10 +351,7 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;
-    Communication Module
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;Communication Module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -386,19 +377,16 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;
-    Perception Module
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;Perception Module&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Communication in Applications</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/communication/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/communication/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/communication/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/communication/</guid>
       <description>&lt;p&gt;Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
 communication should occur. Communication can be achieved with external
 network simulators (
@@ -426,10 +414,7 @@ network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
-    OMNeT++
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;OMNeT++&lt;/a&gt;,
 
 
 
@@ -455,10 +440,7 @@ network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;
-    ns-3
-&lt;/a&gt;
-) or one of the built-in communication simulators 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;ns-3&lt;/a&gt;) or one of the built-in communication simulators 
 
 
 
@@ -483,10 +465,7 @@ network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
-    SNS
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;SNS&lt;/a&gt;
 or 
 
 
@@ -512,10 +491,7 @@ or
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
-    Eclipse MOSAIC Cell
-&lt;/a&gt;
-. Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;Eclipse MOSAIC Cell&lt;/a&gt;. Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
 detail.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cellular Communication&lt;/li&gt;
@@ -553,10 +529,7 @@ Afterwards, depending on your use case, you can enable the desired communication
   
   
 
-&lt;a href=&#34;#cellular-communication&#34;&gt;
-    Cellular Configuration
-&lt;/a&gt;
- and 
+&lt;a href=&#34;#cellular-communication&#34;&gt;Cellular Configuration&lt;/a&gt; and 
 
 
 
@@ -565,10 +538,7 @@ Afterwards, depending on your use case, you can enable the desired communication
   
   
 
-&lt;a href=&#34;#ad-hoc-configuration&#34;&gt;
-    Ad-hoc Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;#ad-hoc-configuration&#34;&gt;Ad-hoc Configuration&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;cellular-communication&#34;&gt;Cellular Communication&lt;/h2&gt;
 &lt;p&gt;The cellular network is known from wireless mobile communication and the principle is to divide the entire geographic
@@ -808,10 +778,7 @@ channels.&lt;/p&gt;
   
   
 
-&lt;a href=&#34;#general-configuration&#34;&gt;
-    General Configuration
-&lt;/a&gt;
-.
+&lt;a href=&#34;#general-configuration&#34;&gt;General Configuration&lt;/a&gt;.
 Afterwards, to configure and enable the AdHoc-module in your application you have to call the &lt;code&gt;enable&lt;/code&gt;-method of your applications&#39;
 Adhoc-module and define a configuration.
 Usually you will do this in the &lt;code&gt;onStartup()&lt;/code&gt;-method to enable the module from the get-go.
@@ -963,10 +930,7 @@ routing protocol in network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
-    OMNeT++
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;OMNeT++&lt;/a&gt;,
 
 
 
@@ -992,10 +956,7 @@ routing protocol in network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;
-    ns-3
-&lt;/a&gt;
-). But the built in communication simulator
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;ns-3&lt;/a&gt;). But the built in communication simulator
 
 
 
@@ -1021,10 +982,7 @@ routing protocol in network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
-    SNS
-&lt;/a&gt;
- includes a simple routing protocol &amp;ldquo;Flooding&amp;rdquo;.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;SNS&lt;/a&gt; includes a simple routing protocol &amp;ldquo;Flooding&amp;rdquo;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;ad-hoc-topocast&#34;&gt;Ad-hoc Topocast&lt;/h3&gt;
@@ -1196,9 +1154,9 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
     
     <item>
       <title>Navigation in Applications</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/navigation/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/navigation/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/navigation/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/navigation/</guid>
       <description>&lt;p&gt;The navigation of vehicles (i.e. calculation of routes) is handled completely by the 
 
 
@@ -1224,10 +1182,7 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
-. Each vehicle is equipped
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt;. Each vehicle is equipped
 with a navigation system which provides all required information and functions for navigational purposes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Retrieve the current position and heading of the vehicle.&lt;/li&gt;
@@ -1262,10 +1217,7 @@ needs to be transformed before the simulation using scenario-convert (see
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/create_a_new_scenario/&#34;&gt;
-    Create a New Scenario
-&lt;/a&gt;
-).
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/create_a_new_scenario/&#34;&gt;Create a New Scenario&lt;/a&gt;).
 The map data including initial routes for vehicles is provided with the database file which needs to be located in
 &lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/&amp;lt;scenario_name&amp;gt;.db&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;To enable non-moving entities (i.e. RSUs, Servers, &amp;hellip;) to access routing capabilities the &lt;code&gt;IRoutingModule&lt;/code&gt; can be implemented
@@ -1310,9 +1262,9 @@ if (response.getBestRoute() != null) {
     
     <item>
       <title>Perception in Applications</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/perception/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/perception/</link>
       <pubDate>Wed, 13 Jul 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/perception/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/perception/</guid>
       <description>&lt;p&gt;The 
 
 
@@ -1338,25 +1290,138 @@ if (response.getBestRoute() != null) {
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
- bundles a perception module
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt; bundles a perception module
 for vehicle units. This module allows to emulate basic detection of other traffic entities using a field of view filter.
 To warrant fast simulation MOSAIC utilizes a spatial index, which allows for quick pre-selection of relevant entities.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;Currently, vehicles are the only units being able to perceive other units.
+Additionally, only the perception of other vehicles and traffic lights is supported.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured in the &lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/application_config.json&lt;/code&gt;.
 The most important configuration is the choice of a perception backend and its parameters.
-MOSAIC implements a &lt;em&gt;Trivial&lt;/em&gt;, &lt;em&gt;QuadTree&lt;/em&gt; and &lt;em&gt;Grid&lt;/em&gt; backend, with &lt;em&gt;QuadTree&lt;/em&gt; being the default setting.
-Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the &lt;em&gt;Grid&lt;/em&gt; index.&lt;/p&gt;
+For every perceivable unit-type exists a defined index. The current configuration for the vehicle index happens via the parameter
+&lt;code&gt;vehicleIndex&lt;/code&gt;, and for the traffic light index &lt;code&gt;trafficLightIndex&lt;/code&gt;.
+Current index implementations are shown in the table below:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Perceived Objects&lt;/th&gt;
+&lt;th&gt;Index Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Configurable Parameters&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Vehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;VehicleMap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.&lt;/td&gt;
+&lt;td&gt;n.a.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;VehicleTree&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;splitSize&lt;/code&gt;, &lt;code&gt;maxDepth&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;VehicleGrid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cellWidth&lt;/code&gt;, &lt;code&gt;cellHeight&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SumoIndex&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A placeholder to use SUMO&amp;rsquo;s 
+
+
+
+
+&lt;a href=&#34;https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;context subscription&lt;/a&gt; to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously.&lt;/td&gt;
+&lt;td&gt;n.a.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Traffic Lights&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;TrafficLightMap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.&lt;/td&gt;
+&lt;td&gt;n.a.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Traffic Lights&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;TrafficLightTree&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Building Walls&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;WallIndex&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/road_traffic/&#34;&gt;scenario database&lt;/a&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the perception using a grid index for vehicles&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;and the trivial index for traffic lights.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;perceptionConfiguration&amp;quot;: {
-        &amp;quot;perceptionBackend&amp;quot;: &amp;quot;Grid&amp;quot;,
-        &amp;quot;gridCellWidth&amp;quot;: &amp;quot;5m&amp;quot;,
-        &amp;quot;gridCellHeight&amp;quot;: &amp;quot;5m&amp;quot;
+        &amp;quot;vehicleIndex&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;VehicleGrid&amp;quot;,
+            &amp;quot;cellWidth&amp;quot;: &amp;quot;5m&amp;quot;,
+            &amp;quot;cellHeight&amp;quot;: &amp;quot;5m&amp;quot;
+        },
+        &amp;quot;trafficLightIndex&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;TrafficLightMap&amp;quot;
+        },
+        &amp;quot;wallIndex&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;WallTree&amp;quot;
+        }
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;If no index is configured, perception for the respective units is disabled.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;For more information on choosing a backend for your scenario see 
 
 
@@ -1382,11 +1447,9 @@ Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/perception_deep_dive/&#34;&gt;
-    here
-&lt;/a&gt;
-.&lt;/p&gt;
-&lt;p&gt;In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/perception_deep_dive/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Application Configuration&lt;/strong&gt;&lt;br&gt;
+In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static VIEWING_ANGLE = 120; // [degree]
@@ -1401,16 +1464,32 @@ public void onStartup() {
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);  
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Currently, the module only supports the perception of other vehicles, but this will be extended in the future.&lt;/p&gt;
 &lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;p&gt;To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicles()&lt;/code&gt;-method is called:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vehicles&lt;/strong&gt;&lt;br&gt;
+To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicles()&lt;/code&gt;-method is called:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of vehicles in perception range
 List&amp;lt;VehicleObject&amp;gt; perceivedVehicles = getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
 getLog().infoSimTime(this, &amp;quot;Perceived vehicles: {}&amp;quot;,
         perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed and heading.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed, and heading, as well as its dimensions
+(length, width, height).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Traffic Lights&lt;/strong&gt;&lt;br&gt;
+Retrieving all traffic lights in perception range is achieved using the &lt;code&gt;getPerceivedTrafficLights()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of traffic lights in perception range
+List&amp;lt;TrafficLightObject&amp;gt; perceivedTrafficLights = getOs().getPerceptionModule().getPerceivedTrafficLights();
+// log the list of perceived traffic light IDs
+getLog().infoSimTime(this, &amp;quot;Perceived traffic lights: {}&amp;quot;,
+        perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;TrafficLightObject&lt;/code&gt;-class contains information about the perceived traffic lights&#39; position, state (i.e., green, red, &amp;hellip;), and
+the incoming and outgoing lanes that are controlled by the individual signal.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;The perception of traffic lights uses the position of the stop lines at the intersection, and this is the only&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;perception-modifiers&#34;&gt;Perception Modifiers&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured with different &lt;code&gt;PerceptionModifier&lt;/code&gt;s, which can be used
 to emulate occlusion, false negatives, position areas, etc.
@@ -1584,9 +1663,9 @@ of your scenario you may want to limit usage.&lt;/p&gt;
     
     <item>
       <title>Scenario Database</title>
-      <link>https://www.eclipse.org/mosaic/docs/develop_applications/road_traffic/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/develop_applications/road_traffic/</link>
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/develop_applications/road_traffic/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/develop_applications/road_traffic/</guid>
       <description>&lt;p&gt;Each scenario to be simulated with Eclipse MOSAIC requires a database which contains information about the road infrastructure and routes the
 vehicles drive on. This information is used by various federates. For example, the SUMO federate needs to know initial routes for vehicles,
 and the 
@@ -1614,10 +1693,7 @@ and the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
- requires detailed information about the road
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;Application Simulator&lt;/a&gt; requires detailed information about the road
 infrastructure to provide applications with methods for route calculation. For this purpose, an embedded SQLite database is
 used which is placed in the &lt;code&gt;application&lt;/code&gt; folder of the scenario. This database consists of the following tables:&lt;/p&gt;
 &lt;h3 id=&#34;database-tables&#34;&gt;Database tables&lt;/h3&gt;
@@ -1688,10 +1764,7 @@ used which is placed in the &lt;code&gt;application&lt;/code&gt; folder of the s
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;
-    occlusion models
-&lt;/a&gt;
-, or sophisticated communication simulation models.&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/perception/&#34;&gt;occlusion models&lt;/a&gt;, or sophisticated communication simulation models.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Properties&lt;/code&gt;&lt;/td&gt;

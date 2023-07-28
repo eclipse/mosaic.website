@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Core Concepts | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/extending_mosaic/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/extending_mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Core Concepts</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Core Concepts</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/</link>
     </image>
     
     <item>
       <title>Simulator Coupling</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/simulator_coupling/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/simulator_coupling/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/simulator_coupling/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/simulator_coupling/</guid>
       <description>&lt;p&gt;This section provides general information which helps to couple your own simulator with Eclipse MOSAIC. For a
 successful coupling, two parts are required: the Federate Ambassador is the communication interface
 between the RTI and your simulator. It implements predefined interfaces of the Eclipse MOSAIC core library
@@ -93,10 +93,7 @@ function correctly. If you have read up on High Level Architecture before
 
 
 
-&lt;a href=&#34;https://en.wikipedia.org/wiki/High_Level_Architecture&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    here
-&lt;/a&gt;
- and at the linked references) you might notice, that the
+&lt;a href=&#34;https://en.wikipedia.org/wiki/High_Level_Architecture&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and at the linked references) you might notice, that the
 previous flowchart does not completely reflect the proposed mechanisms. For instance, the &lt;code&gt;isTimeRegulating&lt;/code&gt; flag has no effect, when the
 &lt;code&gt;isTimeConstrained&lt;/code&gt; flag is not set.&lt;br&gt;
 So at some points you might stumble upon federates, which have their &lt;code&gt;isTimeConstrained&lt;/code&gt; and &lt;code&gt;isTimeRegulating&lt;/code&gt; flags set to different
@@ -246,9 +243,9 @@ required.&lt;/p&gt;
     
     <item>
       <title>Interactions in Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/interactions/</link>
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/interactions/</guid>
       <description>&lt;p&gt;This chapter is intended to document interactions that can be sent and received between Eclipse MOSAIC federates
 in order to enable users to easily design and integrate new federates and connect them to existing
 federates. Note that we use the word &amp;ldquo;interaction&amp;rdquo; whenever we describe communication between federates,
@@ -283,10 +280,7 @@ are handled by the ambassadors for the traffic simulators (see
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/lust/&#34;&gt;
-    LuST
-&lt;/a&gt;
--scenario).
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/lust/&#34;&gt;LuST&lt;/a&gt;-scenario).
 In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -705,9 +699,9 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
     
     <item>
       <title>Application Ambassador - Implementation Details</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/application_ambassador_details/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/application_ambassador_details/</link>
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/application_ambassador_details/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/application_ambassador_details/</guid>
       <description>&lt;p&gt;The Application Simulator is completely implemented as an Eclipse MOSAIC Ambassador in Java. The main class &lt;code&gt;ApplicationAmbassador&lt;/code&gt; is
 started by the RTI and creates different components, like the &lt;code&gt;SimulationKernel&lt;/code&gt; singleton or the &lt;code&gt;CentralNavigationComponent&lt;/code&gt;.
 Subsequently, it will find all the Java Archive (JAR) files in the &lt;code&gt;application&lt;/code&gt; configuration directory, belonging to the currently started
@@ -787,10 +781,7 @@ like any other node.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/interactions/&#34;&gt;
-    Interaction
-&lt;/a&gt;
-),
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/interactions/&#34;&gt;Interaction&lt;/a&gt;),
 signaling events to the Application Simulator. For most of them, an event in the future will be programmed, such that the implied action is
 carried out at that simulation time. The processing of the events happens when the RTI calls the &lt;code&gt;advanceTime()&lt;/code&gt; method on the ambassador.
 Upon this, Application Simulator will obtain a list of all events up to the new time and let the processor of the event process them. Every
@@ -816,10 +807,7 @@ handling process is sketched shortly:&lt;/p&gt;
   
   
 
-&lt;a href=&#34;#node-creation&#34;&gt;
-    Node Creation
-&lt;/a&gt;
-), are added by calling &lt;code&gt;addVehicleIfNotYetAdded()&lt;/code&gt;.&lt;/td&gt;
+&lt;a href=&#34;#node-creation&#34;&gt;Node Creation&lt;/a&gt;), are added by calling &lt;code&gt;addVehicleIfNotYetAdded()&lt;/code&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;MessageReception&lt;/code&gt;&lt;/td&gt;
@@ -836,9 +824,9 @@ handling process is sketched shortly:&lt;/p&gt;
     
     <item>
       <title>Sumo Ambassador Implementation</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/sumo_ambassador_details/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/sumo_ambassador_details/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/sumo_ambassador_details/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/sumo_ambassador_details/</guid>
       <description>&lt;p&gt;The Simulation of Urban Mobility (SUMO) simulator is an open source microscopic, multi-modal traf-
 fic simulation package which is developed by the Institute of Transportation research at the German
 Aerospace Centre. It is designed to handle large road networks faster than real-time. Each vehicle has
@@ -965,10 +953,7 @@ following scheme:&lt;/p&gt;
 
 
 
-&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Protocol&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    http://sumo.dlr.de/wiki/TraCI/Protocol
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Protocol&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://sumo.dlr.de/wiki/TraCI/Protocol&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;commands&#34;&gt;Commands&lt;/h3&gt;
 &lt;p&gt;Each TraCI command is identified by an command identifier. For example, the command 0xC4 is used to
 change the state of a vehicle. Most of the commands need further specification, such as the parameter of
@@ -979,10 +964,7 @@ be found here:
 
 
 
-&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    http://sumo.dlr.de/wiki/TraCI
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://sumo.dlr.de/wiki/TraCI&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Here is an example of a command message to change the speed of the vehicle &amp;ldquo;veh_0&amp;rdquo; to 14m/s:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; 0                 7 8                 15                23 24               31
 +-----------------------------------------------------------------------------+
@@ -1026,10 +1008,7 @@ the speed value to be set (according to
 
 
 
-&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State
-&lt;/a&gt;
-).
+&lt;a href=&#34;http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://sumo.dlr.de/wiki/TraCI/Change_Vehicle_State&lt;/a&gt;).
 Note, the order of the specified command contents is from crucial importance. E.g. the &lt;code&gt;command&lt;/code&gt; must
 always be specified before the &lt;code&gt;variable&lt;/code&gt;, and the variable before all parameters.&lt;/p&gt;
 &lt;p&gt;All parameters defined in the constructor (here: &lt;code&gt;[String, Double]&lt;/code&gt; ), need to be assigned with values
@@ -1231,9 +1210,9 @@ using the &lt;code&gt;&amp;quot;libsumo&amp;quot;&lt;/code&gt; or &lt;code&gt;&a
     
     <item>
       <title>OMNeT&#43;&#43; Federate Development</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnetpp_details/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnetpp_details/</guid>
       <description>&lt;p&gt;This section provides a description how to set up the &lt;strong&gt;OMNeT++ IDE&lt;/strong&gt; for the Eclipse MOSAIC OMNeT++ Federate Development.&lt;/p&gt;
 &lt;p&gt;If you wish to use another IDE than OMNeT++ IDE (based on Eclipse), you can use 
 
@@ -1260,10 +1239,7 @@ using the &lt;code&gt;&amp;quot;libsumo&amp;quot;&lt;/code&gt; or &lt;code&gt;&a
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/ns3_setup/#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;
-    ns-3 Federate Development Setup
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_setup/#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;ns-3 Federate Development Setup&lt;/a&gt;
 as inspiration - it describes the setup of Visual Studio Code.&lt;/p&gt;
 &lt;div class=&#34;alert alert-warning&#34;&gt;
   &lt;div&gt;
@@ -1292,10 +1268,7 @@ as inspiration - it describes the setup of Visual Studio Code.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
-    OMNeT++ Federate
-&lt;/a&gt;
- is successfully installed.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;OMNeT++ Federate&lt;/a&gt; is successfully installed.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;prepare-omnet-ide&#34;&gt;Prepare OMNeT++ IDE&lt;/h2&gt;
@@ -1366,10 +1339,7 @@ Uncheck INET and decide for yourself if you want to install the examples.&lt;/p&
 
 
 
-&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    INET 4.1.1
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INET 4.1.1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Unpack it into the working directory of OMNeT++ IDE (Eclipse)&lt;/li&gt;
 &lt;li&gt;Rename the unpacked directory &lt;code&gt;inet4&lt;/code&gt; to &lt;code&gt;inet&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Insert the directory &lt;code&gt;inet&lt;/code&gt; as project to OMNeT++ IDE (as described above)&lt;/li&gt;
@@ -1700,9 +1670,9 @@ instruction will tell you how to do that:&lt;/p&gt;
     
     <item>
       <title>ns-3 Federate Development Setup</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/ns3_setup/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_setup/</link>
       <pubDate>Fri, 23 Jul 2021 20:00:00 +0200</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/ns3_setup/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_setup/</guid>
       <description>&lt;p&gt;The following instructions steps lead you to a common &lt;strong&gt;development setup for the Eclipse MOSAIC ns-3 Federate&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -1732,10 +1702,7 @@ instruction will tell you how to do that:&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://premake.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://premake.github.io/
-&lt;/a&gt;
-).&lt;br&gt;
+&lt;a href=&#34;https://premake.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://premake.github.io/&lt;/a&gt;).&lt;br&gt;
 For our purpose it doesn&amp;rsquo;t matter which way you choose:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;install package of your Linux distribution &lt;strong&gt;or&lt;/strong&gt;&lt;/li&gt;
@@ -1809,10 +1776,7 @@ In order to start development at the federate, you need to change a few parts in
 
 
 
-&lt;a href=&#34;https://clang.llvm.org/docs/JSONCompilationDatabase.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    database format for compilation information
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://clang.llvm.org/docs/JSONCompilationDatabase.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;database format for compilation information&lt;/a&gt;,
 containing necessary information to build the project which enables different tools to parse the source code in the same
 way (flags/debug/release/dependency version&amp;hellip;). This is needed by VS Code&amp;rsquo;s plugin &lt;em&gt;clangd&lt;/em&gt;.&lt;br&gt;
 (If you use an IDE which does not need this database, you can omit this &lt;em&gt;option 2&lt;/em&gt;.)&lt;/p&gt;
@@ -1823,10 +1787,7 @@ For instance
 
 
 
-&lt;a href=&#34;https://github.com/nickdiego/compiledb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    compiledb
-&lt;/a&gt;
-, whose installation is shown below.&lt;/li&gt;
+&lt;a href=&#34;https://github.com/nickdiego/compiledb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;compiledb&lt;/a&gt;, whose installation is shown below.&lt;/li&gt;
 &lt;li&gt;Call that software&lt;/li&gt;
 &lt;li&gt;Build federate&lt;/li&gt;
 &lt;/ol&gt;
@@ -1858,10 +1819,7 @@ compiledb make -j1
 
 
 
-&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    &lt;em&gt;Visual Studio Code&lt;/em&gt;
-&lt;/a&gt;
- (VS Code).
+&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Visual Studio Code&lt;/em&gt;&lt;/a&gt; (VS Code).
 You should be familiar with VS Code&amp;rsquo;s basic usage.&lt;/p&gt;
 &lt;p&gt;Alternatively you can use any other development environment like:&lt;/p&gt;
 &lt;ul&gt;
@@ -1932,9 +1890,9 @@ You should be familiar with VS Code&amp;rsquo;s basic usage.&lt;/p&gt;
     
     <item>
       <title>Event Scheduling</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/event_scheduler/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/event_scheduler/</link>
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/event_scheduler/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/event_scheduler/</guid>
       <description>&lt;p&gt;The different modules of the 
 
 
@@ -1960,10 +1918,7 @@ You should be familiar with VS Code&amp;rsquo;s basic usage.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt;
 communicate over events that are triggered at a specific simulation time. The following classes and interfaces model theses events.&lt;/p&gt;
 &lt;h3 id=&#34;event&#34;&gt;Event&lt;/h3&gt;
 &lt;p&gt;The class &lt;code&gt;Event&lt;/code&gt; contains the information that is necessary to process an event. An event describes when it should be processed and which information is processed. Moreover an event has an assigned priority.&lt;/p&gt;
@@ -1985,10 +1940,7 @@ communicate over events that are triggered at a specific simulation time. The fo
 
 
 
-&lt;a href=&#34;https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Comparable
-&lt;/a&gt;
-.  Toorder the events, first the time of the event is evaluated. In case the times are equal, the priority of the events is compared.&lt;/li&gt;
+&lt;a href=&#34;https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Comparable&lt;/a&gt;.  Toorder the events, first the time of the event is evaluated. In case the times are equal, the priority of the events is compared.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;interface-eventmanager&#34;&gt;Interface EventManager&lt;/h3&gt;
 &lt;p&gt;The interface &lt;code&gt;EventManager&lt;/code&gt; defines the method &lt;code&gt;void addEvent(Event event)&lt;/code&gt; that needs to be implemented to add an event to the execution.&lt;/p&gt;
@@ -2027,9 +1979,9 @@ events that shall be intercepted.&lt;/p&gt;
     
     <item>
       <title>Delay Models</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/delay_models/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/delay_models/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/delay_models/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/delay_models/</guid>
       <description>&lt;p&gt;MOSAIC has different types of delays implemented for different use cases. This page will
 give a short introduction into the types and their usages, as well as example configurations,
 which are used throughout MOSAIC. The implementations can be
@@ -2085,9 +2037,9 @@ by a speed penalty. Both delay-types aim to provide more realistic solution, tha
     
     <item>
       <title>Deep Dive Perception Module</title>
-      <link>https://www.eclipse.org/mosaic/docs/extending_mosaic/perception_deep_dive/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/perception_deep_dive/</link>
       <pubDate>Tue, 07 Jun 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/extending_mosaic/perception_deep_dive/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/perception_deep_dive/</guid>
       <description>&lt;p&gt;This page aims to give details into the concepts of MOSAICs perception module, for information on the usage view the
 documentation 
 
@@ -2114,10 +2066,7 @@ documentation
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/#perception&#34;&gt;
-    here
-&lt;/a&gt;
-.
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/#perception&#34;&gt;here&lt;/a&gt;.
 Perception in MOSAIC is evaluated in a two-step process:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;First a spatial search, using a spatial index, is performed to get a pre-selection of relevant vehicles&lt;/li&gt;
@@ -2152,10 +2101,7 @@ To allow every vehicle to access the spatial index we opted for a global impleme
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
-, which is only updated when some vehicle
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt;, which is only updated when some vehicle
 requests a spatial search (lazy loading).
 MOSAIC provides three implementations for the spatial index: &lt;code&gt;Trivial&lt;/code&gt;, &lt;code&gt;QuadTree&lt;/code&gt; and &lt;code&gt;Grid&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;trivial&#34;&gt;Trivial&lt;/h4&gt;

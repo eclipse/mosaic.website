@@ -39,7 +39,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/tutorials/barnim_basic/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/tutorials/barnim_basic/">
 
   
 
@@ -63,9 +63,9 @@
   
   
   
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
   
 
   
@@ -73,22 +73,59 @@
   
     
   
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
 
   
     
-      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
     
+  
+
   
 
   
   
   
+    
   
   
     
+
+    
+    
+
+    
   
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
   
     
 
@@ -167,7 +204,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
       
     
   
@@ -192,7 +229,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
       
     
   
@@ -236,7 +273,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.org/mosaic/tutorials/barnim_basic/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/tutorials/barnim_basic/">
 
   
   
@@ -252,10 +289,10 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.org/mosaic/tutorials/barnim_basic/">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/tutorials/barnim_basic/">
   <meta property="og:title" content="Barnim Basic | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
-  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     <meta property="og:updated_time" content="2019-05-05T00:00:00&#43;01:00">
   
@@ -728,10 +765,7 @@
     
   
 
-<a href="/mosaic/download/" target="_blank" rel="noopener">
-    Download Eclipse MOSAIC
-</a>
-</strong></p>
+<a href="/mosaic/download/" target="_blank" rel="noopener">Download Eclipse MOSAIC</a></strong></p>
   </div>
 </div>
 <p>The following tutorial shows some of the features of Eclipse MOSAIC and will take a closer look
@@ -761,7 +795,7 @@ to icy conditions. The rest of the scenario can be described as follows:</p>
 <ol>
 <li>A car (<strong>Car A</strong>) which is equipped with ad hoc communication (WiFi) capabilities detects an environmental
 hazard - in this case an icy section on the road.</li>
-<li><strong>Car A</strong> now sends out a DENM which reaches other cars in its (relatively small) dissemination area.
+<li><strong>Car A</strong> now sends out a Decentralized Environmental Notification Message (DENM), which reaches other cars in its (relatively small) dissemination area.
 With multi hop routing, the DENM message is transported upstream towards other vehicles.</li>
 <li>Cars that do not have any form of communication equipment are not warned and drive towards the
 icy part of the road. Since they have careful and responsible drivers they slow down to avoid accidents.</li>
@@ -769,6 +803,33 @@ icy part of the road. Since they have careful and responsible drivers they slow 
 induces them to use a different route (green) which is safer and faster due to the lack of ice on it.</li>
 <li>Last but not least, there is a <strong>WeatherServer</strong> that propagates weather information over the
 cellular network.</li>
+<li>Im summary, while the simulation is running, you should see with the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/visualization/">Websocket Visualizer</a>,
+vehicles as moving markers indicating when they are sending <strong>V2X</strong> messages (green vehicles) and receiving <strong>V2X</strong> messages (red vehicles).</li>
 </ol>
 
 
@@ -867,10 +928,7 @@ which inherit this vehicle type.</p>
     
   
 
-<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">
-    Mapping Configuration
-</a>
-.</p>
+<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping Configuration</a>.</p>
   </div>
 </div>
 <pre><code class="language-json">&quot;prototypes&quot;: [
@@ -910,10 +968,7 @@ Check out
 
 
 
-<a href="https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/#server-configuration" target="_blank" rel="noopener">
-    server configuration
-</a>
- for more info.</p>
+<a href="https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/#server-configuration" target="_blank" rel="noopener">server configuration</a> for more info.</p>
 <pre><code class="language-json">&quot;servers&quot;: [
         {
             &quot;name&quot;: &quot;WeatherServer&quot;,
@@ -925,11 +980,11 @@ Check out
 <p>In the <code>vehicles</code> section, we define the actual vehicles driving in the simulation. Each item represents
 a flow of vehicles on a certain route, which can be configured the following:</p>
 <ul>
-<li><code>startingTime</code>: start time of the vehicle first vehicle.</li>
-<li><code>targetFlow</code> : Density of vehicles per hour.</li>
-<li><code>maxNumberVehicles</code>: Number of vehicles in the simulation.</li>
-<li><code>route</code>: Select the route for the vehicles</li>
-<li><code>types</code>: Mapping the application, vehicle type, communication type, weighting factor.</li>
+<li><code>startingTime</code>: Start time of the first vehicle.</li>
+<li><code>targetFlow</code> : Time distance between two departing vehicles, given in vehicles per hour (1800 veh/h = 2 sec time distance).</li>
+<li><code>maxNumberVehicles</code>: Maximum number of vehicles to be spawned in that particular flow.</li>
+<li><code>route</code>: The initial route, the vehicles use when they are spawned.</li>
+<li><code>types</code>: Mapping of the application and vehicle type. A weighting factor controls the mapping probability for each type.</li>
 </ul>
 <p>The <code>types</code> attribute defines the vehicle type and the applications mapped to the vehicle. By having
 the <code>weight</code> attribute, we define a distribution of vehicle types. In this case, 10% of the vehicles
@@ -937,7 +992,7 @@ using cellular based application, 20% using ITS-G5 based application, and 70% of
 have no additional functionality to receive messages from the weather server.</p>
 <pre><code class="language-json">&quot;vehicles&quot;: [
         {
-            &quot;startingTime&quot;: 5.0,
+            &quot;startingTime&quot;: &quot;5.0 s&quot;,
             &quot;targetFlow&quot;: 1800,
             &quot;maxNumberVehicles&quot;: 120,
             &quot;route&quot;: &quot;1&quot;,
@@ -1000,8 +1055,7 @@ cellular networks in this scenario, you need to enable the <code>cell</code> sim
     }
 }
 </code></pre>
-<p>More information about the scenario configuration can be found
-
+<p>More information about the scenario configuration can be found 
 
 
 
@@ -1026,10 +1080,49 @@ cellular networks in this scenario, you need to enable the <code>cell</code> sim
     
   
 
-<a href="/mosaic/docs/scenarios/#main-configuration">
-    here
+<a href="/mosaic/docs/scenarios/#main-configuration">here</a>.</p>
+<h2 id="how-the-running-scenario-should-look-like">How the running scenario should look like</h2>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-running-scenario">
+
+
+  <a data-fancybox="" href="images/barnim-final.jpg" data-caption="The running scenario">
+
+
+  <img src="images/barnim-final.jpg" alt=""  >
 </a>
-.</p>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    The running scenario
+  </figcaption>
+
+
+</figure>
+
+When the scenario is running, it should look as presented in the Figure above. Some vehicles are able to take a different route as they are receiving warning messages from other vehicles.</p>
+<div class="alert alert-tip">
+  <div>
+<p>If the scenario is running too fast and you can not observe vehicle markers in the visualization, you can slow down the simulation using the realtime brake <code>-b</code> / <code>--realtime-brake</code>.
+For example, using <code>-b 5</code> would slow down to 5 times realtime, that is 5 seconds in simulation would require 1 second in real time.</p>
+  </div>
+</div>
 </div>
   
 
@@ -1073,29 +1166,29 @@ cellular networks in this scenario, you need to enable the <code>cell</code> sim
     
 
     
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
 
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
       
 
       
         
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
         
       
     
@@ -1152,8 +1245,8 @@ cellular networks in this scenario, you need to enable the <code>cell</code> sim
     
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
       
     
 
@@ -1523,6 +1616,23 @@ cellular networks in this scenario, you need to enable the <code>cell</code> sim
     
   </div>
 </footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
 
 
     </div>

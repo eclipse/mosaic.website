@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting Started with Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/tutorials/getting_started/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/tutorials/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/tutorials/getting_started/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/tutorials/getting_started/index.xml" rel="self" type="application/rss+xml" />
     <description>Getting Started with Eclipse MOSAIC</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Getting Started with Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/tutorials/getting_started/</link>
+      <link>https://www.eclipse.dev/mosaic/tutorials/getting_started/</link>
     </image>
     
   </channel>

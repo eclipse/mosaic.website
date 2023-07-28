@@ -2,21 +2,127 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Release | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/category/release/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/category/release/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/category/release/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/category/release/index.xml" rel="self" type="application/rss+xml" />
     <description>Release</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 18 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Release</title>
-      <link>https://www.eclipse.org/mosaic/category/release/</link>
+      <link>https://www.eclipse.dev/mosaic/category/release/</link>
     </image>
     
     <item>
+      <title>2023 Spring Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-23-0/</link>
+      <pubDate>Thu, 20 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-23-0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 23.0 to the open source community.
+This new version improves the recently introduced perception facilities in the Application simulator and brings better handling of the traffic simulation SUMO.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2023-04-20&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[A+] Perceived objects provide dimension information (length, width, height).
+[A+] The perception module can now detect traffic lights and their current states.
+[A+] Vehicles and other units are finally able to send V2X messages during their shutdown procedure.
+[A-] Resolved issues in perception module, e.g., when multiple apps used perception modifiers simultaneously.
+[M+] The RTI now detects the OS type of the local host by itself.
+[M-] Fixed minor bugs in RTI, Logging, and JSON-Scheme files.
+[S+] Scenario-Convert is now able to import building information to an existing scenario database.
+[T+] Improved handling of vehicles which are teleported by SUMO.
+[T+] Several data related to trains can now be read from SUMO.
+[T+] Now supports SUMO 1.16.0
+[X+] Introduced OpenDRIVE support for PHABMACS (Extended).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/fhlig&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fhlig&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/thonag&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; thonag&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2022 Autumn Release of Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/release-22-1/</link>
+      <link>https://www.eclipse.dev/mosaic/post/release-22-1/</link>
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/release-22-1/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/release-22-1/</guid>
       <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 22.1 to the open source community.
 This new version extends the recently introduced perception facilities in the Application simulator and upgrades the ns-3 simulator coupling.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can find the new version in our 
@@ -44,18 +150,12 @@ This new version extends the recently introduced perception facilities in the Ap
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/&#34;&gt;
-    Download section
-&lt;/a&gt;
-, and in our 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
 
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    GitHub repository
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-10-19&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -79,82 +179,55 @@ This new version extends the recently introduced perception facilities in the Ap
 
 
 
-&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/fhlig&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fhlig
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/fhlig&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fhlig&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/realmaxneu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; realmaxneu
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/realmaxneu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; realmaxneu&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann
-&lt;/a&gt;
-, and
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;, and
 
 
 
 
 
-&lt;a href=&#34;https://github.com/thonag&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; thonag
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/thonag&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; thonag&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
@@ -173,9 +246,9 @@ This new version extends the recently introduced perception facilities in the Ap
     
     <item>
       <title>2022 Spring Release of Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/release-22-0/</link>
+      <link>https://www.eclipse.dev/mosaic/post/release-22-0/</link>
       <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/release-22-0/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/release-22-0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;The spring release of Eclipse MOSAIC has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 22.0 to the open source community.
 This new version introduces perception facilities to the Application simulator and improved the integration of the traffic simulator SUMO.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can find the new version in our 
@@ -203,18 +276,12 @@ This new version introduces perception facilities to the Application simulator a
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/&#34;&gt;
-    Download section
-&lt;/a&gt;
-, and in our 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
 
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    GitHub repository
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-05-04&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -237,55 +304,37 @@ This new version introduces perception facilities to the Application simulator a
 
 
 
-&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/ninabohm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; ninabohm
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/ninabohm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; ninabohm&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo
-&lt;/a&gt;
-, and
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
 
 
 
 
 
-&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
@@ -304,9 +353,9 @@ This new version introduces perception facilities to the Application simulator a
     
     <item>
       <title>2021 Autumn Release of Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/release-21-1/</link>
+      <link>https://www.eclipse.dev/mosaic/post/release-21-1/</link>
       <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/release-21-1/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/release-21-1/</guid>
       <description>&lt;p&gt;&lt;strong&gt;A new release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 21.1 to the open source community.
 This new version focuses on a better usage of communication simulators SNS, OMNeT++, and ns-3, and allows to use a much faster integration of the traffic simulator SUMO.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can find the new version in our 
@@ -334,18 +383,12 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/&#34;&gt;
-    Download section
-&lt;/a&gt;
-, and in our 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
 
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    GitHub repository
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2021-10-07&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -368,64 +411,43 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
 
 
 
-&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/felixlutz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; felixlutz&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/realmaxneu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; realmaxneu
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/realmaxneu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; realmaxneu&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/fhilg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fhilg
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/fhilg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fhilg&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/paguos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; paguos
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/paguos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; paguos&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo
-&lt;/a&gt;
-, and
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
 
 
 
 
 
-&lt;a href=&#34;https://github.com/vogtfa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; vogtva
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://github.com/vogtfa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; vogtva&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
@@ -444,9 +466,9 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
     
     <item>
       <title>2021 Spring Release of Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/release-21-0/</link>
+      <link>https://www.eclipse.dev/mosaic/post/release-21-0/</link>
       <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/release-21-0/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/release-21-0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;The spring release has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 21.0 to the open source community.
 This new version focuses on a much better integration of SUMO configurations, and introduces a new Server entity to the Application Simulator.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can find the new version in our 
@@ -474,18 +496,12 @@ This new version focuses on a much better integration of SUMO configurations, an
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/&#34;&gt;
-    Download section
-&lt;/a&gt;
-, and in our 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
 
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    GitHub repository
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Please note our 
 
 
@@ -495,10 +511,7 @@ This new version focuses on a much better integration of SUMO configurations, an
   
   
 
-&lt;a href=&#34;#migration-guide&#34;&gt;
-    Migration Guide
-&lt;/a&gt;
- below when updating Eclipse MOSAIC.&lt;/p&gt;
+&lt;a href=&#34;#migration-guide&#34;&gt;Migration Guide&lt;/a&gt; below when updating Eclipse MOSAIC.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2021-03-10&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -518,46 +531,31 @@ This new version focuses on a much better integration of SUMO configurations, an
 
 
 
-&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/fabmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; fabmax&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/paguos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; paguos
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://github.com/paguos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; paguos&lt;/a&gt;,
 
 
 
 
 
-&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo
-&lt;/a&gt;
-, and
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
 
 
 
 
 
-&lt;a href=&#34;https://github.com/vogtfa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-     &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; vogtva
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://github.com/vogtfa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; vogtva&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;migration-guide&#34;&gt;Migration Guide&lt;/h3&gt;
 &lt;p&gt;With the improved integration of SUMO scenarios it is now possible to create a MOSAIC scenario based on any
 existing SUMO scenario (&lt;code&gt;*.sumocfg&lt;/code&gt;, &lt;code&gt;*.net.xml&lt;/code&gt;, and &lt;code&gt;*.rou.xml&lt;/code&gt;). To achieve, we had to adjust our
@@ -570,10 +568,7 @@ road network model in a way that it matches better the network representation of
 
 
 
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    scenario-convert
-&lt;/a&gt;
-.&lt;/li&gt;
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scenario-convert&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Run &lt;code&gt;scenario-convert --update -d path/to/database.db&lt;/code&gt; to update the database file of your scenario.&lt;/li&gt;
 &lt;li&gt;Run &lt;code&gt;scenario-convert --db2sumo -d path/to/database.db&lt;/code&gt; to generate a new SUMO network.&lt;/li&gt;
 &lt;li&gt;Move the generated &lt;code&gt;*.net.xml&lt;/code&gt; file to the &lt;code&gt;sumo&lt;/code&gt; directory of your scenario and replace the existing one with it.&lt;/li&gt;
@@ -583,10 +578,7 @@ road network model in a way that it matches better the network representation of
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    discussion board
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
@@ -605,9 +597,9 @@ road network model in a way that it matches better the network representation of
     
     <item>
       <title>First Release of Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/release-20-0/</link>
+      <link>https://www.eclipse.dev/mosaic/post/release-20-0/</link>
       <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/release-20-0/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/release-20-0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;The initial contribution is accomplished! With the autumn version, the committer team from Fraunhofer FOKUS and DCAITI is proud to release Eclipse MOSAIC 20.0 to the open source community. With the runtime infrastructure, core libraries and various implementations of simulators or couplings to existing ones, Eclipse MOSAIC includes the essential feature collection for simulation and virtual testing of connected and automated mobility solutions.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2020-10-19&lt;/p&gt;

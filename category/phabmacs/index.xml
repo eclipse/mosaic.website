@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHABMACS | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/category/phabmacs/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/category/phabmacs/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/category/phabmacs/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/category/phabmacs/index.xml" rel="self" type="application/rss+xml" />
     <description>PHABMACS</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>PHABMACS</title>
-      <link>https://www.eclipse.org/mosaic/category/phabmacs/</link>
+      <link>https://www.eclipse.dev/mosaic/category/phabmacs/</link>
     </image>
     
     <item>
       <title>Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended</title>
-      <link>https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/</link>
+      <link>https://www.eclipse.dev/mosaic/post/cooperative-lidar-vru-safety/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/cooperative-lidar-vru-safety/</guid>
       <description>&lt;p&gt;&lt;strong&gt;People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown with PHABMACS and MOSAIC Extended.&lt;/strong&gt;&lt;/p&gt;
 
 
@@ -39,10 +39,10 @@
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png&#34; &gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;795&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/header_hu96876ddb8b25fac64874ea85d049bd00_928574_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;795&#34;&gt;
 &lt;/a&gt;
 
 
@@ -54,10 +54,7 @@
 
 
 
-&lt;a href=&#34;https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    RealLabor Hamburg
-&lt;/a&gt;
-&lt;/strong&gt;, we used MOSAIC to create a complex traffic situation for investigating the general benefit of LiDAR based object detection and the effectiveness of merging the LiDAR sensor data (point clouds) from multiple vehicles before applying object detection. In this case, the LiDAR data would not be processed locally on the vehicles but communicated to a server (possibly in the Mobile Edge Cloud) and processed there - accordingly it results in a Cooperative LiDAR Data Fusion.&lt;/p&gt;
+&lt;a href=&#34;https://reallab-hamburg.de/projekte/vernetzte-vulnerable-road-users/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RealLabor Hamburg&lt;/a&gt;&lt;/strong&gt;, we used MOSAIC to create a complex traffic situation for investigating the general benefit of LiDAR based object detection and the effectiveness of merging the LiDAR sensor data (point clouds) from multiple vehicles before applying object detection. In this case, the LiDAR data would not be processed locally on the vehicles but communicated to a server (possibly in the Mobile Edge Cloud) and processed there - accordingly it results in a Cooperative LiDAR Data Fusion.&lt;/p&gt;
 &lt;h2 id=&#34;scenario-for-data-collection&#34;&gt;Scenario for Data Collection&lt;/h2&gt;
 &lt;p&gt;As a first step, we set up a simulation scenario at the Sievekingplatz in Hamburg.
 At the chosen road section, complicated traffic situations can arise due to the multi-lane road, the parallel bike lane, and the bus stop.
@@ -87,10 +84,7 @@ With the &lt;strong&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;
-    Mapping
-&lt;/a&gt;
-&lt;/strong&gt; configuration file, the vehicles are timed such that the second vehicle in the row can not perceive the bike when passing the bus, even in the safety-relevant close range.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;Mapping&lt;/a&gt;&lt;/strong&gt; configuration file, the vehicles are timed such that the second vehicle in the row can not perceive the bike when passing the bus, even in the safety-relevant close range.&lt;/p&gt;
 
 
 
@@ -112,10 +106,10 @@ With the &lt;strong&gt;
 &lt;figure id=&#34;figure-frame-of-the-sievekingplatz-scenario-the-trajectories-of-the-vehicles-are-marked-in-yellow&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Frame of the Sievekingplatz scenario. The trajectories of the vehicles are marked in yellow.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Frame of the Sievekingplatz scenario. The trajectories of the vehicles are marked in yellow.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;426&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_screenshot_huba8ebc700f8573edde0ea3a9a508d1cb_464271_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;426&#34;&gt;
 &lt;/a&gt;
 
 
@@ -155,10 +149,7 @@ With the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file it is possible to co
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
-    Application Simulator
-&lt;/a&gt;
-&lt;/strong&gt;, each of the passenger cars is equipped with a LiDAR sensor which scans the environment and creates a 3D point cloud at a rate of 10 Hz.
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;Application Simulator&lt;/a&gt;&lt;/strong&gt;, each of the passenger cars is equipped with a LiDAR sensor which scans the environment and creates a 3D point cloud at a rate of 10 Hz.
 To pool the LiDAR data from the passenger vehicles together at a server, we mapped a &lt;code&gt;LidarTransmissionApp&lt;/code&gt; on each vehicle, forwarding the LiDAR point cloud to the server, using the &lt;code&gt;PointCloudMessages&lt;/code&gt;.
 Additionally, all simulated vehicles (cars, bus and bike) are mapped with a &lt;code&gt;ReportingApp&lt;/code&gt;, using the &lt;code&gt;ReportMessages&lt;/code&gt; to report vehicle information such as e.g., position and heading. These data are the ground truth for original location information, used in the later accuracy comparison.
 On the server, a &lt;code&gt;DataManagementApp&lt;/code&gt; handles all received messages for the cooperative data fusion and exports data to log files, using the &lt;strong&gt;
@@ -186,10 +177,7 @@ On the server, a &lt;code&gt;DataManagementApp&lt;/code&gt; handles all received
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/filevis/&#34;&gt;
-    Output Generator
-&lt;/a&gt;
-&lt;/strong&gt;.
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/filevis/&#34;&gt;Output Generator&lt;/a&gt;&lt;/strong&gt;.
 The &lt;strong&gt;
 
 
@@ -215,10 +203,7 @@ The &lt;strong&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
-    Cell Simulator
-&lt;/a&gt;
-&lt;/strong&gt; models the message transmission between the mobile entities and the server. An overview of all components can be seen below.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;Cell Simulator&lt;/a&gt;&lt;/strong&gt; models the message transmission between the mobile entities and the server. An overview of all components can be seen below.&lt;/p&gt;
 
 
 
@@ -240,10 +225,10 @@ The &lt;strong&gt;
 &lt;figure id=&#34;figure-scenario-components-overview&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Scenario components overview&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Scenario components overview&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;458&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/scenario_overview_hude024dadbf4b3a5d490057146ad8304b_45033_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;458&#34;&gt;
 &lt;/a&gt;
 
 
@@ -286,10 +271,10 @@ In these frames an object detection could profit a lot from merging the individu
 &lt;figure id=&#34;figure-the-total-amount-of-lidar-hits-on-the-car-from-each-lidar-and-the-sum-of-all-lidar-hits&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The total amount of LiDAR hits on the car from each LiDAR and the sum of all LiDAR hits.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The total amount of LiDAR hits on the car from each LiDAR and the sum of all LiDAR hits.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;46%&#34; height=&#34;480&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/LidarHits_huf4cfe39e38ce308d65f0c0bd8a082301_71957_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;46%&#34; height=&#34;480&#34;&gt;
 &lt;/a&gt;
 
 
@@ -333,10 +318,10 @@ The often more accurate bounding boxes with &lt;em&gt;PointCloudMerge&lt;/em&gt;
 &lt;figure id=&#34;figure--comparison-of-different-data-merging-methods-with-the-boundingbox-rmse-metric&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;: Comparison of different data merging methods with the BoundingBox RMSE metric.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;: Comparison of different data merging methods with the BoundingBox RMSE metric.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;46%&#34; height=&#34;480&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/cooperative-lidar-vru-safety/PointCloudMerge_vs_ObjectMerge_hue0c3c11dd13aa5205121fc5b5b78d64a_63185_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;46%&#34; height=&#34;480&#34;&gt;
 &lt;/a&gt;
 
 
@@ -361,9 +346,9 @@ The often more accurate bounding boxes with &lt;em&gt;PointCloudMerge&lt;/em&gt;
     
     <item>
       <title>Testing Remote-Operated Driving virtually with Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/remote-operated-driving/</link>
+      <link>https://www.eclipse.dev/mosaic/post/remote-operated-driving/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/remote-operated-driving/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/remote-operated-driving/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;overview.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Remote-Operated Driving&lt;/strong&gt; is the bridge technology from human towards fully automated driving.
 In situations outside the driving domain of a highly-automated vehicle, e.g. if data is missing, or the autonomous function is unsure to
@@ -401,9 +386,9 @@ the whole simulation has to run in real time, which is possible with Eclipse MOS
     
     <item>
       <title>Testing mobility scenarios with the Open-Source simulation environment Eclipse MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/eclipse-mosaic/</link>
+      <link>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/eclipse-mosaic/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</guid>
       <description>&lt;p&gt;&lt;strong&gt;On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Whether dynamic lane assignment or traffic light phase assistant, new mobility services are designed to increase safety, efficiency, comfort, and facilitate environmentally friendly transport. The Eclipse MOSAIC simulation environment allows to explore how this can be achieved, before the services are tested in field trials on the road. Eclipse MOSAIC can also be used for testing driver assistance systems and to optimize the entire traffic.&lt;/p&gt;
 &lt;h2 id=&#34;flexible-coupling-of-simulators&#34;&gt;Flexible coupling of simulators&lt;/h2&gt;

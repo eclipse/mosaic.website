@@ -39,7 +39,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/tutorials/tiergarten/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/tutorials/tiergarten/">
 
   
 
@@ -63,9 +63,9 @@
   
   
   
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
   
 
   
@@ -73,22 +73,59 @@
   
     
   
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
 
   
     
-      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
     
+  
+
   
 
   
   
   
+    
   
   
     
+
+    
+    
+
+    
   
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
   
     
 
@@ -167,7 +204,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
       
     
   
@@ -192,7 +229,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
       
     
   
@@ -236,7 +273,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.org/mosaic/tutorials/tiergarten/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/tutorials/tiergarten/">
 
   
   
@@ -252,10 +289,10 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.org/mosaic/tutorials/tiergarten/">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/tutorials/tiergarten/">
   <meta property="og:title" content="Tiergarten | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
-  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     <meta property="og:updated_time" content="2019-05-05T00:00:00&#43;01:00">
   
@@ -723,15 +760,14 @@
     
   
 
-<a href="/mosaic/download/">
-    Download Eclipse MOSAIC
-</a>
-</strong></p>
+<a href="/mosaic/download/">Download Eclipse MOSAIC</a></strong></p>
   </div>
 </div>
 <p>This tutorial aims to provide a general overview of the Eclipse MOSAIC application concept and shows two examples that
 involve ad hoc communication via <code>IEEE</code> 802.11p between different participants and message passing from one application
-to another that run on the same vehicle.</p>
+to another that run on the same vehicle. This scenario mainly focusses on how to use applications and communication.</p>
+<p>Note, there is no specific situation which should be explained with the given setup. The scenario is located in &ldquo;Tiergarten&rdquo;
+as an example of a straight road found here.</p>
 <div class="alert alert-learning_objectives">
   <div>
   <h3>Learning Objectives</h3>
@@ -820,10 +856,7 @@ communication among applications on the same vehicle. The
     
   
 
-<a href="/mosaic/docs/simulators/network_simulator_cell/">
-    Eclipse MOSAIC Cell
-</a>
-
+<a href="/mosaic/docs/simulators/network_simulator_cell/">Eclipse MOSAIC Cell</a>
 simulator that is used to simulate cellular network communication will be covered in tutorial 2.</p>
 <h2 id="mapping-configuration">Mapping Configuration</h2>
 <div class="alert alert-tip">
@@ -853,10 +886,7 @@ simulator that is used to simulate cellular network communication will be covere
     
   
 
-<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">
-    Mapping Configuration
-</a>
-.</p>
+<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/">Mapping Configuration</a>.</p>
   </div>
 </div>
 <p>In order to use applications they have to be assigned (<code>mapped</code> in Eclipse MOSAIC terminology) to a simulation entity.
@@ -904,7 +934,7 @@ from which we have three in this tutorial scenario. Exemplary, we will describe 
 in more detail:</p>
 <pre><code class="language-json">&quot;vehicles&quot;: [
 	{
-		&quot;startingTime&quot;: 1.0,
+		&quot;startingTime&quot;: &quot;1.0 s&quot;,
 		&quot;route&quot;: &quot;0&quot;,
 		&quot;maxNumberVehicles&quot;: 1,
 		&quot;types&quot;: [ { &quot;name&quot;: &quot;Car&quot; } ]
@@ -1044,10 +1074,7 @@ via the mapping configuration.</p>
     
   
 
-<a href="/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator">
-    Eclipse MOSAIC Application Simulator
-</a>
-.
+<a href="/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator">Eclipse MOSAIC Application Simulator</a>.
 A high level description in what we need to do in order to send messages at a specific interval can be summarized as follows:</p>
 <ul>
 <li>Line up an event every X seconds. For this tutorial an interval of two seconds was chosen.</li>
@@ -1249,10 +1276,7 @@ INFO  - Sending out AdHoc broadcast (at simulation time 2.000,000,000 s)
     
   
 
-<a href="/mosaic/docs/simulators/application_simulator/">
-    Eclipse MOSAIC Application Simulator
-</a>
- to send out and
+<a href="/mosaic/docs/simulators/application_simulator/">Eclipse MOSAIC Application Simulator</a> to send out and
 receiving messages to other simulation entities or inside the same vehicle.</p>
 <p>The <code>OperatingSystem.log</code> files do not contain specific application output and is mainly used for debugging purposes and
 won&rsquo;t be discussed in this tutorial.</p>
@@ -1307,29 +1331,29 @@ following list sums up the things we have covered in this tutorial:</p>
     
 
     
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
 
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
       
 
       
         
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
         
       
     
@@ -1386,8 +1410,8 @@ following list sums up the things we have covered in this tutorial:</p>
     
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
       
     
 
@@ -1757,6 +1781,23 @@ following list sums up the things we have covered in this tutorial:</p>
     
   </div>
 </footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
 
 
     </div>

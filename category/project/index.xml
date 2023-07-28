@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/category/project/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/category/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/category/project/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/category/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Project</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Project</title>
-      <link>https://www.eclipse.org/mosaic/category/project/</link>
+      <link>https://www.eclipse.dev/mosaic/category/project/</link>
     </image>
     
     <item>
       <title>Studying Traffic Control Algorithms in MOSAIC</title>
-      <link>https://www.eclipse.org/mosaic/post/traffic-control/</link>
+      <link>https://www.eclipse.dev/mosaic/post/traffic-control/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/post/traffic-control/</guid>
+      <guid>https://www.eclipse.dev/mosaic/post/traffic-control/</guid>
       <description>&lt;p&gt;&lt;strong&gt;The simulative investigation of communication-based Traffic Management solutions requires combining models from different domains. Eclipse MOSAIC suits very well for this purpose as it couples multiple simulators to model vehicle movement pattern, infrastructure sensors, (variable) traffic signs, as well as different communication links (ITS-G5, 4G/5G) between vehicles and backends, and the application logic in entities like vehicles and a Traffic Management Center.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;featured.png&#34; alt=&#34;Inframix System Overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In a recent study, we analyzed future traffic estimation and control algorithms towards their use on highways
@@ -56,10 +56,7 @@ efficiency improvements of such estimation and control algorithms. As traffic si
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/traffic_simulator_sumo/&#34;&gt;
-    Eclipse SUMO
-&lt;/a&gt;
-&lt;/strong&gt;, which already provides a basic
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/traffic_simulator_sumo/&#34;&gt;Eclipse SUMO&lt;/a&gt;&lt;/strong&gt;, which already provides a basic
 model for variable &lt;em&gt;speed&lt;/em&gt; signs. However, the preferred 
 
 
@@ -85,10 +82,7 @@ model for variable &lt;em&gt;speed&lt;/em&gt; signs. However, the preferred
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/vms_simulator/&#34;&gt;
-    MOSAIC VMS Simulator
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/vms_simulator/&#34;&gt;MOSAIC VMS Simulator&lt;/a&gt;
 realizes a more flexible concept with the dynamic control of the VMS during simulation runtime, including &lt;em&gt;arbitrary sign semantics&lt;/em&gt; additional
 to &lt;em&gt;speed&lt;/em&gt; and featuring a visibility range. The interplay of information from infrastructure elements as well as communicated information
 has been modelled in detail with applications covering realistic behavior of human drivers and autonomous vehicles. Additionally,
@@ -118,10 +112,7 @@ provide a software-in-the-loop environment. The &lt;strong&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;
-    MOSAIC Mapping
-&lt;/a&gt;
-&lt;/strong&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;MOSAIC Mapping&lt;/a&gt;&lt;/strong&gt;
 allowed for a comprehensive configuration of the different application components to the simulated entities (variously equipped vehicles, RSUs and a TMC cloud server).&lt;/p&gt;
 &lt;p&gt;The final result was a complex simulation scenario for Eclipse MOSAIC,
 including a calibrated traffic model, various application and behavior models for automated, connected and conventional vehicles,
@@ -156,10 +147,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/traffic_simulator_sumo/&#34;&gt;
-    SUMO
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/traffic_simulator_sumo/&#34;&gt;SUMO&lt;/a&gt;&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;
 
 
@@ -185,10 +173,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
-    MOSAIC Application
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;MOSAIC Application&lt;/a&gt;&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;
 
 
@@ -214,10 +199,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
-    MOSAIC Cell
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;MOSAIC Cell&lt;/a&gt;&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;
 
 
@@ -243,10 +225,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
-    MOSAIC SNS
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;MOSAIC SNS&lt;/a&gt;&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;
 
 
@@ -272,10 +251,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/vms_simulator/&#34;&gt;
-    MOSAIC VMS
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/vms_simulator/&#34;&gt;MOSAIC VMS&lt;/a&gt;&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;
 
 
@@ -301,10 +277,7 @@ a new evaluation component in order to gain statistics out of a simulation.&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/statistics/&#34;&gt;
-    MOSAIC Output
-&lt;/a&gt;
-&lt;/th&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/statistics/&#34;&gt;MOSAIC Output&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -407,10 +380,7 @@ by the Spanish toll road management (
 
 
 
-&lt;a href=&#34;https://www.abertis.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Abertis Infraestructuras, S.A.
-&lt;/a&gt;
-). Based on this data, traffic has been
+&lt;a href=&#34;https://www.abertis.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Abertis Infraestructuras, S.A.&lt;/a&gt;). Based on this data, traffic has been
 generated in Eclipse SUMO and calibrated in a way,
 that the simulated traffic resembles the original toll data as close as possible. This procedure has been done for the
 complete highway AP7 and resulted in more than 500.000 vehicles per day in the simulation. However, it would not make real sense
@@ -438,10 +408,10 @@ measurements we were able to create a realistic traffic model on a stretch of 25
 &lt;figure id=&#34;figure-the-test-site-modelled-in-eclipse-mosaic&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/test-site_huc9e68466259c66b25b58dd1cb0735621_545645_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The test site modelled in Eclipse MOSAIC&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/test-site_huc9e68466259c66b25b58dd1cb0735621_545645_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The test site modelled in Eclipse MOSAIC&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/test-site_huc9e68466259c66b25b58dd1cb0735621_545645_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;45%&#34; height=&#34;551&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/test-site_huc9e68466259c66b25b58dd1cb0735621_545645_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;45%&#34; height=&#34;551&#34;&gt;
 &lt;/a&gt;
 
 
@@ -465,10 +435,7 @@ algorithms, provided by the
 
 
 
-&lt;a href=&#34;https://www.pem.tuc.gr/index.php?id=5257&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Technical University of Crete
-&lt;/a&gt;
-, can
+&lt;a href=&#34;https://www.pem.tuc.gr/index.php?id=5257&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Technical University of Crete&lt;/a&gt;, can
 estimate the traffic volume on highways using traditional sensors, but also by receiving CAM messages of connected vehicles. Based on the
 traffic estimation, additional algorithms can control the traffic by setting speed limits on VMS, or by sending V2X messages (e.g. ETSI IVI messages)
 with speed recommendations or lane change advices to individual vehicles. The control algorithms were written in C++ and have already been used in real
@@ -497,10 +464,7 @@ traffic management centers. For this study, we integrated them into the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
-    MOSAIC Application
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;MOSAIC Application&lt;/a&gt;
 Simulator using the Java Native Interface (JNI).&lt;/p&gt;
 
 
@@ -523,10 +487,10 @@ Simulator using the Java Native Interface (JNI).&lt;/p&gt;
 &lt;figure id=&#34;figure-integration-of-traffic-control-algorithms-into-mosaic-application-using-jni&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-jni_hu8eedbfac73273995571fbc96a05c851b_31297_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Integration of Traffic Control Algorithms into MOSAIC Application using JNI&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-jni_hu8eedbfac73273995571fbc96a05c851b_31297_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Integration of Traffic Control Algorithms into MOSAIC Application using JNI&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-jni_hu8eedbfac73273995571fbc96a05c851b_31297_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;45%&#34; height=&#34;632&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-jni_hu8eedbfac73273995571fbc96a05c851b_31297_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;45%&#34; height=&#34;632&#34;&gt;
 &lt;/a&gt;
 
 
@@ -566,10 +530,7 @@ the &lt;strong&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;
-    MOSAIC Simple Network Simulator
-&lt;/a&gt;
-&lt;/strong&gt; for ITS-G5 communication,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_sns/&#34;&gt;MOSAIC Simple Network Simulator&lt;/a&gt;&lt;/strong&gt; for ITS-G5 communication,
 and the  &lt;strong&gt;
 
 
@@ -595,10 +556,7 @@ and the  &lt;strong&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
-    MOSAIC Cell Simulator
-&lt;/a&gt;
-&lt;/strong&gt; for cellular communication (e.g. 5G or LTE-V2X).
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;MOSAIC Cell Simulator&lt;/a&gt;&lt;/strong&gt; for cellular communication (e.g. 5G or LTE-V2X).
 In the former case, vehicles exchanged message with Road Side Units along the road, which then forwarded the information to the Traffic Management
 Center (TMC). In the latter case, vehicles were directly connected to the TMC.&lt;/p&gt;
 &lt;p&gt;Finally, application models for connected and automated vehicles have been integrated by using the
@@ -627,10 +585,7 @@ Center (TMC). In the latter case, vehicles were directly connected to the TMC.&l
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;
-    MOSAIC Application Simulator
-&lt;/a&gt;
-&lt;/strong&gt;. With the help of these applications
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/&#34;&gt;MOSAIC Application Simulator&lt;/a&gt;&lt;/strong&gt;. With the help of these applications
 vehicles could react on advices sent by the TMC. Depending on the SAE level of the vehicle in the simulation, the vehicles
 would execute a certain advice immediately after some safety checks (fully automated vehicle) or with a certain delay
 (connected vehicle with a human driver reacting on a lane-change advice).&lt;/p&gt;
@@ -663,10 +618,10 @@ be reduced by activating the controller.&lt;/p&gt;
 &lt;figure id=&#34;figure-speed-over-time-on-the-highway-left-no-control-enabled-right-control-algorithm-active&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-no-control-vs-control_hu3f36ae42f5012c9c73c42f4df7e25b4b_269788_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Speed over time on the highway. Left no control enabled, right control algorithm active.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-no-control-vs-control_hu3f36ae42f5012c9c73c42f4df7e25b4b_269788_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Speed over time on the highway. Left no control enabled, right control algorithm active.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-no-control-vs-control_hu3f36ae42f5012c9c73c42f4df7e25b4b_269788_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-no-control-vs-control_hu3f36ae42f5012c9c73c42f4df7e25b4b_269788_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
 &lt;/a&gt;
 
 
@@ -706,10 +661,10 @@ could spare over 60% of the VMS placed along the specific highway stretch withou
 &lt;figure id=&#34;figure-in-the-left-case-vms-are-placed-every-500m-in-the-right-case-only-few-vms-at-strategic-locations&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-few-vms_hu3f36ae42f5012c9c73c42f4df7e25b4b_266372_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;In the left case, VMS are placed every 500m. In the right case only few VMS at strategic locations.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-few-vms_hu3f36ae42f5012c9c73c42f4df7e25b4b_266372_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;In the left case, VMS are placed every 500m. In the right case only few VMS at strategic locations.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-few-vms_hu3f36ae42f5012c9c73c42f4df7e25b4b_266372_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-few-vms_hu3f36ae42f5012c9c73c42f4df7e25b4b_266372_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
 &lt;/a&gt;
 
 
@@ -751,10 +706,10 @@ approach via VMS slightly, as connected vehicles can react and controlled more p
 &lt;figure id=&#34;figure-in-the-left-case-traffic-is-controlled-via-vms-in-the-right-case-only-v2x-messages-are-utilized&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-ivim_hu3f36ae42f5012c9c73c42f4df7e25b4b_269336_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;In the left case traffic is controlled via VMS. In the right case, only V2X messages are utilized.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-ivim_hu3f36ae42f5012c9c73c42f4df7e25b4b_269336_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;In the left case traffic is controlled via VMS. In the right case, only V2X messages are utilized.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://www.eclipse.org/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-ivim_hu3f36ae42f5012c9c73c42f4df7e25b4b_269336_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/traffic-control/teac-full-vms-vs-ivim_hu3f36ae42f5012c9c73c42f4df7e25b4b_269336_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;400&#34;&gt;
 &lt;/a&gt;
 
 
@@ -779,19 +734,13 @@ rely on classic infrastructure such as road sensors and Variable Message Signs, 
 
 
 
-&lt;a href=&#34;https://www.inframix.eu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    &lt;img src=&#34;inframix.png&#34; alt=&#34;INFRAMIX EU&#34;&gt;
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://www.inframix.eu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;inframix.png&#34; alt=&#34;INFRAMIX EU&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This work was part of the 
 
 
 
 
-&lt;a href=&#34;https://www.inframix.eu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    INFRAMIX
-&lt;/a&gt;
- project. INFRAMIX has received funding from
+&lt;a href=&#34;https://www.inframix.eu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INFRAMIX&lt;/a&gt; project. INFRAMIX has received funding from
 the European Union&amp;rsquo;s Horizon 2020 research and innovation programme under grant
 agreement no 723016.&lt;/p&gt;
 </description>

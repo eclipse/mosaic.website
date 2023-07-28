@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scenario Overview | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/scenarios/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/scenarios/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/scenarios/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/scenarios/index.xml" rel="self" type="application/rss+xml" />
     <description>Scenario Overview</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Scenario Overview</title>
-      <link>https://www.eclipse.org/mosaic/docs/scenarios/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/scenarios/</link>
     </image>
     
     <item>
       <title>Create a New Scenario</title>
-      <link>https://www.eclipse.org/mosaic/docs/scenarios/create_a_new_scenario/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/scenarios/create_a_new_scenario/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/scenarios/create_a_new_scenario/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/scenarios/create_a_new_scenario/</guid>
       <description>&lt;p&gt;For creating new scenarios, but also for importing and exporting data from
 external sources like OpenStreetMap, SUMO etc into your existing scenarios, we provide the tool &lt;strong&gt;Scenario Convert&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
@@ -47,19 +47,13 @@ external sources like OpenStreetMap, SUMO etc into your existing scenarios, we p
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;However, you can use scenario-convert &lt;strong&gt;for free&lt;/strong&gt; to generate scenarios which are executable with Eclipse MOSAIC. &lt;strong&gt;
 
 
 
 
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Get it here
-&lt;/a&gt;
-.&lt;/strong&gt;&lt;/p&gt;
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Get it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -110,10 +104,7 @@ We will be using
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/steglitz.osm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    steglitz.osm
-&lt;/a&gt;
- OSM-file for most of the
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/steglitz.osm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;steglitz.osm&lt;/a&gt; OSM-file for most of the
 use cases. Best is to save &lt;code&gt;steglitz.osm&lt;/code&gt; in the same directory where &lt;code&gt;scenario-convert&lt;/code&gt; is located.
 So feel free follow along with the steps to get a better understanding on how the &lt;code&gt;scenario-convert&lt;/code&gt;-script functions.&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -127,10 +118,7 @@ So feel free follow along with the steps to get a better understanding on how th
   
   
 
-&lt;a href=&#34;#reference-documentation-for-scenario-convert&#34;&gt;
-    Here
-&lt;/a&gt;
- you can find a complete reference to all options scenario-convert offers.&lt;/p&gt;
+&lt;a href=&#34;#reference-documentation-for-scenario-convert&#34;&gt;Here&lt;/a&gt; you can find a complete reference to all options scenario-convert offers.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -188,10 +176,7 @@ Let&amp;rsquo;s start off by showing you how a complete call could look like:&lt
   
   
 
-&lt;a href=&#34;#importing-routes-to-your-scenario&#34;&gt;
-    Import Routes
-&lt;/a&gt;
- for more details.
+&lt;a href=&#34;#importing-routes-to-your-scenario&#34;&gt;Import Routes&lt;/a&gt; for more details.
 The complete call achieves a couple of things. First off the script is going to create a SQLite-database,
 which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which should look like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ &amp;lt;working-directory&amp;gt;
@@ -231,18 +216,12 @@ which is used by Eclipse MOSAIC. Furthermore, a directory will be created, which
 
 
 
-&lt;a href=&#34;https://sumo.dlr.de/wiki/NETCONVERT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    SUMO Netconvert
-&lt;/a&gt;
- is used to create &lt;code&gt;steglitz.net.xml&lt;/code&gt;, which is a 
+&lt;a href=&#34;https://sumo.dlr.de/wiki/NETCONVERT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SUMO Netconvert&lt;/a&gt; is used to create &lt;code&gt;steglitz.net.xml&lt;/code&gt;, which is a 
 
 
 
 
-&lt;a href=&#34;https://sumo.dlr.de/wiki/Networks/SUMO_Road_Networks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    network representation
-&lt;/a&gt;
- in SUMO.&lt;/li&gt;
+&lt;a href=&#34;https://sumo.dlr.de/wiki/Networks/SUMO_Road_Networks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;network representation&lt;/a&gt; in SUMO.&lt;/li&gt;
 &lt;li&gt;Now the SUMO-configuration &lt;code&gt;steglitz.sumo.cfg&lt;/code&gt; is written.&lt;/li&gt;
 &lt;li&gt;Afterwards the &lt;code&gt;mapping_config.json&lt;/code&gt; and &lt;code&gt;scenario_config.json&lt;/code&gt; are created and all files are moved to the right place.
 In the &lt;code&gt;scenario_config.json&lt;/code&gt; values like the center coordinate will automatically be set using data from the SUMO related files.&lt;/li&gt;
@@ -256,10 +235,7 @@ In the &lt;code&gt;scenario_config.json&lt;/code&gt; values like the center coor
   
   
 
-&lt;a href=&#34;#importing-routes-to-your-scenario&#34;&gt;
-    importing routes
-&lt;/a&gt;
- to it, there are a couple of other things
+&lt;a href=&#34;#importing-routes-to-your-scenario&#34;&gt;importing routes&lt;/a&gt; to it, there are a couple of other things
 you can do to achieve better results.&lt;/p&gt;
 &lt;h3 id=&#34;clean-the-osm-file-using-osmosis&#34;&gt;Clean the OSM-file using Osmosis&lt;/h3&gt;
 &lt;p&gt;Osmosis will automatically be used to create a new OSM-file with the suffix &lt;code&gt;_cleaned&lt;/code&gt;. The created
@@ -439,10 +415,7 @@ command below. In case you generated the &lt;code&gt;steglitz scenario&lt;/code&
   
   
 
-&lt;a href=&#34;#reference-documentation-for-scenario-convert&#34;&gt;
-    below
-&lt;/a&gt;
- for all command line options.&lt;/p&gt;
+&lt;a href=&#34;#reference-documentation-for-scenario-convert&#34;&gt;below&lt;/a&gt; for all command line options.&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;This wraps up one of the main workflows with the scenario-convert-script.
 A quick reminder on what we achieved:&lt;/p&gt;
@@ -478,10 +451,7 @@ please have a look at
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/scenario_configuration/&#34;&gt;
-    Additional Scenario Configuration
-&lt;/a&gt;
- and
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/scenario_configuration/&#34;&gt;Additional Scenario Configuration&lt;/a&gt; and
 
 
 
@@ -507,10 +477,7 @@ please have a look at
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/&#34;&gt;
-    Application Development
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/&#34;&gt;Application Development&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can now move your &lt;code&gt;steglitz&lt;/code&gt; directory to &lt;code&gt;/scenarios&lt;/code&gt; and test it by running
 &lt;code&gt;./mosaic.sh -s steglitz&lt;/code&gt; on Linux or &lt;code&gt;.\mosaic.bat -s steglitz&lt;/code&gt; on Windows.&lt;/p&gt;
 &lt;p&gt;While this is the &amp;lsquo;happy world&amp;rsquo; workflow, it is often necessary to manually adapt routes and
@@ -523,10 +490,7 @@ for the steglitz-scenario using SUMO&amp;rsquo;s
 
 
 
-&lt;a href=&#34;http://sumo.dlr.de/wiki/DUAROUTER&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    duarouter
-&lt;/a&gt;
-, which you can find
+&lt;a href=&#34;http://sumo.dlr.de/wiki/DUAROUTER&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;duarouter&lt;/a&gt;, which you can find
 
 
 
@@ -557,10 +521,7 @@ for the steglitz-scenario using SUMO&amp;rsquo;s
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/steglitz.rou.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    here
-&lt;/a&gt;
-. We&amp;rsquo;ll start with only the &lt;code&gt;steglitz.osm&lt;/code&gt; and
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/steglitz.rou.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;. We&amp;rsquo;ll start with only the &lt;code&gt;steglitz.osm&lt;/code&gt; and
 &lt;code&gt;steglitz.rou.xml&lt;/code&gt; files:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ &amp;lt;working-directory&amp;gt;
    ├─ steglitz.osm
@@ -673,10 +634,7 @@ some of the script parameters work.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/steglitz.osm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Steglitz OSM-file
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/steglitz.osm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Steglitz OSM-file&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -707,10 +665,7 @@ some of the script parameters work.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/steglitz.rou.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Steglitz Route-file
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/steglitz.rou.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Steglitz Route-file&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;reference-documentation-for-scenario-convert&#34;&gt;Reference documentation for scenario-convert&lt;/h2&gt;
 &lt;h3 id=&#34;usage-of-scenario-convert&#34;&gt;Usage of scenario-convert&lt;/h3&gt;
@@ -821,10 +776,7 @@ be defined, according to the OSM
 
 
 
-&lt;a href=&#34;http://wiki.openstreetmap.org/wiki/Key:highway&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    &lt;code&gt;highway&lt;/code&gt;
-&lt;/a&gt;
- key.&lt;/p&gt;
+&lt;a href=&#34;http://wiki.openstreetmap.org/wiki/Key:highway&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;highway&lt;/code&gt;&lt;/a&gt; key.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# the unit the speed values are defined in [kmh, ms]
 speed.unit = kmh
 
@@ -868,9 +820,9 @@ highway.track 15
     
     <item>
       <title>Additional Scenario Configuration</title>
-      <link>https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_configuration/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_configuration/</guid>
       <description>&lt;p&gt;This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC.
 We will continue with the tutorial-style explanations following up on the Steglitz-example from the
 
@@ -898,10 +850,7 @@ We will continue with the tutorial-style explanations following up on the Stegli
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/create_a_new_scenario/&#34;&gt;
-    previous page
-&lt;/a&gt;
-. For more detailed explanations of the configurations have a
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/create_a_new_scenario/&#34;&gt;previous page&lt;/a&gt;. For more detailed explanations of the configurations have a
 look at 
 
 
@@ -927,10 +876,7 @@ look at
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/&#34;&gt;
-    the overview
-&lt;/a&gt;
-.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/&#34;&gt;the overview&lt;/a&gt;.&lt;br&gt;
 If you already played with the 
 
 
@@ -956,10 +902,7 @@ If you already played with the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;
-    Barnim
-&lt;/a&gt;
--tutorial, you probably noticed that it contains far
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;Barnim&lt;/a&gt;-tutorial, you probably noticed that it contains far
 more folders in the scenario structure compared to the Steglitz example. Those additional directories contain
 configurations for various simulators.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ Barnim
@@ -1019,10 +962,7 @@ configurations for various simulators.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/steglitz_mapping_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    mapping_config.json
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/steglitz_mapping_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mapping_config.json&lt;/a&gt;,
 you can see that the scenario-convert script automatically assigns cars to the three routes created. You can use this
 file as a blueprint for your own scenario, have a look 
 
@@ -1049,10 +989,7 @@ file as a blueprint for your own scenario, have a look
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/#applications-and-mapping&#34;&gt;
-    here
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/#applications-and-mapping&#34;&gt;here&lt;/a&gt;
 to get more details on possible adaptions.&lt;br&gt;
 Below is a short video of the scenario displayed in the SUMO-GUI. We marked the three different routes the cars
 follow.&lt;/p&gt;
@@ -1101,10 +1038,7 @@ follow.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;
-    Barnim
-&lt;/a&gt;
--tutorial. In the &lt;code&gt;scenario_config.json&lt;/code&gt; of the Barnim scenario you can see where the
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;Barnim&lt;/a&gt;-tutorial. In the &lt;code&gt;scenario_config.json&lt;/code&gt; of the Barnim scenario you can see where the
 communication simulators are activated:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;federates&amp;quot;: {
     &amp;quot;cell&amp;quot;: false,
@@ -1138,10 +1072,7 @@ communication simulators are activated:&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/&#34;&gt;
-    tutorials
-&lt;/a&gt;
- and 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/&#34;&gt;tutorials&lt;/a&gt; and 
 
 
 
@@ -1166,10 +1097,7 @@ communication simulators are activated:&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/additional_examples/&#34;&gt;
-    additional examples
-&lt;/a&gt;
- demonstrate use cases for
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/additional_examples/&#34;&gt;additional examples&lt;/a&gt; demonstrate use cases for
 communication usages and you should have a look at them if you are uncertain where to start. Furthermore we
 recommend copying the configuration-files for the simulator you are going to use from the 
 
@@ -1196,10 +1124,7 @@ recommend copying the configuration-files for the simulator you are going to use
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;
-    Barnim scenario
-&lt;/a&gt;
-. It
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/barnim_basic/&#34;&gt;Barnim scenario&lt;/a&gt;. It
 contains the most complete configurations and is well maintained.&lt;br&gt;
 If you are an expert with one of the external network simulators (
 
@@ -1226,10 +1151,7 @@ If you are an expert with one of the external network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;
-    ns3
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;ns3&lt;/a&gt;,
 
 
 
@@ -1255,10 +1177,7 @@ If you are an expert with one of the external network simulators (
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;
-    OMNeT++
-&lt;/a&gt;
-) the Barnim scenario will also give
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/&#34;&gt;OMNeT++&lt;/a&gt;) the Barnim scenario will also give
 you an overview on how to configure those.&lt;/p&gt;
 &lt;h2 id=&#34;other-simulators&#34;&gt;Other Simulators&lt;/h2&gt;
 &lt;p&gt;In order to employ other simulators for the scenario, make sure to have it enabled in the &lt;code&gt;scenario_config.json&lt;/code&gt;.&lt;/p&gt;
@@ -1296,10 +1215,7 @@ at the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/eventserver_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    environment_config.json
-&lt;/a&gt;
- to see how this can be configured.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/eventserver_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;environment_config.json&lt;/a&gt; to see how this can be configured.&lt;/p&gt;
 &lt;h3 id=&#34;battery-simulator&#34;&gt;Battery Simulator&lt;/h3&gt;
 &lt;p&gt;The Battery Simulator allows to simulate discharging and recuperation of electric vehicles, and in connection with the
 Charging Station Simulator also re-charging. It offers a lot of customization, as you can
@@ -1333,10 +1249,7 @@ dynamically load your own battery, vehicle and environment models. Have a look a
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/battery_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    battery_config.json
-&lt;/a&gt;
-,
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/battery_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;battery_config.json&lt;/a&gt;,
 taken from the Barnim scenario.&lt;/p&gt;
 &lt;h3 id=&#34;charging-station-simulator&#34;&gt;Charging Station Simulator&lt;/h3&gt;
 &lt;p&gt;The Charging Station Simulator extends the modeling possibilities of the Battery Simulator for re-charging.
@@ -1372,10 +1285,7 @@ Accordingly, the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/files/charging_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    charging_config.json
-&lt;/a&gt;
- covers, with the charging station range, merely one parameter.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/files/charging_config.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;charging_config.json&lt;/a&gt; covers, with the charging station range, merely one parameter.&lt;/p&gt;
 &lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
 &lt;p&gt;There are various options to generate output results of your simulations (see the
 
@@ -1403,10 +1313,7 @@ Accordingly, the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/visualization/filevis/&#34;&gt;
-    Visualization chapter
-&lt;/a&gt;
-).&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/filevis/&#34;&gt;Visualization chapter&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;The first step is to create a file called &lt;code&gt;output_config.xml&lt;/code&gt; in a new directory called &lt;code&gt;output&lt;/code&gt;.
 If you used the scenario-convert tool the file should be generated automatically.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ steglitz
@@ -1446,9 +1353,9 @@ for 186.369  seconds on average.
     
     <item>
       <title>Run Simulation Series</title>
-      <link>https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/scenarios/run_simulation_series/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/scenarios/run_simulation_series/</guid>
       <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
   &lt;div&gt;
@@ -1477,10 +1384,7 @@ for 186.369  seconds on average.
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -1490,10 +1394,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This chapter explains how to efficiently run a simulation series of a scenario using the Simulation Runner.&lt;/p&gt;

@@ -39,7 +39,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/docs/develop_applications/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/develop_applications/">
 
   
 
@@ -63,9 +63,9 @@
   
   
   
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
   
 
   
@@ -73,22 +73,59 @@
   
     
   
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
 
   
     
-      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
     
+  
+
   
 
   
   
   
+    
   
   
     
+
+    
+    
+
+    
   
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
   
     
 
@@ -167,7 +204,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
       
     
   
@@ -192,7 +229,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
       
     
   
@@ -236,7 +273,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.org/mosaic/docs/develop_applications/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/docs/develop_applications/">
 
   
   
@@ -252,10 +289,10 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.org/mosaic/docs/develop_applications/">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/develop_applications/">
   <meta property="og:title" content="Create Applications for MOSAIC with Java | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
-  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     <meta property="og:updated_time" content="2022-07-20T00:00:00&#43;00:00">
   
@@ -686,8 +723,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.0-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.1-SNAPSHOT
   </a>
 </div>
 
@@ -743,10 +780,6 @@
         
         <li >
           <a href="/mosaic/docs/visualization/statistics/">Statistics Output</a>
-        </li>
-        
-        <li >
-          <a href="/mosaic/docs/visualization/itef/">ITEF</a>
         </li>
         
         <li >
@@ -1090,10 +1123,7 @@
     
   
 
-<a href="/mosaic/docs/simulators/application_simulator/">
-    Application Simulator
-</a>
-. Such
+<a href="/mosaic/docs/simulators/application_simulator/">Application Simulator</a>. Such
 an application is programmed in Java and follows an event-based execution flow. Thereby, certain methods of the application are called by
 the Application Simulator upon corresponding events (the application &ldquo;reacts&rdquo;). To actively gain execution at some later point in time, an
 application can also schedule a generic event itself. When the application is executing, it has access to a set of methods, allowing to
@@ -1132,10 +1162,7 @@ a vehicle (or RSU, or traffic light, &hellip;) via the mapping configuration (se
     
   
 
-<a href="/mosaic/docs/scenarios/#applications-and-mapping">
-    mapping
-</a>
-).
+<a href="/mosaic/docs/scenarios/#applications-and-mapping">mapping</a>).
 Finally, the application must be compiled as a Jar-File and placed into the application directory of your
 scenario.</p>
 </li>
@@ -1156,10 +1183,7 @@ applications can implement.</p>
 
 
 
-<a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">
-    Maven
-</a>
- which is used
+<a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">Maven</a> which is used
 to resolve required MOSAIC dependencies and to compile your application Java code into a Jar file.
 Follow the steps to build an example application:</p>
 <ol>
@@ -1200,7 +1224,7 @@ Follow the steps to build an example application:</p>
         &lt;dependency&gt;
             &lt;groupId&gt;org.eclipse.mosaic&lt;/groupId&gt;
             &lt;artifactId&gt;mosaic-application&lt;/artifactId&gt;
-            &lt;version&gt;22.1&lt;/version&gt;
+            &lt;version&gt;23.0&lt;/version&gt;
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
        
@@ -1291,8 +1315,6 @@ in order to debug the application:</p>
           
             
               
-            
-          
             
           
             
@@ -1700,6 +1722,23 @@ in order to debug the application:</p>
 </footer>
 
 
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+
 
       </article>
     </main>
@@ -1716,29 +1755,29 @@ in order to debug the application:</p>
     
 
     
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
 
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
       
 
       
         
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
         
       
     
@@ -1777,7 +1816,7 @@ in order to debug the application:</p>
     
     
     
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/anchor.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/anchor.min.js"></script>
     
     <script>
       anchors.add();
@@ -1802,8 +1841,8 @@ in order to debug the application:</p>
     
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
       
     
 

@@ -39,7 +39,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.org/mosaic/tutorials/getting_started/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/tutorials/getting_started/">
 
   
 
@@ -63,9 +63,9 @@
   
   
   
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/academicons.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/font-awesome.all.min.css">
-    <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
   
 
   
@@ -73,22 +73,59 @@
   
     
   
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-light">
-  <link rel="stylesheet" href="/css/thirdparty/highlight.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
 
   
     
-      <link rel="stylesheet" href="https://www.eclipse.org/mosaic/css/thirdparty/leaflet.css">
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
     
+  
+
   
 
   
   
   
+    
   
   
     
+
+    
+    
+
+    
   
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
   
     
 
@@ -167,7 +204,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/lazysizes.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
       
     
   
@@ -192,7 +229,7 @@
 
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
       
     
   
@@ -236,7 +273,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.org/mosaic/tutorials/getting_started/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/tutorials/getting_started/">
 
   
   
@@ -252,10 +289,10 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.org/mosaic/tutorials/getting_started/">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/tutorials/getting_started/">
   <meta property="og:title" content="Getting Started with Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.org/mosaic/images/logo.svg">
-  <meta property="twitter:image" content="https://www.eclipse.org/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
   
@@ -720,10 +757,7 @@
     
   
 
-<a href="/mosaic/download/">
-    our download section
-</a>
-). This bundle
+<a href="/mosaic/download/">our download section</a>). This bundle
 contains almost everything you need to execute simulation scenarios with Eclipse MOSAIC.</p>
 <div class="alert alert-learning_objectives">
   <div>
@@ -752,15 +786,12 @@ contains almost everything you need to execute simulation scenarios with Eclipse
 JAVA Runtime Environment or Development Kit is required:</p>
 <ul>
 <li>
-<p><strong>JAVA Runtime Environment</strong> (version 8 minimum and recommended), e.g. 
+<p><strong>JAVA Runtime Environment</strong> (version 8, 11, 17 minimum and recommended), e.g. 
 
 
 
 
-<a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot" target="_blank" rel="noopener">
-    AdoptOpenJDK
-</a>
-</p>
+<a href="https://adoptium.net/de/temurin/releases?version=8" target="_blank" rel="noopener">Eclipse Temurin OpenJDK</a></p>
 </div>
 </li>
 </ul>
@@ -771,15 +802,12 @@ JAVA Runtime Environment or Development Kit is required:</p>
 traffic-simulator SUMO is required:</p>
 <ul>
 <li>
-<p><strong>Eclipse SUMO</strong> (latest version 1.14.1 recommended), 
+<p><strong>Eclipse SUMO</strong> (latest version 1.16.0 recommended), 
 
 
 
 
-<a href="https://www.eclipse.org/sumo" target="_blank" rel="noopener">
-    https://www.eclipse.org/sumo
-</a>
-.</p>
+<a href="https://www.eclipse.org/sumo" target="_blank" rel="noopener">https://www.eclipse.org/sumo</a>.</p>
 </div>
 </li>
 </ul>
@@ -810,10 +838,7 @@ in high detail, the simulators
     
   
 
-<a href="/mosaic/docs/simulators/network_simulator_ns3/">
-    ns-3
-</a>
- or
+<a href="/mosaic/docs/simulators/network_simulator_ns3/">ns-3</a> or
 
 
 
@@ -839,10 +864,7 @@ in high detail, the simulators
     
   
 
-<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">
-    OMNeT++
-</a>
- are recommended. For that, additional
+<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">OMNeT++</a> are recommended. For that, additional
 information can be found in our <strong>
 
 
@@ -868,13 +890,10 @@ information can be found in our <strong>
     
   
 
-<a href="/mosaic/docs/getting_started/">
-    documentation
-</a>
-</strong>.</p>
+<a href="/mosaic/docs/getting_started/">documentation</a></strong>.</p>
 <h2 id="download-and-install">Download and install</h2>
 <ol>
-<li><strong>Download the <code>eclipse-mosaic-22.1.zip</code> bundle from 
+<li><strong>Download the <code>eclipse-mosaic-23.0.zip</code> bundle from 
 
 
 
@@ -899,10 +918,7 @@ information can be found in our <strong>
     
   
 
-<a href="/mosaic/download/">
-    our download section
-</a>
-.</strong></li>
+<a href="/mosaic/download/">our download section</a>.</strong></li>
 <li>Extract the package to an arbitrary path.</li>
 </ol>
 <h2 id="run-eclipse-mosaic">Run Eclipse MOSAIC</h2>
@@ -938,10 +954,7 @@ information can be found in our <strong>
     
   
 
-<a href="/mosaic/tutorials/barnim_basic/">
-    Barnim
-</a>
- scenario. During the simulation, vehicles drive along the
+<a href="/mosaic/tutorials/barnim_basic/">Barnim</a> scenario. During the simulation, vehicles drive along the
 road and exchange V2X messages between each other. With the <code>-v</code> parameter, a web visualization opens in your default browser. The whole
 procedure should look like this:</p>
 
@@ -978,7 +991,8 @@ procedure should look like this:</p>
 
 </figure>
 
-<p>Further information about the start parameters of MOSAIC can be found in our 
+<p>To slow down the simulation (e.g. to get a slower visualization), you can use the realtime brake parameter <code>-b 5</code>.
+Further information about the start parameters of MOSAIC can be found in our 
 
 
 
@@ -1003,10 +1017,7 @@ procedure should look like this:</p>
     
   
 
-<a href="/mosaic/docs/getting_started/run_mosaic/">
-    documentation
-</a>
-.</p>
+<a href="/mosaic/docs/getting_started/run_mosaic/">documentation</a>.</p>
 <h2 id="gather-simulation-results">Gather simulation results</h2>
 <p>Eclipse MOSAIC generates log files for each simulation run. Log files are generated for the ambassadors of each coupled federate respectively
 simulator and for the RTI itself. The log files are stored in the folder <code>&lt;mosaic-root&gt;/logs/log-&lt;timestamp&gt;</code>. For each simulation run a new folder is created.</p>
@@ -1059,10 +1070,7 @@ V2X_MESSAGE_TRANSMISSION;8000000000;DENM;4;rsu_0;52.65027;13.545;0.0;CELL_GEOCAS
     
   
 
-<a href="/mosaic/docs/visualization/filevis/">
-    documentation
-</a>
-.</p>
+<a href="/mosaic/docs/visualization/filevis/">documentation</a>.</p>
 <h2 id="scenario-configuration">Scenario Configuration</h2>
 <p>The configuration of a simulation scenario consists of a detailed description for each coupled simulator. The main configuration file is found under <code>scenario_config.json</code>,
 which contains the list of simulators to use for the scenario. This way, simulators can be easily added or removed from the simulation.</p>
@@ -1136,10 +1144,7 @@ our
     
   
 
-<a href="/mosaic/docs/scenarios/">
-    documentation
-</a>
-.</p>
+<a href="/mosaic/docs/scenarios/">documentation</a>.</p>
 <h2 id="custom-scenarios-and-applications">Custom scenarios and applications</h2>
 <p>The main purpose of Eclipse MOSAIC is to prototype and evaluate own use-cases in the field of smart mobility, ITS, and connected and
 automated driving. To achieve this, own application models for vehicles, RSUs, or servers can be integrated and tested
@@ -1170,10 +1175,7 @@ with custom simulation scenarios.</p>
     
   
 
-<a href="/mosaic/docs/scenarios/create_a_new_scenario/">
-    scenario-convert
-</a>
- to create a custom simulation scenario.
+<a href="/mosaic/docs/scenarios/create_a_new_scenario/">scenario-convert</a> to create a custom simulation scenario.
 This scenario would include the road network, vehicles and their routes through the network, locations of road side units, communication
 properties, and the like.</li>
 <li>Implement application models to be integrated with the 
@@ -1201,10 +1203,7 @@ properties, and the like.</li>
     
   
 
-<a href="/mosaic/docs/simulators/application_simulator/">
-    Application Simulator
-</a>
-.
+<a href="/mosaic/docs/simulators/application_simulator/">Application Simulator</a>.
 Applications are 
 
 
@@ -1230,10 +1229,7 @@ Applications are
     
   
 
-<a href="/mosaic/docs/develop_applications/">
-    developed
-</a>
- in JAVA and implement pre-defined interface classes allowing them to have access to entity specific functions, e.g.
+<a href="/mosaic/docs/develop_applications/">developed</a> in JAVA and implement pre-defined interface classes allowing them to have access to entity specific functions, e.g.
 for exchanging V2X messages, influencing the vehicle&rsquo;s behavior, or controlling road infrastructure.</li>
 <li>Deploy your developed applications onto simulation entities using the 
 
@@ -1260,10 +1256,7 @@ for exchanging V2X messages, influencing the vehicle&rsquo;s behavior, or contro
     
   
 
-<a href="/mosaic/docs/simulators/application_mapping/">
-    Mapping Configuration
-</a>
- principle. Each entity, e.g. vehicle, server, or
+<a href="/mosaic/docs/simulators/application_mapping/">Mapping Configuration</a> principle. Each entity, e.g. vehicle, server, or
 RSU, is mapped with an application model developed in the previous step.</li>
 <li>Run your simulation and evaluate them with the help of pre-bundled 
 
@@ -1290,10 +1283,7 @@ RSU, is mapped with an application model developed in the previous step.</li>
     
   
 
-<a href="/mosaic/docs/visualization/filevis/">
-    Output Generators
-</a>
-.</li>
+<a href="/mosaic/docs/visualization/filevis/">Output Generators</a>.</li>
 </ol>
 <p>Furthermore, the release bundle comes with a set of tutorial scenarios, which are described in detail
 in subsequent 
@@ -1321,10 +1311,7 @@ in subsequent
     
   
 
-<a href="/mosaic/tutorials/">
-    tutorials
-</a>
-. Those tutorials can be used to learn the configuration
+<a href="/mosaic/tutorials/">tutorials</a>. Those tutorials can be used to learn the configuration
 of scenarios</p>
 </div>
   
@@ -1366,29 +1353,29 @@ of scenarios</p>
     
 
     
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/popper.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
-      <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
 
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/mermaid.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
       
 
       
         
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-java.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-json.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
         
-          <script src="https://www.eclipse.org/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
         
       
     
@@ -1445,8 +1432,8 @@ of scenarios</p>
     
     
       
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/fuse.min.js"></script>
-        <script src="https://www.eclipse.org/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
       
     
 
@@ -1816,6 +1803,23 @@ of scenarios</p>
     
   </div>
 </footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
 
 
     </div>

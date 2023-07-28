@@ -3,485 +3,485 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/</loc>
     <lastmod>2022-07-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/api_docs/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/api_docs/</loc>
     <lastmod>2020-06-30T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/getting_started/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/getting_started/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/scenarios/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/visualization/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/group/fokus/</loc>
+    <loc>https://www.eclipse.dev/mosaic/group/fokus/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/visualization/filevis/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/filevis/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/application_simulator/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/application_simulator/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/application_mapping/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/application_mapping/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/scenarios/create_a_new_scenario/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/create_a_new_scenario/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/event_scheduling/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/event_scheduling/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/getting_started/run_mosaic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/getting_started/run_mosaic/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/getting_started/results/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/getting_started/results/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/simulator_coupling/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/simulator_coupling/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/group/dcaiti/</loc>
+    <loc>https://www.eclipse.dev/mosaic/group/dcaiti/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/traffic_simulator_sumo/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_sumo/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/vms_simulator/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/application_interfaces/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/application_interfaces/</loc>
     <lastmod>2022-07-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/interactions/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/interactions/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/scenarios/scenario_configuration/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_configuration/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/visualization/statistics/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/statistics/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/group/openmobility/</loc>
+    <loc>https://www.eclipse.dev/mosaic/group/openmobility/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/operating_system/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/operating_system/</loc>
     <lastmod>2022-07-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/scenarios/run_simulation_series/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/run_simulation_series/</loc>
     <lastmod>2021-08-27T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/application_ambassador_details/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/application_ambassador_details/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/visualization/itef/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_omnetpp/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/communication/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/communication/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/navigation/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/navigation/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_ns3/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_ns3/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/visualization/phabmap/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/sumo_ambassador_details/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/sumo_ambassador_details/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_sns/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_sns/</loc>
     <lastmod>2020-06-30T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/omnetpp_details/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnetpp_details/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/ns3_setup/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_setup/</loc>
     <lastmod>2021-07-23T20:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/event_scheduler/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/event_scheduler/</loc>
     <lastmod>2019-08-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/perception/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/perception/</loc>
     <lastmod>2022-07-13T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/delay_models/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/delay_models/</loc>
     <lastmod>2020-06-30T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_cell/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/extending_mosaic/perception_deep_dive/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/perception_deep_dive/</loc>
     <lastmod>2022-06-07T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/develop_applications/road_traffic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/road_traffic/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/environment_simulator/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/environment_simulator/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/scenario_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/scenario_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/mapping_ambassador_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/mapping_ambassador_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/environment_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/environment_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/sns_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sns_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_network_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_network_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/cell_region_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_region_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/sumo_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sumo_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/battery_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/battery_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/mosaic_configuration/charging_config/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/charging_config/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_battery/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_battery/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_charging/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_charging/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/release-22-1/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/release-23-0/</loc>
+    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/post/</loc>
+    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/categories/</loc>
+    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/</loc>
+    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/category/release/</loc>
+    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/post/release-22-1/</loc>
     <lastmod>2022-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/</loc>
-    <lastmod>2022-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/mosaic/categories/</loc>
-    <lastmod>2022-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/mosaic/</loc>
-    <lastmod>2022-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/mosaic/category/release/</loc>
-    <lastmod>2022-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/mosaic/post/best-scenario-short/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/best-scenario-short/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/simulation/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/simulation/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/communication/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/communication/</loc>
     <lastmod>2022-07-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/e-mobility/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/e-mobility/</loc>
     <lastmod>2022-07-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/tour-management/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/tour-management/</loc>
     <lastmod>2022-07-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/docs/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/</loc>
     <lastmod>2022-07-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/release-22-0/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/release-22-0/</loc>
     <lastmod>2022-05-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/cooperative-lidar-vru-safety/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/cooperative-lidar-vru-safety/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/phabmacs/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/phabmacs/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/release-21-1/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/release-21-1/</loc>
     <lastmod>2021-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/remote-operated-driving/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/remote-operated-driving/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/release-21-0/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/release-21-0/</loc>
     <lastmod>2021-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/project/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/project/</loc>
     <lastmod>2021-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/traffic-control/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/traffic-control/</loc>
     <lastmod>2021-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/</loc>
     <lastmod>2021-01-02T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/integrate_existing_sumo_scenarios/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/integrate_existing_sumo_scenarios/</loc>
     <lastmod>2021-01-02T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/release-20-0/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/release-20-0/</loc>
     <lastmod>2020-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/post/eclipse-mosaic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/barnim_basic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_basic/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/lust/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/lust/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/tiergarten/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/tiergarten/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/traffic_lights/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/traffic_lights/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/traffic_management/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/traffic_management/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/category/tutorial/</loc>
+    <loc>https://www.eclipse.dev/mosaic/category/tutorial/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/about/</loc>
+    <loc>https://www.eclipse.dev/mosaic/about/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/get_in_contact/</loc>
+    <loc>https://www.eclipse.dev/mosaic/get_in_contact/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/contribution/</loc>
+    <loc>https://www.eclipse.dev/mosaic/contribution/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/download/</loc>
+    <loc>https://www.eclipse.dev/mosaic/download/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/community/</loc>
+    <loc>https://www.eclipse.dev/mosaic/community/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/news/</loc>
+    <loc>https://www.eclipse.dev/mosaic/news/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/publications/</loc>
+    <loc>https://www.eclipse.dev/mosaic/publications/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/additional_examples/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/additional_examples/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/authors/</loc>
+    <loc>https://www.eclipse.dev/mosaic/authors/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/barnim_advanced/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_advanced/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/author/fraunhofer-fokus/</loc>
+    <loc>https://www.eclipse.dev/mosaic/author/fraunhofer-fokus/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/group/</loc>
+    <loc>https://www.eclipse.dev/mosaic/group/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/publication_types/</loc>
+    <loc>https://www.eclipse.dev/mosaic/publication_types/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tags/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tags/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/mosaic/tutorials/getting_started/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/getting_started/</loc>
   </url>
   
 </urlset>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simulators Overview | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/simulators/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/simulators/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/simulators/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/simulators/index.xml" rel="self" type="application/rss+xml" />
     <description>Simulators Overview</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Simulators Overview</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/</link>
     </image>
     
     <item>
       <title>Eclipse MOSAIC Application Simulator</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/application_simulator/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/application_simulator/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/application_simulator/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/application_simulator/</guid>
       <description>&lt;p&gt;The &lt;strong&gt;Application Simulator&lt;/strong&gt; plays an important role in the simulation of vehicles and its functions. It provides the capability
 to model the application logic for different simulation units (e.g. vehicles, road side units (RSUs), traffic lights, and others)
 as well as possible interaction attempts between the units via different communication links.&lt;/p&gt;
@@ -47,10 +47,7 @@ as well as possible interaction attempts between the units via different communi
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/&#34;&gt;
-    develop applications
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/&#34;&gt;develop applications&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
@@ -92,10 +89,7 @@ in custom configuration files (e.g. &lt;code&gt;EtsiApplication.json&lt;/code&gt
   
   
 
-&lt;a href=&#34;#etsi-application-for-vehicles&#34;&gt;
-    see below
-&lt;/a&gt;
-).&lt;/p&gt;
+&lt;a href=&#34;#etsi-application-for-vehicles&#34;&gt;see below&lt;/a&gt;).&lt;/p&gt;
 &lt;div class=&#34;alert alert-tip&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;The &lt;strong&gt;Mapping&lt;/strong&gt; configuration is presented in close detail in 
@@ -123,10 +117,7 @@ in custom configuration files (e.g. &lt;code&gt;EtsiApplication.json&lt;/code&gt
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;
-    Application - Mapping
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;Application - Mapping&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;application-architecture&#34;&gt;Application Architecture&lt;/h2&gt;
@@ -156,10 +147,7 @@ in custom configuration files (e.g. &lt;code&gt;EtsiApplication.json&lt;/code&gt
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;
-    Mapping
-&lt;/a&gt;
-. The applications
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/&#34;&gt;Mapping&lt;/a&gt;. The applications
 for the units are basically compiled JAVA classes, which &lt;strong&gt;extend&lt;/strong&gt; the abstract class &lt;code&gt;AbstractApplication&lt;/code&gt;. Those
 classes have to be deployed as pre-compiled JAR files into the &lt;code&gt;application&lt;/code&gt; folder of the simulated scenario.&lt;/p&gt;
 
@@ -286,9 +274,9 @@ However, the specification is not completely implemented. Last but not least a m
     
     <item>
       <title>Simulation Entities and Application Mapping</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/application_mapping/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/application_mapping/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/application_mapping/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/application_mapping/</guid>
       <description>&lt;p&gt;Closely related to the Application Simulator, the &lt;strong&gt;Mapping&lt;/strong&gt; Ambassador is used for the initial choreography of a simulation.
 It defines two major aspects for the simulation units:&lt;/p&gt;
 &lt;ol&gt;
@@ -417,13 +405,22 @@ routes, and types of the vehicles.&lt;/p&gt;
 &lt;p&gt;Each spawner in this list generates a traffic stream of vehicles on a certain &lt;code&gt;route&lt;/code&gt;. The vehicles stream begins at &lt;code&gt;startingTime&lt;/code&gt; and
 generates vehicles until &lt;code&gt;maxNumberVehicles&lt;/code&gt; is reached. The time between two consecutively vehicles is implicitly given by the
 &lt;code&gt;targetFlow&lt;/code&gt; property, which defines how many vehicles per hour are going to be spawned.&lt;/p&gt;
+&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;All times (e.g., &lt;code&gt;startingTime&lt;/code&gt;) can be defined as numbers or alternatively using a string and defining a unit (e.g. &lt;code&gt;&amp;quot;5.0 s&amp;quot;&lt;/code&gt;).
+As some configurations use nanoseconds and others use seconds you are always on the save side using the string declaration as
+MOSAIC will convert values correctly.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;Each vehicle spawner must refer to at least one vehicle type (&lt;code&gt;types&lt;/code&gt;). A vehicle type must either refer to a type from the &lt;code&gt;prototypes&lt;/code&gt;
 section by using its &lt;code&gt;name&lt;/code&gt;, or be defined as a completely new vehicle type with all necessary parameters. If more than one vehicle type
 is referenced in the &lt;code&gt;types&lt;/code&gt; attribute, &lt;code&gt;weight&lt;/code&gt;s can be used to specify the ratios to choose between them when loading an individual
 vehicle. If no weights are defined, individual vehicle types are assumed to be distributed equally.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Note: if at least one vehicle type has a weight defined, all types without a defined weight are ignored.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;If at least one vehicle type has a weight defined, all types without a defined weight are ignored.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
     {
         &amp;quot;startingTime&amp;quot;: 5.0,
@@ -528,10 +525,7 @@ have to define one traffic light without any applications and add a weight to it
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/#traffic-lights&#34;&gt;
-    Simulation Scenarios - Traffic Lights
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/#traffic-lights&#34;&gt;Simulation Scenarios - Traffic Lights&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Servers&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;servers&lt;/code&gt;-array can be used to specify server units, which can be used to communicate with other units via the cell module.
 Capacity configurations for servers should be done when enabling the &lt;code&gt;CellModule&lt;/code&gt;. Delay and transmission models are configured
@@ -560,14 +554,12 @@ in the &lt;code&gt;network.json&lt;/code&gt; of the cell module (see
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;
-    here
-&lt;/a&gt;
-).&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Note: The &lt;code&gt;group&lt;/code&gt; parameter in the mapping configuration has to match with the id in the network configuration in order to
-properly function.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_cell/&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;The &lt;code&gt;group&lt;/code&gt; parameter in the mapping configuration has to match with the id in the network configuration in order to properly function.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;servers&amp;quot;: [
     {
         &amp;quot;name&amp;quot;: &amp;quot;MyServer&amp;quot;,
@@ -591,11 +583,13 @@ Additionally, TMCs are an extension of Servers and can be configured in the same
     }
 ]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
 &lt;p&gt;All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
 in every simulation run with regard to the given ratios at each point in time the simulation).
 The Stochastic Mapping results in a random order of mapped units.&lt;/p&gt;
-&lt;/blockquote&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;h3 id=&#34;use-type-distributions-in-complex-traffic-scenarios&#34;&gt;Use Type Distributions in Complex Traffic Scenarios&lt;/h3&gt;
 &lt;p&gt;In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
 again and again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
@@ -678,10 +672,7 @@ are part of
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -691,10 +682,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;The &lt;code&gt;chargingStations&lt;/code&gt;-section can be used to specify charging stations which handle electric vehicle battery charging.
@@ -849,10 +837,7 @@ each of the points.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/&#34;&gt;
-    Mapping Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/&#34;&gt;Mapping Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;unit-identifiers&#34;&gt;Unit Identifiers&lt;/h2&gt;
@@ -894,9 +879,9 @@ which are generated after a simulation. The following table explains, which iden
     
     <item>
       <title>Eclipse SUMO - Simulation of Urban MObility</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/traffic_simulator_sumo/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_sumo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/traffic_simulator_sumo/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_sumo/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Eclipse SUMO&lt;/strong&gt; is a highly portable, microscopic and continuous road traffic
 simulation tool. It is designed to handle large road networks faster than real-time and simulates each vehicle
 individually.&lt;/p&gt;
@@ -931,16 +916,13 @@ individually.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://www.eclipse.org/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://www.eclipse.org/sumo/
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.org/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.eclipse.org/sumo/&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.14.1&lt;br&gt;1.2.0 - 1.14.1&lt;br&gt;1.0.1, 1.1.0&lt;/td&gt;
+&lt;td&gt;1.16.0&lt;br&gt;1.2.0 - 1.16.0&lt;br&gt;1.0.1, 1.1.0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1009,10 +991,7 @@ If no such file exists, the following default configuration options are used:&lt
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/sumo_config/&#34;&gt;
-    SUMO Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/sumo_config/&#34;&gt;SUMO Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Next to &lt;code&gt;sumo_config.json&lt;/code&gt;, the following configuration files are required for every SUMO simulation scenario:&lt;/p&gt;
@@ -1085,7 +1064,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.14.1) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.16.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -1188,9 +1167,9 @@ in the additional examples bundle on the &lt;a href=&#34;https://www.dcaiti.tu-b
     
     <item>
       <title>Variable Message Signs Simulator</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/vms_simulator/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/vms_simulator/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/</guid>
       <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
@@ -1220,10 +1199,7 @@ in the additional examples bundle on the &lt;a href=&#34;https://www.dcaiti.tu-b
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -1233,10 +1209,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -1288,15 +1261,15 @@ has, amongst others, the following properties:&lt;/p&gt;
 
 &lt;p&gt;Any properties of a VMS, beside its position and type, can be changed during the simulation.&lt;/p&gt;
 &lt;p&gt;In each simulation step the VMS Simulator informs vehicles about any VMS that is inside their sight distance. How
-vehicles react on VMS can be modeled with the &lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_simulator&#34; title=&#34;Application Simulator&#34;&gt;Application Simulator&lt;/a&gt;.&lt;/p&gt;
+vehicles react on VMS can be modeled with the &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator&#34; title=&#34;Application Simulator&#34;&gt;Application Simulator&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Network Simulator OMNeT&#43;&#43;</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_omnetpp/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_omnetpp/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_omnetpp/</guid>
       <description>&lt;p&gt;&lt;strong&gt;OMNeT++&lt;/strong&gt; is a simulation platform for discrete-event systems. Even though it is primarily targeted at simulating computer networks and
 distributed systems, it cannot be used without any extensions for wireless communication. For this kind of simulations, external model frameworks have to be included.&lt;/p&gt;
 &lt;p&gt;For the integration to Eclipse MOSAIC the &lt;strong&gt;INET&lt;/strong&gt; framework is selected as it provides all models necessary for simulating
@@ -1306,10 +1279,7 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
 
 
 
-&lt;a href=&#34;https://inet.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    website
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://inet.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;website&lt;/a&gt;.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1337,18 +1307,12 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
 
 
 
-&lt;a href=&#34;https://www.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://www.omnetpp.org
-&lt;/a&gt;
-&lt;br&gt; INET     
+&lt;a href=&#34;https://www.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.omnetpp.org&lt;/a&gt;&lt;br&gt; INET     
 
 
 
 
-&lt;a href=&#34;https://inet.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://inet.omnetpp.org
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;https://inet.omnetpp.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://inet.omnetpp.org&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
@@ -1373,19 +1337,13 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
   
   
 
-&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;
-    Docker environment
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;Docker environment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;the 
 
 
 
 
-&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Windows Subsystem for Linux
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Subsystem for Linux&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;the installation of Linux in a virtual machine environment, such as
 &lt;a href=&#34;https://www.vmware.com/products/workstation-player.html&#34; target=&#34;_blank&#34;&gt;VMware&lt;/a&gt; or &lt;a href=&#34;https://www.virtualbox.org/&#34; target=&#34;_blank&#34;&gt;VirtualBox&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1410,10 +1368,7 @@ the following options are possible:&lt;/p&gt;
   
   
 
-&lt;a href=&#34;#installation-for-users&#34;&gt;
-    USER
-&lt;/a&gt;
-&lt;br&gt;(installation script)&lt;/td&gt;
+&lt;a href=&#34;#installation-for-users&#34;&gt;USER&lt;/a&gt;&lt;br&gt;(installation script)&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; will automatically be installed inside &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt; during the installation.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1426,10 +1381,7 @@ the following options are possible:&lt;/p&gt;
   
   
 
-&lt;a href=&#34;#installation-for-developers&#34;&gt;
-    DEVELOPER
-&lt;/a&gt;
-&lt;br&gt;(installation script)&lt;/td&gt;
+&lt;a href=&#34;#installation-for-developers&#34;&gt;DEVELOPER&lt;/a&gt;&lt;br&gt;(installation script)&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.&lt;br&gt;&lt;br&gt;This installation type awaits that &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; are already installed on your system and&lt;br&gt;- &lt;code&gt;PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/bin&lt;/code&gt;&lt;br&gt;- &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/lib&lt;/code&gt; and &lt;code&gt;/path/to/inet/src&lt;/code&gt;&lt;br&gt;- &lt;code&gt;C_INCLUDE_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/include&lt;/code&gt; and &lt;code&gt;/path/to/inet/src&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1442,10 +1394,7 @@ the following options are possible:&lt;/p&gt;
   
   
 
-&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;
-    Docker
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;Docker&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; will automatically be installed bundled as a Docker image.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1475,10 +1424,7 @@ the following options are possible:&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;
-    Extending MOSAIC OMNeT++ Federate
-&lt;/a&gt;
- for details on federate build process.&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;Extending MOSAIC OMNeT++ Federate&lt;/a&gt; for details on federate build process.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1511,10 +1457,7 @@ OMNeT++ Federate, you may also choose the
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/#installation-for-developers&#34;&gt;
-    installation for developers
-&lt;/a&gt;
-
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_omnetpp/#installation-for-developers&#34;&gt;installation for developers&lt;/a&gt;
 to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;strong&gt;INET&lt;/strong&gt; on your system.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1536,10 +1479,7 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 
 
 
-&lt;a href=&#34;https://github.com/omnetpp/omnetpp/releases/tag/omnetpp-5.5.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://github.com/omnetpp/omnetpp/releases/
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;https://github.com/omnetpp/omnetpp/releases/tag/omnetpp-5.5.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/omnetpp/omnetpp/releases/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;INET&lt;/strong&gt;&lt;/td&gt;
@@ -1549,23 +1489,17 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 
 
 
-&lt;a href=&#34;https://github.com/inet-framework/inet/releases/tag/v4.1.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://github.com/inet-framework/inet/releases
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases/tag/v4.1.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/inet-framework/inet/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;22.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;23.0&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/22.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    https://github.com/mosaic-addons/omnetpp-federate/releases
-&lt;/a&gt;
-&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/23.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1657,7 +1591,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-22.1.zip
+    --federate /path/to/omnetpp-federate-23.0.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -1667,7 +1601,7 @@ The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMN
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-22.1.zip
+    --federate /path/to/omnetpp-federate-23.0.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the installation type &lt;code&gt;DEVELOPER&lt;/code&gt; the parameter &lt;code&gt;-f&lt;/code&gt; is required. The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -1695,10 +1629,7 @@ chmod +x omnet_installer.sh`
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;
-    here
-&lt;/a&gt;
- for more details on setting up a development environment for the OMNeT++ federate.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;here&lt;/a&gt; for more details on setting up a development environment for the OMNeT++ federate.&lt;/p&gt;
 &lt;h3 id=&#34;installation-in-docker-environment&#34;&gt;Installation in Docker environment&lt;/h3&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -1773,9 +1704,9 @@ of the &lt;code&gt;omnetpp.ini&lt;/code&gt; file.&lt;/p&gt;
     
     <item>
       <title>Network Simulator ns-3</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_ns3/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_ns3/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_ns3/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_ns3/</guid>
       <description>&lt;p&gt;As the successor of the well-known &lt;em&gt;Network Simulator 2&lt;/em&gt;, &lt;strong&gt;ns-3&lt;/strong&gt; is a discrete-event communication simulator for Internet systems,
 wireless networks and more. In connection with Eclipse MOSAIC, especially the IEEE 802.11(p) capabilities are employed for Ad-hoc communication.&lt;/p&gt;
 &lt;table&gt;
@@ -1829,10 +1760,7 @@ wireless networks and more. In connection with Eclipse MOSAIC, especially the IE
 
 
 
-&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Windows Subsystem for Linux
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Subsystem for Linux&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;the installation in 
 
 
@@ -1842,10 +1770,7 @@ wireless networks and more. In connection with Eclipse MOSAIC, especially the IE
   
   
 
-&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;
-    Docker environment
-&lt;/a&gt;
-&lt;/li&gt;
+&lt;a href=&#34;#installation-in-docker-environment&#34;&gt;Docker environment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;the installation of Linux in a virtual machine environment, such as
 &lt;a href=&#34;https://www.vmware.com/products/workstation-player.html&#34; target=&#34;_blank&#34;&gt;VMware&lt;/a&gt; or &lt;a href=&#34;https://www.virtualbox.org/&#34; target=&#34;_blank&#34;&gt;VirtualBox&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1926,10 +1851,7 @@ script, called &lt;code&gt;ns3_installer.sh&lt;/code&gt; that can be found in th
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/network_simulator_ns3/#configuration&#34;&gt;
-    Configuration
-&lt;/a&gt;
-). An example &lt;code&gt;ns3_federate_config.xml&lt;/code&gt; - file is shipped with the Tiergarten scenario.&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/#configuration&#34;&gt;Configuration&lt;/a&gt;). An example &lt;code&gt;ns3_federate_config.xml&lt;/code&gt; - file is shipped with the Tiergarten scenario.&lt;/li&gt;
 &lt;li&gt;At last ns-3 has to be activated in the &lt;code&gt;mosaic_config.xml&lt;/code&gt; and the simulation can be started.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -1960,10 +1882,7 @@ Read
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/ns3_setup/&#34;&gt;
-    here
-&lt;/a&gt;
- for futher information on how to set up a development environment for the ns-3 federate&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_setup/&#34;&gt;here&lt;/a&gt; for futher information on how to set up a development environment for the ns-3 federate&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;installation-in-docker-environment&#34;&gt;Installation in Docker environment&lt;/h3&gt;
@@ -2031,9 +1950,9 @@ includes additional parameters, like sending power and antenna gain.&lt;/p&gt;
     
     <item>
       <title>Simple Network Simulator (SNS)</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_sns/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_sns/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_sns/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_sns/</guid>
       <description>&lt;p&gt;The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the
 transmission of V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions
 in certain places. Those abstractions will be discussed later on.&lt;/p&gt;
@@ -2091,10 +2010,7 @@ in certain places. Those abstractions will be discussed later on.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/delay_models/&#34;&gt;
-    See here
-&lt;/a&gt;
-)&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/delay_models/&#34;&gt;See here&lt;/a&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Delay&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ConstantDelay&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -2173,10 +2089,7 @@ makes sense to specify the &lt;code&gt;AdhocTransmissionModel&lt;/code&gt; expli
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/sns_config/&#34;&gt;
-    SNS Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/sns_config/&#34;&gt;SNS Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;transmission-logic&#34;&gt;Transmission Logic&lt;/h2&gt;
@@ -2193,7 +2106,7 @@ receive a message.&lt;/p&gt;
 
 &lt;div class=&#34;svg-wrap mt-1 mb-4&#34;&gt;
   &lt;div class=&#34;inner&#34;&gt;
-    &lt;svg viewBox=&#34;0 0 808.9449462890625 1194.6796875&#34; style=&#34;max-width: 808.945px; background-color: white;&#34; height=&#34;1194.6796875&#34; aria-labelledby=&#34;chart-title-mermaid-1658409613521 chart-desc-mermaid-1658409613521&#34; role=&#34;img&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;100%&#34; id=&#34;mermaid-1658409613521&#34;&gt;&lt;title id=&#34;chart-title-mermaid-1658409613521&#34;&gt;&lt;/title&gt;&lt;desc id=&#34;chart-desc-mermaid-1658409613521&#34;&gt;&lt;/desc&gt;&lt;style&gt;#mermaid-1658409613521 {font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1658409613521 .error-icon{fill:#552222;}#mermaid-1658409613521 .error-text{fill:#552222;stroke:#552222;}#mermaid-1658409613521 .edge-thickness-normal{stroke-width:2px;}#mermaid-1658409613521 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1658409613521 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1658409613521 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1658409613521 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1658409613521 .marker{fill:#333333;stroke:#333333;}#mermaid-1658409613521 .marker.cross{stroke:#333333;}#mermaid-1658409613521 svg{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;}#mermaid-1658409613521 .label{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;color:#333;}#mermaid-1658409613521 .cluster-label text{fill:#333;}#mermaid-1658409613521 .cluster-label span{color:#333;}#mermaid-1658409613521 .label text,#mermaid-1658409613521 span{fill:#333;color:#333;}#mermaid-1658409613521 .node rect,#mermaid-1658409613521 .node circle,#mermaid-1658409613521 .node ellipse,#mermaid-1658409613521 .node polygon,#mermaid-1658409613521 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1658409613521 .node .label{text-align:center;}#mermaid-1658409613521 .node.clickable{cursor:pointer;}#mermaid-1658409613521 .arrowheadPath{fill:#333333;}#mermaid-1658409613521 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1658409613521 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1658409613521 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1658409613521 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1658409613521 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1658409613521 .cluster text{fill:#333;}#mermaid-1658409613521 .cluster span{color:#333;}#mermaid-1658409613521 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1658409613521 :root{--mermaid-font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;}&lt;/style&gt;&lt;g&gt;&lt;g class=&#34;output&#34;&gt;&lt;g class=&#34;clusters&#34;&gt;&lt;/g&gt;&lt;g class=&#34;edgePaths&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id1-id2&#34; class=&#34;edgePath LS-id1 LE-id2&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead39)&#34; d=&#34;M240.5484390258789,46L240.5484390258789,50.166666666666664C240.5484390258789,54.333333333333336,240.5484390258789,62.666666666666664,240.63177235921225,71.0833335876465C240.71510569254556,79.50000050862633,240.88177235921225,88.00000101725266,240.96510569254556,92.25000127156581L241.0484390258789,96.50000152587897&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead39&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id2-id3&#34; class=&#34;edgePath LS-id2 LE-id3&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead40)&#34; d=&#34;M196.73578771027306,224.69203465851524L182.8618543418942,237.66080962346973C168.98792097351537,250.62958458842422,141.2400542367577,276.5671345183332,127.44945420171217,295.28590973760083C113.65885416666667,314.00468495686846,113.82552083333333,325.5046854654948,113.90885416666667,331.2546857198079L113.9921875,337.00468597412106&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead40&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id2-id4&#34; class=&#34;edgePath LS-id2 LE-id4&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead41)&#34; d=&#34;M285.3610919093434,224.69203614241448L299.0683583497458,237.6608108600524C312.7756247901482,250.6295855776904,340.190157670953,276.5671350129663,353.9807574446888,296.6347386185437C367.7713572184245,316.7023422241211,367.9380238850911,330.90000000000003,368.0213572184245,337.99882888793945L368.1046905517578,345.09765777587893&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead41&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id3-id5&#34; class=&#34;edgePath LS-id3 LE-id5&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead42)&#34; d=&#34;M113.9921875,478.23437042236327L113.90885416666667,483.81770451863605C113.82552083333333,489.4010386149089,113.65885416666667,500.56770680745444,113.57552083333333,523.5877601623534C113.4921875,546.6078135172526,113.4921875,581.4812520345052,113.4921875,598.9179712931315L113.4921875,616.3546905517578&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead42&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id4-id6&#34; class=&#34;edgePath LS-id4 LE-id6&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead43)&#34; d=&#34;M368.1046905517578,470.14140472412095L368.0213572184245,477.0735664367674C367.9380238850911,484.005728149414,367.7713572184245,497.870051574707,367.7713572184245,510.55221379597987C367.7713572184245,523.2343760172527,367.9380238850911,534.7343770345053,368.0213572184245,540.4843775431317L368.1046905517578,546.234378051758&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead43&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id6-id7&#34; class=&#34;edgePath LS-id6 LE-id7&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead44)&#34; d=&#34;M316.3883950686654,691.7587075686654L300.5532857159939,705.9614239911404C284.71817636332247,720.1641404136154,253.04795765797962,748.5695732585655,237.21284830530817,784.7476797974142C221.37773895263672,820.9257863362631,221.37773895263672,864.8765665690104,221.37773895263672,886.8519566853842L221.37773895263672,908.8273468017578&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead44&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id6-id8&#34; class=&#34;edgePath LS-id6 LE-id8&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead45)&#34; d=&#34;M419.82098283417906,691.7587046658213L435.4894260536291,705.9614215721036C451.15786927307903,720.1641384783861,482.494755711979,748.5695722909509,498.24653226476227,768.5222897058596C513.9983088175455,788.4750071207682,514.1649754842123,799.9750081380207,514.2483088175456,805.7250086466471L514.331642150879,811.4750091552734&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead45&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id8-id9&#34; class=&#34;edgePath LS-id8 LE-id9&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead46)&#34; d=&#34;M453.39568776902877,1002.2437361699075L438.4598832910038,1017.9830613915896C423.5240788129788,1033.7223866132717,393.6524698569289,1065.2010370566359,378.7166653789039,1088.1070289449847C363.7808609008789,1111.0130208333333,363.7808609008789,1125.3463541666667,363.7808609008789,1132.5130208333333L363.7808609008789,1139.6796875&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead46&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id8-id10&#34; class=&#34;edgePath LS-id8 LE-id10&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead47)&#34; d=&#34;M575.2675994879667,1002.2437393181859L590.0367368067854,1017.9830640151549C604.8058741256041,1033.7223887121238,634.3441487632415,1065.201038106062,649.1132860820602,1086.6070294696976C663.8824234008789,1108.0130208333333,663.8824234008789,1119.3463541666667,663.8824234008789,1125.0130208333333L663.8824234008789,1130.6796875&#34; class=&#34;path&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead47&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabels&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;rect height=&#34;0&#34; width=&#34;0&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;0&#34; width=&#34;0&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id1&#39; L-LE-id2&#34; id=&#34;L-L-id1-id2&#34;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(113.4921875,302.5046844482422)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-33.796875,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;67.59375&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;67.59375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id2&#39; L-LE-id3&#34; id=&#34;L-L-id2-id3&#34;&gt;TopoCast&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(367.6046905517578,302.5046844482422)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-31.5703125,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;63.140625&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;63.140625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id2&#39; L-LE-id4&#34; id=&#34;L-L-id2-id4&#34;&gt;GeoCast&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(113.4921875,511.734375)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-13.0546875,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;26.109375&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;26.109375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id3&#39; L-LE-id5&#34; id=&#34;L-L-id3-id5&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(367.6046905517578,511.734375)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-13.0546875,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;26.109375&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;26.109375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id4&#39; L-LE-id6&#34; id=&#34;L-L-id4-id6&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(221.37773895263672,776.9750061035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-13.0546875,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;26.109375&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;26.109375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id6&#39; L-LE-id7&#34; id=&#34;L-L-id6-id7&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(513.8316421508789,776.9750061035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-10.2265625,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;20.453125&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;20.453125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id6&#39; L-LE-id8&#34; id=&#34;L-L-id6-id8&#34;&gt;No&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(363.7808609008789,1096.6796875)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-13.0546875,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;26.109375&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;26.109375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id8&#39; L-LE-id9&#34; id=&#34;L-L-id8-id9&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(663.8824234008789,1096.6796875)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-10.2265625,-9)&#34;&gt;&lt;rect height=&#34;18&#34; width=&#34;20.453125&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;20.453125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id8&#39; L-LE-id10&#34; id=&#34;L-L-id8-id10&#34;&gt;No&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;nodes&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(240.5484390258789,27)&#34; id=&#34;flowchart-id1-28&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;38&#34; width=&#34;150.109375&#34; y=&#34;-19&#34; x=&#34;-75.0546875&#34; ry=&#34;0&#34; rx=&#34;0&#34;&gt;&lt;/rect&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-65.0546875,-9)&#34;&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;130.109375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;V2X-Transmission&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(240.5484390258789,182.2523422241211)&#34; id=&#34;flowchart-id2-29&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-86.25234375000001,86.25234375000001)&#34; points=&#34;86.25234375000001,0 172.50468750000002,-86.25234375000001 86.25234375000001,-172.50468750000002 0,-86.25234375000001&#34;&gt;&lt;/polygon&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-66.8359375,-9)&#34;&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;133.671875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Transmission Type&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(113.4921875,407.1195297241211)&#34; id=&#34;flowchart-id3-32&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-70.61484375,70.61484375)&#34; points=&#34;70.61484375,0 141.2296875,-70.61484375 70.61484375,-141.2296875 0,-70.61484375&#34;&gt;&lt;/polygon&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-40.4609375,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;80.921875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Broadcast&lt;br/&gt;or Unicast?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(367.6046905517578,407.1195297241211)&#34; id=&#34;flowchart-id4-33&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-62.521875,62.521875)&#34; points=&#34;62.521875,0 125.04375,-62.521875 62.521875,-125.04375 0,-62.521875&#34;&gt;&lt;/polygon&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-40.46875,-9)&#34;&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;80.9375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Broadcast?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(113.4921875,644.3546905517578)&#34; id=&#34;flowchart-id5-38&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;56&#34; width=&#34;210.984375&#34; y=&#34;-28&#34; x=&#34;-105.4921875&#34; ry=&#34;28&#34; rx=&#34;28&#34;&gt;&lt;/rect&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-88.4921875,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;176.984375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simulate TopoCast using&lt;br/&gt;singlehop configuration.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(367.6046905517578,644.3546905517578)&#34; id=&#34;flowchart-id6-41&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-98.6203125,98.6203125)&#34; points=&#34;98.6203125,0 197.240625,-98.6203125 98.6203125,-197.240625 0,-98.6203125&#34;&gt;&lt;/polygon&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-71.578125,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;143.15625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simple transmission&lt;br/&gt;model?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(221.37773895263672,936.8273468017578)&#34; id=&#34;flowchart-id7-44&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;56&#34; width=&#34;233.203125&#34; y=&#34;-28&#34; x=&#34;-116.6015625&#34; ry=&#34;28&#34; rx=&#34;28&#34;&gt;&lt;/rect&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-99.6015625,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;199.203125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simulate transmission using&lt;br/&gt;simpleMultihopDelay.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(513.8316421508789,936.8273468017578)&#34; id=&#34;flowchart-id8-47&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-125.85234375,125.85234375)&#34; points=&#34;125.85234375,0 251.7046875,-125.85234375 125.85234375,-251.7046875 0,-125.85234375&#34;&gt;&lt;/polygon&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-101.8359375,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;203.671875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Sender directly able to reach&lt;br/&gt;destination area?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(363.7808609008789,1158.6796875)&#34; id=&#34;flowchart-id9-50&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;38&#34; width=&#34;226.078125&#34; y=&#34;-19&#34; x=&#34;-113.0390625&#34; ry=&#34;19&#34; rx=&#34;19&#34;&gt;&lt;/rect&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-98.2890625,-9)&#34;&gt;&lt;foreignObject height=&#34;18&#34; width=&#34;196.578125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Flooding in destination area&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(663.8824234008789,1158.6796875)&#34; id=&#34;flowchart-id10-53&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;56&#34; width=&#34;274.125&#34; y=&#34;-28&#34; x=&#34;-137.0625&#34; ry=&#34;28&#34; rx=&#34;28&#34;&gt;&lt;/rect&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-120.0625,-18)&#34;&gt;&lt;foreignObject height=&#34;36&#34; width=&#34;240.125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Greedy Forwarding to reach area,&lt;br/&gt;then flooding in destination areay.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;
+    &lt;svg viewBox=&#34;0 0 814.3453369140625 1203.831298828125&#34; style=&#34;max-width: 814.345px; background-color: white;&#34; aria-labelledby=&#34;chart-title-mermaid-1666691301359 chart-desc-mermaid-1666691301359&#34; role=&#34;img&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;100%&#34; id=&#34;mermaid-1666691301359&#34;&gt;&lt;title id=&#34;chart-title-mermaid-1666691301359&#34;/&gt;&lt;desc id=&#34;chart-desc-mermaid-1666691301359&#34;/&gt;&lt;style&gt;#mermaid-1666691301359 {font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1666691301359 .error-icon{fill:#552222;}#mermaid-1666691301359 .error-text{fill:#552222;stroke:#552222;}#mermaid-1666691301359 .edge-thickness-normal{stroke-width:2px;}#mermaid-1666691301359 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1666691301359 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1666691301359 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1666691301359 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1666691301359 .marker{fill:#333333;stroke:#333333;}#mermaid-1666691301359 .marker.cross{stroke:#333333;}#mermaid-1666691301359 svg{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:16px;}#mermaid-1666691301359 .label{font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;color:#333;}#mermaid-1666691301359 .cluster-label text{fill:#333;}#mermaid-1666691301359 .cluster-label span{color:#333;}#mermaid-1666691301359 .label text,#mermaid-1666691301359 span{fill:#333;color:#333;}#mermaid-1666691301359 .node rect,#mermaid-1666691301359 .node circle,#mermaid-1666691301359 .node ellipse,#mermaid-1666691301359 .node polygon,#mermaid-1666691301359 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1666691301359 .node .label{text-align:center;}#mermaid-1666691301359 .node.clickable{cursor:pointer;}#mermaid-1666691301359 .arrowheadPath{fill:#333333;}#mermaid-1666691301359 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1666691301359 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1666691301359 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1666691301359 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1666691301359 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1666691301359 .cluster text{fill:#333;}#mermaid-1666691301359 .cluster span{color:#333;}#mermaid-1666691301359 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1666691301359 :root{--mermaid-font-family:&#34;trebuchet ms&#34;,verdana,arial,sans-serif;}&lt;/style&gt;&lt;g&gt;&lt;g class=&#34;output&#34;&gt;&lt;g class=&#34;clusters&#34;/&gt;&lt;g class=&#34;edgePaths&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id1-id2&#34; class=&#34;edgePath LS-id1 LE-id2&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead39)&#34; d=&#34;M238.4554672241211,47L238.4554672241211,51.166666666666664C238.4554672241211,55.333333333333336,238.4554672241211,63.666666666666664,238.53880055745444,72.08333384195963C238.62213389078775,80.5000010172526,238.78880055745444,89.0000020345052,238.87213389078775,93.25000254313152L238.9554672241211,97.50000305175782&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead39&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id2-id3&#34; class=&#34;edgePath LS-id2 LE-id3&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead40)&#34; d=&#34;M195.61012530191223,222.07497362954896L181.68031275159353,234.9658644585434C167.75050020127483,247.85675528753782,139.89087510063743,273.6385369455267,126.04439588365204,292.3627611078545C112.19791666666667,311.0869852701823,112.36458333333333,322.75365193684894,112.44791666666667,328.5869852701823L112.53125,334.4203186035156&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead40&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id2-id4&#34; class=&#34;edgePath LS-id2 LE-id4&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead41)&#34; d=&#34;M282.3008059953237,222.07497067703954L296.06395240414344,234.96586199811887C309.8270988129632,247.85675331919825,337.3533916306027,273.6385359613569,351.19987137275575,293.9471356157697C365.0463511149089,314.25573527018247,365.2130177815755,329.09115193684926,365.2963511149089,336.50886027018265L365.3796844482422,343.9265686035161&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead41&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id3-id5&#34; class=&#34;edgePath LS-id3 LE-id5&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead42)&#34; d=&#34;M112.53125,475.1156311035156L112.44791666666667,480.7822977701823C112.36458333333333,486.44896443684894,112.19791666666667,497.7822977701823,112.11458333333333,520.8351618448893C112.03125,543.8880259195963,112.03125,578.6604207356771,112.03125,596.0466181437174L112.03125,613.4328155517578&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead42&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id4-id6&#34; class=&#34;edgePath LS-id4 LE-id6&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead43)&#34; d=&#34;M365.3796844482422,465.609378051758L365.2963511149089,472.86042022705095C365.2130177815755,480.1114624023439,365.0463511149089,494.6135467529298,365.0463511149089,507.6979227701823C365.0463511149089,520.7822987874348,365.2130177815755,532.4489664713541,365.2963511149089,538.2823003133136L365.3796844482422,544.1156341552733&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead43&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id6-id7&#34; class=&#34;edgePath LS-id6 LE-id7&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead44)&#34; d=&#34;M313.44946599963095,689.8197846031466L297.41166437469246,704.1414871692888C281.373862749754,718.4631897354311,249.298259499877,747.1065948677156,233.2604578749385,783.893400583272C217.22265625,820.6802062988281,217.22265625,865.6104125976562,217.22265625,888.0755157470703L217.22265625,910.5406188964844&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead44&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id6-id8&#34; class=&#34;edgePath LS-id6 LE-id8&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead45)&#34; d=&#34;M417.30990610436123,689.8197874991545L433.1810405280484,704.1414895826288C449.05217495173565,718.463191666103,480.79444379911,747.1065958330515,496.7489115561305,767.2616322671116C512.703379313151,787.416668701172,512.8700459798177,799.0833374023438,512.953379313151,804.9166717529297L513.0367126464844,810.7500061035156&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead45&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id8-id9&#34; class=&#34;edgePath LS-id8 LE-id9&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead46)&#34; d=&#34;M450.5991389557637,1006.8936702057637L435.42662519588384,1022.9665981369645C420.25411143600394,1039.0395260681653,389.90908391624413,1071.185381930567,374.7365701563643,1094.5916431951011C359.5640563964844,1117.9979044596355,359.5640563964844,1132.664571126302,359.5640563964844,1139.9979044596355L359.5640563964844,1147.3312377929688&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead46&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; id=&#34;L-id8-id10&#34; class=&#34;edgePath LS-id8 LE-id10&#34;&gt;&lt;path style=&#34;fill:none&#34; marker-end=&#34;url(#arrowhead47)&#34; d=&#34;M575.4742922322762,1006.8936765177241L590.4801383429775,1022.9666033969315C605.485984453679,1039.039530276139,635.4976766750816,1071.1853840345539,650.503522785783,1093.0083109137613C665.5093688964844,1114.8312377929688,665.5093688964844,1126.3312377929688,665.5093688964844,1132.0812377929688L665.5093688964844,1137.8312377929688&#34; class=&#34;path&#34;/&gt;&lt;defs&gt;&lt;marker orient=&#34;auto&#34; markerHeight=&#34;6&#34; markerWidth=&#34;8&#34; markerUnits=&#34;strokeWidth&#34; refY=&#34;5&#34; refX=&#34;9&#34; viewBox=&#34;0 0 10 10&#34; id=&#34;arrowhead47&#34;&gt;&lt;path style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34; class=&#34;arrowheadPath&#34; d=&#34;M 0 0 L 10 5 L 0 10 z&#34;/&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabels&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;rect height=&#34;0&#34; width=&#34;0&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;0&#34; width=&#34;0&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id1&#39; L-LE-id2&#34; id=&#34;L-L-id1-id2&#34;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(112.03125,299.4203186035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-32.09375,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;64.1875&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;64.1875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id2&#39; L-LE-id3&#34; id=&#34;L-L-id2-id3&#34;&gt;TopoCast&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(364.8796844482422,299.4203186035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-29.46875,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;58.9375&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;58.9375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id2&#39; L-LE-id4&#34; id=&#34;L-L-id2-id4&#34;&gt;GeoCast&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(112.03125,509.1156311035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-11.328125,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;22.65625&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;22.65625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id3&#39; L-LE-id5&#34; id=&#34;L-L-id3-id5&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(364.8796844482422,509.1156311035156)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-11.328125,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;22.65625&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;22.65625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id4&#39; L-LE-id6&#34; id=&#34;L-L-id4-id6&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(217.22265625,775.75)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-11.328125,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;22.65625&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;22.65625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id6&#39; L-LE-id7&#34; id=&#34;L-L-id6-id7&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(512.5367126464844,775.75)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-9.3984375,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;18.796875&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;18.796875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id6&#39; L-LE-id8&#34; id=&#34;L-L-id6-id8&#34;&gt;No&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(359.5640563964844,1103.3312377929688)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-11.328125,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;22.65625&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;22.65625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id8&#39; L-LE-id9&#34; id=&#34;L-L-id8-id9&#34;&gt;Yes&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(665.5093688964844,1103.3312377929688)&#34; class=&#34;edgeLabel&#34;&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(-9.3984375,-9.5)&#34;&gt;&lt;rect height=&#34;19&#34; width=&#34;18.796875&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;18.796875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;&lt;span style=&#34;&#34; class=&#34;edgeLabel L-LS-id8&#39; L-LE-id10&#34; id=&#34;L-L-id8-id10&#34;&gt;No&lt;/span&gt;&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;nodes&#34;&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(238.4554672241211,27.5)&#34; id=&#34;flowchart-id1-56&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;39&#34; width=&#34;142.640625&#34; y=&#34;-19.5&#34; x=&#34;-71.3203125&#34; ry=&#34;0&#34; rx=&#34;0&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-61.3203125,-9.5)&#34;&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;122.640625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;V2X-Transmission&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(238.4554672241211,180.9601593017578)&#34; id=&#34;flowchart-id2-57&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-83.96015625,83.96015625)&#34; points=&#34;83.96015625,0 167.9203125,-83.96015625 83.96015625,-167.9203125 0,-83.96015625&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-63.7890625,-9.5)&#34;&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;127.578125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Transmission Type&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(112.03125,404.2679748535156)&#34; id=&#34;flowchart-id3-60&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-70.34765625,70.34765625)&#34; points=&#34;70.34765625,0 140.6953125,-70.34765625 70.34765625,-140.6953125 0,-70.34765625&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-39.1640625,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;78.328125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Broadcast&lt;br /&gt;or Unicast?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(364.8796844482422,404.2679748535156)&#34; id=&#34;flowchart-id4-61&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-60.84140625,60.84140625)&#34; points=&#34;60.84140625,0 121.6828125,-60.84140625 60.84140625,-121.6828125 0,-60.84140625&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-38.1015625,-9.5)&#34;&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;76.203125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Broadcast?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(112.03125,642.4328155517578)&#34; id=&#34;flowchart-id5-66&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;58&#34; width=&#34;208.0625&#34; y=&#34;-29&#34; x=&#34;-104.03125&#34; ry=&#34;29&#34; rx=&#34;29&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-86.78125,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;173.5625&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simulate TopoCast using&lt;br /&gt;singlehop configuration.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(364.8796844482422,642.4328155517578)&#34; id=&#34;flowchart-id6-69&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-98.8171875,98.8171875)&#34; points=&#34;98.8171875,0 197.634375,-98.8171875 98.8171875,-197.634375 0,-98.8171875&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-70.796875,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;141.59375&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simple transmission&lt;br /&gt;model?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(217.22265625,939.5406188964844)&#34; id=&#34;flowchart-id7-72&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;58&#34; width=&#34;232.046875&#34; y=&#34;-29&#34; x=&#34;-116.0234375&#34; ry=&#34;29&#34; rx=&#34;29&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-98.7734375,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;197.546875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Simulate transmission using&lt;br /&gt;simpleMultihopDelay.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(512.5367126464844,939.5406188964844)&#34; id=&#34;flowchart-id8-75&#34; class=&#34;node default&#34;&gt;&lt;polygon class=&#34;label-container&#34; transform=&#34;translate(-129.290625,129.290625)&#34; points=&#34;129.290625,0 258.58125,-129.290625 129.290625,-258.58125 0,-129.290625&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-104.65625,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;209.3125&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Sender directly able to reach&lt;br /&gt;destination area?&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(359.5640563964844,1166.8312377929688)&#34; id=&#34;flowchart-id9-78&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;39&#34; width=&#34;230.21875&#34; y=&#34;-19.5&#34; x=&#34;-115.109375&#34; ry=&#34;19.5&#34; rx=&#34;19.5&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-100.234375,-9.5)&#34;&gt;&lt;foreignObject height=&#34;19&#34; width=&#34;200.46875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Flooding in destination area&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g style=&#34;opacity: 1;&#34; transform=&#34;translate(665.5093688964844,1166.8312377929688)&#34; id=&#34;flowchart-id10-81&#34; class=&#34;node default&#34;&gt;&lt;rect class=&#34;label-container&#34; height=&#34;58&#34; width=&#34;281.671875&#34; y=&#34;-29&#34; x=&#34;-140.8359375&#34; ry=&#34;29&#34; rx=&#34;29&#34;/&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;g transform=&#34;translate(-123.5859375,-19)&#34;&gt;&lt;foreignObject height=&#34;38&#34; width=&#34;247.171875&#34;&gt;&lt;div style=&#34;display: inline-block; white-space: nowrap;&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Greedy Forwarding to reach area,&lt;br /&gt;then flooding in destination areay.&lt;/div&gt;&lt;/foreignObject&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;
   &lt;/div&gt;
   
     &lt;div class=&#34;desc&#34;&gt;
@@ -2327,10 +2240,7 @@ of the destination area (or is able to communicate with an entity inside the des
   
   
 
-&lt;a href=&#34;#flooding-transmission&#34;&gt;
-    Flooding Transmission
-&lt;/a&gt;
- within this area (see figure below).
+&lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt; within this area (see figure below).
 
 
 
@@ -2374,10 +2284,7 @@ of the destination area (or is able to communicate with an entity inside the des
   
   
 
-&lt;a href=&#34;#approaching-transmission&#34;&gt;
-    Forwarding Transmission
-&lt;/a&gt;
- has to
+&lt;a href=&#34;#approaching-transmission&#34;&gt;Forwarding Transmission&lt;/a&gt; has to
 be executed first. This is can also be described as an &lt;em&gt;AnyCast&lt;/em&gt;, since the goal of this transmission is to reach &lt;em&gt;any&lt;/em&gt; entity
 inside the destination area. We try to achieve this by building a &amp;ldquo;chain&amp;rdquo; of entities, that will forward the message to the destination
 are (see figure below).
@@ -2424,10 +2331,7 @@ are (see figure below).
   
   
 
-&lt;a href=&#34;#approaching-transmission&#34;&gt;
-    Forwarding Transmissions
-&lt;/a&gt;
- individually, rather they are combined with a 
+&lt;a href=&#34;#approaching-transmission&#34;&gt;Forwarding Transmissions&lt;/a&gt; individually, rather they are combined with a 
 
 
 
@@ -2436,10 +2340,7 @@ are (see figure below).
   
   
 
-&lt;a href=&#34;#flooding-transmission&#34;&gt;
-    Flooding Transmission
-&lt;/a&gt;
-, which
+&lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt;, which
 will simulate a way, that GeaCasts can be implemented in reality. The figure below depicts this behaviour.
 
 
@@ -2496,19 +2397,13 @@ algorithm (see
 
 
 
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Geographic_routing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    greedy forwarding
-&lt;/a&gt;
- &amp;amp;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Geographic_routing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;greedy forwarding&lt;/a&gt; &amp;amp;
 
 
 
 
 
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    flooding
-&lt;/a&gt;
-). For TopoCasts this model behaves very
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flooding&lt;/a&gt;). For TopoCasts this model behaves very
 similarly to the &lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;, since TopoCasts are always configured with only one hop.
 For GeoCasts however, this model follows the flowchart above, trying to &amp;ldquo;approach&amp;rdquo; a destination area if it can&amp;rsquo;t be reached directly.&lt;/p&gt;
 &lt;h4 id=&#34;approaching-greedy-forwarding&#34;&gt;Approaching (Greedy forwarding)&lt;/h4&gt;
@@ -2918,10 +2813,7 @@ area, even though there is a possible &amp;ldquo;chain&amp;rdquo; using the yell
 
 
 
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-    Wikipedia
-&lt;/a&gt;
-. Each entity forwards the message to all entities
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wikipedia&lt;/a&gt;. Each entity forwards the message to all entities
 in its communication range. Entities, that already received the message won&amp;rsquo;t receive it again; this is different from many real-life
 implementations, where messages are send to all reachable entities except the sender. However, since the simulation has total
 knowledge of all simulated entities, it is easier to overcome a lot of the disadvantages, that flooding faces
@@ -2958,10 +2850,7 @@ of delays could be made more realistic.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/scenarios/scenario_configuration/#communication-simulators-cell-ns3-omnetpp-sns&#34;&gt;
-    Scenario Configuration
-&lt;/a&gt;
-.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/scenario_configuration/#communication-simulators-cell-ns3-omnetpp-sns&#34;&gt;Scenario Configuration&lt;/a&gt;.&lt;br&gt;
 An overview of how to configure AdHoc-modules and usage of the API for Routing and Message-Building functions,
 can be found under 
 
@@ -2988,18 +2877,15 @@ can be found under
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;
-    Application Development
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;Application Development&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Network Simulator Cell</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_cell/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/network_simulator_cell/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_cell/</guid>
       <description>&lt;p&gt;The built-in Eclipse MOSAIC Cell Simulator enables the applications to use cellular network communication.
 The simulation of cellular communication in Eclipse MOSAIC consists of two parts:&lt;/p&gt;
 &lt;ol&gt;
@@ -3066,10 +2952,7 @@ file.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/cell_network_config/&#34;&gt;
-    Network
-&lt;/a&gt;
- and 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/cell_network_config/&#34;&gt;Network&lt;/a&gt; and 
 
 
 
@@ -3094,10 +2977,7 @@ file.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/cell_region_config/&#34;&gt;
-    Regions Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/cell_region_config/&#34;&gt;Regions Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
@@ -3151,10 +3031,7 @@ used cell regions. Google Earth can be used to display it.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/cell_network_config/&#34;&gt;
-    Cell Network Configuration
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/cell_network_config/&#34;&gt;Cell Network Configuration&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;
@@ -3182,10 +3059,7 @@ used cell regions. Google Earth can be used to display it.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/cell_region_config/&#34;&gt;
-    Cell Region Configuration
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/cell_region_config/&#34;&gt;Cell Region Configuration&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -3424,10 +3298,7 @@ estimation is specified with by &lt;code&gt;delayType&lt;/code&gt; for the uplin
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/extending_mosaic/delay_models/&#34;&gt;
-    Delay-Chapter
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/delay_models/&#34;&gt;Delay-Chapter&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;delay.type = ’ConstantDelay’&lt;/code&gt;: The message is transmitted with the latency being exactly equal to delay.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;delay.type = ’SimpleRandomDelay’&lt;/code&gt;: The latency can assume different (randomly generated and uniformly distributed) values between
@@ -3478,10 +3349,7 @@ Application Simulator.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/#cellular-topocast&#34;&gt;
-    CellTopocast
-&lt;/a&gt;
-&lt;/strong&gt; is the normal unicast, where the Geocaster simply resolves
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-topocast&#34;&gt;CellTopocast&lt;/a&gt;&lt;/strong&gt; is the normal unicast, where the Geocaster simply resolves
 the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn&amp;rsquo;t allow
 broadcast or anycast addresses, but any transmission protocols (tcp, udp).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;
@@ -3509,10 +3377,7 @@ broadcast or anycast addresses, but any transmission protocols (tcp, udp).&lt;/p
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/#cellular-geocast&#34;&gt;
-    CellGeoUnicast
-&lt;/a&gt;
-&lt;/strong&gt; addresses every node in the destination area individually.
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-geocast&#34;&gt;CellGeoUnicast&lt;/a&gt;&lt;/strong&gt; addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;
 
@@ -3539,10 +3404,7 @@ In this way it takes a geographic address and results in a loop to generate mult
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/develop_applications/communication/#cellular-geobroadcast&#34;&gt;
-    CellGeoBroadcast
-&lt;/a&gt;
-&lt;/strong&gt;, which is basically MBMS, uses one broadcast to all
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-geobroadcast&#34;&gt;CellGeoBroadcast&lt;/a&gt;&lt;/strong&gt;, which is basically MBMS, uses one broadcast to all
 nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
 CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).&lt;/p&gt;
 </description>
@@ -3550,9 +3412,9 @@ CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts
     
     <item>
       <title>Environment Simulator</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/environment_simulator/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/environment_simulator/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/environment_simulator/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/environment_simulator/</guid>
       <description>&lt;p&gt;This ambassador can be configured with a configuration file. The specific path is &lt;code&gt;mosaic/scenarios/&amp;lt;scenarioName&amp;gt;/environment/environment_config.json&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ &amp;lt;scenario_name&amp;gt;
    └─ environment
@@ -3588,10 +3450,7 @@ CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/mosaic_configuration/environment_config/&#34;&gt;
-    Environment Configuration
-&lt;/a&gt;
-.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/environment_config/&#34;&gt;Environment Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;The root node of the configuration is a list of environment events. Each event require the type of the event, a rectangle area, a
@@ -3630,9 +3489,9 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
     
     <item>
       <title>MOSAIC Battery Simulator</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_battery/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_battery/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_battery/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_battery/</guid>
       <description>&lt;p&gt;For simulation of electric vehicles, the &lt;strong&gt;Battery Simulator&lt;/strong&gt; handles the actual processes of&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Discharging&lt;/li&gt;
@@ -3661,10 +3520,7 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_charging/&#34;&gt;
-    charging station
-&lt;/a&gt;
-)&lt;/li&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/emobility_simulator_charging/&#34;&gt;charging station&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Recuperation&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
@@ -3696,10 +3552,7 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -3709,10 +3562,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -3781,10 +3631,7 @@ the user&amp;rsquo;s needs. The Battery Simulator comes bundled with some basic 
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#vehicle-model&#34;&gt;
-    vehicles
-&lt;/a&gt;
-, 
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#vehicle-model&#34;&gt;vehicles&lt;/a&gt;, 
 
 
 
@@ -3809,10 +3656,7 @@ the user&amp;rsquo;s needs. The Battery Simulator comes bundled with some basic 
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#environment-model&#34;&gt;
-    environment
-&lt;/a&gt;
- and the
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#environment-model&#34;&gt;environment&lt;/a&gt; and the
 
 
 
@@ -3838,10 +3682,7 @@ the user&amp;rsquo;s needs. The Battery Simulator comes bundled with some basic 
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#battery-model&#34;&gt;
-    battery
-&lt;/a&gt;
-. These will be explained in the following paragraphs.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/emobility_simulator_battery/#battery-model&#34;&gt;battery&lt;/a&gt;. These will be explained in the following paragraphs.&lt;/p&gt;
 
 
 
@@ -3977,9 +3818,9 @@ likes. However, for most applications static definitions should be sufficient.&l
     
     <item>
       <title>Charging Station Simulator</title>
-      <link>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_charging/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_charging/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/simulators/emobility_simulator_charging/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_charging/</guid>
       <description>&lt;p&gt;With the 
 
 
@@ -4005,10 +3846,7 @@ likes. However, for most applications static definitions should be sufficient.&l
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/emobility_simulator_battery/&#34;&gt;
-    Battery Simulator
-&lt;/a&gt;
-, MOSAIC Extended offers advanced simulation for the processes of discharging and recuperation. For holistic scenarios, the &lt;strong&gt;Charging Station Simulator&lt;/strong&gt; extends the modeling characteristics of electric vehicles as it validates charging requests from vehicles to control re-charging. An overview of how the simulators interact (and the used interactions) can be seen below.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/emobility_simulator_battery/&#34;&gt;Battery Simulator&lt;/a&gt;, MOSAIC Extended offers advanced simulation for the processes of discharging and recuperation. For holistic scenarios, the &lt;strong&gt;Charging Station Simulator&lt;/strong&gt; extends the modeling characteristics of electric vehicles as it validates charging requests from vehicles to control re-charging. An overview of how the simulators interact (and the used interactions) can be seen below.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
@@ -4038,10 +3876,7 @@ likes. However, for most applications static definitions should be sufficient.&l
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -4051,10 +3886,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -4128,10 +3960,7 @@ forwarded to the Battery simulator. Additionally, whenever a charging station is
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/docs/simulators/application_mapping/#entities&#34;&gt;
-    Mapping configuration
-&lt;/a&gt;
-. The only parameter
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/#entities&#34;&gt;Mapping configuration&lt;/a&gt;. The only parameter
 configured in the &lt;em&gt;charging_config.json&lt;/em&gt; is a global parameter for the maximum range of a charging station. This allows for abstract
 modeling of charging stations, without the need of being super accurate with the stop positions of vehicles.&lt;/p&gt;
 &lt;h3 id=&#34;example-configuration&#34;&gt;Example configuration&lt;/h3&gt;

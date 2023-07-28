@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WebSocket Visualizer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/docs/visualization/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/docs/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/docs/visualization/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/docs/visualization/index.xml" rel="self" type="application/rss+xml" />
     <description>WebSocket Visualizer</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>WebSocket Visualizer</title>
-      <link>https://www.eclipse.org/mosaic/docs/visualization/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/</link>
     </image>
     
     <item>
       <title>File Output Generator</title>
-      <link>https://www.eclipse.org/mosaic/docs/visualization/filevis/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/filevis/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/visualization/filevis/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/visualization/filevis/</guid>
       <description>&lt;p&gt;The File Output Generator is a tool which gives you the opportunity to log specific Eclipse MOSAIC interaction types. For
 each interaction the File Output receives, one line (or more in case of an iteration object) is added
 to a CSV output file. This allows to track the movements of vehicles or to monitor the V2X message exchange.&lt;/p&gt;
@@ -198,9 +198,9 @@ many outputs.&lt;/p&gt;
     
     <item>
       <title>Statistics Output</title>
-      <link>https://www.eclipse.org/mosaic/docs/visualization/statistics/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/statistics/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/visualization/statistics/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/visualization/statistics/</guid>
       <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
   &lt;div&gt;
@@ -229,10 +229,7 @@ many outputs.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -242,10 +239,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Statistics Output is another output generating tool to easily measure basic simulation outcomes.
@@ -363,173 +357,10 @@ Unequipped;459.18;84;
     </item>
     
     <item>
-      <title>Integrated Test and Evaluation Framework (ITEF)</title>
-      <link>https://www.eclipse.org/mosaic/docs/visualization/itef/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/visualization/itef/</guid>
-      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
-  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
-  &lt;div&gt;
-&lt;p&gt;&lt;strong&gt;ITEF&lt;/strong&gt; is part of 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-.&lt;br&gt;
-For further information on licenses, feel free to contact us via &lt;strong&gt;
-
-
-
-
-
-  
-  
-
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;The Integrated Test and Evaluation Framework (ITEF) is a webtool for planning and evaluating vehicular communication scenarios. It is suited for field operational tests as well as simulations.&lt;/p&gt;
-&lt;p&gt;ITEF also offers a variety of visualization features, making a comparison of different vehicles or between equipped and unequipped vehicles easy. It is structured into 4 screens, whereas the following 3 screens are intended for the visualization.&lt;/p&gt;
-&lt;p&gt;The Replay screen (see Figure 1) is intended to be used for an initial overview of the test run. The main feature is the display of the vehicle movements on a map, while the player can be used to playback the movement situation. In this manner, the ITEF allows a location and time dependent evaluation of simulation test runs.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-itef-replay-screen&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/replayrun.png&#34; data-caption=&#34;ITEF Replay Screen&#34;&gt;
-
-
-  &lt;img src=&#34;../images/replayrun.png&#34; alt=&#34;&#34;  &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-    ITEF Replay Screen
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;The Evaluate screen (see Figure 2) allows the detailed investigation of the correlations in a test run. The main feature of this screen is to display the behavior summarized over the whole run. The structure of this screen with is similar to the Replay screen. However, the focus here is on the detailed (statistical) summary of evaluated metrics.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-itef-evaluate-screen&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/evaluaterun.png&#34; data-caption=&#34;ITEF Evaluate Screen&#34;&gt;
-
-
-  &lt;img src=&#34;../images/evaluaterun.png&#34; alt=&#34;&#34;  &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-    ITEF Evaluate Screen
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;Finally, the Statistics screen (see Figure 3) provides statistical evaluations of the test and simulation
-run. Currently, statistics on Vehicle Speed, Travel Time, Travel Distance and severalmore are supported.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-itef-statistics-screen&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/statistics.png&#34; data-caption=&#34;ITEF Statistics Screen&#34;&gt;
-
-
-  &lt;img src=&#34;../images/statistics.png&#34; alt=&#34;&#34;  &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-    ITEF Statistics Screen
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-</description>
-    </item>
-    
-    <item>
       <title>3D Visualization (PHABMap)</title>
-      <link>https://www.eclipse.org/mosaic/docs/visualization/phabmap/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.org/mosaic/docs/visualization/phabmap/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</guid>
       <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
   &lt;div&gt;
@@ -558,10 +389,7 @@ run. Currently, statistics on Vehicle Speed, Travel Time, Travel Distance and se
     
   
 
-&lt;a href=&#34;https://www.eclipse.org/mosaic/mosaic/download/#overview&#34;&gt;
-    MOSAIC Extended
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;br&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
 For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 
@@ -571,10 +399,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   
   
 
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;
-    mosaic@fokus.fraunhofer.de
-&lt;/a&gt;
-&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D

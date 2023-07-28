@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Groups | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
-    <link>https://www.eclipse.org/mosaic/group/</link>
-      <atom:link href="https://www.eclipse.org/mosaic/group/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.eclipse.dev/mosaic/group/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/group/index.xml" rel="self" type="application/rss+xml" />
     <description>Groups</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
-      <url>https://www.eclipse.org/mosaic/images/logo.svg</url>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Groups</title>
-      <link>https://www.eclipse.org/mosaic/group/</link>
+      <link>https://www.eclipse.dev/mosaic/group/</link>
     </image>
     
     <item>
       <title></title>
-      <link>https://www.eclipse.org/mosaic/group/fokus/</link>
+      <link>https://www.eclipse.dev/mosaic/group/fokus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/group/fokus/</guid>
+      <guid>https://www.eclipse.dev/mosaic/group/fokus/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://www.eclipse.org/mosaic/group/dcaiti/</link>
+      <link>https://www.eclipse.dev/mosaic/group/dcaiti/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/group/dcaiti/</guid>
+      <guid>https://www.eclipse.dev/mosaic/group/dcaiti/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://www.eclipse.org/mosaic/group/openmobility/</link>
+      <link>https://www.eclipse.dev/mosaic/group/openmobility/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.eclipse.org/mosaic/group/openmobility/</guid>
+      <guid>https://www.eclipse.dev/mosaic/group/openmobility/</guid>
       <description></description>
     </item>
     
