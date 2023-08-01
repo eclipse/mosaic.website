@@ -10,7 +10,7 @@ subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from
 [[card]]
     padding_top = "1.3rem"
     text = """The [Fraunhofer Institute for Open Communication Systems (FOKUS)](https://www.fokus.fraunhofer.de/asct) is the leading group behind the
-        simulation framework Eclipse MOSAIC, which has now been developed over the last 12 years in close cooperation
+        simulation framework Eclipse MOSAIC, which has now been developed over the last 15 years in close cooperation
         with the DCAITI of the TU Berlin and has already been used by more than 600 partners and researches to test
         smart mobility services and intelligent traffic scenarios."""
     [card.width]
@@ -51,8 +51,8 @@ subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from
         title = "Visit DCAITI"
         url = "https://www.dcaiti.tu-berlin.de/"
 [[card]]
-    text = """The [openMobility Working Group](https://openmobility.eclipse.org/) was founded to support the development and broad introduction of open
-        source mobility modeling and simulation technologies. The aim of the Working Group is to deliver a openMobility
+    text = """The [openMobility Interest Group](https://openmobility.eclipse.org/) was founded to support the development and broad introduction of open
+        source mobility modeling and simulation technologies. The aim of the Interest Group is to deliver a openMobility
         framework of tools based on validated models, which are accepted as standard tools in industry applications and
         academia. Eclipse MOSAIC is one part of the broad range of tools developed in this group."""
     [card.width]
@@ -68,6 +68,6 @@ subtitle = "Eclipse MOSAIC is maintained and developed by<br>various people from
         wrap_height = "5.5rem"
         vertical_alignment = "center"
     [card.button]
-        title = "Visit openMobility Working Group"
+        title = "Visit openMobility Interest Group"
         url = "https://openmobility.eclipse.org/"
 +++

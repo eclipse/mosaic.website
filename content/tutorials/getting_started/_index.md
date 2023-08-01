@@ -31,7 +31,7 @@ JAVA Runtime Environment or Development Kit is required:
 {{% alert note %}}
 In addition, the pre-bundled simulation scenarios are configured to use certain simulators. For traffic simulation, the open-source 
 traffic-simulator SUMO is required:
-- **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.org/sumo](https://www.eclipse.org/sumo).
+- **Eclipse SUMO** (latest version {{< version of="sumo" >}} recommended), [https://www.eclipse.dev/sumo](https://www.eclipse.dev/sumo).
 {{% /alert %}}
 
 Additional simulators are not required by the pre-bundled scenarios. However, if you plan to simulate communication scenarios

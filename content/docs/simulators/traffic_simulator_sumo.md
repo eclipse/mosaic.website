@@ -18,7 +18,7 @@ simulation tool. It is designed to handle large road networks faster than real-t
 | **Operating System**     | GNU/Linux, _macOS_, Microsoft Windows                | |
 | **Written in**           | C++                                                  | |
 | **License**              | EPL-2.0                                              | |
-| **Website**              | [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/) | |
+| **Website**              | [https://www.eclipse.dev/sumo/](https://www.eclipse.dev/sumo/) | |
 | **Supported version(s)** | Recommended version:<br>Full support:<br>Limited support: | {{< version of="sumo" >}}<br>{{< version of="sumo_full_support" >}}<br>{{< version of="sumo_limited_support">}} |
 |                          |                                                      | |
 
@@ -156,12 +156,10 @@ Please be aware that this feature is still experimental. Also, some SUMO command
 ## Adding Vehicles
 The `SumoAmbassador` handles vehicles added via Mapping (*mapping vehicles*) and via SUMO route files (*sumo vehicles*).
 There are however some caveats:
-* *mapping vehicles* can drive on routes specified in route files, however *sumo vehicles* can't drive on routes specified in the scenario
+* *Mapping vehicles* can drive on routes specified in route files, however *sumo vehicles* can't drive on routes specified in the scenario
 database
-* you can only map applications on *sumo vehicles'* vehicle types, however you can work around this limitation by using
-  different vehicle types for different applications
-* Stay away from giving your *sumo vehicles* the prefix `veh_` since this will most likely lead to your simulation crashing, because
-  MOSAIC uses this as a prefix internally
+* In order to configure an application mapping for *sumo vehicles*, you can either use the `prototypes` sections for single type mapping, or the `typeDistribution` section for choosing between multiple mappings by weight. It is currently not possible to map applications on specific vehicles, unless they have a distinctive vehicle type name.
+* IDs of your *sumo vehicles* will be replaced on MOSAIC side with internal IDs starting with `veh_` prefix. Keep this in mind when your applications create log files or during debugging.
 * The vehicle types defined in Mapping and defined in route files can't share the same names
 
 This duality of adding vehicles has some powerful use cases. For example, you can use an existing SUMO scenario and add your own

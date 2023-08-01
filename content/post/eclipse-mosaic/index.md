@@ -4,7 +4,7 @@ categories:
   - Simulation
   - Communication
   - PHABMACS
-summary: On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.
+summary: On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 15 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.
 tags: []
 date: "2020-10-16T00:00:00Z"
 lastMod: "2020-10-16T00:00:00Z"
@@ -26,7 +26,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-**On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.**
+**On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 15 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.**
 
 Whether dynamic lane assignment or traffic light phase assistant, new mobility services are designed to increase safety, efficiency, comfort, and facilitate environmentally friendly transport. The Eclipse MOSAIC simulation environment allows to explore how this can be achieved, before the services are tested in field trials on the road. Eclipse MOSAIC can also be used for testing driver assistance systems and to optimize the entire traffic.
 
@@ -50,7 +50,7 @@ In the recently completed EU project INFRAMIX, Eclipse MOSAIC was used to test s
 Fraunhofer FOKUS has been a strategic development member of the Eclipse Foundation since May of this year and works in close cooperation with the partners of the working groups OpenMobility and openADx (Open Source for Autonomous Driving).
 
 Further information about Eclipse MOSAIC:
-https://www.eclipse.org/mosaic
+https://www.eclipse.dev/mosaic
 https://github.com/eclipse/mosaic
 
 Further information about INFRAMIX:

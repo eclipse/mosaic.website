@@ -245,14 +245,14 @@ only using the mapping-file, though you cannot map apps on single vehicles but o
 Additionally, there are some more things to consider:
 * The `"DEFAULT_VEHTYPE"` prototype is the name of the default `vType` in SUMO. So all vehicle definitions, missing a `type`-parameter will
   get the `HelloWorldApp` mapped to them.
-* The `Bus` prototype additionally has a `"weight"`-attribute. This controls the percentage of vehicles, that will get the apps mapped
-  to them.
+* The `Bike` prototype additionally has a `"weight"`-attribute. This controls the percentage of vehicles, that will get the apps mapped to them.
+* The `Bus` type is configured in the `typeDistribution` section. This is very similar to the `Bike` definition, with the possibility to define multiple application configurations to randomly choose from.
 * The vehicle spawner defines the `"lanes"`-attribute, since lane 0 is a bus-lane.
 * You can't specify spawners for any of the types defined in SUMO as this would lead to MOSAIC writing the type again and thereby crashing
   the simulation.
 * You can however define vehicles in the route-file using the type `MappingCar`, as this is written in a separate file beforehand.
 
-````json
+```json
 {
   "prototypes": [ 
     {
@@ -268,13 +268,29 @@ Additionally, there are some more things to consider:
     },
     {
       "name": "Bus",
-      "weight": 0.4,
       "applications": [ "org.eclipse.mosaic.app.tutorial.eventprocessing.sampling.HelloWorldApp" ]
     }
   ],
+  "typeDistributions": {
+    "Bus": [
+      {
+        "name": "Bus",
+        "weight": 0.4
+      },
+      {
+        "name": "Bus",
+        "weight": 0.6,
+        "applications": [ ]
+      }
+    ]
+  },
   ...
 }
-````
+```
+
+{{% alert note %}}
+The actual vehicle properties such as acceleration or maximum speed of vehicles defined in the SUMO scenario, **can not** be overriden in the mapping configuration. Please adjust these values in the `vType` section in the SUMO scenario files.
+{{% /alert %}}
 
 ## Simulation and Results
 We are done building our scenario and can now run it using MOSAIC's start script.

@@ -7,6 +7,14 @@ weight = 50  # Order that this section will appear.
 title = "Projects"
 subtitle = ""
 [[project]]
+    title = "BerDiBa"
+    subtitle = "Berliner Digitaler Bahnbetrieb"
+    desc = "The BerDiBa project is further developing digital rail operations in three aspects: driverless trains, automatically scheduled maintenance, and automated remote control for situations in which autonomous travel is not possible, for example due to weather."
+    url = "https://www.fokus.fraunhofer.de/de/asct/projekte/Berdiba_projekt"
+    [project.logo]
+    filename = "berdiba.png"
+    width = "90%"
+[[project]]
     title = "AI-NET"
     subtitle = "Accellerating digital transformation in Europe by Intelligent NETwork automation"
     desc = "The primary objective of the AINET project is to provide enablers and solutions for high-performance services deployed and operated at the network edge. Here, Fraunhofer FOKUS and DCAITI research on tele-operated and connected driving as an use-case for a high-demanding network service."

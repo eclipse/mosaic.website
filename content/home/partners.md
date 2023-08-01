@@ -7,7 +7,7 @@ weight = 30  # Order that this section will appear in.
 [[image_text_block]]
     content = """[Fraunhofer FOKUS](https://www.fokus.fraunhofer.de/asct) and [DCAITI (Daimler Center for Automotive IT
         Innovations)](https://www.dcaiti.tu-berlin.de/) developed this simulation platform, formerly known as VSimRTI,
-        to support research in the field of connected and automated mobility for more than 12 years."""
+        to support research in the field of connected and automated mobility for more than 15 years."""
     [[image_text_block.image]]
         file = "/img/logos/partners/fh_fokus.png"
         alt = "Fraunhofer logo"
@@ -21,7 +21,7 @@ weight = 30  # Order that this section will appear in.
         
 [[image_text_block]]
     content = """The future of Eclipse MOSAIC is driven by several industry and academic partners in the [openMobility
-        Working Group](https://openmobility.eclipse.org) at the Eclipse Foundation."""
+        Interest Group](https://openmobility.eclipse.org) at the Eclipse Foundation."""
     [[image_text_block.image]]
         file = "/img/logos/partners/open-mobility.png"
         alt = "openMobility logo"
