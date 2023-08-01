@@ -916,7 +916,7 @@ individually.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://www.eclipse.org/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.eclipse.org/sumo/&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.eclipse.dev/sumo/&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1081,12 +1081,10 @@ replaced with
 &lt;p&gt;The &lt;code&gt;SumoAmbassador&lt;/code&gt; handles vehicles added via Mapping (&lt;em&gt;mapping vehicles&lt;/em&gt;) and via SUMO route files (&lt;em&gt;sumo vehicles&lt;/em&gt;).
 There are however some caveats:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;mapping vehicles&lt;/em&gt; can drive on routes specified in route files, however &lt;em&gt;sumo vehicles&lt;/em&gt; can&amp;rsquo;t drive on routes specified in the scenario
+&lt;li&gt;&lt;em&gt;Mapping vehicles&lt;/em&gt; can drive on routes specified in route files, however &lt;em&gt;sumo vehicles&lt;/em&gt; can&amp;rsquo;t drive on routes specified in the scenario
 database&lt;/li&gt;
-&lt;li&gt;you can only map applications on &lt;em&gt;sumo vehicles&#39;&lt;/em&gt; vehicle types, however you can work around this limitation by using
-different vehicle types for different applications&lt;/li&gt;
-&lt;li&gt;Stay away from giving your &lt;em&gt;sumo vehicles&lt;/em&gt; the prefix &lt;code&gt;veh_&lt;/code&gt; since this will most likely lead to your simulation crashing, because
-MOSAIC uses this as a prefix internally&lt;/li&gt;
+&lt;li&gt;In order to configure an application mapping for &lt;em&gt;sumo vehicles&lt;/em&gt;, you can either use the &lt;code&gt;prototypes&lt;/code&gt; sections for single type mapping, or the &lt;code&gt;typeDistribution&lt;/code&gt; section for choosing between multiple mappings by weight. It is currently not possible to map applications on specific vehicles, unless they have a distinctive vehicle type name.&lt;/li&gt;
+&lt;li&gt;IDs of your &lt;em&gt;sumo vehicles&lt;/em&gt; will be replaced on MOSAIC side with internal IDs starting with &lt;code&gt;veh_&lt;/code&gt; prefix. Keep this in mind when your applications create log files or during debugging.&lt;/li&gt;
 &lt;li&gt;The vehicle types defined in Mapping and defined in route files can&amp;rsquo;t share the same names&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This duality of adding vehicles has some powerful use cases. For example, you can use an existing SUMO scenario and add your own

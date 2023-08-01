@@ -1139,7 +1139,7 @@ individually.</p>
 
 
 
-<a href="https://www.eclipse.org/sumo/" target="_blank" rel="noopener">https://www.eclipse.org/sumo/</a></td>
+<a href="https://www.eclipse.dev/sumo/" target="_blank" rel="noopener">https://www.eclipse.dev/sumo/</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1304,12 +1304,10 @@ replaced with
 <p>The <code>SumoAmbassador</code> handles vehicles added via Mapping (<em>mapping vehicles</em>) and via SUMO route files (<em>sumo vehicles</em>).
 There are however some caveats:</p>
 <ul>
-<li><em>mapping vehicles</em> can drive on routes specified in route files, however <em>sumo vehicles</em> can&rsquo;t drive on routes specified in the scenario
+<li><em>Mapping vehicles</em> can drive on routes specified in route files, however <em>sumo vehicles</em> can&rsquo;t drive on routes specified in the scenario
 database</li>
-<li>you can only map applications on <em>sumo vehicles'</em> vehicle types, however you can work around this limitation by using
-different vehicle types for different applications</li>
-<li>Stay away from giving your <em>sumo vehicles</em> the prefix <code>veh_</code> since this will most likely lead to your simulation crashing, because
-MOSAIC uses this as a prefix internally</li>
+<li>In order to configure an application mapping for <em>sumo vehicles</em>, you can either use the <code>prototypes</code> sections for single type mapping, or the <code>typeDistribution</code> section for choosing between multiple mappings by weight. It is currently not possible to map applications on specific vehicles, unless they have a distinctive vehicle type name.</li>
+<li>IDs of your <em>sumo vehicles</em> will be replaced on MOSAIC side with internal IDs starting with <code>veh_</code> prefix. Keep this in mind when your applications create log files or during debugging.</li>
 <li>The vehicle types defined in Mapping and defined in route files can&rsquo;t share the same names</li>
 </ul>
 <p>This duality of adding vehicles has some powerful use cases. For example, you can use an existing SUMO scenario and add your own
@@ -1740,7 +1738,7 @@ in the additional examples bundle on the <a href="https://www.dcaiti.tu-berlin.d
   <div class="row justify-content-center mt-3 position-relative">
     <p class="powered-by text-center font-italic mb-0 pb-0">
       Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
       <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
       <br>
       Header image &#169; fanjianhua/ iStock

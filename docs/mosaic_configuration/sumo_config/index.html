@@ -1194,7 +1194,7 @@ have the option of:</p>
 <tr>
 <td>subscriptions</td>
 <td><code>string[]</code></td>
-<td>An optional list of subscriptions for each vehicle in the simulation. The less subscriptions given, the faster the simulation. Per default (if this list is set to null), all subscriptions are activated. Please note, that some components expect specific information, such as the road position. If this information is not subscribed, these components may fail.</td>
+<td>An optional list of subscriptions for each vehicle in the simulation. The less subscriptions given, the faster the simulation. Per default (if this list is set to null), all subscriptions are activated. Please note, that some components expect specific information, such as the road position. If this information is not subscribed, these components may fail. Possible values are: [&ldquo;roadposition&rdquo;, &ldquo;leader&rdquo;, &ldquo;signals&rdquo;, &ldquo;emissions&rdquo;, &ldquo;trains&rdquo;]</td>
 <td>No</td>
 <td>None</td>
 <td>None</td>
@@ -1678,7 +1678,7 @@ have the option of:</p>
   <div class="row justify-content-center mt-3 position-relative">
     <p class="powered-by text-center font-italic mb-0 pb-0">
       Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
       <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
       <br>
       Header image &#169; fanjianhua/ iStock

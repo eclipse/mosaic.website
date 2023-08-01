@@ -2557,7 +2557,7 @@ individually.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://www.eclipse.org/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.eclipse.org/sumo/&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.eclipse.dev/sumo/&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2722,12 +2722,10 @@ replaced with
 &lt;p&gt;The &lt;code&gt;SumoAmbassador&lt;/code&gt; handles vehicles added via Mapping (&lt;em&gt;mapping vehicles&lt;/em&gt;) and via SUMO route files (&lt;em&gt;sumo vehicles&lt;/em&gt;).
 There are however some caveats:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;mapping vehicles&lt;/em&gt; can drive on routes specified in route files, however &lt;em&gt;sumo vehicles&lt;/em&gt; can&amp;rsquo;t drive on routes specified in the scenario
+&lt;li&gt;&lt;em&gt;Mapping vehicles&lt;/em&gt; can drive on routes specified in route files, however &lt;em&gt;sumo vehicles&lt;/em&gt; can&amp;rsquo;t drive on routes specified in the scenario
 database&lt;/li&gt;
-&lt;li&gt;you can only map applications on &lt;em&gt;sumo vehicles&#39;&lt;/em&gt; vehicle types, however you can work around this limitation by using
-different vehicle types for different applications&lt;/li&gt;
-&lt;li&gt;Stay away from giving your &lt;em&gt;sumo vehicles&lt;/em&gt; the prefix &lt;code&gt;veh_&lt;/code&gt; since this will most likely lead to your simulation crashing, because
-MOSAIC uses this as a prefix internally&lt;/li&gt;
+&lt;li&gt;In order to configure an application mapping for &lt;em&gt;sumo vehicles&lt;/em&gt;, you can either use the &lt;code&gt;prototypes&lt;/code&gt; sections for single type mapping, or the &lt;code&gt;typeDistribution&lt;/code&gt; section for choosing between multiple mappings by weight. It is currently not possible to map applications on specific vehicles, unless they have a distinctive vehicle type name.&lt;/li&gt;
+&lt;li&gt;IDs of your &lt;em&gt;sumo vehicles&lt;/em&gt; will be replaced on MOSAIC side with internal IDs starting with &lt;code&gt;veh_&lt;/code&gt; prefix. Keep this in mind when your applications create log files or during debugging.&lt;/li&gt;
 &lt;li&gt;The vehicle types defined in Mapping and defined in route files can&amp;rsquo;t share the same names&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This duality of adding vehicles has some powerful use cases. For example, you can use an existing SUMO scenario and add your own
@@ -12542,7 +12540,7 @@ agreement no 723016.&lt;/p&gt;
       <link>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
       <guid>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 15 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Whether dynamic lane assignment or traffic light phase assistant, new mobility services are designed to increase safety, efficiency, comfort, and facilitate environmentally friendly transport. The Eclipse MOSAIC simulation environment allows to explore how this can be achieved, before the services are tested in field trials on the road. Eclipse MOSAIC can also be used for testing driver assistance systems and to optimize the entire traffic.&lt;/p&gt;
 &lt;h2 id=&#34;flexible-coupling-of-simulators&#34;&gt;Flexible coupling of simulators&lt;/h2&gt;
 &lt;p&gt;Eclipse MOSAIC integrates, depending on the simulation scenario, different aspects like individual building blocks into a holistic system, e.g., traffic congestion, battery charging of electric cars, or communication between other road users and a central cloud. The level of detail for individual aspects is variable: from a rough mobility scenario for an entire city to detailed individual driving maneuvers.&lt;/p&gt;
@@ -12557,7 +12555,7 @@ agreement no 723016.&lt;/p&gt;
 &lt;p&gt;In the recently completed EU project INFRAMIX, Eclipse MOSAIC was used to test scenarios for the future road that allow mixed traffic between conventional and automated vehicles.&lt;/p&gt;
 &lt;p&gt;Fraunhofer FOKUS has been a strategic development member of the Eclipse Foundation since May of this year and works in close cooperation with the partners of the working groups OpenMobility and openADx (Open Source for Autonomous Driving).&lt;/p&gt;
 &lt;p&gt;Further information about Eclipse MOSAIC:
-&lt;a href=&#34;https://www.eclipse.org/mosaic&#34;&gt;https://www.eclipse.org/mosaic&lt;/a&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic&#34;&gt;https://www.eclipse.dev/mosaic&lt;/a&gt;
 &lt;a href=&#34;https://github.com/eclipse/mosaic&#34;&gt;https://github.com/eclipse/mosaic&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Further information about INFRAMIX:
 &lt;a href=&#34;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&#34;&gt;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&lt;/a&gt;&lt;/p&gt;

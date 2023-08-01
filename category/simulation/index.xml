@@ -1492,7 +1492,7 @@ agreement no 723016.&lt;/p&gt;
       <link>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
       <guid>https://www.eclipse.dev/mosaic/post/eclipse-mosaic/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 12 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;On the occasion of EclipseCon 2020, Fraunhofer FOKUS launches its simulation environment Eclipse MOSAIC. This solution is based on VSimRTI (Vehicle-2-X Simulation Runtime Infrastructure), which has been developed over the last 15 years in close cooperation with the DCAITI of the TU Berlin and has already been used by more than 600 partners to test mobility services and traffic scenarios. Eclipse MOSAIC is now partially available as open-source.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Whether dynamic lane assignment or traffic light phase assistant, new mobility services are designed to increase safety, efficiency, comfort, and facilitate environmentally friendly transport. The Eclipse MOSAIC simulation environment allows to explore how this can be achieved, before the services are tested in field trials on the road. Eclipse MOSAIC can also be used for testing driver assistance systems and to optimize the entire traffic.&lt;/p&gt;
 &lt;h2 id=&#34;flexible-coupling-of-simulators&#34;&gt;Flexible coupling of simulators&lt;/h2&gt;
 &lt;p&gt;Eclipse MOSAIC integrates, depending on the simulation scenario, different aspects like individual building blocks into a holistic system, e.g., traffic congestion, battery charging of electric cars, or communication between other road users and a central cloud. The level of detail for individual aspects is variable: from a rough mobility scenario for an entire city to detailed individual driving maneuvers.&lt;/p&gt;
@@ -1507,7 +1507,7 @@ agreement no 723016.&lt;/p&gt;
 &lt;p&gt;In the recently completed EU project INFRAMIX, Eclipse MOSAIC was used to test scenarios for the future road that allow mixed traffic between conventional and automated vehicles.&lt;/p&gt;
 &lt;p&gt;Fraunhofer FOKUS has been a strategic development member of the Eclipse Foundation since May of this year and works in close cooperation with the partners of the working groups OpenMobility and openADx (Open Source for Autonomous Driving).&lt;/p&gt;
 &lt;p&gt;Further information about Eclipse MOSAIC:
-&lt;a href=&#34;https://www.eclipse.org/mosaic&#34;&gt;https://www.eclipse.org/mosaic&lt;/a&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic&#34;&gt;https://www.eclipse.dev/mosaic&lt;/a&gt;
 &lt;a href=&#34;https://github.com/eclipse/mosaic&#34;&gt;https://github.com/eclipse/mosaic&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Further information about INFRAMIX:
 &lt;a href=&#34;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&#34;&gt;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&lt;/a&gt;&lt;/p&gt;

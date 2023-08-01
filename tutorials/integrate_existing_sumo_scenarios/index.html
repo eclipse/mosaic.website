@@ -1098,8 +1098,8 @@ Additionally, there are some more things to consider:</p>
 <ul>
 <li>The <code>&quot;DEFAULT_VEHTYPE&quot;</code> prototype is the name of the default <code>vType</code> in SUMO. So all vehicle definitions, missing a <code>type</code>-parameter will
 get the <code>HelloWorldApp</code> mapped to them.</li>
-<li>The <code>Bus</code> prototype additionally has a <code>&quot;weight&quot;</code>-attribute. This controls the percentage of vehicles, that will get the apps mapped
-to them.</li>
+<li>The <code>Bike</code> prototype additionally has a <code>&quot;weight&quot;</code>-attribute. This controls the percentage of vehicles, that will get the apps mapped to them.</li>
+<li>The <code>Bus</code> type is configured in the <code>typeDistribution</code> section. This is very similar to the <code>Bike</code> definition, with the possibility to define multiple application configurations to randomly choose from.</li>
 <li>The vehicle spawner defines the <code>&quot;lanes&quot;</code>-attribute, since lane 0 is a bus-lane.</li>
 <li>You can&rsquo;t specify spawners for any of the types defined in SUMO as this would lead to MOSAIC writing the type again and thereby crashing
 the simulation.</li>
@@ -1120,13 +1120,30 @@ the simulation.</li>
     },
     {
       &quot;name&quot;: &quot;Bus&quot;,
-      &quot;weight&quot;: 0.4,
       &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.eventprocessing.sampling.HelloWorldApp&quot; ]
     }
   ],
+  &quot;typeDistributions&quot;: {
+    &quot;Bus&quot;: [
+      {
+        &quot;name&quot;: &quot;Bus&quot;,
+        &quot;weight&quot;: 0.4
+      },
+      {
+        &quot;name&quot;: &quot;Bus&quot;,
+        &quot;weight&quot;: 0.6,
+        &quot;applications&quot;: [ ]
+      }
+    ]
+  },
   ...
 }
 </code></pre>
+<div class="alert alert-note">
+  <div>
+<p>The actual vehicle properties such as acceleration or maximum speed of vehicles defined in the SUMO scenario, <strong>can not</strong> be overriden in the mapping configuration. Please adjust these values in the <code>vType</code> section in the SUMO scenario files.</p>
+  </div>
+</div>
 <h2 id="simulation-and-results">Simulation and Results</h2>
 <p>We are done building our scenario and can now run it using MOSAIC&rsquo;s start script.</p>
 <pre><code>mosaic.&lt;sh|bat&gt; -c &lt;path-to-scenario&gt;/scenario_config.json
@@ -1670,7 +1687,7 @@ configuring the traffic demand again.</p>
   <div class="row justify-content-center mt-3 position-relative">
     <p class="powered-by text-center font-italic mb-0 pb-0">
       Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
       <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
       <br>
       Header image &#169; fanjianhua/ iStock
