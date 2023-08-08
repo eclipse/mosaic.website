@@ -64,6 +64,8 @@
       <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
       <br>
       Header image &#169; fanjianhua/ iStock
+      <br>
+      Website built on {{ now.Format "2 Jan 2006, 15:04 MST" }}
     </p>
     {{ if not (in (slice "docs" "updates") .Type) }}
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
