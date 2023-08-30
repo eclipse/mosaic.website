@@ -192,32 +192,32 @@
   <img src="getting_started/images/mosaic-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
-    <li>Download and install Eclipse MOSAIC</li>
-    <li>Running a simulation</li>
-    <li>Configuring a simulation scenario</li>
+    <li>Download and Install Eclipse MOSAIC</li>
+    <li>Running and configuring a simulation scenario</li>
+    <li>Gather simulation results</li>
   </ul>
   """
 [[tutorials]]
-  name = "Barnim Basic"
-  identifier = "barnim_basic"
-  url = "/tutorials/barnim_basic/"
+  name = "Barnim: Simulation Basics"
+  identifier = "barnim_simulation_basics"
+  url = "/tutorials/barnim_simulation_basics/"
   weight = 10
   post = """
-  <img src="barnim_basic/images/barnim-map-intro.png">
+  <img src="barnim_simulation_basics/images/barnim-map-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
-    <li>Configuration of simulation entities</li>
-    <li>Choosing between simulators</li>
     <li>Map applications onto entities</li>
+    <li>Choosing between simulators</li>
+    <li>Configuration of simulation entities</li>
   </ul>
   """
 [[tutorials]]
-  name = "Barnim Advanced"
-  identifier = "barnim_advanced"
-  url = "/tutorials/barnim_advanced/"
+  name = "Barnim: Develop Applications"
+  identifier = "barnim_develop_applications"
+  url = "/tutorials/barnim_develop_applications/"
   weight = 20
   post = """
-  <img src="barnim_basic/images/barnim-map-intro.png">
+  <img src="barnim_simulation_basics/images/barnim-map-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
     <li>Developing applications</li>
@@ -225,31 +225,48 @@
     <li>Choosing different route due to weather conditions</li>
   </ul>
   """
+  [[tutorials]]
+  name = "Create a new Scenario"
+  identifier = "create_new_scenario"
+  url = "/tutorials/create_new_scenario/"
+  weight = 25
+  post = """
+  <img src="create_new_scenario/images/create-new-intro.png">
+  <p><b>What you will learn:</b></p>
+  <ul>
+    <li>Create your a new scenarios</li>
+    <li>How to use scenario-convert</li>
+    <li>Cleaning map-data before generating the simulation map</li>
+    <li>Import routes into your scenario</li>
+  </ul>
+  """
 [[tutorials]]
-  name = "Tiergarten"
-  identifier = "tiergarten"
-  url = "/tutorials/tiergarten/"
+  name = "Tiergarten: Communication"
+  identifier = "tiergarten_communication"
+  url = "/tutorials/tiergarten_communication/"
   weight = 30
   post = """
-  <img src="tiergarten/images/tiergarten-intro.png">
+  <img src="tiergarten_communication/images/tiergarten-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
     <li>Detailed mapping configuration</li>
     <li>Communication between vehicles</li>
+    <li>Intra-vehicle application communication</li>
     <li>Event processing within vehicles</li>
   </ul>
   """
 [[tutorials]]
-  name = "Traffic Lights"
-  identifier = "traffic_lights"
-  url = "/tutorials/traffic_lights/"
+  name = "Tiergarten: Traffic Lights"
+  identifier = "tiergarten_traffic_lights"
+  url = "/tutorials/tiergarten_traffic_lights/"
   weight = 40
   post = """
-  <img src="traffic_lights/images/trafficlights-intro.png">
+  <img src="tiergarten_traffic_lights/images/trafficlights-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
     <li>Adding traffic lights to your scenario</li>
     <li>Mapping applications onto traffic lights</li>
+    <li>Working with traffic lights in applications</li>
   </ul>"""
 [[tutorials]]
   name = "Integrate SUMO scenarios"

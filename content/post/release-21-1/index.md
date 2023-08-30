@@ -36,7 +36,7 @@ You can find the new version in our [Download section](/download), and in our [G
 [C+] Upgraded ns-3 federate to support ns3-34.
 [C+] Major improvement of logging for SNS, OMNeT++, and ns-3.
 [C-] Fixed a bug in polygon intersection test used by reachability check in mosaic-cell.
-[S+] Improved scenario-convert for faster and more reliable import of SUMO net files.
+[S+] Improved Scenario-convert for faster and more reliable import of SUMO net files.
 [T+] You can now use LibSumo as an alternative to TraCI (experimental).
 [T+] Now supports SUMO 1.10.0
 [X+] Major overhaul of battery and charging station simulation (Extended).

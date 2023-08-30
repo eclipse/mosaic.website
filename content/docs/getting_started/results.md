@@ -26,7 +26,7 @@ folder `<mosaic-root>/logs/log-<timestamp>`. For each simulation run a new folde
    ├─ Battery.log ............................ Battery simulator log
    ├─ Cell.log ............................... Cellular network log
    ├─ ChargingStation.log .................... ChargingStation ambassador log
-   ├─ Communication.log ...................... (Ad hoc) network simulation ambassador log (ns-3, OMNeT++, SNS)
+   ├─ Communication.log ...................... (Ad-hoc) network simulation ambassador log (ns-3, OMNeT++, SNS)
    ├─ CommunicationDetails.log ............... Detailed output of network simulator (ns-3 or OMNeT++)
    ├─ Environment.log ........................ Logs of the environmental eventserver
    ├─ Mapping.log ............................ Mapping configuration logs

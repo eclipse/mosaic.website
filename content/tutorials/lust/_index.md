@@ -25,6 +25,7 @@ for SUMO has been developed by Lara Codecá et al. and is publicly available via
 The following tutorial shows, how the LuST scenario can be integrated into Eclipse MOSAIC in order to
 assess your own mobile application at large scale. After completing this tutorial you will be able to:
 * Integrate an external SUMO simulation scenario into Eclipse MOSAIC.
+* Simulate large amounts of traffic.
 {{% /alert %}}
 
 {{% alert note %}}

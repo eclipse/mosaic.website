@@ -12,7 +12,7 @@ menu:
 ---
 
 The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the
-transmission of V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions
+transmission of V2X-messages using Ad-hoc communication. In order to stay performant the simulator makes abstractions
 in certain places. Those abstractions will be discussed later on.
 
 ## Installation
@@ -73,13 +73,13 @@ Read the detailed documentation of the [SNS Configuration](/docs/mosaic_configur
 {{% /alert %}}
 
 ## Transmission Logic
-SNS differentiates between two types of Ad hoc transmissions, geographically- and topologically-scoped transmissions, which
+SNS differentiates between two types of Ad-hoc transmissions, geographically- and topologically-scoped transmissions, which
 generally are abbreviated with _GeoCast_ and _TopoCast_ respectively.  
 GeoCasts are limited to _BroadCasts_. Accordingly, there is no explicit addressing
 of receivers (other than 255.255.255.255), instead a destination area is specified. However, GeoCasts allow for multihop forwarding.  
 TopoCasts on the other hand use means of IPv4 addressing to transmit messages. Since the SNS was not build to simulate transmissions using complex topology-constructs, TopoCasts
 are limited to transmissions with a single hop. However, TopoCasts support _BroadCasts_ and _UniCasts_ (we are omitting Anycasts).
-Most transmissions in the Ad hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
+Most transmissions in the Ad-hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
 receive a message.  
 
 {{< svg src="images/sns_transmission_logic_flowchart.svg" desc="This flowchart tells how different types of messages are handled internally." >}}

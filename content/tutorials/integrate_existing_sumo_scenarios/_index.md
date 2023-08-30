@@ -5,7 +5,7 @@ toc: false
 type: tutorials
 date: "2021-01-02T00:00:00+01:00"
 draft: false
-pagination_prev: traffic_lights
+pagination_prev: tiergarten_traffic_lights
 pagination_next: lust
 ---
 
@@ -91,8 +91,8 @@ We will go along the following steps and explain everything in detail:
 5. Have a look at some additional SUMO configuration.
 
 ### 1. Creating the scenario database
-To create the scenario database we will use the [scenario_convert](/docs/scenarios/create_a_new_scenario)
-script, that comes bundled with the MOSAIC extended version from the  [download section](/download).
+To create the scenario database we will use the [scenario-convert](/docs/scenarios/scenario-convert)
+script, that comes bundled with the MOSAIC extended version from the  [download section](/download). 
 Start by calling: 
 ````plaintext
 java -jar scenario-convert.jar --sumo2db -i sievekingplatz.net.xml
@@ -228,7 +228,7 @@ equip them with the `HelloWorldApp`, which we will have a look at next.
     ]
 }
 ````
-> This isn't shown here, but it is also possible to define bikes and busses in the `mapping_config.json`. In order to this you have
+> This isn't shown here, but it is also possible to define bikes and busses in the `mapping_config.json`. In order to do this you have
 > to set the according `"vehicleClass"`-attribute in the prototype (see `org.eclipse.mosaic.lib.enums.VehicleClass`).
 
 We can now start the scenario using the MOSAIC start script and will see both the vehicles from SUMO and the ones from MOSAIC.

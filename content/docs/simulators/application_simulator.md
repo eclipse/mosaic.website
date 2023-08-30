@@ -88,7 +88,7 @@ The following table lists all modules a unit's operating system could provide.
 |------------------|------------------------------------------------------------------------------------------|
 | NavigationModule | Full featured access to the central navigation component for vehicles                    |
 | RoutingModule    | Access to routing functionalities for static units as RSUs                               |
-| AdHocModule      | Communication via ad hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing) |
+| AdHocModule      | Communication via ad-hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing) |
 | CellModule       | Communication via cellular services (different configuration / addressing modes)         |
 | PerceptionModule | Access to perception capabilities via the central perception component                   |
 

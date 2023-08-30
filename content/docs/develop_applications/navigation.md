@@ -22,12 +22,12 @@ with a navigation system which provides all required information and functions f
 * Switch onto a specific route.
 
 In order to provide routing functionality, a map model based on Open Street Map data is used, which
-needs to be transformed before the simulation using scenario-convert (see [Create a New Scenario](/docs/scenarios/create_a_new_scenario)).
+needs to be transformed before the simulation using scenario-convert (see [Create a new Scenario](/docs/scenarios/scenario_convert)).
 The map data including initial routes for vehicles is provided with the database file which needs to be located in
-`mosaic/scenarios/<scenario_name>/application/<scenario_name>.db`
+`mosaic/scenarios/<scenario_name>/application/<scenario_name>.db`. Further information about the database can be found in the [scenario database](/docs/develop_applications/scenario_database) documentation.  
 
 To enable non-moving entities (i.e. RSUs, Servers, ...) to access routing capabilities the `IRoutingModule` can be implemented
-which omits operations likes route switching.
+which omits operations like route switching.
 
 ## Configuration
 If the database needs to be located somewhere else, the path can be specified in

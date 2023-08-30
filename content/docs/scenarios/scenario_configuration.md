@@ -11,11 +11,9 @@ menu:
     parent: scenarios
 ---
 
-This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC.
-We will continue with the tutorial-style explanations following up on the Steglitz-example from the
-[previous page](create_a_new_scenario). For more detailed explanations of the configurations have a
+This page aims to give you a brief overview of additional simulators and visualizers that can be used with Eclipse MOSAIC. For this the Steglitz scenario from ["Create a new Scenario"-Tutorial](/tutorials/create_new_scenario) is being used. For more detailed explanations of the configurations have a
 look at [the overview](/docs/scenarios).  
-If you already played with the [Barnim](/tutorials/barnim_basic)-tutorial, you probably noticed that it contains far
+If you already played with the [Barnim](/tutorials/barnim_simulation_basics)-tutorial, you probably noticed that it contains far
 more folders in the scenario structure compared to the Steglitz example. Those additional directories contain
 configurations for various simulators.
 
@@ -65,7 +63,7 @@ follow.
 ## Communication Simulators (cell, ns3, omnetpp, sns)
 
 We won't implement any functionality for the steglitz example here but rather have a look at the
-[Barnim](/tutorials/barnim_basic/)-tutorial. In the `scenario_config.json` of the Barnim scenario you can see where the
+[Barnim](/tutorials/barnim_simulation_basics/)-tutorial. In the `scenario_config.json` of the Barnim scenario you can see where the
 communication simulators are activated:
 ```json
 "federates": {
@@ -77,7 +75,7 @@ communication simulators are activated:
 ```
 Our [tutorials](/tutorials) and [additional examples](/tutorials/additional_examples) demonstrate use cases for
 communication usages and you should have a look at them if you are uncertain where to start. Furthermore we
-recommend copying the configuration-files for the simulator you are going to use from the [Barnim scenario](/tutorials/barnim_basic). It
+recommend copying the configuration-files for the simulator you are going to use from the [Barnim scenario](/tutorials/barnim_simulation_basics). It
 contains the most complete configurations and is well maintained.  
 If you are an expert with one of the external network simulators ([ns3](/docs/simulators/network_simulator_ns3),
 [OMNeT++](/docs/simulators/network_simulator_omnetpp)) the Barnim scenario will also give

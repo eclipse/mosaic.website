@@ -36,7 +36,7 @@ Current index implementations are shown in the table below:
 | Vehicles          | `SumoIndex`        | A placeholder to use SUMO's [context subscription](https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html) to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously. | n.a.                      |
 | Traffic Lights    | `TrafficLightMap`  | An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.                                                                            | n.a.                      |
 | Traffic Lights    | `TrafficLightTree` | An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.                                                                                                                                | `bucketSize`              |
-| Building Walls    | `WallIndex`        | An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the [scenario database](/docs/develop_applications/road_traffic).                                                                                         | `bucketSize`              |
+| Building Walls    | `WallIndex`        | An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the [scenario database](/docs/develop_applications/scenario_database).                                                                                    | `bucketSize`              |
 Below is an example of a `application_config.json` on how to configure the perception using a grid index for vehicles
 and the trivial index for traffic lights.
 ```json
@@ -67,8 +67,8 @@ In order to use the perception module from your application it has to be enabled
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:
 ```java
-private final static VIEWING_ANGLE = 120; // [degree]
-private final static VIEWING_RANGE = 100; // [meter]
+private final static double VIEWING_ANGLE = 120d; // [degree]
+private final static double VIEWING_RANGE = 100d; // [meter]
 
 @Override
 public void onStartup() {

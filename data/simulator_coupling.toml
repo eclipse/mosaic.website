@@ -57,7 +57,7 @@
 [sns]
   title = "Network Simulator SNS"
   text = """The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the transmission of
-            V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions in
+            V2X-messages using Ad-hoc communication. In order to stay performant the simulator makes abstractions in
             certain places."""
   url = "/docs/simulators/network_simulator_sns/"
   position = "right"
