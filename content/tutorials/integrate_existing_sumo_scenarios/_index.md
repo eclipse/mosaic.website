@@ -91,7 +91,7 @@ We will go along the following steps and explain everything in detail:
 5. Have a look at some additional SUMO configuration.
 
 ### 1. Creating the scenario database
-To create the scenario database we will use the [scenario-convert](/docs/scenarios/scenario-convert)
+To create the scenario database we will use the [scenario-convert](/docs/scenarios/scenario_convert)
 script, that comes bundled with the MOSAIC extended version from the  [download section](/download). 
 Start by calling: 
 ````plaintext

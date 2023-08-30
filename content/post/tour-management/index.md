@@ -96,7 +96,7 @@ be configured with one or the other.
 View the short video demonstration below to get an overview on the complete system in function!
 
 <video controls style="width:50%">
-  <source src="https://owncloud.fokus.fraunhofer.de/index.php/s/WYotnZCfWisLppV/download" type="video/mp4">
+  <source src="https://owncloud.fokus.fraunhofer.de/index.php/s/SssOmFLtZhJkurI/download" type="video/mp4">
 </video>
 
 ### What's next?
