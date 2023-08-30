@@ -210,7 +210,7 @@ vehicles) / &lt;code&gt;RoutingModule&lt;/code&gt; (Routing-only for static unit
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;AdHocModule&lt;/td&gt;
-&lt;td&gt;Communication via ad hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing)&lt;/td&gt;
+&lt;td&gt;Communication via ad-hoc mode, using WIFI or ITS G5 specific means (e.g. for addressing)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;CellModule&lt;/td&gt;
@@ -1952,7 +1952,7 @@ includes additional parameters, like sending power and antenna gain.&lt;/p&gt;
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0100</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_sns/</guid>
       <description>&lt;p&gt;The Simple Network Simulator (SNS) aims to provide simple and fast capabilities for the
-transmission of V2X-messages using Ad hoc communication. In order to stay performant the simulator makes abstractions
+transmission of V2X-messages using Ad-hoc communication. In order to stay performant the simulator makes abstractions
 in certain places. Those abstractions will be discussed later on.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;p&gt;This simulator does not need to be installed. It is delivered as part of the Eclipse MOSAIC installation package.&lt;/p&gt;
@@ -2091,13 +2091,13 @@ makes sense to specify the &lt;code&gt;AdhocTransmissionModel&lt;/code&gt; expli
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;transmission-logic&#34;&gt;Transmission Logic&lt;/h2&gt;
-&lt;p&gt;SNS differentiates between two types of Ad hoc transmissions, geographically- and topologically-scoped transmissions, which
+&lt;p&gt;SNS differentiates between two types of Ad-hoc transmissions, geographically- and topologically-scoped transmissions, which
 generally are abbreviated with &lt;em&gt;GeoCast&lt;/em&gt; and &lt;em&gt;TopoCast&lt;/em&gt; respectively.&lt;br&gt;
 GeoCasts are limited to &lt;em&gt;BroadCasts&lt;/em&gt;. Accordingly, there is no explicit addressing
 of receivers (other than 255.255.255.255), instead a destination area is specified. However, GeoCasts allow for multihop forwarding.&lt;br&gt;
 TopoCasts on the other hand use means of IPv4 addressing to transmit messages. Since the SNS was not build to simulate transmissions using complex topology-constructs, TopoCasts
 are limited to transmissions with a single hop. However, TopoCasts support &lt;em&gt;BroadCasts&lt;/em&gt; and &lt;em&gt;UniCasts&lt;/em&gt; (we are omitting Anycasts).
-Most transmissions in the Ad hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
+Most transmissions in the Ad-hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
 receive a message.&lt;/p&gt;
 
 

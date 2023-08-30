@@ -62,17 +62,17 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/create_a_new_scenario/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/event_scheduling/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/docs/getting_started/run_mosaic/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -208,7 +208,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/road_traffic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/scenario_database/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -268,6 +268,21 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/create_new_scenario/</loc>
+    <lastmod>2023-08-11T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/</loc>
+    <lastmod>2023-08-11T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/</loc>
+    <lastmod>2023-08-11T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/post/release-23-0/</loc>
     <lastmod>2023-04-20T00:00:00+00:00</lastmod>
   </url>
@@ -279,11 +294,6 @@
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/categories/</loc>
-    <lastmod>2023-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/</loc>
     <lastmod>2023-04-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -368,11 +378,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/tutorials/</loc>
-    <lastmod>2021-01-02T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.dev/mosaic/tutorials/integrate_existing_sumo_scenarios/</loc>
     <lastmod>2021-01-02T00:00:00+01:00</lastmod>
   </url>
@@ -388,7 +393,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_basic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_simulation_basics/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -398,12 +403,12 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/tutorials/tiergarten/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/tiergarten_communication/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/tutorials/traffic_lights/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/tiergarten_traffic_lights/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -461,7 +466,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_advanced/</loc>
+    <loc>https://www.eclipse.dev/mosaic/tutorials/barnim_develop_applications/</loc>
   </url>
   
   <url>

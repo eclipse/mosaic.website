@@ -59,7 +59,7 @@ This new version improves the recently introduced perception facilities in the A
 [A-] Resolved issues in perception module, e.g., when multiple apps used perception modifiers simultaneously.
 [M+] The RTI now detects the OS type of the local host by itself.
 [M-] Fixed minor bugs in RTI, Logging, and JSON-Scheme files.
-[S+] Scenario-Convert is now able to import building information to an existing scenario database.
+[S+] scenario-convert is now able to import building information to an existing scenario database.
 [T+] Improved handling of vehicles which are teleported by SUMO.
 [T+] Several data related to trains can now be read from SUMO.
 [T+] Now supports SUMO 1.16.0
@@ -586,7 +586,7 @@ the state-of-the-art libraries
 be configured with one or the other.&lt;/p&gt;
 &lt;p&gt;View the short video demonstration below to get an overview on the complete system in function!&lt;/p&gt;
 &lt;video controls style=&#34;width:50%&#34;&gt;
-  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/WYotnZCfWisLppV/download&#34; type=&#34;video/mp4&#34;&gt;
+  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/SssOmFLtZhJkurI/download&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 &lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?&lt;/h3&gt;
 &lt;p&gt;Alongside the touring solutions, we developed a Floating Car Data (FCD) based system for Traffic State Estimation.
@@ -1100,7 +1100,7 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
 [C+] Upgraded ns-3 federate to support ns3-34.
 [C+] Major improvement of logging for SNS, OMNeT++, and ns-3.
 [C-] Fixed a bug in polygon intersection test used by reachability check in mosaic-cell.
-[S+] Improved scenario-convert for faster and more reliable import of SUMO net files.
+[S+] Improved Scenario-convert for faster and more reliable import of SUMO net files.
 [T+] You can now use LibSumo as an alternative to TraCI (experimental).
 [T+] Now supports SUMO 1.10.0
 [X+] Major overhaul of battery and charging station simulation (Extended).
