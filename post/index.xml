@@ -5,12 +5,77 @@
     <link>https://www.eclipse.dev/mosaic/post/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Articles</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Articles</title>
       <link>https://www.eclipse.dev/mosaic/post/</link>
     </image>
+    
+    <item>
+      <title>Meet the MOSAIC developers at EclipseCon</title>
+      <link>https://www.eclipse.dev/mosaic/post/eclipse-con-2023/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/eclipse-con-2023/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;From October 16 to 19 we will be present at EclipseCon 2023 in Ludwidgsburg, Germany. Meet us at the Community Day, watch our talk, and connect with the developers behind Eclipse MOSAIC.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;EclipseCon is the leading conference for developers, architects, and open source business leaders to learn about Eclipse technologies, share
+best practices, and more. We as member of the 
+
+
+
+
+&lt;a href=&#34;https://openmobility.eclipse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;openMobility Interest Group&lt;/a&gt; will present our contributions and current works with Eclipse MOSAIC.&lt;/p&gt;
+&lt;p&gt;Our activities at 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;EclipseCon&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Monday, October 16: 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023/community-day&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Automotive &amp;amp; SDV Community Day&lt;/strong&gt;&lt;/a&gt; (09:00 - 17:30)&lt;/li&gt;
+&lt;li&gt;Thursday, October 19: 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023/sessions/leveraging-eclipse-sumo-and-eclipse-mosaic-unleashing-power-digital-twins-efficient&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Leveraging Eclipse SUMO and Eclipse MOSAIC: Unleashing the Power of Digital Twins for Efficient Urban Mobility Management in Berlin&lt;/strong&gt;&lt;/a&gt; (14:00)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See you in Ludwidgsburg! 🚀&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./featured.png&#34; &gt;
+
+
+  &lt;img src=&#34;./featured.png&#34; alt=&#34;&#34; width=&#34;50%&#34; &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>2023 Spring Release of Eclipse MOSAIC</title>

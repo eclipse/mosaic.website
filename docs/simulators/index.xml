@@ -427,6 +427,7 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;types&amp;quot;: [
             {
                 &amp;quot;name&amp;quot;: &amp;quot;CAMVehicle&amp;quot;,
@@ -446,6 +447,16 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
 &lt;li&gt;The &lt;code&gt;route&lt;/code&gt; refers to a route usually defined in the scenario database file (&lt;code&gt;*.db&lt;/code&gt;) of the scenario.&lt;/li&gt;
 &lt;li&gt;In order to define only one single vehicle to be spawned, the &lt;code&gt;maxNumberVehicles&lt;/code&gt; property can be set to &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;By defining the &lt;code&gt;endingTime&lt;/code&gt; property, the flow is stopped from being generated when the given simulation time is reached.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;fixedOrder&lt;/code&gt; property controls how applications are mapped according to their weighting. More information can be found 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#mapping-order&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;By defining the &lt;code&gt;spawningMode&lt;/code&gt; to one of the following values, the departure time of the individual vehicles can be adjusted:
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;CONSTANT&lt;/code&gt; - default case, all vehicles have equal time distance to match &lt;code&gt;target_flow&lt;/code&gt;.&lt;/li&gt;
@@ -583,65 +594,6 @@ Additionally, TMCs are an extension of Servers and can be configured in the same
     }
 ]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-&lt;p&gt;All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
-in every simulation run with regard to the given ratios at each point in time the simulation).
-The Stochastic Mapping results in a random order of mapped units.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;use-type-distributions-in-complex-traffic-scenarios&#34;&gt;Use Type Distributions in Complex Traffic Scenarios&lt;/h3&gt;
-&lt;p&gt;In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
-again and again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
-place in the configuration file.&lt;/p&gt;
-&lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
-    {
-        &amp;quot;startingTime&amp;quot;: 5.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;types&amp;quot;: [
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
-        ]
-    },
-    {
-        &amp;quot;startingTime&amp;quot;: 55.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
-        &amp;quot;types&amp;quot;: [
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
-        ]
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;hellip; you can use &lt;code&gt;typeDistributions&lt;/code&gt; to define the distribution of types for each vehicle once and reuse them:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;typeDistributions&amp;quot;: {
-    &amp;quot;exampleTypeDist&amp;quot; : [
-        { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-        { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }       
-    ]
-},
-&amp;quot;vehicles&amp;quot;: [
-    {
-        &amp;quot;startingTime&amp;quot;: 5.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
-    },
-    {
-        &amp;quot;startingTime&amp;quot;: 55.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
-        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Charging Stations&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
@@ -714,6 +666,115 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
      }
  ]
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mapping-order&#34;&gt;Mapping Order&lt;/h3&gt;
+&lt;p&gt;Vehicle spawners can be configured to map types to their vehicles in two ways. The
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#vehicle&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
+Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;) each type is determined by rolling a weighted die.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Demonstration&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;fixedOrder&lt;/th&gt;
+&lt;th&gt;Mapped Sequence&lt;/th&gt;
+&lt;th&gt;Note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;B-A--B-A--B-A--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;repeating pattern after 5 assignments&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;A--B-AA---B-B--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;no repeating pattern&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;use-type-distributions-in-complex-traffic-scenarios&#34;&gt;Use Type Distributions in Complex Traffic Scenarios&lt;/h3&gt;
+&lt;p&gt;In the case, you have many vehicle spawners defined, and you want to distribute prototypes on those vehicles equally without defining them
+over and over again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
+place in the configuration file.&lt;/p&gt;
+&lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
+    {
+        &amp;quot;startingTime&amp;quot;: 5.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;types&amp;quot;: [
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
+        ]
+    },
+    {
+        &amp;quot;startingTime&amp;quot;: 55.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
+        &amp;quot;types&amp;quot;: [
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
+        ]
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;hellip; you can use &lt;code&gt;typeDistributions&lt;/code&gt; to define the distribution of types for each vehicle once and reuse them:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;typeDistributions&amp;quot;: {
+    &amp;quot;exampleTypeDist&amp;quot; : [
+        { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+        { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }       
+    ]
+},
+&amp;quot;vehicles&amp;quot;: [
+    {
+        &amp;quot;startingTime&amp;quot;: 5.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
+    },
+    {
+        &amp;quot;startingTime&amp;quot;: 55.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,  
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;advanced-vehicle-spawners-with-route-generation&#34;&gt;Advanced vehicle spawners with route generation&lt;/h3&gt;
 &lt;p&gt;It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the &lt;code&gt;matrixMappers&lt;/code&gt;-list.
 Each MatrixMapper consists of a list of &lt;code&gt;points&lt;/code&gt;, the vehicle-&lt;code&gt;types&lt;/code&gt; to be used and the actual flow-values (&lt;code&gt;odValues&lt;/code&gt;) between each
@@ -758,7 +819,7 @@ each of the points.&lt;/p&gt;
     }
 ]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;common-configuration&#34;&gt;Common Configuration&lt;/h3&gt;
+&lt;h2 id=&#34;common-configuration&#34;&gt;Common Configuration&lt;/h2&gt;
 &lt;p&gt;Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;config&amp;quot;: {

@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -619,6 +619,7 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;types&amp;quot;: [
             {
                 &amp;quot;name&amp;quot;: &amp;quot;CAMVehicle&amp;quot;,
@@ -638,6 +639,16 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
 &lt;li&gt;The &lt;code&gt;route&lt;/code&gt; refers to a route usually defined in the scenario database file (&lt;code&gt;*.db&lt;/code&gt;) of the scenario.&lt;/li&gt;
 &lt;li&gt;In order to define only one single vehicle to be spawned, the &lt;code&gt;maxNumberVehicles&lt;/code&gt; property can be set to &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;By defining the &lt;code&gt;endingTime&lt;/code&gt; property, the flow is stopped from being generated when the given simulation time is reached.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;fixedOrder&lt;/code&gt; property controls how applications are mapped according to their weighting. More information can be found 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#mapping-order&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;By defining the &lt;code&gt;spawningMode&lt;/code&gt; to one of the following values, the departure time of the individual vehicles can be adjusted:
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;CONSTANT&lt;/code&gt; - default case, all vehicles have equal time distance to match &lt;code&gt;target_flow&lt;/code&gt;.&lt;/li&gt;
@@ -775,65 +786,6 @@ Additionally, TMCs are an extension of Servers and can be configured in the same
     }
 ]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-&lt;p&gt;All unit spawners could be realized in two different ways. The Deterministic Mapping produces the exact same sequence of mapped vehicles
-in every simulation run with regard to the given ratios at each point in time the simulation).
-The Stochastic Mapping results in a random order of mapped units.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;use-type-distributions-in-complex-traffic-scenarios&#34;&gt;Use Type Distributions in Complex Traffic Scenarios&lt;/h3&gt;
-&lt;p&gt;In the case, you have many vehicle spawners defined and you want to distribute prototypes on those vehicles equally without defining them
-again and again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
-place in the configuration file.&lt;/p&gt;
-&lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
-    {
-        &amp;quot;startingTime&amp;quot;: 5.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;types&amp;quot;: [
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
-        ]
-    },
-    {
-        &amp;quot;startingTime&amp;quot;: 55.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
-        &amp;quot;types&amp;quot;: [
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
-        ]
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;hellip; you can use &lt;code&gt;typeDistributions&lt;/code&gt; to define the distribution of types for each vehicle once and reuse them:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;typeDistributions&amp;quot;: {
-    &amp;quot;exampleTypeDist&amp;quot; : [
-        { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
-        { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }       
-    ]
-},
-&amp;quot;vehicles&amp;quot;: [
-    {
-        &amp;quot;startingTime&amp;quot;: 5.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
-    },
-    {
-        &amp;quot;startingTime&amp;quot;: 55.0,
-        &amp;quot;targetFlow&amp;quot;: 1800,
-        &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
-        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Charging Stations&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
@@ -906,6 +858,115 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
      }
  ]
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mapping-order&#34;&gt;Mapping Order&lt;/h3&gt;
+&lt;p&gt;Vehicle spawners can be configured to map types to their vehicles in two ways. The
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#vehicle&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
+Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;) each type is determined by rolling a weighted die.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Demonstration&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;fixedOrder&lt;/th&gt;
+&lt;th&gt;Mapped Sequence&lt;/th&gt;
+&lt;th&gt;Note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;B-A--B-A--B-A--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;repeating pattern after 5 assignments&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;A--B-AA---B-B--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;no repeating pattern&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;use-type-distributions-in-complex-traffic-scenarios&#34;&gt;Use Type Distributions in Complex Traffic Scenarios&lt;/h3&gt;
+&lt;p&gt;In the case, you have many vehicle spawners defined, and you want to distribute prototypes on those vehicles equally without defining them
+over and over again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
+place in the configuration file.&lt;/p&gt;
+&lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
+    {
+        &amp;quot;startingTime&amp;quot;: 5.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;types&amp;quot;: [
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
+        ]
+    },
+    {
+        &amp;quot;startingTime&amp;quot;: 55.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
+        &amp;quot;types&amp;quot;: [
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+            { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }        
+        ]
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;hellip; you can use &lt;code&gt;typeDistributions&lt;/code&gt; to define the distribution of types for each vehicle once and reuse them:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;typeDistributions&amp;quot;: {
+    &amp;quot;exampleTypeDist&amp;quot; : [
+        { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
+        { &amp;quot;name&amp;quot;: &amp;quot;TypeB&amp;quot;, &amp;quot;weight&amp;quot;: 0.9 }       
+    ]
+},
+&amp;quot;vehicles&amp;quot;: [
+    {
+        &amp;quot;startingTime&amp;quot;: 5.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
+    },
+    {
+        &amp;quot;startingTime&amp;quot;: 55.0,
+        &amp;quot;targetFlow&amp;quot;: 1800,
+        &amp;quot;maxNumberVehicles&amp;quot;: 120,
+        &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,  
+        &amp;quot;fixedOrder&amp;quot;: true,
+        &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;advanced-vehicle-spawners-with-route-generation&#34;&gt;Advanced vehicle spawners with route generation&lt;/h3&gt;
 &lt;p&gt;It is also possible to define and use OD (origin-destination) matrices by adding a ODMatrixMapper to the &lt;code&gt;matrixMappers&lt;/code&gt;-list.
 Each MatrixMapper consists of a list of &lt;code&gt;points&lt;/code&gt;, the vehicle-&lt;code&gt;types&lt;/code&gt; to be used and the actual flow-values (&lt;code&gt;odValues&lt;/code&gt;) between each
@@ -950,7 +1011,7 @@ each of the points.&lt;/p&gt;
     }
 ]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;common-configuration&#34;&gt;Common Configuration&lt;/h3&gt;
+&lt;h2 id=&#34;common-configuration&#34;&gt;Common Configuration&lt;/h2&gt;
 &lt;p&gt;Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;config&amp;quot;: {
@@ -8123,25 +8184,25 @@ Current index implementations are shown in the table below:&lt;/p&gt;
 In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE = 120d; // [degree]
-private final static double VIEWING_RANGE = 100d; // [meter]
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE=120d; // [degree]
+private final static double VIEWING_RANGE=100d; // [meter]
 
 @Override
-public void onStartup() {
-    // set up the configuration for the perception module
-    SimplePerceptionConfiguration perceptionModuleConfiguration = 
-        new SimplePerceptionConfiguration(VIEWING_ANGLE, VIEWING_RANGE);
-    // enable the perception module using the defined configuration
-    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);  
-}
+public void onStartup(){
+        // set up the configuration for the perception module
+        SimplePerceptionConfiguration perceptionModuleConfiguration=
+        new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
+        // enable the perception module using the defined configuration
+        getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+        }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Vehicles&lt;/strong&gt;&lt;br&gt;
 To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicles()&lt;/code&gt;-method is called:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of vehicles in perception range
-List&amp;lt;VehicleObject&amp;gt; perceivedVehicles = getOs().getPerceptionModule().getPerceivedVehicles();
+List&amp;lt;VehicleObject&amp;gt; perceivedVehicles=getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
-getLog().infoSimTime(this, &amp;quot;Perceived vehicles: {}&amp;quot;,
+        getLog().infoSimTime(this,&amp;quot;Perceived vehicles: {}&amp;quot;,
         perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed, and heading, as well as its dimensions
@@ -8149,9 +8210,9 @@ getLog().infoSimTime(this, &amp;quot;Perceived vehicles: {}&amp;quot;,
 &lt;p&gt;&lt;strong&gt;Traffic Lights&lt;/strong&gt;&lt;br&gt;
 Retrieving all traffic lights in perception range is achieved using the &lt;code&gt;getPerceivedTrafficLights()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of traffic lights in perception range
-List&amp;lt;TrafficLightObject&amp;gt; perceivedTrafficLights = getOs().getPerceptionModule().getPerceivedTrafficLights();
+List&amp;lt;TrafficLightObject&amp;gt; perceivedTrafficLights=getOs().getPerceptionModule().getPerceivedTrafficLights();
 // log the list of perceived traffic light IDs
-getLog().infoSimTime(this, &amp;quot;Perceived traffic lights: {}&amp;quot;,
+        getLog().infoSimTime(this,&amp;quot;Perceived traffic lights: {}&amp;quot;,
         perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;TrafficLightObject&lt;/code&gt;-class contains information about the perceived traffic lights&#39; position, state (i.e., green, red, &amp;hellip;), and
@@ -8175,7 +8236,39 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SimpleOcclusionModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;BoundingBoxOcclusion&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Recommended occlusion model. Emulates occlusion in a simplified manner by checking occlusion for a configurable number of points along the bounding box of a vehicle and evaluating if a threshold of points is visible.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/bb_occlusion_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/bb_occlusion_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SimpleOcclusion&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles.&lt;/td&gt;
 &lt;td&gt;
 
@@ -8207,8 +8300,33 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;WallOcclusionModifier&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the &lt;code&gt;--import-buildings&lt;/code&gt; option in scenario-convert.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;WallOcclusion&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the &lt;code&gt;--import-buildings&lt;/code&gt; option in 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/scenario_convert/&#34;&gt;scenario-convert&lt;/a&gt;.&lt;/td&gt;
 &lt;td&gt;
 
 
@@ -8239,7 +8357,7 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;DistanceModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;DistanceFilter&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Stochastic modifier that reduces perception probability with the distance to the ego vehicle.&lt;/td&gt;
 &lt;td&gt;
 
@@ -8271,8 +8389,8 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;PositionErrorModifier&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Applies a gaussian error to lateral and longitudinal distances of perceived vehicles.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PositionModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to lateral and longitudinal distances of perceived vehicles, adjusting perceived positions.&lt;/td&gt;
 &lt;td&gt;
 
 
@@ -8307,17 +8425,17 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;p&gt;To configure modifiers they have to be passed to the &lt;code&gt;PerceptionModuleConfiguration&lt;/code&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule() {
     // filter to emulate occlusion
-    SimpleOcclusionModifier simpleOcclusionModifier = new SimpleOcclusionModifier(3, 5);
+    BoundingBoxOcclusion boundingBoxOcclusion = new BoundingBoxOcclusion();
     // filter to emulate occlusion by buildings
-    WallOcclusionModifier wallOcclusionModifier = new WallOcclusionModifier();
+    WallOcclusion wallOcclusion = new WallOcclusion();
     // filter to reduce perception probability based on distance to ego vehicle
-    DistanceModifier distanceModifier = new DistanceModifier(getRandom(), 0.0);
+    DistanceFilter distanceModifier = new DistanceFilter(getRandom(), 0.0);
     // filter adding noise to longitudinal and lateral
-    PositionErrorModifier positionErrorModifier = new PositionErrorModifier(getRandom());
+    PositionErrorModifier positionErrorModifier = new PositionModifier(getRandom());
 
     SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
             VIEWING_ANGLE, VIEWING_RANGE,
-            simpleOcclusionModifier, wallOcclusionModifier, distanceModifier, positionErrorModifier
+        boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier
     );
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }
@@ -9884,6 +10002,71 @@ modeling of charging stations, without the need of being super accurate with the
     &amp;quot;chargingStationRange&amp;quot;: &amp;quot;20m&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meet the MOSAIC developers at EclipseCon</title>
+      <link>https://www.eclipse.dev/mosaic/post/eclipse-con-2023/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/eclipse-con-2023/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;From October 16 to 19 we will be present at EclipseCon 2023 in Ludwidgsburg, Germany. Meet us at the Community Day, watch our talk, and connect with the developers behind Eclipse MOSAIC.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;EclipseCon is the leading conference for developers, architects, and open source business leaders to learn about Eclipse technologies, share
+best practices, and more. We as member of the 
+
+
+
+
+&lt;a href=&#34;https://openmobility.eclipse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;openMobility Interest Group&lt;/a&gt; will present our contributions and current works with Eclipse MOSAIC.&lt;/p&gt;
+&lt;p&gt;Our activities at 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;EclipseCon&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Monday, October 16: 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023/community-day&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Automotive &amp;amp; SDV Community Day&lt;/strong&gt;&lt;/a&gt; (09:00 - 17:30)&lt;/li&gt;
+&lt;li&gt;Thursday, October 19: 
+
+
+
+
+&lt;a href=&#34;https://www.eclipsecon.org/2023/sessions/leveraging-eclipse-sumo-and-eclipse-mosaic-unleashing-power-digital-twins-efficient&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Leveraging Eclipse SUMO and Eclipse MOSAIC: Unleashing the Power of Digital Twins for Efficient Urban Mobility Management in Berlin&lt;/strong&gt;&lt;/a&gt; (14:00)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See you in Ludwidgsburg! 🚀&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./featured.png&#34; &gt;
+
+
+  &lt;img src=&#34;./featured.png&#34; alt=&#34;&#34; width=&#34;50%&#34; &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
 </description>
     </item>
     
