@@ -193,7 +193,7 @@ Object to define vehicles to be spawned in the simulation. This property describ
 |departSpeedMode|`string`|The depart speed mode determines the vehicle's speed at insertion.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehicledepartspeedmode)|`MAXIMUM`|
 |laneSelectionMode|`string`|The lane selection mode chooses the lane for the next departing vehicle.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclelaneselectionmode)|`DEFAULT`|
 |spawningMode|`string`|Adjusts the departure time of individual vehicles.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclespawningmode)|`CONSTANT`|
-|deterministic|`boolean`|Determines if selection of a vehicles type when spawning follows a deterministic or stochastic model. When set to true the spawning-process will choose exactly the same types with every execution. When set to false the order of types may be different and selected weights will be reached more slowly.|No|None|`true`|
+|fixedOrder|`boolean`|Determines if selection of a vehicles type when spawning follows a fixedOrder or stochastic model. When set to true the spawning-process will choose exactly the same types with every execution. When set to false the order of types may be different and selected weights will be reached more slowly.|No|None|`true`|
 |departConnectionIndex|`number`|The index of the connection of the route where the vehicle will start on.|No|[0, +$\infty$]|`0`|
 |pos|`number`|Position within the connection of the route where the vehicle(s) should be spawned.|No|[0, +$\infty$]|`0`|
 |route|`string`|Route that the vehicle(s) should use. If an origin and a destination are specified this route will be treated as a preference (i.e. it will be selected if it connects the two points in question).|No|None|None|
@@ -280,7 +280,7 @@ Object to define a mapper for an Origin-Destination (OD) matrix. The mapper cont
 |---|---|---|---|---|---|
 |points|[`odPoint[]`](#reference-odpoint)|Array of odPoints that can be referenced from the OD-matrix.| &#10003; Yes|None|None|
 |types|[`prototype[]`](#reference-prototype)|Array of prototypes to define the vehicles that should be spawned.|No|None|None|
-|deterministic|`boolean`|If deterministic is true the spawning-process will be exactly the same with every execution. If left false the order is different and the selected weights will be reached slower than in the deterministic mode.|No|None|`true`|
+|fixedOrder|`boolean`|If fixedOrder is true the spawning-process will be exactly the same with every execution. If left false the order is different and the selected weights will be reached slower than in the fixedOrder mode.|No|None|`true`|
 |odValues|`array[]`|Values for the OD-matrix. Unit should be vehicles/hour.| &#10003; Yes|None|None|
 |startingTime|`string`<br>`number`|Time in seconds at which the first vehicle will be created.|No|None|None|
 |maxTime|`string`<br>`number`|Simulation time in seconds at which no more vehicles will be created.|No|None|None|

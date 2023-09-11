@@ -7,9 +7,9 @@ date: "2022-07-13T00:00:00+01:00"
 draft: false
 weight: 70
 menu:
-    docs:
-        parent: develop_applications
-        weight: 70
+  docs:
+    parent: develop_applications
+    weight: 70
 ---
 
 The [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator) bundles a perception module
@@ -67,17 +67,17 @@ In order to use the perception module from your application it has to be enabled
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:
 ```java
-private final static double VIEWING_ANGLE = 120d; // [degree]
-private final static double VIEWING_RANGE = 100d; // [meter]
+private final static double VIEWING_ANGLE=120d; // [degree]
+private final static double VIEWING_RANGE=100d; // [meter]
 
 @Override
-public void onStartup() {
-    // set up the configuration for the perception module
-    SimplePerceptionConfiguration perceptionModuleConfiguration = 
-        new SimplePerceptionConfiguration(VIEWING_ANGLE, VIEWING_RANGE);
-    // enable the perception module using the defined configuration
-    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);  
-}
+public void onStartup(){
+        // set up the configuration for the perception module
+        SimplePerceptionConfiguration perceptionModuleConfiguration=
+        new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
+        // enable the perception module using the defined configuration
+        getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+        }
 ```
 
 ## Usage
@@ -85,9 +85,9 @@ public void onStartup() {
 To get a list of vehicles in perception range the `getPerceivedVehicles()`-method is called:
 ```java
 // get list of vehicles in perception range
-List<VehicleObject> perceivedVehicles = getOs().getPerceptionModule().getPerceivedVehicles();
+List<VehicleObject> perceivedVehicles=getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
-getLog().infoSimTime(this, "Perceived vehicles: {}",
+        getLog().infoSimTime(this,"Perceived vehicles: {}",
         perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 ```
 
@@ -98,9 +98,9 @@ The `VehicleObject`-class contains information about the perceived vehicles' pos
 Retrieving all traffic lights in perception range is achieved using the `getPerceivedTrafficLights()`:
 ```java
 // get list of traffic lights in perception range
-List<TrafficLightObject> perceivedTrafficLights = getOs().getPerceptionModule().getPerceivedTrafficLights();
+List<TrafficLightObject> perceivedTrafficLights=getOs().getPerceptionModule().getPerceivedTrafficLights();
 // log the list of perceived traffic light IDs
-getLog().infoSimTime(this, "Perceived traffic lights: {}",
+        getLog().infoSimTime(this,"Perceived traffic lights: {}",
         perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
 ```
 
@@ -116,28 +116,29 @@ The perception module can be configured with different `PerceptionModifier`s, wh
 to emulate occlusion, false negatives, position areas, etc.
 MOSAIC already implements three modifiers, `SimpleOcclusionModifier`, `WallOcclusionModifier`, `DistanceModifier` and `PositionErrorModifier`.
 
-| Modifier                  | Description                                                                                                                                                                                           | Image                                                      |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| `SimpleOcclusionModifier` | Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles.                                          | {{< figure src="../images/occlusion_modifier.svg" >}}      |
-| `WallOcclusionModifier`   | Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the `--import-buildings` option in scenario-convert. | {{< figure src="../images/wall_occlusion_modifier.svg" >}} |
-| `DistanceModifier`        | Stochastic modifier that reduces perception probability with the distance to the ego vehicle.                                                                                                         | {{< figure src="../images/distance_modifier.svg" >}}       |
-| `PositionErrorModifier`   | Applies a gaussian error to lateral and longitudinal distances of perceived vehicles.                                                                                                                 | {{< figure src="../images/position_modifier.svg" >}}       |
+| Modifier               | Description                                                                                                                                                                                                                              | Image                                                      |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| `BoundingBoxOcclusion` | Recommended occlusion model. Emulates occlusion in a simplified manner by checking occlusion for a configurable number of points along the bounding box of a vehicle and evaluating if a threshold of points is visible.                 | {{< figure src="../images/bb_occlusion_modifier.svg" >}}   |
+| `SimpleOcclusion`      | Emulates occlusion in a simplified manner by comparing angles between perceived vehicles and requiring a minimum angle between all other perceived vehicles.                                                                             | {{< figure src="../images/occlusion_modifier.svg" >}}      |
+| `WallOcclusion`        | Emulates occlusion of vehicles by buildings. Requires building information in the scenario database, which can be imported to the database using the `--import-buildings` option in [scenario-convert](docs/scenarios/scenario_convert). | {{< figure src="../images/wall_occlusion_modifier.svg" >}} |
+| `DistanceFilter`       | Stochastic modifier that reduces perception probability with the distance to the ego vehicle.                                                                                                                                            | {{< figure src="../images/distance_modifier.svg" >}}       |
+| `PositionModifier`     | Applies a gaussian error to lateral and longitudinal distances of perceived vehicles, adjusting perceived positions.                                                                                                                     | {{< figure src="../images/position_modifier.svg" >}}       |
 
 To configure modifiers they have to be passed to the `PerceptionModuleConfiguration`:
 ```java
 private void enablePerceptionModule() {
     // filter to emulate occlusion
-    SimpleOcclusionModifier simpleOcclusionModifier = new SimpleOcclusionModifier(3, 5);
+    BoundingBoxOcclusion boundingBoxOcclusion = new BoundingBoxOcclusion();
     // filter to emulate occlusion by buildings
-    WallOcclusionModifier wallOcclusionModifier = new WallOcclusionModifier();
+    WallOcclusion wallOcclusion = new WallOcclusion();
     // filter to reduce perception probability based on distance to ego vehicle
-    DistanceModifier distanceModifier = new DistanceModifier(getRandom(), 0.0);
+    DistanceFilter distanceModifier = new DistanceFilter(getRandom(), 0.0);
     // filter adding noise to longitudinal and lateral
-    PositionErrorModifier positionErrorModifier = new PositionErrorModifier(getRandom());
+    PositionErrorModifier positionErrorModifier = new PositionModifier(getRandom());
 
     SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
             VIEWING_ANGLE, VIEWING_RANGE,
-            simpleOcclusionModifier, wallOcclusionModifier, distanceModifier, positionErrorModifier
+        boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier
     );
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }
