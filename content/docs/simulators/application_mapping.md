@@ -117,7 +117,6 @@ If at least one vehicle type has a weight defined, all types without a defined w
         "targetFlow": 1800,
         "maxNumberVehicles": 120,
         "route": "1",
-        "fixedOrder": true,
         "types": [
             {
                 "name": "CAMVehicle",
@@ -275,10 +274,12 @@ charging types (`AC_3_PHASE`, `AC_1_PHASE` and `DC`).
 
 ### Mapping Order
 
-Vehicle spawners can be configured to map types to their vehicles in two ways. The 
-[Fixed Order Mapping](/docs/mosaic_configuration/mapping_ambassador_config/#vehicle) produces a sequence of mapped vehicles following a 
-repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
-Otherwise, (when `fixedOrder` is set to `false`) each type is determined by rolling a weighted die.
+Vehicle spawners can be configured to map types to their vehicles in two ways. The
+[Fixed Order Mapping](/docs/mosaic_configuration/mapping_ambassador_config/#config) produces a sequence of mapped vehicles following a
+repeating pattern (`"fixedOrder" = true`). The type with the highest weight is selected first. All subsequent
+selections are done in a way that configured weights are satisfied as fast as possible. 
+Per default each type is determined by rolling a weighted die (`"fixedOrder" = false`). This option can be configured in
+the [global configuration](#common-configuration) of the mapping.
 
 **Demonstration**
 
@@ -286,7 +287,7 @@ Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:
 
 | fixedOrder | Mapped Sequence   | Note                                  |
 |------------|-------------------|---------------------------------------|
-| `true`     | `B-A--B-A--B-A--` | repeating pattern after 5 assignments |
+| `true`     | `--AB---AB---AB-` | repeating pattern after 5 assignments |
 | `false`    | `A--B-AA---B-B--` | no repeating pattern                  |
 
 ### Use Type Distributions in Complex Traffic Scenarios
@@ -298,12 +299,14 @@ place in the configuration file.
 Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:
 
 ```json
+"config": {
+    "fixedOrder": true
+},
 "vehicles": [
     {
         "startingTime": 5.0,
         "targetFlow": 1800,
         "maxNumberVehicles": 120,
-        "fixedOrder": true,
         "route": "1",
         "types": [
             { "name": "TypeA", "weight": 0.1 },
@@ -314,7 +317,6 @@ Instead of defining an equal list of types and weights for each single vehicle s
         "startingTime": 55.0,
         "targetFlow": 1800,
         "maxNumberVehicles": 120,
-        "fixedOrder": true,
         "route": "2",
         "types": [
             { "name": "TypeA", "weight": 0.1 },
@@ -339,7 +341,6 @@ Instead of defining an equal list of types and weights for each single vehicle s
         "targetFlow": 1800,
         "maxNumberVehicles": 120,
         "route": "1",
-        "fixedOrder": true,
         "typeDistribution": "exampleTypeDist"
     },
     {
@@ -347,7 +348,6 @@ Instead of defining an equal list of types and weights for each single vehicle s
         "targetFlow": 1800,
         "maxNumberVehicles": 120,
         "route": "2",  
-        "fixedOrder": true,
         "typeDistribution": "exampleTypeDist"
     }
 ]
@@ -363,7 +363,6 @@ The MatrixMapper will be called before the actual execution of the simulation an
 each of the points.
 
 ```json
-
 "matrixMappers": [
     {
         "points": [ 
@@ -407,7 +406,8 @@ Next to the specific configuration of prototypes and simulation entities, some g
 ```json
 {
     "config": {
-        "scaleTraffic" : 1.0, 
+        "scaleTraffic" : 1.0,
+        "fixedOrder": true,
         "start": 0, 
         "end": 500,
         "adjustStartingTimes": false,
@@ -418,15 +418,16 @@ Next to the specific configuration of prototypes and simulation entities, some g
 }
 ``` 
 
-| Parameter | Description |
-|-----------|-------------|
-| `scaleTraffic`        | Scales the `targetFlow` of spawned vehicles per hour as well as the `maxNumberVehicles` by the given factor.  |
-| `start`               | Adjusts the point in time (in $s$) to start spawning vehicles. Any vehicle spawner with a lower `startingTime` will be ignored. |
-| `end`                 | Adjusts the point in time (in $s$) to end spawning vehicles. Any vehicle spawner with a greater `startingTime` will be ignored. |
-| `adjustStartingTimes` | If set to `true`, the starting time of each spawner is reduced by the value in `start`. | |
-| `randomizeFlows`      | If set to `true`, the departure time of vehicles within a vehicle spawner is slightly randomized. |
-| `randomizeStartingTimes`   | If set to `true`, the starting time of each vehicle spawner is slightly randomized. |
-| `randomizeWeights`   | If set to `true`, each `weight` greater than zero is slightly randomized. |
+| Parameter                | Description                                                                                                                     |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `scaleTraffic`           | Scales the `targetFlow` of spawned vehicles per hour as well as the `maxNumberVehicles` by the given factor.                    |
+| `fixedOrder`             | Defines, if vehicle types are mapped in fixed sequence or randomly. See [above](#mapping-order).                                |
+| `start`                  | Adjusts the point in time (in $s$) to start spawning vehicles. Any vehicle spawner with a lower `startingTime` will be ignored. |
+| `end`                    | Adjusts the point in time (in $s$) to end spawning vehicles. Any vehicle spawner with a greater `startingTime` will be ignored. |
+| `adjustStartingTimes`    | If set to `true`, the starting time of each spawner is reduced by the value in `start`.                                         | 
+| `randomizeFlows`         | If set to `true`, the departure time of vehicles within a vehicle spawner is slightly randomized.                               |
+| `randomizeStartingTimes` | If set to `true`, the starting time of each vehicle spawner is slightly randomized.                                             |
+| `randomizeWeights`       | If set to `true`, each `weight` greater than zero is slightly randomized.                                                       |
 
 {{% alert tip %}}
 Read the detailed documentation of the [Mapping Configuration](/docs/mosaic_configuration/mapping_ambassador_config).  

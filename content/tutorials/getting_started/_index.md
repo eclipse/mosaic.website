@@ -24,7 +24,7 @@ With this tutorial you learn...
 {{% alert note %}}
 Some prerequisites are required on your machine. Eclipse MOSAIC is a software based on JAVA, and therefore, a 
 JAVA Runtime Environment or Development Kit is required:
-- **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [Eclipse Temurin OpenJDK](https://adoptium.net/de/temurin/releases?version=8)
+- **JAVA Runtime Environment** (version {{< version of="java" >}} minimum and recommended), e.g. [Eclipse Temurin OpenJDK](https://adoptium.net/de/temurin/releases?version={{< version of="java_recommended" >}})
 {{% /alert %}}
 
 {{% alert note %}}

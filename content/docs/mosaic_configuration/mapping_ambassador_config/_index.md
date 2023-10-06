@@ -64,6 +64,7 @@ Object to define additional configuration options for the mapping
 |start|`string`<br>`number`|Defines the point in time (in seconds) to start spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration.|No|None|None|
 |end|`string`<br>`number`|Defines the point in time (in seconds) to end spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration or until the simulation ends.|No|None|None|
 |scaleTraffic|`number`|Scales the traffic by the given factor. E.g. 2.0 would double the number of spawned vehicles|No|[0, +$\infty$]|`1`|
+|fixedOrder|`boolean`|Determines if the type selection of a spawning vehicle follows a fixed order or stochastic model. When set to true the spawning-process will choose exactly the same type order with every execution. When set to false (default) the order of types follows a stochastic manner and will be different each time depending on the set random seed, however, selected weights may be reached more slowly.|No|None|`false`|
 |adjustStartingTimes|`boolean`|If set to true and if the parameter start is set, the starting times of each spawner is adjusted accordingly, so that we shouldn't wait in case that the simulation starting time and spawner starting time are widely spread out. All spawners before start will be completely ignored then.|No|None|`false`|
 |randomizeFlows|`boolean`|If set to true, all flow definitions defined by vehicle spawners with more than one vehicle resulting in slightly randomized departure times. The specified `targetFlow` of the vehicle spawner is kept.|No|None|`false`|
 |randomizeStartingTimes|`boolean`|If set to true, the starting times of all vehicle spawner definitions are randomized by +-60seconds.|No|None|`false`|
@@ -193,7 +194,6 @@ Object to define vehicles to be spawned in the simulation. This property describ
 |departSpeedMode|`string`|The depart speed mode determines the vehicle's speed at insertion.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehicledepartspeedmode)|`MAXIMUM`|
 |laneSelectionMode|`string`|The lane selection mode chooses the lane for the next departing vehicle.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclelaneselectionmode)|`DEFAULT`|
 |spawningMode|`string`|Adjusts the departure time of individual vehicles.|No|Enum[<i class="fas fa-info-circle"></i>](#restriction-vehiclespawningmode)|`CONSTANT`|
-|fixedOrder|`boolean`|Determines if selection of a vehicles type when spawning follows a fixedOrder or stochastic model. When set to true the spawning-process will choose exactly the same types with every execution. When set to false the order of types may be different and selected weights will be reached more slowly.|No|None|`true`|
 |departConnectionIndex|`number`|The index of the connection of the route where the vehicle will start on.|No|[0, +$\infty$]|`0`|
 |pos|`number`|Position within the connection of the route where the vehicle(s) should be spawned.|No|[0, +$\infty$]|`0`|
 |route|`string`|Route that the vehicle(s) should use. If an origin and a destination are specified this route will be treated as a preference (i.e. it will be selected if it connects the two points in question).|No|None|None|
@@ -280,7 +280,6 @@ Object to define a mapper for an Origin-Destination (OD) matrix. The mapper cont
 |---|---|---|---|---|---|
 |points|[`odPoint[]`](#reference-odpoint)|Array of odPoints that can be referenced from the OD-matrix.| &#10003; Yes|None|None|
 |types|[`prototype[]`](#reference-prototype)|Array of prototypes to define the vehicles that should be spawned.|No|None|None|
-|fixedOrder|`boolean`|If fixedOrder is true the spawning-process will be exactly the same with every execution. If left false the order is different and the selected weights will be reached slower than in the fixedOrder mode.|No|None|`true`|
 |odValues|`array[]`|Values for the OD-matrix. Unit should be vehicles/hour.| &#10003; Yes|None|None|
 |startingTime|`string`<br>`number`|Time in seconds at which the first vehicle will be created.|No|None|None|
 |maxTime|`string`<br>`number`|Simulation time in seconds at which no more vehicles will be created.|No|None|None|

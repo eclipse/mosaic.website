@@ -40,15 +40,13 @@ The following example shows a complete configuration. Using this configuration, 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="http://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/vsimrti/simrun_config.xsd">
+<configuration>
 
   <!-- basic configuration -->
   <mosaic 
       location="/path/to/mosaic_folder" 
       executable="mosaic.sh" 
-      parallelSimulations="2"
+      parallelSimulations="2" />
   <scenario 
       name="Barnim" 
       config="scenarios/Barnim/scenario_config.json" 
@@ -150,7 +148,7 @@ For the example in listing 'Example Configuration' it is expected that the mappi
 ### Parameters
 
 ```xml
-<parameter name="V2XVehiclePercentage" file="mapping3/mapping_config.json" fileFormat="json" item="vehicles[0].types[0].weight" type="ValueList">
+<parameter name="V2XVehiclePercentage" file="mapping/mapping_config.json" fileFormat="json" item="vehicles[0].types[0].weight" type="ValueList">
   <value>0</value>
   <value>50</value>
   <value>75</value>
@@ -165,7 +163,7 @@ Each value that should be changed in a run is defined by a `parameter` element i
 
 ```json
 {
-  "prototypes": [ { "name": "PKW" } ],
+  "prototypes": [ { "name": "Car" } ],
   "vehicles": [
     {
       "startingTime": 5.0,
@@ -174,12 +172,12 @@ Each value that should be changed in a run is defined by a `parameter` element i
       "route": "1",
       "types": [
         {
-          "applications": [ "com.dcaiti.vsimrti.app.WeatherWarningApp.WeatherWarningApp" ],
-          "name": "PKW",
+          "applications": [ "org.eclipse.mosaic.app.tutorial.WeatherWarningApp" ],
+          "name": "Car",
           "weight": 0.2
         },
         {
-          "name": "PKW",
+          "name": "Car",
           "weight": 0.8
         }
       ]

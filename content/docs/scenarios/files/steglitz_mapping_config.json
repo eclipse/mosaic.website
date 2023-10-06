@@ -1,4 +1,7 @@
 {
+  "config": {
+    "fixedOrder": true
+  },
   "prototypes": [
     {
       "name": "Car",
@@ -29,7 +32,6 @@
           "weight": 1.0
         }
       ],
-      "fixedOrder": true,
       "pos": 0,
       "route": "1"
     },
@@ -47,7 +49,6 @@
           "weight": 1.0
         }
       ],
-      "fixedOrder": true,
       "pos": 0,
       "route": "2"
     },
@@ -65,7 +66,6 @@
           "weight": 1.0
         }
       ],
-      "fixedOrder": true,
       "pos": 0,
       "route": "3"
     }

@@ -23,11 +23,7 @@ For our purpose this means, that we create a minimum bounding rectangle for a ve
 spatial search for entities in that rectangle.
 To allow every vehicle to access the spatial index we opted for a global implementation in the [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator), which is only updated when some vehicle
 requests a spatial search (lazy loading).
-MOSAIC provides three implementations for the spatial index: `Trivial`, `QuadTree` and `Grid`.
-
-#### Trivial
-The trivial index doesn't implement any index data-structure and just iterates over all entities in a for loop.
-This is sufficient for small scenarios with limited amount of vehicles.
+MOSAIC provides two implementations for the spatial index: `tree`, and `grid`.
 
 #### Quad-Tree
 The Quad-Tree index represents entities in a tree data structure, that stores entities in a node up to a `splitSize` amount.
