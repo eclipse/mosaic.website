@@ -728,8 +728,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.0-SNAPSHOT
   </a>
 </div>
 
@@ -1261,7 +1261,6 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
         &quot;targetFlow&quot;: 1800,
         &quot;maxNumberVehicles&quot;: 120,
         &quot;route&quot;: &quot;1&quot;,
-        &quot;fixedOrder&quot;: true,
         &quot;types&quot;: [
             {
                 &quot;name&quot;: &quot;CAMVehicle&quot;,
@@ -1527,9 +1526,20 @@ charging types (<code>AC_3_PHASE</code>, <code>AC_1_PHASE</code> and <code>DC</c
     
   
 
-<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#vehicle">Fixed Order Mapping</a> produces a sequence of mapped vehicles following a
-repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
-Otherwise, (when <code>fixedOrder</code> is set to <code>false</code>) each type is determined by rolling a weighted die.</p>
+<a href="/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#config">Fixed Order Mapping</a> produces a sequence of mapped vehicles following a
+repeating pattern (<code>&quot;fixedOrder&quot; = true</code>). The type with the highest weight is selected first. All subsequent
+selections are done in a way that configured weights are satisfied as fast as possible.
+Per default each type is determined by rolling a weighted die (<code>&quot;fixedOrder&quot; = false</code>). This option can be configured in
+the 
+
+
+
+
+
+  
+  
+
+<a href="#common-configuration">global configuration</a> of the mapping.</p>
 <p><strong>Demonstration</strong></p>
 <p>Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:</p>
 <table>
@@ -1543,7 +1553,7 @@ Otherwise, (when <code>fixedOrder</code> is set to <code>false</code>) each type
 <tbody>
 <tr>
 <td><code>true</code></td>
-<td><code>B-A--B-A--B-A--</code></td>
+<td><code>--AB---AB---AB-</code></td>
 <td>repeating pattern after 5 assignments</td>
 </tr>
 <tr>
@@ -1558,12 +1568,14 @@ Otherwise, (when <code>fixedOrder</code> is set to <code>false</code>) each type
 over and over again, you can use <code>typeDistributions</code>. By doing so, it is very simple to adjust the list of types and weights at only one
 place in the configuration file.</p>
 <p>Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:</p>
-<pre><code class="language-json">&quot;vehicles&quot;: [
+<pre><code class="language-json">&quot;config&quot;: {
+    &quot;fixedOrder&quot;: true
+},
+&quot;vehicles&quot;: [
     {
         &quot;startingTime&quot;: 5.0,
         &quot;targetFlow&quot;: 1800,
         &quot;maxNumberVehicles&quot;: 120,
-        &quot;fixedOrder&quot;: true,
         &quot;route&quot;: &quot;1&quot;,
         &quot;types&quot;: [
             { &quot;name&quot;: &quot;TypeA&quot;, &quot;weight&quot;: 0.1 },
@@ -1574,7 +1586,6 @@ place in the configuration file.</p>
         &quot;startingTime&quot;: 55.0,
         &quot;targetFlow&quot;: 1800,
         &quot;maxNumberVehicles&quot;: 120,
-        &quot;fixedOrder&quot;: true,
         &quot;route&quot;: &quot;2&quot;,
         &quot;types&quot;: [
             { &quot;name&quot;: &quot;TypeA&quot;, &quot;weight&quot;: 0.1 },
@@ -1596,7 +1607,6 @@ place in the configuration file.</p>
         &quot;targetFlow&quot;: 1800,
         &quot;maxNumberVehicles&quot;: 120,
         &quot;route&quot;: &quot;1&quot;,
-        &quot;fixedOrder&quot;: true,
         &quot;typeDistribution&quot;: &quot;exampleTypeDist&quot;
     },
     {
@@ -1604,7 +1614,6 @@ place in the configuration file.</p>
         &quot;targetFlow&quot;: 1800,
         &quot;maxNumberVehicles&quot;: 120,
         &quot;route&quot;: &quot;2&quot;,  
-        &quot;fixedOrder&quot;: true,
         &quot;typeDistribution&quot;: &quot;exampleTypeDist&quot;
     }
 ]
@@ -1616,8 +1625,7 @@ of the points. It is possible to define multiple matrices using different values
 This way can achieve distinctively different compositions of the vehicle flows.</p>
 <p>The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
 each of the points.</p>
-<pre><code class="language-json">
-&quot;matrixMappers&quot;: [
+<pre><code class="language-json">&quot;matrixMappers&quot;: [
     {
         &quot;points&quot;: [ 
             {
@@ -1657,7 +1665,8 @@ each of the points.</p>
 <p>Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:</p>
 <pre><code class="language-json">{
     &quot;config&quot;: {
-        &quot;scaleTraffic&quot; : 1.0, 
+        &quot;scaleTraffic&quot; : 1.0,
+        &quot;fixedOrder&quot;: true,
         &quot;start&quot;: 0, 
         &quot;end&quot;: 500,
         &quot;adjustStartingTimes&quot;: false,
@@ -1678,6 +1687,19 @@ each of the points.</p>
 <tr>
 <td><code>scaleTraffic</code></td>
 <td>Scales the <code>targetFlow</code> of spawned vehicles per hour as well as the <code>maxNumberVehicles</code> by the given factor.</td>
+</tr>
+<tr>
+<td><code>fixedOrder</code></td>
+<td>Defines, if vehicle types are mapped in fixed sequence or randomly. See 
+
+
+
+
+
+  
+  
+
+<a href="#mapping-order">above</a>.</td>
 </tr>
 <tr>
 <td><code>start</code></td>
@@ -2129,7 +2151,7 @@ which are generated after a simulation. The following table explains, which iden
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 11 Sep 2023, 14:15 UTC
+      Website built on 6 Oct 2023, 12:20 UTC
     </p>
     
   </div>

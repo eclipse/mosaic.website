@@ -427,7 +427,6 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;types&amp;quot;: [
             {
                 &amp;quot;name&amp;quot;: &amp;quot;CAMVehicle&amp;quot;,
@@ -693,9 +692,20 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#vehicle&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
-repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
-Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;) each type is determined by rolling a weighted die.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#config&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+repeating pattern (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = true&lt;/code&gt;). The type with the highest weight is selected first. All subsequent
+selections are done in a way that configured weights are satisfied as fast as possible.
+Per default each type is determined by rolling a weighted die (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = false&lt;/code&gt;). This option can be configured in
+the 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#common-configuration&#34;&gt;global configuration&lt;/a&gt; of the mapping.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Demonstration&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:&lt;/p&gt;
 &lt;table&gt;
@@ -709,7 +719,7 @@ Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;B-A--B-A--B-A--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;--AB---AB---AB-&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;repeating pattern after 5 assignments&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -724,12 +734,14 @@ Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false
 over and over again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
 place in the configuration file.&lt;/p&gt;
 &lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;config&amp;quot;: {
+    &amp;quot;fixedOrder&amp;quot;: true
+},
+&amp;quot;vehicles&amp;quot;: [
     {
         &amp;quot;startingTime&amp;quot;: 5.0,
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
         &amp;quot;types&amp;quot;: [
             { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
@@ -740,7 +752,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;startingTime&amp;quot;: 55.0,
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
         &amp;quot;types&amp;quot;: [
             { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
@@ -762,7 +773,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
     },
     {
@@ -770,7 +780,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,  
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
     }
 ]
@@ -782,8 +791,7 @@ of the points. It is possible to define multiple matrices using different values
 This way can achieve distinctively different compositions of the vehicle flows.&lt;/p&gt;
 &lt;p&gt;The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
 each of the points.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;
-&amp;quot;matrixMappers&amp;quot;: [
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;matrixMappers&amp;quot;: [
     {
         &amp;quot;points&amp;quot;: [ 
             {
@@ -823,7 +831,8 @@ each of the points.&lt;/p&gt;
 &lt;p&gt;Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;config&amp;quot;: {
-        &amp;quot;scaleTraffic&amp;quot; : 1.0, 
+        &amp;quot;scaleTraffic&amp;quot; : 1.0,
+        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;start&amp;quot;: 0, 
         &amp;quot;end&amp;quot;: 500,
         &amp;quot;adjustStartingTimes&amp;quot;: false,
@@ -844,6 +853,19 @@ each of the points.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;scaleTraffic&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Scales the &lt;code&gt;targetFlow&lt;/code&gt; of spawned vehicles per hour as well as the &lt;code&gt;maxNumberVehicles&lt;/code&gt; by the given factor.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fixedOrder&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines, if vehicle types are mapped in fixed sequence or randomly. See 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#mapping-order&#34;&gt;above&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;start&lt;/code&gt;&lt;/td&gt;
@@ -983,7 +1005,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.16.0&lt;br&gt;1.2.0 - 1.16.0&lt;br&gt;1.0.1, 1.1.0&lt;/td&gt;
+&lt;td&gt;1.18.0&lt;br&gt;1.9.2 - 1.18.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1125,7 +1147,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.16.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.18.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -1552,13 +1574,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;23.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;23.1&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/23.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/23.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1650,7 +1672,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-23.0.zip
+    --federate /path/to/omnetpp-federate-23.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -1660,7 +1682,7 @@ The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMN
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-23.0.zip
+    --federate /path/to/omnetpp-federate-23.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the installation type &lt;code&gt;DEVELOPER&lt;/code&gt; the parameter &lt;code&gt;-f&lt;/code&gt; is required. The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 

@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -619,7 +619,6 @@ vehicle. If no weights are defined, individual vehicle types are assumed to be d
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;types&amp;quot;: [
             {
                 &amp;quot;name&amp;quot;: &amp;quot;CAMVehicle&amp;quot;,
@@ -885,9 +884,20 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#vehicle&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
-repeating pattern. The first type is determined by throwing a weighted die, the following types are chosen based on the weights.
-Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;) each type is determined by rolling a weighted die.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#config&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+repeating pattern (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = true&lt;/code&gt;). The type with the highest weight is selected first. All subsequent
+selections are done in a way that configured weights are satisfied as fast as possible.
+Per default each type is determined by rolling a weighted die (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = false&lt;/code&gt;). This option can be configured in
+the 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#common-configuration&#34;&gt;global configuration&lt;/a&gt; of the mapping.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Demonstration&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Given the weights: A=20%, B=20%, -=60%, the spawner may produce a mapping like:&lt;/p&gt;
 &lt;table&gt;
@@ -901,7 +911,7 @@ Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;B-A--B-A--B-A--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;--AB---AB---AB-&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;repeating pattern after 5 assignments&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -916,12 +926,14 @@ Otherwise, (when &lt;code&gt;fixedOrder&lt;/code&gt; is set to &lt;code&gt;false
 over and over again, you can use &lt;code&gt;typeDistributions&lt;/code&gt;. By doing so, it is very simple to adjust the list of types and weights at only one
 place in the configuration file.&lt;/p&gt;
 &lt;p&gt;Instead of defining an equal list of types and weights for each single vehicle spawner, like in this example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;vehicles&amp;quot;: [
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;config&amp;quot;: {
+    &amp;quot;fixedOrder&amp;quot;: true
+},
+&amp;quot;vehicles&amp;quot;: [
     {
         &amp;quot;startingTime&amp;quot;: 5.0,
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
         &amp;quot;types&amp;quot;: [
             { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
@@ -932,7 +944,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;startingTime&amp;quot;: 55.0,
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,
         &amp;quot;types&amp;quot;: [
             { &amp;quot;name&amp;quot;: &amp;quot;TypeA&amp;quot;, &amp;quot;weight&amp;quot;: 0.1 },
@@ -954,7 +965,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
     },
     {
@@ -962,7 +972,6 @@ place in the configuration file.&lt;/p&gt;
         &amp;quot;targetFlow&amp;quot;: 1800,
         &amp;quot;maxNumberVehicles&amp;quot;: 120,
         &amp;quot;route&amp;quot;: &amp;quot;2&amp;quot;,  
-        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;typeDistribution&amp;quot;: &amp;quot;exampleTypeDist&amp;quot;
     }
 ]
@@ -974,8 +983,7 @@ of the points. It is possible to define multiple matrices using different values
 This way can achieve distinctively different compositions of the vehicle flows.&lt;/p&gt;
 &lt;p&gt;The MatrixMapper will be called before the actual execution of the simulation and will generate vehicle-spawners for the flow between
 each of the points.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;
-&amp;quot;matrixMappers&amp;quot;: [
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;matrixMappers&amp;quot;: [
     {
         &amp;quot;points&amp;quot;: [ 
             {
@@ -1015,7 +1023,8 @@ each of the points.&lt;/p&gt;
 &lt;p&gt;Next to the specific configuration of prototypes and simulation entities, some general parameters can be adjusted:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;config&amp;quot;: {
-        &amp;quot;scaleTraffic&amp;quot; : 1.0, 
+        &amp;quot;scaleTraffic&amp;quot; : 1.0,
+        &amp;quot;fixedOrder&amp;quot;: true,
         &amp;quot;start&amp;quot;: 0, 
         &amp;quot;end&amp;quot;: 500,
         &amp;quot;adjustStartingTimes&amp;quot;: false,
@@ -1036,6 +1045,19 @@ each of the points.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;scaleTraffic&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Scales the &lt;code&gt;targetFlow&lt;/code&gt; of spawned vehicles per hour as well as the &lt;code&gt;maxNumberVehicles&lt;/code&gt; by the given factor.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fixedOrder&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines, if vehicle types are mapped in fixed sequence or randomly. See 
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#mapping-order&#34;&gt;above&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;start&lt;/code&gt;&lt;/td&gt;
@@ -1365,7 +1387,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 23.0 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 23.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -2046,7 +2068,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.16.0&lt;br&gt;1.2.0 - 1.16.0&lt;br&gt;1.0.1, 1.1.0&lt;/td&gt;
+&lt;td&gt;1.18.0&lt;br&gt;1.9.2 - 1.18.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -2188,7 +2210,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.16.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.18.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -3893,15 +3915,13 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;The following example shows a complete configuration. Using this configuration, the Simulation Runner would try to run a scenario called Barnim while adapting the mapping, the configuration file of SNS, and Eclipse MOSAIC configuration files. The actual simulation is triggered by generating an adapted scenario folder and calling the same executable the user would normally trigger himself.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
-&amp;lt;configuration
-  xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
-  xsi:noNamespaceSchemaLocation=&amp;quot;http://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/vsimrti/simrun_config.xsd&amp;quot;&amp;gt;
+&amp;lt;configuration&amp;gt;
 
   &amp;lt;!-- basic configuration --&amp;gt;
   &amp;lt;mosaic 
       location=&amp;quot;/path/to/mosaic_folder&amp;quot; 
       executable=&amp;quot;mosaic.sh&amp;quot; 
-      parallelSimulations=&amp;quot;2&amp;quot;
+      parallelSimulations=&amp;quot;2&amp;quot; /&amp;gt;
   &amp;lt;scenario 
       name=&amp;quot;Barnim&amp;quot; 
       config=&amp;quot;scenarios/Barnim/scenario_config.json&amp;quot; 
@@ -4027,7 +4047,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
 &lt;p&gt;The heart of this tool is the parametrization of simulations. Using this, one can define values in the default configuration that are adapted between simulation runs. How many simulation runs are performed is defined by the number of changes configured, enriched with the information about simulation repetitions.
 For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is expected that the mapping file to be changed has one &lt;code&gt;vehicles&lt;/code&gt; definition spawning multiple cars with a weighted &lt;code&gt;type&lt;/code&gt; distribution defining first the equipped and then the unequipped vehicles.&lt;/p&gt;
 &lt;h3 id=&#34;parameters&#34;&gt;Parameters&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;parameter name=&amp;quot;V2XVehiclePercentage&amp;quot; file=&amp;quot;mapping3/mapping_config.json&amp;quot; fileFormat=&amp;quot;json&amp;quot; item=&amp;quot;vehicles[0].types[0].weight&amp;quot; type=&amp;quot;ValueList&amp;quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;parameter name=&amp;quot;V2XVehiclePercentage&amp;quot; file=&amp;quot;mapping/mapping_config.json&amp;quot; fileFormat=&amp;quot;json&amp;quot; item=&amp;quot;vehicles[0].types[0].weight&amp;quot; type=&amp;quot;ValueList&amp;quot;&amp;gt;
   &amp;lt;value&amp;gt;0&amp;lt;/value&amp;gt;
   &amp;lt;value&amp;gt;50&amp;lt;/value&amp;gt;
   &amp;lt;value&amp;gt;75&amp;lt;/value&amp;gt;
@@ -4040,7 +4060,7 @@ For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is exp
 &lt;li&gt;&lt;code&gt;json&lt;/code&gt;: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;prototypes&amp;quot;: [ { &amp;quot;name&amp;quot;: &amp;quot;PKW&amp;quot; } ],
+  &amp;quot;prototypes&amp;quot;: [ { &amp;quot;name&amp;quot;: &amp;quot;Car&amp;quot; } ],
   &amp;quot;vehicles&amp;quot;: [
     {
       &amp;quot;startingTime&amp;quot;: 5.0,
@@ -4049,12 +4069,12 @@ For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is exp
       &amp;quot;route&amp;quot;: &amp;quot;1&amp;quot;,
       &amp;quot;types&amp;quot;: [
         {
-          &amp;quot;applications&amp;quot;: [ &amp;quot;com.dcaiti.vsimrti.app.WeatherWarningApp.WeatherWarningApp&amp;quot; ],
-          &amp;quot;name&amp;quot;: &amp;quot;PKW&amp;quot;,
+          &amp;quot;applications&amp;quot;: [ &amp;quot;org.eclipse.mosaic.app.tutorial.WeatherWarningApp&amp;quot; ],
+          &amp;quot;name&amp;quot;: &amp;quot;Car&amp;quot;,
           &amp;quot;weight&amp;quot;: 0.2
         },
         {
-          &amp;quot;name&amp;quot;: &amp;quot;PKW&amp;quot;,
+          &amp;quot;name&amp;quot;: &amp;quot;Car&amp;quot;,
           &amp;quot;weight&amp;quot;: 0.8
         }
       ]
@@ -4452,13 +4472,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;23.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;23.1&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/23.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/23.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4550,7 +4570,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-23.0.zip
+    --federate /path/to/omnetpp-federate-23.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -4560,7 +4580,7 @@ The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMN
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-23.0.zip
+    --federate /path/to/omnetpp-federate-23.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the installation type &lt;code&gt;DEVELOPER&lt;/code&gt; the parameter &lt;code&gt;-f&lt;/code&gt; is required. The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -8034,40 +8054,29 @@ Additionally, only the perception of other vehicles and traffic lights is suppor
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured in the &lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/application_config.json&lt;/code&gt;.
 The most important configuration is the choice of a perception backend and its parameters.
-For every perceivable unit-type exists a defined index. The current configuration for the vehicle index happens via the parameter
-&lt;code&gt;vehicleIndex&lt;/code&gt;, and for the traffic light index &lt;code&gt;trafficLightIndex&lt;/code&gt;.
-Current index implementations are shown in the table below:&lt;/p&gt;
+The perception index for traffic lights and wall buildings is disabled by default and can be enabled if required.
+Furthermore, the implementation of the vehicle index can be chosen from a defined set of alternatives, shown in the table below:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Perceived Objects&lt;/th&gt;
-&lt;th&gt;Index Name&lt;/th&gt;
+&lt;th&gt;Vehicle Index Type&lt;/th&gt;
 &lt;th&gt;Description&lt;/th&gt;
 &lt;th&gt;Configurable Parameters&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleMap&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.&lt;/td&gt;
-&lt;td&gt;n.a.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleTree&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tree&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a quad-tree to store vehicles. The default implementation which is performant for larger quantities of vehicles. Memory is dynamically allocated.&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;splitSize&lt;/code&gt;, &lt;code&gt;maxDepth&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleGrid&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;grid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a grid structure to store vehicles. Shows slightly faster performance than the &lt;code&gt;tree&lt;/code&gt; implementation in urban scenarios. Allocates memory required for cells at initialization.&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;cellWidth&lt;/code&gt;, &lt;code&gt;cellHeight&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;SumoIndex&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sumo&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;A placeholder to use SUMO&amp;rsquo;s 
 
 
@@ -8076,82 +8085,30 @@ Current index implementations are shown in the table below:&lt;/p&gt;
 &lt;a href=&#34;https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;context subscription&lt;/a&gt; to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously.&lt;/td&gt;
 &lt;td&gt;n.a.&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Traffic Lights&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;TrafficLightMap&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.&lt;/td&gt;
-&lt;td&gt;n.a.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Traffic Lights&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;TrafficLightTree&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Building Walls&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;WallIndex&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/scenario_database/&#34;&gt;scenario database&lt;/a&gt;.&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the perception using a grid index for vehicles&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;and the trivial index for traffic lights.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the perception using a grid index for vehicles.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;perceptionConfiguration&amp;quot;: {
         &amp;quot;vehicleIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;VehicleGrid&amp;quot;,
+            &amp;quot;enabled&amp;quot;: true,
+            &amp;quot;type&amp;quot;: &amp;quot;grid&amp;quot;,
             &amp;quot;cellWidth&amp;quot;: &amp;quot;5m&amp;quot;,
             &amp;quot;cellHeight&amp;quot;: &amp;quot;5m&amp;quot;
         },
         &amp;quot;trafficLightIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;TrafficLightMap&amp;quot;
+            &amp;quot;enabled&amp;quot;: true
         },
         &amp;quot;wallIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;WallTree&amp;quot;
+            &amp;quot;enabled&amp;quot;: true
         }
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;If no index is configured, perception for the respective units is disabled.&lt;/p&gt;
+&lt;p&gt;Indexes for traffic lights and buildings disabled by default, thus requiring explicit configuration to enable them.&lt;br&gt;
+Note, that the wall index requires building information to be present in the scenario database.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;For more information on choosing a backend for your scenario see 
@@ -8184,17 +8141,17 @@ Current index implementations are shown in the table below:&lt;/p&gt;
 In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE=120d; // [degree]
-private final static double VIEWING_RANGE=100d; // [meter]
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE = 120d; // [degree]
+private final static double VIEWING_RANGE = 100d; // [meter]
 
 @Override
 public void onStartup(){
-        // set up the configuration for the perception module
-        SimplePerceptionConfiguration perceptionModuleConfiguration=
-        new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
-        // enable the perception module using the defined configuration
-        getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
-        }
+    // set up the configuration for the perception module
+    SimplePerceptionConfiguration perceptionModuleConfiguration=
+    new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
+    // enable the perception module using the defined configuration
+    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Vehicles&lt;/strong&gt;&lt;br&gt;
@@ -8202,8 +8159,8 @@ To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicl
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of vehicles in perception range
 List&amp;lt;VehicleObject&amp;gt; perceivedVehicles=getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
-        getLog().infoSimTime(this,&amp;quot;Perceived vehicles: {}&amp;quot;,
-        perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&amp;quot;Perceived vehicles: {}&amp;quot;,
+perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed, and heading, as well as its dimensions
 (length, width, height).&lt;/p&gt;
@@ -8212,8 +8169,8 @@ Retrieving all traffic lights in perception range is achieved using the &lt;code
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of traffic lights in perception range
 List&amp;lt;TrafficLightObject&amp;gt; perceivedTrafficLights=getOs().getPerceptionModule().getPerceivedTrafficLights();
 // log the list of perceived traffic light IDs
-        getLog().infoSimTime(this,&amp;quot;Perceived traffic lights: {}&amp;quot;,
-        perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&amp;quot;Perceived traffic lights: {}&amp;quot;,
+perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;TrafficLightObject&lt;/code&gt;-class contains information about the perceived traffic lights&#39; position, state (i.e., green, red, &amp;hellip;), and
 the incoming and outgoing lanes that are controlled by the individual signal.&lt;/p&gt;
@@ -8225,7 +8182,7 @@ the incoming and outgoing lanes that are controlled by the individual signal.&lt
 &lt;h2 id=&#34;perception-modifiers&#34;&gt;Perception Modifiers&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured with different &lt;code&gt;PerceptionModifier&lt;/code&gt;s, which can be used
 to emulate occlusion, false negatives, position areas, etc.
-MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&lt;/code&gt;, &lt;code&gt;WallOcclusionModifier&lt;/code&gt;, &lt;code&gt;DistanceModifier&lt;/code&gt; and &lt;code&gt;PositionErrorModifier&lt;/code&gt;.&lt;/p&gt;
+MOSAIC already implements several filters and modifiers: &lt;code&gt;SimpleOcclusion&lt;/code&gt;, &lt;code&gt;BoundingBoxOcclusion&lt;/code&gt;, &lt;code&gt;WallOcclusion&lt;/code&gt;, &lt;code&gt;DistanceFilter&lt;/code&gt;, &lt;code&gt;PositionModifier&lt;/code&gt;, &lt;code&gt;DimensionModifier&lt;/code&gt;, and &lt;code&gt;HeadingModifier&lt;/code&gt;.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -8420,23 +8377,90 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/figure&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HeadingModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to the heading of the perceived vehicle. This modifier also rarely adjusts the heading to be rotated by 180°, which also occurs in reality.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/heading_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/heading_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DimensionsModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to the width, length, and height of the perceived vehicle.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/dimensions_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/dimensions_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;To configure modifiers they have to be passed to the &lt;code&gt;PerceptionModuleConfiguration&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule() {
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule(){
     // filter to emulate occlusion
     BoundingBoxOcclusion boundingBoxOcclusion = new BoundingBoxOcclusion();
     // filter to emulate occlusion by buildings
     WallOcclusion wallOcclusion = new WallOcclusion();
     // filter to reduce perception probability based on distance to ego vehicle
     DistanceFilter distanceModifier = new DistanceFilter(getRandom(), 0.0);
-    // filter adding noise to longitudinal and lateral
-    PositionErrorModifier positionErrorModifier = new PositionModifier(getRandom());
+    // modifier adding noise to longitudinal and lateral
+    PositionModifier positionModifier = new PositionModifier(getRandom());
+    // modifier adding noise to the dimension of the vehicles
+    DimensionsModifier dimensionsModifier = new DimensionsModifier(getRandom());
+    // modifier adding noise to the heading of the vehicles
+    HeadingModifier headingModifier = new HeadingModifier(getRandom());    
 
-    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
-            VIEWING_ANGLE, VIEWING_RANGE,
-        boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier
-    );
+    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration.Builder(VIEWING_ANGLE, VIEWING_RANGE)
+        .withModifiers(boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier, dimensionsModifier, headingModifier)
+        .build();
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -9105,10 +9129,7 @@ To allow every vehicle to access the spatial index we opted for a global impleme
 
 &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt;, which is only updated when some vehicle
 requests a spatial search (lazy loading).
-MOSAIC provides three implementations for the spatial index: &lt;code&gt;Trivial&lt;/code&gt;, &lt;code&gt;QuadTree&lt;/code&gt; and &lt;code&gt;Grid&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;trivial&#34;&gt;Trivial&lt;/h4&gt;
-&lt;p&gt;The trivial index doesn&amp;rsquo;t implement any index data-structure and just iterates over all entities in a for loop.
-This is sufficient for small scenarios with limited amount of vehicles.&lt;/p&gt;
+MOSAIC provides two implementations for the spatial index: &lt;code&gt;tree&lt;/code&gt;, and &lt;code&gt;grid&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;quad-tree&#34;&gt;Quad-Tree&lt;/h4&gt;
 &lt;p&gt;The Quad-Tree index represents entities in a tree data structure, that stores entities in a node up to a &lt;code&gt;splitSize&lt;/code&gt; amount.
 Every node strictly has &lt;em&gt;no&lt;/em&gt; or &lt;em&gt;four&lt;/em&gt; children. The four children divide the space into four equally sized quadrants.
@@ -10002,6 +10023,143 @@ modeling of charging stations, without the need of being super accurate with the
     &amp;quot;chargingStationRange&amp;quot;: &amp;quot;20m&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2023 Autumn Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-23-1/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-23-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 23.1 to the open source community.
+This new version brings the perception facilities in the Application simulator to a stable state and comes with improvements across several integrated MOSAIC models.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;MOSAIC 23.1 now requires at least &lt;strong&gt;Java 11 Runtime Environment&lt;/strong&gt; to be executed. For more details, see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/getting_started/&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2023-10-06&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[M+] MOSAIC now requires at least Java 11 Runtime Environment to be executed.
+[M+] Improved MOSAIC Tutorials on eclipse.dev/mosaic and related applications.
+[A+] Perception Module leaves experimental phase and is now available per default.
+[A+] New perception modifiers model occlusion based on bounding boxes, and errors on heading and dimension of perceived objects.
+[A+] The application API was extended to get access to the unit&#39;s logging directory (e.g. for data export).
+[M+] Mapping of vehicle applications now follows a stochastic distribution per default instead of a repeating pattern (configurable).
+[M-] Fixed that vehicle deceleration values were omitted in specific configuration setups.
+[S+] Import of SUMO net files in Scenario-Convert supports almost any projection now (only UTM was supported). 
+[S-] Fixed database type affinities to make scenario-database more robust.
+[T+] Vehicles defined in integrated SUMO scenarios can now be mapped with complex application distributions.
+[T+] Now supports SUMO 1.18.0
+[X+] Path handling in Simulation-Runner is more robust now.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/iwillitried&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; iwillitried &lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/philipstr01&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; philipstr01&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     

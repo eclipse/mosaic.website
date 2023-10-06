@@ -726,8 +726,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.0-SNAPSHOT
   </a>
 </div>
 
@@ -1138,40 +1138,29 @@ Additionally, only the perception of other vehicles and traffic lights is suppor
 <h2 id="configuration">Configuration</h2>
 <p>The perception module can be configured in the <code>mosaic/scenarios/&lt;scenario_name&gt;/application/application_config.json</code>.
 The most important configuration is the choice of a perception backend and its parameters.
-For every perceivable unit-type exists a defined index. The current configuration for the vehicle index happens via the parameter
-<code>vehicleIndex</code>, and for the traffic light index <code>trafficLightIndex</code>.
-Current index implementations are shown in the table below:</p>
+The perception index for traffic lights and wall buildings is disabled by default and can be enabled if required.
+Furthermore, the implementation of the vehicle index can be chosen from a defined set of alternatives, shown in the table below:</p>
 <table>
 <thead>
 <tr>
-<th>Perceived Objects</th>
-<th>Index Name</th>
+<th>Vehicle Index Type</th>
 <th>Description</th>
 <th>Configurable Parameters</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Vehicles</td>
-<td><code>VehicleMap</code></td>
-<td>An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.</td>
-<td>n.a.</td>
-</tr>
-<tr>
-<td>Vehicles</td>
-<td><code>VehicleTree</code></td>
-<td>An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.</td>
+<td><code>tree</code></td>
+<td>An index using a quad-tree to store vehicles. The default implementation which is performant for larger quantities of vehicles. Memory is dynamically allocated.</td>
 <td><code>splitSize</code>, <code>maxDepth</code></td>
 </tr>
 <tr>
-<td>Vehicles</td>
-<td><code>VehicleGrid</code></td>
-<td>An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.</td>
+<td><code>grid</code></td>
+<td>An index using a grid structure to store vehicles. Shows slightly faster performance than the <code>tree</code> implementation in urban scenarios. Allocates memory required for cells at initialization.</td>
 <td><code>cellWidth</code>, <code>cellHeight</code></td>
 </tr>
 <tr>
-<td>Vehicles</td>
-<td><code>SumoIndex</code></td>
+<td><code>sumo</code></td>
 <td>A placeholder to use SUMO&rsquo;s 
 
 
@@ -1180,82 +1169,30 @@ Current index implementations are shown in the table below:</p>
 <a href="https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html" target="_blank" rel="noopener">context subscription</a> to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously.</td>
 <td>n.a.</td>
 </tr>
-<tr>
-<td>Traffic Lights</td>
-<td><code>TrafficLightMap</code></td>
-<td>An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.</td>
-<td>n.a.</td>
-</tr>
-<tr>
-<td>Traffic Lights</td>
-<td><code>TrafficLightTree</code></td>
-<td>An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.</td>
-<td><code>bucketSize</code></td>
-</tr>
-<tr>
-<td>Building Walls</td>
-<td><code>WallIndex</code></td>
-<td>An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/develop_applications/scenario_database/">scenario database</a>.</td>
-<td><code>bucketSize</code></td>
-</tr>
-<tr>
-<td>Below is an example of a <code>application_config.json</code> on how to configure the perception using a grid index for vehicles</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>and the trivial index for traffic lights.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>Below is an example of a <code>application_config.json</code> on how to configure the perception using a grid index for vehicles.</p>
 <pre><code class="language-json">{
     &quot;perceptionConfiguration&quot;: {
         &quot;vehicleIndex&quot;: {
-            &quot;type&quot;: &quot;VehicleGrid&quot;,
+            &quot;enabled&quot;: true,
+            &quot;type&quot;: &quot;grid&quot;,
             &quot;cellWidth&quot;: &quot;5m&quot;,
             &quot;cellHeight&quot;: &quot;5m&quot;
         },
         &quot;trafficLightIndex&quot;: {
-            &quot;type&quot;: &quot;TrafficLightMap&quot;
+            &quot;enabled&quot;: true
         },
         &quot;wallIndex&quot;: {
-            &quot;type&quot;: &quot;WallTree&quot;
+            &quot;enabled&quot;: true
         }
     }
 }
 </code></pre>
 <div class="alert alert-note">
   <div>
-<p>If no index is configured, perception for the respective units is disabled.</p>
+<p>Indexes for traffic lights and buildings disabled by default, thus requiring explicit configuration to enable them.<br>
+Note, that the wall index requires building information to be present in the scenario database.</p>
   </div>
 </div>
 <p>For more information on choosing a backend for your scenario see 
@@ -1288,17 +1225,17 @@ Current index implementations are shown in the table below:</p>
 In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:</p>
-<pre><code class="language-java">private final static double VIEWING_ANGLE=120d; // [degree]
-private final static double VIEWING_RANGE=100d; // [meter]
+<pre><code class="language-java">private final static double VIEWING_ANGLE = 120d; // [degree]
+private final static double VIEWING_RANGE = 100d; // [meter]
 
 @Override
 public void onStartup(){
-        // set up the configuration for the perception module
-        SimplePerceptionConfiguration perceptionModuleConfiguration=
-        new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
-        // enable the perception module using the defined configuration
-        getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
-        }
+    // set up the configuration for the perception module
+    SimplePerceptionConfiguration perceptionModuleConfiguration=
+    new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
+    // enable the perception module using the defined configuration
+    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+}
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p><strong>Vehicles</strong><br>
@@ -1306,8 +1243,8 @@ To get a list of vehicles in perception range the <code>getPerceivedVehicles()</
 <pre><code class="language-java">// get list of vehicles in perception range
 List&lt;VehicleObject&gt; perceivedVehicles=getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
-        getLog().infoSimTime(this,&quot;Perceived vehicles: {}&quot;,
-        perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&quot;Perceived vehicles: {}&quot;,
+perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 </code></pre>
 <p>The <code>VehicleObject</code>-class contains information about the perceived vehicles' position, speed, and heading, as well as its dimensions
 (length, width, height).</p>
@@ -1316,8 +1253,8 @@ Retrieving all traffic lights in perception range is achieved using the <code>ge
 <pre><code class="language-java">// get list of traffic lights in perception range
 List&lt;TrafficLightObject&gt; perceivedTrafficLights=getOs().getPerceptionModule().getPerceivedTrafficLights();
 // log the list of perceived traffic light IDs
-        getLog().infoSimTime(this,&quot;Perceived traffic lights: {}&quot;,
-        perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&quot;Perceived traffic lights: {}&quot;,
+perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
 </code></pre>
 <p>The <code>TrafficLightObject</code>-class contains information about the perceived traffic lights' position, state (i.e., green, red, &hellip;), and
 the incoming and outgoing lanes that are controlled by the individual signal.</p>
@@ -1329,7 +1266,7 @@ the incoming and outgoing lanes that are controlled by the individual signal.</p
 <h2 id="perception-modifiers">Perception Modifiers</h2>
 <p>The perception module can be configured with different <code>PerceptionModifier</code>s, which can be used
 to emulate occlusion, false negatives, position areas, etc.
-MOSAIC already implements three modifiers, <code>SimpleOcclusionModifier</code>, <code>WallOcclusionModifier</code>, <code>DistanceModifier</code> and <code>PositionErrorModifier</code>.</p>
+MOSAIC already implements several filters and modifiers: <code>SimpleOcclusion</code>, <code>BoundingBoxOcclusion</code>, <code>WallOcclusion</code>, <code>DistanceFilter</code>, <code>PositionModifier</code>, <code>DimensionModifier</code>, and <code>HeadingModifier</code>.</p>
 <table>
 <thead>
 <tr>
@@ -1524,23 +1461,90 @@ MOSAIC already implements three modifiers, <code>SimpleOcclusionModifier</code>,
 </figure>
 </td>
 </tr>
+<tr>
+<td><code>HeadingModifier</code></td>
+<td>Applies a gaussian error to the heading of the perceived vehicle. This modifier also rarely adjusts the heading to be rotated by 180°, which also occurs in reality.</td>
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="../images/heading_modifier.svg" >
+
+
+  <img src="../images/heading_modifier.svg" alt=""  >
+</a>
+
+
+
+</figure>
+</td>
+</tr>
+<tr>
+<td><code>DimensionsModifier</code></td>
+<td>Applies a gaussian error to the width, length, and height of the perceived vehicle.</td>
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="../images/dimensions_modifier.svg" >
+
+
+  <img src="../images/dimensions_modifier.svg" alt=""  >
+</a>
+
+
+
+</figure>
+</td>
+</tr>
 </tbody>
 </table>
 <p>To configure modifiers they have to be passed to the <code>PerceptionModuleConfiguration</code>:</p>
-<pre><code class="language-java">private void enablePerceptionModule() {
+<pre><code class="language-java">private void enablePerceptionModule(){
     // filter to emulate occlusion
     BoundingBoxOcclusion boundingBoxOcclusion = new BoundingBoxOcclusion();
     // filter to emulate occlusion by buildings
     WallOcclusion wallOcclusion = new WallOcclusion();
     // filter to reduce perception probability based on distance to ego vehicle
     DistanceFilter distanceModifier = new DistanceFilter(getRandom(), 0.0);
-    // filter adding noise to longitudinal and lateral
-    PositionErrorModifier positionErrorModifier = new PositionModifier(getRandom());
+    // modifier adding noise to longitudinal and lateral
+    PositionModifier positionModifier = new PositionModifier(getRandom());
+    // modifier adding noise to the dimension of the vehicles
+    DimensionsModifier dimensionsModifier = new DimensionsModifier(getRandom());
+    // modifier adding noise to the heading of the vehicles
+    HeadingModifier headingModifier = new HeadingModifier(getRandom());    
 
-    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
-            VIEWING_ANGLE, VIEWING_RANGE,
-        boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier
-    );
+    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration.Builder(VIEWING_ANGLE, VIEWING_RANGE)
+        .withModifiers(boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier, dimensionsModifier, headingModifier)
+        .build();
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }
 </code></pre>
@@ -1911,7 +1915,7 @@ of your scenario you may want to limit usage.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 11 Sep 2023, 14:15 UTC
+      Website built on 6 Oct 2023, 12:20 UTC
     </p>
     
   </div>

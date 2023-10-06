@@ -730,8 +730,8 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.0-SNAPSHOT
   </a>
 </div>
 
@@ -1170,15 +1170,13 @@ For further information on licenses, feel free to contact us via <strong>
 <h2 id="configuration">Configuration</h2>
 <p>The following example shows a complete configuration. Using this configuration, the Simulation Runner would try to run a scenario called Barnim while adapting the mapping, the configuration file of SNS, and Eclipse MOSAIC configuration files. The actual simulation is triggered by generating an adapted scenario folder and calling the same executable the user would normally trigger himself.</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;configuration
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:noNamespaceSchemaLocation=&quot;http://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/vsimrti/simrun_config.xsd&quot;&gt;
+&lt;configuration&gt;
 
   &lt;!-- basic configuration --&gt;
   &lt;mosaic 
       location=&quot;/path/to/mosaic_folder&quot; 
       executable=&quot;mosaic.sh&quot; 
-      parallelSimulations=&quot;2&quot;
+      parallelSimulations=&quot;2&quot; /&gt;
   &lt;scenario 
       name=&quot;Barnim&quot; 
       config=&quot;scenarios/Barnim/scenario_config.json&quot; 
@@ -1304,7 +1302,7 @@ For further information on licenses, feel free to contact us via <strong>
 <p>The heart of this tool is the parametrization of simulations. Using this, one can define values in the default configuration that are adapted between simulation runs. How many simulation runs are performed is defined by the number of changes configured, enriched with the information about simulation repetitions.
 For the example in listing &lsquo;Example Configuration&rsquo; it is expected that the mapping file to be changed has one <code>vehicles</code> definition spawning multiple cars with a weighted <code>type</code> distribution defining first the equipped and then the unequipped vehicles.</p>
 <h3 id="parameters">Parameters</h3>
-<pre><code class="language-xml">&lt;parameter name=&quot;V2XVehiclePercentage&quot; file=&quot;mapping3/mapping_config.json&quot; fileFormat=&quot;json&quot; item=&quot;vehicles[0].types[0].weight&quot; type=&quot;ValueList&quot;&gt;
+<pre><code class="language-xml">&lt;parameter name=&quot;V2XVehiclePercentage&quot; file=&quot;mapping/mapping_config.json&quot; fileFormat=&quot;json&quot; item=&quot;vehicles[0].types[0].weight&quot; type=&quot;ValueList&quot;&gt;
   &lt;value&gt;0&lt;/value&gt;
   &lt;value&gt;50&lt;/value&gt;
   &lt;value&gt;75&lt;/value&gt;
@@ -1317,7 +1315,7 @@ For the example in listing &lsquo;Example Configuration&rsquo; it is expected th
 <li><code>json</code>: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).</li>
 </ul>
 <pre><code class="language-json">{
-  &quot;prototypes&quot;: [ { &quot;name&quot;: &quot;PKW&quot; } ],
+  &quot;prototypes&quot;: [ { &quot;name&quot;: &quot;Car&quot; } ],
   &quot;vehicles&quot;: [
     {
       &quot;startingTime&quot;: 5.0,
@@ -1326,12 +1324,12 @@ For the example in listing &lsquo;Example Configuration&rsquo; it is expected th
       &quot;route&quot;: &quot;1&quot;,
       &quot;types&quot;: [
         {
-          &quot;applications&quot;: [ &quot;com.dcaiti.vsimrti.app.WeatherWarningApp.WeatherWarningApp&quot; ],
-          &quot;name&quot;: &quot;PKW&quot;,
+          &quot;applications&quot;: [ &quot;org.eclipse.mosaic.app.tutorial.WeatherWarningApp&quot; ],
+          &quot;name&quot;: &quot;Car&quot;,
           &quot;weight&quot;: 0.2
         },
         {
-          &quot;name&quot;: &quot;PKW&quot;,
+          &quot;name&quot;: &quot;Car&quot;,
           &quot;weight&quot;: 0.8
         }
       ]
@@ -1731,7 +1729,7 @@ PenetrationRates(V2XVehiclePercentage=75, ClassicVehiclePercentage=25),  Singleh
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 11 Sep 2023, 14:15 UTC
+      Website built on 6 Oct 2023, 12:20 UTC
     </p>
     
   </div>

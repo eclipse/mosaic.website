@@ -1327,40 +1327,29 @@ Additionally, only the perception of other vehicles and traffic lights is suppor
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured in the &lt;code&gt;mosaic/scenarios/&amp;lt;scenario_name&amp;gt;/application/application_config.json&lt;/code&gt;.
 The most important configuration is the choice of a perception backend and its parameters.
-For every perceivable unit-type exists a defined index. The current configuration for the vehicle index happens via the parameter
-&lt;code&gt;vehicleIndex&lt;/code&gt;, and for the traffic light index &lt;code&gt;trafficLightIndex&lt;/code&gt;.
-Current index implementations are shown in the table below:&lt;/p&gt;
+The perception index for traffic lights and wall buildings is disabled by default and can be enabled if required.
+Furthermore, the implementation of the vehicle index can be chosen from a defined set of alternatives, shown in the table below:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Perceived Objects&lt;/th&gt;
-&lt;th&gt;Index Name&lt;/th&gt;
+&lt;th&gt;Vehicle Index Type&lt;/th&gt;
 &lt;th&gt;Description&lt;/th&gt;
 &lt;th&gt;Configurable Parameters&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleMap&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a hash map to store vehicles. Will be performant for small amount of vehicles, but slow for larger quantities.&lt;/td&gt;
-&lt;td&gt;n.a.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleTree&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a quad-tree to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, dynamically allocates memory.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tree&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a quad-tree to store vehicles. The default implementation which is performant for larger quantities of vehicles. Memory is dynamically allocated.&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;splitSize&lt;/code&gt;, &lt;code&gt;maxDepth&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;VehicleGrid&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a grid structure to store vehicles. Adds some overhead but is performant for larger quantities of vehicles, allocates memory required for cells at initialization.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;grid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An index using a grid structure to store vehicles. Shows slightly faster performance than the &lt;code&gt;tree&lt;/code&gt; implementation in urban scenarios. Allocates memory required for cells at initialization.&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;cellWidth&lt;/code&gt;, &lt;code&gt;cellHeight&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Vehicles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;SumoIndex&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sumo&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;A placeholder to use SUMO&amp;rsquo;s 
 
 
@@ -1369,82 +1358,30 @@ Current index implementations are shown in the table below:&lt;/p&gt;
 &lt;a href=&#34;https://sumo.dlr.de/docs/TraCI/Object_Context_Subscription.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;context subscription&lt;/a&gt; to provide surrounding vehicles. In our testings this is performant for small scenarios but has some bottleneck when many vehicles are simulated simultaneously.&lt;/td&gt;
 &lt;td&gt;n.a.&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Traffic Lights&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;TrafficLightMap&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a hash map to store traffic lights. This will be sufficient for most cases, as traffic lights are inherently static (i.e., non-moving) objects, so that no position updates are necessary.&lt;/td&gt;
-&lt;td&gt;n.a.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Traffic Lights&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;TrafficLightTree&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a KD-tree to store traffic lights. Adds minimal overhead but should accelerate retrieving traffic lights in large scenarios immensely.&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Building Walls&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;WallIndex&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;An index using a KD-tree to store building walls. Note, that in order for walls to be retrievable they have to be added to the 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/scenario_database/&#34;&gt;scenario database&lt;/a&gt;.&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bucketSize&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the perception using a grid index for vehicles&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;and the trivial index for traffic lights.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Below is an example of a &lt;code&gt;application_config.json&lt;/code&gt; on how to configure the perception using a grid index for vehicles.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;perceptionConfiguration&amp;quot;: {
         &amp;quot;vehicleIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;VehicleGrid&amp;quot;,
+            &amp;quot;enabled&amp;quot;: true,
+            &amp;quot;type&amp;quot;: &amp;quot;grid&amp;quot;,
             &amp;quot;cellWidth&amp;quot;: &amp;quot;5m&amp;quot;,
             &amp;quot;cellHeight&amp;quot;: &amp;quot;5m&amp;quot;
         },
         &amp;quot;trafficLightIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;TrafficLightMap&amp;quot;
+            &amp;quot;enabled&amp;quot;: true
         },
         &amp;quot;wallIndex&amp;quot;: {
-            &amp;quot;type&amp;quot;: &amp;quot;WallTree&amp;quot;
+            &amp;quot;enabled&amp;quot;: true
         }
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;If no index is configured, perception for the respective units is disabled.&lt;/p&gt;
+&lt;p&gt;Indexes for traffic lights and buildings disabled by default, thus requiring explicit configuration to enable them.&lt;br&gt;
+Note, that the wall index requires building information to be present in the scenario database.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;For more information on choosing a backend for your scenario see 
@@ -1477,17 +1414,17 @@ Current index implementations are shown in the table below:&lt;/p&gt;
 In order to use the perception module from your application it has to be enabled first. Viewing angles can be defined between 0° and 360°,
 while the range has to be larger than 0.
 Configuration works analogously to the AdHoc- and Cell- Communication-Modules and is usually done at startup:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE=120d; // [degree]
-private final static double VIEWING_RANGE=100d; // [meter]
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private final static double VIEWING_ANGLE = 120d; // [degree]
+private final static double VIEWING_RANGE = 100d; // [meter]
 
 @Override
 public void onStartup(){
-        // set up the configuration for the perception module
-        SimplePerceptionConfiguration perceptionModuleConfiguration=
-        new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
-        // enable the perception module using the defined configuration
-        getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
-        }
+    // set up the configuration for the perception module
+    SimplePerceptionConfiguration perceptionModuleConfiguration=
+    new SimplePerceptionConfiguration(VIEWING_ANGLE,VIEWING_RANGE);
+    // enable the perception module using the defined configuration
+    getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
+}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Vehicles&lt;/strong&gt;&lt;br&gt;
@@ -1495,8 +1432,8 @@ To get a list of vehicles in perception range the &lt;code&gt;getPerceivedVehicl
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of vehicles in perception range
 List&amp;lt;VehicleObject&amp;gt; perceivedVehicles=getOs().getPerceptionModule().getPerceivedVehicles();
 // log the list of perceived vehicle IDs
-        getLog().infoSimTime(this,&amp;quot;Perceived vehicles: {}&amp;quot;,
-        perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&amp;quot;Perceived vehicles: {}&amp;quot;,
+perceivedVehicles.stream().map(VehicleObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;VehicleObject&lt;/code&gt;-class contains information about the perceived vehicles&#39; position, speed, and heading, as well as its dimensions
 (length, width, height).&lt;/p&gt;
@@ -1505,8 +1442,8 @@ Retrieving all traffic lights in perception range is achieved using the &lt;code
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// get list of traffic lights in perception range
 List&amp;lt;TrafficLightObject&amp;gt; perceivedTrafficLights=getOs().getPerceptionModule().getPerceivedTrafficLights();
 // log the list of perceived traffic light IDs
-        getLog().infoSimTime(this,&amp;quot;Perceived traffic lights: {}&amp;quot;,
-        perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
+getLog().infoSimTime(this,&amp;quot;Perceived traffic lights: {}&amp;quot;,
+perceivedTrafficLights.stream().map(TrafficLightObject::getId).collect(Collectors.toList()));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;TrafficLightObject&lt;/code&gt;-class contains information about the perceived traffic lights&#39; position, state (i.e., green, red, &amp;hellip;), and
 the incoming and outgoing lanes that are controlled by the individual signal.&lt;/p&gt;
@@ -1518,7 +1455,7 @@ the incoming and outgoing lanes that are controlled by the individual signal.&lt
 &lt;h2 id=&#34;perception-modifiers&#34;&gt;Perception Modifiers&lt;/h2&gt;
 &lt;p&gt;The perception module can be configured with different &lt;code&gt;PerceptionModifier&lt;/code&gt;s, which can be used
 to emulate occlusion, false negatives, position areas, etc.
-MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&lt;/code&gt;, &lt;code&gt;WallOcclusionModifier&lt;/code&gt;, &lt;code&gt;DistanceModifier&lt;/code&gt; and &lt;code&gt;PositionErrorModifier&lt;/code&gt;.&lt;/p&gt;
+MOSAIC already implements several filters and modifiers: &lt;code&gt;SimpleOcclusion&lt;/code&gt;, &lt;code&gt;BoundingBoxOcclusion&lt;/code&gt;, &lt;code&gt;WallOcclusion&lt;/code&gt;, &lt;code&gt;DistanceFilter&lt;/code&gt;, &lt;code&gt;PositionModifier&lt;/code&gt;, &lt;code&gt;DimensionModifier&lt;/code&gt;, and &lt;code&gt;HeadingModifier&lt;/code&gt;.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1713,23 +1650,90 @@ MOSAIC already implements three modifiers, &lt;code&gt;SimpleOcclusionModifier&l
 &lt;/figure&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HeadingModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to the heading of the perceived vehicle. This modifier also rarely adjusts the heading to be rotated by 180°, which also occurs in reality.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/heading_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/heading_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DimensionsModifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Applies a gaussian error to the width, length, and height of the perceived vehicle.&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/dimensions_modifier.svg&#34; &gt;
+
+
+  &lt;img src=&#34;../images/dimensions_modifier.svg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;To configure modifiers they have to be passed to the &lt;code&gt;PerceptionModuleConfiguration&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule() {
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private void enablePerceptionModule(){
     // filter to emulate occlusion
     BoundingBoxOcclusion boundingBoxOcclusion = new BoundingBoxOcclusion();
     // filter to emulate occlusion by buildings
     WallOcclusion wallOcclusion = new WallOcclusion();
     // filter to reduce perception probability based on distance to ego vehicle
     DistanceFilter distanceModifier = new DistanceFilter(getRandom(), 0.0);
-    // filter adding noise to longitudinal and lateral
-    PositionErrorModifier positionErrorModifier = new PositionModifier(getRandom());
+    // modifier adding noise to longitudinal and lateral
+    PositionModifier positionModifier = new PositionModifier(getRandom());
+    // modifier adding noise to the dimension of the vehicles
+    DimensionsModifier dimensionsModifier = new DimensionsModifier(getRandom());
+    // modifier adding noise to the heading of the vehicles
+    HeadingModifier headingModifier = new HeadingModifier(getRandom());    
 
-    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration(
-            VIEWING_ANGLE, VIEWING_RANGE,
-        boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier
-    );
+    SimplePerceptionConfiguration perceptionModuleConfiguration = new SimplePerceptionConfiguration.Builder(VIEWING_ANGLE, VIEWING_RANGE)
+        .withModifiers(boundingBoxOcclusion, wallOcclusion, distanceFilter, positionModifier, dimensionsModifier, headingModifier)
+        .build();
     getOs().getPerceptionModule().enable(perceptionModuleConfiguration);
 }
 &lt;/code&gt;&lt;/pre&gt;

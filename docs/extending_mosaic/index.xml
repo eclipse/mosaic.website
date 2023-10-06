@@ -2103,10 +2103,7 @@ To allow every vehicle to access the spatial index we opted for a global impleme
 
 &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator&#34;&gt;Application Simulator&lt;/a&gt;, which is only updated when some vehicle
 requests a spatial search (lazy loading).
-MOSAIC provides three implementations for the spatial index: &lt;code&gt;Trivial&lt;/code&gt;, &lt;code&gt;QuadTree&lt;/code&gt; and &lt;code&gt;Grid&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;trivial&#34;&gt;Trivial&lt;/h4&gt;
-&lt;p&gt;The trivial index doesn&amp;rsquo;t implement any index data-structure and just iterates over all entities in a for loop.
-This is sufficient for small scenarios with limited amount of vehicles.&lt;/p&gt;
+MOSAIC provides two implementations for the spatial index: &lt;code&gt;tree&lt;/code&gt;, and &lt;code&gt;grid&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;quad-tree&#34;&gt;Quad-Tree&lt;/h4&gt;
 &lt;p&gt;The Quad-Tree index represents entities in a tree data structure, that stores entities in a node up to a &lt;code&gt;splitSize&lt;/code&gt; amount.
 Every node strictly has &lt;em&gt;no&lt;/em&gt; or &lt;em&gt;four&lt;/em&gt; children. The four children divide the space into four equally sized quadrants.

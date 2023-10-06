@@ -726,8 +726,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 23.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 23.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.0-SNAPSHOT
   </a>
 </div>
 
@@ -1167,10 +1167,7 @@ To allow every vehicle to access the spatial index we opted for a global impleme
 
 <a href="/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator">Application Simulator</a>, which is only updated when some vehicle
 requests a spatial search (lazy loading).
-MOSAIC provides three implementations for the spatial index: <code>Trivial</code>, <code>QuadTree</code> and <code>Grid</code>.</p>
-<h4 id="trivial">Trivial</h4>
-<p>The trivial index doesn&rsquo;t implement any index data-structure and just iterates over all entities in a for loop.
-This is sufficient for small scenarios with limited amount of vehicles.</p>
+MOSAIC provides two implementations for the spatial index: <code>tree</code>, and <code>grid</code>.</p>
 <h4 id="quad-tree">Quad-Tree</h4>
 <p>The Quad-Tree index represents entities in a tree data structure, that stores entities in a node up to a <code>splitSize</code> amount.
 Every node strictly has <em>no</em> or <em>four</em> children. The four children divide the space into four equally sized quadrants.
@@ -1665,7 +1662,7 @@ the <em>origin</em> () and, all cardinal direction vectors $\overrightarrow{a}_0
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 11 Sep 2023, 14:15 UTC
+      Website built on 6 Oct 2023, 12:20 UTC
     </p>
     
   </div>

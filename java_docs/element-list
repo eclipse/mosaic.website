@@ -21,7 +21,6 @@ org.eclipse.mosaic.fed.application.ambassador.simulation.perception.errormodels
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.index
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.index.objects
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.index.providers
-org.eclipse.mosaic.fed.application.ambassador.simulation.perception.util
 org.eclipse.mosaic.fed.application.ambassador.simulation.tmc
 org.eclipse.mosaic.fed.application.ambassador.util
 org.eclipse.mosaic.fed.application.app
