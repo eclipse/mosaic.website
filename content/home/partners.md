@@ -43,10 +43,6 @@ logo_height = "50px"
     logo = "dlr.png"
     url = "https://www.eclipse.org/membership/showMember.php?member_id=1235"
 [[logo]]
-    name = "Itemis"
-    logo = "itemis.png"
-    url = "https://www.eclipse.org/membership/showMember.php?member_id=817"
-[[logo]]
     name = "Vector"
     logo = "vector.png"
     url = "https://www.eclipse.org/membership/showMember.php?member_id=816"

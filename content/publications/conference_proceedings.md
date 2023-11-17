@@ -8,36 +8,36 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
-K. Schrab, R. Protzmann, I. Radusch\
-**["A Large-Scale Traffic Scenario of Berlin for Evaluating Smart Mobility Applications."](https://github.com/mosaic-addons/best-scenario)**\
-_Nathanail, E.G., Gavanas, N., Adamos, G. (eds) Smart Energy for Smart Transport._\
-_CSUM 2022. Lecture Notes in Intelligent Transportation and Infrastructure. Springer, Cham_.\
-Skiathos, Greece, August 31 - September 2, 2022, DOI: `10.1007/978-3-031-23721-8_24`.
+K. Schrab, R. Protzmann, I. Radusch:\
+**["A Large-Scale Traffic Scenario of Berlin for Evaluating Smart Mobility Applications."](https://github.com/mosaic-addons/best-scenario)** \
+In _Smart Energy for Smart Transport._ (editors E. G. Nathanail, N. Gavanas, G. Adamos) \
+_CSUM 2022. Lecture Notes in Intelligent Transportation and Infrastructure._ Springer, Cham.\
+Skiathos, Greece, August 31 - September 2, 2022, 
+DOI: [`10.1007/978-3-031-23721-8_24`](https://doi.org/10.1007/978-3-031-23721-8_24).
 
-
-M. Neubauer, G. Ruddeck, K. Schrab, R. Protzmann, I. Radusch\
-**"A Pedestrian Movement Model for 3D Visualization in a Driving Simulation Environment."** <!--https://publica.fraunhofer.de/handle/publica/428389-->\
+M. Neubauer, G. Ruddeck, K. Schrab, R. Protzmann, I. Radusch:\
+**"A Pedestrian Movement Model for 3D Visualization in a Driving Simulation Environment."**\
 _IEEE/ACM 26th International Symposium on Distributed Simulation and Real Time Applications (DS-RT 2022)_,\
-Alès, France, 26-28 September 2022, ISBN: `978-1-6654-9799-2`, DOI: `10.1109/DS-RT55542.2022.9932038`.
+Alès, France, 26-28 September 2022, ISBN: `978-1-6654-9799-2`, DOI: [`10.1109/DS-RT55542.2022.9932038`](https://doi.org/10.1109/DS-RT55542.2022.9932038).
 
-R. Protzmann, K. Schrab, M. Schweppenhäuser, and I. Radusch:\
-**"Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."** <!--https://publica.fraunhofer.de/handle/publica/428384-->\
-_SUMO User Conference 2022_,\
-Berlin, Germany, 2022, DOI: `10.52825/scp.v3i.123`.
+R. Protzmann, K. Schrab, M. Schweppenhäuser, I. Radusch:\
+**["Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."](https://www.tib-op.org/ojs/index.php/scp/article/view/123)**\
+_SUMO Conference Proceedings, 3, 199–214_, 
+Berlin, Germany, 2022, DOI: [`10.52825/scp.v3i.123`](https://doi.org/10.52825/scp.v3i.123).
 
-K. Massow, F. M. Thiele, K. Schrab, B. S. Bunk, I. Tschinibaew and I. Radusch:  
+K. Massow, F. M. Thiele, K. Schrab, B. S. Bunk, I. Tschinibaew, I. Radusch:  
 **["Scenario Definition for Prototyping Cooperative Advanced Driver Assistance Systems."](https://publica.fraunhofer.de/dokumente/N-624731.html)**  
-_IEEE 23rd International Conference on Intelligent Transportation Systems (ITSC 2020)_  
-Rhodes, Greece, 2020, pp. 1-8, DOI: `10.1109/ITSC45102.2020.9294238.`
+_IEEE 23rd International Conference on Intelligent Transportation Systems (ITSC 2020)_,
+Rhodes, Greece, 2020, pp. 1-8, DOI: [`10.1109/ITSC45102.2020.9294238`](https://doi.org/10.1109/ITSC45102.2020.9294238).
 
-Doko A., Markantonakis V., Papamichail I., Papageorgiou M., Schrab K., Neubauer M. and Protzmann R.:  
+A. Doko, V. Markantonakis, I. Papamichail, M. Papageorgiou, K. Schrab, M. Neubauer, R. Protzmann:  
 **"A dynamic lane assignment strategy for mixed vehicle traffic – A simulation-based investigation."**  
-_3rd Symposium on Management of Future Motorway and Urban Traffic Systems (MFTS 2020),_  
+_3rd Symposium on Management of Future Motorway and Urban Traffic Systems (MFTS 2020)_,
 Luxemburg, July 6-8, 2020. (held virtually on July 6-7, 2020)
 
-Markantonakis V., Doko A., Papamichail I., Papageorgiou M., Schrab K., Neubauer M. and Protzmann R.:  
+V. Markantonakis, A. Doko, I. Papamichail, M. Papageorgiou, K. Schrab, M. Neubauer, R. Protzmann:  
 **["Traffic control algorithms for mixed vehicle traffic – A simulation-based investigation."](https://publica.fraunhofer.de/dokumente/N-634012.html)**  
-_3rd Symposium on Management of Future Motorway and Urban Traffic Systems (MFTS 2020),_  
+_3rd Symposium on Management of Future Motorway and Urban Traffic Systems (MFTS 2020)_,  
 Luxemburg, July 6-8, 2020. (held virtually on July 6-7, 2020)
 
 R. Protzmann, K. Hübner, N. Ascheuer, U. Bauknecht, T. Enderle, U. Gebhard, C. Raack, A. Witt:  
@@ -75,7 +75,7 @@ R. Protzmann, B. Schünemann, I. Radusch:
 _Communication Technologies for Vehicles (Nets4Cars-Fall), 2014 7th International Workshop on,_  
 pp.35-39, Oct 2014, ISBN: 978-1-4799-5270-0
 
-Robert Protzmann, Kay Massow, and Ilja Radusch:  
+R. Protzmann, K. Massow, I. Radusch:  
 **["An evaluation environment and methodology for automotive media streaming applications."](http://publica.fraunhofer.de/dokumente/N-323867.html)**  
 _In Innovative Mobile and Internet Services in Ubiquitous Computing (IMIS),_  
 2014 Eighth International Conference on, pages 297–304. IEEE, 2014. ISBN: 978-1-4799-4331-9
@@ -130,52 +130,52 @@ N. Bißmeyer, B. Schünemann, I. Radusch, C. Schmidt:
 _In Proceedings of the 4th International ICST Conference on Simulation Tools and Techniques (SIMUTools '11)._  
 ICST (Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering), ICST, Brussels, Belgium, Belgium, 162-167, ISBN: 978-1-936968-00-8
 
-R. Protzmann, B. Schuenemann, I. Radusch:  
+R. Protzmann, B. Schünemann, I. Radusch:  
 **["The Influences of Communication Models on the Simulated Effectiveness of V2X Applications."](https://www.researchgate.net/publication/220144647_The_Influences_of_Communication_Models_on_the_Simulated_Effectiveness_of_V2X_Applications)**  
 _Vehicular Networking Conference (VNC),_  
 2010 IEEE, Jersey City, NJ, pp. 102 - 109, Dec. 2010, ISBN: 978-1-4244-9526-9
 
-D. Rieck, B. Schuenemann, I. Radusch, C. Meinel:  
+D. Rieck, B. Schünemann, I. Radusch, C. Meinel:  
 **["Efficient Traffic Simulator Coupling in a Distributed V2X Simulation Environment."](https://publica.fraunhofer.de/dokumente/N-332385.html)**  
 _SIMUTools '10: Proceedings of the 3rd International ICST Conference on Simulation Tools and Techniques,_  
 Torremolinos, Malaga, Spain, 2010. ICST (Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering), ICST, Brussels, Belgium, pp. 1-9, ISBN: 978-963-9799-87-5
 
-T. Benz, B. Schuenemann, R. Kernchen, M. Killat, A. Richter:  
+T. Benz, B. Schünemann, R. Kernchen, M. Killat, A. Richter:  
 **["A Comprehensive Simulation Tool Set for Cooperative Systems."](https://publica.fraunhofer.de/dokumente/N-137491.html)**  
 _Advanced Microsystems for Automotive Applications 2010 : Smart Systems for Green Cars and Safe Mobility,_  
 pp. 411-422, May 2010, G. Meyer and J. Valldorf, Springer Berlin, Germany, ISBN: 978-3-642-12647-5
 
-J. W. Wedel, B. Schuenemann, I. Radusch:  
+J. W. Wedel, B. Schünemann, I. Radusch:  
 **["V2X-Based Traffic Congestion Recognition and Avoidance."](https://publica.fraunhofer.de/dokumente/N-205444.html)**  
 _Parallel Architectures, Algorithms, and Networks, International Symposium on,_  
 pp. 637-641, 2009 10th International Symposium on Pervasive Systems, Algorithms, and Networks, 2009. IEEE Computer Society, Los Alamitos, CA, USA, ISBN: 978-0-7695-3908-9
 
-N. Naumann, B. Schuenemann, I. Radusch, C. Meinel:  
+N. Naumann, B. Schünemann, I. Radusch, C. Meinel:  
 **["Improving V2X Simulation Performance with Optimistic Synchronization."](https://publica.fraunhofer.de/dokumente/N-205307.html)**  
 _Services Computing Conference, APSCC 2009._  
 IEEE Asia-Pacific, pp. 52-57, Singapore, December, 2009. IEEE Xplore, ISBN: 978-1-4244-5338-2
 
-N. Naumann, B. Schuenemann, I. Radusch:  
+N. Naumann, B. Schünemann, I. Radusch:  
 **["VSimRTI - Simulation Runtime Infrastructure for V2X Communication Scenarios."](https://sumo.dlr.de/pdf/SUMOWorkshop2010/VSimRTI%20User%20Manual.pdf)**  
 _Proceedings of the 16th World Congress and Exhibition on Intelligent Transport Systems and Services (ITS World 2009),_  
 Stockholm, Sweden, September 2009
 
-T. Queck, B. Schuenemann, I. Radusch, C. Meinel:  
+T. Queck, B. Schünemann, I. Radusch, C. Meinel:  
 **["Realistic Simulation of V2X Communication Scenarios."](https://publica.fraunhofer.de/dokumente/N-102478.html)**  
 _Asia-Pacific Conference on Services Computing. 2006 IEEE,_  
 vol. 0, no. 0, pp. 1623-1627, 2008 IEEE Asia-Pacific Services Computing Conference, 2008. IEEE Computer Society, Los Alamitos, CA, USA, ISBN: 978-0-7695-3473-2
 
-T. Queck, B. Schuenemann, I. Radusch:  
+T. Queck, B. Schünemann, I. Radusch:  
 **["Runtime Infrastructure for Simulating Vehicle-2-X Communication Scenarios."](https://publica.fraunhofer.de/dokumente/N-103555.html)**  
 _In Proceedings of the Fifth ACM international Workshop on Vehicular inter-Networking,_  
 San Francisco, California, USA, September 15, 2008. VANET '08. ACM, pp. 78, New York, NY, USA, ISBN: 978-1-60558-191-0
 
-B. Schuenemann, K. Massow, I. Radusch:  
+B. Schünemann, K. Massow, I. Radusch:  
 **["A Novel Approach for Realistic Emulation of Vehicle-2-X Communication Applications."](https://publica.fraunhofer.de/dokumente/N-100564.html)**  
 _Vehicular Technology Conference, VTC Spring 2008 IEEE,_  
 pp. 2709-2713, Singapore, May 11-14, 2008, IEEE Press, New York, ISBN: 978-1-4244-1644-8
 
-B. Schuenemann, K. Massow, I. Radusch:  
+B. Schünemann, K. Massow, I. Radusch:  
 **["Realistic Simulation of Vehicular Communication and Vehicle-2-X Applications."](https://publica.fraunhofer.de/dokumente/N-101561.html)**  
 _In Proceedings of the 1st international Conference on Simulation Tools and Techniques For Communications, Networks and Systems & Workshops (Simutools '08),_  
 Marseille, France, March 03 - 07, 2008. ICST (Institute for Computer Sciences Social-Informatics and Telecommunications Engineering), ICST, Brussels, Belgium, pp. 1-9, ISBN: 978-963-9799-20-2
