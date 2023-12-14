@@ -3073,15 +3073,11 @@ cellular simulator just enable the &lt;code&gt;cell&lt;/code&gt; federate in the
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The central configuration for the cellular simulator in the file
 &lt;code&gt;&amp;lt;scenarioName&amp;gt;/cell/cell_config.json&lt;/code&gt; could look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Json&#34;&gt;{
-    &amp;quot;debugGeocasting&amp;quot;: false,
-    &amp;quot;visualizeRegions&amp;quot;: true,
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;networkConfigurationFile&amp;quot;: &amp;quot;network.json &amp;quot;,
     &amp;quot;regionConfigurationFile&amp;quot;: &amp;quot;regions.json &amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;visualizeRegions&lt;/code&gt; option from the &lt;code&gt;cell_config.json&lt;/code&gt; is used to write a KML-file that visualizes the
-used cell regions. Google Earth can be used to display it.&lt;/p&gt;
 &lt;div class=&#34;alert alert-tip&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;Read the detailed documentations of:&lt;/p&gt;

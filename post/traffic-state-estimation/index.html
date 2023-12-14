@@ -1,0 +1,1659 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Daily commutes can quickly turn into stressful affairs when overcrowded roads become congested and what would be a 20 minute ride becomes an hour of staring at the license plate of your fellow comrade-in-traffic. Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predicatively recognizing congested areas and offering alternative routing options. In a recent publication we established a framework for easy implementation and evaluation of novel TSE systems.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/post/traffic-state-estimation/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/post/traffic-state-estimation/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/post/traffic-state-estimation/">
+  <meta property="og:title" content="Simulated Testing of Traffic State Estimation using Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="Daily commutes can quickly turn into stressful affairs when overcrowded roads become congested and what would be a 20 minute ride becomes an hour of staring at the license plate of your fellow comrade-in-traffic. Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predicatively recognizing congested areas and offering alternative routing options. In a recent publication we established a framework for easy implementation and evaluation of novel TSE systems."><meta property="og:image" content="https://www.eclipse.dev/mosaic/post/traffic-state-estimation/featured.png">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/post/traffic-state-estimation/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2023-12-14T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2023-12-13T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.eclipse.dev/mosaic/post/traffic-state-estimation/"
+  },
+  "headline": "Simulated Testing of Traffic State Estimation using Eclipse MOSAIC",
+  
+  "image": [
+    "https://www.eclipse.dev/mosaic/post/traffic-state-estimation/featured.png"
+  ],
+  
+  "datePublished": "2023-12-14T00:00:00Z",
+  "dateModified": "2023-12-13T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Fraunhofer FOKUS"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.eclipse.dev/mosaic/images/logo.svg"
+    }
+  },
+  "description": "Daily commutes can quickly turn into stressful affairs when overcrowded roads become congested and what would be a 20 minute ride becomes an hour of staring at the license plate of your fellow comrade-in-traffic. Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predicatively recognizing congested areas and offering alternative routing options. In a recent publication we established a framework for easy implementation and evaluation of novel TSE systems."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Simulated Testing of Traffic State Estimation using Eclipse MOSAIC | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-post page-traffic-state-estimation ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  <article class="article post">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Simulated Testing of Traffic State Estimation using Eclipse MOSAIC</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 13, 2023
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p><strong>Daily commutes can quickly turn into stressful affairs when overcrowded roads become congested and what would be a 20 minute ride becomes an hour of staring at the license plate of your fellow comrade-in-traffic.
+Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predicatively recognizing congested areas and offering alternative routing options. In a recent publication we established a framework for easy implementation and evaluation of novel TSE systems.</strong></p>
+<div style="position: relative; text-align: center; margin-bottom: 0">
+    <div onmouseover="this.style.boxShadow='0 0 25px #68145CFF'; this.style.scale=1.05" onmouseout="this.style.boxShadow='none'; this.style.scale=1.0" style="display: flex; margin-left: auto; margin-right: auto; justify-content: center; width: fit-content; text-align: center; cursor: pointer; border: 2px solid #68145c; border-radius: 10px; padding: 10px; background-color: rgba(241,241,241,0.9); transform-origin: left center 0; position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%)">
+        <!-- GitHub Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width: 40px; height: 40px;">
+          <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.20-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.20-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.20-.82 2.20-.82.44 1.10.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.20 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        <!-- GitHub Link -->
+        <a href="https://github.com/mosaic-addons/traffic-state-estimation" target="_blank" style="border: 2px; border-radius: 5px; margin: auto 5px auto 5px; text-decoration: none; color: #68145C; font-weight: bold;">GitHub Repository</a>
+    </div>
+    <img src="banner.png" style="margin-top: 0; margin-bottom: 0">
+</div>
+<p>Nowadays, people have become used to having access to real-time traffic information in the palm of their hands using their smartphones.
+However, navigation applications like Google Maps© rely on large amounts of user data and don&rsquo;t publish the algorithms used to retrieve the traffic information.
+In an effort to make the implementation and evaluation of such Traffic State Estimation (TSE) systems more accessible, we developed an application tool chain for Eclipse MOSAIC that enables
+quick prototyping in a simulated environment. They applications have been designed to be easily extendable so that you can develop your own TSE methods and compare them against results from conventional soluation.
+For this purpose, we published all generated code on GitHub under the EPL-License, allowing free usage, customization, and deployment.</p>
+<div style="display: flex; font-weight: bold; font-size: 20px; margin-left: auto; margin-right: auto; justify-content: center; width: fit-content; padding: 5px 10px; border: 2px solid #68145c; border-radius: 10px;">▶&emsp;<a href="https://github.com/mosaic-addons/traffic-state-estimation">https://github.com/mosaic-addons/traffic-state-estimation</a>&emsp;◀</div>
+<h3 id="research">Research</h3>
+<p>Today (14th December 2023), we presented the developed applications as part of a paper at the 
+
+
+
+
+<a href="https://simutools.eai-conferences.org/2023/" target="_blank" rel="noopener">EAI SIMUtools 2023</a> conference,
+where we aimed at reviewing commonly used sensors for Traffic State Estimation in an urban environment.
+All experiments were conducted on-top the traffic simulator Eclipse SUMO and the calibrated 
+
+
+
+
+<a href="https://github.com/mosaic-addons/best-scenario" target="_blank" rel="noopener">BeST Scenario</a> with traffic in the city of Berlin.
+We compared mean speed estimates from traditional induction loops with now broadly adapted Floating Car Data (FCD) retrieved from connected vehicles.</p>
+<p>Furthermore, we identified that different sensor technologies require different ways of aggregating measured samples.
+When using conventional induction loops, the Time and Space Mean Speed are commonly used, which are built by calculating the arithmetic and harmonic mean of samples measured within a time interval.
+For FCD-based methods, we identified metrics defined by Yoon et al.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, namely the Temporal and Spatial Mean Speeds.
+By comparing these values on different road types, we concluded that on highway-like streets with continuous traffic flow all metrics function equivalently.
+However, especially if roads are signalized, conventional induction loop methods fail to properly capture the ground truth.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-speed-estimates-on-different-road-segments-in-berlin-charlottenburg-where-v_gthspace01cm-represents-the-ground-truth-speed-retrieved-from-sumo-v_tmshspace01cm-and-v_smshspace01cm-are-the-time-and-space-mean-speed-retrieved-from-virtual-induction-loops-v_texttemporalhspace01cm-and-v_textspatialhspace01cm-are-the-temporal-and-spatial-mean-speed-calculated-using-received-fcd">
+
+
+  <a data-fancybox="" href="./plot_all_streets.png" data-caption="Speed estimates on different road segments in Berlin Charlottenburg. Where $V_{GT}\hspace{0.1cm}$ represents the ground truth speed retrieved from SUMO. $V_{TMS}\hspace{0.1cm}$ and $V_{SMS}\hspace{0.1cm}$ are the time and space mean speed, retrieved from virtual induction loops. $V_{\text{temporal}}\hspace{0.1cm}$ and $V_{\text{spatial}}\hspace{0.1cm}$ are the temporal and spatial mean speed calculated using received FCD.">
+
+
+  <img src="./plot_all_streets.png" alt="" width="100%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Speed estimates on different road segments in Berlin Charlottenburg. Where $V_{GT}\hspace{0.1cm}$ represents the ground truth speed retrieved from SUMO. $V_{TMS}\hspace{0.1cm}$ and $V_{SMS}\hspace{0.1cm}$ are the time and space mean speed, retrieved from virtual induction loops. $V_{\text{temporal}}\hspace{0.1cm}$ and $V_{\text{spatial}}\hspace{0.1cm}$ are the temporal and spatial mean speed calculated using received FCD.
+  </figcaption>
+
+
+</figure>
+
+<p>Additionally, as part of our research, we also looked into required market penetration rates that can be used to still deliver reliable TSE.
+We managed to reproduce results cited in literature and concluded that depending on the road type, reliable TSE requires a market penetration rate of 5–10% for city traffic.</p>
+<p>More details can be found in the paper &raquo;Spatio-Temporal Speed Metrics for Traffic State Estimation on Complex Urban Roads&laquo;.</p>
+<h3 id="system-design">System Design</h3>
+<p>Below, a simplified system overview is depicted. Using MOSAICs Mapping, we can equip however many vehicles with the <em>FcdTransmitterApp</em>, which
+will cause them to periodically record their positions, speeds, headings in the form of Floating Car Data and transmit it to the <em>TseServerApp</em>.
+At the heart of the server application runs a <em>TseKernel</em> which handles the reception of FCD, traversal detection, and supervision of processors.
+The kernel has been designed in a way to be easily extensible with custom processors that can individually handle received FCD and implement your own TSE metrics.
+Currently, results will be stored in an SQLite database.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-simplified-system-overview">
+
+
+  <a data-fancybox="" href="./fcd-system-overview.drawio.png" data-caption="Simplified System Overview">
+
+
+  <img src="./fcd-system-overview.drawio.png" alt="" width="50%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Simplified System Overview
+  </figcaption>
+
+
+</figure>
+
+<h3 id="whats-next">What&rsquo;s next?</h3>
+<p>In our current investigations, we only regarded calibrated traffic without major obstructions to measure mean speeds throughout the day.
+However, the detection of said obstructions is one of the core use cases for TSE, so we aim to introduce and evaluate these in the future.</p>
+<p>More importantly, we are also interested in providing reliable TSE with even smaller market penetration rates by improving the data quality.
+We aim to achieve this by using data from vehicular perception sensors (cameras, lidar) to enrich the Floating Car Dataset.</p>
+<div style="display: flex; font-weight: bold; font-size: 20px; margin-left: auto; margin-right: auto; justify-content: center; width: fit-content; padding: 5px 10px; border: 2px solid #68145c; border-radius: 10px;">▶&emsp;<a href="https://github.com/mosaic-addons/traffic-state-estimation">https://github.com/mosaic-addons/traffic-state-estimation</a>&emsp;◀</div>
+<hr>
+<p>This work is related to our research in the 
+
+
+
+
+<a href="https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/AVF-projekte/kis-m.html" target="_blank" rel="noopener">KIS&rsquo;M Project</a>.
+<a href="https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/AVF-projekte/kis-m.html"><img src="./kis-m.png" style="width:35%;padding-top:0px;margin-top:2px"></a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Yoon, J., Noble, B., Liu, M.: Surface street traffic estimation. In: Proceedings of the 5th international conference on Mobile systems, applications and services. pp.220–232 (2007) <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <div class="article-container">
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/mosaic/tag/smart-mobility/">smart mobility</a>
+  
+  <a class="badge badge-light" href="/mosaic/tag/traffic-state-estimation/">traffic state estimation</a>
+  
+  <a class="badge badge-light" href="/mosaic/tag/its/">its</a>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr wg-cards mt-5">
+    <h3>Related</h3>
+    <div class="related cards mt-3 row">
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/best-scenario-short/">
+                      <img src="/mosaic/post/best-scenario-short/featured_huf520711774bf117a2259a6bb0268fcdb_554914_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/best-scenario-short/">Introducing the BeST Scenario</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>We present a large-scale traffic scenario of Berlin for the Evaluation of Smart Mobility Applications. This scenario provides 24 hours of motorized private traffic, including almost 2,25 million individual trips. The Berlin SUMO Traffic (BeST) scenario is open-source and prepared to be compatible with Eclipse MOSAIC.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/best-scenario-short/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/tour-management/">
+                      <img src="/mosaic/post/tour-management/featured_hufc55264579973fda5798419389c0366a_600115_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/tour-management/">Virtual Testing of Touring Solutions for Vehicle Fleets</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>Courier-, Express- &amp; Parcel-providers (CEP-Providers) play an evermore important role in the daily lives of many people. To guarantee timely deliveries and customer satisfaction, these providers rely on sophisticated algorithms to manage the disposition of their fleets. In the course of the eBaseCamp-project, Eclipse MOSAIC has been utilized and extended to model a delivery service leveraged by e-mobility and a Base Camp infrastructure.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/tour-management/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/cooperative-lidar-vru-safety/">
+                      <img src="/mosaic/post/cooperative-lidar-vru-safety/featured_hud14ebdbc9ba72143b09b13ee1e00d30a_425312_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/cooperative-lidar-vru-safety/">Evaluating Cooperative LiDAR Data Fusion for VRU Safety with MOSAIC Extended</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>People traveling by bike, on foot or e-scooters are little protected in the event of a collision and therefore known as Vulnerable Road Users (VRUs). Modern sensor systems for automated driving such as LiDAR are able to detect VRUs, thus facilitate warnings and safety. Yet, in certain situations, local blind spots could occur. Data fusion from different vehicles could solve this issue - as it is shown in a simulation study using PHABMACS and MOSAIC Extended.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/cooperative-lidar-vru-safety/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+
+
+  </div>
+</div>
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+  <div class="footer-wrap">
+    <div class="container">
+      <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+      <br>
+      Website built on 14 Dec 2023, 09:26 UTC
+    </p>
+    
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    
+  </div>
+</footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/m/";
+    _paq.push(['setTrackerUrl', u+'m.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'m.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://www.dcaiti.tu-berlin.de/m/m.php?idsite=m4o1kOykpy&amp;rec=1" style="border:0;display:none;" alt="" />
+
+
+
+    </div>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
