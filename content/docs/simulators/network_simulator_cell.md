@@ -78,17 +78,12 @@ cellular simulator just enable the `cell` federate in the `scenario_config.json`
 The central configuration for the cellular simulator in the file
 `<scenarioName>/cell/cell_config.json` could look like this:
 
-```Json
+```json
 {
-    "debugGeocasting": false,
-    "visualizeRegions": true,
     "networkConfigurationFile": "network.json ",
     "regionConfigurationFile": "regions.json "
 }
 ```
-
-The `visualizeRegions` option from the `cell_config.json` is used to write a KML-file that visualizes the
-used cell regions. Google Earth can be used to display it.
 
 {{% alert tip %}}
 Read the detailed documentations of:
