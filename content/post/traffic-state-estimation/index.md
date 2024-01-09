@@ -38,7 +38,7 @@ Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predic
         <!-- GitHub Link -->
         <a href="https://github.com/mosaic-addons/traffic-state-estimation" target="_blank" style="border: 2px; border-radius: 5px; margin: auto 5px auto 5px; text-decoration: none; color: #68145C; font-weight: bold;">GitHub Repository</a>
     </div>
-    <img src="banner.png" style="margin-top: 0; margin-bottom: 0">
+    <img src="banner.png" style="margin-top: 0; margin-bottom: 0" alt="Banner displaying a visualization of TSE">
 </div>
 
 Nowadays, people have become used to having access to real-time traffic information in the palm of their hands using their smartphones.
@@ -50,8 +50,8 @@ For this purpose, we published all generated code on GitHub under the EPL-Licens
 <div style="display: flex; font-weight: bold; font-size: 20px; margin-left: auto; margin-right: auto; justify-content: center; width: fit-content; padding: 5px 10px; border: 2px solid #68145c; border-radius: 10px;">▶&emsp;<a href="https://github.com/mosaic-addons/traffic-state-estimation">https://github.com/mosaic-addons/traffic-state-estimation</a>&emsp;◀</div>
 
 ### Research
-Today (14th December 2023), we presented the developed applications as part of a paper at the [EAI SIMUtools 2023](https://simutools.eai-conferences.org/2023/) conference,
-where we aimed at reviewing commonly used sensors for Traffic State Estimation in an urban environment.
+The developed framework laid the foundation for our paper at the [EAI SIMUtools 2023](https://simutools.eai-conferences.org/2023/) conference, which received the **Best Paper Award**.
+In the paper, we aimed at reviewing commonly used sensors for Traffic State Estimation in an urban environment.
 All experiments were conducted on-top the traffic simulator Eclipse SUMO and the calibrated [BeST Scenario](https://github.com/mosaic-addons/best-scenario) with traffic in the city of Berlin.
 We compared mean speed estimates from traditional induction loops with now broadly adapted Floating Car Data (FCD) retrieved from connected vehicles.
 
