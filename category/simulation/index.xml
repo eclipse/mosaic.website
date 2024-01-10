@@ -28,7 +28,7 @@ Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predic
         &lt;!-- GitHub Link --&gt;
         &lt;a href=&#34;https://github.com/mosaic-addons/traffic-state-estimation&#34; target=&#34;_blank&#34; style=&#34;border: 2px; border-radius: 5px; margin: auto 5px auto 5px; text-decoration: none; color: #68145C; font-weight: bold;&#34;&gt;GitHub Repository&lt;/a&gt;
     &lt;/div&gt;
-    &lt;img src=&#34;banner.png&#34; style=&#34;margin-top: 0; margin-bottom: 0&#34;&gt;
+    &lt;img src=&#34;banner.png&#34; style=&#34;margin-top: 0; margin-bottom: 0&#34; alt=&#34;Banner displaying a visualization of TSE&#34;&gt;
 &lt;/div&gt;
 &lt;p&gt;Nowadays, people have become used to having access to real-time traffic information in the palm of their hands using their smartphones.
 However, navigation applications like Google Maps© rely on large amounts of user data and don&amp;rsquo;t publish the algorithms used to retrieve the traffic information.
@@ -37,13 +37,13 @@ quick prototyping in a simulated environment. They applications have been design
 For this purpose, we published all generated code on GitHub under the EPL-License, allowing free usage, customization, and deployment.&lt;/p&gt;
 &lt;div style=&#34;display: flex; font-weight: bold; font-size: 20px; margin-left: auto; margin-right: auto; justify-content: center; width: fit-content; padding: 5px 10px; border: 2px solid #68145c; border-radius: 10px;&#34;&gt;▶&amp;emsp;&lt;a href=&#34;https://github.com/mosaic-addons/traffic-state-estimation&#34;&gt;https://github.com/mosaic-addons/traffic-state-estimation&lt;/a&gt;&amp;emsp;◀&lt;/div&gt;
 &lt;h3 id=&#34;research&#34;&gt;Research&lt;/h3&gt;
-&lt;p&gt;Today (14th December 2023), we presented the developed applications as part of a paper at the 
+&lt;p&gt;The developed framework laid the foundation for our paper at the 
 
 
 
 
-&lt;a href=&#34;https://simutools.eai-conferences.org/2023/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EAI SIMUtools 2023&lt;/a&gt; conference,
-where we aimed at reviewing commonly used sensors for Traffic State Estimation in an urban environment.
+&lt;a href=&#34;https://simutools.eai-conferences.org/2023/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EAI SIMUtools 2023&lt;/a&gt; conference, which received the &lt;strong&gt;Best Paper Award&lt;/strong&gt;.
+In the paper, we aimed at reviewing commonly used sensors for Traffic State Estimation in an urban environment.
 All experiments were conducted on-top the traffic simulator Eclipse SUMO and the calibrated 
 
 
