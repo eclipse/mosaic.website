@@ -121,7 +121,6 @@ org.eclipse.mosaic.lib.routing.config
 org.eclipse.mosaic.lib.routing.database
 org.eclipse.mosaic.lib.routing.graphhopper
 org.eclipse.mosaic.lib.routing.graphhopper.algorithm
-org.eclipse.mosaic.lib.routing.graphhopper.extended
 org.eclipse.mosaic.lib.routing.graphhopper.util
 org.eclipse.mosaic.lib.routing.norouting
 org.eclipse.mosaic.lib.routing.util

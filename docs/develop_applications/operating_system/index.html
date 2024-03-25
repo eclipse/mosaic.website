@@ -728,8 +728,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.0-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.1-SNAPSHOT
   </a>
 </div>
 
@@ -1148,10 +1148,10 @@ GeoPoint position = this.getOs().getVehicleData().getPosition();
         .changeMaxAcceleration(2.4)
         .apply();
 </code></pre>
-<p>Get the current lane index of the vehicle and change lane to left (within 5000 ms):</p>
+<p>Get the current lane index of the vehicle and change lane to left (within 5 s):</p>
 <pre><code class="language-java">int laneIndex = this.getOs().getRoadPosition().getLaneIndex();
 int newLaneIndex = Math.max(0, laneIndex - 1);
-this.getOs().changeLane(newLaneIndex, 5000);
+this.getOs().changeLane(newLaneIndex, 5 * TIME.SECONDS);
 </code></pre>
 <p>Sending a V2X message via ITS-G5 singlehop broadcast:</p>
 <pre><code class="language-java">MessageRouting routing = this.getOs().getAdHocModule().createMessageRouting().topoBroadCast();
@@ -1351,6 +1351,22 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/about/#license" title="License" >
+                    
+                      License
                     
                     
                   </a>
@@ -1610,7 +1626,7 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 10 Jan 2024, 13:01 UTC
+      Website built on 25 Mar 2024, 13:04 UTC
     </p>
     
   </div>

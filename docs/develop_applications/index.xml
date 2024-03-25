@@ -277,10 +277,10 @@ GeoPoint position = this.getOs().getVehicleData().getPosition();
         .changeMaxAcceleration(2.4)
         .apply();
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Get the current lane index of the vehicle and change lane to left (within 5000 ms):&lt;/p&gt;
+&lt;p&gt;Get the current lane index of the vehicle and change lane to left (within 5 s):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int laneIndex = this.getOs().getRoadPosition().getLaneIndex();
 int newLaneIndex = Math.max(0, laneIndex - 1);
-this.getOs().changeLane(newLaneIndex, 5000);
+this.getOs().changeLane(newLaneIndex, 5 * TIME.SECONDS);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Sending a V2X message via ITS-G5 singlehop broadcast:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;MessageRouting routing = this.getOs().getAdHocModule().createMessageRouting().topoBroadCast();
