@@ -26,6 +26,10 @@ alignment = "left" # left or center (default)
   include_latest_release = true
 
 [[button]]
+  title = "<i class='fa fa-coffee' aria-hidden='true'></i><span>License</span>"
+  url = "/about/#license"
+
+[[button]]
   title = "<i class='fa fa-book' aria-hidden='true'></i><span>Read the Docs</span>"
   url = "/docs/"
 
@@ -49,7 +53,7 @@ alignment = "left" # left or center (default)
   
 [[feature]]
   name = "Open for Extensions"
-  description = "Eclipse MOSAIC is Open Source! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page."
+  description = "Eclipse MOSAIC is Open Source under the Eclipse Public License 2.0! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page."
   link_title = "Contribute"
   link_url = "/contribution/"
   link_feature = true

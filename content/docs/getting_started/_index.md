@@ -57,7 +57,7 @@ table {
 |                          **[Eclipse SUMO](https://www.eclipse.org/sumo)**                          |   yes*   |          {{< version of="sumo_no_support" >}}<br/> _not supported_ | **{{< version of="sumo_support" >}}** <br/> _supported_ | {{< version of="sumo_not_tested" >}} <br/> _not tested_              |
 |                          **[OMNeT++](https://omnetpp.org/download/old)**                           | optional | {{< version of="omnetpp_no_support_below" >}}<br/> _not supported_ |   **{{< version of="omnetpp" >}}** <br/> _supported_    | {{< version of="omnetpp_no_support_above" >}} <br/>  _not supported_ |
 |                         **[INET](https://inet.omnetpp.org/Download.html)**                         | optional |    {{< version of="inet_no_support_below" >}}<br/> _not supported_ |     **{{< version of="inet" >}}** <br/> _supported_     | {{< version of="inet_no_support_above" >}} <br/> _not supported_     |
-|          **[ns-3](https://www.nsnam.org/releases/{{< version of="ns3_release_link" >}})**          | optional |     {{< version of="ns3_no_support_below" >}}<br/> _not supported_ |     **{{< version of="ns3" >}}** <br/> _supported_      | {{< version of="ns3_not_tested" >}} <br/> _not tested_               |
+|        **[ns-3](https://www.nsnam.org/releases/ns-{{< version of="ns3_release_link" >}})**         | optional |     {{< version of="ns3_no_support_below" >}}<br/> _not supported_ |     **{{< version of="ns3" >}}** <br/> _supported_      | {{< version of="ns3_not_tested" >}} <br/> _not tested_               |
 
 {{% alert note %}}
 **All provided scenarios require SUMO to be installed.** However, if a different traffic or vehicle simulator

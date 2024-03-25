@@ -66,11 +66,11 @@ this.getOs().requestVehicleParametersUpdate()
         .changeMaxAcceleration(2.4)
         .apply();
 ``` 
-Get the current lane index of the vehicle and change lane to left (within 5000 ms):
+Get the current lane index of the vehicle and change lane to left (within 5 s):
 ```java
 int laneIndex = this.getOs().getRoadPosition().getLaneIndex();
 int newLaneIndex = Math.max(0, laneIndex - 1);
-this.getOs().changeLane(newLaneIndex, 5000);
+this.getOs().changeLane(newLaneIndex, 5 * TIME.SECONDS);
 ```
 Sending a V2X message via ITS-G5 singlehop broadcast:
 ```java
