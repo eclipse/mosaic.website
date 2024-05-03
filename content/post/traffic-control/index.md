@@ -35,7 +35,7 @@ dynamic lane assignments have been established, which dedicate lanes to autonomo
 efficient platooning maneuvers. The individual highlights of Eclipse MOSAIC for simulating such a traffic management system are visualized in the video.
 
 <video controls style="width:55%">
-  <source src="https://owncloud.fokus.fraunhofer.de/index.php/s/LclLTzGQ0BdziIn/download" type="video/mp4">
+  <source src="https://media.dcaiti.tu-berlin.de/mosaic/traffic-control/MOSAIC-TrafficEstimationAndControl.mp4" type="video/mp4">
 </video>
 
 With **Eclipse MOSAIC** this system has been modelled and simulated with all its various aspects in order to analyze 
