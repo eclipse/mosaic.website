@@ -294,8 +294,8 @@ the state-of-the-art libraries
 &lt;a href=&#34;https://developers.google.com/optimization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OR-Tools&lt;/a&gt;, and can
 be configured with one or the other.&lt;/p&gt;
 &lt;p&gt;View the short video demonstration below to get an overview on the complete system in function!&lt;/p&gt;
-&lt;video controls style=&#34;width:50%&#34;&gt;
-  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/SssOmFLtZhJkurI/download&#34; type=&#34;video/mp4&#34;&gt;
+&lt;video controls style=&#34;width:55%&#34;&gt;
+  &lt;source src=&#34;https://media.dcaiti.tu-berlin.de/mosaic/tour-management/eBaseCamp_TourManagement.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 &lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?&lt;/h3&gt;
 &lt;p&gt;Alongside the touring solutions, we developed a Floating Car Data (FCD) based system for Traffic State Estimation.
@@ -377,7 +377,7 @@ speed and lane change advices with the vehicles on the road (e.g. via ETSI IVI m
 dynamic lane assignments have been established, which dedicate lanes to autonomous vehicles only to enable
 efficient platooning maneuvers. The individual highlights of Eclipse MOSAIC for simulating such a traffic management system are visualized in the video.&lt;/p&gt;
 &lt;video controls style=&#34;width:55%&#34;&gt;
-  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/LclLTzGQ0BdziIn/download&#34; type=&#34;video/mp4&#34;&gt;
+  &lt;source src=&#34;https://media.dcaiti.tu-berlin.de/mosaic/traffic-control/MOSAIC-TrafficEstimationAndControl.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 &lt;p&gt;With &lt;strong&gt;Eclipse MOSAIC&lt;/strong&gt; this system has been modelled and simulated with all its various aspects in order to analyze
 efficiency improvements of such estimation and control algorithms. As traffic simulator, we employed

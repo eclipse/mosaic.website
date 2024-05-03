@@ -294,8 +294,8 @@ the state-of-the-art libraries
 &lt;a href=&#34;https://developers.google.com/optimization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OR-Tools&lt;/a&gt;, and can
 be configured with one or the other.&lt;/p&gt;
 &lt;p&gt;View the short video demonstration below to get an overview on the complete system in function!&lt;/p&gt;
-&lt;video controls style=&#34;width:50%&#34;&gt;
-  &lt;source src=&#34;https://owncloud.fokus.fraunhofer.de/index.php/s/SssOmFLtZhJkurI/download&#34; type=&#34;video/mp4&#34;&gt;
+&lt;video controls style=&#34;width:55%&#34;&gt;
+  &lt;source src=&#34;https://media.dcaiti.tu-berlin.de/mosaic/tour-management/eBaseCamp_TourManagement.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 &lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?&lt;/h3&gt;
 &lt;p&gt;Alongside the touring solutions, we developed a Floating Car Data (FCD) based system for Traffic State Estimation.
