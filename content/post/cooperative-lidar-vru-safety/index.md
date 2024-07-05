@@ -43,7 +43,7 @@ With the **[Mapping](docs/simulators/application_mapping)** configuration file, 
 {{< figure src="scenario_screenshot.png" title="Frame of the Sievekingplatz scenario. The trajectories of the vehicles are marked in yellow." numbered="true" width="80%" >}}
 
 The simulation of LiDAR sensors is implemented in the **PHABMACS** vehicle simulator, which is integrated in **MOSAIC Extended**. 
-With the `phabmacs_config.json` file it is possible to configure LiDAR sensors according to real products. In this case we configured it according to the Velodyne HDL-64E. 
+With the `phabmacs_config.json` file it is possible to configure LiDAR sensors according to real products. In this case, we configured it according to the Velodyne HDL-64E. 
 
 In the **[Application Simulator](docs/simulators/application_simulator)**, each of the passenger cars is equipped with a LiDAR sensor which scans the environment and creates a 3D point cloud at a rate of 10 Hz.
 To pool the LiDAR data from the passenger vehicles together at a server, we mapped a `LidarTransmissionApp` on each vehicle, forwarding the LiDAR point cloud to the server, using the `PointCloudMessages`.
