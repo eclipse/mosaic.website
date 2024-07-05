@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 25 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -10023,6 +10023,189 @@ modeling of charging stations, without the need of being super accurate with the
     </item>
     
     <item>
+      <title>AI-NET-ANTILLAS - Perception for Remote Operated Driving</title>
+      <link>https://www.eclipse.dev/mosaic/post/perception-remote-operated-driving/</link>
+      <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/perception-remote-operated-driving/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;After four years of research, the AI-NET-ANTILLAS project has concluded, and the final event took place in conjunction with the Berlin 6G Conference 2024. Collaborating with our partners,
+we integrated several key components: Cloud-based LIDAR processing, next generation networks, and artificial intelligence,
+to create a new service and application platform.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;At DCAITI and Fraunhofer FOKUS, we concentrated on a specific use case: Remote Operated Driving.
+For remote operators, it is essential to have a current and detailed understanding of the automated
+vehicle&amp;rsquo;s surroundings. Processing the LIDAR data in the cloud enables the possibility of merging data from neighboring sensor sources to obtain a holistic picture and improve environment perception.
+However, this application exhibits challenges in terms of latency, jitter, data volume, and scalability. These aspects have been studied thoroughly within the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-remote-operated-driving-with-data-from-two-sources&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./RemoteOperation.svg&#34; data-caption=&#34;Remote operated driving with data from two sources.&#34;&gt;
+
+
+  &lt;img src=&#34;./RemoteOperation.svg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Remote operated driving with data from two sources.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;cool-fusor&#34;&gt;COOL-Fusor&lt;/h2&gt;
+&lt;p&gt;As a core component, we developed the &amp;ldquo;&lt;strong&gt;C&lt;/strong&gt;loud-based &lt;strong&gt;O&lt;/strong&gt;bject &lt;strong&gt;O&lt;/strong&gt;r &lt;strong&gt;L&lt;/strong&gt;idar (COOL)-Fusor&amp;rdquo; to merge data from multiple sensors in the same area, enhancing situational awareness.
+The COOL-Fusor improves detection quality, particularly when one sensor is obstructed.
+It operates on a server and ingests data from vehicles&#39; LIDAR sensors, communicated over the cellular network.
+After the fusion step, object detection is performed on the combined data.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-scenario-with-cool-fusor-use-case&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./COOL_Fusor.png&#34; data-caption=&#34;Scenario with COOL Fusor use case.&#34;&gt;
+
+
+  &lt;img src=&#34;./COOL_Fusor.png&#34; alt=&#34;&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Scenario with COOL Fusor use case.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;simulation&#34;&gt;Simulation&lt;/h2&gt;
+&lt;p&gt;Our solution based on artificial intelligence for object detection required realistic sensor data on a large scale for training, testing and evaluation.
+We leveraged Eclipse MOSAIC with its modelling capabilities and PHABMACS, our in-house vehicle simulator, accordingly.&lt;/p&gt;
+&lt;p&gt;The simulated data for training our machine learning model included specific features of merged LIDAR point clouds from multiple vehicles.
+Without simulation, the process of capturing these data with multiple vehicles would have been a prohibitively expensive and time-consuming endeavor.
+We created numerous scenarios that include various vehicle maneuvers and environments, enabling us to compile a vast dataset tailored to our use case.
+Furthermore, a simulated environment allows to create training data for virtually every situation imaginable, increasing coverage of different road layouts, street sights, and anomalies.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-picture-of-ai-net-antillas-scenarios-with-different-aspects&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./scenarios.png&#34; data-caption=&#34;Picture of AI-NET-ANTILLAS scenarios with different aspects&#34;&gt;
+
+
+  &lt;img src=&#34;./scenarios.png&#34; alt=&#34;&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Picture of AI-NET-ANTILLAS scenarios with different aspects
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;training&#34;&gt;Training&lt;/h2&gt;
+&lt;p&gt;To detect vehicle objects in the transmitted sensor data, we employed a machine learning model on the basis of the OGM (occupancy grid map) approach for LIDAR data.
+Initially, the model was trained using data generated from our various scenarios.
+Furthermore, we created datasets containing errors such as measurement inaccuracies, LiDAR acquisition errors, and limiting factors of the network such as delays and jitter.
+These obstructions introduced more variety into the training and prepared the model for cases where the received data is suboptimal.
+Continuous evaluation and retraining ensured the model remained robust and accurate, even as new data and scenarios were introduced.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-example-frame-with-model-detections-and-ground-truth-and-influence-of-errors-on-pointclouds&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./training.png&#34; data-caption=&#34;Example frame with model detections and ground truth and influence of errors on pointclouds&#34;&gt;
+
+
+  &lt;img src=&#34;./training.png&#34; alt=&#34;&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Example frame with model detections and ground truth and influence of errors on pointclouds
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;network-and-transmission&#34;&gt;Network and Transmission&lt;/h2&gt;
+&lt;p&gt;We further simulated the transmission of sensor data from vehicles to a remote server,
+where the COOL-Fusor and object detection could be executed and visualized for the operator.
+The network simulation was achieved using the Cell Simulator embedded in Eclipse MOSAIC.
+This aspect of the project ensured that data transmission latency and bandwidth constraints were realistically modeled, providing insights into the performance of the overall remote operated driving systems under various network conditions.&lt;/p&gt;
+&lt;h2 id=&#34;final-results&#34;&gt;Final results&lt;/h2&gt;
+&lt;p&gt;Our final outcomes included a well-trained model for detecting car-sized vehicles in LiDAR point clouds, based on data simulated by Eclipse MOSAIC, and a novel point cloud fusion approach using the COOL-Fusor.
+These results demonstrate the feasibility and effectiveness of our approach, paving the way for future advancements in remote and teleoperated driving and autonomous vehicle technologies.&lt;/p&gt;
+&lt;div style=&#34;text-align: center;margin-bottom: 10px&#34;&gt;
+&lt;video controls style=&#34;width:60%;margin-bottom: 1px;margin-top:3px;text-align: center&#34;&gt;
+  &lt;source src=&#34;https://media.dcaiti.tu-berlin.de/mosaic/ai-net-rod/AINET-ANTILLAS-FINAL.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;b&gt;Watch this demonstration to get an overview of the capabilities implemented in Eclipse MOSAIC&lt;/b&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2024 Spring Release of Eclipse MOSAIC</title>
       <link>https://www.eclipse.dev/mosaic/post/release-24-0/</link>
       <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
@@ -11288,7 +11471,7 @@ With the &lt;strong&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The simulation of LiDAR sensors is implemented in the &lt;strong&gt;PHABMACS&lt;/strong&gt; vehicle simulator, which is integrated in &lt;strong&gt;MOSAIC Extended&lt;/strong&gt;.
-With the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file it is possible to configure LiDAR sensors according to real products. In this case we configured it according to the Velodyne HDL-64E.&lt;/p&gt;
+With the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file it is possible to configure LiDAR sensors according to real products. In this case, we configured it according to the Velodyne HDL-64E.&lt;/p&gt;
 &lt;p&gt;In the &lt;strong&gt;
 
 

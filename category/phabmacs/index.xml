@@ -123,7 +123,7 @@ With the &lt;strong&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The simulation of LiDAR sensors is implemented in the &lt;strong&gt;PHABMACS&lt;/strong&gt; vehicle simulator, which is integrated in &lt;strong&gt;MOSAIC Extended&lt;/strong&gt;.
-With the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file it is possible to configure LiDAR sensors according to real products. In this case we configured it according to the Velodyne HDL-64E.&lt;/p&gt;
+With the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file it is possible to configure LiDAR sensors according to real products. In this case, we configured it according to the Velodyne HDL-64E.&lt;/p&gt;
 &lt;p&gt;In the &lt;strong&gt;
 
 
