@@ -8,17 +8,28 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
+M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
+**Traffic State Estimation on Urban Roads Using Perception-Enriched Floating Car Data.** \
+In _Proceedings of the 10th International Conference on Vehicle Technology and Intelligent Transport Systems - VEHITS_ \
+Angers France May 2-4 2024, ISBN 978-989-758-703-0, ISSN 2184-495X, DOI: [`10.5220/0012620500003702`](https://doi.org/10.5220/0012620500003702)
+
+M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
+**Spatio-Temporal Speed Metrics for Traffic State Estimation on Complex Urban Roads.** \
+In _Simulation Tools and Techniques._ (editors JL. Guisado-Lizar, A. Riscos-Núñez, MJ. Morón-Fernández, G. Wainer) \
+_SIMUtools 2023. Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, vol 519._ Springer, Cham. \
+Seville, Spain, December 14-15  2023, DOI: [`10.1007/978-3-031-57523-5_12`](https://doi.org/10.1007/978-3-031-57523-5_12).
+
 K. Schrab, R. Protzmann, I. Radusch:\
 **["A Large-Scale Traffic Scenario of Berlin for Evaluating Smart Mobility Applications."](https://github.com/mosaic-addons/best-scenario)** \
 In _Smart Energy for Smart Transport._ (editors E. G. Nathanail, N. Gavanas, G. Adamos) \
 _CSUM 2022. Lecture Notes in Intelligent Transportation and Infrastructure._ Springer, Cham.\
-Skiathos, Greece, August 31 - September 2, 2022, 
+Skiathos, Greece, August 31 - September 2 2022, 
 DOI: [`10.1007/978-3-031-23721-8_24`](https://doi.org/10.1007/978-3-031-23721-8_24).
 
 M. Neubauer, G. Ruddeck, K. Schrab, R. Protzmann, I. Radusch:\
 **"A Pedestrian Movement Model for 3D Visualization in a Driving Simulation Environment."**\
 _IEEE/ACM 26th International Symposium on Distributed Simulation and Real Time Applications (DS-RT 2022)_,\
-Alès, France, 26-28 September 2022, ISBN: `978-1-6654-9799-2`, DOI: [`10.1109/DS-RT55542.2022.9932038`](https://doi.org/10.1109/DS-RT55542.2022.9932038).
+Alès, France, September 26-28 2022, ISBN: 978-1-6654-9799-2, DOI: [`10.1109/DS-RT55542.2022.9932038`](https://doi.org/10.1109/DS-RT55542.2022.9932038).
 
 R. Protzmann, K. Schrab, M. Schweppenhäuser, I. Radusch:\
 **["Implementation of a Perception Module for Smart Mobility Applications in Eclipse MOSAIC."](https://www.tib-op.org/ojs/index.php/scp/article/view/123)**\
