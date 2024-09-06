@@ -13,9 +13,9 @@ org.eclipse.mosaic.app.tutorial.trafficlight
 org.eclipse.mosaic.app.tutorial.vehicle
 org.eclipse.mosaic.fed.application.ambassador
 org.eclipse.mosaic.fed.application.ambassador.eventresources
-org.eclipse.mosaic.fed.application.ambassador.navigation
 org.eclipse.mosaic.fed.application.ambassador.simulation
 org.eclipse.mosaic.fed.application.ambassador.simulation.communication
+org.eclipse.mosaic.fed.application.ambassador.simulation.navigation
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.errormodels
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.index
@@ -27,6 +27,7 @@ org.eclipse.mosaic.fed.application.app
 org.eclipse.mosaic.fed.application.app.api
 org.eclipse.mosaic.fed.application.app.api.communication
 org.eclipse.mosaic.fed.application.app.api.os
+org.eclipse.mosaic.fed.application.app.api.os.modules
 org.eclipse.mosaic.fed.application.app.api.perception
 org.eclipse.mosaic.fed.application.app.etsi
 org.eclipse.mosaic.fed.application.config
