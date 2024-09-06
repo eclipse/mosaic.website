@@ -36,9 +36,7 @@
   
     
   
-  <meta name="description" content="Installation   The VMS Simulator is part of  MOSAIC Extended.
-For further information on licenses, feel free to contact us via  mosaic@fokus.fraunhofer.de.
-  Overview The VMS Simulator extends simulations with variable message signs (VMS), which could by dynamically controlled.">
+  <meta name="description" content="The VMS Simulator allows to define variable message signs on top of the existing traffic simulation. An additional application for vehicles allows them to react upon VMS, which can be dynamically controlled.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/">
@@ -291,9 +289,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/">
   <meta property="og:title" content="Variable Message Signs Simulator | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content="Installation   The VMS Simulator is part of  MOSAIC Extended.
-For further information on licenses, feel free to contact us via  mosaic@fokus.fraunhofer.de.
-  Overview The VMS Simulator extends simulations with variable message signs (VMS), which could by dynamically controlled."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="og:description" content="The VMS Simulator allows to define variable message signs on top of the existing traffic simulation. An additional application for vehicles allows them to react upon VMS, which can be dynamically controlled."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
@@ -728,8 +724,8 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
   </a>
 </div>
 
@@ -788,7 +784,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         </li>
         
         <li >
-          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+          <a href="/mosaic/docs/visualization/3d-vis/">3D Visualization</a>
         </li>
         
       </ul>
@@ -818,6 +814,10 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         
         <li class="active">
           <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_phabmacs/">Traffic - PHABMACS</a>
         </li>
         
         <li >
@@ -862,7 +862,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         </li>
         
         <li >
-          <a href="/mosaic/docs/scenarios/scenario_convert/">scenario-convert</a>
+          <a href="/mosaic/docs/scenarios/scenario_convert/">Scenario-Convert Tool</a>
         </li>
         
         <li >
@@ -1052,6 +1052,12 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   <ul>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li></li>
+        <li><a href="#change-vms-during-simulation">Change VMS During Simulation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1102,7 +1108,9 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
           <h1>Variable Message Signs Simulator</h1>
 
           <div class="article-style">
-            <h2 id="installation">Installation</h2>
+            <p>The VMS Simulator allows to define variable message signs on top of the existing traffic simulation. An additional
+application for vehicles allows them to react upon VMS, which can be dynamically controlled.</p>
+<h2 id="installation">Installation</h2>
 <div class="alert alert-extended">
   <span class="extended-icon" style="background-image: url(/mosaic/img/alert-extended.svg)"></span>
   <div>
@@ -1157,43 +1165,187 @@ has, amongst others, the following properties:</p>
 <li>Speed limit signs</li>
 <li>Lane assignment signs (assigns a list of allowed vehicle types to a lane - e.g. Busses, Taxis or even Automated Vehicles)</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-example-of-speed-and-lane-assigment-in-highway-scenario">
-
-
-  <a data-fancybox="" href="../images/vms-simulator_signs-highway.png" data-caption="example of speed and lane assigment in highway scenario">
-
-
-  <img src="../images/vms-simulator_signs-highway.png" alt="" width="85%" >
-</a>
-
-
-  
-  
-  <figcaption>
-    example of speed and lane assigment in highway scenario
-  </figcaption>
-
-
-</figure>
-
 <p>Any properties of a VMS, beside its position and type, can be changed during the simulation.</p>
 <p>In each simulation step the VMS Simulator informs vehicles about any VMS that is inside their sight distance. How
 vehicles react on VMS can be modeled with the <a href="/mosaic/docs/simulators/application_simulator" title="Application Simulator">Application Simulator</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>To enable vehicles to react to VMS in your simulation, your scenario must include the following additional files:</p>
+<ul>
+<li><code>&lt;scenario-name&gt;/traffic-signs/traffic_signs_config.json</code>: General configuration of the ambassador.</li>
+<li><code>&lt;scenario-name&gt;/traffic-signs/signs.xml</code>: Detailed configuration of all available variable message signs.</li>
+<li><code>&lt;scenario-name&gt;/application/TrafficSignsVehicleApp.jar</code>: The jar file which contains the vehicle application to be able to react on VMS.</li>
+<li><code>&lt;scenario-name&gt;/application/TrafficSignsVehicleApp.json</code>: Configuration for the vehicle application to react on VMS.</li>
+</ul>
+<h4 id="enable-vms-ambassador">Enable VMS Ambassador</h4>
+<p>To enable the VMS Ambassador in your simulation activate it in <code>&lt;scenario-name&gt;/scenario_config.json</code>:</p>
+<pre><code class="language-xml">{
+   ...,
+    &quot;federates&quot;: {
+        &quot;application&quot;: true,
+        &quot;sumo&quot;: true,
+        &quot;traffic-signs&quot;: true
+    }
+}
+</code></pre>
+<h4 id="configure-the-vms-ambassador">Configure the VMS Ambassador</h4>
+<p>Configuring the Traffic Sign Ambassador in <code>&lt;scenario-name&gt;/traffic-signs/traffic_signs_config.json</code>:</p>
+<pre><code class="language-json">{
+    // Name of the XML file which contains the traffic signs
+    &quot;signsFilename&quot;: &quot;signs.xml&quot;,
+
+    // Path to the scenario database
+    &quot;database&quot;: &quot;../application/&lt;scenario-name&gt;.db&quot;
+}
+</code></pre>
+<h4 id="define-vms">Define VMS</h4>
+<p>Currently implemented traffic signs:</p>
+<ul>
+<li><strong>Lane Assignment Sign</strong>
+Lanes can be assigned to a specific vehicle type (Bus, Taxi, Autonomous Vehicle,&hellip;).
+<ul>
+<li>Vehicles that are not of the allowed vehicle class will try to change to a different lane as soon as possible.</li>
+<li>If a Taxi drives on the leftmost lane, but the rightmost is assigned to Taxis only, it tries to change to that lane as soon as possible.</li>
+</ul>
+</li>
+<li><strong>Speed Limit Signs</strong>
+Speed limits can be set for specific streets or even lanes.
+<ul>
+<li>Vehicles driving on a lane with a speed limit change their maximum speed (SUMO parameter) to the value the sign specifies.</li>
+<li>When vehicles change lane they adapt the new speed limit.</li>
+<li>Vehicles do not prefer faster lanes.</li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-note">
+  <div>
+<ul>
+<li>
+<p>Generally, vehicles try to execute these maneuvers as soon as they see the traffic sign.</p>
+</li>
+<li>
+<p>Signs have a visibility that defines how good the sign is visible to drivers.</p>
+</li>
+<li>
+<p>Variable traffic signs can be changed during the simulation, i.e., by a Traffic Management Center (TMC) or other simulation units.</p>
+</li>
+<li>
+<p>The area of validity of a sign ends as soon another sign is placed downstream on the road and just before any on-ramp or crossing.</p>
+</li>
+<li>
+<p>The <code>x,y</code> coordinates of signs in the XML definition are SUMO coordinates.</p>
+</li>
+<li>
+<p>The visibility of signs is defined between <code>0.0</code> (not visible) and <code>1.0</code> (very good visible).</p>
+</li>
+<li>
+<p>A vehicle only reacts on an update of a variable traffic signs if the sign is in front of the vehicle. If the sign is behind the vehicle and it is updated, the vehicle misses the update.</p>
+</li>
+<li>
+<p>If a vehicle is not allowed to drive on any lane of the road, it stops.</p>
+</div>
+</li>
+</ul>
+</div>
+<p>The file <code>&lt;scenario-name&gt;/traffic-signs/signs.xml</code> stores all traffic signs of the scenario.</p>
+<p>The following examples show how to define speed limit signs:</p>
+<pre><code class="language-xml">&lt;trafficsigns&gt;
+    &lt;!-- Speed limit of 130km/h on all lanes of the specified edge. Not variable. --&gt;
+    &lt;speedLimit id=&quot;speed-limit-sign-1&quot;
+                x=&quot;51421.50&quot; y=&quot;58297.29&quot;
+                edge=&quot;4822486_685163613_31022629_31022620&quot;
+                visibility=&quot;1.0&quot;
+                variable=&quot;false&quot;
+                limit=&quot;36.1&quot;&gt;
+    &lt;/speedLimit&gt;
+
+    &lt;!-- Three variable speed limit signs for each lane of the edge with different speed limits. --&gt;
+    &lt;speedLimit id=&quot;speed-limit-sign-2&quot;
+                x=&quot;51421.50&quot; y=&quot;58297.29&quot;
+                edge=&quot;4822486_685163613_31022629_31022620&quot;
+                visibility=&quot;1.0&quot;
+                variable=&quot;true&quot;
+                limit=&quot;36.1&quot; &gt;
+        &lt;lane index=&quot;0&quot; limit=&quot;27.7&quot; /&gt; &lt;!-- 100km/h on lane 0 --&gt;
+        &lt;lane index=&quot;1&quot; limit=&quot;33.3&quot; /&gt; &lt;!-- 120km/h on lane 1 --&gt;
+        &lt;lane index=&quot;2&quot; limit=&quot;36.1&quot; /&gt; &lt;!-- 130km/h on lane 2 --&gt;
+    &lt;/speedLimit&gt;
+&lt;/trafficsigns&gt;
+</code></pre>
+<p>The following examples show how to define lane assignment signs:</p>
+<pre><code class="language-xml">&lt;trafficsigns&gt;
+    &lt;!-- Variable lane assignment sign that assignes all lanes of the specified edge to all vehicle classes.
+            With this sign previous lane assignment signs can be neutraized.
+            The sign has also a bad visibility. --&gt;
+    &lt;laneAssignment id=&quot;lane-assignment-sign-1&quot;
+                    x=&quot;51419.73&quot; y=&quot;58294.31&quot;
+                    edge=&quot;4822486_685163613_31022629_31022620&quot;
+                    visibility=&quot;0.3&quot;
+                    variable=&quot;true&quot;
+                    allowedVehicleClasses=&quot;ALL&quot; &gt;
+    &lt;/laneAssignment&gt;
+
+    &lt;!-- Three variable lane assignment signs with different vehicle class assignments per lane. --&gt;
+    &lt;laneAssignment id=&quot;lane-assignment-sign-2&quot;
+                    x=&quot;51419.73&quot; y=&quot;58294.31&quot;
+                    edge=&quot;4822486_685163613_31022629_31022620&quot;
+                    visibility=&quot;1.0&quot;
+                    variable=&quot;true&quot;
+                    allowedVehicleClasses=&quot;ALL&quot; &gt;
+        &lt;lane index=&quot;0&quot; allowedVehicleClasses=&quot;Taxi Bus&quot; /&gt; &lt;!-- The rightmost lane is assigned to busses and taxis only. --&gt;
+        &lt;lane index=&quot;1&quot; allowedVehicleClasses=&quot;Taxi&quot; /&gt; &lt;!-- The center lane is assigned to taxis only. --&gt;
+        &lt;lane index=&quot;2&quot; allowedVehicleClasses=&quot;ALL&quot; /&gt; &lt;!-- on the leftmost lane all vehicle types are allowed to drive. --&gt;
+    &lt;/laneAssignment&gt;
+&lt;/trafficsigns&gt;
+</code></pre>
+<h4 id="let-vehicles-react-on-vms">Let Vehicles React on VMS</h4>
+<p>To equip vehicles with the <code>TrafficSignsVehicleApp</code> you need to add <code>com.dcaiti.mosaic.app.examples.trafficsigns.TrafficSignsVehicleApp</code> to the applications list of the vehicle in the <code>mapping/mapping_config.json</code>.</p>
+<p>You can specify the duration after which vehicles shall react on traffic signs by adding the <code>reactionTime</code> parameter (in seconds) to the application in <code>mapping_config.json</code>:</p>
+<pre><code class="language-json">&quot;applications&quot;: [
+    &quot;com.dcaiti.mosaic.app.examples.trafficsigns.TrafficSignsVehicleApp(10)&quot;
+]
+</code></pre>
+<p>You also may want to change the mean sight distance of vehicles and define a deviation for that.
+You can do this by creating the file <code>application/TrafficSignsVehicleApp.json</code> and edit it as following:</p>
+<pre><code class="language-json">{
+    // Mean sight distance of a driver in meters
+    &quot;meanSightDistance&quot;: 400.0,
+
+    // Max. deviation of sight distance in meters
+    &quot;sightDistanceDeviation&quot;: 20.0
+}
+</code></pre>
+<div class="alert alert-note">
+  <div>
+<p>This configuration affects each vehicle that is equipped with the <code>TrafficSignsVehicleApp</code>.</p>
+  </div>
+</div>
+<h3 id="change-vms-during-simulation">Change VMS During Simulation</h3>
+<p>With the following code snippets, you can change VMS dynamically during simulation:</p>
+<pre><code class="language-java">long timeToSend = 150 * TIME.SECOND;
+String signId = &quot;speed-limit-sign-1&quot;; // As defined in &lt;scenario-name&gt;/trafficsigns/signs.xml
+double newSpeedLimit = 13.89; // in m/s
+TrafficSignSpeedLimitChange interaction = new TrafficSignSpeedLimitChange(
+    timeToSend,
+    signId,
+    newSpeedLimit
+);
+getOs().sendInteractionToRti(interaction);
+</code></pre>
+<p><em>Change variable speed limit sign.</em></p>
+<pre><code class="language-java">long timeToSend = 160 * TIME.SECOND;
+String signId = &quot;lane-assignment-sign-2&quot;; // As defined in &lt;scenario-name&gt;/trafficsigns/signs.xml
+int laneIndex = 0;
+List&lt;VehicleClass&gt; allowedVehicleClasses = new ArrayList&lt;&gt;();
+allowedVehicleClasses.add(VehicleClass.ElectricVehicle);
+TrafficSignLaneAssignmentChange interaction = new TrafficSignLaneAssignmentChange(
+    timeToSend,
+    signId,
+    laneIndex, // NOTE: If you don't provide a lane index here, all lanes are assigned to electric vehicles only.
+    allowedVehicleClasses
+);
+getOs().sendInteractionToRti(interaction);
+</code></pre>
+<p><em>Change variable lane assignment sign. Allow only Electric Vehicles for a specific lane.</em></p>
 
           </div>
 
@@ -1219,7 +1371,7 @@ vehicles react on VMS can be modeled with the <a href="/mosaic/docs/simulators/a
       
       
         <div class="meta-nav">Next</div>
-        <a href="/mosaic/docs/simulators/network_simulator_omnetpp/" rel="prev">Network Simulator OMNeT&#43;&#43;</a>
+        <a href="/mosaic/docs/simulators/traffic_simulator_phabmacs/" rel="prev">PHABMACS - PHysics Aware Behavior Modeling Advanced Car Simulator</a>
       
     </div>
   </div>
@@ -1570,7 +1722,7 @@ vehicles react on VMS can be modeled with the <a href="/mosaic/docs/simulators/a
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 5 Jul 2024, 16:23 UTC
+      Website built on 6 Sep 2024, 10:40 UTC
     </p>
     
   </div>

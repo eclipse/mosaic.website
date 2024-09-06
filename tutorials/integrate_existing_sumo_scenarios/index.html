@@ -925,13 +925,13 @@ script, that comes bundled with the MOSAIC extended version from the
 
 <a href="/mosaic/download/">download section</a>.
 Start by calling:</p>
-<pre><code class="language-plaintext">java -jar scenario-convert.jar --sumo2db -i sievekingplatz.net.xml
+<pre><code class="language-plaintext">scenario-convert.sh --sumo2db -i sievekingplatz.net.xml
 </code></pre>
 <p>This will create a database called <code>sievekingplatz.db</code> and load the network into the database.</p>
 <h3 id="2-loading-the-routes-into-the-database">2. Loading the routes into the database</h3>
 <p>Next we will use the same command to load the routes of the route-file into the database.
 This is optional, but necessary if you want to add vehicles along the routes of your SUMO route-file.</p>
-<pre><code class="language-plaintext">java -jar scenario-convert.jar --sumo2db -i sievekingplatz.rou.xml -d sievekingplatz.db
+<pre><code class="language-plaintext">scenario-convert.sh --sumo2db -i sievekingplatz.rou.xml -d sievekingplatz.db
 </code></pre>
 <p>Note, that we also have to specify the database here.</p>
 <h3 id="3-create-the-mosaic-scenario-folder-structure">3. Create the MOSAIC scenario folder structure</h3>
@@ -1708,7 +1708,7 @@ configuring the traffic demand again.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 5 Jul 2024, 16:23 UTC
+      Website built on 6 Sep 2024, 10:40 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

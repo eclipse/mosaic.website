@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -55,7 +55,7 @@ VEHICLE_UPDATES;9000000000;veh_1;35.52345835176762;186.33265000325784;52.6559904
         ...
         &amp;lt;/subscription&amp;gt;
         ...
-    &amp;lt;/subscriptions&amp;gt;&amp;gt;
+    &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -159,8 +159,25 @@ and also as an extension point in the future.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;An example for simple extended method type entry&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;With existing methods of &lt;code&gt;VehicleUpdates&lt;/code&gt; and its super class &lt;code&gt;Interaction&lt;/code&gt;, we cannot get the timestamp of
-a interaction in second. (only &lt;code&gt;Interaction.getTime&lt;/code&gt;, which returns a time in ns, is available). Here, &lt;code&gt;getTimeInSec&lt;/code&gt;
-is a method extension for &lt;code&gt;Interaction&lt;/code&gt; class. The extended method set will be listed later.&lt;/p&gt;
+a interaction in seconds (only &lt;code&gt;Interaction.Time&lt;/code&gt;, which returns a time in ns, is available). Here, &lt;code&gt;TimeInSec&lt;/code&gt; and &lt;code&gt;TimeInMs&lt;/code&gt;
+are method extensions for any &lt;code&gt;Interaction&lt;/code&gt; class.&lt;/p&gt;
+&lt;h4 id=&#34;extended-methods-for-v2x-message-interactions&#34;&gt;Extended Methods for V2X Message Interactions&lt;/h4&gt;
+&lt;p&gt;Interactions &lt;code&gt;V2xMessageReception&lt;/code&gt; and &lt;code&gt;V2xMessageTransmission&lt;/code&gt; are furthermore extended with the method &lt;code&gt;Type&lt;/code&gt;, which
+provides a shortcut to the type of the sent or received &lt;code&gt;V2xMessage&lt;/code&gt;. Additionally, for &lt;code&gt;V2xMessageReception&lt;/code&gt; the extended method
+&lt;code&gt;Message&lt;/code&gt; is available, which provides the actual &lt;code&gt;V2xMessage&lt;/code&gt;. It is important to note, that &lt;code&gt;Type&lt;/code&gt; and &lt;code&gt;Message&lt;/code&gt; for
+&lt;code&gt;V2xMessageReception&lt;/code&gt; is only available, if &lt;code&gt;V2xMessageTransmission&lt;/code&gt; is configured in the list of subscribed interactions.
+If only &lt;code&gt;V2xMessageReception&lt;/code&gt; interactions should be printed out, then &lt;code&gt;V2xMessageTransmission&lt;/code&gt; has to be added with an empty list of fields.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;subscription id=&amp;quot;V2xMessageTransmission&amp;quot;/&amp;gt;
+&amp;lt;subscription id=&amp;quot;V2xMessageReception&amp;quot;&amp;gt;
+    &amp;lt;entries&amp;gt;
+        &amp;lt;entry&amp;gt;Time&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Type&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Message.Payload.EffectiveLength&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;ReceiverName&amp;lt;/entry&amp;gt;
+    &amp;lt;/entries&amp;gt;
+&amp;lt;/subscription&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for printing V2X message reception events.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;further-details&#34;&gt;Further details&lt;/h2&gt;
 &lt;p&gt;The method type of entry definition supports cascaded iteration as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;List1:List2:Id&amp;lt;/entry&amp;gt;
@@ -674,8 +691,10 @@ defined position (&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; coo
 property will automatically fill in relevant properties of the RSU.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;rsus&amp;quot;: [
     {
-        &amp;quot;lat&amp;quot;: 52.65027,
-        &amp;quot;lon&amp;quot;: 13.54500,
+        &amp;quot;position&amp;quot;: {
+            &amp;quot;latiude&amp;quot;: 52.65027,
+            &amp;quot;longitude&amp;quot;: 13.54500
+        },
         &amp;quot;name&amp;quot;: &amp;quot;WeatherServer&amp;quot;,
         &amp;quot;applications&amp;quot;: [ &amp;quot;org.eclipse.mosaic.app.tutorial.WeatherServerApp&amp;quot; ]
     }
@@ -1387,7 +1406,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 24.0 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 24.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -1504,11 +1523,34 @@ in the
     </item>
     
     <item>
-      <title>scenario-convert</title>
+      <title>Scenario-Convert Tool</title>
       <link>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;strong&gt;scenario-convert&lt;/strong&gt; does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.&lt;/p&gt;
+&lt;p&gt;Yet, you can use scenario-convert &lt;strong&gt;for free&lt;/strong&gt; to generate scenarios which are executable with Eclipse MOSAIC. &lt;strong&gt;
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Get it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+    
+
+&lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-24.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;usage-of-scenario-convert&#34;&gt;Usage of scenario-convert&lt;/h2&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;The 
 
@@ -1535,53 +1577,9 @@ in the
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/create_new_scenario/&#34;&gt;Create a new Scenario Tutorial&lt;/a&gt; provides an introduction to the scenario-convert tool.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/create_new_scenario/&#34;&gt;Create a new Scenario Tutorial&lt;/a&gt; provides a detailed introduction to the scenario-convert tool.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&#34;alert alert-extended&#34;&gt;
-  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
-  &lt;div&gt;
-&lt;p&gt;&lt;strong&gt;scenario-convert&lt;/strong&gt; is part of &lt;strong&gt;
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;However, you can use scenario-convert &lt;strong&gt;for free&lt;/strong&gt; to generate scenarios which are executable with Eclipse MOSAIC. &lt;strong&gt;
-
-
-
-
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Get it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-    
-
-&lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
-
-&lt;h2 id=&#34;usage-of-scenario-convert&#34;&gt;Usage of scenario-convert&lt;/h2&gt;
 &lt;p&gt;The following listing shows an overview for the usage of scenario-convert:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;usage: scenario-convert [OPERATION] [OPTIONS]
 
@@ -1594,14 +1592,14 @@ Examples:
    &amp;gt; scenario-convert --sumo2db -d &amp;lt;DATABASE&amp;gt; -i &amp;lt;ROUTEFILE&amp;gt;.rou.xml
 4. Combine steps 1 and 2
    &amp;gt; scenario-convert --osm2sumo -d &amp;lt;DATABASE&amp;gt; -i &amp;lt;OSMFILE&amp;gt; [-s &amp;lt;SUMOPREFIX&amp;gt;]
-5. Export db content to Shapefile format
-   &amp;gt; scenario-convert --db2shp -d &amp;lt;DATABASE&amp;gt;
+5. Export db content to GeoJson files (e.g., for visualization)
+   &amp;gt; scenario-convert --db2geojson -d &amp;lt;DATABASE&amp;gt;
 6. Import an srtm file and write elevation data to nodes of an existing database
    &amp;gt; scenario-convert --srtm2db -i &amp;lt;SRTMFILE&amp;gt; -d &amp;lt;DATABASE&amp;gt;
 7. Create a complete MOSAIC scenario from an osm file
    &amp;gt; scenario-convert --osm2mosaic -i &amp;lt;OSMFILE&amp;gt;
-8. Create a scenario database from an SUMO net file
-   &amp;gt; scenario-convert --sumo2db -i &amp;lt;NETFILE&amp;gt;.net.xml
+8. Create a scenario database from a SUMO net file
+   &amp;gt; scenario-convert --sumo2db -i &amp;lt;NETFILE&amp;gt;.net.xml --import-zone 33n
 9. Calculate a route from node 123 to node 456
    &amp;gt; scenario-convert --generate-routes -d &amp;lt;DATABASE&amp;gt; --route-begin-node-id 123 --route-end-node-id 456
 
@@ -1611,11 +1609,11 @@ The following arguments are available:
  -c,--config-file &amp;lt;PATH&amp;gt;                   Optional, refers to a configuration file which contains all parameters in
                                            JSON format.
     --osm2db                               Converts a OpenStreetMap file to a new scenario database.
-    --sumo2db                              Imports a SUMO Network/Routefile. Be aware that you may have to re-export an
-                                           imported network.
+    --sumo2db                              Imports a SUMO Network/Routefile. Be aware, that creating a scenario based on
+                                           a Network file is not fully compatible with MOSAIC.
     --srtm2db                              Imports an SRTM file and writes elevation data to nodes.
     --db2sumo                              Exports the network to SUMO node and edge files.
-    --db2shp                               Exports the database into Shapefile format.
+    --db2geojson                           Exports the database into GeoJSON format.
     --db2mosaic                            Creates directory structure for a MOSAIC scenario based on the database
                                            contents.
     --osm2sumo                             Combination of osm2db and db2sumo.
@@ -1634,10 +1632,13 @@ The following arguments are available:
                                            vehicles data to *.rou.xml.
     --import-lat &amp;lt;DOUBLE&amp;gt;                  Center latitude of imported region to project coordinates.
     --import-lon &amp;lt;DOUBLE&amp;gt;                  Center longitude of imported region to project coordinates.
-    --import-zone &amp;lt;STRING&amp;gt;                 UTM zone of location for projecting coords in default format (e.g. 32n).
+    --import-zone &amp;lt;STRING&amp;gt;                 UTM zone of location for projecting coords in default format (e.g. 32u).
 
  -g,--generate-routes                      Generates route(s) from one point to another. The begin and end for the route
-                                           must be known (see below options).
+                                           must be known (see below options). All generated routes will be added to the
+                                           database.
+    --clear-routes                         Clear route(s) from the database before adding new ones during route
+                                           generation (only with --generate-routes).
     --route-begin-lat &amp;lt;DOUBLE&amp;gt;             Latitude of the starting point, needs --route-begin-lon as well.
     --route-begin-lon &amp;lt;DOUBLE&amp;gt;             Longitude of the starting point, needs --route-begin-lat as well.
     --route-begin-latlon &amp;lt;DOUBLE,DOUBLE&amp;gt;   [latitude],[longitude] of the starting point.
@@ -1653,6 +1654,8 @@ The following arguments are available:
     --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
     --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
+    --split-connections                    Connections are built for each adjacent node during OSM Import instead of
+                                           having geometry nodes. This results in much larger networks.
     --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network
                                            graph . Since several components of MOSAIC require one main graph without
                                            disconnected ways and nodes, this option should be used only if the cleanup
@@ -2068,7 +2071,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.19.0&lt;br&gt;1.9.2 - 1.19.0&lt;br&gt;below 1.9.2&lt;/td&gt;
+&lt;td&gt;1.20.0&lt;br&gt;1.9.2 - 1.20.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -2210,7 +2213,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.19.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.20.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -2314,7 +2317,9 @@ in the additional examples bundle on the &lt;a href=&#34;https://www.dcaiti.tu-b
       <link>https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/simulators/vms_simulator/</guid>
-      <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+      <description>&lt;p&gt;The VMS Simulator allows to define variable message signs on top of the existing traffic simulation. An additional
+application for vehicles allows them to react upon VMS, which can be dynamically controlled.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
   &lt;div&gt;
@@ -2369,6 +2374,241 @@ has, amongst others, the following properties:&lt;/p&gt;
 &lt;li&gt;Speed limit signs&lt;/li&gt;
 &lt;li&gt;Lane assignment signs (assigns a list of allowed vehicle types to a lane - e.g. Busses, Taxis or even Automated Vehicles)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Any properties of a VMS, beside its position and type, can be changed during the simulation.&lt;/p&gt;
+&lt;p&gt;In each simulation step the VMS Simulator informs vehicles about any VMS that is inside their sight distance. How
+vehicles react on VMS can be modeled with the &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator&#34; title=&#34;Application Simulator&#34;&gt;Application Simulator&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;To enable vehicles to react to VMS in your simulation, your scenario must include the following additional files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;scenario-name&amp;gt;/traffic-signs/traffic_signs_config.json&lt;/code&gt;: General configuration of the ambassador.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;scenario-name&amp;gt;/traffic-signs/signs.xml&lt;/code&gt;: Detailed configuration of all available variable message signs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;scenario-name&amp;gt;/application/TrafficSignsVehicleApp.jar&lt;/code&gt;: The jar file which contains the vehicle application to be able to react on VMS.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;scenario-name&amp;gt;/application/TrafficSignsVehicleApp.json&lt;/code&gt;: Configuration for the vehicle application to react on VMS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;enable-vms-ambassador&#34;&gt;Enable VMS Ambassador&lt;/h4&gt;
+&lt;p&gt;To enable the VMS Ambassador in your simulation activate it in &lt;code&gt;&amp;lt;scenario-name&amp;gt;/scenario_config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;{
+   ...,
+    &amp;quot;federates&amp;quot;: {
+        &amp;quot;application&amp;quot;: true,
+        &amp;quot;sumo&amp;quot;: true,
+        &amp;quot;traffic-signs&amp;quot;: true
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;configure-the-vms-ambassador&#34;&gt;Configure the VMS Ambassador&lt;/h4&gt;
+&lt;p&gt;Configuring the Traffic Sign Ambassador in &lt;code&gt;&amp;lt;scenario-name&amp;gt;/traffic-signs/traffic_signs_config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    // Name of the XML file which contains the traffic signs
+    &amp;quot;signsFilename&amp;quot;: &amp;quot;signs.xml&amp;quot;,
+
+    // Path to the scenario database
+    &amp;quot;database&amp;quot;: &amp;quot;../application/&amp;lt;scenario-name&amp;gt;.db&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;define-vms&#34;&gt;Define VMS&lt;/h4&gt;
+&lt;p&gt;Currently implemented traffic signs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lane Assignment Sign&lt;/strong&gt;
+Lanes can be assigned to a specific vehicle type (Bus, Taxi, Autonomous Vehicle,&amp;hellip;).
+&lt;ul&gt;
+&lt;li&gt;Vehicles that are not of the allowed vehicle class will try to change to a different lane as soon as possible.&lt;/li&gt;
+&lt;li&gt;If a Taxi drives on the leftmost lane, but the rightmost is assigned to Taxis only, it tries to change to that lane as soon as possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speed Limit Signs&lt;/strong&gt;
+Speed limits can be set for specific streets or even lanes.
+&lt;ul&gt;
+&lt;li&gt;Vehicles driving on a lane with a speed limit change their maximum speed (SUMO parameter) to the value the sign specifies.&lt;/li&gt;
+&lt;li&gt;When vehicles change lane they adapt the new speed limit.&lt;/li&gt;
+&lt;li&gt;Vehicles do not prefer faster lanes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Generally, vehicles try to execute these maneuvers as soon as they see the traffic sign.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Signs have a visibility that defines how good the sign is visible to drivers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Variable traffic signs can be changed during the simulation, i.e., by a Traffic Management Center (TMC) or other simulation units.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The area of validity of a sign ends as soon another sign is placed downstream on the road and just before any on-ramp or crossing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;x,y&lt;/code&gt; coordinates of signs in the XML definition are SUMO coordinates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The visibility of signs is defined between &lt;code&gt;0.0&lt;/code&gt; (not visible) and &lt;code&gt;1.0&lt;/code&gt; (very good visible).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A vehicle only reacts on an update of a variable traffic signs if the sign is in front of the vehicle. If the sign is behind the vehicle and it is updated, the vehicle misses the update.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If a vehicle is not allowed to drive on any lane of the road, it stops.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The file &lt;code&gt;&amp;lt;scenario-name&amp;gt;/traffic-signs/signs.xml&lt;/code&gt; stores all traffic signs of the scenario.&lt;/p&gt;
+&lt;p&gt;The following examples show how to define speed limit signs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;trafficsigns&amp;gt;
+    &amp;lt;!-- Speed limit of 130km/h on all lanes of the specified edge. Not variable. --&amp;gt;
+    &amp;lt;speedLimit id=&amp;quot;speed-limit-sign-1&amp;quot;
+                x=&amp;quot;51421.50&amp;quot; y=&amp;quot;58297.29&amp;quot;
+                edge=&amp;quot;4822486_685163613_31022629_31022620&amp;quot;
+                visibility=&amp;quot;1.0&amp;quot;
+                variable=&amp;quot;false&amp;quot;
+                limit=&amp;quot;36.1&amp;quot;&amp;gt;
+    &amp;lt;/speedLimit&amp;gt;
+
+    &amp;lt;!-- Three variable speed limit signs for each lane of the edge with different speed limits. --&amp;gt;
+    &amp;lt;speedLimit id=&amp;quot;speed-limit-sign-2&amp;quot;
+                x=&amp;quot;51421.50&amp;quot; y=&amp;quot;58297.29&amp;quot;
+                edge=&amp;quot;4822486_685163613_31022629_31022620&amp;quot;
+                visibility=&amp;quot;1.0&amp;quot;
+                variable=&amp;quot;true&amp;quot;
+                limit=&amp;quot;36.1&amp;quot; &amp;gt;
+        &amp;lt;lane index=&amp;quot;0&amp;quot; limit=&amp;quot;27.7&amp;quot; /&amp;gt; &amp;lt;!-- 100km/h on lane 0 --&amp;gt;
+        &amp;lt;lane index=&amp;quot;1&amp;quot; limit=&amp;quot;33.3&amp;quot; /&amp;gt; &amp;lt;!-- 120km/h on lane 1 --&amp;gt;
+        &amp;lt;lane index=&amp;quot;2&amp;quot; limit=&amp;quot;36.1&amp;quot; /&amp;gt; &amp;lt;!-- 130km/h on lane 2 --&amp;gt;
+    &amp;lt;/speedLimit&amp;gt;
+&amp;lt;/trafficsigns&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following examples show how to define lane assignment signs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;trafficsigns&amp;gt;
+    &amp;lt;!-- Variable lane assignment sign that assignes all lanes of the specified edge to all vehicle classes.
+            With this sign previous lane assignment signs can be neutraized.
+            The sign has also a bad visibility. --&amp;gt;
+    &amp;lt;laneAssignment id=&amp;quot;lane-assignment-sign-1&amp;quot;
+                    x=&amp;quot;51419.73&amp;quot; y=&amp;quot;58294.31&amp;quot;
+                    edge=&amp;quot;4822486_685163613_31022629_31022620&amp;quot;
+                    visibility=&amp;quot;0.3&amp;quot;
+                    variable=&amp;quot;true&amp;quot;
+                    allowedVehicleClasses=&amp;quot;ALL&amp;quot; &amp;gt;
+    &amp;lt;/laneAssignment&amp;gt;
+
+    &amp;lt;!-- Three variable lane assignment signs with different vehicle class assignments per lane. --&amp;gt;
+    &amp;lt;laneAssignment id=&amp;quot;lane-assignment-sign-2&amp;quot;
+                    x=&amp;quot;51419.73&amp;quot; y=&amp;quot;58294.31&amp;quot;
+                    edge=&amp;quot;4822486_685163613_31022629_31022620&amp;quot;
+                    visibility=&amp;quot;1.0&amp;quot;
+                    variable=&amp;quot;true&amp;quot;
+                    allowedVehicleClasses=&amp;quot;ALL&amp;quot; &amp;gt;
+        &amp;lt;lane index=&amp;quot;0&amp;quot; allowedVehicleClasses=&amp;quot;Taxi Bus&amp;quot; /&amp;gt; &amp;lt;!-- The rightmost lane is assigned to busses and taxis only. --&amp;gt;
+        &amp;lt;lane index=&amp;quot;1&amp;quot; allowedVehicleClasses=&amp;quot;Taxi&amp;quot; /&amp;gt; &amp;lt;!-- The center lane is assigned to taxis only. --&amp;gt;
+        &amp;lt;lane index=&amp;quot;2&amp;quot; allowedVehicleClasses=&amp;quot;ALL&amp;quot; /&amp;gt; &amp;lt;!-- on the leftmost lane all vehicle types are allowed to drive. --&amp;gt;
+    &amp;lt;/laneAssignment&amp;gt;
+&amp;lt;/trafficsigns&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;let-vehicles-react-on-vms&#34;&gt;Let Vehicles React on VMS&lt;/h4&gt;
+&lt;p&gt;To equip vehicles with the &lt;code&gt;TrafficSignsVehicleApp&lt;/code&gt; you need to add &lt;code&gt;com.dcaiti.mosaic.app.examples.trafficsigns.TrafficSignsVehicleApp&lt;/code&gt; to the applications list of the vehicle in the &lt;code&gt;mapping/mapping_config.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can specify the duration after which vehicles shall react on traffic signs by adding the &lt;code&gt;reactionTime&lt;/code&gt; parameter (in seconds) to the application in &lt;code&gt;mapping_config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;applications&amp;quot;: [
+    &amp;quot;com.dcaiti.mosaic.app.examples.trafficsigns.TrafficSignsVehicleApp(10)&amp;quot;
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You also may want to change the mean sight distance of vehicles and define a deviation for that.
+You can do this by creating the file &lt;code&gt;application/TrafficSignsVehicleApp.json&lt;/code&gt; and edit it as following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    // Mean sight distance of a driver in meters
+    &amp;quot;meanSightDistance&amp;quot;: 400.0,
+
+    // Max. deviation of sight distance in meters
+    &amp;quot;sightDistanceDeviation&amp;quot;: 20.0
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;This configuration affects each vehicle that is equipped with the &lt;code&gt;TrafficSignsVehicleApp&lt;/code&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;change-vms-during-simulation&#34;&gt;Change VMS During Simulation&lt;/h3&gt;
+&lt;p&gt;With the following code snippets, you can change VMS dynamically during simulation:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;long timeToSend = 150 * TIME.SECOND;
+String signId = &amp;quot;speed-limit-sign-1&amp;quot;; // As defined in &amp;lt;scenario-name&amp;gt;/trafficsigns/signs.xml
+double newSpeedLimit = 13.89; // in m/s
+TrafficSignSpeedLimitChange interaction = new TrafficSignSpeedLimitChange(
+    timeToSend,
+    signId,
+    newSpeedLimit
+);
+getOs().sendInteractionToRti(interaction);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Change variable speed limit sign.&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;long timeToSend = 160 * TIME.SECOND;
+String signId = &amp;quot;lane-assignment-sign-2&amp;quot;; // As defined in &amp;lt;scenario-name&amp;gt;/trafficsigns/signs.xml
+int laneIndex = 0;
+List&amp;lt;VehicleClass&amp;gt; allowedVehicleClasses = new ArrayList&amp;lt;&amp;gt;();
+allowedVehicleClasses.add(VehicleClass.ElectricVehicle);
+TrafficSignLaneAssignmentChange interaction = new TrafficSignLaneAssignmentChange(
+    timeToSend,
+    signId,
+    laneIndex, // NOTE: If you don&#39;t provide a lane index here, all lanes are assigned to electric vehicles only.
+    allowedVehicleClasses
+);
+getOs().sendInteractionToRti(interaction);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Change variable lane assignment sign. Allow only Electric Vehicles for a specific lane.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHABMACS - PHysics Aware Behavior Modeling Advanced Car Simulator</title>
+      <link>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/</guid>
+      <description>&lt;p&gt;The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within
+a simulated environment. Vehicles are simulated with advanced models providing them with realistic driving dynamics
+within normal traffic situations.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;div class=&#34;alert alert-extended&#34;&gt;
+  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;strong&gt;PHABMACS&lt;/strong&gt; can be obtained as part of &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
+For further information on licenses, feel free to contact us via &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 
 
 
@@ -2384,28 +2624,25 @@ has, amongst others, the following properties:&lt;/p&gt;
 
 
 
-&lt;figure id=&#34;figure-example-of-speed-and-lane-assigment-in-highway-scenario&#34;&gt;
+&lt;figure id=&#34;figure-procedural-generated-environment-model-in-phabmacs&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/vms-simulator_signs-highway.png&#34; data-caption=&#34;example of speed and lane assigment in highway scenario&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/phabmacs_overview_old.png&#34; data-caption=&#34;Procedural generated environment model in PHABMACS&#34;&gt;
 
 
-  &lt;img src=&#34;../images/vms-simulator_signs-highway.png&#34; alt=&#34;&#34; width=&#34;85%&#34; &gt;
+  &lt;img src=&#34;../images/phabmacs_overview_old.png&#34; alt=&#34;&#34; width=&#34;85%&#34; &gt;
 &lt;/a&gt;
 
 
   
   
   &lt;figcaption&gt;
-    example of speed and lane assigment in highway scenario
+    Procedural generated environment model in PHABMACS
   &lt;/figcaption&gt;
 
 
 &lt;/figure&gt;
 
-&lt;p&gt;Any properties of a VMS, beside its position and type, can be changed during the simulation.&lt;/p&gt;
-&lt;p&gt;In each simulation step the VMS Simulator informs vehicles about any VMS that is inside their sight distance. How
-vehicles react on VMS can be modeled with the &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_simulator&#34; title=&#34;Application Simulator&#34;&gt;Application Simulator&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -3103,7 +3340,7 @@ configurations for various simulators.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;let-the-cars-loose&#34;&gt;Let the cars loose&lt;/h2&gt;
 &lt;p&gt;As a starting point we&amp;rsquo;ll look at the scenario that we created using this command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
+&lt;pre&gt;&lt;code&gt;scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We&amp;rsquo;ll end up with a folder looking like this:&lt;/p&gt;
@@ -3592,7 +3829,15 @@ of groups of vehicles, or the average flow on induction loops.&lt;/p&gt;
 &lt;p&gt;In order to use the Statistics Output, the attribute &lt;code&gt;enabled&lt;/code&gt; of the root element &lt;code&gt;output&lt;/code&gt; must be
 set to &amp;ldquo;true&amp;rdquo;, as shown in the following listing.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
-	[..]
+   &amp;lt;statistic&amp;gt;
+      [...]
+   &amp;lt;/statistic&amp;gt;
+
+   &amp;lt;subscriptions&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;TrafficDetectorUpdates&amp;quot;/&amp;gt;
+   &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Configuration header for Statistics Output&lt;/em&gt;&lt;/p&gt;
@@ -3670,6 +3915,12 @@ scenario) and then calculate the average vehicle travel time value for each of t
 		&amp;lt;group-by&amp;gt;VehicleGroup&amp;lt;/group-by&amp;gt;
 		&amp;lt;aggregation&amp;gt;Average&amp;lt;/aggregation&amp;gt;
 	&amp;lt;/statistic&amp;gt;
+
+   &amp;lt;subscriptions&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;TrafficDetectorUpdates&amp;quot;/&amp;gt;
+   &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Getting the Average time by vehicle class&lt;/em&gt;&lt;/p&gt;
@@ -4472,13 +4723,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;24.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;24.1&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/24.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/24.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4570,7 +4821,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-24.0.zip
+    --federate /path/to/omnetpp-federate-24.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -4580,7 +4831,7 @@ The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMN
 chmod +x omnet_installer.sh`
 ./omnet_install.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-24.0.zip
+    --federate /path/to/omnetpp-federate-24.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the installation type &lt;code&gt;DEVELOPER&lt;/code&gt; the parameter &lt;code&gt;-f&lt;/code&gt; is required. The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -4678,6 +4929,265 @@ logging configurations and the typical parameters for the communication layers (
 Channel) are addressed. The communication parameters are different for vehicles and RSUs. Please refer
 to the OMNeT++ documentation on the OMNeT++ homepage for further information about the structure
 of the &lt;code&gt;omnetpp.ini&lt;/code&gt; file.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>3D Visualization</title>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</guid>
+      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
+  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
+  &lt;div&gt;
+&lt;p&gt;The 3D visualization is part of &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
+For further information on licenses, feel free to contact us via &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 
+
+
+
+
+&lt;a href=&#34;https://github.com/fabmax/kool&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;3D engine&lt;/a&gt;
+and models to visualize vehicle movements and various events which occur during the simulation.
+Next to the road network, which can be optionally rendered by the visualizer, the following units and
+events are visualized:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vehicle movements coming from the traffic simulation&lt;/li&gt;
+&lt;li&gt;Road Side Units at their defined location&lt;/li&gt;
+&lt;li&gt;V2X-messages sent via cellular communication (indicated as green circles)&lt;/li&gt;
+&lt;li&gt;V2X-messages sent via ITS-G5 communication (indicated as blue circles)&lt;/li&gt;
+&lt;li&gt;V2X-messages received by vehicles (indicated as red circles)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-visualize-the-map-of-the-scenario&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-0.jpg&#34; data-caption=&#34;Visualize the map of the scenario.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-0.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Visualize the map of the scenario.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-track-vehicle-movements&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-1.jpg&#34; data-caption=&#34;Track vehicle movements.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-1.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Track vehicle movements.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-see-communication-events&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-2.jpg&#34; data-caption=&#34;See communication events.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-2.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    See communication events.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The main configuration file for all output generators is located at &lt;code&gt;&amp;lt;scenarioName&amp;gt;/output/output_config.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A new output generator with the following configuration has to be added:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;3d-visualization&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.Mosaic3dVisualizerLoader&amp;quot;&amp;gt;
+    &amp;lt;map&amp;gt;Barnim.osm.gz&amp;lt;/map&amp;gt;&amp;lt;!-- must be placed in &amp;lt;scenario&amp;gt;/output/assets/maps --&amp;gt;
+    &amp;lt;models&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;s-class.model.gz&amp;quot; colors=&amp;quot;magenta,red&amp;quot;/&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;b-class-detailed.model.gz&amp;quot; colors=&amp;quot;green&amp;quot;/&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;smart_fortwo.model.gz&amp;quot; colors=&amp;quot;red,blue,yellow&amp;quot;/&amp;gt;
+    &amp;lt;/models&amp;gt;
+    &amp;lt;subscriptions&amp;gt;
+        &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;V2xMessageReception&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;V2xMessageTransmission&amp;quot; enabled=&amp;quot;false&amp;quot;/&amp;gt;
+    &amp;lt;/subscriptions&amp;gt;
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;map-file&#34;&gt;Map File&lt;/h3&gt;
+&lt;p&gt;The Map file (&lt;code&gt;*.osm&lt;/code&gt; - OpenStreetMap) must be placed inside the path &lt;code&gt;&amp;lt;scenarioName&amp;gt;/output/assets/maps&lt;/code&gt; and then referenced
+in the &lt;code&gt;&amp;lt;map&amp;gt;&lt;/code&gt; tag of the configuration.&lt;/p&gt;
+&lt;h3 id=&#34;3d-models&#34;&gt;3D Models&lt;/h3&gt;
+&lt;p&gt;For each vehicle a 3D-model is chosen from a set of available models.
+The visualizer includes the following models:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Small car (Smart Fortwo): &lt;code&gt;smart_fortwo.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compact Van (Mercedes B-Class): &lt;code&gt;b-class-detailed.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Long Limousine (Mercedes S-Class): &lt;code&gt;s-class.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Truck : &lt;code&gt;truck.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can furthermore assign specific models to be used for specific 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/#prototypes&#34;&gt;vehicle prototype&lt;/a&gt; only:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;models&amp;gt;
+    &amp;lt;vehicle vehicleType=&amp;quot;Car&amp;quot; model=&amp;quot;s-class.model.gz&amp;quot; colors=&amp;quot;magenta,red&amp;quot;/&amp;gt;
+    &amp;lt;vehicle vehicleType=&amp;quot;Truck&amp;quot; model=&amp;quot;truck.model.gz&amp;quot; colors=&amp;quot;green&amp;quot;/&amp;gt;
+&amp;lt;/models&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If no &lt;code&gt;vehicleType&lt;/code&gt; is given, the model is used for any vehicle to be visualized.&lt;/p&gt;
+&lt;p&gt;Generally, it is possible to use own custom models.
+These must be converted by &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;us&lt;/a&gt;&lt;/strong&gt; from a Jollada file before they are able to be used in the visualizer.&lt;/p&gt;
+&lt;h3 id=&#34;vehicle-colors&#34;&gt;Vehicle Colors&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;colors&lt;/code&gt; field is a comma-separated list
+of which one color is chosen randomly when a vehicle is inserted. The following colors are available:
+&lt;code&gt;black&lt;/code&gt;, &lt;code&gt;dark_gray&lt;/code&gt;, &lt;code&gt;gray&lt;/code&gt;, &lt;code&gt;light_gray&lt;/code&gt;, &lt;code&gt;white&lt;/code&gt;, &lt;code&gt;red&lt;/code&gt;, &lt;code&gt;green&lt;/code&gt;, &lt;code&gt;blue&lt;/code&gt;, &lt;code&gt;yellow&lt;/code&gt;, &lt;code&gt;cyan&lt;/code&gt;, &lt;code&gt;magenta&lt;/code&gt;, &lt;code&gt;orange&lt;/code&gt;, &lt;code&gt;lime&lt;/code&gt;, &lt;code&gt;light_red&lt;/code&gt;,
+&lt;code&gt;light_green&lt;/code&gt;, &lt;code&gt;light_blue&lt;/code&gt;, &lt;code&gt;light_yellow&lt;/code&gt;, &lt;code&gt;light_cyan&lt;/code&gt;, &lt;code&gt;light_magenta&lt;/code&gt;, &lt;code&gt;light_orange&lt;/code&gt;, &lt;code&gt;dark_red&lt;/code&gt;, &lt;code&gt;dark_green&lt;/code&gt;, &lt;code&gt;dark_blue&lt;/code&gt;,
+&lt;code&gt;dark_yellow&lt;/code&gt;, &lt;code&gt;dark_cyan&lt;/code&gt;, &lt;code&gt;dark_magenta&lt;/code&gt;, &lt;code&gt;dark_orange&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;visualization-window&#34;&gt;Visualization Window&lt;/h2&gt;
+&lt;h3 id=&#34;pausing-the-simulation&#34;&gt;Pausing the Simulation&lt;/h3&gt;
+&lt;p&gt;It is possible to pause the simulation by pressing &lt;kbd&gt;Spacebar&lt;/kbd&gt; on your keyboard. It is important to start MOSAIC Extended
+with the parameter &lt;code&gt;-w 0&lt;/code&gt; when using this feature, as otherwise the visualizer would interrupt the simulation when pausing too long.&lt;/p&gt;
+&lt;h3 id=&#34;tracking-of-vehicles&#34;&gt;Tracking of Vehicles&lt;/h3&gt;
+&lt;p&gt;Initially, the first spawned vehicle is focused and followed in the visualizer.
+Vehicle tracking can be disabled by pressing &lt;kbd&gt;Esc&lt;/kbd&gt; on your keyboard.
+Furthermore, you can double-click on any vehicle to track it.&lt;/p&gt;
+&lt;h3 id=&#34;simulation-speed&#34;&gt;Simulation Speed&lt;/h3&gt;
+&lt;p&gt;For better visualization it may be required to slow down simulation, since MOSAIC always tries to simulate as fast as possible.
+To do so, you can start MOSAIC Extended with the parameter &lt;code&gt;-b 2&lt;/code&gt; (i.e., slowing down to not faster than 2 times realtime) or any other suitable value.&lt;/p&gt;
 </description>
     </item>
     
@@ -5827,100 +6337,6 @@ for the modelling of propagation loss respectively propagation delay.&lt;/p&gt;
 &lt;code&gt;ns3::FriisPropagationLossModel&lt;/code&gt;. Radio propagation models in ns-3 can easily be exchanged with
 the ns-3 class registration system (see the ns-3 documentation for details). The Wi-Fi configuration
 includes additional parameters, like sending power and antenna gain.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>3D Visualization (PHABMap)</title>
-      <link>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</guid>
-      <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
-  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
-  &lt;div&gt;
-&lt;p&gt;The 3D visualization &lt;strong&gt;PHABMap&lt;/strong&gt; is part of &lt;strong&gt;
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;br&gt;
-For further information on licenses, feel free to contact us via &lt;strong&gt;
-
-
-
-
-
-  
-  
-
-&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D
-engine and models to visualize vehicle movements and various events which occur during the simulation.
-Next to the road network, which can be optionally rendered by the visualizer, the following units and
-events are visualized:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Vehicle movements coming from the traffic simulation&lt;/li&gt;
-&lt;li&gt;Road Side Units at their defined location&lt;/li&gt;
-&lt;li&gt;V2X-messages sent via cellular communication (indicated as green circles)&lt;/li&gt;
-&lt;li&gt;V2X-messages sent via ITS-G5 communication (indicated as blue circles)&lt;/li&gt;
-&lt;li&gt;V2X-messages received by vehicles (indicated as red circles)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-the-3d-visualization-tool-phabmap-displaying-events-from-the-simulation&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/phabmap.jpg&#34; data-caption=&#34;The 3D visualization tool PHABMap displaying events from the simulation&#34;&gt;
-
-
-  &lt;img src=&#34;../images/phabmap.jpg&#34; alt=&#34;&#34;  &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-    The 3D visualization tool PHABMap displaying events from the simulation
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
 </description>
     </item>
     
@@ -10019,6 +10435,104 @@ modeling of charging stations, without the need of being super accurate with the
     &amp;quot;chargingStationRange&amp;quot;: &amp;quot;20m&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2024 Summer Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-24-1/</link>
+      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-24-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 24.1 to the open source community.
+This release concentrates less on new features, but on improving documentation and tutorials.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2024-09-06&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;* [M+] The file output generator is now able to print fields of the V2X message related to a V2xMessageReception interaction.
+* [M+] Geomath now provides a new class representing point clouds.
+* [A+] V2X messages can be duplicated for re-transmissions.
++ [A-] Searching for road positions is now more accurate for overlapping edges.
+* [S+] Scenario-Convert is now able to export the database to GeoJSON files (removed shapefile export).
+* [T+] Now supports SUMO 1.20.0
+* [X-] Major clean-up of extended bundle and dependencies (Extended).
+* [X-] Improved synchronization of timing between PHABMACS and MOSAIC (Extended).
+* [X+] PHABMACS and MOSAIC 3D Visualizer now use an own 3D model format based on protobuf (Extended).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/iwillitried&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; iwillitried &lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     

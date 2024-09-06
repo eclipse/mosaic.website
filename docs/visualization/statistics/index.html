@@ -730,8 +730,8 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
   </a>
 </div>
 
@@ -790,7 +790,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         </li>
         
         <li >
-          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+          <a href="/mosaic/docs/visualization/3d-vis/">3D Visualization</a>
         </li>
         
       </ul>
@@ -820,6 +820,10 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         
         <li >
           <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_phabmacs/">Traffic - PHABMACS</a>
         </li>
         
         <li >
@@ -864,7 +868,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         </li>
         
         <li >
-          <a href="/mosaic/docs/scenarios/scenario_convert/">scenario-convert</a>
+          <a href="/mosaic/docs/scenarios/scenario_convert/">Scenario-Convert Tool</a>
         </li>
         
         <li >
@@ -1156,7 +1160,15 @@ of groups of vehicles, or the average flow on induction loops.</p>
 <p>In order to use the Statistics Output, the attribute <code>enabled</code> of the root element <code>output</code> must be
 set to &ldquo;true&rdquo;, as shown in the following listing.</p>
 <pre><code class="language-xml">&lt;output id=&quot;statistics&quot; enabled=&quot;true&quot; loader=&quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&quot;&gt;
-	[..]
+   &lt;statistic&gt;
+      [...]
+   &lt;/statistic&gt;
+
+   &lt;subscriptions&gt;
+      &lt;subscription id=&quot;VehicleRegistration&quot;/&gt;
+      &lt;subscription id=&quot;VehicleUpdates&quot;/&gt;
+      &lt;subscription id=&quot;TrafficDetectorUpdates&quot;/&gt;
+   &lt;/subscriptions&gt;
 &lt;/output&gt;
 </code></pre>
 <p><em>Configuration header for Statistics Output</em></p>
@@ -1234,6 +1246,12 @@ scenario) and then calculate the average vehicle travel time value for each of t
 		&lt;group-by&gt;VehicleGroup&lt;/group-by&gt;
 		&lt;aggregation&gt;Average&lt;/aggregation&gt;
 	&lt;/statistic&gt;
+
+   &lt;subscriptions&gt;
+      &lt;subscription id=&quot;VehicleRegistration&quot;/&gt;
+      &lt;subscription id=&quot;VehicleUpdates&quot;/&gt;
+      &lt;subscription id=&quot;TrafficDetectorUpdates&quot;/&gt;
+   &lt;/subscriptions&gt;
 &lt;/output&gt;
 </code></pre>
 <p><em>Getting the Average time by vehicle class</em></p>
@@ -1282,7 +1300,7 @@ Unequipped;459.18;84;
       
       
         <div class="meta-nav">Next</div>
-        <a href="/mosaic/docs/visualization/phabmap/" rel="prev">3D Visualization (PHABMap)</a>
+        <a href="/mosaic/docs/visualization/3d-vis/" rel="prev">3D Visualization</a>
       
     </div>
   </div>
@@ -1633,7 +1651,7 @@ Unequipped;459.18;84;
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 5 Jul 2024, 16:23 UTC
+      Website built on 6 Sep 2024, 10:40 UTC
     </p>
     
   </div>

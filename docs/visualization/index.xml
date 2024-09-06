@@ -47,7 +47,7 @@ VEHICLE_UPDATES;9000000000;veh_1;35.52345835176762;186.33265000325784;52.6559904
         ...
         &amp;lt;/subscription&amp;gt;
         ...
-    &amp;lt;/subscriptions&amp;gt;&amp;gt;
+    &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -151,8 +151,25 @@ and also as an extension point in the future.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;An example for simple extended method type entry&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;With existing methods of &lt;code&gt;VehicleUpdates&lt;/code&gt; and its super class &lt;code&gt;Interaction&lt;/code&gt;, we cannot get the timestamp of
-a interaction in second. (only &lt;code&gt;Interaction.getTime&lt;/code&gt;, which returns a time in ns, is available). Here, &lt;code&gt;getTimeInSec&lt;/code&gt;
-is a method extension for &lt;code&gt;Interaction&lt;/code&gt; class. The extended method set will be listed later.&lt;/p&gt;
+a interaction in seconds (only &lt;code&gt;Interaction.Time&lt;/code&gt;, which returns a time in ns, is available). Here, &lt;code&gt;TimeInSec&lt;/code&gt; and &lt;code&gt;TimeInMs&lt;/code&gt;
+are method extensions for any &lt;code&gt;Interaction&lt;/code&gt; class.&lt;/p&gt;
+&lt;h4 id=&#34;extended-methods-for-v2x-message-interactions&#34;&gt;Extended Methods for V2X Message Interactions&lt;/h4&gt;
+&lt;p&gt;Interactions &lt;code&gt;V2xMessageReception&lt;/code&gt; and &lt;code&gt;V2xMessageTransmission&lt;/code&gt; are furthermore extended with the method &lt;code&gt;Type&lt;/code&gt;, which
+provides a shortcut to the type of the sent or received &lt;code&gt;V2xMessage&lt;/code&gt;. Additionally, for &lt;code&gt;V2xMessageReception&lt;/code&gt; the extended method
+&lt;code&gt;Message&lt;/code&gt; is available, which provides the actual &lt;code&gt;V2xMessage&lt;/code&gt;. It is important to note, that &lt;code&gt;Type&lt;/code&gt; and &lt;code&gt;Message&lt;/code&gt; for
+&lt;code&gt;V2xMessageReception&lt;/code&gt; is only available, if &lt;code&gt;V2xMessageTransmission&lt;/code&gt; is configured in the list of subscribed interactions.
+If only &lt;code&gt;V2xMessageReception&lt;/code&gt; interactions should be printed out, then &lt;code&gt;V2xMessageTransmission&lt;/code&gt; has to be added with an empty list of fields.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;subscription id=&amp;quot;V2xMessageTransmission&amp;quot;/&amp;gt;
+&amp;lt;subscription id=&amp;quot;V2xMessageReception&amp;quot;&amp;gt;
+    &amp;lt;entries&amp;gt;
+        &amp;lt;entry&amp;gt;Time&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Type&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;Message.Payload.EffectiveLength&amp;lt;/entry&amp;gt;
+        &amp;lt;entry&amp;gt;ReceiverName&amp;lt;/entry&amp;gt;
+    &amp;lt;/entries&amp;gt;
+&amp;lt;/subscription&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;An example for printing V2X message reception events.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;further-details&#34;&gt;Further details&lt;/h2&gt;
 &lt;p&gt;The method type of entry definition supports cascaded iteration as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;entry&amp;gt;List1:List2:Id&amp;lt;/entry&amp;gt;
@@ -252,7 +269,15 @@ of groups of vehicles, or the average flow on induction loops.&lt;/p&gt;
 &lt;p&gt;In order to use the Statistics Output, the attribute &lt;code&gt;enabled&lt;/code&gt; of the root element &lt;code&gt;output&lt;/code&gt; must be
 set to &amp;ldquo;true&amp;rdquo;, as shown in the following listing.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
-	[..]
+   &amp;lt;statistic&amp;gt;
+      [...]
+   &amp;lt;/statistic&amp;gt;
+
+   &amp;lt;subscriptions&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;TrafficDetectorUpdates&amp;quot;/&amp;gt;
+   &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Configuration header for Statistics Output&lt;/em&gt;&lt;/p&gt;
@@ -330,6 +355,12 @@ scenario) and then calculate the average vehicle travel time value for each of t
 		&amp;lt;group-by&amp;gt;VehicleGroup&amp;lt;/group-by&amp;gt;
 		&amp;lt;aggregation&amp;gt;Average&amp;lt;/aggregation&amp;gt;
 	&amp;lt;/statistic&amp;gt;
+
+   &amp;lt;subscriptions&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot;/&amp;gt;
+      &amp;lt;subscription id=&amp;quot;TrafficDetectorUpdates&amp;quot;/&amp;gt;
+   &amp;lt;/subscriptions&amp;gt;
 &amp;lt;/output&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Getting the Average time by vehicle class&lt;/em&gt;&lt;/p&gt;
@@ -357,14 +388,14 @@ Unequipped;459.18;84;
     </item>
     
     <item>
-      <title>3D Visualization (PHABMap)</title>
-      <link>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</link>
+      <title>3D Visualization</title>
+      <link>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</guid>
       <description>&lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
   &lt;div&gt;
-&lt;p&gt;The 3D visualization &lt;strong&gt;PHABMap&lt;/strong&gt; is part of &lt;strong&gt;
+&lt;p&gt;The 3D visualization is part of &lt;strong&gt;
 
 
 
@@ -402,8 +433,13 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
 &lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D
-engine and models to visualize vehicle movements and various events which occur during the simulation.
+&lt;p&gt;The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 
+
+
+
+
+&lt;a href=&#34;https://github.com/fabmax/kool&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;3D engine&lt;/a&gt;
+and models to visualize vehicle movements and various events which occur during the simulation.
 Next to the road network, which can be optionally rendered by the visualizer, the following units and
 events are visualized:&lt;/p&gt;
 &lt;ul&gt;
@@ -413,6 +449,7 @@ events are visualized:&lt;/p&gt;
 &lt;li&gt;V2X-messages sent via ITS-G5 communication (indicated as blue circles)&lt;/li&gt;
 &lt;li&gt;V2X-messages received by vehicles (indicated as red circles)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;
 
 
 
@@ -427,26 +464,185 @@ events are visualized:&lt;/p&gt;
 
 
 
-
-&lt;figure id=&#34;figure-the-3d-visualization-tool-phabmap-displaying-events-from-the-simulation&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/phabmap.jpg&#34; data-caption=&#34;The 3D visualization tool PHABMap displaying events from the simulation&#34;&gt;
+&lt;figure id=&#34;figure-visualize-the-map-of-the-scenario&#34;&gt;
 
 
-  &lt;img src=&#34;../images/phabmap.jpg&#34; alt=&#34;&#34;  &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-0.jpg&#34; data-caption=&#34;Visualize the map of the scenario.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-0.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
 &lt;/a&gt;
 
 
   
   
   &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-    The 3D visualization tool PHABMap displaying events from the simulation
+    Visualize the map of the scenario.
   &lt;/figcaption&gt;
 
 
 &lt;/figure&gt;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-track-vehicle-movements&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-1.jpg&#34; data-caption=&#34;Track vehicle movements.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-1.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Track vehicle movements.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-see-communication-events&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/mosaic-vis-2.jpg&#34; data-caption=&#34;See communication events.&#34;&gt;
+
+
+  &lt;img src=&#34;../images/mosaic-vis-2.jpg&#34; alt=&#34;&#34; width=&#34;60%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    See communication events.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The main configuration file for all output generators is located at &lt;code&gt;&amp;lt;scenarioName&amp;gt;/output/output_config.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A new output generator with the following configuration has to be added:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;3d-visualization&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.Mosaic3dVisualizerLoader&amp;quot;&amp;gt;
+    &amp;lt;map&amp;gt;Barnim.osm.gz&amp;lt;/map&amp;gt;&amp;lt;!-- must be placed in &amp;lt;scenario&amp;gt;/output/assets/maps --&amp;gt;
+    &amp;lt;models&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;s-class.model.gz&amp;quot; colors=&amp;quot;magenta,red&amp;quot;/&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;b-class-detailed.model.gz&amp;quot; colors=&amp;quot;green&amp;quot;/&amp;gt;
+        &amp;lt;vehicle model=&amp;quot;smart_fortwo.model.gz&amp;quot; colors=&amp;quot;red,blue,yellow&amp;quot;/&amp;gt;
+    &amp;lt;/models&amp;gt;
+    &amp;lt;subscriptions&amp;gt;
+        &amp;lt;subscription id=&amp;quot;VehicleRegistration&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;VehicleUpdates&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;V2xMessageReception&amp;quot; enabled=&amp;quot;true&amp;quot;/&amp;gt;
+        &amp;lt;subscription id=&amp;quot;V2xMessageTransmission&amp;quot; enabled=&amp;quot;false&amp;quot;/&amp;gt;
+    &amp;lt;/subscriptions&amp;gt;
+&amp;lt;/output&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;map-file&#34;&gt;Map File&lt;/h3&gt;
+&lt;p&gt;The Map file (&lt;code&gt;*.osm&lt;/code&gt; - OpenStreetMap) must be placed inside the path &lt;code&gt;&amp;lt;scenarioName&amp;gt;/output/assets/maps&lt;/code&gt; and then referenced
+in the &lt;code&gt;&amp;lt;map&amp;gt;&lt;/code&gt; tag of the configuration.&lt;/p&gt;
+&lt;h3 id=&#34;3d-models&#34;&gt;3D Models&lt;/h3&gt;
+&lt;p&gt;For each vehicle a 3D-model is chosen from a set of available models.
+The visualizer includes the following models:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Small car (Smart Fortwo): &lt;code&gt;smart_fortwo.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compact Van (Mercedes B-Class): &lt;code&gt;b-class-detailed.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Long Limousine (Mercedes S-Class): &lt;code&gt;s-class.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Truck : &lt;code&gt;truck.model.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can furthermore assign specific models to be used for specific 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/application_mapping/#prototypes&#34;&gt;vehicle prototype&lt;/a&gt; only:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;models&amp;gt;
+    &amp;lt;vehicle vehicleType=&amp;quot;Car&amp;quot; model=&amp;quot;s-class.model.gz&amp;quot; colors=&amp;quot;magenta,red&amp;quot;/&amp;gt;
+    &amp;lt;vehicle vehicleType=&amp;quot;Truck&amp;quot; model=&amp;quot;truck.model.gz&amp;quot; colors=&amp;quot;green&amp;quot;/&amp;gt;
+&amp;lt;/models&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If no &lt;code&gt;vehicleType&lt;/code&gt; is given, the model is used for any vehicle to be visualized.&lt;/p&gt;
+&lt;p&gt;Generally, it is possible to use own custom models.
+These must be converted by &lt;strong&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;us&lt;/a&gt;&lt;/strong&gt; from a Jollada file before they are able to be used in the visualizer.&lt;/p&gt;
+&lt;h3 id=&#34;vehicle-colors&#34;&gt;Vehicle Colors&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;colors&lt;/code&gt; field is a comma-separated list
+of which one color is chosen randomly when a vehicle is inserted. The following colors are available:
+&lt;code&gt;black&lt;/code&gt;, &lt;code&gt;dark_gray&lt;/code&gt;, &lt;code&gt;gray&lt;/code&gt;, &lt;code&gt;light_gray&lt;/code&gt;, &lt;code&gt;white&lt;/code&gt;, &lt;code&gt;red&lt;/code&gt;, &lt;code&gt;green&lt;/code&gt;, &lt;code&gt;blue&lt;/code&gt;, &lt;code&gt;yellow&lt;/code&gt;, &lt;code&gt;cyan&lt;/code&gt;, &lt;code&gt;magenta&lt;/code&gt;, &lt;code&gt;orange&lt;/code&gt;, &lt;code&gt;lime&lt;/code&gt;, &lt;code&gt;light_red&lt;/code&gt;,
+&lt;code&gt;light_green&lt;/code&gt;, &lt;code&gt;light_blue&lt;/code&gt;, &lt;code&gt;light_yellow&lt;/code&gt;, &lt;code&gt;light_cyan&lt;/code&gt;, &lt;code&gt;light_magenta&lt;/code&gt;, &lt;code&gt;light_orange&lt;/code&gt;, &lt;code&gt;dark_red&lt;/code&gt;, &lt;code&gt;dark_green&lt;/code&gt;, &lt;code&gt;dark_blue&lt;/code&gt;,
+&lt;code&gt;dark_yellow&lt;/code&gt;, &lt;code&gt;dark_cyan&lt;/code&gt;, &lt;code&gt;dark_magenta&lt;/code&gt;, &lt;code&gt;dark_orange&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;visualization-window&#34;&gt;Visualization Window&lt;/h2&gt;
+&lt;h3 id=&#34;pausing-the-simulation&#34;&gt;Pausing the Simulation&lt;/h3&gt;
+&lt;p&gt;It is possible to pause the simulation by pressing &lt;kbd&gt;Spacebar&lt;/kbd&gt; on your keyboard. It is important to start MOSAIC Extended
+with the parameter &lt;code&gt;-w 0&lt;/code&gt; when using this feature, as otherwise the visualizer would interrupt the simulation when pausing too long.&lt;/p&gt;
+&lt;h3 id=&#34;tracking-of-vehicles&#34;&gt;Tracking of Vehicles&lt;/h3&gt;
+&lt;p&gt;Initially, the first spawned vehicle is focused and followed in the visualizer.
+Vehicle tracking can be disabled by pressing &lt;kbd&gt;Esc&lt;/kbd&gt; on your keyboard.
+Furthermore, you can double-click on any vehicle to track it.&lt;/p&gt;
+&lt;h3 id=&#34;simulation-speed&#34;&gt;Simulation Speed&lt;/h3&gt;
+&lt;p&gt;For better visualization it may be required to slow down simulation, since MOSAIC always tries to simulate as fast as possible.
+To do so, you can start MOSAIC Extended with the parameter &lt;code&gt;-b 2&lt;/code&gt; (i.e., slowing down to not faster than 2 times realtime) or any other suitable value.&lt;/p&gt;
 </description>
     </item>
     

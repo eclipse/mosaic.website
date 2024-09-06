@@ -13,11 +13,34 @@
     </image>
     
     <item>
-      <title>scenario-convert</title>
+      <title>Scenario-Convert Tool</title>
       <link>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;&lt;strong&gt;scenario-convert&lt;/strong&gt; does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.&lt;/p&gt;
+&lt;p&gt;Yet, you can use scenario-convert &lt;strong&gt;for free&lt;/strong&gt; to generate scenarios which are executable with Eclipse MOSAIC. &lt;strong&gt;
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Get it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+    
+
+&lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-24.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;usage-of-scenario-convert&#34;&gt;Usage of scenario-convert&lt;/h2&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;The 
 
@@ -44,53 +67,9 @@
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/create_new_scenario/&#34;&gt;Create a new Scenario Tutorial&lt;/a&gt; provides an introduction to the scenario-convert tool.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/create_new_scenario/&#34;&gt;Create a new Scenario Tutorial&lt;/a&gt; provides a detailed introduction to the scenario-convert tool.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&#34;alert alert-extended&#34;&gt;
-  &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
-  &lt;div&gt;
-&lt;p&gt;&lt;strong&gt;scenario-convert&lt;/strong&gt; is part of &lt;strong&gt;
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;However, you can use scenario-convert &lt;strong&gt;for free&lt;/strong&gt; to generate scenarios which are executable with Eclipse MOSAIC. &lt;strong&gt;
-
-
-
-
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Get it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-    
-
-&lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
-
-&lt;h2 id=&#34;usage-of-scenario-convert&#34;&gt;Usage of scenario-convert&lt;/h2&gt;
 &lt;p&gt;The following listing shows an overview for the usage of scenario-convert:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;usage: scenario-convert [OPERATION] [OPTIONS]
 
@@ -103,14 +82,14 @@ Examples:
    &amp;gt; scenario-convert --sumo2db -d &amp;lt;DATABASE&amp;gt; -i &amp;lt;ROUTEFILE&amp;gt;.rou.xml
 4. Combine steps 1 and 2
    &amp;gt; scenario-convert --osm2sumo -d &amp;lt;DATABASE&amp;gt; -i &amp;lt;OSMFILE&amp;gt; [-s &amp;lt;SUMOPREFIX&amp;gt;]
-5. Export db content to Shapefile format
-   &amp;gt; scenario-convert --db2shp -d &amp;lt;DATABASE&amp;gt;
+5. Export db content to GeoJson files (e.g., for visualization)
+   &amp;gt; scenario-convert --db2geojson -d &amp;lt;DATABASE&amp;gt;
 6. Import an srtm file and write elevation data to nodes of an existing database
    &amp;gt; scenario-convert --srtm2db -i &amp;lt;SRTMFILE&amp;gt; -d &amp;lt;DATABASE&amp;gt;
 7. Create a complete MOSAIC scenario from an osm file
    &amp;gt; scenario-convert --osm2mosaic -i &amp;lt;OSMFILE&amp;gt;
-8. Create a scenario database from an SUMO net file
-   &amp;gt; scenario-convert --sumo2db -i &amp;lt;NETFILE&amp;gt;.net.xml
+8. Create a scenario database from a SUMO net file
+   &amp;gt; scenario-convert --sumo2db -i &amp;lt;NETFILE&amp;gt;.net.xml --import-zone 33n
 9. Calculate a route from node 123 to node 456
    &amp;gt; scenario-convert --generate-routes -d &amp;lt;DATABASE&amp;gt; --route-begin-node-id 123 --route-end-node-id 456
 
@@ -120,11 +99,11 @@ The following arguments are available:
  -c,--config-file &amp;lt;PATH&amp;gt;                   Optional, refers to a configuration file which contains all parameters in
                                            JSON format.
     --osm2db                               Converts a OpenStreetMap file to a new scenario database.
-    --sumo2db                              Imports a SUMO Network/Routefile. Be aware that you may have to re-export an
-                                           imported network.
+    --sumo2db                              Imports a SUMO Network/Routefile. Be aware, that creating a scenario based on
+                                           a Network file is not fully compatible with MOSAIC.
     --srtm2db                              Imports an SRTM file and writes elevation data to nodes.
     --db2sumo                              Exports the network to SUMO node and edge files.
-    --db2shp                               Exports the database into Shapefile format.
+    --db2geojson                           Exports the database into GeoJSON format.
     --db2mosaic                            Creates directory structure for a MOSAIC scenario based on the database
                                            contents.
     --osm2sumo                             Combination of osm2db and db2sumo.
@@ -143,10 +122,13 @@ The following arguments are available:
                                            vehicles data to *.rou.xml.
     --import-lat &amp;lt;DOUBLE&amp;gt;                  Center latitude of imported region to project coordinates.
     --import-lon &amp;lt;DOUBLE&amp;gt;                  Center longitude of imported region to project coordinates.
-    --import-zone &amp;lt;STRING&amp;gt;                 UTM zone of location for projecting coords in default format (e.g. 32n).
+    --import-zone &amp;lt;STRING&amp;gt;                 UTM zone of location for projecting coords in default format (e.g. 32u).
 
  -g,--generate-routes                      Generates route(s) from one point to another. The begin and end for the route
-                                           must be known (see below options).
+                                           must be known (see below options). All generated routes will be added to the
+                                           database.
+    --clear-routes                         Clear route(s) from the database before adding new ones during route
+                                           generation (only with --generate-routes).
     --route-begin-lat &amp;lt;DOUBLE&amp;gt;             Latitude of the starting point, needs --route-begin-lon as well.
     --route-begin-lon &amp;lt;DOUBLE&amp;gt;             Longitude of the starting point, needs --route-begin-lat as well.
     --route-begin-latlon &amp;lt;DOUBLE,DOUBLE&amp;gt;   [latitude],[longitude] of the starting point.
@@ -162,6 +144,8 @@ The following arguments are available:
     --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
     --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
+    --split-connections                    Connections are built for each adjacent node during OSM Import instead of
+                                           having geometry nodes. This results in much larger networks.
     --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network
                                            graph . Since several components of MOSAIC require one main graph without
                                            disconnected ways and nodes, this option should be used only if the cleanup
@@ -338,7 +322,7 @@ configurations for various simulators.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;let-the-cars-loose&#34;&gt;Let the cars loose&lt;/h2&gt;
 &lt;p&gt;As a starting point we&amp;rsquo;ll look at the scenario that we created using this command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
+&lt;pre&gt;&lt;code&gt;scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We&amp;rsquo;ll end up with a folder looking like this:&lt;/p&gt;

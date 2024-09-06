@@ -778,7 +778,7 @@ all features and configurations are transferable on your own scenarios.</p>
 After completing this tutorial you will be able to:</p>
 <ul>
 <li>
-<p>Mapping applications onto simulation entities.</p>
+<p>Map applications onto simulation entities.</p>
 </li>
 <li>
 <p>Enable and use a different communication simulator.</p>
@@ -832,7 +832,7 @@ to icy conditions. The rest of the scenario can be described as follows:</p>
 <li>The vehicles with the <code>WeatherWarningApp</code> are equipped with ad-hoc (WiFi) communication. When they encounter the icy road, they create a <strong>GeoCircle</strong> with a radius of 3km and the center in their own position. A <strong>DENM</strong> (decentralized environmental notification message) is sent out and cast onto the GeoCircle. Because the ad-hoc communication range is usually only about 500m, the area is being <strong>flooded</strong> with the message, meaning the message is being forwarded to all vehicles that can receive it in the GeoCircle.</li>
 <li>If the density of vehicles with ad-hoc communication is too low, then not all vehicles that are equipped with ad-hoc communication inside the GeoCircle will be warned.</li>
 <li>The  <code>WeatherWarningAppCell</code> functions the same but uses the cell network for communication instead. Allowing for a higher effective communication range. Furthermore, this removes the need for a certain density of vehicles equipped with cellular communication to reach all vehicles in the GeoCircle.</li>
-<li>Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the infomration about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.</li>
+<li>Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the information about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.</li>
 <li>There is a <strong>WeatherServer</strong> that propagates weather information over the cellular network. Allowing the vehicles equipped with cellular communication to be warned even before one of them detects the icy road. The <code>WeatherWarningAppCell</code> therefore receives messages from other vehicles <strong>and</strong> the WeatherServer.</li>
 <li>In summary, while the simulation is running, you should see with the 
 
@@ -947,7 +947,7 @@ to icy conditions. The rest of the scenario can be described as follows:</p>
 </figure>
 
 <h2 id="overview-of-applications">Overview of Applications</h2>
-<p>In this section, the applications will be described briefly which are used in the Barnim tutorial.</p>
+<p>In this section, the applications used in the Barnim tutorial will be described briefly.</p>
 <table>
 <thead>
 <tr>
@@ -1702,7 +1702,7 @@ For example, using <code>-b 5</code> would slow down to 5 times realtime, that i
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 5 Jul 2024, 16:23 UTC
+      Website built on 6 Sep 2024, 10:40 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

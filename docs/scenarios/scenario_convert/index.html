@@ -36,9 +36,8 @@
   
     
   
-  <meta name="description" content="The Create a new Scenario Tutorial provides an introduction to the scenario-convert tool.
-    scenario-convert is part of  MOSAIC Extended.
-However, you can use scenario-convert for free to generate scenarios which are executable with Eclipse MOSAIC.">
+  <meta name="description" content="scenario-convert does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.
+Yet, you can use scenario-convert for free to generate scenarios which are executable with Eclipse MOSAIC.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/">
@@ -290,10 +289,9 @@ However, you can use scenario-convert for free to generate scenarios which are e
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/scenarios/scenario_convert/">
-  <meta property="og:title" content="scenario-convert | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content="The Create a new Scenario Tutorial provides an introduction to the scenario-convert tool.
-    scenario-convert is part of  MOSAIC Extended.
-However, you can use scenario-convert for free to generate scenarios which are executable with Eclipse MOSAIC."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="og:title" content="Scenario-Convert Tool | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="scenario-convert does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.
+Yet, you can use scenario-convert for free to generate scenarios which are executable with Eclipse MOSAIC."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
@@ -318,7 +316,7 @@ However, you can use scenario-convert for free to generate scenarios which are e
 
 
 
-  <title>scenario-convert | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+  <title>Scenario-Convert Tool | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
 
 </head>
 
@@ -730,8 +728,8 @@ However, you can use scenario-convert for free to generate scenarios which are e
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 24.1-SNAPSHOT." href="https://github.com/eclipse/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 24.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
   </a>
 </div>
 
@@ -790,7 +788,7 @@ However, you can use scenario-convert for free to generate scenarios which are e
         </li>
         
         <li >
-          <a href="/mosaic/docs/visualization/phabmap/">PHABMap</a>
+          <a href="/mosaic/docs/visualization/3d-vis/">3D Visualization</a>
         </li>
         
       </ul>
@@ -820,6 +818,10 @@ However, you can use scenario-convert for free to generate scenarios which are e
         
         <li >
           <a href="/mosaic/docs/simulators/vms_simulator/">Traffic - VMS</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/simulators/traffic_simulator_phabmacs/">Traffic - PHABMACS</a>
         </li>
         
         <li >
@@ -864,7 +866,7 @@ However, you can use scenario-convert for free to generate scenarios which are e
         </li>
         
         <li class="active">
-          <a href="/mosaic/docs/scenarios/scenario_convert/">scenario-convert</a>
+          <a href="/mosaic/docs/scenarios/scenario_convert/">Scenario-Convert Tool</a>
         </li>
         
         <li >
@@ -1102,10 +1104,33 @@ However, you can use scenario-convert for free to generate scenarios which are e
       <article class="article">
 
         <div class="docs-article-container">
-          <h1>scenario-convert</h1>
+          <h1>Scenario-Convert Tool</h1>
 
           <div class="article-style">
             <div class="alert alert-note">
+  <div>
+<p><strong>scenario-convert</strong> does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.</p>
+<p>Yet, you can use scenario-convert <strong>for free</strong> to generate scenarios which are executable with Eclipse MOSAIC. <strong>
+
+
+
+
+<a href="https://www.dcaiti.tu-berlin.de/research/simulation/download/" target="_blank" rel="noopener">Get it here</a>.</strong></p>
+  </div>
+</div>
+
+
+    
+
+<a class="mosaic-btn mosaic-btn-primary" href="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download scenario-convert from DCAITI mirror"><i class="fas fa-download"></i>Download scenario-convert from DCAITI mirror</a>
+
+<ol>
+<li><strong>Download the <code>scenario-convert-24.1.zip/tar.gz</code> bundle from the mirror above.</strong></li>
+<li>Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (<code>&lt;mosaic-root&gt;</code>).</li>
+<li>Use the call <code>scenario-convert.bat/sh</code> on the command line to execute the tool.</li>
+</ol>
+<h2 id="usage-of-scenario-convert">Usage of scenario-convert</h2>
+<div class="alert alert-note">
   <div>
 <p>The 
 
@@ -1132,53 +1157,9 @@ However, you can use scenario-convert for free to generate scenarios which are e
     
   
 
-<a href="/mosaic/tutorials/create_new_scenario/">Create a new Scenario Tutorial</a> provides an introduction to the scenario-convert tool.</p>
+<a href="/mosaic/tutorials/create_new_scenario/">Create a new Scenario Tutorial</a> provides a detailed introduction to the scenario-convert tool.</p>
   </div>
 </div>
-<div class="alert alert-extended">
-  <span class="extended-icon" style="background-image: url(/mosaic/img/alert-extended.svg)"></span>
-  <div>
-<p><strong>scenario-convert</strong> is part of <strong>
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/download/#overview">MOSAIC Extended</a></strong>.</p>
-<p>However, you can use scenario-convert <strong>for free</strong> to generate scenarios which are executable with Eclipse MOSAIC. <strong>
-
-
-
-
-<a href="https://www.dcaiti.tu-berlin.de/research/simulation/download/" target="_blank" rel="noopener">Get it here</a>.</strong></p>
-  </div>
-</div>
-
-
-    
-
-<a class="mosaic-btn mosaic-btn-primary" href="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download scenario-convert from DCAITI mirror"><i class="fas fa-download"></i>Download scenario-convert from DCAITI mirror</a>
-
-<h2 id="usage-of-scenario-convert">Usage of scenario-convert</h2>
 <p>The following listing shows an overview for the usage of scenario-convert:</p>
 <pre><code>usage: scenario-convert [OPERATION] [OPTIONS]
 
@@ -1191,14 +1172,14 @@ Examples:
    &gt; scenario-convert --sumo2db -d &lt;DATABASE&gt; -i &lt;ROUTEFILE&gt;.rou.xml
 4. Combine steps 1 and 2
    &gt; scenario-convert --osm2sumo -d &lt;DATABASE&gt; -i &lt;OSMFILE&gt; [-s &lt;SUMOPREFIX&gt;]
-5. Export db content to Shapefile format
-   &gt; scenario-convert --db2shp -d &lt;DATABASE&gt;
+5. Export db content to GeoJson files (e.g., for visualization)
+   &gt; scenario-convert --db2geojson -d &lt;DATABASE&gt;
 6. Import an srtm file and write elevation data to nodes of an existing database
    &gt; scenario-convert --srtm2db -i &lt;SRTMFILE&gt; -d &lt;DATABASE&gt;
 7. Create a complete MOSAIC scenario from an osm file
    &gt; scenario-convert --osm2mosaic -i &lt;OSMFILE&gt;
-8. Create a scenario database from an SUMO net file
-   &gt; scenario-convert --sumo2db -i &lt;NETFILE&gt;.net.xml
+8. Create a scenario database from a SUMO net file
+   &gt; scenario-convert --sumo2db -i &lt;NETFILE&gt;.net.xml --import-zone 33n
 9. Calculate a route from node 123 to node 456
    &gt; scenario-convert --generate-routes -d &lt;DATABASE&gt; --route-begin-node-id 123 --route-end-node-id 456
 
@@ -1208,11 +1189,11 @@ The following arguments are available:
  -c,--config-file &lt;PATH&gt;                   Optional, refers to a configuration file which contains all parameters in
                                            JSON format.
     --osm2db                               Converts a OpenStreetMap file to a new scenario database.
-    --sumo2db                              Imports a SUMO Network/Routefile. Be aware that you may have to re-export an
-                                           imported network.
+    --sumo2db                              Imports a SUMO Network/Routefile. Be aware, that creating a scenario based on
+                                           a Network file is not fully compatible with MOSAIC.
     --srtm2db                              Imports an SRTM file and writes elevation data to nodes.
     --db2sumo                              Exports the network to SUMO node and edge files.
-    --db2shp                               Exports the database into Shapefile format.
+    --db2geojson                           Exports the database into GeoJSON format.
     --db2mosaic                            Creates directory structure for a MOSAIC scenario based on the database
                                            contents.
     --osm2sumo                             Combination of osm2db and db2sumo.
@@ -1231,10 +1212,13 @@ The following arguments are available:
                                            vehicles data to *.rou.xml.
     --import-lat &lt;DOUBLE&gt;                  Center latitude of imported region to project coordinates.
     --import-lon &lt;DOUBLE&gt;                  Center longitude of imported region to project coordinates.
-    --import-zone &lt;STRING&gt;                 UTM zone of location for projecting coords in default format (e.g. 32n).
+    --import-zone &lt;STRING&gt;                 UTM zone of location for projecting coords in default format (e.g. 32u).
 
  -g,--generate-routes                      Generates route(s) from one point to another. The begin and end for the route
-                                           must be known (see below options).
+                                           must be known (see below options). All generated routes will be added to the
+                                           database.
+    --clear-routes                         Clear route(s) from the database before adding new ones during route
+                                           generation (only with --generate-routes).
     --route-begin-lat &lt;DOUBLE&gt;             Latitude of the starting point, needs --route-begin-lon as well.
     --route-begin-lon &lt;DOUBLE&gt;             Longitude of the starting point, needs --route-begin-lat as well.
     --route-begin-latlon &lt;DOUBLE,DOUBLE&gt;   [latitude],[longitude] of the starting point.
@@ -1250,6 +1234,8 @@ The following arguments are available:
     --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
     --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
+    --split-connections                    Connections are built for each adjacent node during OSM Import instead of
+                                           having geometry nodes. This results in much larger networks.
     --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network
                                            graph . Since several components of MOSAIC require one main graph without
                                            disconnected ways and nodes, this option should be used only if the cleanup
@@ -1704,7 +1690,7 @@ highway.track 15
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 5 Jul 2024, 16:23 UTC
+      Website built on 6 Sep 2024, 10:40 UTC
     </p>
     
   </div>

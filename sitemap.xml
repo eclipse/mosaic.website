@@ -99,6 +99,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/application_interfaces/</loc>
     <lastmod>2022-07-20T00:00:00+00:00</lastmod>
   </url>
@@ -143,6 +147,11 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/develop_applications/communication/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
@@ -154,11 +163,6 @@
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/docs/simulators/network_simulator_ns3/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/visualization/phabmap/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -268,27 +272,37 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/post/release-24-1/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/post/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/categories/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/category/release/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/tag/ai-net/</loc>
     <lastmod>2024-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/post/perception-remote-operated-driving/</loc>
-    <lastmod>2024-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/post/</loc>
-    <lastmod>2024-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/categories/</loc>
-    <lastmod>2024-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/</loc>
     <lastmod>2024-07-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -309,12 +323,7 @@
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/post/release-24-0/</loc>
-    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/category/release/</loc>
-    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
