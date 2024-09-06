@@ -1,6 +1,6 @@
 ---
-title: scenario-convert
-linktitle: scenario-convert
+title: Scenario-Convert Tool
+linktitle: Scenario-Convert Tool
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -10,19 +10,24 @@ menu:
   docs:
     parent: scenarios
 ---
+
 {{% alert note %}}
-The [Create a new Scenario Tutorial](/tutorials/create_new_scenario) provides an introduction to the scenario-convert tool.
-{{% /alert %}}
+**scenario-convert** does not belong do the open-source part of Eclipse MOSAIC and must be obtained separately.
 
-{{% alert extended %}}
-**scenario-convert** is part of **[MOSAIC Extended](/download#overview)**.
-
-However, you can use scenario-convert **for free** to generate scenarios which are executable with Eclipse MOSAIC. **[Get it here](https://www.dcaiti.tu-berlin.de/research/simulation/download/).**
+Yet, you can use scenario-convert **for free** to generate scenarios which are executable with Eclipse MOSAIC. **[Get it here](https://www.dcaiti.tu-berlin.de/research/simulation/download/).**
 {{% /alert %}}
 
 {{< button icon="download" type="primary" link="https://www.dcaiti.tu-berlin.de/research/simulation/download/" title="Download scenario-convert from DCAITI mirror" >}}
 
+1. **Download the `scenario-convert-{{< version of="mosaic" >}}.zip/tar.gz` bundle from the mirror above.**
+2. Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (`<mosaic-root>`).
+3. Use the call `scenario-convert.bat/sh` on the command line to execute the tool.
+
 ## Usage of scenario-convert
+
+{{% alert note %}}
+The [Create a new Scenario Tutorial](/tutorials/create_new_scenario) provides a detailed introduction to the scenario-convert tool.
+{{% /alert %}}
 
 The following listing shows an overview for the usage of scenario-convert:
 

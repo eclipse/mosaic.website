@@ -21,21 +21,26 @@ alignment = "left" # left or center (default)
 
 
 [[button]]
-  title = "<span>Download Now</span>"
+  title = "Download Now"
   url = "/download/"
   include_latest_release = true
+  icon = "fa fa-download"
 
 [[button]]
-  title = "<i class='fa fa-coffee' aria-hidden='true'></i><span>License</span>"
+  title = "License"
   url = "/about/#license"
+  subtitle = "EPL 2.0"
+  icon = "fa fa-coffee"
 
 [[button]]
-  title = "<i class='fa fa-book' aria-hidden='true'></i><span>Read the Docs</span>"
+  title = "Read the Docs"
   url = "/docs/"
+  icon = "fa fa-book"
 
 [[button]]
-  title = "<i class='fa fa-graduation-cap' aria-hidden='true'></i><span>Tutorials</span>"
+  title = "Tutorials"
   url = "/tutorials/"
+  icon = "fa fa-graduation-cap"
 
 [[feature]]
   name = "Co-Simulation Framework"

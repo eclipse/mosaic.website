@@ -29,7 +29,15 @@ set to "true", as shown in the following listing.
 
 ```xml
 <output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig">
-	[..]
+   <statistic>
+      [...]
+   </statistic>
+
+   <subscriptions>
+      <subscription id="VehicleRegistration"/>
+      <subscription id="VehicleUpdates"/>
+      <subscription id="TrafficDetectorUpdates"/>
+   </subscriptions>
 </output>
 ```
 _Configuration header for Statistics Output_
@@ -108,6 +116,12 @@ scenario) and then calculate the average vehicle travel time value for each of t
 		<group-by>VehicleGroup</group-by>
 		<aggregation>Average</aggregation>
 	</statistic>
+
+   <subscriptions>
+      <subscription id="VehicleRegistration"/>
+      <subscription id="VehicleUpdates"/>
+      <subscription id="TrafficDetectorUpdates"/>
+   </subscriptions>
 </output>
 ```
 _Getting the Average time by vehicle class_

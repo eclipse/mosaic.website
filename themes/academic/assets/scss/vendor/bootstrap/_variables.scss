@@ -1326,8 +1326,9 @@ $code-color:                        $pink !default;
 
 $kbd-padding-y:                     .2rem !default;
 $kbd-padding-x:                     .4rem !default;
-$kbd-font-size:                     $code-font-size !default;
-$kbd-color:                         $white !default;
-$kbd-bg:                            $gray-900 !default;
+$kbd-font-size:                     $sub-sup-font-size !default;
+$kbd-color:                         $gray-800 !default;
+$kbd-bg:                            $gray-100 !default;
+$kbd-border-color:                  $gray-500 !default;
 
 $pre-color:                         null !default;

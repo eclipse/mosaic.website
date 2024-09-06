@@ -41,10 +41,10 @@ is obligated to execute the following steps in order to us to be able to accept 
 
 Please first discuss the change you wish to make via issue or email with us as the owners of this repository. 
 To share contributions with us,  create a GitHub pull request following the steps below. All your commits 
-have to be *Signed-off* (`-s`) using the email address used for your Eclipse account. 
+have to be authored using the email address used for your Eclipse account. 
 More details can be found [here](https://wiki.eclipse.org/Development_Resources/Contributing_via_Git). 
 
-    git commit -s -m "This is a message"  
+    git commit -m "This is a message"  
 
 Make your changes by following those steps:
 
@@ -148,7 +148,7 @@ Each Java file must include the following license header at the top of each file
  
 ```java
 /*
- * Copyright (c) 2020 Fraunhofer FOKUS and others. All rights reserved.
+ * Copyright (c) 2024 Fraunhofer FOKUS and others. All rights reserved.
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.

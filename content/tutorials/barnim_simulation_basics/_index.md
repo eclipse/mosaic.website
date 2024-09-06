@@ -24,7 +24,7 @@ all features and configurations are transferable on your own scenarios.
 This tutorial includes configuration and mapping files to give you an understanding of the Eclipse MOSAIC scenarios.   
 After completing this tutorial you will be able to:
 
-* Mapping applications onto simulation entities.
+* Map applications onto simulation entities.
 * Enable and use a different communication simulator.
 * Describe and configure simulation entities for Eclipse MOSAIC scenarios.
 
@@ -42,7 +42,7 @@ to icy conditions. The rest of the scenario can be described as follows:
 3. The vehicles with the `WeatherWarningApp` are equipped with ad-hoc (WiFi) communication. When they encounter the icy road, they create a **GeoCircle** with a radius of 3km and the center in their own position. A **DENM** (decentralized environmental notification message) is sent out and cast onto the GeoCircle. Because the ad-hoc communication range is usually only about 500m, the area is being **flooded** with the message, meaning the message is being forwarded to all vehicles that can receive it in the GeoCircle.
 4. If the density of vehicles with ad-hoc communication is too low, then not all vehicles that are equipped with ad-hoc communication inside the GeoCircle will be warned.
 6. The  `WeatherWarningAppCell` functions the same but uses the cell network for communication instead. Allowing for a higher effective communication range. Furthermore, this removes the need for a certain density of vehicles equipped with cellular communication to reach all vehicles in the GeoCircle.
-7. Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the infomration about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.
+7. Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the information about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.
 8. There is a **WeatherServer** that propagates weather information over the cellular network. Allowing the vehicles equipped with cellular communication to be warned even before one of them detects the icy road. The `WeatherWarningAppCell` therefore receives messages from other vehicles **and** the WeatherServer.
 9. In summary, while the simulation is running, you should see with the [Websocket Visualizer](/docs/visualization), vehicles as moving markers indicating when they are sending **V2X** messages (green vehicles) and receiving **V2X** messages (red vehicles).
 
@@ -52,7 +52,7 @@ More information about the [Simple Network Simulator](/docs/simulators/network_s
 
 ## Overview of Applications 
 
-In this section, the applications will be described briefly which are used in the Barnim tutorial. 
+In this section, the applications used in the Barnim tutorial will be described briefly. 
 
 | Application | Description                                                                                                                                                                                                                                                                                                                                          |
 | ----------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -240,7 +240,7 @@
   <img src="create_new_scenario/images/create-new-intro.png">
   <p><b>What you will learn:</b></p>
   <ul>
-    <li>Create your a new scenarios</li>
+    <li>Create a new scenario</li>
     <li>How to use scenario-convert</li>
     <li>Cleaning map-data before generating the simulation map</li>
     <li>Import routes into your scenario</li>
@@ -318,7 +318,7 @@
   weight = 80
   post = """
   <img src="additional_examples/images/examples-intro.png">
-  <p><b>Here we provide a collection of example applications including following aspects:</b></p>
+  <p><b>Here we provide a collection of example applications including the following aspects:</b></p>
   <ul>
    <li>Event Processing</li>
    <li>V2X Communication</li>

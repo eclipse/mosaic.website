@@ -72,7 +72,7 @@ and `--db2mosaic`.
 Let's start off by showing you what a complete call could look like:
 
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
+scenario-convert.sh --osm2mosaic -i steglitz.osm
 ```
 
 {{% alert note %}}
@@ -130,7 +130,7 @@ file will contain much less clutter and usually is better suited for simulation 
 Check the images below to see the difference the clean-up process can make.
 
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
+scenario-convert.sh --osm2mosaic -i steglitz.osm
 ```
 <div class="row">
     <div class="col-6">
@@ -151,7 +151,7 @@ java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm
 
 To avoid "cleaning" the OSM-file, please use the option "skip-osm-filter".
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --skip-osm-filter
+scenario-convert.sh --osm2mosaic -i steglitz.osm --skip-osm-filter
 ```
 
 ### Generating Routes
@@ -159,7 +159,7 @@ The scenario-convert also offers the option `--generate-routes`, which will gene
 a route-file, given some additional information. For example purposes we will run the
  command below. In case you generated the `steglitz scenario` in one of the steps above already, please delete or rename the `steglitz` directory and run:
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
+scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
 ```
 This will calculate three routes between the two given coordinates. 
@@ -167,7 +167,7 @@ This will calculate three routes between the two given coordinates.
 Alternatively you can use the following command in order to generate routes with node-id's as start and end point, which can be found in the `steglitz.nod.xml` file.
 
 ```bash
-java -jar scenario-convert.jar --osm2mosaic -i steglitz.osm --generate-routes
+scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
 --route-begin-node-id 267350668 --route-end-node-id 313139970 --number-of-routes 3
 ```
 See [scenario-convert documentation](/docs/scenarios/scenario_convert) for all command line options.
@@ -209,7 +209,7 @@ only the `steglitz.osm` and `steglitz.rou.xml` files:
 ### Creating the database
 We'll start off by solely creating the database and applying OSMOSIS with the following command:
 ```bash
-java -jar scenario-convert.jar --osm2db -i steglitz.osm
+scenario-convert.sh --osm2db -i steglitz.osm
 ```
 The directory should look like this:
 
@@ -226,7 +226,7 @@ The directory should look like this:
 Let's import our routes into the database.  
 We achieve this by calling:
 ```
-java -jar scenario-convert.jar --sumo2db -i steglitz.rou.xml -d .\steglitz.db
+scenario-convert.sh --sumo2db -i steglitz.rou.xml -d .\steglitz.db
 ```
 Now all new routes are imported into our database. The following image shows a visualization of one of
 the created routes.
@@ -238,7 +238,7 @@ the created routes.
 The final step is to create the scenario from the files we created so far.
 
 ```
-java -jar scenario-convert.jar --db2mosaic -d .\steglitz.db
+scenario-convert.sh --db2mosaic -d .\steglitz.db
 ```
 Instead of copying our SUMO-files this will generate all necessary files and move them into a Eclipse MOSAIC-conform
 folder structure:

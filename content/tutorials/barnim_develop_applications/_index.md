@@ -24,7 +24,7 @@ After completing this tutorial you will be able to:
 
 * Develop Applications for simulation entities.
 * Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geocbroadcast, etc.). 
-* Calculating of alternative routes to the destination to circumnavigate a road obstacle.
+* Calculate alternative routes to the destination to circumnavigate a road obstacle.
 {{% /alert %}}
 
 As mentioned in [Barnim: Simulation Basics](/tutorials/barnim_simulation_basics#overview-of-applications), the Barnim

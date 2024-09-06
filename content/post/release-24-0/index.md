@@ -6,7 +6,7 @@ release:
   name: "Eclipse MOSAIC 24.0"
   github_url: "https://github.com/eclipse/mosaic/releases/tag/24.0"
 date: "2024-03-25T00:00:00Z"
-lastMod: "2023-03-25T00:00:00Z"
+lastMod: "2024-03-25T00:00:00Z"
 math: false
 diagram: true
 featured: false

@@ -48,7 +48,7 @@ The following listing shows a basic example for the configuration of the FileOut
         ...
         </subscription>
         ...
-    </subscriptions>>
+    </subscriptions>
 </output>
 ```
 {{% alert note %}}
@@ -153,8 +153,29 @@ and also as an extension point in the future.
 _An example for simple extended method type entry_
 
 With existing methods of `VehicleUpdates` and its super class `Interaction`, we cannot get the timestamp of
-a interaction in second. (only `Interaction.getTime`, which returns a time in ns, is available). Here, `getTimeInSec`
-is a method extension for `Interaction` class. The extended method set will be listed later.
+a interaction in seconds (only `Interaction.Time`, which returns a time in ns, is available). Here, `TimeInSec` and `TimeInMs`
+are method extensions for any `Interaction` class.
+
+#### Extended Methods for V2X Message Interactions
+
+Interactions `V2xMessageReception` and `V2xMessageTransmission` are furthermore extended with the method `Type`, which 
+provides a shortcut to the type of the sent or received `V2xMessage`. Additionally, for `V2xMessageReception` the extended method 
+`Message` is available, which provides the actual `V2xMessage`. It is important to note, that `Type` and `Message` for 
+`V2xMessageReception` is only available, if `V2xMessageTransmission` is configured in the list of subscribed interactions. 
+If only `V2xMessageReception` interactions should be printed out, then `V2xMessageTransmission` has to be added with an empty list of fields.
+
+```xml
+<subscription id="V2xMessageTransmission"/>
+<subscription id="V2xMessageReception">
+    <entries>
+        <entry>Time</entry>
+        <entry>Type</entry>
+        <entry>Message.Payload.EffectiveLength</entry>
+        <entry>ReceiverName</entry>
+    </entries>
+</subscription>
+```
+_An example for printing V2X message reception events._
 
 
 ## Further details

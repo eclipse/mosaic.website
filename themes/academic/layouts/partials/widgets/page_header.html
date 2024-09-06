@@ -90,9 +90,9 @@
                       {{- $version_set = false -}}
                     {{- end -}}
                   {{- end -}}
-                  <a class="mosaic-btn mosaic-btn-light {{ if $version_set }}mosaic-btn-download{{ end }} float-end" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
+                  <a class="mosaic-btn mosaic-btn-light {{ if or ($version_set) (.subtitle) }}mosaic-btn-subtitle{{ end }} float-end" href="{{ .url | safeHTMLAttr | relURL }}" title="{{ .title | safeHTMLAttr }}">
                     {{ if .include_latest_release }}
-                      <span class="icon"><i class='fa fa-download' aria-hidden='true'></i></span>
+                      <span class="icon"><i class='{{ .icon | safeHTML }}' aria-hidden='true'></i></span>
                       <span class="title-wrap">
                         <span class="title">
                           {{ .title | safeHTML }}
@@ -102,9 +102,15 @@
                         </span>
                       </span>
                     {{ else }}
+                    <span class="icon"><i class='{{ .icon | safeHTML }}' aria-hidden='true'></i></span>
+                    <span class="title-wrap">
                       <span class="title">
                         {{ .title | safeHTML }}
+                        {{ if .subtitle }}
+                          <span class="subtitle">{{ .subtitle | safeHTML }}</span>
+                        {{ end }}
                       </span>
+                    </span>
                     {{ end }}
                   </a>
                 {{ end }}{{ end }}

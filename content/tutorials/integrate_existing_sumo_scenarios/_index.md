@@ -95,7 +95,7 @@ To create the scenario database we will use the [scenario-convert](/docs/scenari
 script, that comes bundled with the MOSAIC extended version from the  [download section](/download). 
 Start by calling: 
 ````plaintext
-java -jar scenario-convert.jar --sumo2db -i sievekingplatz.net.xml
+scenario-convert.sh --sumo2db -i sievekingplatz.net.xml
 ````
 This will create a database called `sievekingplatz.db` and load the network into the database.
 
@@ -103,7 +103,7 @@ This will create a database called `sievekingplatz.db` and load the network into
 Next we will use the same command to load the routes of the route-file into the database.
 This is optional, but necessary if you want to add vehicles along the routes of your SUMO route-file.
 ````plaintext
-java -jar scenario-convert.jar --sumo2db -i sievekingplatz.rou.xml -d sievekingplatz.db
+scenario-convert.sh --sumo2db -i sievekingplatz.rou.xml -d sievekingplatz.db
 ````
 Note, that we also have to specify the database here.
 

@@ -160,8 +160,10 @@ property will automatically fill in relevant properties of the RSU.
 ```json
 "rsus": [
     {
-        "lat": 52.65027,
-        "lon": 13.54500,
+        "position": {
+            "latiude": 52.65027,
+            "longitude": 13.54500
+        },
         "name": "WeatherServer",
         "applications": [ "org.eclipse.mosaic.app.tutorial.WeatherServerApp" ]
     }

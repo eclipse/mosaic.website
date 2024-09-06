@@ -79,7 +79,7 @@
         text-align: left;
         margin-right: -0.7rem;
         font-size: 0.8rem;
-        &.mosaic-btn-download {
+        &.mosaic-btn-subtitle {
           &:hover {
             .subtitle {
               color: white;
@@ -91,16 +91,16 @@
           .i {
             padding-top: 10px;
           }
-          .title {
-            display: block;
-            margin: -0.4rem 0 -0.35rem 0;
-          }
           .subtitle {
             display: block;
             font-weight: normal;
             font-size: 0.6rem;
             margin: -0.3rem 0 -0.3rem 0;
             color: #666;
+          }
+          .title {
+            display: block;
+            margin: -0.4rem 0 -0.35rem 0;
           }
         }
         i {
