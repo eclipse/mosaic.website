@@ -1,5 +1,5 @@
 ---
-title: 2024 Summer Release of Eclipse MOSAIC
+title: 2024 Autumn Release of Eclipse MOSAIC
 categories:
   - Release
 release:
