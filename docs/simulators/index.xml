@@ -2735,7 +2735,7 @@ guarantee, that even if such a chain exists, it will be found. The way that this
 &lt;p&gt;By always choosing the node with the shortest distance to the destination area, we omit a lot of possible solutions.
 Greedy Forwarding isn&amp;rsquo;t optimal, but offers a performant approach for this problem. &amp;ldquo;Face Routing&amp;rdquo;-algorithms will always
 find a path if one exists, however this hasn&amp;rsquo;t been implemented yet (feel free to contribute :).
-The figure below shows an example of those shortcomings, the message will be send using the green nodes and won&amp;rsquo;t receive the destination
+The figure below shows an example of those shortcomings, the message will be sent using the green nodes and won&amp;rsquo;t receive the destination
 area, even though there is a possible &amp;ldquo;chain&amp;rdquo; using the yellow nodes.&lt;/p&gt;
 
 

@@ -824,17 +824,21 @@ After completing this tutorial you will be able to:</p>
 </figure>
 
 <h2 id="overview">Overview</h2>
-<p>In this scenario, several cars drive on the blue route and are forced to slow down in a specific section due
-to icy conditions. The rest of the scenario can be described as follows:</p>
 <ol>
-<li>The scenario consists of three types of vehicles, all of which are mapped with the <code>SlowDownApp</code>. One group is additionally equipped with the <code>WeatherWarningApp</code>, the other is instead equipped with the <code>WeatherWarningAppCell</code>, and the third is only equipped with the  <code>SlowDownApp</code>.</li>
-<li>The road on the vehicle&rsquo;s path has an environmental hazard (icy section) on it. The <code>SlowDownApp</code> induces a slowdown for vehicles that encounter the icy road.</li>
-<li>The vehicles with the <code>WeatherWarningApp</code> are equipped with ad-hoc (WiFi) communication. When they encounter the icy road, they create a <strong>GeoCircle</strong> with a radius of 3km and the center in their own position. A <strong>DENM</strong> (decentralized environmental notification message) is sent out and cast onto the GeoCircle. Because the ad-hoc communication range is usually only about 500m, the area is being <strong>flooded</strong> with the message, meaning the message is being forwarded to all vehicles that can receive it in the GeoCircle.</li>
-<li>If the density of vehicles with ad-hoc communication is too low, then not all vehicles that are equipped with ad-hoc communication inside the GeoCircle will be warned.</li>
-<li>The  <code>WeatherWarningAppCell</code> functions the same but uses the cell network for communication instead. Allowing for a higher effective communication range. Furthermore, this removes the need for a certain density of vehicles equipped with cellular communication to reach all vehicles in the GeoCircle.</li>
+<li>The scenario consists of three types of vehicles:
+<ul>
+<li>All vehicles are equipped with the <code>SlowDownApp</code>.</li>
+<li>The second group is additionally equipped with the <code>WeatherWarningApp</code></li>
+<li>The third group is instead equipped with the <code>WeatherWarningAppCell</code></li>
+</ul>
+</li>
+<li>Initially, all vehicles plan to take the blue route which is a highway and usually quicker than the green route. But the road on the vehicle&rsquo;s path has an environmental hazard (icy section) on it. The <code>SlowDownApp</code> induces a slowdown for vehicles that encounter the icy road.</li>
+<li>The vehicles with the <code>WeatherWarningApp</code> are equipped with ad-hoc (WiFi) communication. When they encounter the icy road, they create a <strong>GeoCircle</strong> with a radius of 3km and the center in their own position. A <strong>DENM</strong> (decentralized environmental notification message) is sent out and cast onto the GeoCircle. Because the ad-hoc communication range is usually only about 500m, the area is being <strong>flooded</strong> with the message, meaning the message is being forwarded to all vehicles that can receive it in the GeoCircle. Observe, that if the density of vehicles with ad-hoc communication is too low, then not all vehicles that are equipped with ad-hoc communication inside the GeoCircle will be warned.</li>
+<li>The <code>WeatherWarningAppCell</code> functions similarly but uses the cell network for communication instead, allowing for a higher and more effective communication range.
+Also, the vehicles equipped with the cell app send their DENM to a <strong>WeatherServer</strong> which then will relay the last received warning message on their behalf. So the WeatherServer creates a GeoCircle around the hazardous position, and sends out the warning over the cellular network. So all vehicles within a 3km radius of the hazardous location will receive the warning from the weather server.
+You can observe, that this removes the need for a certain density of vehicles equipped with cellular communication to reach all vehicles in the GeoCircle.</li>
 <li>Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the information about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.</li>
-<li>There is a <strong>WeatherServer</strong> that propagates weather information over the cellular network. Allowing the vehicles equipped with cellular communication to be warned even before one of them detects the icy road. The <code>WeatherWarningAppCell</code> therefore receives messages from other vehicles <strong>and</strong> the WeatherServer.</li>
-<li>In summary, while the simulation is running, you should see with the 
+<li>While the simulation is running, you should see with the 
 
 
 
@@ -859,7 +863,7 @@ to icy conditions. The rest of the scenario can be described as follows:</p>
     
   
 
-<a href="/mosaic/docs/visualization/">Websocket Visualizer</a>, vehicles as moving markers indicating when they are sending <strong>V2X</strong> messages (green vehicles) and receiving <strong>V2X</strong> messages (red vehicles).</li>
+<a href="/mosaic/docs/visualization/">Websocket Visualizer</a>, vehicles as moving markers indicating when they are sending <strong>V2X</strong> messages (red vehicles) and receiving <strong>V2X</strong> messages (green vehicles).</li>
 </ol>
 <p>More information about the 
 
@@ -966,18 +970,18 @@ to icy conditions. The rest of the scenario can be described as follows:</p>
 </tr>
 <tr>
 <td><code>org.eclipse.mosaic.app.tutorial.</code><strong><code>WeatherWarningAppCell</code></strong></td>
-<td>A specialized form of the weather warning application above that can make use of cellular communication. Also allows equipped vehicle to communicate with the WeatherServer.</td>
+<td>A specialized form of the weather warning application above that can make use of cellular communication, and will send the DENM to the WeatherServer.</td>
 </tr>
 <tr>
 <td><code>org.eclipse.mosaic.app.tutorial.</code><strong><code>WeatherServerApp</code></strong></td>
-<td>Simulates a Weather-Server equipped with cellular communication. It is able to warn vehicles that can make use of cellular communication.</td>
+<td>Simulates a Weather-Server equipped with cellular communication. It is able to relay previously received DENMs, and thereby can warn vehicles that are equipped with cellular communication.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="mapping-configuration">Mapping configuration</h2>
 <p>This section gives a short explanation of the mapping we use in this scenario.
 First, we use five different types of entities.
-One server, namely the WeatherServer, and four types of cars, each of them loaded with different applications.
+One server, namely the WeatherServer, and three types of cars, each of them loaded with different applications.
 As usual, the configuration takes place in <code>mapping/mapping_config.json</code> in your scenario folder.</p>
 <p>In this tutorial, there is only one vehicle type named <code>Car</code> configured in the <code>prototypes</code> section.
 The <code>prototypes</code> attributes allows you to specify the properties and behaviour of all vehicles
@@ -1702,7 +1706,7 @@ For example, using <code>-b 5</code> would slow down to 5 times realtime, that i
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 6 Sep 2024, 11:27 UTC
+      Website built on 2 Oct 2024, 10:41 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

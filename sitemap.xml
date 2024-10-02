@@ -8,12 +8,17 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/api_docs/</loc>
     <lastmod>2020-06-30T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/extending_mosaic/core_concepts/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   

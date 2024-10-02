@@ -934,10 +934,15 @@ You can, for example, configure the maximum speed and the length of a vehicle. N
 default values are fine here. In order to map one or more applications you have to fill in
 the complete class identifier including the package in the <code>applications</code> array.
 In this tutorial, we have mapped three applications to the vehicles and one application to the RSU.</p>
-<p>Mapping for the vehicles:</p>
+<p>Mapping for the normal cars:</p>
 <pre><code class="language-json">&quot;applications&quot;: [
+  &quot;org.eclipse.mosaic.app.tutorial.MessageReceivingApp&quot;,
   &quot;org.eclipse.mosaic.app.tutorial.EventSendingApp&quot;,
   &quot;org.eclipse.mosaic.app.tutorial.EventProcessingApp&quot;,
+]
+</code></pre>
+<p>Mapping for the TrafficLightCar:</p>
+<pre><code class="language-json">&quot;applications&quot;: [
   &quot;org.eclipse.mosaic.app.tutorial.VehicleToTrafficLightApp&quot;
 ]
 </code></pre>
@@ -948,7 +953,7 @@ In this tutorial, we have mapped three applications to the vehicles and one appl
 </code></pre>
 <p>In order for Eclipse MOSAIC to be able to locate these classes, the resulting .jar archive should be placed
 in the <code>application</code> folder of your scenario. For our tutorial we have packaged the needed
-classes <code>EventSendingApp</code>, <code>EventProcessingApp</code>, <code>VehicleToTrafficLightApp</code> and <code>RoadSideUnitApp</code> into one
+classes <code>MessageReceivingApp</code>, <code>EventSendingApp</code>, <code>EventProcessingApp</code>, <code>VehicleToTrafficLightApp</code> and <code>RoadSideUnitApp</code> into one
 .jar file. However, this isn&rsquo;t a strict requirement. What these classes actually do and how they are
 implemented will be covered in the next two parts of this tutorial.</p>
 <h4 id="vehicle-and-rsu-sections">Vehicle and RSU sections</h4>
@@ -979,28 +984,22 @@ sufficient to know that there is one route with the id 0 that leads the vehicles
 that is already defined in this tutorial scenario.</li>
 <li><code>maxNumberVehicles</code>: Used to determine how many vehicles should be in that group.
 Here, we go with just one single vehicle.</li>
-<li><code>types</code>: This array maps to the defined <code>PKW</code> (german for passenger car)
+<li><code>types</code>: This array maps to the defined <code>Car</code>
 prototype from the <code>prototypes</code>-section of the mapping.</li>
 </ul>
 <h2 id="inter-vehicle-communication">Inter-Vehicle Communication</h2>
-<p>This second part describes the <code>TiergartenVehicle</code> and <code>TiergartenRSU</code> applications
-which are used for inter-vehicle communication in more detail. As a coarse overview, the
+<p>This part describes the <code>RoadSideUnitApp</code> and <code>MessageReceivingApp</code> in more detail,
+which are used for inter-vehicle communication.
+As a coarse overview, the
 <code>RoadSideUnitApp</code> application sends out a defined message at a fixed interval. These messages
-are received and written to the log file by the <code>VehicleReceivingApp</code> application.</p>
+are received and written to the log file by the <code>MessageReceivingApp</code> application.</p>
 <h3 id="receiving-the-v2x-messages">Receiving the V2X messages</h3>
 <p>First, we start
-off with the class definition of the 
-
-
-
-
-<a href="https://github.com/eclipse/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/EventSendingApp.java" target="_blank" rel="noopener"><code>EventSendingApp</code></a>, which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
+off with the class definition of the <code>MessageReceivingApp</code>, which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
 to get the communication working.</p>
 <h4 id="class-definition">Class definition</h4>
-<pre><code class="language-java">public class EventSendingApp extends AbstractApplication&lt;VehicleOperatingSystem&gt; 
-	implements CommunicationApplication {
-  // to be implemented
-}
+<pre><code class="language-java">public class MessageReceivingApp extends AbstractApplication&lt;VehicleOperatingSystem&gt; 
+	implements CommunicationApplication {...}
 </code></pre>
 <p>In general, every vehicle application will extend the <code>AbstractApplication</code> abstract class with the
 VehicleOperatingSystem type parameter. The VehicleOperatingSystem is the main way to interact with
@@ -1010,7 +1009,7 @@ to be able to receive and handle V2X messages.</p>
 <h4 id="application-initialization">Application initialization</h4>
 <p>During the initialization procedure of communicating applications,
 the communication modules (WLANModule or CellModule) need to be activated. For example, activating the
-WLAN module can be achieved with the following code snipped:</p>
+WLAN module can be achieved with the following code snippet:</p>
 <pre><code class="language-java">@Override
 public void onStartup() {
     getLog().infoSimTime(this, &quot;Initialize application&quot;);
@@ -1131,7 +1130,6 @@ public void onStartup() {
             .channel(AdHocChannel.CCH)
             .power(50)
             .create());
-
     getLog().infoSimTime(this, &quot;Activated WLAN Module&quot;);
     sample();
 }
@@ -1144,6 +1142,11 @@ method gets called which is responsible for the events.</p>
     getOs().getEventManager().addEvent(getOs().getSimulationTime() + TIME_INTERVAL, this);
     getLog().infoSimTime(this, &quot;Sending out AdHoc broadcast&quot;);
     sendAdHocBroadcast();
+}
+
+@Override
+public void processEvent(Event event) throws Exception {
+    sample();
 }
 </code></pre>
 <p>Here, an <code>Event</code> is created which will be received at the current time in simulation plus the defined interval which is
@@ -1175,6 +1178,7 @@ messages from a vehicle instead of a RSU.</p>
 <p>This part of the tutorial describes the steps necessary for letting two applications to communicate
 with each other on the same vehicle.  Here, we use the <code>EventSendingApp</code> application as the sender
 and <code>EventProcessingApp</code> as the receiver.
+The <code>EventSendingApp</code> will schedule events that reach all other applications on the same vehicle.
 In general, the approach is similar to the sending of a V2X message and also makes use of the event system.</p>
 <h4 id="message-sending-1">Message sending</h4>
 <p>First, we start off with the sending side. The event code should look familiar:</p>
@@ -1182,11 +1186,6 @@ In general, the approach is similar to the sending of a V2X message and also mak
 public void onVehicleUpdated(@Nullable VehicleData previousVehicleData, @Nonnull VehicleData updatedVehicleData) {
     final List&lt;? extends Application&gt; applications = getOs().getApplications();
     final IntraVehicleMsg message = new IntraVehicleMsg(getOs().getId(), getRandom().nextInt(0, MAX_ID));
-
-    // Example usage for how to detect sensor readings
-    if (getOs().getStateOfEnvironmentSensor(SensorType.OBSTACLE) &gt; 0) {
-        getLog().infoSimTime(this, &quot;Reading sensor&quot;);
-    }
 
     for (Application application : applications) {
         final Event event = new Event(getOs().getSimulationTime() + 10, application, message);
@@ -1245,7 +1244,7 @@ executing the simulation using the following command:</p>
 </code></pre>
 <p>Afterwards, in the log directory of <code>Eclipse MOSAIC</code> a new folder should be created containing all log files of
 the simulation run. Within, the sub-folder <code>apps</code> contains the log files for each simulation unit and its application.
-For example, for the vehicles we end up with two log files: <code>EventSendingApp.log</code> and <code>EventProcessingApp.log</code>.</p>
+For example, for the normal vehicles we end up with three log files: <code>MessageReceivingApp.log</code>, <code>EventSendingApp.log</code> and <code>EventProcessingApp.log</code>.</p>
 <p>This following snippet shows the receiving of the V2X messages that were sent by the RSU:</p>
 <pre><code>INFO  - Initialize application (at simulation time 6.000,000,000 s)
 INFO  - Activated AdHoc Module (at simulation time 6.000,000,000 s)
@@ -1799,7 +1798,7 @@ following list sums up the things we have covered in this tutorial:</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 6 Sep 2024, 11:27 UTC
+      Website built on 2 Oct 2024, 10:40 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

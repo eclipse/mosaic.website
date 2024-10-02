@@ -290,11 +290,11 @@
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/extending_mosaic/">
-  <meta property="og:title" content="Core Concepts | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:title" content="Run a simulation with Eclipse MOSAIC as Developer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-08-06T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2019-05-05T00:00:00&#43;01:00">
   
 
   
@@ -311,7 +311,7 @@
 
 
 
-  <title>Core Concepts | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+  <title>Run a simulation with Eclipse MOSAIC as Developer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
 
 </head>
 
@@ -976,7 +976,11 @@
       <ul class="nav docs-sidenav">
         
         <li class="active">
-          <a href="/mosaic/docs/extending_mosaic/">Core Concepts</a>
+          <a href="/mosaic/docs/extending_mosaic/">Setup MOSAIC in IDE</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/core_concepts/">Core Concepts</a>
         </li>
         
         <li >
@@ -1049,18 +1053,13 @@
 
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#time-management">Time Management</a></li>
-    <li><a href="#interaction-management">Interaction Management</a>
+    <li>
       <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#federation-management">Federation Management</a>
-      <ul>
-        <li></li>
-        <li><a href="#implementation-details">Implementation Details</a></li>
-        <li><a href="#local-federation-management">Local Federation Management</a></li>
-        <li><a href="#distributed-federation-management">Distributed Federation Management</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#get-the-code">Get the code</a></li>
+        <li><a href="#from-the-command-line-interface">From the Command-Line-Interface</a></li>
+        <li><a href="#use-intellij-idea">Use IntelliJ IDEA</a></li>
+        <li><a href="#file-locations">File locations</a></li>
       </ul>
     </li>
   </ul>
@@ -1110,20 +1109,84 @@
       <article class="article">
 
         <div class="docs-article-container">
-          <h1>Core Concepts</h1>
+          <h1>Run a simulation with Eclipse MOSAIC as Developer</h1>
 
           <div class="article-style">
-            <p>To run a simulation, a federation of simulators has to be created. This federation consists of one federate
-for each participating simulator. In the upper part of Figure 1, the inner structure of a federate is
-illustrated. It consists of the original simulator that is connected to its federate ambassador and an
-instance of an Eclipse MOSAIC ambassador. The federates run on top of the Eclipse MOSAIC Runtime Infrastructure
-(lower part of Figure 1) which offers services for federation-, interaction- and time management. The
-communication between the federates and the runtime infrastructure is enabled by ambassadors. More
-precisely, a federate that wants to access services of the RTI can use a designated RTI-Ambassador that
-provides access to the provided services. In the opposite direction, i.e. if the runtime infrastructure wants
-to invoke operations on the federate implementation, a federate ambassador is used. Each federate
-ambassador implements the same interface that is used by Eclipse MOSAIC to control the simulator and to
-provide interactions from other federates.</p>
+            <p>On this page we want to discuss how to run Eclipse MOSAIC directly from source code, and with an IDE.
+This is only relevant if you want to implement changes to MOSAIC itself. If you simply want to run different simulations, please skip this page.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You have to install the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/getting_started/#additional-software">same requirements</a> as for the bundeled MOSAIC version, namely the Java SDK and Eclipse SUMO. Additionally you also need to install 
+
+
+
+
+<a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">Apache Maven</a>.</p>
+<h3 id="get-the-code">Get the code</h3>
+<p>Please find the MOSAIC code in the Github repository 
+
+
+
+
+<a href="https://github.com/eclipse/mosaic" target="_blank" rel="noopener">here</a>. Let&rsquo;s say you would like to contribute your changes, so you fork the repository first, and read 
+
+
+
+
+<a href="https://github.com/eclipse/mosaic/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">guideline how to contribute</a>.</p>
+<pre><code class="language-bash">git clone git@github.com:&lt;github-username&gt;/mosaic.git eclipse-mosaic
+cd eclipse-mosaic
+git remote add upstream git@github.com:eclipse/mosaic.git # when using ssh
+mvn clean install
+</code></pre>
+<h3 id="from-the-command-line-interface">From the Command-Line-Interface</h3>
+<p>The entry class <code>MosaicStarter</code> has a lot of dependencies which need to be referenced during startup, so we recommend that you use the package functionality of maven and then run the bundle. Everything else would be overly complicated. Also, we don&rsquo;t build &ldquo;fat jars&rdquo; so you won&rsquo;t be able to run any jar directly. The following is almost the same procedure as presented in the non-developer guides, just that you build the bundle locally.</p>
+<ul>
+<li>Run <code>mvn clean install</code></li>
+<li>Unzip one of the <code>bundle/target/eclipse-mosaic-24.1-SNAPSHOT.*</code> archives to a destination of your choice</li>
+<li>Run the <code>mosaic.sh/bat</code> files, which will do all the magic for you (have a look inside if you ask yourself if there&rsquo;s a more direct way to start from console).</li>
+</ul>
+<h3 id="use-intellij-idea">Use IntelliJ IDEA</h3>
+<ul>
+<li>Start IntelliJ IDEA and choose <code>Open or Import</code> (see figure 1).</li>
+<li>Choose the cloned <code>eclipse-mosaic</code> repository</li>
+<li>For IntelliJ there&rsquo;s already a 
+
+
+
+
+<a href="https://github.com/eclipse/mosaic/blob/main/rti/mosaic-starter/MosaicStarter.run.xml" target="_blank" rel="noopener">pre-defined run configuration</a> in the repo which should work right away when you run it (see figure 2).</li>
+</ul>
+<p>Good to know:</p>
+<ul>
+<li>When changing any pom.xml you need to: <code>Rightclick on root-module &gt; Maven &gt; Reload project</code></li>
+<li>When making changes to <code>runtime.json | logback.xml | hosts.json</code> you need to re-run <code>mvn validate</code>, in order to copy them into the target folder.</li>
+</ul>
+<p>
 
 
 
@@ -1138,139 +1201,83 @@ provide interactions from other federates.</p>
 
 
 
-
-<figure id="figure-schematic-illustration-of-eclipse-mosaic-runtime-infrastructure">
-
-
-  <a data-fancybox="" href="images/common-architecture.jpeg" data-caption="Schematic illustration of Eclipse MOSAIC Runtime Infrastructure">
+<figure id="figure-open-the-project">
 
 
-  <img src="images/common-architecture.jpeg" alt=""  >
+  <a data-fancybox="" href="../images/open-project.png" data-caption="Open the project">
+
+
+  <img src="../images/open-project.png" alt="" width="300" >
 </a>
 
 
   
   
   <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Schematic illustration of Eclipse MOSAIC Runtime Infrastructure
+    Open the project
   </figcaption>
 
 
 </figure>
 
-<hr>
-<h2 id="time-management">Time Management</h2>
-<p>The main problem in executing a federation is the synchronization of its federates. Each federate is a
-discrete-event simulator with an ordered event list from which sequentially the first event is processed.
-Consequently, the Time Management is necessary for coordinating the simulation and synchronizing
-participating federates. It assures that each federate processes its events in correct order.</p>
-<p>According to 
 
 
 
 
-<a href="https://ieeexplore.ieee.org/abstract/document/977259" target="_blank" rel="noopener">Fujimoto</a> the time management in a federated environment
-includes two key components: Interaction (Message) order and time stamps. Note that we usually use the word &lsquo;intercation&rsquo; when
-talking about communication between federates, &lsquo;message&rsquo; will be used in the context of (V2X)-communication.</p>
-<p>The Interaction Order service is completely implemented in Eclipse MOSAIC with the following design rationale:
-Each request of a federate to execute a local event is mapped to a global event within the Time management.
-Such an event consists of three attributes: simulation time, priority, and lookahead time. The
-simulation time defines the time in the simulation at which the event has to be processed. The priority
-allows defining an order of events that are scheduled at the same time. The third attribute, the lookahead
-time, describes an idle period following after an event. It is used to signalize that no further event will be
-scheduled and no interaction will be sent within this period. All events are scheduled by storing them in an
-event list in ascending order according to their simulation time. In case of equal simulation times, they
-are ordered in descending order to their priority.
-A time management cycle consists of three steps.</p>
-<ol>
-<li>
-<p>The federate invokes a time management service to request its logical time to advance.
-While Time Advance Request (TAR) is more suitable for time-stepped simulators,
-Next Event Request (NER) is the preferred primitive for event-driven federates.</p>
-</li>
-<li>
-<p>The RTI delivers certain interactions to the federate. Each federate receives the interactions
-in the <code>processInteraction()</code> method.</p>
-</li>
-<li>
-<p>The RTI completes the cycle by invoking a federate defined procedure called Time Advance Grant
-to indicate the federate’s logical time has been advanced. Eclipse MOSAIC supports the sequential and
-the parallel conservative mechanism for advancing time.</p>
-</li>
-</ol>
-<hr>
-<h2 id="interaction-management">Interaction Management</h2>
-<p>The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse MOSAIC and its federates
-are decoupled through a publish-subscribe paradigm provided by the Interaction Management.
-A published interaction is forwarded to each subscriber directly after it has been
-published. However, a receiving federate is not allowed to advance its time based on an interaction but must
-request a time advancement if necessary. An interaction consists of its creation time, an identifier describing
-its type, and optional data. Interactions to exchange traffic, network, vehicle, and sensor data are predefined.
-These interactions are used to define a standardized communication behaviour.</p>
-<h4 id="subscribe-interaction">Subscribe Interaction</h4>
-<p>Before a federate can receive interactions, it has to subscribe to them. The Interaction Management offers
-two different ways to subscribe to certain interactions. A federate can either define a interaction type only to
-receive all interactions of this type or, additionally, define conditions to filter interactions by their content. If a
-federate is not longer interested in subscribed interactions, it can rescind its interest.</p>
-<h4 id="publish-interaction">Publish Interaction</h4>
-<p>Each federate is allowed to publish any interaction at any valid time of the simulation. After a interaction is
-published, the Interaction Management forwards the interaction to each federate that has subscribed to
-this type of interaction. A federate receiving a interaction can ignore it or request to advance its local time to
-handle this interaction.</p>
-<hr>
-<h2 id="federation-management">Federation Management</h2>
-<p>The Federation Management is responsible for the administration of participating federates. This includes
-deploying, starting, stopping, and undeploying federates in a distributed system. Before running a
-simulation, the Federation Management creates an empty federation. After that, federates join the
-federation. Already joined federates can be removed from a federation, if they are not necessary for the
-rest of the simulation. After a simulation is finished, the Federation Management frees used resources.</p>
-<h4 id="create-federation">Create Federation</h4>
-<p>Creates an empty federation. After a federation is created, it is possible to join federates.</p>
-<h4 id="join-federation">Join Federation</h4>
-<p>A joining simulator is defined by a unique name and a FederateHandle. This handle contains the information whether start-up and deployment
-of the simulator are required to be handled by the Federation Management. In this case, further deployment and start-up information are
-included.</p>
-<h4 id="stop-federation">Stop Federation</h4>
-<p>After a simulation is finished, all joined federates are resigned and their used resources are freed. All
-references are removed and necessary tasks to stop and undeploy the federate are executed.</p>
-<h3 id="implementation-details">Implementation Details</h3>
-<p>When a simulator is about to join a federation, a FederateHandle is passed to the Federation Manage-
-ment. A handle includes a Federate Ambassador that is responsible for all communication with the RTI
-as well as all identifiers for interactions it wants to subscribe to. Additionally, it contains two flags indicating
-how the simulator is started and if the simulator needs to be deployed by the Federation Management.
-For the deployment, the handle consists a reference to the directory including all binaries and host
-parameters consisting of an address and a directory in which the simulator shall be deployed. To start a
-simulator a start-command is included.</p>
-<p>If the simulator is running, its ambassador is registered for coordinating the simulator during the sim-
-ulation run. Afterwards, the Federation Management initiates the subscription to interactions on behalf
-of an ambassador. Otherwise, before the ambassador is registered, the Federation Management starts
-and, if necessary, deploys the simulator on a local or a remote machine and connects it to its ambassador.
-The connection is created by redirecting the output of the started simulator to its ambassador. Based on
-the incoming data, the Federate Ambassador is responsible for configuring its communication with the
-simulator.</p>
-<h3 id="local-federation-management">Local Federation Management</h3>
-<p>In case a simulator is to be deployed on a local machine, its binaries are copied into the simulation
-directory that is defined within the host parameters. Afterwards, using the start-command the simulator
-is started in a new process and its output is redirected to the ambassador. Additionally, a mapping between
-ambassador and process reference is stored. Finally, when the federate is resigned, the ambassador is
-called to shut down its corresponding simulator. Finally, the mapped process is killed and all copied files
-are removed.</p>
-<h3 id="distributed-federation-management">Distributed Federation Management</h3>
-<p>To administrate simulators on remote hosts, the Federation Management uses the 
 
 
 
 
-<a href="https://www.ssh.com/ssh/" target="_blank" rel="noopener">Secure Shell (SSH)</a>
-protocol to send commands and the associated 
 
 
 
 
-<a href="https://www.ssh.com/ssh/sftp/" target="_blank" rel="noopener">Secure File Transfer Protocol (SFTP)</a> to transfer binaries.
-After a process is started remotely, a mapping between ambassador, its process id, and the host on which
-is running are stored. Finally, when the federate is resigned, the remotely running process is killed and all
-binaries are removed.</p>
+
+
+
+<figure id="figure-run-mosaicstarter">
+
+
+  <a data-fancybox="" href="../images/run.png" data-caption="Run MosaicStarter">
+
+
+  <img src="../images/run.png" alt="" width="400" >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Run MosaicStarter
+  </figcaption>
+
+
+</figure>
+</p>
+<h3 id="file-locations">File locations</h3>
+<p>Given that you execute the code from source, some important file locations change:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Bundled</th>
+<th style="text-align:left">From Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/scenarios</code></td>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/bundle/src/assembly/resources/scenarios</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/etc</code></td>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/rti/mosaic-starter/target/classes/etc</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/logs</code></td>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/rti/mosaic-starter/logs</code></td>
+</tr>
+</tbody>
+</table>
 
           </div>
 
@@ -1295,20 +1302,6 @@ binaries are removed.</p>
           
           
           
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
           
             
               
@@ -1370,10 +1363,26 @@ binaries are removed.</p>
           
             
           
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
           
             
               <div class="meta-nav">Next</div>
-              <a href="/mosaic/docs/extending_mosaic/simulator_coupling/" rel="prev">Simulator Coupling</a>
+              <a href="/mosaic/docs/extending_mosaic/core_concepts/" rel="prev">Core Concepts</a>
           
         
       
@@ -1726,7 +1735,7 @@ binaries are removed.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 6 Sep 2024, 11:27 UTC
+      Website built on 2 Oct 2024, 10:40 UTC
     </p>
     
   </div>

@@ -66,7 +66,7 @@ The following arguments are available:
     --route-end-node-id <STRING>           OSM node id of the ending point (use instead of lat/lon).
     --route-matrix <STRING,STRING,...>     Calculates all possible routes starting and ending at the given nodes, given
                                            as comma-separated list (e.g. 12345,87123,89123)
-    --number-of-routes <INTEGER>           Defines the number of alternative routes to be calculated (default=1).
+    --max-number-of-routes <INTEGER>       Defines the maximum number of routes to be calculated, including the best route and alternatives (default=1 - only best route).
 
     --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).

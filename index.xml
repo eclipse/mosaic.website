@@ -13,6 +13,172 @@
     </image>
     
     <item>
+      <title>Core Concepts</title>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/core_concepts/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/core_concepts/</guid>
+      <description>&lt;p&gt;To run a simulation, a federation of simulators has to be created. This federation consists of one federate
+for each participating simulator. In the upper part of Figure 1, the inner structure of a federate is
+illustrated. It consists of the original simulator that is connected to its federate ambassador and an
+instance of an Eclipse MOSAIC ambassador. The federates run on top of the Eclipse MOSAIC Runtime Infrastructure
+(lower part of Figure 1) which offers services for federation-, interaction- and time management. The
+communication between the federates and the runtime infrastructure is enabled by ambassadors. More
+precisely, a federate that wants to access services of the RTI can use a designated RTI-Ambassador that
+provides access to the provided services. In the opposite direction, i.e. if the runtime infrastructure wants
+to invoke operations on the federate implementation, a federate ambassador is used. Each federate
+ambassador implements the same interface that is used by Eclipse MOSAIC to control the simulator and to
+provide interactions from other federates.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-schematic-illustration-of-eclipse-mosaic-runtime-infrastructure&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;images/common-architecture.jpeg&#34; data-caption=&#34;Schematic illustration of Eclipse MOSAIC Runtime Infrastructure&#34;&gt;
+
+
+  &lt;img src=&#34;images/common-architecture.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+    Schematic illustration of Eclipse MOSAIC Runtime Infrastructure
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;time-management&#34;&gt;Time Management&lt;/h2&gt;
+&lt;p&gt;The main problem in executing a federation is the synchronization of its federates. Each federate is a
+discrete-event simulator with an ordered event list from which sequentially the first event is processed.
+Consequently, the Time Management is necessary for coordinating the simulation and synchronizing
+participating federates. It assures that each federate processes its events in correct order.&lt;/p&gt;
+&lt;p&gt;According to 
+
+
+
+
+&lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/977259&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fujimoto&lt;/a&gt; the time management in a federated environment
+includes two key components: Interaction (Message) order and time stamps. Note that we usually use the word &amp;lsquo;intercation&amp;rsquo; when
+talking about communication between federates, &amp;lsquo;message&amp;rsquo; will be used in the context of (V2X)-communication.&lt;/p&gt;
+&lt;p&gt;The Interaction Order service is completely implemented in Eclipse MOSAIC with the following design rationale:
+Each request of a federate to execute a local event is mapped to a global event within the Time management.
+Such an event consists of three attributes: simulation time, priority, and lookahead time. The
+simulation time defines the time in the simulation at which the event has to be processed. The priority
+allows defining an order of events that are scheduled at the same time. The third attribute, the lookahead
+time, describes an idle period following after an event. It is used to signalize that no further event will be
+scheduled and no interaction will be sent within this period. All events are scheduled by storing them in an
+event list in ascending order according to their simulation time. In case of equal simulation times, they
+are ordered in descending order to their priority.
+A time management cycle consists of three steps.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The federate invokes a time management service to request its logical time to advance.
+While Time Advance Request (TAR) is more suitable for time-stepped simulators,
+Next Event Request (NER) is the preferred primitive for event-driven federates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The RTI delivers certain interactions to the federate. Each federate receives the interactions
+in the &lt;code&gt;processInteraction()&lt;/code&gt; method.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The RTI completes the cycle by invoking a federate defined procedure called Time Advance Grant
+to indicate the federate’s logical time has been advanced. Eclipse MOSAIC supports the sequential and
+the parallel conservative mechanism for advancing time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;interaction-management&#34;&gt;Interaction Management&lt;/h2&gt;
+&lt;p&gt;The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse MOSAIC and its federates
+are decoupled through a publish-subscribe paradigm provided by the Interaction Management.
+A published interaction is forwarded to each subscriber directly after it has been
+published. However, a receiving federate is not allowed to advance its time based on an interaction but must
+request a time advancement if necessary. An interaction consists of its creation time, an identifier describing
+its type, and optional data. Interactions to exchange traffic, network, vehicle, and sensor data are predefined.
+These interactions are used to define a standardized communication behaviour.&lt;/p&gt;
+&lt;h4 id=&#34;subscribe-interaction&#34;&gt;Subscribe Interaction&lt;/h4&gt;
+&lt;p&gt;Before a federate can receive interactions, it has to subscribe to them. The Interaction Management offers
+two different ways to subscribe to certain interactions. A federate can either define a interaction type only to
+receive all interactions of this type or, additionally, define conditions to filter interactions by their content. If a
+federate is not longer interested in subscribed interactions, it can rescind its interest.&lt;/p&gt;
+&lt;h4 id=&#34;publish-interaction&#34;&gt;Publish Interaction&lt;/h4&gt;
+&lt;p&gt;Each federate is allowed to publish any interaction at any valid time of the simulation. After a interaction is
+published, the Interaction Management forwards the interaction to each federate that has subscribed to
+this type of interaction. A federate receiving a interaction can ignore it or request to advance its local time to
+handle this interaction.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;federation-management&#34;&gt;Federation Management&lt;/h2&gt;
+&lt;p&gt;The Federation Management is responsible for the administration of participating federates. This includes
+deploying, starting, stopping, and undeploying federates in a distributed system. Before running a
+simulation, the Federation Management creates an empty federation. After that, federates join the
+federation. Already joined federates can be removed from a federation, if they are not necessary for the
+rest of the simulation. After a simulation is finished, the Federation Management frees used resources.&lt;/p&gt;
+&lt;h4 id=&#34;create-federation&#34;&gt;Create Federation&lt;/h4&gt;
+&lt;p&gt;Creates an empty federation. After a federation is created, it is possible to join federates.&lt;/p&gt;
+&lt;h4 id=&#34;join-federation&#34;&gt;Join Federation&lt;/h4&gt;
+&lt;p&gt;A joining simulator is defined by a unique name and a FederateHandle. This handle contains the information whether start-up and deployment
+of the simulator are required to be handled by the Federation Management. In this case, further deployment and start-up information are
+included.&lt;/p&gt;
+&lt;h4 id=&#34;stop-federation&#34;&gt;Stop Federation&lt;/h4&gt;
+&lt;p&gt;After a simulation is finished, all joined federates are resigned and their used resources are freed. All
+references are removed and necessary tasks to stop and undeploy the federate are executed.&lt;/p&gt;
+&lt;h3 id=&#34;implementation-details&#34;&gt;Implementation Details&lt;/h3&gt;
+&lt;p&gt;When a simulator is about to join a federation, a FederateHandle is passed to the Federation Manage-
+ment. A handle includes a Federate Ambassador that is responsible for all communication with the RTI
+as well as all identifiers for interactions it wants to subscribe to. Additionally, it contains two flags indicating
+how the simulator is started and if the simulator needs to be deployed by the Federation Management.
+For the deployment, the handle consists a reference to the directory including all binaries and host
+parameters consisting of an address and a directory in which the simulator shall be deployed. To start a
+simulator a start-command is included.&lt;/p&gt;
+&lt;p&gt;If the simulator is running, its ambassador is registered for coordinating the simulator during the sim-
+ulation run. Afterwards, the Federation Management initiates the subscription to interactions on behalf
+of an ambassador. Otherwise, before the ambassador is registered, the Federation Management starts
+and, if necessary, deploys the simulator on a local or a remote machine and connects it to its ambassador.
+The connection is created by redirecting the output of the started simulator to its ambassador. Based on
+the incoming data, the Federate Ambassador is responsible for configuring its communication with the
+simulator.&lt;/p&gt;
+&lt;h3 id=&#34;local-federation-management&#34;&gt;Local Federation Management&lt;/h3&gt;
+&lt;p&gt;In case a simulator is to be deployed on a local machine, its binaries are copied into the simulation
+directory that is defined within the host parameters. Afterwards, using the start-command the simulator
+is started in a new process and its output is redirected to the ambassador. Additionally, a mapping between
+ambassador and process reference is stored. Finally, when the federate is resigned, the ambassador is
+called to shut down its corresponding simulator. Finally, the mapped process is killed and all copied files
+are removed.&lt;/p&gt;
+&lt;h3 id=&#34;distributed-federation-management&#34;&gt;Distributed Federation Management&lt;/h3&gt;
+&lt;p&gt;To administrate simulators on remote hosts, the Federation Management uses the 
+
+
+
+
+&lt;a href=&#34;https://www.ssh.com/ssh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Secure Shell (SSH)&lt;/a&gt;
+protocol to send commands and the associated 
+
+
+
+
+&lt;a href=&#34;https://www.ssh.com/ssh/sftp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Secure File Transfer Protocol (SFTP)&lt;/a&gt; to transfer binaries.
+After a process is started remotely, a mapping between ambassador, its process id, and the host on which
+is running are stored. Finally, when the federate is resigned, the remotely running process is killed and all
+binaries are removed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://www.eclipse.dev/mosaic/group/fokus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1649,7 +1815,7 @@ The following arguments are available:
     --route-end-node-id &amp;lt;STRING&amp;gt;           OSM node id of the ending point (use instead of lat/lon).
     --route-matrix &amp;lt;STRING,STRING,...&amp;gt;     Calculates all possible routes starting and ending at the given nodes, given
                                            as comma-separated list (e.g. 12345,87123,89123)
-    --number-of-routes &amp;lt;INTEGER&amp;gt;           Defines the number of alternative routes to be calculated (default=1).
+    --max-number-of-routes &amp;lt;INTEGER&amp;gt;       Defines the maximum number of routes to be calculated, including the best route and alternatives (default=1 - only best route).
 
     --import-buildings                     Activates import of building information (only with osm2xxx).
     --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
@@ -3341,7 +3507,7 @@ configurations for various simulators.&lt;/p&gt;
 &lt;h2 id=&#34;let-the-cars-loose&#34;&gt;Let the cars loose&lt;/h2&gt;
 &lt;p&gt;As a starting point we&amp;rsquo;ll look at the scenario that we created using this command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
---route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
+--route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --max-number-of-routes 3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We&amp;rsquo;ll end up with a folder looking like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;└─ steglitz
@@ -7196,7 +7362,7 @@ guarantee, that even if such a chain exists, it will be found. The way that this
 &lt;p&gt;By always choosing the node with the shortest distance to the destination area, we omit a lot of possible solutions.
 Greedy Forwarding isn&amp;rsquo;t optimal, but offers a performant approach for this problem. &amp;ldquo;Face Routing&amp;rdquo;-algorithms will always
 find a path if one exists, however this hasn&amp;rsquo;t been implemented yet (feel free to contribute :).
-The figure below shows an example of those shortcomings, the message will be send using the green nodes and won&amp;rsquo;t receive the destination
+The figure below shows an example of those shortcomings, the message will be sent using the green nodes and won&amp;rsquo;t receive the destination
 area, even though there is a possible &amp;ldquo;chain&amp;rdquo; using the yellow nodes.&lt;/p&gt;
 
 
