@@ -67,8 +67,8 @@ With this tutorial you learn more about the following objectives:
 | Application                    | Description |
 |--------------------------------|-------------|
 | `MosaicInteractionHandlingApp` | Message sending from a unit to other units (to all others or to the certain ones, creation of and reaction on the ApplicationSpecificMessage. |
-| `AdditionalReceivingApp`       | This application is used *only as an additional demonstration* of MosaicInteractionHandlingApp's work. It receives MyMessage (inherits from ApplicationSpecificMessage) sent by MosaicInteractionHandlingApp and logs its content. |
-| `MyMessage`                    | Message example. | 
+| `AdditionalReceivingApp`       | This application is used *only as an additional demonstration* of MosaicInteractionHandlingApp's work. It receives MyInteraction (inherits from ApplicationSpecificMessage) sent by MosaicInteractionHandlingApp and logs its content. |
+| `MyInteraction`                    | Message example. | 
 
 ###  Further Applications
 

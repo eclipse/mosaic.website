@@ -125,13 +125,10 @@ While this is technically sufficient to start working on your scenario, like [im
 you can do to achieve better results.
 
 ### Clean the OSM-file using Osmosis
-Osmosis will automatically be used to create a new OSM-file with the suffix `_cleaned`. The created
+By default, Osmosis will be used to create a new OSM-file with the suffix `_cleaned`. The created
 file will contain much less clutter and usually is better suited for simulation purposes.
 Check the images below to see the difference the clean-up process can make.
 
-```bash
-scenario-convert.sh --osm2mosaic -i steglitz.osm
-```
 <div class="row">
     <div class="col-6">
         {{< figure src="images/osm_uncleaned.png" title="Uncleaned OSM-file" numbered="true" >}}
@@ -160,15 +157,15 @@ a route-file, given some additional information. For example purposes we will ru
  command below. In case you generated the `steglitz scenario` in one of the steps above already, please delete or rename the `steglitz` directory and run:
 ```bash
 scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
---route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
+--route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --max-number-of-routes 3
 ```
-This will calculate three routes between the two given coordinates. 
+This will calculate up to three routes between the two given coordinates. 
 
 Alternatively you can use the following command in order to generate routes with node-id's as start and end point, which can be found in the `steglitz.nod.xml` file.
 
 ```bash
 scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
---route-begin-node-id 267350668 --route-end-node-id 313139970 --number-of-routes 3
+--route-begin-node-id 267350668 --route-end-node-id 313139970 --max-number-of-routes 3
 ```
 See [scenario-convert documentation](/docs/scenarios/scenario_convert) for all command line options.
 

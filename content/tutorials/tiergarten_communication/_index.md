@@ -71,12 +71,20 @@ default values are fine here. In order to map one or more applications you have 
 the complete class identifier including the package in the `applications` array.
 In this tutorial, we have mapped three applications to the vehicles and one application to the RSU.
 
-Mapping for the vehicles:
+Mapping for the normal cars:
 
 ```json
 "applications": [
+  "org.eclipse.mosaic.app.tutorial.MessageReceivingApp",
   "org.eclipse.mosaic.app.tutorial.EventSendingApp",
   "org.eclipse.mosaic.app.tutorial.EventProcessingApp",
+]
+```
+
+Mapping for the TrafficLightCar:
+
+```json
+"applications": [
   "org.eclipse.mosaic.app.tutorial.VehicleToTrafficLightApp"
 ]
 ```
@@ -91,7 +99,7 @@ Mapping for the RSU:
 
 In order for Eclipse MOSAIC to be able to locate these classes, the resulting .jar archive should be placed
 in the `application` folder of your scenario. For our tutorial we have packaged the needed
-classes `EventSendingApp`, `EventProcessingApp`, `VehicleToTrafficLightApp` and `RoadSideUnitApp` into one
+classes `MessageReceivingApp`, `EventSendingApp`, `EventProcessingApp`, `VehicleToTrafficLightApp` and `RoadSideUnitApp` into one
 .jar file. However, this isn't a strict requirement. What these classes actually do and how they are
 implemented will be covered in the next two parts of this tutorial.
 
@@ -127,29 +135,28 @@ sufficient to know that there is one route with the id 0 that leads the vehicles
 that is already defined in this tutorial scenario.
 * `maxNumberVehicles`: Used to determine how many vehicles should be in that group.
 Here, we go with just one single vehicle.
-* `types`: This array maps to the defined `PKW` (german for passenger car)
+* `types`: This array maps to the defined `Car` 
 prototype from the `prototypes`-section of the mapping.
 
 ## Inter-Vehicle Communication
 
-This second part describes the `TiergartenVehicle` and `TiergartenRSU` applications
-which are used for inter-vehicle communication in more detail. As a coarse overview, the
+This part describes the `RoadSideUnitApp` and `MessageReceivingApp` in more detail,
+which are used for inter-vehicle communication. 
+As a coarse overview, the
 `RoadSideUnitApp` application sends out a defined message at a fixed interval. These messages
-are received and written to the log file by the `VehicleReceivingApp` application. 
+are received and written to the log file by the `MessageReceivingApp` application. 
 
 ### Receiving the V2X messages
 
 First, we start
-off with the class definition of the [`EventSendingApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/EventSendingApp.java), which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
+off with the class definition of the `MessageReceivingApp`, which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
 to get the communication working.
 
 #### Class definition
 
 ```java
-public class EventSendingApp extends AbstractApplication<VehicleOperatingSystem> 
-	implements CommunicationApplication {
-  // to be implemented
-}
+public class MessageReceivingApp extends AbstractApplication<VehicleOperatingSystem> 
+	implements CommunicationApplication {...}
 ```
 
 In general, every vehicle application will extend the `AbstractApplication` abstract class with the
@@ -162,7 +169,7 @@ to be able to receive and handle V2X messages.
 
 During the initialization procedure of communicating applications,
 the communication modules (WLANModule or CellModule) need to be activated. For example, activating the 
-WLAN module can be achieved with the following code snipped:
+WLAN module can be achieved with the following code snippet:
 
 ```java
 @Override
@@ -234,7 +241,6 @@ public void onStartup() {
             .channel(AdHocChannel.CCH)
             .power(50)
             .create());
-
     getLog().infoSimTime(this, "Activated WLAN Module");
     sample();
 }
@@ -252,6 +258,11 @@ public void sample() {
     getOs().getEventManager().addEvent(getOs().getSimulationTime() + TIME_INTERVAL, this);
     getLog().infoSimTime(this, "Sending out AdHoc broadcast");
     sendAdHocBroadcast();
+}
+
+@Override
+public void processEvent(Event event) throws Exception {
+    sample();
 }
 ```
 
@@ -290,7 +301,8 @@ messages from a vehicle instead of a RSU.
 
 This part of the tutorial describes the steps necessary for letting two applications to communicate
 with each other on the same vehicle.  Here, we use the `EventSendingApp` application as the sender
-and `EventProcessingApp` as the receiver.
+and `EventProcessingApp` as the receiver. 
+The `EventSendingApp` will schedule events that reach all other applications on the same vehicle.
 In general, the approach is similar to the sending of a V2X message and also makes use of the event system.
 
 #### Message sending
@@ -302,11 +314,6 @@ First, we start off with the sending side. The event code should look familiar:
 public void onVehicleUpdated(@Nullable VehicleData previousVehicleData, @Nonnull VehicleData updatedVehicleData) {
     final List<? extends Application> applications = getOs().getApplications();
     final IntraVehicleMsg message = new IntraVehicleMsg(getOs().getId(), getRandom().nextInt(0, MAX_ID));
-
-    // Example usage for how to detect sensor readings
-    if (getOs().getStateOfEnvironmentSensor(SensorType.OBSTACLE) > 0) {
-        getLog().infoSimTime(this, "Reading sensor");
-    }
 
     for (Application application : applications) {
         final Event event = new Event(getOs().getSimulationTime() + 10, application, message);
@@ -374,7 +381,7 @@ mosaic.bat -s Tiergarten
 
 Afterwards, in the log directory of `Eclipse MOSAIC` a new folder should be created containing all log files of
 the simulation run. Within, the sub-folder `apps` contains the log files for each simulation unit and its application. 
-For example, for the vehicles we end up with two log files: `EventSendingApp.log` and `EventProcessingApp.log`.
+For example, for the normal vehicles we end up with three log files: `MessageReceivingApp.log`, `EventSendingApp.log` and `EventProcessingApp.log`.
 
 This following snippet shows the receiving of the V2X messages that were sent by the RSU:
 

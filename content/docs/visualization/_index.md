@@ -42,7 +42,7 @@ more details see the file `Barnim/output/output_config.xml`.
 
 As soon, as the simulation is
 running, you should see vehicle markers moving around and indicating if they are sending V2X messages
-(green) or receiving V2X message (red).
+(red) or receiving V2X message (green).
 
 The status bar at the bottom of the page indicates the current connection/simulation state. There are
 four possible states:

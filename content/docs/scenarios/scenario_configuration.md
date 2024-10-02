@@ -35,7 +35,7 @@ configurations for various simulators.
 As a starting point we'll look at the scenario that we created using this command:
 ```
 scenario-convert.sh --osm2mosaic -i steglitz.osm --generate-routes
---route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --number-of-routes 3
+--route-begin-latlon 52.4551693,13.3193474 --route-end-latlon 52.4643101,13.3206834 --max-number-of-routes 3
 ```
 We'll end up with a folder looking like this:
 

@@ -23,7 +23,7 @@ used in the Barnim scenario. In this section, the actual source code used to cre
 After completing this tutorial you will be able to:
 
 * Develop Applications for simulation entities.
-* Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geocbroadcast, etc.). 
+* Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geobroadcast, etc.). 
 * Calculate alternative routes to the destination to circumnavigate a road obstacle.
 {{% /alert %}}
 
@@ -85,7 +85,7 @@ private final static float SPEED = 25 / 3.6f;
 ```
 
 During the initialization procedure of communicating applications, the communication module (CellModule) needs to be 
-activated. This is achieved in the `onStartup()`-method. The following code snipped shows the activating the 
+activated. This is achieved in the `onStartup()`-method. The following code snippet shows the activating the 
 CellModule as communication mode:
 
 ```java

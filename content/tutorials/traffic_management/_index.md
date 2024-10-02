@@ -93,7 +93,7 @@ In the mapping_config.json of the scenario, a traffic management center can be e
 ```
 
 Each TMC retrieves a name (e.g. for logging purposes). Secondly, a list of applications can be mapped onto the TMC. Those applications have to implement a specific interface (see next section).Furthermore, a list of induction loops is given, whose values the TMC applications will retrieve during the simulation.
-The ids given heremust refer to e1Detectors of the SUMO scenario. The same applies for the list of lane area detectors, provided by the list laneAreas.
+The ids given here must refer to e1Detectors of the SUMO scenario. The same applies for the list of lane area detectors, provided by the list laneAreas.
 
 ## Traffic Management Center Applications
 
