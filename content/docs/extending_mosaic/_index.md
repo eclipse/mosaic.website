@@ -50,8 +50,8 @@ Good to know:
 - When changing any pom.xml you need to: `Rightclick on root-module > Maven > Reload project`
 - When making changes to `runtime.json | logback.xml | hosts.json` you need to re-run `mvn validate`, in order to copy them into the target folder.
 
-{{< figure src="../images/open-project.png" title="Open the project" numbered="true" width="300">}}
-{{< figure src="../images/run.png" title="Run MosaicStarter" numbered="true" width="400" >}}
+{{< figure src="images/open-project.png" title="Open the project" numbered="true" width="300">}}
+{{< figure src="images/run.png" title="Run MosaicStarter" numbered="true" width="400" >}}
 
 ### File locations
 

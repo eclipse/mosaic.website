@@ -23,7 +23,7 @@ to invoke operations on the federate implementation, a federate ambassador is us
 ambassador implements the same interface that is used by Eclipse MOSAIC to control the simulator and to
 provide interactions from other federates.
 
-{{< figure src="images/common-architecture.jpeg" title="Schematic illustration of Eclipse MOSAIC Runtime Infrastructure" numbered="true" >}}
+{{< figure src="../images/common-architecture.jpeg" title="Schematic illustration of Eclipse MOSAIC Runtime Infrastructure" numbered="true" >}}
 
 ---
 
