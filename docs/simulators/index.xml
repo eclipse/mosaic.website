@@ -2094,36 +2094,30 @@ wireless networks and more. In connection with Eclipse MOSAIC, especially the IE
 &lt;p&gt;For more information on how to set up ns-3 with Eclipse MOSAIC, please just refer to the following section. We
 prepared an installation script, which manages most of the required work.&lt;/p&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
-&lt;p&gt;For GNU/Linux platforms, the minimal requirements to run basic simulations are a &lt;strong&gt;gcc&lt;/strong&gt; or &lt;strong&gt;clang&lt;/strong&gt; compiler
-and a &lt;strong&gt;Python&lt;/strong&gt; interpreter. At least you need the following packages to be installed:&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Minimum requirement:&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;gcc
-g++
-cmake
-python3
+&lt;p&gt;For &lt;strong&gt;ns3&lt;/strong&gt; on GNU/Linux platforms, the requirements to run basic simulations are a gcc or clang compiler and a Python interpreter.
+For a complete list of required packages for different distributions, please refer to the ns-3 installation guide:
+&lt;a href=&#34;https://www.nsnam.org/wiki/Installation&#34; target=&#34;_blank&#34;&gt;https://www.nsnam.org/wiki/Installation&lt;/a&gt;.
+You most probably need the following packages to be installed:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;gcc 
+g++ 
+cmake 
+python3 
 python3-dev
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For a complete list of required packages for different distributions, please refer to the ns-3 installation
-guide: &lt;a href=&#34;https://www.nsnam.org/wiki/Installation&#34; target=&#34;_blank&#34;&gt;https://www.nsnam.org/wiki/Installation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Please make also sure the following libraries are installed before running the installation script:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;libxml2&lt;/li&gt;
-&lt;li&gt;libsqlite3&lt;/li&gt;
-&lt;li&gt;libprotobuf 3.3.0&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;For the &lt;strong&gt;ns3 installation script&lt;/strong&gt;
+please make sure the following programs and libraries are installed:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;protobuf-compiler
+libxml2-dev
+libsqlite3-dev
+libprotobuf-dev&amp;gt;=3.3.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Watch out that the protobuf-compiler and libprotobuf-dev versions have to match.&lt;/p&gt;
 &lt;h3 id=&#34;run-the-installation-script&#34;&gt;Run the installation script&lt;/h3&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;ns-3 requires several packages to be installed on your computer. You will
 need to ensure, that all required libraries are present on your system before proceeding. You
 may need superuser permissions to install packages.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-&lt;p&gt;If your local ClientServerChannel protocol version (protobuf files) does not fit the required one, the installation
-may fail with an error. In that case, you can run the install script with the &lt;code&gt;-p&lt;/code&gt; flag. This will
-rebuild the protobuf files during installation and allow it to proceed correctly.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;To ease the installation of ns-3 for Eclipse MOSAIC, the installation process has been delegated to an installation
@@ -2139,7 +2133,9 @@ script, called &lt;code&gt;ns3_installer.sh&lt;/code&gt; that can be found in th
 &lt;li&gt;Download the ns-3 federate for Eclipse MOSAIC.&lt;/li&gt;
 &lt;li&gt;Apply a patch to ns-3 in order to make it work with Eclipse MOSAIC.&lt;/li&gt;
 &lt;li&gt;Add the ns-3 federate to the waf build system.&lt;/li&gt;
-&lt;li&gt;Configure and build the patched ns-3 with the ns-3 federate.&lt;/li&gt;
+&lt;li&gt;Configure and build the patched ns-3 with the ns-3 federate.
+(Watch out that premake will throw &lt;code&gt;fatal error: ns3/application.h: No such file or directory&lt;/code&gt; but the installation is successful
+anyways.)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;In order to start the simulation, the following steps need to be performed:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -2169,7 +2165,7 @@ script, called &lt;code&gt;ns3_installer.sh&lt;/code&gt; that can be found in th
   
 
 &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/#configuration&#34;&gt;Configuration&lt;/a&gt;). An example &lt;code&gt;ns3_federate_config.xml&lt;/code&gt; - file is shipped with the Tiergarten scenario.&lt;/li&gt;
-&lt;li&gt;At last ns-3 has to be activated in the &lt;code&gt;mosaic_config.xml&lt;/code&gt; and the simulation can be started.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t forget to enable ns-3 in the &lt;code&gt;scenario_config.json&lt;/code&gt; of your specific scenario, and the simulation can be started.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -2202,6 +2198,15 @@ Read
 &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_setup/&#34;&gt;here&lt;/a&gt; for futher information on how to set up a development environment for the ns-3 federate&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;h3 id=&#34;use-ns-3-federate-on-windows-with-wsl&#34;&gt;Use NS-3 federate on Windows with WSL&lt;/h3&gt;
+&lt;p&gt;WSL, or &amp;ldquo;Windows Subsystem for Linux&amp;rdquo;, provides an environment for Windows users to run Linux based applications. With WSL, it is possible
+to use the ns-3 federate, which is currently only compatible with Linux systems, in a Windows environment.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If not yet done, setup a WSL environment with a Ubuntu distribution. This environment must be the default WSL environment.&lt;/li&gt;
+&lt;li&gt;Install the prerequisites like described above.&lt;/li&gt;
+&lt;li&gt;In Windows, open the terminal in the &lt;code&gt;bin/fed/ns3&lt;/code&gt; directory of your MOSAIC installation.&lt;/li&gt;
+&lt;li&gt;Call &lt;code&gt;wsl.exe ./ns3_installer.sh&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;installation-in-docker-environment&#34;&gt;Installation in Docker environment&lt;/h3&gt;
 &lt;p&gt;This guide gives instructions to execute the ns-3 federate inside a docker container. If you already installed
 ns-3 on your machine following the steps before, you can skip this section.&lt;/p&gt;
@@ -2219,10 +2224,11 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Switch to the location of the Dockerfile in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Execute the following command on command line:&lt;br&gt;
-&lt;code&gt;docker build -t ns3-federate&lt;/code&gt; .
+&lt;li&gt;Execute the following command on command line: &lt;code&gt;docker build -t ns3-federate .&lt;/code&gt;&lt;br&gt;
 This could take a while to finish.&lt;/li&gt;
-&lt;li&gt;Enter the name of the docker image &lt;code&gt;etc/runtime.json&lt;/code&gt; in the &lt;code&gt;ns3&lt;/code&gt;-section into the property &lt;code&gt;dockerImage&lt;/code&gt;:&lt;/li&gt;
+&lt;li&gt;Enter the name of the docker image &lt;code&gt;etc/runtime.json&lt;/code&gt; in the &lt;code&gt;ns3&lt;/code&gt;-section into the property &lt;code&gt;dockerImage&lt;/code&gt;. Eclipse MOSAIC will then
+start the docker container for you. If you try to run the docker container independently it will fail on startup, because the
+configuration files in the folder &lt;code&gt;scratch&lt;/code&gt; are missing.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;federates&amp;quot;: [
    ...

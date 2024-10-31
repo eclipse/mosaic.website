@@ -1060,6 +1060,7 @@
         <li><a href="#from-the-command-line-interface">From the Command-Line-Interface</a></li>
         <li><a href="#use-intellij-idea">Use IntelliJ IDEA</a></li>
         <li><a href="#file-locations">File locations</a></li>
+        <li><a href="#combine-mosaic-windows-intellij-ide-with-ns3-wsl">Combine Mosaic (Windows IntelliJ IDE) with ns3 (WSL)</a></li>
       </ul>
     </li>
   </ul>
@@ -1147,7 +1148,7 @@ This is only relevant if you want to implement changes to MOSAIC itself. If you 
 
 <a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">Apache Maven</a>.</p>
 <h3 id="get-the-code">Get the code</h3>
-<p>Please find the MOSAIC code in the Github repository 
+<p>Please find the MOSAIC code in the GitHub repository 
 
 
 
@@ -1167,24 +1168,23 @@ mvn clean install
 <p>The entry class <code>MosaicStarter</code> has a lot of dependencies which need to be referenced during startup, so we recommend that you use the package functionality of maven and then run the bundle. Everything else would be overly complicated. Also, we don&rsquo;t build &ldquo;fat jars&rdquo; so you won&rsquo;t be able to run any jar directly. The following is almost the same procedure as presented in the non-developer guides, just that you build the bundle locally.</p>
 <ul>
 <li>Run <code>mvn clean install</code></li>
-<li>Unzip one of the <code>bundle/target/eclipse-mosaic-24.1-SNAPSHOT.*</code> archives to a destination of your choice</li>
+<li>Unzip one of the <code>bundle/target/eclipse-mosaic-25.0-SNAPSHOT.zip/tar</code> archives to a destination of your choice</li>
 <li>Run the <code>mosaic.sh/bat</code> files, which will do all the magic for you (have a look inside if you ask yourself if there&rsquo;s a more direct way to start from console).</li>
 </ul>
 <h3 id="use-intellij-idea">Use IntelliJ IDEA</h3>
 <ul>
-<li>Start IntelliJ IDEA and choose <code>Open or Import</code> (see figure 1).</li>
+<li>Start IntelliJ IDEA and choose <code>Open or Import</code> (see Figure 1).</li>
 <li>Choose the cloned <code>eclipse-mosaic</code> repository</li>
 <li>For IntelliJ there&rsquo;s already a 
 
 
 
 
-<a href="https://github.com/eclipse/mosaic/blob/main/rti/mosaic-starter/MosaicStarter.run.xml" target="_blank" rel="noopener">pre-defined run configuration</a> in the repo which should work right away when you run it (see figure 2).</li>
+<a href="https://github.com/eclipse/mosaic/blob/main/rti/mosaic-starter/MosaicStarter.run.xml" target="_blank" rel="noopener">pre-defined run configuration</a> in the repo which should work right away when you run it (see Figure 2).</li>
 </ul>
 <p>Good to know:</p>
 <ul>
-<li>When changing any pom.xml you need to: <code>Rightclick on root-module &gt; Maven &gt; Reload project</code></li>
-<li>When making changes to <code>runtime.json | logback.xml | hosts.json</code> you need to re-run <code>mvn validate</code>, in order to copy them into the target folder.</li>
+<li>When changing any <code>pom.xml</code> you need to: <code>Rightclick on root-module &gt; Maven &gt; Reload project</code></li>
 </ul>
 <p>
 
@@ -1270,7 +1270,7 @@ mvn clean install
 </tr>
 <tr>
 <td style="text-align:left"><code>&lt;mosaic-root&gt;/etc</code></td>
-<td style="text-align:left"><code>&lt;mosaic-root&gt;/rti/mosaic-starter/target/classes/etc</code></td>
+<td style="text-align:left"><code>&lt;mosaic-root&gt;/rti/mosaic-starter/etc</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>&lt;mosaic-root&gt;/logs</code></td>
@@ -1278,6 +1278,13 @@ mvn clean install
 </tr>
 </tbody>
 </table>
+<h3 id="combine-mosaic-windows-intellij-ide-with-ns3-wsl">Combine Mosaic (Windows IntelliJ IDE) with ns3 (WSL)</h3>
+<ul>
+<li>In your WSL environment, download the <code>eclipse-mosaic-25.0-SNAPSHOT.zip/tar</code> and install ns-3 and federate (
+using <code>ns3_installer.sh</code>).</li>
+<li>Copy the resulting <code>bin</code> folder (with the fully compiled ns3) into the <code>eclipse-mosaic/rti/mosaic-starter</code> folder</li>
+<li>Now it should behave as if you run everything from WSL</li>
+</ul>
 
           </div>
 
@@ -1735,7 +1742,7 @@ mvn clean install
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 2 Oct 2024, 13:40 UTC
+      Website built on 31 Oct 2024, 14:50 UTC
     </p>
     
   </div>
