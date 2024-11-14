@@ -5,12 +5,74 @@
     <link>https://www.eclipse.dev/mosaic/tutorials/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/tutorials/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC Tutorials</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 30 Oct 2024 09:48:20 +0100</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC Tutorials</title>
       <link>https://www.eclipse.dev/mosaic/tutorials/</link>
     </image>
+    
+    <item>
+      <title>Workshop Setup - Link Collection</title>
+      <link>https://www.eclipse.dev/mosaic/tutorials/workshop-setup/</link>
+      <pubDate>Wed, 30 Oct 2024 09:48:20 +0100</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/tutorials/workshop-setup/</guid>
+      <description>&lt;h2 id=&#34;download-links&#34;&gt;Download Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://adoptium.net/de/temurin/releases?version=11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java 11&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maven version 3.9.9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://download.jetbrains.com/idea/ideaIC-2024.2.4.exe&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IntelliJ (Community Edition)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://eclipse.dev/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse SUMO&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://sumo.dlr.de/releases/1.20.0/sumo-win64-1.20.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://sumo.dlr.de/docs/Downloads.php#macos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MacOS Installer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse/mosaic/archive/refs/tags/24.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 24.1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 24.1)&lt;/a&gt; (User licence required)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

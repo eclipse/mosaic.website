@@ -520,6 +520,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
       </li>
 
@@ -666,6 +688,28 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
         </li>
 
         
@@ -1169,8 +1213,8 @@ For more information on the <strong>INET</strong> extension you should look clos
 </tbody>
 </table>
 <h2 id="installation">Installation</h2>
-<p>While we recommend GNU/Linux platforms for installing OMNeT++, the official project provides an Windows installation based on mingw.</p>
-<p>Beside mingw for Windows you might consider</p>
+<p>The official project provides an Windows installation based on mingw, but we don&rsquo;t support this in our setup.</p>
+<p>If you use Windows, please consider</p>
 <ul>
 <li>the installation in 
 
@@ -1187,8 +1231,7 @@ For more information on the <strong>INET</strong> extension you should look clos
 
 
 
-<a href="https://docs.microsoft.com/windows/wsl/" target="_blank" rel="noopener">Windows Subsystem for Linux</a></li>
-<li>the installation of Linux in a virtual machine environment, such as
+<a href="https://docs.microsoft.com/windows/wsl/" target="_blank" rel="noopener">Windows Subsystem for Linux</a> or the installation of Linux in a virtual machine environment, such as
 <a href="https://www.vmware.com/products/workstation-player.html" target="_blank">VMware</a> or <a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a>.</li>
 </ul>
 <p>We prepared an installation script, which manages most of the required work. The script provides two installation types
@@ -1226,7 +1269,7 @@ the following options are possible:</p>
   
 
 <a href="#installation-for-developers">DEVELOPER</a><br>(installation script)</td>
-<td style="text-align:left">The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that <strong>OMNeT++ 5.5.1</strong> and <strong>INET 4.1.1</strong> are already installed on your system and<br>- <code>PATH</code> contains <code>/path/to/omnetpp/bin</code><br>- <code>LD_LIBRARY_PATH</code> contains <code>/path/to/omnetpp/lib</code> and <code>/path/to/inet/src</code><br>- <code>C_INCLUDE_PATH</code> contains <code>/path/to/omnetpp/include</code> and <code>/path/to/inet/src</code></td>
+<td style="text-align:left">The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that <strong>OMNeT++ 5.5.1</strong> is already installed on your system and<br>- <code>PATH</code> contains <code>/path/to/omnetpp/bin</code><br>- <code>LD_LIBRARY_PATH</code> contains <code>/path/to/omnetpp/lib</code></td>
 </tr>
 <tr>
 <td style="text-align:left">
@@ -1431,7 +1474,7 @@ to avoid multiple installations of <strong>OMNeT++</strong> and <strong>INET</st
 <p>Run the installation script (this takes a few minutes):</p>
 <pre><code class="language-bash">cd &lt;mosaic&gt;/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
@@ -1440,14 +1483,25 @@ chmod +x omnet_installer.sh`
 <p>The parameters <code>--omnetpp</code>, <code>--inet</code>, and <code>--federate</code> are optional. If not given, the respective source code package will be downloaded by the installation script.<br>
 The installation script should terminate with <code>SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.</code> otherwise the installation failed.</p>
 <h3 id="installation-for-developers">Installation for Developers</h3>
+<p>Install OMNeT++ and add the correct paths:</p>
+<pre><code class="language-bash">cd ~
+tar xvfz omnetpp-5.5.1-src-linux.tgz
+cd omnetpp-5.5.1
+source setenv
+vim ~/.bashrc
+    # export PATH=$HOME/omnetpp-5.5.1/bin:$PATH
+    # export LD_LIBRARY_PATH=$HOME/omnetpp-5.5.1/lib
+./configure WITH_TKENV=no WITH_QTENV=no WITH_OSG=no  WITH_OSGEARTH=no WITH_PARSIM=no
+make
+</code></pre>
 <p>Run the installation script (this takes a few minutes):</p>
 <pre><code class="language-bash">cd &lt;mosaic&gt;/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type DEVELOPER \
     --federate /path/to/omnetpp-federate-24.1.zip
 </code></pre>
-<p>For the installation type <code>DEVELOPER</code> the parameter <code>-f</code> is required. The installation script should terminate with <code>SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.</code> otherwise the installation failed.</p>
+<p>The installation script should terminate with <code>SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.</code> otherwise the installation failed.</p>
 <p>Please continue reading 
 
 
@@ -1919,7 +1973,7 @@ of the <code>omnetpp.ini</code> file.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 31 Oct 2024, 14:50 UTC
+      Website built on 14 Nov 2024, 09:11 UTC
     </p>
     
   </div>

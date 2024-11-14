@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 30 Oct 2024 09:48:20 +0100</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -4721,8 +4721,8 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;p&gt;While we recommend GNU/Linux platforms for installing OMNeT++, the official project provides an Windows installation based on mingw.&lt;/p&gt;
-&lt;p&gt;Beside mingw for Windows you might consider&lt;/p&gt;
+&lt;p&gt;The official project provides an Windows installation based on mingw, but we don&amp;rsquo;t support this in our setup.&lt;/p&gt;
+&lt;p&gt;If you use Windows, please consider&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;the installation in 
 
@@ -4739,8 +4739,7 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
 
 
 
-&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Subsystem for Linux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;the installation of Linux in a virtual machine environment, such as
+&lt;a href=&#34;https://docs.microsoft.com/windows/wsl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Subsystem for Linux&lt;/a&gt; or the installation of Linux in a virtual machine environment, such as
 &lt;a href=&#34;https://www.vmware.com/products/workstation-player.html&#34; target=&#34;_blank&#34;&gt;VMware&lt;/a&gt; or &lt;a href=&#34;https://www.virtualbox.org/&#34; target=&#34;_blank&#34;&gt;VirtualBox&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We prepared an installation script, which manages most of the required work. The script provides two installation types
@@ -4778,7 +4777,7 @@ the following options are possible:&lt;/p&gt;
   
 
 &lt;a href=&#34;#installation-for-developers&#34;&gt;DEVELOPER&lt;/a&gt;&lt;br&gt;(installation script)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.&lt;br&gt;&lt;br&gt;This installation type awaits that &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; are already installed on your system and&lt;br&gt;- &lt;code&gt;PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/bin&lt;/code&gt;&lt;br&gt;- &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/lib&lt;/code&gt; and &lt;code&gt;/path/to/inet/src&lt;/code&gt;&lt;br&gt;- &lt;code&gt;C_INCLUDE_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/include&lt;/code&gt; and &lt;code&gt;/path/to/inet/src&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.&lt;br&gt;&lt;br&gt;This installation type awaits that &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; is already installed on your system and&lt;br&gt;- &lt;code&gt;PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/bin&lt;/code&gt;&lt;br&gt;- &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/lib&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
@@ -4983,7 +4982,7 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;p&gt;Run the installation script (this takes a few minutes):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd &amp;lt;mosaic&amp;gt;/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
@@ -4992,14 +4991,25 @@ chmod +x omnet_installer.sh`
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;h3 id=&#34;installation-for-developers&#34;&gt;Installation for Developers&lt;/h3&gt;
+&lt;p&gt;Install OMNeT++ and add the correct paths:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~
+tar xvfz omnetpp-5.5.1-src-linux.tgz
+cd omnetpp-5.5.1
+source setenv
+vim ~/.bashrc
+    # export PATH=$HOME/omnetpp-5.5.1/bin:$PATH
+    # export LD_LIBRARY_PATH=$HOME/omnetpp-5.5.1/lib
+./configure WITH_TKENV=no WITH_QTENV=no WITH_OSG=no  WITH_OSGEARTH=no WITH_PARSIM=no
+make
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Run the installation script (this takes a few minutes):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd &amp;lt;mosaic&amp;gt;/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type DEVELOPER \
     --federate /path/to/omnetpp-federate-24.1.zip
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the installation type &lt;code&gt;DEVELOPER&lt;/code&gt; the parameter &lt;code&gt;-f&lt;/code&gt; is required. The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
+&lt;p&gt;The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
 
 
@@ -10611,6 +10621,68 @@ modeling of charging stations, without the need of being super accurate with the
     </item>
     
     <item>
+      <title>Workshop Setup - Link Collection</title>
+      <link>https://www.eclipse.dev/mosaic/tutorials/workshop-setup/</link>
+      <pubDate>Wed, 30 Oct 2024 09:48:20 +0100</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/tutorials/workshop-setup/</guid>
+      <description>&lt;h2 id=&#34;download-links&#34;&gt;Download Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://adoptium.net/de/temurin/releases?version=11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java 11&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maven version 3.9.9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://download.jetbrains.com/idea/ideaIC-2024.2.4.exe&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IntelliJ (Community Edition)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://eclipse.dev/sumo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse SUMO&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://sumo.dlr.de/releases/1.20.0/sumo-win64-1.20.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://sumo.dlr.de/docs/Downloads.php#macos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MacOS Installer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse/mosaic/archive/refs/tags/24.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 24.1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 24.1)&lt;/a&gt; (User licence required)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2024 Autumn Release of Eclipse MOSAIC</title>
       <link>https://www.eclipse.dev/mosaic/post/release-24-1/</link>
       <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
@@ -13465,6 +13537,14 @@ agreement no 723016.&lt;/p&gt;
       <link>https://www.eclipse.dev/mosaic/about/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://www.eclipse.dev/mosaic/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Commercial</title>
+      <link>https://www.eclipse.dev/mosaic/commercial/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/commercial/</guid>
       <description></description>
     </item>
     
