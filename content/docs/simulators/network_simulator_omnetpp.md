@@ -29,12 +29,11 @@ For more information on the **INET** extension you should look closer on the [we
 
 ## Installation
 
-While we recommend GNU/Linux platforms for installing OMNeT++, the official project provides an Windows installation based on mingw.
+The official project provides an Windows installation based on mingw, but we don't support this in our setup. 
 
-Beside mingw for Windows you might consider
+If you use Windows, please consider
 - the installation in [Docker environment](#installation-in-docker-environment)
-- the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/)
-- the installation of Linux in a virtual machine environment, such as
+- the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/) or the installation of Linux in a virtual machine environment, such as
   {{< target-blank "VMware" "https://www.vmware.com/products/workstation-player.html" >}} or {{< target-blank "VirtualBox" "https://www.virtualbox.org/" >}}.
 
 We prepared an installation script, which manages most of the required work. The script provides two installation types
@@ -44,7 +43,7 @@ the following options are possible:
 | Type                                                               | Description                     |
 |:------------------------------------------------------------------ |:------------------------------- |
 | [USER](#installation-for-users)<br>(installation script)           | This installation type addresses those who only want to use the **OMNeT++** network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** will automatically be installed inside `<mosaic>/bin/fed/omnetpp` during the installation. |
-| [DEVELOPER](#installation-for-developers)<br>(installation script) | The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** are already installed on your system and<br>- `PATH` contains `/path/to/omnetpp/bin`<br>- `LD_LIBRARY_PATH` contains `/path/to/omnetpp/lib` and `/path/to/inet/src`<br>- `C_INCLUDE_PATH` contains `/path/to/omnetpp/include` and `/path/to/inet/src` |
+| [DEVELOPER](#installation-for-developers)<br>(installation script) | The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.<br><br>This installation type awaits that **OMNeT++ {{< version of="omnetpp" >}}** is already installed on your system and<br>- `PATH` contains `/path/to/omnetpp/bin`<br>- `LD_LIBRARY_PATH` contains `/path/to/omnetpp/lib` |
 | [Docker](#installation-in-docker-environment)                      | This installation type addresses those who only want to use the **OMNeT++** network simulator for simulations.<br>Network configurations can also be adjusted.<br><br>If you install the federate with this installation type, **OMNeT++ {{< version of="omnetpp" >}}** and **INET {{< version of="inet" >}}** will automatically be installed bundled as a Docker image. |
 | manual installation                                                | This type addresses developers. You can install and build everything manually without the use of the installer script. See [Extending MOSAIC OMNeT++ Federate](/docs/extending_mosaic/omnetpp_details) for details on federate build process. |
 
@@ -94,7 +93,7 @@ Run the installation script (this takes a few minutes):
 ```bash
 cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type USER \
     --omnetpp /path/to/omnetpp-{{< version of="omnetpp" >}}-src.tgz \
     --inet /path/to/inet-{{< version of="inet" >}}-src.tgz \
@@ -106,15 +105,29 @@ The installation script should terminate with `SUCESS: The MOSAIC OMNeT++ Federa
 
 ### Installation for Developers
 
+Install OMNeT++ and add the correct paths:
+
+```bash
+cd ~
+tar xvfz omnetpp-5.5.1-src-linux.tgz
+cd omnetpp-5.5.1
+source setenv
+vim ~/.bashrc
+    # export PATH=$HOME/omnetpp-5.5.1/bin:$PATH
+    # export LD_LIBRARY_PATH=$HOME/omnetpp-5.5.1/lib
+./configure WITH_TKENV=no WITH_QTENV=no WITH_OSG=no  WITH_OSGEARTH=no WITH_PARSIM=no
+make
+```
+
 Run the installation script (this takes a few minutes):
 ```bash
 cd <mosaic>/bin/fed/omnetpp
 chmod +x omnet_installer.sh`
-./omnet_install.sh \
+./omnet_installer.sh \
     --installation-type DEVELOPER \
     --federate /path/to/omnetpp-federate-{{< version of="mosaic" >}}.zip
 ```
-For the installation type `DEVELOPER` the parameter `-f` is required. The installation script should terminate with `SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
+The installation script should terminate with `SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.` otherwise the installation failed.
 
 Please continue reading [here](/docs/extending_mosaic/omnetpp_details) for more details on setting up a development environment for the OMNeT++ federate.
 

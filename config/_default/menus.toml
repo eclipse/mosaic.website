@@ -31,9 +31,14 @@
   url = "/download/"
   weight = 50
 [[main]]
+  identifier = "Commercial"
+  name = "Commercial"
+  url = "/commercial/"
+  weight = 60
+[[main]]
   name = "Community"
   url = "/community/"
-  weight = 60
+  weight = 70
 
 
 [[footer]]

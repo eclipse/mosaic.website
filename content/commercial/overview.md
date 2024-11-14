@@ -39,9 +39,13 @@ includes all simulators and tools we think are most valuable for research purpos
 features in our **MOSAIC Extended** version, which includes all open-source elements of Eclipse MOSAIC and additional tools for scenario
 preparation and visualization. For commercial users we even provide additional simulators, such as the vehicle simulation **PHABMACS**.
 
+If you are interested in MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will
+create an individual offer suitable to your needs.
+
+
 |               | *Feature*                                                                     |              {{< img src="/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg" width="220px" >}}               | {{< img src="/img/logos/mosaic/MOSAICExtended-Logo-RGB-positiv.svg" width="220px" >}} |
 |:--------------|:------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:-----------:|
-|               | **License Type**                                                              | Open Source <br> [EPL 2.0](https://www.eclipse.org/legal/epl-2.0/)<br>[**Attribution required**](/publications) | Commercial* |
+|               | **License Type**                                                              | Open Source <br> [EPL 2.0](https://www.eclipse.org/legal/epl-2.0/)<br>[**Attribution required**](/publications) | Commercial |
 |               |                                                                               |                                                                                                                 |             ||| 
 |               | **[Runtime Infrastructure](/docs/extending_mosaic)**                          |                                                      **✓**                                                      |    **✓**    |
 |               | **[Interactions Library](/docs/extending_mosaic/interactions)**               |                                                      **✓**                                                      |    **✓**    |
@@ -68,12 +72,8 @@ preparation and visualization. For commercial users we even provide additional s
 | *Tools*       |                                                                               |                                                                                                                 |             ||| 
 |               | **[Command Line Tool](/docs/getting_started/run_mosaic)**                     |                                                      **✓**                                                      |    **✓**    |
 |               | **Run Federates in Docker**                                                   |                                                      **✓**                                                      |    **✓**    |
-|               | **[scenario-convert](/docs/scenarios/scenario_convert)**                      |                                                      (✓)**                                                      |    **✓**    |
+|               | **[scenario-convert](/docs/scenarios/scenario_convert)**                      |                                                      (✓)*                                                     |    **✓**    |
 |               | **[Simulation Runner](docs/scenarios/run_simulation_series)**                 |                                                        -                                                        |    **✓**    |
 |               | **TrafficGen**                                                                |                                                        -                                                        |    **✓**    |
 
-*) For the commercial version of MOSAIC Extended please leave us a message at mosaic@fokus.fraunhofer.de and we will
-create an individual offer suitable to your needs.
-
-**) **scenario-convert** is not part of the open-source version of Eclipse MOSAIC, but can be freely used and downloaded
-from the link on top.
+*) **scenario-convert** is not part of the open-source version of Eclipse MOSAIC, but can be freely used.
