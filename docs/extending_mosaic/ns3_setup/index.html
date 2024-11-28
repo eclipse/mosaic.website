@@ -11,7 +11,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; base-uri 'self'; default-src 'none'; object-src 'none'; script-src 'nonce-KXcrrbs2FNwjCH2Yg398FNAOBC1dYrGz' 'self' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://www.barrierefrei-navigieren.de https://barrierefrei-navigieren.de https://code.jquery.com https://cdn.jsdelivr.net https://polyfill.io https://maps.google.com https://cse.google.com https://*.googleapis.com https://cse.google.com https://eclipse.dev https://www.eclipse.dev ; worker-src 'nonce-KXcrrbs2FNwjCH2Yg398FNAOBC1dYrGz' 'self' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://www.barrierefrei-navigieren.de https://barrierefrei-navigieren.de https://code.jquery.com https://cdn.jsdelivr.net https://polyfill.io https://maps.google.com https://cse.google.com https://*.googleapis.com https://cse.google.com https://eclipse.dev https://www.eclipse.dev ; style-src 'self' 'unsafe-inline' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://*.googleapis.com https://*.jquery.com https://cdn.jsdelivr.net https://eclipse.dev https://www.eclipse.dev ; img-src 'self' data: https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://*.googleapis.com https://eclipse.dev https://www.eclipse.dev ; media-src 'self' data: https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://*.googleapis.com https://eclipse.dev https://www.eclipse.dev ; font-src 'self' data: https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://*.googleapis.com https://eclipse.dev https://www.eclipse.dev ; child-src https://*.dcaiti.tu-berlin.de https://*.dcaiti.com https://dcaiti.com https://cse.google.com ; connect-src https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de ; frame-ancestors 'self'; manifest-src 'nonce-KXcrrbs2FNwjCH2Yg398FNAOBC1dYrGz' 'self' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://*.googleapis.com https://cse.google.com https://play.google.com">
+  <meta http-equiv="Content-Security-Policy" content="
+    upgrade-insecure-requests;
+    base-uri        'self';
+    default-src     'none';
+    object-src      'none';
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    frame-ancestors 'self';
+    ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
 
   
@@ -1755,7 +1770,7 @@ You should be familiar with VS Code&rsquo;s basic usage.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 28 Nov 2024, 15:16 UTC
+      Website built on 28 Nov 2024, 15:32 UTC
     </p>
     
   </div>
