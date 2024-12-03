@@ -9,7 +9,6 @@ kind: Pod
 spec:
   containers:
     - name: "jnlp"
-      image: "eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092"
       volumeMounts:
       - name: "volume-known-hosts"
         mountPath: /home/jenkins/.ssh
