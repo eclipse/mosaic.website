@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -511,6 +511,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -679,6 +701,28 @@
 
         <li class="nav-item">
           <a class="nav-link  active" href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -1055,8 +1099,8 @@ As a coarse overview, the
 are received and written to the log file by the <code>MessageReceivingApp</code> application.</p>
 <h3 id="receiving-the-v2x-messages">Receiving the V2X messages</h3>
 <p>First, we start
-off with the class definition of the <code>MessageReceivingApp</code>, which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
-to get the communication working.</p>
+off with the class definition of the <code>MessageReceivingApp</code>, which is mapped onto the vehicles,
+and then we will run through the methods we have to implement in order to get the communication working.</p>
 <h4 id="class-definition">Class definition</h4>
 <pre><code class="language-java">public class MessageReceivingApp extends AbstractApplication&lt;VehicleOperatingSystem&gt; 
 	implements CommunicationApplication {...}
@@ -1217,7 +1261,12 @@ tutorial, the <code>this</code> reference is sufficient here. After we created t
 <p>After we made sure the method that does the actual sending of the message is called at the specified interval, we take a
 closer look at the <code>sendAdHocBroadcast()</code> method we defined in the <code>TiergartenRSU</code> class:</p>
 <pre><code class="language-java">private void sendAdHocBroadcast() {
-    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting().viaChannel(AdHocChannel.CCH).topoBroadCast();
+    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting()
+            .channel(AdHocChannel.CCH)
+            .broadcast()
+            .topological()
+            .singlehop()
+            .build();
     final InterVehicleMsg message = new InterVehicleMsg(routing, getOs().getPosition());
     getOs().getAdHocModule().sendV2xMessage(message);
 }
@@ -1226,8 +1275,9 @@ closer look at the <code>sendAdHocBroadcast()</code> method we defined in the <c
 <ul>
 <li>Firstly, a routing description has to be created, which defines the communication type, the source and destination for
 the message, and additional properties like the maximum number of hops and the communication channel. In this specific case,
-<code>topoBroadcast(AdHocChannel.CCH)</code> creates a message routing which includes the IP address of the <em>RSU</em> as the source,
-the broadcast address as the destination, and a communication path using the present ad-hoc topology with only one hop.</li>
+the <code>AdHocMessageRoutingBuilder</code> creates a message routing which includes the IP address of the <em>RSU</em> as the source,
+the broadcast address as the destination (<code>.broadcast()</code>), and a communication path using the present ad-hoc topology (<code>.topological()</code>)
+with only one hop (<code>.singlehop()</code>).</li>
 <li>Secondly, the message to be send is created. The previously created message routing description is passed to this
 custom <em>V2X</em> message.</li>
 <li>Finally, the message is send using the ad-hoc module of the <em>RSU</em>.</li>
@@ -1304,7 +1354,8 @@ executing the simulation using the following command:</p>
 </code></pre>
 <p>Afterwards, in the log directory of <code>Eclipse MOSAIC</code> a new folder should be created containing all log files of
 the simulation run. Within, the sub-folder <code>apps</code> contains the log files for each simulation unit and its application.
-For example, for the normal vehicles we end up with three log files: <code>MessageReceivingApp.log</code>, <code>EventSendingApp.log</code> and <code>EventProcessingApp.log</code>.</p>
+For example, for the normal vehicles we end up with three log files: <code>MessageReceivingApp.log</code>, <code>EventSendingApp.log</code>
+and <code>EventProcessingApp.log</code>.</p>
 <p>This following snippet shows the receiving of the V2X messages that were sent by the RSU:</p>
 <pre><code>INFO  - Initialize application (at simulation time 6.000,000,000 s)
 INFO  - Activated AdHoc Module (at simulation time 6.000,000,000 s)
@@ -1391,6 +1442,8 @@ following list sums up the things we have covered in this tutorial:</p>
     </div>
   </div>
 
+
+  
 
 </div>
 
@@ -1583,6 +1636,22 @@ following list sums up the things we have covered in this tutorial:</p>
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -1858,7 +1927,7 @@ following list sums up the things we have covered in this tutorial:</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

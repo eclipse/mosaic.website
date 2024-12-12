@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -516,6 +516,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -684,6 +706,28 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -963,7 +1007,11 @@
         </li>
         
         <li >
-          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+          <a href="/mosaic/docs/develop_applications/communication-ad-hoc/">Communication - Ad-Hoc</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication-cell/">Communication - Cell</a>
         </li>
         
         <li >
@@ -1175,7 +1223,7 @@
 <li>Once a vehicle has been added to the simulation, all its configured applications are initialized (<code>onStartup()</code> is called)</li>
 <li>The data of the vehicle has changed, e.g. after the traffic simulator has finished one simulationstep (<code>onVehicleUpdated()</code> is called).</li>
 <li>A unit has received a V2X message from another entity (<code>onMessageReceived</code> is called).</li>
-<li>A unit which has send a V2X message via a ITS-G5 topocast receives an acknowledgement (<code>onAcknowledgementReceived()</code> is called).</li>
+<li>A unit which has sent a V2X message via a topologically-scoped ITS-G5 unicast receives an acknowledgement (<code>onAcknowledgementReceived()</code> is called).</li>
 </ul>
 <p>Another example:</p>
 
@@ -1342,6 +1390,22 @@ public void mySpecificMethod(Event event) {
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -1617,7 +1681,7 @@ public void mySpecificMethod(Event event) {
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
   </div>

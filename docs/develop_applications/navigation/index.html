@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -52,7 +52,7 @@
   
     
   
-  <meta name="description" content="The navigation of vehicles (i.e. calculation of routes) is handled completely by the Application Simulator. Each vehicle is equipped with a navigation system which provides all required information and functions for navigational purposes:">
+  <meta name="description" content="The navigation of vehicles (i.e. calculation of routes) is handled completely by the Application Simulator. Each vehicle is equipped with a NavigationModule which provides all required information and functions for navigational purposes:">
 
   
   <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/develop_applications/navigation/">
@@ -305,7 +305,7 @@
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/develop_applications/navigation/">
   <meta property="og:title" content="Navigation in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content="The navigation of vehicles (i.e. calculation of routes) is handled completely by the Application Simulator. Each vehicle is equipped with a navigation system which provides all required information and functions for navigational purposes:"><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="og:description" content="The navigation of vehicles (i.e. calculation of routes) is handled completely by the Application Simulator. Each vehicle is equipped with a NavigationModule which provides all required information and functions for navigational purposes:"><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
@@ -514,6 +514,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -682,6 +704,28 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -961,7 +1005,11 @@
         </li>
         
         <li >
-          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+          <a href="/mosaic/docs/develop_applications/communication-ad-hoc/">Communication - Ad-Hoc</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication-cell/">Communication - Cell</a>
         </li>
         
         <li class="active">
@@ -1194,7 +1242,7 @@
   
 
 <a href="/mosaic/docs/simulators/application_simulator/#eclipse-mosaic-application-simulator">Application Simulator</a>. Each vehicle is equipped
-with a navigation system which provides all required information and functions for navigational purposes:</p>
+with a <code>NavigationModule</code> which provides all required information and functions for navigational purposes:</p>
 <ul>
 <li>Retrieve the current position and heading of the vehicle.</li>
 <li>Get the target of the vehicle.</li>
@@ -1256,8 +1304,8 @@ The map data including initial routes for vehicles is provided with the database
   
 
 <a href="/mosaic/docs/develop_applications/scenario_database/">scenario database</a> documentation.</p>
-<p>To enable non-moving entities (i.e. RSUs, Servers, &hellip;) to access routing capabilities the <code>IRoutingModule</code> can be implemented
-which omits operations like route switching.</p>
+<p>To  access routing capabilities for non-moving entities (i.e. RSUs or Servers), the <code>getRoutingModule()</code> method can be used,
+which provides similar functionality as the navigation module except route switching.</p>
 <h2 id="configuration">Configuration</h2>
 <p>If the database needs to be located somewhere else, the path can be specified in
 <code>mosaic/scenarios/&lt;scenario_name&gt;/application/application_config.json</code>:</p>
@@ -1276,7 +1324,7 @@ which omits operations like route switching.</p>
 <h2 id="usage">Usage</h2>
 <p>The following snippet shows, how the navigation system can be used within an application:</p>
 <pre><code class="language-java">//get navigation module
-INavigationModule navigationModule = getOs().getNavigationModule();
+NavigationModule navigationModule = getOs().getNavigationModule();
 
 //choose current target as target position
 RoutingPosition targetPosition = new RoutingPosition(navigationModule.getTargetPosition());
@@ -1310,7 +1358,7 @@ if (response.getBestRoute() != null) {
       
       
         <div class="meta-nav">Previous</div>
-        <a href="/mosaic/docs/develop_applications/communication/" rel="next">Communication in Applications</a>
+        <a href="/mosaic/docs/develop_applications/communication-cell/" rel="next">Cellular Communication in Applications</a>
       
     </div>
 
@@ -1394,6 +1442,22 @@ if (response.getBestRoute() != null) {
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -1669,7 +1733,7 @@ if (response.getBestRoute() != null) {
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
   </div>

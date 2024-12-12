@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -516,6 +516,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -684,6 +706,28 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -963,7 +1007,11 @@
         </li>
         
         <li >
-          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+          <a href="/mosaic/docs/develop_applications/communication-ad-hoc/">Communication - Ad-Hoc</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication-cell/">Communication - Cell</a>
         </li>
         
         <li >
@@ -1640,9 +1688,10 @@ Application Simulator.</p>
     
   
 
-<a href="/mosaic/docs/develop_applications/communication/#cellular-topocast">CellTopocast</a></strong> is the normal unicast, where the Geocaster simply resolves
-the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn&rsquo;t allow
-broadcast or anycast addresses, but any transmission protocols (tcp, udp).</p>
+<a href="/mosaic/docs/develop_applications/communication-cell/#cellular-topologically-scoped-unicast">CellTopocast</a></strong> is a topologically-scoped unicast,
+where the Geocaster simply resolves the single receiver via the IPResolver. Hence, the CellTopocast directly routes the message further.
+The cell simulator can <strong>only</strong> simulate topologically-scoped unicasts. Broadcast and anycast are not implemented,
+but any transmission protocol can be used (tcp, udp).</p>
 <p><strong>
 
 
@@ -1668,7 +1717,8 @@ broadcast or anycast addresses, but any transmission protocols (tcp, udp).</p>
     
   
 
-<a href="/mosaic/docs/develop_applications/communication/#cellular-geocast">CellGeoUnicast</a></strong> addresses every node in the destination area individually.
+<a href="/mosaic/docs/develop_applications/communication-cell/#cellular-geographically-scoped-unicast">CellGeoUnicast</a></strong>
+addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.</p>
 <p><strong>
 
@@ -1695,9 +1745,9 @@ In this way it takes a geographic address and results in a loop to generate mult
     
   
 
-<a href="/mosaic/docs/develop_applications/communication/#cellular-geobroadcast">CellGeoBroadcast</a></strong>, which is basically MBMS, uses one broadcast to all
-nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
-CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).</p>
+<a href="/mosaic/docs/develop_applications/communication-cell/#cellular-geographically-scoped-broadcast">CellGeoBroadcast</a></strong>, which is basically MBMS,
+uses one broadcast to all nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink.
+CellGeoUnicast as well as CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).</p>
 
           </div>
 
@@ -1799,6 +1849,22 @@ CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -2074,7 +2140,7 @@ CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
   </div>

@@ -2426,14 +2426,41 @@ makes sense to specify the &lt;code&gt;AdhocTransmissionModel&lt;/code&gt; expli
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;transmission-logic&#34;&gt;Transmission Logic&lt;/h2&gt;
-&lt;p&gt;SNS differentiates between two types of Ad-hoc transmissions, geographically- and topologically-scoped transmissions, which
-generally are abbreviated with &lt;em&gt;GeoCast&lt;/em&gt; and &lt;em&gt;TopoCast&lt;/em&gt; respectively.&lt;br&gt;
-GeoCasts are limited to &lt;em&gt;BroadCasts&lt;/em&gt;. Accordingly, there is no explicit addressing
-of receivers (other than 255.255.255.255), instead a destination area is specified. However, GeoCasts allow for multihop forwarding.&lt;br&gt;
-TopoCasts on the other hand use means of IPv4 addressing to transmit messages. Since the SNS was not build to simulate transmissions using complex topology-constructs, TopoCasts
-are limited to transmissions with a single hop. However, TopoCasts support &lt;em&gt;BroadCasts&lt;/em&gt; and &lt;em&gt;UniCasts&lt;/em&gt; (we are omitting Anycasts).
+&lt;p&gt;SNS differentiates between two types of Ad-hoc transmissions, geographically- and topologically-scoped transmissions.
+Geographically- as well as topologically-scoped casts allow for singlehop or multihop forwarding. The only exception is the
+topologically-scoped broadcast, which does not allow for multiple hops.
+Furthermore, no form of anycast is implemented in SNS.
+Geologically-scoped casts specify a destination area. Topologically-scoped casts on the other hand use means of IPv4 addressing to transmit
+messages.
 Most transmissions in the Ad-hoc domain will be some form of Broadcast, meaning every reachable entity is eligible to
 receive a message.&lt;/p&gt;
+&lt;p&gt;For an overview over which transmission logic implemented in SNS, as well as other network simulators see the
+
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication-ad-hoc/&#34;&gt;Communication&lt;/a&gt; page.&lt;/p&gt;
 
 
 
@@ -2449,8 +2476,8 @@ receive a message.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;h3 id=&#34;topocasts&#34;&gt;TopoCasts&lt;/h3&gt;
-&lt;p&gt;The only way of directly addressing entities is a &lt;em&gt;SingleHopUniCast&lt;/em&gt; (see figure below), the sender will try to address an entity
+&lt;h3 id=&#34;topologically-scoped-casts&#34;&gt;Topologically Scoped Casts&lt;/h3&gt;
+&lt;p&gt;A way of directly addressing entities is a singlehop unicast (see figure below). The sender will try to address a given entity
 in its transmission range.
 
 
@@ -2486,8 +2513,8 @@ in its transmission range.
 
 &lt;/figure&gt;
 
-The counterpart to that is a &lt;em&gt;SingleHopBroadCast&lt;/em&gt; (see figure below), this form of transmission is commonly used for CAMs (Cooperative Awareness Messages)
-and other types of intermediate warning messages to all entities in transmission range.&lt;br&gt;
+The counterpart to that is a singlehop broadcast (see figure below). This form of transmission is commonly used for CAMs
+(Cooperative Awareness Messages) and other types of immediate warning messages to all entities in transmission range.&lt;br&gt;
 
 
 
@@ -2522,12 +2549,14 @@ and other types of intermediate warning messages to all entities in transmission
 
 &lt;/figure&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;geocasts&#34;&gt;GeoCasts&lt;/h3&gt;
-&lt;p&gt;As already explained, GeoCasts do not support direct addressing, so there is no form of UniCast. Instead of addressing
-entities, GeoCasts specify a destination area in which a message should be distributed.
-The SNS supports two ways to simulate GeoCasts.
+&lt;h3 id=&#34;geographically-scoped-casts&#34;&gt;Geographically-Scoped Casts&lt;/h3&gt;
+&lt;p&gt;Geographically-scoped casts specify a destination area in which a message should be distributed. A broadcast would distribute the message
+to every entity in the destination area, while a unicast would only be sent successfully if the specified receiver is located in the
+destination area.&lt;/p&gt;
+&lt;p&gt;The SNS supports two ways to simulate geographically-scoped casts.
 A simple but performant model (&lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;) &amp;amp; a fairly realistic model ( &lt;code&gt;SophisticatedAdhocTransmissionModel&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;The simple model assumes a transmission to all entities in the specified area, whereas the delay will be calculated using the configured delay-type and the successful reception will be determined by the uniformly distributed lossProbability.
+&lt;p&gt;The simple model assumes a transmission to all entities in the specified area, whereas the delay will be calculated using the configured
+delay-type and the successful reception will be determined by the uniformly distributed lossProbability.
 The figure below depicts this behaviour
 
 
@@ -2564,7 +2593,7 @@ The figure below depicts this behaviour
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;The realistic model accounts for possible transmission failures more accurately. The easiest case is that the sender itself is inside
-of the destination area (or is able to communicate with an entity inside the destination area) and will start a 
+the destination area (or is able to communicate with an entity inside the destination area) and will start a 
 
 
 
@@ -2573,7 +2602,8 @@ of the destination area (or is able to communicate with an entity inside the des
   
   
 
-&lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt; within this area (see figure below).
+&lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt;
+within this area (see figure below).
 
 
 
@@ -2608,7 +2638,7 @@ of the destination area (or is able to communicate with an entity inside the des
 
 &lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;In case the sending entity is outside of the destination area, a 
+&lt;p&gt;In case the sending entity is outside the destination area, a 
 
 
 
@@ -2618,7 +2648,7 @@ of the destination area (or is able to communicate with an entity inside the des
   
 
 &lt;a href=&#34;#approaching-transmission&#34;&gt;Forwarding Transmission&lt;/a&gt; has to
-be executed first. This is can also be described as an &lt;em&gt;AnyCast&lt;/em&gt;, since the goal of this transmission is to reach &lt;em&gt;any&lt;/em&gt; entity
+be executed first. This can also be described as an anycast, since the goal of this transmission is to reach &lt;em&gt;any&lt;/em&gt; entity
 inside the destination area. We try to achieve this by building a &amp;ldquo;chain&amp;rdquo; of entities, that will forward the message to the destination
 are (see figure below).
 
@@ -2674,7 +2704,7 @@ are (see figure below).
   
 
 &lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt;, which
-will simulate a way, that GeaCasts can be implemented in reality. The figure below depicts this behaviour.
+will simulate a way, that a geographically-scoped transmission can be implemented in reality. The figure below depicts this behaviour.
 
 
 
@@ -2690,10 +2720,10 @@ will simulate a way, that GeaCasts can be implemented in reality. The figure bel
 
 
 
-&lt;figure id=&#34;figure-forwarding-transmission-followed-by-a-flooding-transmissionflooding-transmission-to-realistically-simulate-geocasts&#34;&gt;
+&lt;figure id=&#34;figure-forwarding-transmission-followed-by-a-flooding-transmissionflooding-transmission-to-realistically-simulate-geographically-scoped-casts&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/ApproachingAndFlooding.png&#34; data-caption=&#34;Forwarding Transmission followed by a Flooding Transmission to realistically simulate GeoCasts.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;../images/ApproachingAndFlooding.png&#34; data-caption=&#34;Forwarding Transmission followed by a Flooding Transmission to realistically simulate geographically-scoped casts.&#34;&gt;
 
 
   &lt;img src=&#34;../images/ApproachingAndFlooding.png&#34; alt=&#34;&#34;  &gt;
@@ -2703,7 +2733,7 @@ will simulate a way, that GeaCasts can be implemented in reality. The figure bel
   
   
   &lt;figcaption&gt;
-    Forwarding Transmission followed by a &lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt; to realistically simulate GeoCasts.
+    Forwarding Transmission followed by a &lt;a href=&#34;#flooding-transmission&#34;&gt;Flooding Transmission&lt;/a&gt; to realistically simulate geographically-scoped casts.
   &lt;/figcaption&gt;
 
 
@@ -2716,9 +2746,9 @@ The models are located in the package &lt;code&gt;org.eclipse.mosaic.fed.sns.amb
 a detailed inside in the workings of the models.&lt;/p&gt;
 &lt;h3 id=&#34;simpleadhoctransmissionmodel&#34;&gt;&lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;This is the most basic of all transmission models and will be your model of choice if you are not interested in completely
-accurate transmission results but care for performance. This model will approximate GeoCasts using the defined &lt;code&gt;simpleMultihopDelay&lt;/code&gt;
-and &lt;code&gt;simpleMultihopTransmission&lt;/code&gt; parameters.
-For TopoCasts the usual &lt;code&gt;singlehopDelay&lt;/code&gt; will be used.
+accurate transmission results but care for performance. This model will approximate geographically-scoped casts using the defined
+&lt;code&gt;simpleMultihopDelay&lt;/code&gt; and &lt;code&gt;simpleMultihopTransmission&lt;/code&gt; parameters.
+For topologically-scoped casts the usual &lt;code&gt;singlehopDelay&lt;/code&gt; will be used.
 This model only checks, whether a potential receiver is inside the destination area and has enabled Adhoc capabilities.
 If those conditions are met it will simulate the transmission by calculating an actual delay value and saving it into a
 transmission-result. Such a result holds information of the success of the transmission, the delay-value, the amount of hops,
@@ -2736,9 +2766,9 @@ algorithm (see
 
 
 
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flooding&lt;/a&gt;). For TopoCasts this model behaves very
-similarly to the &lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;, since TopoCasts are always configured with only one hop.
-For GeoCasts however, this model follows the flowchart above, trying to &amp;ldquo;approach&amp;rdquo; a destination area if it can&amp;rsquo;t be reached directly.&lt;/p&gt;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Flooding_%28computer_networking%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flooding&lt;/a&gt;). For topologically-scoped casts this model behaves very
+similarly to the &lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;, since topologically-scoped casts are always configured with only one hop.
+For geographically-scoped casts however, this model follows the flowchart above, trying to &amp;ldquo;approach&amp;rdquo; a destination area if it can&amp;rsquo;t be reached directly.&lt;/p&gt;
 &lt;h4 id=&#34;approaching-greedy-forwarding&#34;&gt;Approaching (Greedy forwarding)&lt;/h4&gt;
 &lt;p&gt;Approaching can be imagined as building a &amp;ldquo;chain&amp;rdquo; of entities to reach an area. However, there is no
 guarantee, that even if such a chain exists, it will be found. The way that this chain is build follows the subsequent steps:&lt;/p&gt;
@@ -3153,10 +3183,10 @@ knowledge of all simulated entities, it is easier to overcome a lot of the disad
 in real world implementations.&lt;/p&gt;
 &lt;h4 id=&#34;implementing-your-own-adhoctransmissionmodel&#34;&gt;Implementing your own &lt;code&gt;AdhocTransmissionModel&lt;/code&gt;&lt;/h4&gt;
 &lt;p&gt;If the implemented models don&amp;rsquo;t suffice your needs you can easily implement your own.
-Create a class extending &lt;code&gt;AdhocTransmissionModel&lt;/code&gt; and implement the abstract methods for sending TopoCasts/GeoCasts.
-A possible extension could be to allow for multihop TopoCasts, building an actual topology and transmit your
-messages using that topology. Also, the aforementioned &amp;ldquo;Face-Routing&amp;rdquo; could be of interest. Additionally, the calculation
-of delays could be made more realistic.&lt;/p&gt;
+Create a class extending &lt;code&gt;AdhocTransmissionModel&lt;/code&gt; and implement the abstract methods for sending
+topologically-scoped casts/geographically-scoped casts. A possible extension could be to allow for multihop topologically-scoped casts,
+building an actual topology and transmit your messages using that topology. Also, the aforementioned &amp;ldquo;Face-Routing&amp;rdquo; could be of interest.
+Additionally, the calculation of delays could be made more realistic.&lt;/p&gt;
 &lt;h2 id=&#34;accessing-sns-functionality-from-your-applications&#34;&gt;Accessing SNS-functionality from your applications&lt;/h2&gt;
 &lt;p&gt;To enable SNS in your scenario follow the steps as described in 
 
@@ -3210,7 +3240,7 @@ can be found under
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/&#34;&gt;Application Development&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication-ad-hoc/&#34;&gt;Application Development&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -3678,9 +3708,10 @@ Application Simulator.&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-topocast&#34;&gt;CellTopocast&lt;/a&gt;&lt;/strong&gt; is the normal unicast, where the Geocaster simply resolves
-the single receiver via theIPResolver. Hence, the CellTopocast directly routes the message further. Currently, Topocast doesn&amp;rsquo;t allow
-broadcast or anycast addresses, but any transmission protocols (tcp, udp).&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication-cell/#cellular-topologically-scoped-unicast&#34;&gt;CellTopocast&lt;/a&gt;&lt;/strong&gt; is a topologically-scoped unicast,
+where the Geocaster simply resolves the single receiver via the IPResolver. Hence, the CellTopocast directly routes the message further.
+The cell simulator can &lt;strong&gt;only&lt;/strong&gt; simulate topologically-scoped unicasts. Broadcast and anycast are not implemented,
+but any transmission protocol can be used (tcp, udp).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;
 
 
@@ -3706,7 +3737,8 @@ broadcast or anycast addresses, but any transmission protocols (tcp, udp).&lt;/p
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-geocast&#34;&gt;CellGeoUnicast&lt;/a&gt;&lt;/strong&gt; addresses every node in the destination area individually.
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication-cell/#cellular-geographically-scoped-unicast&#34;&gt;CellGeoUnicast&lt;/a&gt;&lt;/strong&gt;
+addresses every node in the destination area individually.
 In this way it takes a geographic address and results in a loop to generate multiple unicasts.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;
 
@@ -3733,9 +3765,9 @@ In this way it takes a geographic address and results in a loop to generate mult
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication/#cellular-geobroadcast&#34;&gt;CellGeoBroadcast&lt;/a&gt;&lt;/strong&gt;, which is basically MBMS, uses one broadcast to all
-nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink. CellGeoUnicast as well as
-CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/develop_applications/communication-cell/#cellular-geographically-scoped-broadcast&#34;&gt;CellGeoBroadcast&lt;/a&gt;&lt;/strong&gt;, which is basically MBMS,
+uses one broadcast to all nodes in the destined regions.The MBMS uses the different transmission mode of multicast in the downlink.
+CellGeoUnicast as well as CellGeoBroadcast require broadcast, but don’t allow tcp (as ack for broadcasts is denied).&lt;/p&gt;
 </description>
     </item>
     

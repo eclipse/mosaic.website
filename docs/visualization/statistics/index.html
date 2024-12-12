@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -518,6 +518,28 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -686,6 +708,28 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -965,7 +1009,11 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
         </li>
         
         <li >
-          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+          <a href="/mosaic/docs/develop_applications/communication-ad-hoc/">Communication - Ad-Hoc</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication-cell/">Communication - Cell</a>
         </li>
         
         <li >
@@ -1215,7 +1263,7 @@ For further information on licenses, feel free to contact us via <strong>
   </div>
 </div>
 <p>Statistics Output is another output generating tool to easily measure basic simulation outcomes.
-You will be able to obtain short or detailed results of the simulation, e.g. travel times or the average speeds
+You will be able to obtain short or detailed results of the simulation, e.g., travel times or the average speeds
 of groups of vehicles, or the average flow on induction loops.</p>
 <h2 id="configuration">Configuration</h2>
 <ul>
@@ -1223,7 +1271,7 @@ of groups of vehicles, or the average flow on induction loops.</p>
 </ul>
 <p>In order to use the Statistics Output, the attribute <code>enabled</code> of the root element <code>output</code> must be
 set to &ldquo;true&rdquo;, as shown in the following listing.</p>
-<pre><code class="language-xml">&lt;output id=&quot;statistics&quot; enabled=&quot;true&quot; loader=&quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&quot;&gt;
+<pre><code class="language-xml">&lt;output id=&quot;statistics&quot; enabled=&quot;true&quot; loader=&quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader&quot;&gt;
    &lt;statistic&gt;
       [...]
    &lt;/statistic&gt;
@@ -1245,8 +1293,8 @@ types, just create another <code>&lt;statistic&gt;</code> block for each of them
 attribute has not been given, each <code>&lt;statistic&gt;</code> block will get the name accordingly to the order number,
 for example <code>1. StatisticsVisualizer-Block.csv</code>.</p>
 <p>In the output attribute two options (<code>short</code>|<code>verbose</code>) can be selected. The short option provides us
-a compact log file with information about only the highest level of the retrieved data (e.g. aggregate
-values of grouped vehicles) in contrast to verbose option which also provides informations about every
+a compact log file with information about only the highest level of the retrieved data (e.g., aggregate
+values of grouped vehicles) in contrast to the verbose option which also provides information about every
 individual vehicle in each group.</p>
 <p>For a successful start, the element source must be placed in the first position in the <code>statistic</code> children
 element list. Different options of possible data types, one of which must be specified in the source
@@ -1263,20 +1311,20 @@ processing of the obtained data.</p>
 <ol>
 <li><code>source</code>: Data to obtain, choose between:
 <ul>
-<li><code>VehicleSpeeds</code> - Obtain the speeds of the vehicles of each simulation step.</li>
+<li><code>VehicleSpeeds</code> - Obtain the speeds of the vehicles within each simulation step.</li>
 <li><code>VehicleStops</code> - The total number of stops during the journey of each vehicle.</li>
 <li><code>VehicleTravelTimes</code> - The total travel time in s of the vehicles.</li>
 <li><code>VehicleDelayTimes</code> - The deviation of the travel time compared to the fastest travel time possible for the vehicles (in s).</li>
-<li><code>VehicleTravelledDistances</code> - The travelled distance of the vehicles in m.</li>
+<li><code>VehicleTravelledDistances</code> - The traveled distance of the vehicles in m.</li>
 <li><code>VehicleFuelConsumptions</code> - The fuel consumptions of the vehicles in l per km.</li>
-<li><code>VehicleHeadways</code> - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To obtain this value, an application has to be deployed on the vehicles which activates the front distance sensor.</li>
+<li><code>VehicleHeadways</code> - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To get this value, an application has to be deployed on the vehicles that activate the front distance sensor.</li>
 <li><code>DetectorFlow</code> - The flows of each subscribed induction loop.</li>
 </ul>
 </li>
 </ol>
 <div class="alert alert-note">
   <div>
-<p>For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g. Highway tutorial).</p>
+<p>For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).</p>
   </div>
 </div>
 <ol start="2">
@@ -1300,11 +1348,12 @@ standard deviation based on biased sample variance for groups (in the short outp
 </ul>
 </li>
 </ol>
-<p>The following example will show an example of how you can specify the Statictics Output according to
-your desired criteria. VehicleTravelTimes are the data we want to retrieve from vehicles and we want
-to group vehicles by the abstract group we can define in mapping configuration file (see e.g. Barnim
+<p>The following example will show an example of how you can specify the Statistics Output according to
+your desired criteria.
+VehicleTravelTimes are the data we want to retrieve from vehicles.
+We want to group vehicles by the abstract group we can define in the mapping configuration file (see e.g., Barnim
 scenario) and then calculate the average vehicle travel time value for each of these groups.</p>
-<pre><code class="language-xml">&lt;output id=&quot;statistics&quot; enabled=&quot;true&quot; loader=&quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&quot;&gt;
+<pre><code class="language-xml">&lt;output id=&quot;statistics&quot; enabled=&quot;true&quot; loader=&quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader&quot;&gt;
 	&lt;statistic filename=&quot;AverageVehicleTravelTimes&quot; output=&quot;short&quot;&gt;
 		&lt;source&gt;VehicleTravelTimes&lt;/source&gt;
 		&lt;group-by&gt;VehicleGroup&lt;/group-by&gt;
@@ -1440,6 +1489,22 @@ Unequipped;459.18;84;
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -1715,7 +1780,7 @@ Unequipped;459.18;84;
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
   </div>

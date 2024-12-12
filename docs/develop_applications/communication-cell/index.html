@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -52,10 +52,10 @@
   
     
   
-  <meta name="description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Communication can be achieved with external network simulators ( OMNeT&#43;&#43;, ns-3) or one of the built-in communication simulators SNS or Eclipse MOSAIC Cell.">
+  <meta name="description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Cellular communication can be achieved with the built-in communication simulator Eclipse MOSAIC Cell.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/develop_applications/communication/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/develop_applications/communication-cell/">
 
   
 
@@ -287,7 +287,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.dev/mosaic/docs/develop_applications/communication/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/docs/develop_applications/communication-cell/">
 
   
   
@@ -303,15 +303,15 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/develop_applications/communication/">
-  <meta property="og:title" content="Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Communication can be achieved with external network simulators ( OMNeT&#43;&#43;, ns-3) or one of the built-in communication simulators SNS or Eclipse MOSAIC Cell."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/develop_applications/communication-cell/">
+  <meta property="og:title" content="Cellular Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the communication should occur. Cellular communication can be achieved with the built-in communication simulator Eclipse MOSAIC Cell."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-05-05T00:00:00&#43;01:00">
+      <meta property="article:published_time" content="2024-11-20T00:00:00&#43;01:00">
     
-    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+    <meta property="article:modified_time" content="2024-11-20T00:00:00&#43;01:00">
   
 
   
@@ -330,11 +330,11 @@
 
 
 
-  <title>Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+  <title>Cellular Communication in Applications | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
 
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-develop_applications page-communication ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-develop_applications page-communication-cell ">
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -493,6 +493,28 @@
 
       <li class="nav-item">
         <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
       </li>
 
       
@@ -682,6 +704,28 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
         </li>
 
         
@@ -960,8 +1004,12 @@
           <a href="/mosaic/docs/develop_applications/operating_system/">Operating System</a>
         </li>
         
+        <li >
+          <a href="/mosaic/docs/develop_applications/communication-ad-hoc/">Communication - Ad-Hoc</a>
+        </li>
+        
         <li class="active">
-          <a href="/mosaic/docs/develop_applications/communication/">Communication</a>
+          <a href="/mosaic/docs/develop_applications/communication-cell/">Communication - Cell</a>
         </li>
         
         <li >
@@ -1120,19 +1168,15 @@
     <li><a href="#cellular-communication">Cellular Communication</a>
       <ul>
         <li><a href="#cellular-configuration">Cellular Configuration</a></li>
-        <li><a href="#cellular-geobroadcast">Cellular Geobroadcast</a></li>
-        <li><a href="#cellular-geocast">Cellular Geocast</a></li>
-        <li><a href="#cellular-topocast">Cellular Topocast</a></li>
-        <li><a href="#setting-protocol-types">Setting Protocol Types</a></li>
       </ul>
     </li>
-    <li><a href="#ad-hoc-communication">Ad-hoc Communication</a>
+    <li><a href="#cellular-routing-modes">Cellular Routing Modes</a>
       <ul>
-        <li><a href="#ad-hoc-configuration">Ad-hoc Configuration</a></li>
-        <li><a href="#ad-hoc-topobroadcast">Ad-hoc Topobroadcast</a></li>
-        <li><a href="#ad-hoc-topocast">Ad-hoc Topocast</a></li>
-        <li><a href="#ad-hoc-geobroadcast">Ad-hoc Geobroadcast</a></li>
-        <li><a href="#ad-hoc-geocast">Ad-hoc Geocast</a></li>
+        <li><a href="#cellular-topologically-scoped-unicast">Cellular Topologically-Scoped Unicast</a></li>
+        <li><a href="#cellular-geographically-scoped-unicast">Cellular Geographically-Scoped Unicast</a></li>
+        <li><a href="#cellular-geographically-scoped-broadcast">Cellular Geographically-Scoped Broadcast</a></li>
+        <li><a href="#multicastbroadcast-services">Multicast/Broadcast Services</a></li>
+        <li><a href="#setting-protocol-types">Setting Protocol Types</a></li>
       </ul>
     </li>
     <li><a href="#cam---implementation">CAM - Implementation</a>
@@ -1188,12 +1232,11 @@
       <article class="article">
 
         <div class="docs-article-container">
-          <h1>Communication in Applications</h1>
+          <h1>Cellular Communication in Applications</h1>
 
           <div class="article-style">
             <p>Eclipse MOSAIC has different classes, which allow you to define the network type and the specific area where the
-communication should occur. Communication can be achieved with external
-network simulators (
+communication should occur. Cellular communication can be achieved with the built-in communication simulator 
 
 
 
@@ -1218,122 +1261,21 @@ network simulators (
     
   
 
-<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">OMNeT++</a>,
-
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_ns3/">ns-3</a>) or one of the built-in communication simulators 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_sns/">SNS</a>
-or 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_cell/">Eclipse MOSAIC Cell</a>. Furthermore, for a better understanding it is important to consider the network types of Eclipse MOSAIC in more
-detail.</p>
-<ul>
-<li>Cellular Communication</li>
-<li>Ad-hoc Communication</li>
-</ul>
+<a href="/mosaic/docs/simulators/network_simulator_cell/">Eclipse MOSAIC Cell</a>.</p>
 <p>Depending on the needs of the application, there are different approaches to solve the communication issue in Eclipse MOSAIC
-simulations. However, a distinction must be made between inter vehicle communication and Vehicle-to-X communication.
-Also, it is possible to modify the selected communication mode dependent on requirements.</p>
-<p>Generally, the following modes are available based on network:</p>
-<p><strong>Cellular Communication</strong></p>
+simulations. It is possible to modify the selected communication mode dependent on requirements.</p>
+<p>Generally, the following modes are available for cellular communication:</p>
 <ul>
-<li>Geobroadcast</li>
-<li>Geocast</li>
-<li>Topocast</li>
-</ul>
-<p><strong>Ad-hoc Communication</strong></p>
-<ul>
-<li>Geobroadcast</li>
-<li>Geocast</li>
-<li>Topobroadcast</li>
-<li>Topocast</li>
+<li>Geographically-scoped broadcast</li>
+<li>Geographically-scoped unicast</li>
+<li>Topologically-scoped unicast</li>
 </ul>
 <h2 id="general-configuration">General Configuration</h2>
-<p>The first step to enable your application to use communication capabilities, is to make sure it extends the <code>AbstractSimulationUnit</code>-class
-or one of its child-classes (e.g. <code>VehicleUnit</code>, <code>ChargingStationUnit</code>) found in package
-<code>org.eclipse.mosaic.fed.application.ambassador.simulation</code>. Additionally, if you want your application to act upon
-the reception or transmission of messages, make sure it implements the interface <code>CommunicationApplication</code>.
-Afterwards, depending on your use case, you can enable the desired communication modules following the instruction in
-
-
-
-
-
-
-  
-  
-
-<a href="#cellular-communication">Cellular Configuration</a> and 
+<p>The first step to enable your application to use communication capabilities, is to make sure it extends the <code>AbstractApplication</code>-class
+with an <code>OperatingSystem</code> which provides a Cell module, such as <code>VehicleOperatingSystem</code>or <code>RoadSideUnitOperatingSystem</code>.
+Additionally, if you want your application to act upon the reception or transmission of messages, make sure it implements the interface
+<code>CommunicationApplication</code>.
+Afterward, you can enable the cellular communication module by following the instruction in 
 
 
 
@@ -1342,13 +1284,18 @@ Afterwards, depending on your use case, you can enable the desired communication
   
   
 
-<a href="#ad-hoc-configuration">Ad-hoc Configuration</a>.</p>
+<a href="#cellular-communication">Cellular Configuration</a>.</p>
+<p>This example showcases the inheritance of an application class that can transmit and receive messages via Cell communication, once you have
+enabled the module.</p>
+<pre><code class="language-java">public class CellApplication extends AbstractApplication&lt;VehicleOperatingSystem&gt; implements CommunicationApplication {}
+</code></pre>
 <hr>
 <h2 id="cellular-communication">Cellular Communication</h2>
 <p>The cellular network is known from wireless mobile communication and the principle is to divide the entire geographic
 area into several smaller parts called <strong>&ldquo;cells&rdquo;</strong>. Each cell has a fixed-location transceiver with a coverage ratio.</p>
-<p>Eclipse MOSAIC enables the communication with all the existing vehicles via Geobroadcast mode or direct communication via
-Geocast in a specific area (circular, rectangular). In contrast, the Topocast mode is not restricted to a specific area.</p>
+<p>Eclipse MOSAIC enables the communication with all the existing vehicles via a geographically-scoped broadcast mode or direct communication
+via a geographically-scoped unicast in a specific area (circular, rectangular).
+In contrast, the topologically-scoped unicast mode is not restricted to a specific area.</p>
 <h3 id="cellular-configuration">Cellular Configuration</h3>
 <p>To enable and configure the Cell-module in your application you have to call the <code>enable</code>-method of your applications Cell-module.
 Typically, you will do this inside the <code>onStartup()</code>-method to enable cell capabilities from the get-go.</p>
@@ -1358,13 +1305,16 @@ public void onStartup() {
     getOs().getCellModule().enable(new CellModuleConfiguration()
         .maxDownlinkBitrate(50 * DATA.MEGABIT)
         .maxUplinkBitrate(50 * DATA.MEGABIT)
+    );
 }
 </code></pre>
-<h3 id="cellular-geobroadcast">Cellular Geobroadcast</h3>
-<p>The principle function of the Geobroadcast is to communicate with all entities within a geographical area. Eclipse MOSAIC
-offers the possibility to configure a specific geographical area which can be either a circular or a rectangular area.</p>
-<p>The following figure illustrates a vehicle <em><strong>veh_2</strong></em> which is communicating with the other
-vehicles(<em><strong>veh_1</strong></em>, <em><strong>veh_3</strong></em>) within a radius <strong>R</strong>.</p>
+<h2 id="cellular-routing-modes">Cellular Routing Modes</h2>
+<p>There are several different routing modes for cellular communication, that differ in the route finding and number of receiving entities.
+The following is an introduction into the most commonly used modes and how to use them within Eclipse MOSAIC.</p>
+<h3 id="cellular-topologically-scoped-unicast">Cellular Topologically-Scoped Unicast</h3>
+<p>Compared to geographically-scoped uni- or broadcast, the topologically-scoped unicast is totally independent of geographical conditions
+and the addressing can be in the form of an IP-Address or a receiver-ID.</p>
+<p>The next figure illustrates how the rightmost vehicle is communicating with vehicle below the RSU in topologically-scoped unicast mode.</p>
 
 
 
@@ -1380,30 +1330,143 @@ vehicles(<em><strong>veh_1</strong></em>, <em><strong>veh_3</strong></em>) withi
 
 
 
-<figure id="figure-illustration-of-geobroadcast-in-a-specific-circular-area">
+<figure id="figure-topologically-scoped-unicast-for-direct-addressing-without-geographical-constraints">
 
 
-  <a data-fancybox="" href="../images/tiergarten-geobroadcast-circular-area.png" data-caption="Illustration of Geobroadcast in a specific circular area">
+  <a data-fancybox="" href="../images/cellular-topologically-scoped-unicast.png" data-caption="Topologically-scoped unicast for direct addressing without geographical constraints">
 
 
-  <img src="../images/tiergarten-geobroadcast-circular-area.png" alt=""  >
+  <img src="../images/cellular-topologically-scoped-unicast.png" alt=""  >
 </a>
 
 
   
   
   <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Illustration of Geobroadcast in a specific circular area
+    Topologically-scoped unicast for direct addressing without geographical constraints
   </figcaption>
 
 
 </figure>
 
-<p>A circular communication area can be defined with the <code>geoBroadCast(GeoCircle geoCircle)</code> from an Eclipse MOSAIC application,
-as shown below:</p>
+<p>The code example below shows how we can configure the requirements of the communication in topologically-scoped unicast mode.</p>
+<pre><code class="language-java">String receiverName = &quot;veh_0&quot;;
+
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .destination(receiverName)
+        .topological()
+        .build();
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="cellular-geographically-scoped-unicast">Cellular Geographically-Scoped Unicast</h3>
+<p>Compared to a geographically-scoped broadcast, a geographically-scoped unicast addresses a receiver with a unique address.
+Addressing can be in the form of an IP-Address or a receiver-ID (e.g. veh_0). Again, the communication area can be configured
+as circular or rectangular.</p>
+<p>Assume, the rightmost vehicle has a message which is addressed to the leftmost vehicle. In order to send the message, the sending vehicle
+first examines whether the receiving vehicle is located within the transmission area. If this is the case, the
+message will be transmitted. The figure below illustrates this procedure.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-cellular-geographically-scoped-unicast-to-address-a-receiver-within-a-defined-area">
+
+
+  <a data-fancybox="" href="../images/cellular-geographically-scoped-unicast.png" data-caption="Cellular geographically-scoped unicast to address a receiver within a defined area">
+
+
+  <img src="../images/cellular-geographically-scoped-unicast.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Cellular geographically-scoped unicast to address a receiver within a defined area
+  </figcaption>
+
+
+</figure>
+
+<p>The following methods are provided for configuring the transmission area (circle or rectangle) and the addressing to
+the receiver(hostname or ip address):</p>
+<ul>
+<li><code>.geographical(GeoCircle geoCircle) </code></li>
+<li><code>.geographical(GeoRectangle geoRectangle)</code></li>
+<li><code>.destination(byte[] ipAddress)</code></li>
+<li><code>.destination(Inet4Address ipAddress)</code></li>
+<li><code>.destination(String receiverName)</code></li>
+<li><code>.destination(NetworkAdress receiverName)</code></li>
+</ul>
+<pre><code class="language-java">GeoCircle transmissionArea = new GeoCircle( GeoPoint.latlon(52.5, 13.2), 3000);
+
+String receiverName = &quot;veh_0&quot;;
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .destination(receiverName)
+        .geographical(transmissionArea)
+        .build();
+
+getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
+</code></pre>
+<h3 id="cellular-geographically-scoped-broadcast">Cellular Geographically-Scoped Broadcast</h3>
+<p>The principle function of the geographically-scoped broadcast is to communicate with all entities within a geographical area. Eclipse MOSAIC
+offers the possibility to configure a specific geographical area which can be either a circular or a rectangular area.</p>
+<p>The following figure shows the rightmost vehicle, which is sending a message to be received by all vehicles in the red area.
+The sending vehicle sends this message to a cellular antenna, which distributes it to all vehicles in the area.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-illustration-of-geographically-scoped-broadcast-in-a-specific-circular-area">
+
+
+  <a data-fancybox="" href="../images/cellular-geographically-scoped-broadcast.png" data-caption="Illustration of geographically scoped broadcast in a specific circular area">
+
+
+  <img src="../images/cellular-geographically-scoped-broadcast.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Illustration of geographically scoped broadcast in a specific circular area
+  </figcaption>
+
+
+</figure>
+
+<p>A circular communication area can be defined by adding the method <code>.geographical(GeoCircle geoCircle)</code> to the message routing builder
+from an Eclipse MOSAIC application, as shown below:</p>
 <pre><code class="language-java">GeoCircle transmissionArea = new GeoCircle(GeoPoint.latlon(52.5, 13.2), 3000);
 
-MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .broadcast()
+        .geographical(transmissionArea)
+        .build();
 
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 </code></pre>
@@ -1412,521 +1475,47 @@ getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
 GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
 
-MessageRouting routing = getOs().getCellModule().createMessageRouting().geoBroadCast(transmissionArea);
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .broadcast()
+        .geographical(transmissionArea)
+        .build();
 
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 </code></pre>
-<h3 id="cellular-geocast">Cellular Geocast</h3>
-<p>Compared to Geobroadcasting, a Geocast addresses a receiver with an unique address. Addressing can be in the form of an
-IP-Address or a receiver-ID (e.g. veh_0). Again, the communication area can be configured as circular or rectangular.</p>
-<p>Assume, the <em><strong>veh_1</strong></em> has a message which is addressed to <em><strong>veh_2</strong></em>. In order to send the message, <em><strong>veh_1</strong></em> first
-examines whether the vehicle with ID <em><strong>veh_2</strong></em> is located within the transmission area. If this is the case, the
-message will be transmitted. In figure below is this situation illustrated.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-cellular-geocast-to-address-a-receiver-within-a-defined-area">
-
-
-  <a data-fancybox="" href="../images/tiergarten-geocast-circular-area.png" data-caption="Cellular Geocast to address a receiver within a defined area">
-
-
-  <img src="../images/tiergarten-geocast-circular-area.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Cellular Geocast to address a receiver within a defined area
-  </figcaption>
-
-
-</figure>
-
-<p>The following methods are provided for the configuring the transmission area (Circle or Rectangle) and the addressing to
-the receiver(hostname or ip address).</p>
+<h3 id="multicastbroadcast-services">Multicast/Broadcast Services</h3>
+<p>Multicast/Broadcast Services (MBS) is a point-to-multipoint interface specification for cellular networks. It is designed to provide
+efficient delivery of broadcast and multicast services within a cell as well as within the core network.
+MBS is a specialization of geographically-scoped routing and therefore can only be used in combination with it.</p>
+<p>The following methods are provided for configuring the use of MBS as a geographically-scoped routing protocol:</p>
 <ul>
-<li><code>geoCast(GeoCircle geoCircle, String receiverName) </code></li>
-<li><code>geoCast(GeoRectangle geoRectangle, String receiverName)</code></li>
-<li><code>geoCast(GeoCircle geoCircle, byte[] ipAddress)</code></li>
-<li><code>geoCast(GeoRectangle geoRectangle, byte[] ipAddress)</code></li>
+<li><code>.mbs()</code></li>
 </ul>
+<p>As described above, this can only be used in combination with the <code>.geographical(GeaArea)</code> method, see the example below:</p>
 <pre><code class="language-java">GeoCircle transmissionArea = new GeoCircle( GeoPoint.latlon(52.5, 13.2), 3000);
 
 String receiverName = &quot;veh_0&quot;;
-MessageRouting routing = getOs().getCellModule().createMessageRouting().geoCast(transmissionArea, receiverName);
-
-getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<h3 id="cellular-topocast">Cellular Topocast</h3>
-<p>Compared to Geocast or Geobroadcast, the Topocast is totally independent of geographical conditions and the addressing
-can be in the form of an IP-Address or a receiver-ID.</p>
-<p>The next figure illustrates how the <em><strong>veh_0</strong></em> is communicating with <em><strong>veh_1</strong></em> in Topocast mode.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-topocast-mode-for-direct-addressing-without-geographical-constraints">
-
-
-  <a data-fancybox="" href="../images/tiergarten-cellular-topocast.png" data-caption="Topocast mode for direct addressing without geographical constraints">
-
-
-  <img src="../images/tiergarten-cellular-topocast.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Topocast mode for direct addressing without geographical constraints
-  </figcaption>
-
-
-</figure>
-
-<p>The code example below shows how we can configure the requirements of the communication in Topocast mode.</p>
-<pre><code class="language-java">String receiverName = &quot;veh_0&quot;;
-
-MessageRouting routing = getOs().getCellModule().createMessageRouting().topoCast(receiverName);
+MessageRouting routing = getOs().getCellModule().createMessageRouting()
+        .destination(receiverName)
+        .geographical(transmissionArea)
+        .mbs()
+        .build();
 
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 </code></pre>
 <h3 id="setting-protocol-types">Setting Protocol Types</h3>
-<p>By default, all cell messages use UDP, however you can set the protocol using the <code>protocol(...)</code> method of the <code>MessageRoutingBuilder</code>:</p>
+<p>By default, all cell messages use UDP, however you can set the protocol using the <code>.protocol(...)</code> method of the
+<code>CellMessageRoutingBuilder</code>:</p>
 <pre><code class="language-java">String receiverName = &quot;veh_0&quot;;
 
 MessageRouting routing = getOs().getCellModule().createMessageRouting()
         .protocol(Protocoltype.TCP)
-        .topoCast(receiverName);
+        .destination(receiverName)
+        .topological()
+        .build();
 
 getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
 </code></pre>
 <hr>
-<h2 id="ad-hoc-communication">Ad-hoc Communication</h2>
-<p>The Ad-hoc network does not rely on a pre-existing infrastructure. Provided that vehicles are equipped with Ad-hoc
-modules, they are able to communicate with each other dynamically. In case of a sufficient number of Ad-hoc equipped
-vehicles, a message can be transferred via hops quickly over a long distance.</p>
-<p>Eclipse MOSAIC also enables the communication via a specific Ad-hoc channel within the wireless Ad-hoc network. However, the
-Ad-hoc channels for vehicular communication are limited and standardized by the IEEE 802.11p.
-The licensed frequency band 5.9 GHz (5.85-5.925 GHz) for Intelligent Transportation Systems(ITS) will be used as Ad-hoc
-channels.</p>
-<p>The following table shows the possible channels on the 5.9 GHz band used for V2X communication.</p>
-<table>
-<thead>
-<tr>
-<th>Channel Number</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Channel Name</td>
-<td>SCH1</td>
-<td>SCH2</td>
-<td>SCH3</td>
-<td>CCH</td>
-<td>SCH4</td>
-<td>SCH5</td>
-<td>SCH6</td>
-</tr>
-<tr>
-<td>Frequency Band</td>
-<td>5.86</td>
-<td>5.87</td>
-<td>5.88</td>
-<td>5.89</td>
-<td>5.9</td>
-<td>5.91</td>
-<td>5.92</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ad-hoc-configuration">Ad-hoc Configuration</h3>
-<p>Make sure you set up your application as described in 
-
-
-
-
-
-  
-  
-
-<a href="#general-configuration">General Configuration</a>.
-Afterwards, to configure and enable the AdHoc-module in your application you have to call the <code>enable</code>-method of your applications'
-Adhoc-module and define a configuration.
-Usually you will do this in the <code>onStartup()</code>-method to enable the module from the get-go.
-Below is an example configuration taken from the Tiergarten-tutorial. Instead of configuring the <code>.power(...)[mW]</code>
-it is also possible to configure a <code>.distance(...)[m]</code>.</p>
-<pre><code class="language-java">@Override
-public void onStartup() {
-        getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
-        .addRadio()
-        .channel(AdHocChannel.CCH)
-        .power(50)
-        .create());
-        }
-</code></pre>
-<h3 id="ad-hoc-topobroadcast">Ad-hoc Topobroadcast</h3>
-<p>In Topobroadcast mode, the communication between vehicles is regardless of the geographic conditions. However, the
-communicating entities must be operated on the same Ad-hoc channel and there are two options to use the Topobroadcast:</p>
-<ul>
-<li>Singlehop</li>
-<li>Multihop</li>
-</ul>
-<h4 id="singlehop-approach-in-topobroadcast">Singlehop Approach in Topobroadcast</h4>
-<p>For Singlehop, it is not necessary to specify the number of hops explicitly which indicates the lifespan of a message,
-because in Singlehop, any message has a lifespan of <strong>hop = 1</strong>. Moreover, Eclipse MOSAIC allows to use the default method
-<code>topoBroadCast()</code> which automatically assigns a Control Channel (CCH) for the simulation entity and a lifespan based on
-the Singlehop principle. Alternatively you can use the non-default method <code>topoBroadCast(AdHocChannel)</code> in order to
-specify the Ad-hoc channel.</p>
-<p>Below are some configuration examples of the default addressing method <code>topoBroadCast()</code> and non-default addressing
-method <code>topoBroadCast(AdHocChannel)</code>.</p>
-<pre><code class="language-java">MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast();
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<pre><code class="language-java">AdHocChannel commonChannel = AdHocChannel.SCH1;
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(commonChannel);
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<p>The following figure shows a simplified model based on the Singlehop principle. The <em>veh_1</em> sends messages to all
-simulation entites(<em><strong>RSU</strong></em>, <em><strong>veh_2</strong></em>) that are using the same Ad-hoc channel. After transmission, the message can
-no longer be forwarded by the receiver.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-overview-singlehop-with-specified-ad-hoc-channel">
-
-
-  <a data-fancybox="" href="../images/tiergarten-adhoc-topobroadcast-singlehop.png" data-caption="Overview Singlehop with specified Ad-hoc channel">
-
-
-  <img src="../images/tiergarten-adhoc-topobroadcast-singlehop.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Overview Singlehop with specified Ad-hoc channel
-  </figcaption>
-
-
-</figure>
-
-<h4 id="multihop-approach-in-topobroadcast">Multihop Approach in Topobroadcast</h4>
-<p>In Multihop, the lifespan (amount of hops) of a message can be specified, allowing larger communication distances.</p>
-<p>The following figure shows a Multihop example with a data package D (M, h = 2) from the vehicle <em>veh_0</em> which contains a
-message M and a hop number h = 2. Assuming that a lot of simulation entities are using the same Ad-hoc channel the
-message can be forwarded over a along distance. After each forward the hop number will be incremented by 1. Since the
-hop amount was set to 2, the forwarding will stop after 2 increments.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-overview-multihop-principle">
-
-
-  <a data-fancybox="" href="../images/tiergarten-adhoc-topobroadcast.png" data-caption="Overview Multihop principle">
-
-
-  <img src="../images/tiergarten-adhoc-topobroadcast.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Overview Multihop principle
-  </figcaption>
-
-
-</figure>
-
-<p>The next code snippet shows a configuration example with an Ad-hoc channel and a message lifespan <strong>hops = 2</strong>.</p>
-<pre><code class="language-java">int hops = 2;
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoBroadCast(hops);
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<div class="alert alert-note">
-  <div>
-<p>In order to use the Multihop approach in OMNeT++ and ns-3 provided by Eclipse MOSAIC, its necessary to implement a
-routing protocol in network simulators (
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_omnetpp/">OMNeT++</a>,
-
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_ns3/">ns-3</a>). But the built in communication simulator
-
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/docs/simulators/network_simulator_sns/">SNS</a> includes a simple routing protocol &ldquo;Flooding&rdquo;.</p>
-  </div>
-</div>
-<h3 id="ad-hoc-topocast">Ad-hoc Topocast</h3>
-<p>In addition to the Topobroadcast, the communication in Topocast mode will be addressed explicitly to the recipient and
-the addressing can be done either through receiver name (vehicle-ID e.g. veh_0) or the IP-Address of the vehicle.</p>
-<pre><code class="language-java">final byte[] ipv4Address = {127,36,50,4};
-
-AdHocChannel commonChannel = AdHocChannel.SCH1;
-
-int hops = 2;
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().topoCast(ipv4Address, hops);
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<h3 id="ad-hoc-geobroadcast">Ad-hoc Geobroadcast</h3>
-<p>In contrast to Cellular Network above, the simulation entities act as active communication part (transmitter and
-receiver) and all simulation entities within range are getting messages in Geobroadcast mode.</p>
-<p>As example in the following illustration, The vehicles <em><strong>veh_0</strong></em>, <em><strong>veh_2</strong></em>, <em><strong>veh_3</strong></em> and the <em><strong>RSU</strong></em> are
-Ad-hoc equipped and there is no vehicle in the communication range of <em><strong>RSU</strong></em>, therefore a hop is not possible to next
-vehicle <em><strong>veh_0</strong></em>. But the vehicles <em><strong>veh_2</strong></em> and <em><strong>veh_3</strong></em> are able to communicate with each other.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-principle-of-ad-hoc-geobroadcast-mode">
-
-
-  <a data-fancybox="" href="../images/tiergarten-adhoc-network.png" data-caption="Principle of Ad-hoc Geobroadcast mode">
-
-
-  <img src="../images/tiergarten-adhoc-network.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Principle of Ad-hoc Geobroadcast mode
-  </figcaption>
-
-
-</figure>
-
-<p>With the methods</p>
-<ul>
-<li><code>geoBroadCast(GeoCircle geoCircle)</code></li>
-<li><code>geoBroadCast(GeoRectangle geoRectangle)</code></li>
-</ul>
-<p>of the Eclipse MOSAIC class <code>AdHocMessageRoutingBuilder</code> ,we are able, to configure the required area as a circle or a
-rectangle.</p>
-<pre><code class="language-java">GeoPoint center = GeoPoint.latlon(52.5, 13.2);
-
-GeoCircle adHocModule = new GeoCircle(center, 3000);
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(adHocModule);
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<p>Analogous to the examples above, we can also configure the transmission area as a rectangle.</p>
-<p>The next code snippet illustrates a possible configuration with a rectangular transmission area and a specified Ad-hoc
-channel.</p>
-<pre><code class="language-java">GeoPoint pointA = GeoPoint.latlon(52.51355, 13.22000);
-
-GeoPoint pointB = GeoPoint.latlon(52.52000, 13.21000);
-
-GeoRectangle transmissionArea = new GeoRectangle(pointA, pointB);
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoBroadCast(transmissionArea, AdHocChannel.SCH1);
-
-getOs().getCellModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
-<h3 id="ad-hoc-geocast">Ad-hoc Geocast</h3>
-<p>The class AdHocMessageRoutingBuilder only has one method for Geocasting mode,
-<code>geoCast(DestinationAddress destinationAddress, AdHocChannel adHocChannel)</code>. Communication is possible if the
-IP-address of receiver is known and both (receiver and transmitter) are on the same Ad-hoc channel.</p>
-<div class="alert alert-note">
-  <div>
-<p>In this context the name Geocast is misleading, because a geological condition is not necessary.</p>
-  </div>
-</div>
-<p>As you can see in the next picture, the RSU uses the Ad-hoc channel <em>SCH1</em> and several vehicles use different
-Ad-hoc channels. Assuming the RSU tries to send a message to <em>veh_1</em> and has knowledge about the IP-Address of <em>veh_1</em>,
-if the vehicle <em>veh_1</em> also uses the same channel <em>SCH1</em>, the transmission will be completed successfully.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-ad-hoc-geocast-communication-between-entities-using-the-same-channel">
-
-
-  <a data-fancybox="" href="../images/tiergarten-geocast-adHoc.png" data-caption="Ad-hoc Geocast communication between entities using the same channel">
-
-
-  <img src="../images/tiergarten-geocast-adHoc.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Ad-hoc Geocast communication between entities using the same channel
-  </figcaption>
-
-
-</figure>
-
-<p>Below you can see a possible configuration.</p>
-<pre><code class="language-java">final byte[] ipv4Address = {127,36,50,4};
-
-DestinationAddress destAddress = new DestinationAddress(ipv4Address);
-
-AdHocChannel commonChannel = AdHocChannel.SCH1;
-
-MessageRouting routing = getOs().getAdHocModule().createMessageRouting().geoCast(destAddress, commonChannel);
-
-getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
-</code></pre>
 <h2 id="cam---implementation">CAM - Implementation</h2>
 <p>A Cooperative Awareness Messages (CAM) consists of four parts:</p>
 <ul>
@@ -1970,7 +1559,7 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
       
       
         <div class="meta-nav">Previous</div>
-        <a href="/mosaic/docs/develop_applications/operating_system/" rel="next">Unit Operating System</a>
+        <a href="/mosaic/docs/develop_applications/communication-ad-hoc/" rel="next">Ad-Hoc Communication in Applications</a>
       
     </div>
 
@@ -2054,6 +1643,22 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -2329,7 +1934,7 @@ getOs().getAdHocModule().sendV2XMessage(new MyV2XMessage(routing));
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
   </div>

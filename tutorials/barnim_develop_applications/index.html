@@ -16,15 +16,15 @@
     base-uri        'self';
     default-src     'none';
     object-src      'none';
-    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    worker-src      'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
-    style-src       'self' 'unsafe-inline'               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
-    img-src         'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    media-src       'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    font-src        'self' data:                         https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
-    child-src                                            https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
-    connect-src                                          https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
-    manifest-src    'self'                               https://*.fokus.fraunhofer.de https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
     frame-ancestors 'self';
     ">
   <meta name="generator" content="Source Themes Academic 4.8.0">
@@ -511,6 +511,28 @@
       
 
       <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
         <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
       </li>
 
@@ -700,6 +722,28 @@
         
 
         <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
           <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
         </li>
 
@@ -835,7 +879,8 @@ giving a first impression on the API of the <strong>Eclipse MOSAIC Application</
 <p>Develop Applications for simulation entities.</p>
 </li>
 <li>
-<p>Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geobroadcast, etc.).</p>
+<p>Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (
+e.g. topologically-scoped unicast, geographically-scoped broadcast, etc.).</p>
 </li>
 <li>
 <p>Calculate alternative routes to the destination to circumnavigate a road obstacle.</p>
@@ -879,28 +924,30 @@ tutorial is structured in four applications.</p>
 <h2 id="general-application-structure">General application structure</h2>
 <p>Applications can be mapped to various simulation entities, such as vehicles, servers, or traffic lights. The most basic structure for an application mapped onto a vehicle looks like the following:</p>
 <pre><code class="language-java">public class ExampleApp extends AbstractApplication&lt;VehicleOperatingSystem&gt; implements VehicleApplication {   
-    
-    @Override    
-    public void onStartup() {    
-    } 
-    
-    @Override    
-    public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {  
-    } 
-    
-    @Override    
-    public void processEvent(Event event){     
-    }    
-    
-    @Override    
-    public void onShutdown() { 
-    }   
+ 
+    @Override 
+    public void onStartup() { 
+    } 
+  
+    @Override 
+    public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {  
+    }
+     
+    @Override  
+    public void processEvent(Event event){     
+    }   
+      
+     @Override 
+    public void onShutdown() {
+    }   
 }  
 </code></pre>
-<p><code>onVehicleUpdated</code> needs to be defined and overwritten in order to successfully implement the interface <code>VehicleApplication</code>. <code>processEvent</code> handles all events that get called to the application specific event manager, like this:</p>
+<p><code>onVehicleUpdated</code> needs to be defined and overwritten in order to successfully implement the interface <code>VehicleApplication</code>.
+<code>processEvent</code> handles all events that get called to the application specific event manager, like this:</p>
 <pre><code class="language-java">getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime(), this));  
 </code></pre>
-<p>Some examples of events are shown below, but a more detailed description can be found in the 
+<p>Some examples of events are shown below, but a more detailed description can be found in the
+
 
 
 
@@ -982,7 +1029,10 @@ a circular area for the rerouting (3000 m) of the DEN-Message as Broadcast. All 
 have the cellular module activated, will receive this message.</p>
 <pre><code class="language-java">private Denm constructDenm() {
 	final GeoCircle geoCircle = new GeoCircle(HAZARD_LOCATION, 3000.0D);
-	final MessageRouting routing = getOperatingSystem().getCellModule().createMessageRouting().geoBroadCast(geoCircle);
+	final MessageRouting routing = getOperatingSystem().getCellModule().createMessageRouting()
+            .broadcast()
+            .geographical(geoCircle)
+            .build();
 
 	final int strength = getOperatingSystem().getStateOfEnvironmentSensor(SENSOR_TYPE);
 
@@ -1072,9 +1122,15 @@ in case of <code>WeatherWarningApp</code> ITS-G5 communication is used as descri
 
     MessageRouting mr;
     if (useCellNetwork()) {
-        mr = getOperatingSystem().getCellModule().createMessageRouting().geoBroadCast(dest);
+        mr = getOperatingSystem().getCellModule().createMessageRouting()
+                .broadcast()
+                .geographical(dest)
+                .build();
     } else {
-        mr = getOperatingSystem().getAdHocModule().createMessageRouting().geoBroadCast(dest);
+        mr = getOperatingSystem().getAdHocModule().createMessageRouting()
+                .broadcast()
+                .geographical(dest)
+                .build();
     }
 
     Denm denm = new Denm(mr, new DENMContent(
@@ -1116,7 +1172,7 @@ to the <code>RoutingParameters</code> object.</p>
     ReRouteSpecificConnectionsCostFunction myCostFunction = new ReRouteSpecificConnectionsCostFunction();
     myCostFunction.setConnectionSpeedMS(affectedRoadId, denm.getCausedSpeed());
 
-    INavigationModule navigationModule = getOperatingSystem().getNavigationModule();
+    NavigationModule navigationModule = getOperatingSystem().getNavigationModule();
 
     RoutingParameters routingParameters = new RoutingParameters().costFunction(myCostFunction);
 
@@ -1204,6 +1260,8 @@ After leaving the hazardous area, the vehicles returns to their original speed a
     </div>
   </div>
 
+
+  
 
 </div>
 
@@ -1396,6 +1454,22 @@ After leaving the hazardous area, the vehicles returns to their original speed a
                   <a href="/mosaic/tutorials/" title="Tutorials" >
                     
                       Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
                     
                     
                   </a>
@@ -1671,7 +1745,7 @@ After leaving the hazardous area, the vehicles returns to their original speed a
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 3 Dec 2024, 11:14 UTC
+      Website built on 12 Dec 2024, 16:08 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

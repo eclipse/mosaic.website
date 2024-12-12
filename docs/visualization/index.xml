@@ -260,7 +260,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Statistics Output is another output generating tool to easily measure basic simulation outcomes.
-You will be able to obtain short or detailed results of the simulation, e.g. travel times or the average speeds
+You will be able to obtain short or detailed results of the simulation, e.g., travel times or the average speeds
 of groups of vehicles, or the average flow on induction loops.&lt;/p&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;ul&gt;
@@ -268,7 +268,7 @@ of groups of vehicles, or the average flow on induction loops.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;In order to use the Statistics Output, the attribute &lt;code&gt;enabled&lt;/code&gt; of the root element &lt;code&gt;output&lt;/code&gt; must be
 set to &amp;ldquo;true&amp;rdquo;, as shown in the following listing.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader&amp;quot;&amp;gt;
    &amp;lt;statistic&amp;gt;
       [...]
    &amp;lt;/statistic&amp;gt;
@@ -290,8 +290,8 @@ types, just create another &lt;code&gt;&amp;lt;statistic&amp;gt;&lt;/code&gt; bl
 attribute has not been given, each &lt;code&gt;&amp;lt;statistic&amp;gt;&lt;/code&gt; block will get the name accordingly to the order number,
 for example &lt;code&gt;1. StatisticsVisualizer-Block.csv&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In the output attribute two options (&lt;code&gt;short&lt;/code&gt;|&lt;code&gt;verbose&lt;/code&gt;) can be selected. The short option provides us
-a compact log file with information about only the highest level of the retrieved data (e.g. aggregate
-values of grouped vehicles) in contrast to verbose option which also provides informations about every
+a compact log file with information about only the highest level of the retrieved data (e.g., aggregate
+values of grouped vehicles) in contrast to the verbose option which also provides information about every
 individual vehicle in each group.&lt;/p&gt;
 &lt;p&gt;For a successful start, the element source must be placed in the first position in the &lt;code&gt;statistic&lt;/code&gt; children
 element list. Different options of possible data types, one of which must be specified in the source
@@ -308,20 +308,20 @@ processing of the obtained data.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt;: Data to obtain, choose between:
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;VehicleSpeeds&lt;/code&gt; - Obtain the speeds of the vehicles of each simulation step.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleSpeeds&lt;/code&gt; - Obtain the speeds of the vehicles within each simulation step.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;VehicleStops&lt;/code&gt; - The total number of stops during the journey of each vehicle.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;VehicleTravelTimes&lt;/code&gt; - The total travel time in s of the vehicles.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;VehicleDelayTimes&lt;/code&gt; - The deviation of the travel time compared to the fastest travel time possible for the vehicles (in s).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;VehicleTravelledDistances&lt;/code&gt; - The travelled distance of the vehicles in m.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleTravelledDistances&lt;/code&gt; - The traveled distance of the vehicles in m.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;VehicleFuelConsumptions&lt;/code&gt; - The fuel consumptions of the vehicles in l per km.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;VehicleHeadways&lt;/code&gt; - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To obtain this value, an application has to be deployed on the vehicles which activates the front distance sensor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleHeadways&lt;/code&gt; - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To get this value, an application has to be deployed on the vehicles that activate the front distance sensor.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;DetectorFlow&lt;/code&gt; - The flows of each subscribed induction loop.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g. Highway tutorial).&lt;/p&gt;
+&lt;p&gt;For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol start=&#34;2&#34;&gt;
@@ -345,11 +345,12 @@ standard deviation based on biased sample variance for groups (in the short outp
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The following example will show an example of how you can specify the Statictics Output according to
-your desired criteria. VehicleTravelTimes are the data we want to retrieve from vehicles and we want
-to group vehicles by the abstract group we can define in mapping configuration file (see e.g. Barnim
+&lt;p&gt;The following example will show an example of how you can specify the Statistics Output according to
+your desired criteria.
+VehicleTravelTimes are the data we want to retrieve from vehicles.
+We want to group vehicles by the abstract group we can define in the mapping configuration file (see e.g., Barnim
 scenario) and then calculate the average vehicle travel time value for each of these groups.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig&amp;quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;output id=&amp;quot;statistics&amp;quot; enabled=&amp;quot;true&amp;quot; loader=&amp;quot;com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader&amp;quot;&amp;gt;
 	&amp;lt;statistic filename=&amp;quot;AverageVehicleTravelTimes&amp;quot; output=&amp;quot;short&amp;quot;&amp;gt;
 		&amp;lt;source&amp;gt;VehicleTravelTimes&amp;lt;/source&amp;gt;
 		&amp;lt;group-by&amp;gt;VehicleGroup&amp;lt;/group-by&amp;gt;
