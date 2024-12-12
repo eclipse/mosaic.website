@@ -23,7 +23,8 @@ used in the Barnim scenario. In this section, the actual source code used to cre
 After completing this tutorial you will be able to:
 
 * Develop Applications for simulation entities.
-* Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (e.g. Topocast, Geobroadcast, etc.). 
+* Transmit and receive V2X-messages periodically or on request depending on the network type and communication mode (
+e.g. topologically-scoped unicast, geographically-scoped broadcast, etc.). 
 * Calculate alternative routes to the destination to circumnavigate a road obstacle.
 {{% /alert %}}
 
@@ -40,30 +41,32 @@ Applications can be mapped to various simulation entities, such as vehicles, ser
 
 ```java  
 public class ExampleApp extends AbstractApplication<VehicleOperatingSystem> implements VehicleApplication {   
-    
-    @Override    
-    public void onStartup() {    
-    } 
-    
-    @Override    
-    public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {  
-    } 
-    
-    @Override    
-    public void processEvent(Event event){     
-    }    
-    
-    @Override    
-    public void onShutdown() { 
-    }   
+ 
+    @Override 
+    public void onStartup() { 
+    } 
+  
+    @Override 
+    public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {  
+    }
+     
+    @Override  
+    public void processEvent(Event event){     
+    }   
+      
+     @Override 
+    public void onShutdown() {
+    }   
 }  
 ```
 
-`onVehicleUpdated` needs to be defined and overwritten in order to successfully implement the interface `VehicleApplication`. `processEvent` handles all events that get called to the application specific event manager, like this: 
+`onVehicleUpdated` needs to be defined and overwritten in order to successfully implement the interface `VehicleApplication`.
+`processEvent` handles all events that get called to the application specific event manager, like this: 
 ```java  
 getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime(), this));  
 ```
-Some examples of events are shown below, but a more detailed description can be found in the [documentation](/docs/develop_applications/event_scheduling).
+Some examples of events are shown below, but a more detailed description can be found in the 
+[documentation](/docs/develop_applications/event_scheduling).
 
 ## WeatherServer Application
 
@@ -131,7 +134,10 @@ have the cellular module activated, will receive this message.
 ```java
 private Denm constructDenm() {
 	final GeoCircle geoCircle = new GeoCircle(HAZARD_LOCATION, 3000.0D);
-	final MessageRouting routing = getOperatingSystem().getCellModule().createMessageRouting().geoBroadCast(geoCircle);
+	final MessageRouting routing = getOperatingSystem().getCellModule().createMessageRouting()
+            .broadcast()
+            .geographical(geoCircle)
+            .build();
 
 	final int strength = getOperatingSystem().getStateOfEnvironmentSensor(SENSOR_TYPE);
 
@@ -199,9 +205,15 @@ private void reactOnEnvironmentData(SensorType type, int strength) {
 
     MessageRouting mr;
     if (useCellNetwork()) {
-        mr = getOperatingSystem().getCellModule().createMessageRouting().geoBroadCast(dest);
+        mr = getOperatingSystem().getCellModule().createMessageRouting()
+                .broadcast()
+                .geographical(dest)
+                .build();
     } else {
-        mr = getOperatingSystem().getAdHocModule().createMessageRouting().geoBroadCast(dest);
+        mr = getOperatingSystem().getAdHocModule().createMessageRouting()
+                .broadcast()
+                .geographical(dest)
+                .build();
     }
 
     Denm denm = new Denm(mr, new DENMContent(
@@ -250,7 +262,7 @@ private void circumnavigateAffectedRoad(DENM denm, final String affectedRoadId) 
     ReRouteSpecificConnectionsCostFunction myCostFunction = new ReRouteSpecificConnectionsCostFunction();
     myCostFunction.setConnectionSpeedMS(affectedRoadId, denm.getCausedSpeed());
 
-    INavigationModule navigationModule = getOperatingSystem().getNavigationModule();
+    NavigationModule navigationModule = getOperatingSystem().getNavigationModule();
 
     RoutingParameters routingParameters = new RoutingParameters().costFunction(myCostFunction);
 

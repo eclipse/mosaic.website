@@ -26,19 +26,23 @@
   url = "/tutorials/"
   weight = 40
 [[main]]
+  name = "Workshops"
+  url = "/workshops/"
+  weight = 50
+[[main]]
   identifier = "Download"
   name = "Download"
   url = "/download/"
-  weight = 50
+  weight = 60
 [[main]]
   identifier = "Commercial"
   name = "Commercial"
   url = "/commercial/"
-  weight = 60
+  weight = 70
 [[main]]
   name = "Community"
   url = "/community/"
-  weight = 70
+  weight = 80
 
 
 [[footer]]
@@ -64,23 +68,29 @@
       parent = "mosaic"
       weight = 3
     [[footer]]
+      name = "Workshops"
+      url = "/workshops/"
+      identifier = "workshops"
+      parent = "mosaic"
+      weight = 4
+    [[footer]]
       name = "License"
       url = "/about/#license"
       identifier = "license"
       parent = "mosaic"
-      weight = 4
+      weight = 5
     [[footer]]
       name = "Projects"
       url = "/community/#projects"
       identifier = "projects"
       parent = "mosaic"
-      weight = 5
+      weight = 6
     [[footer]]
       name = "Publications"
       url = "/publications/"
       identifier = "publications"
       parent = "mosaic"
-      weight = 6
+      weight = 7
 [[footer]]
   name = "Community"
   identifier = "community"
@@ -332,3 +342,33 @@
  </ul>
   """
 
+[[workshops]]
+  name = "MOSAIC 101: Modelling Mobility"
+  identifier = "maintenance_car"
+  url = "/workshops/maintenance_car/"
+  weight = 1
+  post = """
+  <img src="maintenance_car/images/menu.png">
+  <p><b>You will learn to model a mobility use-case. This workshop will teach you:</b></p>
+  <ul>
+    <li>How to write and map applications</li>
+    <li>How vehicles can notify a server</li>
+    <li>How to re-route vehicles</li>
+    <li>How to use the event system</li>
+  </ul>
+  """
+
+[[workshops]]
+name = "Future Workshops"
+identifier = "future"
+weight = 100
+post = """
+  <img src="future/images/menu.png">
+  <p><b>More Workshops Coming Soon:</b></p>
+  <ul>
+    <li>Electric Mobility</li>
+    <li>Variable Message Signs</li>
+    <li>Sensor Data Generation</li>
+    <li>Scenario Generation</li>
+  </ul>
+  """

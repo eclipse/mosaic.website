@@ -13,7 +13,7 @@ menu:
 ---
 
 The navigation of vehicles (i.e. calculation of routes) is handled completely by the [Application Simulator](/docs/simulators/application_simulator#eclipse-mosaic-application-simulator). Each vehicle is equipped
-with a navigation system which provides all required information and functions for navigational purposes:
+with a `NavigationModule` which provides all required information and functions for navigational purposes:
 
 * Retrieve the current position and heading of the vehicle.
 * Get the target of the vehicle.
@@ -26,8 +26,8 @@ needs to be transformed before the simulation using scenario-convert (see [Creat
 The map data including initial routes for vehicles is provided with the database file which needs to be located in
 `mosaic/scenarios/<scenario_name>/application/<scenario_name>.db`. Further information about the database can be found in the [scenario database](/docs/develop_applications/scenario_database) documentation.  
 
-To enable non-moving entities (i.e. RSUs, Servers, ...) to access routing capabilities the `IRoutingModule` can be implemented
-which omits operations like route switching.
+To  access routing capabilities for non-moving entities (i.e. RSUs or Servers), the `getRoutingModule()` method can be used, 
+which provides similar functionality as the navigation module except route switching.
 
 ## Configuration
 If the database needs to be located somewhere else, the path can be specified in
@@ -50,7 +50,7 @@ The following snippet shows, how the navigation system can be used within an app
 
 ```java
 //get navigation module
-INavigationModule navigationModule = getOs().getNavigationModule();
+NavigationModule navigationModule = getOs().getNavigationModule();
 
 //choose current target as target position
 RoutingPosition targetPosition = new RoutingPosition(navigationModule.getTargetPosition());

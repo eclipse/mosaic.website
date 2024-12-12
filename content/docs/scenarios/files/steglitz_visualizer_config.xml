@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- file version: 2013-11-26 -->
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.dcaiti.tu-berlin.de/research/simulation/download/get/scenarios/scenarioname/visualizer/visualizer_config.xsd">
-    <output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig">
+    <output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader">
         <statistic filename="AverageVehicleTravelTime" output="short">
             <source>VehicleTravelTimes</source>
             <filter filterType="keep">Time:0,1000</filter>

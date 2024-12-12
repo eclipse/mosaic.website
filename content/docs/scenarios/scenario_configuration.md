@@ -136,7 +136,7 @@ Finally, make sure the visualization federate is activated in the `scenario_conf
 ```
 
 Now we have to configure the statistics visualizer itself. This [visualizer_config.xml](/docs/scenarios/files/steglitz_visualizer_config.xml) contains the basic
-configuration in order to calculate the average travel times for the vehicles. If you want to make adaptions, please
+configuration to calculate the average travel times for the vehicles. If you want to make adaptions, please
 refer to [statistics visualizer](/docs/visualization/statistics).  
 Go ahead and run the simulation one more time. Afterwards the log-directory should contain a file called 
 `AverageVehicleTravelTime.csv` in a directory called `StatisticsVisualizer`:

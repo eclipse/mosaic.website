@@ -18,7 +18,7 @@ Applications are implemented by reacting to specific events. Those events are, a
 * Once a vehicle has been added to the simulation, all its configured applications are initialized (`onStartup()` is called)
 * The data of the vehicle has changed, e.g. after the traffic simulator has finished one simulationstep (`onVehicleUpdated()` is called).
 * A unit has received a V2X message from another entity (`onMessageReceived` is called).
-* A unit which has send a V2X message via a ITS-G5 topocast receives an acknowledgement (`onAcknowledgementReceived()` is called).
+* A unit which has sent a V2X message via a topologically-scoped ITS-G5 unicast receives an acknowledgement (`onAcknowledgementReceived()` is called).
 
 Another example:
 

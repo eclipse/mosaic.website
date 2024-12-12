@@ -94,5 +94,6 @@ this.getOs().stop(distance, duration, Stop.StopMode.PARK);
 ### Learn More About Operating System Modules
 
 - [Navigation Module](/docs/develop_applications/navigation)
-- [Communication Module](/docs/develop_applications/communication)
+- [Ad-Hoc Communication Module](/docs/develop_applications/communication-ad-hoc)
+- [Cellular Communication Module](/docs/develop_applications/communication-cell)
 - [Perception Module](/docs/develop_applications/perception)

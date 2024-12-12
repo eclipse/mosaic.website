@@ -17,7 +17,7 @@ For further information on licenses, feel free to contact us via **[mosaic@fokus
 {{% /alert %}}
 
 Statistics Output is another output generating tool to easily measure basic simulation outcomes.
-You will be able to obtain short or detailed results of the simulation, e.g. travel times or the average speeds
+You will be able to obtain short or detailed results of the simulation, e.g., travel times or the average speeds
  of groups of vehicles, or the average flow on induction loops.
 
 ## Configuration
@@ -28,7 +28,7 @@ In order to use the Statistics Output, the attribute `enabled` of the root eleme
 set to "true", as shown in the following listing.
 
 ```xml
-<output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig">
+<output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader">
    <statistic>
       [...]
    </statistic>
@@ -54,8 +54,8 @@ attribute has not been given, each `<statistic>` block will get the name accordi
 for example `1. StatisticsVisualizer-Block.csv`.
 
 In the output attribute two options (`short`|`verbose`) can be selected. The short option provides us
-a compact log file with information about only the highest level of the retrieved data (e.g. aggregate
-values of grouped vehicles) in contrast to verbose option which also provides informations about every
+a compact log file with information about only the highest level of the retrieved data (e.g., aggregate
+values of grouped vehicles) in contrast to the verbose option which also provides information about every
 individual vehicle in each group.
 
 For a successful start, the element source must be placed in the first position in the `statistic` children
@@ -76,17 +76,17 @@ individual requirements. Next to retrieving raw data, the Statistics Output has 
 processing of the obtained data.
 
 1. `source`: Data to obtain, choose between:
-    * `VehicleSpeeds` - Obtain the speeds of the vehicles of each simulation step.
+    * `VehicleSpeeds` - Obtain the speeds of the vehicles within each simulation step.
     * `VehicleStops` - The total number of stops during the journey of each vehicle.
     * `VehicleTravelTimes` - The total travel time in s of the vehicles.
     * `VehicleDelayTimes` - The deviation of the travel time compared to the fastest travel time possible for the vehicles (in s).
-    * `VehicleTravelledDistances` - The travelled distance of the vehicles in m.
+    * `VehicleTravelledDistances` - The traveled distance of the vehicles in m.
     * `VehicleFuelConsumptions` - The fuel consumptions of the vehicles in l per km.
-    * `VehicleHeadways` - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To obtain this value, an application has to be deployed on the vehicles which activates the front distance sensor.
+    * `VehicleHeadways` - Obtain the headway towards the leading vehicle of each vehicle for each simulation step. To get this value, an application has to be deployed on the vehicles that activate the front distance sensor.
     * `DetectorFlow` - The flows of each subscribed induction loop.
     
 {{% alert note %}}
-For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g. Highway tutorial).
+For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).
 {{% /alert %}}
 
 2. `group-by`: The vehicles will be grouped by its vehicle type name (`VehicleType`), group they belong
@@ -104,13 +104,14 @@ standard deviation based on biased sample variance for groups (in the short outp
     * Filtering by vehicle type. `VehicleType:Type` (e.g. `VehicleType:Car` to collect values only of vehicles of type "Car")
     * Filtering by time. `Time:From-To` (e.g. `Time:0-100` to collect values only of the first 100s of simulation time)
 
-The following example will show an example of how you can specify the Statictics Output according to
-your desired criteria. VehicleTravelTimes are the data we want to retrieve from vehicles and we want
-to group vehicles by the abstract group we can define in mapping configuration file (see e.g. Barnim
+The following example will show an example of how you can specify the Statistics Output according to
+your desired criteria. 
+VehicleTravelTimes are the data we want to retrieve from vehicles.
+We want to group vehicles by the abstract group we can define in the mapping configuration file (see e.g., Barnim
 scenario) and then calculate the average vehicle travel time value for each of these groups.
 
 ```xml
-<output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerConfig">
+<output id="statistics" enabled="true" loader="com.dcaiti.mosaic.fed.visualizer.StatisticsVisualizerLoader">
 	<statistic filename="AverageVehicleTravelTimes" output="short">
 		<source>VehicleTravelTimes</source>
 		<group-by>VehicleGroup</group-by>

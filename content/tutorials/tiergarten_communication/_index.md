@@ -149,8 +149,8 @@ are received and written to the log file by the `MessageReceivingApp` applicatio
 ### Receiving the V2X messages
 
 First, we start
-off with the class definition of the `MessageReceivingApp`, which is mapped onto the vehicles, and then we will run through the methods we have to implement in order
-to get the communication working.
+off with the class definition of the `MessageReceivingApp`, which is mapped onto the vehicles,
+and then we will run through the methods we have to implement in order to get the communication working.
 
 #### Class definition
 
@@ -278,7 +278,12 @@ closer look at the `sendAdHocBroadcast()` method we defined in the `TiergartenRS
 
 ```java
 private void sendAdHocBroadcast() {
-    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting().viaChannel(AdHocChannel.CCH).topoBroadCast();
+    final MessageRouting routing = getOs().getAdHocModule().createMessageRouting()
+            .channel(AdHocChannel.CCH)
+            .broadcast()
+            .topological()
+            .singlehop()
+            .build();
     final InterVehicleMsg message = new InterVehicleMsg(routing, getOs().getPosition());
     getOs().getAdHocModule().sendV2xMessage(message);
 }
@@ -288,8 +293,9 @@ This method has basically three tasks to solve:
 
 * Firstly, a routing description has to be created, which defines the communication type, the source and destination for 
     the message, and additional properties like the maximum number of hops and the communication channel. In this specific case,
-    `topoBroadcast(AdHocChannel.CCH)` creates a message routing which includes the IP address of the *RSU* as the source, 
-    the broadcast address as the destination, and a communication path using the present ad-hoc topology with only one hop.
+    the `AdHocMessageRoutingBuilder` creates a message routing which includes the IP address of the *RSU* as the source, 
+    the broadcast address as the destination (`.broadcast()`), and a communication path using the present ad-hoc topology (`.topological()`)
+    with only one hop (`.singlehop()`).
 * Secondly, the message to be send is created. The previously created message routing description is passed to this 
 	custom *V2X* message.
 * Finally, the message is send using the ad-hoc module of the *RSU*.
@@ -381,7 +387,8 @@ mosaic.bat -s Tiergarten
 
 Afterwards, in the log directory of `Eclipse MOSAIC` a new folder should be created containing all log files of
 the simulation run. Within, the sub-folder `apps` contains the log files for each simulation unit and its application. 
-For example, for the normal vehicles we end up with three log files: `MessageReceivingApp.log`, `EventSendingApp.log` and `EventProcessingApp.log`.
+For example, for the normal vehicles we end up with three log files: `MessageReceivingApp.log`, `EventSendingApp.log` 
+and `EventProcessingApp.log`.
 
 This following snippet shows the receiving of the V2X messages that were sent by the RSU:
 
