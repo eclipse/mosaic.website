@@ -694,7 +694,7 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#config&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
 repeating pattern (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = true&lt;/code&gt;). The type with the highest weight is selected first. All subsequent
 selections are done in a way that configured weights are satisfied as fast as possible.
 Per default each type is determined by rolling a weighted die (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = false&lt;/code&gt;). This option can be configured in

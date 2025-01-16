@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webinar | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.dev/mosaic/tag/webinar/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/tag/webinar/index.xml" rel="self" type="application/rss+xml" />
+    <description>webinar</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
+      <title>webinar</title>
+      <link>https://www.eclipse.dev/mosaic/tag/webinar/</link>
+    </image>
+    
+    <item>
+      <title>From Simulation to Innovation: Transforming Mobility with Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/mosaic-webinar-2025-03/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/mosaic-webinar-2025-03/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Eclipse MOSAIC is a cutting-edge simulation framework that facilitates innovation in connected and automated mobility. This multi-domain and multi-scale tool empowers you to tackle complex mobility challenges with precision and efficiency.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Join our upcoming &lt;strong&gt;free webinar on 20.03.2025 from 12:30 to 13:30&lt;/strong&gt; (CET / UTC+1) to learn how to tackle mobility challenges with Eclipse MOSAIC.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./Webinar-Header.png&#34; &gt;
+
+
+  &lt;img src=&#34;./Webinar-Header.png&#34; alt=&#34;&#34; width=&#34;70%&#34; &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;In this session, we will explore Eclipse MOSAIC, an open-source, state-of-the-art simulation framework.&lt;/p&gt;
+&lt;p&gt;Eclipse MOSAIC supports various application areas such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Development&lt;/strong&gt; of smart mobility applications&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modeling&lt;/strong&gt; of intelligent connected vehicles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration&lt;/strong&gt; of vulnerable road users to enhance public safety&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Development&lt;/strong&gt; of traffic management algorithms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration&lt;/strong&gt; of electric vehicles and charging infrastructure&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual testing&lt;/strong&gt; of ADAS functions for collaborative driving&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This tool is designed to revolutionize connected and automated mobility. With its multi-domain and multi-scale capabilities, Eclipse MOSAIC enables you to address complex mobility challenges effectively. You will learn how to use this framework to drive innovation in your projects and improve decision-making in the transportation sector. Don&amp;rsquo;t miss this chance to discover how Eclipse MOSAIC can transform your approach to mobility!&lt;/p&gt;
+&lt;h3 id=&#34;participating-in-the-webinar-offers-the-following-benefits&#34;&gt;Participating in the webinar offers the following benefits&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;In-depth Knowledge&lt;/strong&gt;: Gain insights into the features and capabilities of MOSAIC through practical examples.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expert Insights&lt;/strong&gt;: Learn from professionals with hands-on experience using MOSAIC in real-world scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application Examples&lt;/strong&gt;: Discover how MOSAIC is applied in various fields through real-world use cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Q&amp;amp;A Session&lt;/strong&gt;: Engage in a discussion where you can ask specific questions and receive direct answers from experts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Networking&lt;/strong&gt;: Connect with other participants and industry professionals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;who-should-attend&#34;&gt;Who should attend&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Professionals in the transportation field:&lt;/strong&gt; This includes experts in logistics, automotive, passenger transport, and urban planning who want to explore innovative approaches.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Academics, researchers, and students:&lt;/strong&gt; Individuals working in this field who seek to expand their scientific knowledge.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Those interested in simulation methods:&lt;/strong&gt; People who want to discover new applications and technologies in simulation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curious minds:&lt;/strong&gt; Individuals wondering how much knowledge can be gained through simulation without physical experimentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Register here: &lt;a href=&#34;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&#34;&gt;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

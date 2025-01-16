@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -1069,7 +1069,7 @@ charging types (&lt;code&gt;AC_3_PHASE&lt;/code&gt;, &lt;code&gt;AC_1_PHASE&lt;/
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/#config&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/mapping_ambassador_config/&#34;&gt;Fixed Order Mapping&lt;/a&gt; produces a sequence of mapped vehicles following a
 repeating pattern (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = true&lt;/code&gt;). The type with the highest weight is selected first. All subsequent
 selections are done in a way that configured weights are satisfied as fast as possible.
 Per default each type is determined by rolling a weighted die (&lt;code&gt;&amp;quot;fixedOrder&amp;quot; = false&lt;/code&gt;). This option can be configured in
@@ -10279,6 +10279,5294 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
     </item>
     
     <item>
+      <title>Scenario Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/scenario_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/scenario_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;scenario_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-scenario&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the main scenario configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;simulation&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simulation&#34;&gt;&lt;code&gt;simulation&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Basic properties of the simulation scenario.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;federates&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines the list of ambassadors/simulators which are used by the simulation. For each simulator (referenced by its id) a boolean value must be given, which enables or disables the simulator.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-scenariofederates&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;scenariofederates&#34;&gt;Scenario.federates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Type of each property&lt;/strong&gt;: &lt;code&gt;boolean&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simulation&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simulation&#34;&gt;simulation&lt;/h2&gt;
+&lt;p&gt;Basic properties of the simulation scenario.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The id or name of the simulation scenario.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;duration&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The duration of the simulation. If defined as a number, then the unit to be applied is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;300 s&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;randomSeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The random seed to apply. This influences the application mapping, the communication models, and any use of randomness inside of applications. If not set, the random number generator will be initialized without a seed resulting in different results for each run. Note that several other simulators (e.g. SUMO) come with their own random number generators which are not affected by this property.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;projection&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-projection&#34;&gt;&lt;code&gt;projection&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Configures the projection used to transform geographical coordinates (WGS84) to local cartesian coordinates used by various simulators (e.g. SUMO, or OMNeT++). The projection is based on UTM and must be adapted to the used traffic network.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;network&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-network&#34;&gt;&lt;code&gt;network&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Defines the subnets (e.g. 10.0.0.0) used for generating IP addresses for each unit in the simulation. Each type of unit is configured with its own subnet. A default configuration is used, when left out from the configuration.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;default network&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-projection&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;projection&#34;&gt;Projection&lt;/h2&gt;
+&lt;p&gt;Configures the projection used to transform geographical coordinates (WGS84) to local cartesian coordinates used by various simulators (e.g. SUMO, or OMNeT++). The projection is based on UTM and must be adapted to the used traffic network.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;centerCoordinates&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Geographic coordinates of the rough center of the map / playground used in this scenario. This is just used to determine the UTM zone used for any further projection.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cartesianOffset&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-cartesianoffset&#34;&gt;&lt;code&gt;cartesianOffset&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A cartesian offset which is added to the UTM transformation. In most cases, this must be the exact offset which can be found in the &lt;code&gt;location.netOffset&lt;/code&gt; of the &lt;code&gt;*.net.xml&lt;/code&gt; of the scenario.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geopoint&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geopoint&#34;&gt;GeoPoint&lt;/h2&gt;
+&lt;p&gt;Geographic coordinates of the rough center of the map / playground used in this scenario. This is just used to determine the UTM zone used for any further projection.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;longitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;East-west position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-180, 180]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;latitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-90, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-cartesianoffset&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cartesianoffset&#34;&gt;CartesianOffset&lt;/h2&gt;
+&lt;p&gt;A cartesian offset which is added to the UTM transformation. In most cases, this must be the exact offset which can be found in the &lt;code&gt;location.netOffset&lt;/code&gt; of the &lt;code&gt;*.net.xml&lt;/code&gt; of the scenario.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The value to add to the X coordinate after UTM transformation&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The value to add to the Y coordinate after UTM transformation&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-network&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;network-addressing&#34;&gt;Network Addressing&lt;/h2&gt;
+&lt;p&gt;Defines the subnets (e.g. 10.0.0.0) used for generating IP addresses for each unit in the simulation. Each type of unit is configured with its own subnet. A default configuration is used, when left out from the configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;netMask&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The net mask used for IP generation.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;255.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vehicleNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to vehicles.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;10.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rsuNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to road side units.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;11.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tlNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to traffic lights.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;12.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;csNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to charging stations.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;13.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;serverNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to servers.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;14.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tmcNet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The subnet used for assigning IPs to traffic management centers.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;15.0.0.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mapping Ambassador Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/mapping_ambassador_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/mapping_ambassador_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;mapping/mapping_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-mapping&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mapping&#34;&gt;Mapping&lt;/h2&gt;
+&lt;p&gt;This schema describes the JSON file structure for the mapping configuration, which is used to define simulation entities.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;config&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-config&#34;&gt;&lt;code&gt;config&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define additional configuration options for the mapping&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;prototypes&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-prototype&#34;&gt;&lt;code&gt;prototype[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of prototypes, which can complete the definitions of other objects. This can be used to re-use certain configurations. All possible properties of objects are available. Only the ones needed will be used (for example an RSU does not have a length, so this property would be ignored).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;typeDistributions&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-typedistribution&#34;&gt;&lt;code&gt;typeDistribution&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the distribution of prototypes to reuse in vehicle spawners. A typeDistribution is referenced by it&amp;rsquo;s attribute name, which can be set to any valid string.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vehicles&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-vehicle&#34;&gt;&lt;code&gt;vehicle[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of vehicles to be spawned in the simulation. This property describes the vehicles populatingthe simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a streamof one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined theweights in the prototype can be used to balance them against each other.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;matrixMappers&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-matrixmapper&#34;&gt;&lt;code&gt;matrixMapper[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of items to define additional traffic that will be spawned using OD-matrices.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rsus&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-rsu&#34;&gt;&lt;code&gt;rsu[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of Road Side Units (RSUs). For RSUs only applications can be defined along with the position.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;servers&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-server&#34;&gt;&lt;code&gt;server[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of servers. Servers are a form of units that have no geographical location. The network properties of a server can be defined in the network.json-configuration in the cell-module.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tmcs&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-tmc&#34;&gt;&lt;code&gt;tmc[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of Traffic Management Centers (TMCs). TMCs are specialized forms of servers having direct access to data collected by induction loops and lane area detectors. The network properties of a TMC can be defined in the network.json-configuration in the cell-module.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;trafficLights&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-trafficlights&#34;&gt;&lt;code&gt;trafficLights[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of prototypes for traffic lights. Since it is a traffic light only applications can be defined. Traffic light prototypes can be distributed among all traffic lights of an application by weight or assigned to specific traffic lights by using the ID of traffic light groups as reference.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingStations&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-chargingstation&#34;&gt;&lt;code&gt;chargingStation[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of electric vehicle charging stations. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-mappingtypedistributions&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mappingtypedistributions&#34;&gt;Mapping.typeDistributions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Type of each property&lt;/strong&gt;: &lt;code&gt;array&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-config&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
+&lt;p&gt;Object to define additional configuration options for the mapping&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;start&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines the point in time (in seconds) to start spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;end&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines the point in time (in seconds) to end spawning vehicles. If not set (default), all vehicles will be spawned according to the vehicles configuration or until the simulation ends.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scaleTraffic&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Scales the traffic by the given factor. E.g. 2.0 would double the number of spawned vehicles&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fixedOrder&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Determines if the type selection of a spawning vehicle follows a fixed order or stochastic model. When set to true the spawning-process will choose exactly the same type order with every execution. When set to false (default) the order of types follows a stochastic manner and will be different each time depending on the set random seed, however, selected weights may be reached more slowly.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;adjustStartingTimes&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to true and if the parameter start is set, the starting times of each spawner is adjusted accordingly, so that we shouldn&amp;rsquo;t wait in case that the simulation starting time and spawner starting time are widely spread out. All spawners before start will be completely ignored then.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;randomizeFlows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to true, all flow definitions defined by vehicle spawners with more than one vehicle resulting in slightly randomized departure times. The specified &lt;code&gt;targetFlow&lt;/code&gt; of the vehicle spawner is kept.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;randomizeStartingTimes&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to true, the starting times of all vehicle spawner definitions are randomized by +-60seconds.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;randomizeWeights&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to true, the configured weights of all types are slightly randomized by +-1% of the sum of all weights.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-prototype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prototype&#34;&gt;prototype&lt;/h2&gt;
+&lt;p&gt;Object to define a prototype, which can complete the definitions of other objects. This can be used to re-use certain configurations. All possible properties of objects are available. Only the ones needed will be used (for example an RSU does not have a length, so this property would be ignored).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The name of this prototype is used to match it against other objects.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple prototype entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;color&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The color of the vehicle for visualization purposes.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;accel&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Acceleration in m/s^2.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;(0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;decel&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Deceleration in m/s^2.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;(0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;length&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Length of the vehicle. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;500 cm&amp;rsquo;).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;(0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxSpeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximal speed. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;50 kmh&amp;rsquo;).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;speedFactor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The speed factor of the vehicle to apply to speed limits. E.g., with a value of 1.1 the vehicle would exceed the speed limit of an edge by 10 percent.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minGap&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Distance in meter between front bumper of a vehicle and the back bumper of its leader in a traffic jam. If defined as a number, then the default unit is m. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;300 cm&amp;rsquo;).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;(0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sigma&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Driver imperfection. This is a parameter of the car-following model.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tau&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Driver reaction time in seconds. This is a parameter of the car-following model.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;weight&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The weight is used to distribute objects between multiple types. All weights do NOT have to add up to 1 or 100. (Example: A vehicle spawner defining a traffic stream contains two prototypeDeserializers with the weights being 4 and 6. The resulting traffic stream will consist to 40% of the one type and 60% of the other)&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;deviations&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-deviations&#34;&gt;&lt;code&gt;deviations&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a standard deviation of single parameters of a specific prototype. For each spawned vehicle, a variation of the prototype will be generated, if at least one of the following parameters is larger than 0.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;laneChangeMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Predefined modes adjusting the lane change behavior.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-prototypelanechangemode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;speedMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Predefined modes adjusting the speed appliance behavior.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-prototypespeedmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vehicleClass&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Class of the vehicle. The classes are used in lane definitions and allow/disallow the use of lanes for certain vehicle types (e.g. a taxi lane).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-prototypevehicleclass&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The applications to be used for this object.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-prototypelanechangemode&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;prototypelanechangemode&#34;&gt;prototype.laneChangeMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OFF&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CAUTIOUS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COOPERATIVE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AGGRESSIVE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PASSIVE&lt;/code&gt;
+&lt;a name=&#34;restriction-prototypespeedmode&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;prototypespeedmode&#34;&gt;prototype.speedMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CAUTIOUS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NORMAL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AGGRESSIVE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SPEEDER&lt;/code&gt;
+&lt;a name=&#34;restriction-prototypevehicleclass&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;prototypevehicleclass&#34;&gt;prototype.vehicleClass&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Unknown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Car&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LightGoodsVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HeavyGoodsVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PublicTransportVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EmergencyVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WorksVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ExceptionalSizeVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VehicleWithTrailer&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HighSideVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MiniBus&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Taxi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ElectricVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AutomatedVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Bicycle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Motorcycle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HighOccupancyVehicle&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-deviations&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prototype-parameter-deviations&#34;&gt;Prototype Parameter Deviations&lt;/h2&gt;
+&lt;p&gt;Object to define a standard deviation of single parameters of a specific prototype. For each spawned vehicle, a variation of the prototype will be generated, if at least one of the following parameters is larger than 0.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;length&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the length of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;width&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the width of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;height&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the height of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minGap&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the minimum gap of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxSpeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the maximum speed of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;speedFactor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the speed factor of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;accel&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the acceleration value of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;decel&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the deceleration value of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tau&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The standard deviation to apply on the desired headway time (tau) of the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-typedistribution&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;typedistribution&#34;&gt;typeDistribution&lt;/h2&gt;
+&lt;p&gt;Object to define the distribution of prototypes to reuse in vehicle spawners. A typeDistribution is referenced by it&amp;rsquo;s attribute name, which can be set to any valid string.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The following additional properties are allowed:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;array[
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-prototype&#34;&gt;prototype&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-vehicle&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;vehicle&#34;&gt;vehicle&lt;/h2&gt;
+&lt;p&gt;Object to define vehicles to be spawned in the simulation. This property describes the vehicles populating the simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a stream of one or multiple vehicles. The types (or type) are defined in the field types. When more than one type is defined the weights in the prototype can be used to balance them against each other.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;startingTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Time in seconds at which the first vehicle will be created.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Simulation time in seconds at which no more vehicles will be created.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;targetFlow&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Density of vehicles per hour. Vehicles will be spawned uniformly.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;600&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxNumberVehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum number of vehicles to be created from this source.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;departSpeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The speed at which the vehicle is supposed to depart. If defined as a number, then the default unit is m/s. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;10 kmh&amp;rsquo;). Depending on the simulator this value may only be used if departSpeedMode is set to PRECISE.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;departSpeedMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The depart speed mode determines the vehicle&amp;rsquo;s speed at insertion.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-vehicledepartspeedmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;MAXIMUM&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;laneSelectionMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The lane selection mode chooses the lane for the next departing vehicle.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-vehiclelaneselectionmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;spawningMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Adjusts the departure time of individual vehicles.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-vehiclespawningmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;CONSTANT&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;departConnectionIndex&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The index of the connection of the route where the vehicle will start on.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pos&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Position within the connection of the route where the vehicle(s) should be spawned.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;route&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Route that the vehicle(s) should use. If an origin and a destination are specified this route will be treated as a preference (i.e. it will be selected if it connects the two points in question).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lanes&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Array of numbers to define the lanes to be used. The vehicles will be evenly distributed among the given lanes. When no value is given lane zero will be used for all vehicles.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;types&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-prototype&#34;&gt;&lt;code&gt;prototype[1-*]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;List of possible vehicle types to be spawned. In this list you can simply refer to an existing prototype by its name attribute to include everything defined there. You can also overwrite every attribute of the prototype. If you don&amp;rsquo;t have an existing prototype the definitions found here will be used as the prototype definition itself.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;typeDistribution&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Identifier of the typeDistribution which defines the distribution of vehicle types.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;destination&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geocircle&#34;&gt;&lt;code&gt;geoCircle&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define an immutable pair of a geoPoint center position and a radius in meters.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;origin&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geocircle&#34;&gt;&lt;code&gt;geoCircle&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define an immutable pair of a geoPoint center position and a radius in meters.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-vehicledepartspeedmode&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vehicledepartspeedmode&#34;&gt;vehicle.departSpeedMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PRECISE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RANDOM&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MAXIMUM&lt;/code&gt;
+&lt;a name=&#34;restriction-vehiclelaneselectionmode&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vehiclelaneselectionmode&#34;&gt;vehicle.laneSelectionMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUNDROBIN&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUNDROBIN_HIGHWAY&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HIGHWAY&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RANDOM&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FREE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ALLOWED&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FIRST&lt;/code&gt;
+&lt;a name=&#34;restriction-vehiclespawningmode&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vehiclespawningmode&#34;&gt;vehicle.spawningMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CONSTANT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GROW&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POISSON&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SHRINK&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GROW_AND_SHRINK&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GROW_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GROW_AND_SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geocircle&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geocircle&#34;&gt;geoCircle&lt;/h2&gt;
+&lt;p&gt;Object to define an immutable pair of a geoPoint center position and a radius in meters.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;center&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;radius&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Radius of the circle.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geopoint&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geopoint&#34;&gt;GeoPoint&lt;/h2&gt;
+&lt;p&gt;Object to define geographical point coordinates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;longitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;East-west position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-180, 180]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;latitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-90, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-matrixmapper&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;matrixmapper&#34;&gt;matrixMapper&lt;/h2&gt;
+&lt;p&gt;Object to define a mapper for an Origin-Destination (OD) matrix. The mapper contains a list of points (with varying radius) and a matrix (arrays) of flow values. It creates a series of conventional vehicles spawners from the specified data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;points&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-odpoint&#34;&gt;&lt;code&gt;odPoint[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of odPoints that can be referenced from the OD-matrix.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;types&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-prototype&#34;&gt;&lt;code&gt;prototype[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of prototypes to define the vehicles that should be spawned.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;odValues&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;array[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Values for the OD-matrix. Unit should be vehicles/hour.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;startingTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Time in seconds at which the first vehicle will be created.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Simulation time in seconds at which no more vehicles will be created.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;departSpeedMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The depart speed mode determines the vehicle&amp;rsquo;s speed at insertion.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-matrixmapperdepartspeedmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;MAXIMUM&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;laneSelectionMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The lane selection mode chooses the lane for the next departing vehicle.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-matrixmapperlaneselectionmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-matrixmapperdepartspeedmode&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;matrixmapperdepartspeedmode&#34;&gt;matrixMapper.departSpeedMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PRECISE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RANDOM&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MAXIMUM&lt;/code&gt;
+&lt;a name=&#34;restriction-matrixmapperlaneselectionmode&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;matrixmapperlaneselectionmode&#34;&gt;matrixMapper.laneSelectionMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUNDROBIN&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUNDROBIN_HIGHWAY&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HIGHWAY&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RANDOM&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FREE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ALLOWED&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FIRST&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-odpoint&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;odpoint&#34;&gt;odPoint&lt;/h2&gt;
+&lt;p&gt;Object to define a point that can be referenced from an OD-matrix.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The name of the point. This identifier is used to reference the odPoint.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;position&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geocircle&#34;&gt;&lt;code&gt;geoCircle&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define an immutable pair of a geoPoint center position and a radius in meters.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-rsu&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rsu&#34;&gt;rsu&lt;/h2&gt;
+&lt;p&gt;Object to define a Road Side Unit (RSU). For RSUs only applications can be defined along with the position.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;position&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple rsu entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Array of strings that specifies the applications to be used for this object. If none are specified, none are used&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-server&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;server&#34;&gt;server&lt;/h2&gt;
+&lt;p&gt;Object to define a server. Servers are a form of units that have no geographical location. The network properties of a server can be defined in the network.json-configuration in the cell-module.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used to match with configurations in the network.json-configuration in the cell-module.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The applications to be used for this object. If none are specified, none are used.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-tmc&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tmc&#34;&gt;tmc&lt;/h2&gt;
+&lt;p&gt;Object to define a Traffic Management Center (TMCs). TMCs are specialized forms of server directly communicating with induction loops and lane area detectors. The network properties of a TMC can be defined in the network.json-configuration in the cell-module.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used to match with configurations in the network.json-configuration in the cell-module.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The applications to be used for this object. If none are specified, none are used.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;inductionLoops&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The induction loops the TMC shall be matched with. If none are specified, none are used.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;laneAreaDetectors&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The lane area detectors the TMC shall be matched with. If none are specified, none are used.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-trafficlights&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;trafficlights&#34;&gt;trafficLights&lt;/h2&gt;
+&lt;p&gt;Object to define a prototype for a traffic light. Since it is a traffic light only applications can be defined. Traffic light prototypes can be distributed among all traffic lights of an application by weight or assigned to specific traffic lights by using the ID of traffic light groups as reference.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tlGroupId&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The ID of a traffic light group. This property is used to map applications to specific traffic lights.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple trafficLights entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;weight&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The weight is used to distribute traffic lights between multiple default types. If tlGroupId is not set, then the default value is 1, otherwise 0. All weights do NOT have to add up to 1 or 100.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The applications to be used for this object. If none are specified, none are used&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-chargingstation&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chargingstation&#34;&gt;chargingStation&lt;/h2&gt;
+&lt;p&gt;Object to define an electric vehicle charging station. An infrastructure which provides one or several electric vehicle charging spots to supply electric energy for charging electric vehicles.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;position&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple chargingStation entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingSpots&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-chargingspot&#34;&gt;&lt;code&gt;chargingSpot[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;List of the electric vehicle charging spots associated with this electric vehicle charging station.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The application to be used for this object.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-chargingspot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chargingspot&#34;&gt;chargingSpot&lt;/h2&gt;
+&lt;p&gt;Object to define an electric vehicle charging spot.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingType&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The type of this electric vehicle charging spot.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-chargingspotchargingtype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum voltage available at this charging spot.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxCurrent&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum current available at this charging spot.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-chargingspotchargingtype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;chargingspotchargingtype&#34;&gt;chargingSpot.chargingType&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;AC_1_PHASE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AC_3_PHASE&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DC&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Environment Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/environment_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/environment_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;environment/environment_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-environment-events&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;environment-events&#34;&gt;Environment Events&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the environment configuration. It is is used to define which events are evaluated by the simulator. Entities entering the areas of the events, are notified by the &amp;lsquo;EnvironmentSensorUpdates&amp;rsquo; interaction&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;events&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-event&#34;&gt;&lt;code&gt;event[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;List of events.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-event&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;event&#34;&gt;event&lt;/h2&gt;
+&lt;p&gt;Object to define a single event configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-eventtype&#34;&gt;&lt;code&gt;eventType&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the type of an event.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;location&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-eventlocation&#34;&gt;&lt;code&gt;eventLocation&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-eventtime&#34;&gt;&lt;code&gt;eventTime&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the temporal properties of an event.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-eventtype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;eventtype&#34;&gt;eventType&lt;/h2&gt;
+&lt;p&gt;Object to define the type of an event.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sensorType&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Represents the type of sensor value this event is emitting (e.g. Ice, Snow, or an arbitrary Obstacle). The value can be set to any valid string.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used for assigning a value to the event. It can be used as the strength of an event, the amount of free parking spots in a parking lot, etc.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-eventlocation&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;eventlocation&#34;&gt;eventLocation&lt;/h2&gt;
+&lt;p&gt;Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;area&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-area&#34;&gt;&lt;code&gt;area&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the area in which the event is located in.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;connectionId&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The ID of the road segment the event is located on (Connection ID).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-area&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;area&#34;&gt;area&lt;/h2&gt;
+&lt;p&gt;Object to define the area in which the event is located in.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The type of the area.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-areatype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ANY of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geoCircle&#34;&gt;geoCircle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geoRectangle&#34;&gt;geoRectangle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geoPolygon&#34;&gt;geoPolygon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-areatype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;areatype&#34;&gt;area.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Rectangle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Circle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Polygon&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geocircle&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geocircle&#34;&gt;geoCircle&lt;/h2&gt;
+&lt;p&gt;Object to define an immutable pair of a geoPoint center position and a radius in meters.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;center&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;radius&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Radius of the circle in m.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geopoint&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geopoint&#34;&gt;geoPoint&lt;/h2&gt;
+&lt;p&gt;Object to define geographical point coordinates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;longitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;East-west position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-180, 180]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;latitude&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-$\infty$, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-georectangle&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;georectangle&#34;&gt;geoRectangle&lt;/h2&gt;
+&lt;p&gt;Object to define an immutable pair of two different GeoPoints. Together they form a rectangular area.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;a&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geopolygon&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geopolygon&#34;&gt;geoPolygon&lt;/h2&gt;
+&lt;p&gt;Object to define a set of GeoPoints. Together the points for a polygonal area.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;vertices&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Set of points representing the vertices of a polygon.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-eventtime&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;eventtime&#34;&gt;eventTime&lt;/h2&gt;
+&lt;p&gt;Object to define the temporal properties of an event.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;start&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Start time of the event. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 minutes&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;end&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;End time of the event. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 minutes&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SNS Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sns_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sns_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;sns/sns_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-sns&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sns&#34;&gt;SNS&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the sns configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;maximumTtl&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The threshold for the amount of hops for a transmission. This is an additional, hard threshold, which can&amp;rsquo;t be exceeded.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;10&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;singlehopRadius&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Default radius in m to be used if an AdhocConfiguration doesn&amp;rsquo;t specify a radius.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;509.4&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;adhocTransmissionModel&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-adhoctransmissionmodel&#34;&gt;&lt;code&gt;adhocTransmissionModel&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define an adhoc transmission model.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;singlehopDelay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-constantdelay&#34;&gt;constantDelay&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;singlehopTransmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-adhoctransmissionmodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;adhoctransmissionmodel&#34;&gt;adhocTransmissionModel&lt;/h2&gt;
+&lt;p&gt;Object to define an adhoc transmission model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of the transmission model. The simple model assumes, that all receivers can be reached even though this might not be the case in reality.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-adhoctransmissionmodeltype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;simpleMultihopDelay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-constantdelay&#34;&gt;constantDelay&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;simpleMultihopTransmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-adhoctransmissionmodeltype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;adhoctransmissionmodeltype&#34;&gt;adhocTransmissionModel.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SimpleAdhocTransmissionModel&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SophisticatedAdhocTransmissionModel&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-delay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;delay&#34;&gt;delay&lt;/h2&gt;
+&lt;p&gt;Object to define a delay model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-gammaDelay&#34;&gt;gammaDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-constantDelay&#34;&gt;constantDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simpleRandomDelay&#34;&gt;simpleRandomDelay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-gammadelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gammadelay&#34;&gt;gammaDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for GammaRandomDelay or GammaSpeedDelay. GammaRandomDelay bases directly on the Gamma distribution (b=2,p=2) with minimum and expected value. Due to the nature of the Gamma distribution, the resulting delays can be far higher than the expected value. GammaSpeedDelay bases on the GammaRandomDelay and includes an additional speed penalty according to the current speed of the vehicle.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of Gamma delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-gammadelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;expDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Expected delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-gammadelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gammadelaytype&#34;&gt;gammaDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GammaRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GammaSpeedDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-constantdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;constantdelay&#34;&gt;constantDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for constant delay, which delivers always the same delay.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of the constant delay&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-constantdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The delay. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-constantdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;constantdelaytype&#34;&gt;constantDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ConstantDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simplerandomdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplerandomdelay&#34;&gt;simpleRandomDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for a radnomised delay. Delivers number-of-steps different uniformly distributed delays in the interval defined by min and max (e.g. minDelay=30ms, maxDelay=60ms, steps=4 -&amp;gt; possible delays={30,40,50,60}ms.).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of the delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-simplerandomdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;steps&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Number of possible delays between min and max.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-simplerandomdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;simplerandomdelaytype&#34;&gt;simpleRandomDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SimpleRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-transmission&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tranmission&#34;&gt;tranmission&lt;/h2&gt;
+&lt;p&gt;Object to define the properties of a transmission.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lossProbability&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Probability of packet retransmission (in case of configured retries &amp;gt; 0) or packet loss (retries = 0) for the packet retransmission/loss model. A value of 0 equals a lossfree transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxRetries&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum Number of retransmissions.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cell Simulator – Basic Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;cell/cell_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-cell&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cell&#34;&gt;Cell&lt;/h2&gt;
+&lt;p&gt;This schema describes the JSON file structure for the cell configuration, which provides general configuration for the ambassador, such as paths to the regions and network configuration files.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;bandwidthMeasurementInterval&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Interval in which the bandwidth is aggregated, given in seconds.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bandwidthMeasurementCompression&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If enabled, the export files with bandwidth measurements will be compressed using gzip compression.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;networkConfigurationFile&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Relative path to the network configuration file.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;network.json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;regionConfigurationFile&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Relative path to the region configuration file.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;regions.json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bandwidthMeasurements&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-bandwidthmeasurement&#34;&gt;&lt;code&gt;bandwidthMeasurement[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Measure the bandwidth between regions.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-bandwidthmeasurement&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;bandwidthmeasurement&#34;&gt;bandwidthMeasurement&lt;/h2&gt;
+&lt;p&gt;Object to define the bandwidth measurement between regions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;fromRegion&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Measure the bandwidth of messages which originate in this region (use wildcard * for all regions).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;toRegion&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Measure the bandwidth of messages which target in this region (use wildcard * for all regions).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmissionMode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines the transmission mode which is observed.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-bandwidthmeasurementtransmissionmode&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applicationClass&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The application Class.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-bandwidthmeasurementtransmissionmode&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bandwidthmeasurementtransmissionmode&#34;&gt;bandwidthMeasurement.transmissionMode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;UplinkUnicast&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DownlinkUnicast&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DownlinkMulticast&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cell Simulator – Network Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_network_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_network_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;cell/network.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-network&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the network configuration. It is is used to define the properties of the global network. If defined as a number, then the default unit is Gb. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 MB&amp;rsquo;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;defaultDownlinkCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;This downlink capacity value will be used for node-specific capacity calculation, if it wasn&amp;rsquo;t set in the cell configuration. If defined as a number, then the default unit is Gb. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 MB&amp;rsquo;).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100 Gb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;defaultUplinkCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;This uplink capacity value will be used for node-specific capacity calculation, if it wasn&amp;rsquo;t set in the cell configuration.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100 Gb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;globalNetwork&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-globalnetwork&#34;&gt;&lt;code&gt;globalNetwork&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define all coverage properties of one region of the radio access network (ran-part). Such a configuration consists of one uplink-module and one downlink-module. In this context, uplink and downlink always refer to the direction TOWARDS and respectively FROM the GEO entity.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;servers&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-server&#34;&gt;&lt;code&gt;server&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;List of configured servers.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-globalnetwork&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;globalnetwork&#34;&gt;globalNetwork&lt;/h2&gt;
+&lt;p&gt;Object to define all coverage properties of one region of the radio access network (ran-part). Such a configuration consists of one uplink-module and one downlink-module. In this context, uplink and downlink always refer to the direction TOWARDS and respectively FROM the GEO entity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;uplink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-globalnetwork.uplink&#34;&gt;&lt;code&gt;globalNetwork.uplink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;downlink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-globalnetwork.downlink&#34;&gt;&lt;code&gt;globalNetwork.downlink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-globalnetwork-uplink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;globalnetworkuplink&#34;&gt;globalNetwork.uplink&lt;/h2&gt;
+&lt;p&gt;Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;capacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The capacity.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The maximal capacity when no transmission is ongoing.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-delay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;delay&#34;&gt;delay&lt;/h2&gt;
+&lt;p&gt;Object to define a delay model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-gammaDelay&#34;&gt;gammaDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-constantDelay&#34;&gt;constantDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simpleRandomDelay&#34;&gt;simpleRandomDelay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-gammadelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gammadelay&#34;&gt;gammaDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for GammaRandomDelay or GammaSpeedDelay. GammaRandomDelay bases directly on the Gamma distribution (b=2,p=2) with minimum and expected value. Due to the nature of the Gamma distribution, the resulting delays can be far higher than the expected value. GammaSpeedDelay bases on the GammaRandomDelay and includes an additional speed penalty according to the current speed of the vehicle.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The type of delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-gammadelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;expDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Expected delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-gammadelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gammadelaytype&#34;&gt;gammaDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GammaRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GammaSpeedDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-constantdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;constantdelay&#34;&gt;constantDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for constant delay, which delivers always the same delay.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The type of delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-constantdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The delay. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-constantdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;constantdelaytype&#34;&gt;constantDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ConstantDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simplerandomdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplerandomdelay&#34;&gt;simpleRandomDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for a radnomised delay. Delivers number-of-steps different uniformly distributed delays in the interval defined by min and max (e.g. minDelay=30ms, maxDelay=60ms, steps=4 -&amp;gt; possible delays={30,40,50,60}ms.).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The type of delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-simplerandomdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;steps&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Number of possible delays between min and max.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to specify the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-simplerandomdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;simplerandomdelaytype&#34;&gt;simpleRandomDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SimpleRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-transmission&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tranmission&#34;&gt;tranmission&lt;/h2&gt;
+&lt;p&gt;Object to define the properties of a transmission.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lossProbability&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Probability of packet retransmission (in case of configured retries &amp;gt; 0) or packet loss (retries = 0) for the packet retransmission/loss model. A value of 0 equals a lossfree transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxRetries&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum Number of retransmissions.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-globalnetwork-downlink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;globalnetworkdownlink&#34;&gt;globalNetwork.downlink&lt;/h2&gt;
+&lt;p&gt;Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;unicast&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-unicast&#34;&gt;&lt;code&gt;unicast&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Point-to-point communication (unicast).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;multicast&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-multicast&#34;&gt;&lt;code&gt;multicast&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Point-to-multipoint communication (multicast).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;capacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Shared capacity between unicast and multicast.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-unicast&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;unicast&#34;&gt;unicast&lt;/h2&gt;
+&lt;p&gt;Point-to-point communication (unicast).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-multicast&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;multicast&#34;&gt;multicast&lt;/h2&gt;
+&lt;p&gt;Point-to-multipoint communication (multicast).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;usableCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The usableCapacity configures the ratio of the overall downlink capacity allowed to be used.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-server&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;server&#34;&gt;server&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Network-Id for identification.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uplink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-server.uplink&#34;&gt;&lt;code&gt;server.uplink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define uplink properties of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;downlink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-server.downlink&#34;&gt;&lt;code&gt;server.downlink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-server-uplink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;serveruplink&#34;&gt;server.uplink&lt;/h2&gt;
+&lt;p&gt;Object to define uplink properties of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-server-downlink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;serverdownlink&#34;&gt;server.downlink&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;unicast&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-unicast&#34;&gt;&lt;code&gt;unicast&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Point-to-point communication (unicast).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cell Simulator – Region Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_region_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/cell_region_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;cell/regions.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-regions&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;regions&#34;&gt;Regions&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the regional networks configuration. It is is used to extend the network with regional information, which enables the emulation of mobile networks. If configured very granular, these regions can reflect cells as used in the real world. Though for most use-cases it is sufficient to approximate the behaviour by defining larger regions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;regions&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-mobilenetworkproperties&#34;&gt;&lt;code&gt;mobileNetworkProperties[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;An array of regional network configruations.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-mobilenetworkproperties&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mobilenetworkproperties&#34;&gt;mobileNetworkProperties&lt;/h2&gt;
+&lt;p&gt;Object to define a network with specific geograpgical extensions. It applies for all regions except the global network, which covers the remaining space. The CMobileNetworkProperties only needs to be employed, when geographic information are accessed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Network-Id for identification.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;area&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-georectangle&#34;&gt;&lt;code&gt;geoRectangle&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define an immutable pair of two different geoPoints. Together they form a rectangular area.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;polygon&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The area of the network as a polygon.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uplink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-mobilenetworkproperties.uplink&#34;&gt;&lt;code&gt;mobileNetworkProperties.uplink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;downlink&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-mobilenetworkproperties.downlink&#34;&gt;&lt;code&gt;mobileNetworkProperties.downlink&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-georectangle&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;georectangle&#34;&gt;geoRectangle&lt;/h2&gt;
+&lt;p&gt;Object to define an immutable pair of two different geoPoints. Together they form a rectangular area.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nw&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;se&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-geopoint&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;geopoint&#34;&gt;geoPoint&lt;/h2&gt;
+&lt;p&gt;Object to define geographical point coordinates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lon&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;East-west position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-180, 180]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lat&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[-$\infty$, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-mobilenetworkproperties-uplink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mobilenetworkpropertiesuplink&#34;&gt;mobileNetworkProperties.uplink&lt;/h2&gt;
+&lt;p&gt;Object to define the uplink of a network. The uplink direction only allows point-to-point communication (unicast). It is composed of the three nested models for delay, transmission configuration and capacity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;capacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The capacity of the uplink.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-delay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;delay&#34;&gt;delay&lt;/h2&gt;
+&lt;p&gt;Object to define a delay model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-gammaDelay&#34;&gt;gammaDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-constantDelay&#34;&gt;constantDelay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simpleRandomDelay&#34;&gt;simpleRandomDelay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-gammadelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gammadelay&#34;&gt;gammaDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for GammaRandomDelay or GammaSpeedDelay. GammaRandomDelay bases directly on the Gamma distribution (b=2,p=2) with minimum and expected value. Due to the nature of the Gamma distribution, the resulting delays can be far higher than the expected value. GammaSpeedDelay bases on the GammaRandomDelay and includes an additional speed penalty according to the current speed of the vehicle.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of Gamma delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-gammadelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;expDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Expected delay for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-gammadelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gammadelaytype&#34;&gt;gammaDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GammaRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GammaSpeedDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-constantdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;constantdelay&#34;&gt;constantDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for constant delay, which delivers always the same delay.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of the constant delay&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-constantdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The delay, given in ns if defined as a number. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-constantdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;constantdelaytype&#34;&gt;constantDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ConstantDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simplerandomdelay&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplerandomdelay&#34;&gt;simpleRandomDelay&lt;/h2&gt;
+&lt;p&gt;Object to define a model for a radnomised delay. Delivers number-of-steps different uniformly distributed delays in the interval defined by min and max (e.g. minDelay=30ms, maxDelay=60ms, steps=4 -&amp;gt; possible delays={30,40,50,60}ms.).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type of the delay.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;Enum
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#restriction-simplerandomdelaytype&#34;&gt;&lt;i class=&#34;fas fa-info-circle&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;steps&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Number of possible delays between min and max.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxDelay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum delay in nanoseconds for the Gamma distribution. If defined as a number, then the default unit is ns. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;3 seconds&amp;rsquo;)&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-simplerandomdelaytype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;simplerandomdelaytype&#34;&gt;simpleRandomDelay.type&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Allowed values&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SimpleRandomDelay&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-transmission&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tranmission&#34;&gt;tranmission&lt;/h2&gt;
+&lt;p&gt;Object to define the properties of a transmission.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lossProbability&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Probability of packet retransmission (in case of configured retries &amp;gt; 0) or packet loss (retries = 0) for the packet retransmission/loss model. A value of 0 equals a lossfree transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxRetries&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum Number of retransmissions.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-mobilenetworkproperties-downlink&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mobilenetworkpropertiesdownlink&#34;&gt;mobileNetworkProperties.downlink&lt;/h2&gt;
+&lt;p&gt;Object to define the downlink of a network. The downlink supports two individual paths: Point-to-point communication (unicast) and Point-to-multipoint communication (multicast).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;unicast&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-unicast&#34;&gt;&lt;code&gt;unicast&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define point-to-point communication.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;multicast&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-multicast&#34;&gt;&lt;code&gt;multicast&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define point-to-multipoint communication.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;capacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The capacity of the downlink.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-unicast&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;unicast&#34;&gt;unicast&lt;/h2&gt;
+&lt;p&gt;Object to define point-to-point communication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-multicast&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;multicast&#34;&gt;multicast&lt;/h2&gt;
+&lt;p&gt;Object to define point-to-multipoint communication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;delay&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define a delay model.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;transmission&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-transmission&#34;&gt;&lt;code&gt;transmission&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define the properties of a transmission.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;usableCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The usableCapacity configures the ratio of the overall downlink capacity allowed to be used.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SUMO Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sumo_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/sumo_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;sumo/sumo_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-sumo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sumo&#34;&gt;SUMO&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the SUMO configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;updateInterval&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The Interval after which positions are published. If defined as a number, then the default unit is ms. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;1 s&amp;rsquo;). Define the size of one simulation step in sumo.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1000&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sumoConfigurationFile&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Name of the main SUMO scenario configuration (*.sumocfg). If this member equals null, the SUMO ambassador will try to find a &amp;lsquo;.sumocfg&amp;rsquo; file.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;exitOnInsertionError&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If too many vehicles try to enter the simulation, SUMO might skip some vehicles and tries to enter them later again. This behavior can lead to wrong simulation results. This parameter defines, if the ambassador should try to continue the simulation in such cases. Quit SUMO, if an error occurs while inserting a new vehicle (e.g. due to high vehicle densities) (recommended: true).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;additionalSumoParameters&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Add additional parameters to the SUMO start command. Set a particular seed for the random number generator. By using different values you can have different but still reproducible simulation runs. Ignore possible waiting times by setting time-to-teleport to 0. This avoids unmoved vehicles (in our case also RSUs) being removed from simulation.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;--time-to-teleport 0 --seed 100000&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;trafficFlowMeasurementWindowInS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Defines the time window in seconds in which vehicle counts on induction loops should be aggregated to traffic flow. The value should be given in veh/h.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;300&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;timeGapOffset&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;This offset is added to all time-gap related parametrizations of vehicles (e.g. declaring vehicle types to SUMO, changing time-gap/reaction time during simulation). This could be helpful as IDM should be parametrized with lower time gaps to achieve specific time gap values.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;subscribeToAllVehicles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to true all vehicles will be subscribed. If set to false only vehicles with applications mapped to them will be subscribed.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;subscriptions&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An optional list of subscriptions for each vehicle in the simulation. The less subscriptions given, the faster the simulation. Per default (if this list is set to null), all subscriptions are activated. Please note, that some components expect specific information, such as the road position. If this information is not subscribed, these components may fail. Possible values are: [&amp;ldquo;roadposition&amp;rdquo;, &amp;ldquo;leader&amp;rdquo;, &amp;ldquo;signals&amp;rdquo;, &amp;ldquo;emissions&amp;rdquo;, &amp;ldquo;trains&amp;rdquo;]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;trafficSignLaneWidth&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The default lane width to be used when adding traffic signs per lane (only relevant when using SUMO-GUI)&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3.2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;highlights&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Configure to highlight a vehicle in the GUI if it&amp;rsquo;s performing a route or lane change, e.g. for debugging purposes (only relevant when using SUMO-GUI).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;additionalVehicleTypeParameters&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Allows to configure specialised vType parameters, which can&amp;rsquo;t be configured via mapping (e.g. parameters for the lane change model of vehicles). The key of this object has to match with the name of a protype defined in the mapping configuration.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-sumoadditionalvehicletypeparameters&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sumoadditionalvehicletypeparameters&#34;&gt;SUMO.additionalVehicleTypeParameters&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Type of each property&lt;/strong&gt;: &lt;code&gt;additionalVehicleType&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-additionalvehicletype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;additionalvehicletype&#34;&gt;additionalVehicleType&lt;/h2&gt;
+&lt;p&gt;Object to define a specialised vType.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The following additional properties are allowed:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-additionalParameter&#34;&gt;additionalParameter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-additionalparameter&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;additionalparameter&#34;&gt;additionalParameter&lt;/h2&gt;
+&lt;p&gt;The vehicle parameter.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Battery Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/battery_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/battery_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;battery/battery_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-batteryambassador-configuration&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;batteryambassador-configuration&#34;&gt;BatteryAmbassador configuration&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the BatteryAmbassador configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;defaultVehicleModel&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-vehiclemodel&#34;&gt;&lt;code&gt;vehicleModel&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Vehicle model specifying relevant attributes for battery simulation.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simplevehiclemodel&#34;&gt;simpleVehicleModel&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;defaultBatteryModel&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-batterymodel&#34;&gt;&lt;code&gt;batteryModel&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Battery model specifying relevant attributes for battery simulation.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simplebatterymodel&#34;&gt;simpleBatteryModel&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;environmentModel&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-environmentmodel&#34;&gt;&lt;code&gt;environmentModel&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The model of the environment to be applied.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vehicleModelMap&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Map containing simulated vehicle prototypes assigned to vehicle models.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;batteryModelMap&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Map containing simulated vehicle prototypes assigned to battery models.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Further property restrictions:&lt;/strong&gt;&lt;br&gt;
+&lt;a name=&#34;restriction-batteryambassadorconfigurationvehiclemodelmap&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;batteryambassador-configurationvehiclemodelmap&#34;&gt;BatteryAmbassador configuration.vehicleModelMap&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Type of each property&lt;/strong&gt;: vehicleModelMap
+&lt;a name=&#34;restriction-batteryambassadorconfigurationbatterymodelmap&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;batteryambassador-configurationbatterymodelmap&#34;&gt;BatteryAmbassador configuration.batteryModelMap&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Type of each property&lt;/strong&gt;: batteryModelMap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-vehiclemodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;vehiclemodel&#34;&gt;vehicleModel&lt;/h2&gt;
+&lt;p&gt;Vehicle model specifying relevant attributes for battery simulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simpleVehicleModel&#34;&gt;simpleVehicleModel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simplevehiclemodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplevehiclemodel&#34;&gt;simpleVehicleModel&lt;/h2&gt;
+&lt;p&gt;Simple vehicle model, pre-configured with attributes of an electric Smart.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type attribute for the type adapter.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vehicleMass&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The vehicle mass in kg. It is depending on the number of passengers and the payload of the vehicle.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;referenceArea&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The reference area of the vehicle in m^2. The reference area is the frontal area of a vehicle. This value is important for the computation of the drag. It can change with modifications of the vehicle (e.g. roof box).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1.95&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dragCoefficient&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The drag coefficient of the vehicle. It is a dimensionless value that is vehicle specific and important for the calculation of the current drag. It can change with modifications of the vehicle (e.g. roof box).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.375&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tankToWheelEfficiency&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The tank to wheel efficiency (TTW) of the vehicle. It is a dimensionless value that describes the power ratio of the power that is obtained from the battery and the actual power at the wheels. The value includes the efficiency of the electric motor and the efficiency of the drive train.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.7&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;electricMotorOperatingVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The operating voltage of the electric motor in V. It is needed to calculate the actual electric current that is obtained from the battery by the electric motor.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;consumerOperatingVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The operating voltage of regular electric consumers in the vehicle in V (e.g. radio, ISO 4165 adapter). It is needed to calculate the actual electric current that is obtained by these consumers.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;recuperationEfficiency&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The efficiency of the recuperation process. This is a dimensionless value in the range of 0 to 1.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxRecuperationPower&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The maximum power that can be gained from recuperation process.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;60000&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;electricConsumers&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-electricconsumer&#34;&gt;&lt;code&gt;electricConsumer[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-electricconsumer&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;electricconsumer&#34;&gt;electricConsumer&lt;/h2&gt;
+&lt;p&gt;Definition of additional electric consumers putting load on the vehicles&#39; battery.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Name of the consumer.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;power&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Power the consumer uses. [W]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.01, +$\infty$]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-batterymodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;batterymodel&#34;&gt;batteryModel&lt;/h2&gt;
+&lt;p&gt;Battery model specifying relevant attributes for battery simulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-simpleBatteryModel&#34;&gt;simpleBatteryModel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-lithiumIonBatteryModel&#34;&gt;lithiumIonBatteryModel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-simplebatterymodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplebatterymodel&#34;&gt;simpleBatteryModel&lt;/h2&gt;
+&lt;p&gt;Simple battery model, pre-configured with attributes of an electric Smart.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type attribute for the type adapter.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingEfficiency&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value giving the efficiency of the charging process.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.001, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.8&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cells&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Amount of cells in the battery&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cellVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Voltage of the cells. [V]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cellCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Capacity of the cells. [Ah]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minStateOfCharge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value, specifying the minimal state of charge of the new battery. [0, 1]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxStateOfCharge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value, specifying the maximal state of charge of the new battery. [0, 1]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-lithiumionbatterymodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;lithiumionbatterymodel&#34;&gt;lithiumIonBatteryModel&lt;/h2&gt;
+&lt;p&gt;Extended battery model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Type attribute for the type adapter.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingEfficiency&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value giving the efficiency of the charging process.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.001, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.8&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cells&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Amount of cells in the battery&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;modules&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Amount of battery modules which contain all cells together.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[1, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cellVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Voltage of the cells. [V]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cellCapacity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Capacity of the cells. [Ah]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minStateOfCharge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value, specifying the minimal state of charge of the new battery. [0, 1]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxStateOfCharge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dimensionless value, specifying the maximal state of charge of the new battery. [0, 1]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;peukertCoefficient&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The Peukert Coefficient for battery drainage. Usually between 1 and 1.28 for li-ion batteries. Default: 1.08&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 3]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1.08&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;batteryResistance&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The inner resistance of the battery in Ohm. Default: 0.00493 for li-ion batteries.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.00493&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nominalVoltage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The nominal voltage of the battery.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minChargingThroughput&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The minimal charging throughput that can be reached while charging in CV mode. (0,1]&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0.001, 1]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.15&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;exponentialBase&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Base for the exponential decline of energy added during CV charging.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;[0, +$\infty$]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3.5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-environmentmodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;environmentmodel&#34;&gt;environmentModel&lt;/h2&gt;
+&lt;p&gt;The model of the environment to be applied.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additionally ONE of the following property definitions apply:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-defaultEnvironmentModel&#34;&gt;defaultEnvironmentModel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-defaultenvironmentmodel&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;defaultenvironmentmodel&#34;&gt;defaultEnvironmentModel&lt;/h2&gt;
+&lt;p&gt;Basic environment model, describing influences of the environment on battery simulation&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Charging Configuration</title>
+      <link>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/charging_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/charging_config/</guid>
+      <description>&lt;div class=&#34;alert alert-tip&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;You can use a &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/#readable-units&#34; title=&#34;Readable Unit&#34;&gt;Readable Unit&lt;/a&gt; anywhere where you
+have the option of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;number&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;integer&lt;/code&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span class=&#34;page_with_curl&#34;&gt;📃&lt;/span&gt; &lt;strong&gt;Corresponding configuration file: &lt;code&gt;charging/charging_config.json&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-chargingstationambassador-configuration&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chargingstationambassador-configuration&#34;&gt;ChargingStationAmbassador configuration&lt;/h2&gt;
+&lt;p&gt;Schema describing the JSON file structure for the ChargingStationAmbassador configuration.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;chargingStationRange&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-any&#34;&gt;&lt;code&gt;any&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The maximal range in meters a vehicle can be away from a charging station, in order to charge at the station.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
       <title>MOSAIC Battery Simulator</title>
       <link>https://www.eclipse.dev/mosaic/docs/simulators/emobility_simulator_battery/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
@@ -10759,6 +16047,71 @@ modeling of charging stations, without the need of being super accurate with the
     &amp;quot;chargingStationRange&amp;quot;: &amp;quot;20m&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>From Simulation to Innovation: Transforming Mobility with Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/mosaic-webinar-2025-03/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/mosaic-webinar-2025-03/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Eclipse MOSAIC is a cutting-edge simulation framework that facilitates innovation in connected and automated mobility. This multi-domain and multi-scale tool empowers you to tackle complex mobility challenges with precision and efficiency.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Join our upcoming &lt;strong&gt;free webinar on 20.03.2025 from 12:30 to 13:30&lt;/strong&gt; (CET / UTC+1) to learn how to tackle mobility challenges with Eclipse MOSAIC.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;./Webinar-Header.png&#34; &gt;
+
+
+  &lt;img src=&#34;./Webinar-Header.png&#34; alt=&#34;&#34; width=&#34;70%&#34; &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;In this session, we will explore Eclipse MOSAIC, an open-source, state-of-the-art simulation framework.&lt;/p&gt;
+&lt;p&gt;Eclipse MOSAIC supports various application areas such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Development&lt;/strong&gt; of smart mobility applications&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modeling&lt;/strong&gt; of intelligent connected vehicles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration&lt;/strong&gt; of vulnerable road users to enhance public safety&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Development&lt;/strong&gt; of traffic management algorithms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration&lt;/strong&gt; of electric vehicles and charging infrastructure&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual testing&lt;/strong&gt; of ADAS functions for collaborative driving&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This tool is designed to revolutionize connected and automated mobility. With its multi-domain and multi-scale capabilities, Eclipse MOSAIC enables you to address complex mobility challenges effectively. You will learn how to use this framework to drive innovation in your projects and improve decision-making in the transportation sector. Don&amp;rsquo;t miss this chance to discover how Eclipse MOSAIC can transform your approach to mobility!&lt;/p&gt;
+&lt;h3 id=&#34;participating-in-the-webinar-offers-the-following-benefits&#34;&gt;Participating in the webinar offers the following benefits&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;In-depth Knowledge&lt;/strong&gt;: Gain insights into the features and capabilities of MOSAIC through practical examples.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expert Insights&lt;/strong&gt;: Learn from professionals with hands-on experience using MOSAIC in real-world scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application Examples&lt;/strong&gt;: Discover how MOSAIC is applied in various fields through real-world use cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Q&amp;amp;A Session&lt;/strong&gt;: Engage in a discussion where you can ask specific questions and receive direct answers from experts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Networking&lt;/strong&gt;: Connect with other participants and industry professionals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;who-should-attend&#34;&gt;Who should attend&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Professionals in the transportation field:&lt;/strong&gt; This includes experts in logistics, automotive, passenger transport, and urban planning who want to explore innovative approaches.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Academics, researchers, and students:&lt;/strong&gt; Individuals working in this field who seek to expand their scientific knowledge.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Those interested in simulation methods:&lt;/strong&gt; People who want to discover new applications and technologies in simulation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curious minds:&lt;/strong&gt; Individuals wondering how much knowledge can be gained through simulation without physical experimentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Register here: &lt;a href=&#34;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&#34;&gt;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
