@@ -277,7 +277,7 @@ charging types (`AC_3_PHASE`, `AC_1_PHASE` and `DC`).
 ### Mapping Order
 
 Vehicle spawners can be configured to map types to their vehicles in two ways. The
-[Fixed Order Mapping](/docs/mosaic_configuration/mapping_ambassador_config/#config) produces a sequence of mapped vehicles following a
+[Fixed Order Mapping](/docs/mosaic_configuration/mapping_ambassador_config) produces a sequence of mapped vehicles following a
 repeating pattern (`"fixedOrder" = true`). The type with the highest weight is selected first. All subsequent
 selections are done in a way that configured weights are satisfied as fast as possible. 
 Per default each type is determined by rolling a weighted die (`"fixedOrder" = false`). This option can be configured in

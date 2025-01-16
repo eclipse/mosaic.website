@@ -157,8 +157,8 @@ async function convert(absoluteRepoPathEclipse, absoluteRepoPathExtended) {
         jsonScheme.weight = startWeight + index
         const markdown = await createMarkdown(jsonScheme)
         if (await isDir(exportDir)) {
-            const jsonSchemeExportDir = path.join(exportDir, jsonScheme.id)
-            const jsonSchemeExportFile = path.join(jsonSchemeExportDir, '_index.md')
+            const jsonSchemeExportDir = exportDir
+            const jsonSchemeExportFile = path.join(exportDir, jsonScheme.id + '.md')
             if (!await isDir(jsonSchemeExportDir)) {
                 fs.mkdirSync(jsonSchemeExportDir)
             }

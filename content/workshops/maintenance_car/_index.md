@@ -23,7 +23,7 @@ The exercise introduces the concept of vehicles slowing down when encountering a
 **Exercise II: Exploring Communication** \
 The second exercise focuses on communication between vehicles. Participants will learn how vehicles can notify an emergency server about breakdowns, allowing other vehicles to receive important information and adjust their routes accordingly. This exercise emphasizes the importance of communication in enhancing traffic flow and safety.
 
-**Exercise III: Impelementing Driving Behaviour** \
+**Exercise III: Implementing Driving Behaviour** \
 Participants will create a maintenance vehicle that responds to the breakdown, navigates through traffic, and assists in the repair. 
 The final exercise integrates all the knowledge gained from previous sessions, and this exercise showcases the practical application of simulation concepts in real-world scenarios.
 

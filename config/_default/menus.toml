@@ -343,7 +343,7 @@
   """
 
 [[workshops]]
-  name = "MOSAIC 101: Modelling Mobility"
+  name = "MOSAIC 101: Modeling Mobility"
   identifier = "maintenance_car"
   url = "/workshops/maintenance_car/"
   weight = 1
