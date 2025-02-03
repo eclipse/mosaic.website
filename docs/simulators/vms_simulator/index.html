@@ -1458,6 +1458,10 @@ TrafficSignLaneAssignmentChange interaction = new TrafficSignLaneAssignmentChang
 getOs().sendInteractionToRti(interaction);
 </code></pre>
 <p><em>Change variable lane assignment sign. Allow only Electric Vehicles for a specific lane.</em></p>
+<p>The operating system of the traffic management centers (TMC&rsquo;s) also has a built-in support to adjust the VMS&rsquo;s. Using a negative lane index with speed assignments, will address all lanes. Here are some function call sequence examples with their signature that you can use:</p>
+<pre><code class="language-java">getOs().changeVariableMessageSignState(String signId, int laneIndex).openOnlyForVehicleClasses(VehicleClass... vehicleClass);
+getOs().changeVariableMessageSignState(String signId, int laneIndex).setMaxSpeed(double speed);
+</code></pre>
 
           </div>
 
@@ -1850,7 +1854,7 @@ getOs().sendInteractionToRti(interaction);
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 16 Jan 2025, 09:18 UTC
+      Website built on 3 Feb 2025, 17:00 UTC
     </p>
     
   </div>

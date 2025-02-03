@@ -2721,6 +2721,10 @@ TrafficSignLaneAssignmentChange interaction = new TrafficSignLaneAssignmentChang
 getOs().sendInteractionToRti(interaction);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Change variable lane assignment sign. Allow only Electric Vehicles for a specific lane.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The operating system of the traffic management centers (TMC&amp;rsquo;s) also has a built-in support to adjust the VMS&amp;rsquo;s. Using a negative lane index with speed assignments, will address all lanes. Here are some function call sequence examples with their signature that you can use:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;getOs().changeVariableMessageSignState(String signId, int laneIndex).openOnlyForVehicleClasses(VehicleClass... vehicleClass);
+getOs().changeVariableMessageSignState(String signId, int laneIndex).setMaxSpeed(double speed);
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -4529,11 +4533,14 @@ For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is exp
 &lt;p&gt;&lt;code&gt;type&lt;/code&gt; can currently only have two entries:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;ValueList&lt;/code&gt;: This expects a list of values as child elements of the parameter. Each value will be used for at least one permutation.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;IntegerGenerator&lt;/code&gt;: This automatically generates integer values to write as values. The generated numbers can be configured by adding these attributes to the parameter element:&lt;br&gt;
-– &lt;code&gt;offset&lt;/code&gt;: denoting a minimal number where generation should start (this will be the first value), default is &lt;code&gt;0&lt;/code&gt;.&lt;br&gt;
-– &lt;code&gt;step&lt;/code&gt;: denoting the number that will be added to the previous value to generate the new one, default is &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IntegerGenerator&lt;/code&gt;: This automatically generates integer values to write as values. The generated numbers can be configured by adding these optional attributes to the parameter element:&lt;br&gt;
+– &lt;code&gt;start&lt;/code&gt;: denoting a minimal number where generation should start (this will be the first value), default is &lt;code&gt;0&lt;/code&gt;.&lt;br&gt;
+– &lt;code&gt;step&lt;/code&gt;: denoting the number that will be added to the previous value to generate the new one, default is &lt;code&gt;1&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;end&lt;/code&gt;: denoting the maximum number (exclusive), default is &lt;code&gt;start + 10 * step&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In contrast to &lt;code&gt;ValueList&lt;/code&gt; this can create an infinite number of values.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;permutation-of-parameters&#34;&gt;Permutation of parameters&lt;/h3&gt;
 &lt;p&gt;When multiple such parameter elements are defined, a permutation for each specific value definition is generated. Lets say defined are parameters A and B and each parameter has values a and b. The resulting permutations would be:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;A=a, B=a
@@ -16112,6 +16119,91 @@ modeling of charging stations, without the need of being super accurate with the
 &lt;li&gt;&lt;strong&gt;Curious minds:&lt;/strong&gt; Individuals wondering how much knowledge can be gained through simulation without physical experimentation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Register here: &lt;a href=&#34;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&#34;&gt;https://www.fokus.fraunhofer.de/en/akademie/trainings/eclipse-mosaic&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Publication of the LUCID Dataset</title>
+      <link>https://www.eclipse.dev/mosaic/post/lucid-dataset/</link>
+      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/lucid-dataset/</guid>
+      <description>
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/lucid-dataset/featured_hu43bee6b17476b6b23c37511567da9dc0_149233_2000x2000_fit_lanczos_2.png&#34; &gt;
+
+
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/lucid-dataset/featured_hu43bee6b17476b6b23c37511567da9dc0_149233_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;277&#34;&gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;We are excited to announce the release of the LUCID Dataset, a novel synthetic street-view LiDAR dataset designed to advance computer vision and object detection in the automated driving domain. Comprising 100 scenarios with approximately 1.1 hours of drive time, 40,000 frames, and 500,000 bounding boxes, the LUCID Dataset is a significant resource for researchers and developers.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://www.eclipse.dev/mosaic/mosaic/post/lucid-dataset/lucid-facts_hua821d27aef867bc4c71166dde2d79f25_36863_2000x2000_fit_lanczos_2.png&#34; &gt;
+
+
+  &lt;img data-src=&#34;https://www.eclipse.dev/mosaic/mosaic/post/lucid-dataset/lucid-facts_hua821d27aef867bc4c71166dde2d79f25_36863_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;380&#34;&gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The LUCID dataset has been generated using Eclipse MOSAIC alongside with SUMO for route and traffic density modeling, and CARLA for simulating advanced LiDAR sensors and environments, following an extensive analysis of other datasets like KITTI, nuScenes and PreSIL. This innovative approach allows for effective cross-dataset generalization, bridging the gap between real and synthetic LiDAR data.&lt;/p&gt;
+&lt;p&gt;For a comprehensive overview of our methodology, we invite you to read our paper titled &lt;em&gt;&amp;ldquo;Cross-Dataset Generalization: Bridging the Gap between Real and Synthetic LiDAR Data&amp;rdquo;&lt;/em&gt; which we presented at the 
+
+
+
+
+&lt;a href=&#34;https://simutools.eai-conferences.org/2024/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SIMUtools 2024 Conference&lt;/a&gt; (taking place 09-10 December 2024).&lt;/p&gt;
+&lt;p&gt;The LUCID Dataset is free for download. It is organized in a familiar structure, following KITTI formatting, and includes both labeled and raw data. To facilitate initial exploration, we provide four sample scenarios, with the full dataset available for download.&lt;/p&gt;
+&lt;p&gt;For additional information and download links, please visit our dedicated website: 
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.com/research/simulation/lucid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.dcaiti.com/research/simulation/lucid&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

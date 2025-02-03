@@ -1456,11 +1456,14 @@ For the example in listing &lsquo;Example Configuration&rsquo; it is expected th
 <p><code>type</code> can currently only have two entries:</p>
 <ul>
 <li><code>ValueList</code>: This expects a list of values as child elements of the parameter. Each value will be used for at least one permutation.</li>
-<li><code>IntegerGenerator</code>: This automatically generates integer values to write as values. The generated numbers can be configured by adding these attributes to the parameter element:<br>
-– <code>offset</code>: denoting a minimal number where generation should start (this will be the first value), default is <code>0</code>.<br>
-– <code>step</code>: denoting the number that will be added to the previous value to generate the new one, default is <code>1</code>.</li>
+<li><code>IntegerGenerator</code>: This automatically generates integer values to write as values. The generated numbers can be configured by adding these optional attributes to the parameter element:<br>
+– <code>start</code>: denoting a minimal number where generation should start (this will be the first value), default is <code>0</code>.<br>
+– <code>step</code>: denoting the number that will be added to the previous value to generate the new one, default is <code>1</code>.
+<ul>
+<li><code>end</code>: denoting the maximum number (exclusive), default is <code>start + 10 * step</code></li>
 </ul>
-<p>In contrast to <code>ValueList</code> this can create an infinite number of values.</p>
+</li>
+</ul>
 <h3 id="permutation-of-parameters">Permutation of parameters</h3>
 <p>When multiple such parameter elements are defined, a permutation for each specific value definition is generated. Lets say defined are parameters A and B and each parameter has values a and b. The resulting permutations would be:</p>
 <pre><code>A=a, B=a
@@ -1877,7 +1880,7 @@ PenetrationRates(V2XVehiclePercentage=75, ClassicVehiclePercentage=25),  Singleh
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 16 Jan 2025, 09:18 UTC
+      Website built on 3 Feb 2025, 17:00 UTC
     </p>
     
   </div>

@@ -317,6 +317,16 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/post/lucid-dataset/</loc>
+    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/category/simulation/</loc>
+    <lastmod>2024-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/</loc>
     <lastmod>2024-11-20T00:00:00+01:00</lastmod>
   </url>
@@ -348,11 +358,6 @@
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/post/perception-remote-operated-driving/</loc>
-    <lastmod>2024-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/category/simulation/</loc>
     <lastmod>2024-07-02T00:00:00+00:00</lastmod>
   </url>
   

@@ -1,0 +1,1724 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="
+    upgrade-insecure-requests;
+    base-uri        'self';
+    default-src     'none';
+    object-src      'none';
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    frame-ancestors 'self';
+    ">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="We are excited to announce the release of the LUCID Dataset, a novel synthetic street-view LiDAR dataset designed to advance computer vision and object detection in the automated driving domain. Comprising 100 scenarios with approximately 1.1 hours of drive time, 40,000 frames, and 500,000 bounding boxes, the LUCID Dataset is a significant resource for researchers and developers.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/post/lucid-dataset/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/post/lucid-dataset/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/post/lucid-dataset/">
+  <meta property="og:title" content="Publication of the LUCID Dataset | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content="We are excited to announce the release of the LUCID Dataset, a novel synthetic street-view LiDAR dataset designed to advance computer vision and object detection in the automated driving domain. Comprising 100 scenarios with approximately 1.1 hours of drive time, 40,000 frames, and 500,000 bounding boxes, the LUCID Dataset is a significant resource for researchers and developers."><meta property="og:image" content="https://www.eclipse.dev/mosaic/post/lucid-dataset/featured.png">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/post/lucid-dataset/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2024-12-11T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-12-11T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.eclipse.dev/mosaic/post/lucid-dataset/"
+  },
+  "headline": "Publication of the LUCID Dataset",
+  
+  "image": [
+    "https://www.eclipse.dev/mosaic/post/lucid-dataset/featured.png"
+  ],
+  
+  "datePublished": "2024-12-11T00:00:00Z",
+  "dateModified": "2022-12-11T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Fraunhofer FOKUS"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.eclipse.dev/mosaic/images/logo.svg"
+    }
+  },
+  "description": "We are excited to announce the release of the LUCID Dataset, a novel synthetic street-view LiDAR dataset designed to advance computer vision and object detection in the automated driving domain. Comprising 100 scenarios with approximately 1.1 hours of drive time, 40,000 frames, and 500,000 bounding boxes, the LUCID Dataset is a significant resource for researchers and developers."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Publication of the LUCID Dataset | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-post page-lucid-dataset ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/workshops/"><span>Workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  <article class="article post">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Publication of the LUCID Dataset</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 11, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="/mosaic/post/lucid-dataset/featured_hu43bee6b17476b6b23c37511567da9dc0_149233_2000x2000_fit_lanczos_2.png" >
+
+
+  <img data-src="/mosaic/post/lucid-dataset/featured_hu43bee6b17476b6b23c37511567da9dc0_149233_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="277">
+</a>
+
+
+
+</figure>
+
+<p><strong>We are excited to announce the release of the LUCID Dataset, a novel synthetic street-view LiDAR dataset designed to advance computer vision and object detection in the automated driving domain. Comprising 100 scenarios with approximately 1.1 hours of drive time, 40,000 frames, and 500,000 bounding boxes, the LUCID Dataset is a significant resource for researchers and developers.</strong></p>
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="/mosaic/post/lucid-dataset/lucid-facts_hua821d27aef867bc4c71166dde2d79f25_36863_2000x2000_fit_lanczos_2.png" >
+
+
+  <img data-src="/mosaic/post/lucid-dataset/lucid-facts_hua821d27aef867bc4c71166dde2d79f25_36863_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="380">
+</a>
+
+
+
+</figure>
+
+<p>The LUCID dataset has been generated using Eclipse MOSAIC alongside with SUMO for route and traffic density modeling, and CARLA for simulating advanced LiDAR sensors and environments, following an extensive analysis of other datasets like KITTI, nuScenes and PreSIL. This innovative approach allows for effective cross-dataset generalization, bridging the gap between real and synthetic LiDAR data.</p>
+<p>For a comprehensive overview of our methodology, we invite you to read our paper titled <em>&ldquo;Cross-Dataset Generalization: Bridging the Gap between Real and Synthetic LiDAR Data&rdquo;</em> which we presented at the 
+
+
+
+
+<a href="https://simutools.eai-conferences.org/2024/" target="_blank" rel="noopener">SIMUtools 2024 Conference</a> (taking place 09-10 December 2024).</p>
+<p>The LUCID Dataset is free for download. It is organized in a familiar structure, following KITTI formatting, and includes both labeled and raw data. To facilitate initial exploration, we provide four sample scenarios, with the full dataset available for download.</p>
+<p>For additional information and download links, please visit our dedicated website: 
+
+
+
+
+<a href="https://www.dcaiti.com/research/simulation/lucid" target="_blank" rel="noopener">https://www.dcaiti.com/research/simulation/lucid</a></p>
+
+    </div>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <div class="article-container">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr wg-cards mt-5">
+    <h3>Related</h3>
+    <div class="related cards mt-3 row">
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/perception-remote-operated-driving/">
+                      <img src="/mosaic/post/perception-remote-operated-driving/featured_hu73013b93e1b8cd7103655d52b2b07ef1_193426_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/perception-remote-operated-driving/">AI-NET-ANTILLAS - Perception for Remote Operated Driving</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>After four years of research, the AI-NET-ANTILLAS project has concluded, and the final event took place in conjunction with the Berlin 6G Conference 2024. Collaborating with our partners, we integrated several key components: Cloud-based LIDAR processing, next generation networks, and artificial intelligence, to create a new service and application platform.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/perception-remote-operated-driving/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/traffic-state-estimation/">
+                      <img src="/mosaic/post/traffic-state-estimation/featured_hufb13abf61b1a4a94c67d45dde2d7cd2f_305140_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/traffic-state-estimation/">Simulated Testing of Traffic State Estimation using Eclipse MOSAIC</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>Daily commutes can quickly turn into stressful affairs when overcrowded roads become congested and what would be a 20 minute ride becomes an hour of staring at the license plate of your fellow comrade-in-traffic. Real-time Traffic State Estimation (TSE) aims to alleviate this strain by predicatively recognizing congested areas and offering alternative routing options. In a recent publication we established a framework for easy implementation and evaluation of novel TSE systems.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/traffic-state-estimation/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="card-wrap col-12 col-sm-6 col-md-4">
+          <div class="card container">
+            <div class="row pt-4 pr-4 pb-0 pl-4">
+              
+              
+              
+                <div class="image col-12 mb-3">
+                    
+                    <a href="/mosaic/post/best-scenario-short/">
+                      <img src="/mosaic/post/best-scenario-short/featured_huf520711774bf117a2259a6bb0268fcdb_554914_350x0_resize_lanczos_2.png" alt="featured.png">
+                    </a>
+                </div>
+              
+
+              
+              <div class="subtitle col-12 mb-2">
+                <a href="/mosaic/post/best-scenario-short/">Introducing the BeST Scenario</a>
+              </div>
+
+              
+              
+              
+                
+              
+              
+                <div class="text col-12 mb-1">
+                  <p>We present a large-scale traffic scenario of Berlin for the Evaluation of Smart Mobility Applications. This scenario provides 24 hours of motorized private traffic, including almost 2,25 million individual trips. The Berlin SUMO Traffic (BeST) scenario is open-source and prepared to be compatible with Eclipse MOSAIC.</p>
+                </div>
+              
+
+              
+              <div class="w-100 mb-4"></div>
+              <div class="button">
+                <a href="/mosaic/post/best-scenario-short/" class="mosaic-btn mosaic-btn-secondary btn-bottom"><span class="prefix">»</span>&nbsp;Read Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+
+
+  </div>
+</div>
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+  <div class="footer-wrap">
+    <div class="container">
+      <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/about/#license" title="License" >
+                    
+                      License
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+      <br>
+      Website built on 3 Feb 2025, 17:00 UTC
+    </p>
+    
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    
+  </div>
+</footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/m/";
+    _paq.push(['setTrackerUrl', u+'m.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'m.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://www.dcaiti.tu-berlin.de/m/m.php?idsite=m4o1kOykpy&amp;rec=1" style="border:0;display:none;" alt="" />
+
+
+
+    </div>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
