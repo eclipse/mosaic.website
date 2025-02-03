@@ -72,7 +72,7 @@ subtitle = "Different models allow for many fields of<br>application for the sim
         vertical_alignment = "end"
 [[card]]
     padding_top = "1.8rem"
-    subtitle = "Real Time Traffic Management"
+    subtitle = "Flexible Traffic Management"
     text = "Management and control of road infrastructure to avoid traffic jams, prioritize emergency vehicles and increase overall traffic efficiency."
     [card.banner]
         title = "Communication"

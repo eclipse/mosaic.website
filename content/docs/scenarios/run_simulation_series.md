@@ -188,11 +188,10 @@ Each value that should be changed in a run is defined by a `parameter` element i
 
 `type` can currently only have two entries:
 - `ValueList`: This expects a list of values as child elements of the parameter. Each value will be used for at least one permutation.
-- `IntegerGenerator`: This automatically generates integer values to write as values. The generated numbers can be configured by adding these attributes to the parameter element:  
-  – `offset`: denoting a minimal number where generation should start (this will be the first value), default is `0`.  
+- `IntegerGenerator`: This automatically generates integer values to write as values. The generated numbers can be configured by adding these optional attributes to the parameter element:  
+  – `start`: denoting a minimal number where generation should start (this will be the first value), default is `0`.  
   – `step`: denoting the number that will be added to the previous value to generate the new one, default is `1`.
-
-In contrast to `ValueList` this can create an infinite number of values.
+  - `end`: denoting the maximum number (exclusive), default is `start + 10 * step`
 
 ### Permutation of parameters
 
